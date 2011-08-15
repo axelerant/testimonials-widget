@@ -1,0 +1,49 @@
+/* Random quote */
+.testimonialswidget_testimonial q {
+}
+
+.testimonialswidget_testimonial cite {
+	display:block; /* To display author and source in a new line */
+	text-align:right; 
+}
+
+.testimonialswidget_testimonial { /* author */
+	font-style:normal;
+}
+
+.testimonialswidget_testimonial { /* source */
+	font-style: italic;
+}
+
+
+/* See http://www.w3schools.com/css/pr_gen_quotes.asp */
+q:lang(en)
+{
+quotes: "“" "”" "‘" "’";
+}
+
+/* Uncomment the block below if you want to get rid of the quotation marks before and after the quote */
+/*
+q:before, q:after {
+	content:"";
+}
+*/
+
+.testimonialswidget_testimonials { 
+	position: relative;
+}
+.testimonialswidget_testimonial { 
+	position: absolute; 
+	top: 0;
+	left: 0;
+	display: none;
+}
+.testimonialswidget_testimonials .testimonialswidget_active {
+	display: block;
+}
+.testimonialswidget_testimonials p {
+	margin: 0 0 1em;
+}
+h4.testimonialswidget {
+	margin: 0;
+}
