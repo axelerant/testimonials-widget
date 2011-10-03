@@ -1,5 +1,5 @@
 === Testimonial Widget ===
-Contributors: j0hnmsith
+Contributors: j0hnmsith, comprock
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGPVLS64ZMNV8
 Tags: testimonials, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
