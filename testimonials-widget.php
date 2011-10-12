@@ -2,7 +2,7 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.1
+Version: 0.2
 Author: j0hnsmith
 License: GPL2
 */
@@ -23,34 +23,36 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-/*  This plugin borrows code from the Quotes Collection plugin by Srini G 
-    http://srinig.com/wordpress/plugins/testimonials-widget/ 
- */
+
+/*  This plugin borrows code from the Quotes Collection plugin by Srini G
+    http://srinig.com/wordpress/plugins/quotes-collection/
+
+    Additional contributions from comprock and ChrisCree
+*/
 
 
 /*  Refer http://codex.wordpress.org/Roles_and_Capabilities */
-$testimonialswidget_admin_userlevel = 'edit_posts'; 
+$testimonialswidget_admin_userlevel = 'edit_posts';
 
-$testimonialswidget_db_version = '0.1'; 
+$testimonialswidget_db_version = '0.1';
 
 
 require_once('testimonials-widget-widget.php');
 require_once('testimonials-widget-admin.php');
 
 
-function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 5, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500)
-{
+function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 10, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500, $widget_number = '') {
 	$conditions = " WHERE public = 'yes'";
-	
+
 	if(char_limit && is_numeric($char_limit)) {
 		$conditions .= " AND CHAR_LENGTH(testimonial) <= ".$char_limit;
 	} else {
 		$options['char_limit'] = 0;
 	}
-	
+
 	if($tags) {
 		$taglist = explode(',', $tags);
-		$tag_conditions = "";
+		$tag_conditions = '';
 		foreach($taglist as $tag) {
 			$tag = mysql_real_escape_string(strip_tags(trim($tag)));
 			if($tag_conditions) $tag_conditions .= " OR ";
@@ -58,27 +60,35 @@ function testimonialswidget_display_testimonials($title = '', $random = 1, $min_
 		}
 		$conditions .= " AND ({$tag_conditions})";
 	}
-	
+
 	if($random) {
 		$conditions .= " ORDER BY RAND()";
 	} else {
 		$conditions .= " ORDER BY testimonial_id DESC";
 	}
-	
+
+	if ( 0 == $refresh_interval )
+		$conditions .= " LIMIT 1";
+
 	$testimonials = testimonialswidget_get_testimonials($conditions);
-	
+
 	$min_height .= 'px';
+	$id = 'testimonialswidget_testimonials';
+	$id_base = $id . $widget_number;
 	$html = <<<EOF
 	<style>
-	.testimonialswidget_testimonials {
+		.$id_base {
 		min-height: $min_height;
 	}
 	</style>
+EOF;
+	if ( 0 != $refresh_interval ) {
+		$html .= <<<EOF
     <script type="text/javascript">
-		function nextTestimonial() {
-			if (!jQuery('.testimonialswidget_testimonials').first().hasClass('hovered')) {
-				var active = jQuery('.testimonialswidget_testimonials .testimonialswidget_active');
-				var next = (jQuery('.testimonialswidget_testimonials .testimonialswidget_active').next().length > 0) ? jQuery('.testimonialswidget_testimonials .testimonialswidget_active').next() : jQuery('.testimonialswidget_testimonials .testimonialswidget_testimonial:first');
+			function nextTestimonial$widget_number() {
+				if (!jQuery('.$id_base').first().hasClass('hovered')) {
+					var active = jQuery('.$id_base .testimonialswidget_active');
+					var next = (jQuery('.$id_base .testimonialswidget_active').next().length > 0) ? jQuery('.$id_base .testimonialswidget_active').next() : jQuery('.$id_base .testimonialswidget_testimonial:first');
 				active.fadeOut(1250, function(){
 					active.removeClass('testimonialswidget_active');
 					next.fadeIn(500);
@@ -86,53 +96,54 @@ function testimonialswidget_display_testimonials($title = '', $random = 1, $min_
 				});
 			}
 		}
-		
+
 		jQuery(document).ready(function(){
-		    jQuery('.testimonialswidget_testimonials').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
-		    setInterval('nextTestimonial()', $refresh_interval * 1000);
+				jQuery('.$id_base').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
+				setInterval('nextTestimonial$widget_number()', $refresh_interval * 1000);
 		});
     </script>
 EOF;
-	if ($title) {
-		$html .= "<h4 class=\"testimonialswidget\">$title</h4>";
 	}
-	$html .= '<div class="testimonialswidget_testimonials">';
+
+	$html .= '<div class="'.$id.' '.$id_base.'">';
 	$first = true;
+
 	foreach ($testimonials as $testimonial) {
+
 		if (!$first) {
 			$html .= '<div class="testimonialswidget_testimonial">';
 		} else {
 			$html .= '<div class="testimonialswidget_testimonial testimonialswidget_active">';
 			$first = false;
 		}
-		$html .= "<p><q>". $testimonial['testimonial'] ."</q>";
-		$cite = "";
-		if($show_author && $testimonial['author'])
-			$cite = '<span class="testimonialswidget_author">'. $testimonial['author'] .'</span>';
-	
-		if($show_source && $testimonial['source']) {
-			if($cite) $cite .= ", ";
-				$cite .= '<span class="testimonialswidget_source">'. $testimonial['source'] .'</span>';
+		$html .= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
+		$cite = '';
+		if($show_author && ! empty( $testimonial['author'] ) )
+			$cite = '<span class="testimonialswidget_author">'. make_clickable( $testimonial['author'] ) .'</span>';
+
+		if($show_source && ! empty( $testimonial['source'] ) ) {
+			if($cite) $cite .= ', ';
+			$cite .= '<span class="testimonialswidget_source">'. make_clickable( $testimonial['source'] ) .'</span>';
 		}
 		if($cite) $cite = " <cite>&mdash;&nbsp;{$cite}</cite>";
-		$html .= $cite."</p></div>";	
-		
+		$html .= $cite."</p></div>";
+
 	}
 	$html .= '</div>';
-	
-	echo $html;
+
+	return $html;
 }
 
 
-function testimonialswidget_get_testimonials($conditions = "")
+function testimonialswidget_get_testimonials($conditions = '')
 {
 	global $wpdb;
 	$sql = "SELECT testimonial_id, testimonial, author, source, tags, public
 		FROM " . $wpdb->prefix . "testimonialswidget"
 		. $conditions;
-		
+
 	if($testimonials = $wpdb->get_results($sql, ARRAY_A))
-		return $testimonials;	
+		return $testimonials;
 	else
 		return array();
 }
@@ -146,9 +157,8 @@ function testimonialswidget_install()
 	if(!defined('DB_CHARSET') || !($db_charset = DB_CHARSET))
 		$db_charset = 'utf8';
 	$db_charset = "CHARACTER SET ".$db_charset;
-	if(defined('DB_COLLATE') && $db_collate = DB_COLLATE) 
+	if(defined('DB_COLLATE') && $db_collate = DB_COLLATE)
 		$db_collate = "COLLATE ".$db_collate;
-
 
 	// if table name already exists
 	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
@@ -182,7 +192,7 @@ function testimonialswidget_install()
 		) {$db_charset} {$db_collate};";
 		$results = $wpdb->query( $sql );
 	}
-	
+
 	global $testimonialswidget_db_version;
 	$options = get_option('testimonialswidget');
 	$options['db_version'] = $testimonialswidget_db_version;
@@ -191,14 +201,15 @@ function testimonialswidget_install()
 }
 
 
-function testimonialswidget_css_head() 
+function testimonialswidget_css_head()
 {
 	?>
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url(); ?>/testimonials-widget/testimonials-widget.css" />
 	<?php
 }
 
-function testimonialswidget_enqueue_scripts() 
+
+function testimonialswidget_enqueue_scripts()
 {
 	wp_enqueue_script('jquery');
 }
@@ -206,7 +217,6 @@ function testimonialswidget_enqueue_scripts()
 add_action('wp_head', 'testimonialswidget_css_head' );
 add_action('wp_enqueue_scripts', 'testimonialswidget_enqueue_scripts');
 
-
-
 register_activation_hook( __FILE__, 'testimonialswidget_install' );
+
 ?>
