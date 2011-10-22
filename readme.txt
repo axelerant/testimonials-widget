@@ -1,12 +1,12 @@
-=== Testimonial Widget ===
+=== Testimonials Widget ===
 Contributors: j0hnsmith, comprock
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGPVLS64ZMNV8
 Tags: testimonials, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 0.2 
+Stable tag: 0.2.1
 
-Testimonial widget plugin allows you display testimonials in a sidebar on your WordPress blog.
+Testimonials widget plugin allows you display testimonials in a sidebar on your WordPress blog.
 
 == Description ==
 
