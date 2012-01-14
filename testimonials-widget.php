@@ -2,7 +2,7 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.1
+Version: 0.2.2
 Author: comprock, j0hnsmith
 License: GPL2
 */
@@ -223,6 +223,6 @@ function testimonialswidget_init() {
 	load_plugin_textdomain( 'testimonials-widget', null, '/testimonials-widget/languages/' );
 }
 
-add_action('init', 'testimonialswidget_ini');
+add_action('init', 'testimonialswidget_init');
 
 ?>

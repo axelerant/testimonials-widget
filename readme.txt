@@ -1,10 +1,10 @@
 === Testimonials Widget ===
-Contributors: j0hnsmith, comprock
+Contributors: comprock, j0hnsmith
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGPVLS64ZMNV8
 Tags: testimonials, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 
 Testimonials widget plugin allows you display testimonials in a sidebar on your WordPress blog.
 
@@ -32,6 +32,9 @@ You can make a simple client or portfolio rotator by using the testimonial field
 	* Specify a character limit to filter out longer quotes
 * Allows for multiple widgets. Useful for using tags to keep widgets separated.
 * Compatible with WordPress 3.0 multi-site functionality.
+
+= Need More Power? =
+Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-collection/) plugin by [SriniG](http://profiles.wordpress.org/users/SriniG/profile/public/)
 
 == Installation ==
 1. Upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
@@ -77,8 +80,12 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 
 ==Changelog==
 = trunk =
-* Quick locallization
 -
+
+= 0.2.2 =
+* Show newest testimonials first in admin list by default
+* Quick locallization
+* Quotes Collection recommendation
 
 = 2011-10-03: Version 0.2 =
 * Multi-widget enabled
