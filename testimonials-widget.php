@@ -219,4 +219,10 @@ add_action('wp_enqueue_scripts', 'testimonialswidget_enqueue_scripts');
 
 register_activation_hook( __FILE__, 'testimonialswidget_install' );
 
+function testimonialswidget_init() {
+	load_plugin_textdomain( 'testimonials-widget', null, '/testimonials-widget/languages/' );
+}
+
+add_action('init', 'testimonialswidget_ini');
+
 ?>

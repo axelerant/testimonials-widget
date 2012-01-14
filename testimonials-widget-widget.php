@@ -9,6 +9,7 @@ add_action( 'widgets_init', 'testimonials_widgets' );
  */
 function testimonials_widgets() {
 	register_widget( 'Testimonials_Widget' );
+	load_plugin_textdomain( 'testimonials-widget', null, '/testimonials-widget/languages/' );
 }
 
 /*
