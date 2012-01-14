@@ -76,14 +76,18 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 * If you have no tags fields, deactivate and activate the plugin as normal to perform database upgrades
 
 ==Changelog==
-* 2011-10-03: Version 0.2
-	* Multi-widget enabled
-	* Testimonial, author & source text are clickable automatically
-	* Allow 0 refresh to make widget static
-	* Allow pressing return when editing testimonial to save record
+= trunk =
+* Quick locallization
+-
 
-* 2011-08-12: Version 0.1
-	* initial release
+= 2011-10-03: Version 0.2 =
+* Multi-widget enabled
+* Testimonial, author & source text are clickable automatically
+* Allow 0 refresh to make widget static
+* Allow pressing return when editing testimonial to save record
+
+= 2011-08-12: Version 0.1 =
+* initial release
 
 == TODO ==
 * Add shortcodes: list, single, by tag
