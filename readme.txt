@@ -6,11 +6,11 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 0.2.2
 
-Testimonials widget plugin allows you display testimonials in a sidebar on your WordPress blog.
+Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
 == Description ==
 
-Testimonial widget plugin allows you display testimonials in a sidebar on your WordPress blog. 
+Testimonial widget plugin allows you display testimonials in a widget on your WordPress blog. 
 
 More than one widget can be displayed, each pulling from testimonial sets by using tags. Each displayed widget has its own identifier allowing for custom CSS styling.
 
