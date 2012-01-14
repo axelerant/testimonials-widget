@@ -373,9 +373,9 @@ function testimonialswidget_testimonials_management()
 		$option_selected[$_REQUEST['order']] = " selected=\"selected\"";
 	}
 	else {
-		$sql .= " ORDER BY testimonial_id ASC";
+		$sql .= " ORDER BY testimonial_id DESC";
 		$option_selected['testimonial_id'] = " selected=\"selected\"";
-		$option_selected['ASC'] = " selected=\"selected\"";
+		$option_selected['DESC'] = " selected=\"selected\"";
 	}
 
 	if(isset($_REQUEST['paged']) && $_REQUEST['paged'] && is_numeric($_REQUEST['paged']))
