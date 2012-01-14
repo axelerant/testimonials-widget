@@ -429,7 +429,7 @@ function testimonialswidget_testimonials_management()
 		$display .= "<div class=\"tablenav\">";
 		$display .= "<div class=\"alignleft actions\">";
 		$display .= "<select name=\"bulkaction\">";
-		$display .= 	"<option value=\"0\">".__('Bulk Actions')."</option>";
+		$display .= 	"<option value=\"0\">".__('Bulk Actions', 'testimonials-widget')."</option>";
 		$display .= 	"<option value=\"delete\">".__('Delete', 'testimonials-widget')."</option>";
 		$display .= 	"<option value=\"make_public\">".__('Make public', 'testimonials-widget')."</option>";
 		$display .= 	"<option value=\"keep_private\">".__('Keep private', 'testimonials-widget')."</option>";

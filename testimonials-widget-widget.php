@@ -20,13 +20,13 @@ class testimonials_widget extends WP_Widget {
 	/* ---------------------------- */
 	function Testimonials_Widget() {
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'testimonials_widget', 'description' => __('Testimonial widget plugin allows you display testimonials in a sidebar on your WordPress blog.') );
+		$widget_ops = array( 'classname' => 'testimonials_widget', 'description' => __('Testimonial widget plugin allows you display testimonials in a sidebar on your WordPress blog.', 'testimonials-widget') );
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'testimonials_widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'testimonials_widget', __('Testimonials Widget'), $widget_ops, $control_ops );
+		$this->WP_Widget( 'testimonials_widget', __('Testimonials Widget', 'testimonials-widget'), $widget_ops, $control_ops );
 	}
 
 	/* ---------------------------- */
