@@ -2,7 +2,7 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.2
+Version: 0.2.3
 Author: comprock, j0hnsmith
 License: GPL2
 */
@@ -41,7 +41,7 @@ require_once('testimonials-widget-widget.php');
 require_once('testimonials-widget-admin.php');
 
 
-function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 10, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500, $widget_number = '') {
+function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 10, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500, $widget_number = '', $tags_all = 0) {
 	$conditions = " WHERE public = 'yes'";
 
 	if(char_limit && is_numeric($char_limit)) {
@@ -55,8 +55,14 @@ function testimonialswidget_display_testimonials($title = '', $random = 1, $min_
 		$tag_conditions = '';
 		foreach($taglist as $tag) {
 			$tag = mysql_real_escape_string(strip_tags(trim($tag)));
-			if($tag_conditions) $tag_conditions .= " OR ";
-			$tag_conditions .= "tags = '{$tag}'";
+			if($tag_conditions) {
+				if ( $tags_all ) {
+					$tag_conditions .= ' AND ';
+				} else {
+					$tag_conditions .= ' OR ';
+				}
+			}
+			$tag_conditions .= "FIND_IN_SET('{$tag}', tags)";
 		}
 		$conditions .= " AND ({$tag_conditions})";
 	}
