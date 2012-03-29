@@ -45,6 +45,10 @@ Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-col
 
 == Frequently Asked Questions ==
 
+= I'm not seeing any testimonials but the title =
+
+If you're not seeing any testimonials, even when not using tags filter, you might try increasing the Character limit or setting it to '0' or 'none' in the widget box.
+
 = How to stop testimonial text/author/source being cut off? =
 
 Specify a larger minimum height in the testimonials widget, see screenshot 2.
