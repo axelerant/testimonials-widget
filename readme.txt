@@ -35,12 +35,14 @@ You can make a simple client or portfolio rotator by using the testimonial field
 * [[testimonialswidget_list]] shortcode
 	* [[testimonialswidget_list hide_author=true hide_source=true]] 
 	* [[testimonialswidget_list tags="test,fun" limit=1]]
+	* [[testimonialswidget_list ids=1]]
 * Shortcode Options
-	* hide_author - default show, hide_author=true
-	* hide_source - default show, hide_source=true
-	* limit - default no limit, limit=10
-	* tags - default none, tags="fire,water"
-	* random - default newest first, random=true
+	* hide_author - default show; hide_author=true
+	* hide_source - default show; hide_source=true
+	* ids - default none; ids=2 or ids="2,4,6"
+	* limit - default no limit; limit=10
+	* random - default newest first; random=true
+	* tags - default none; tags=fire or tags="fire,water"
 * Compatible with WordPress 3.0 multi-site functionality.
 
 = Need More Power? =
@@ -81,6 +83,8 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 3. 'Testimonials' widget options (WordPress 3.2)
 4. A testimonial in the sidebar
 5. Edit testimonial
+6. Testimonial shortcode results
+7. Testimonial shortcode in post
 	
 
 == Installation ==
@@ -118,4 +122,4 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 * initial release
 
 == TODO ==
-* Add shortcodes: list, single, by tag
+* TBD

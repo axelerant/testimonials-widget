@@ -228,6 +228,7 @@ function testimonialswidget_init() {
 add_action('init', 'testimonialswidget_init');
 
 function testimonialswidget_list_shortcode($atts, $content = null) {
+	$ids						= ($atts['ids']) ? $atts['ids'] : false; 
 	$limit						= ($atts['limit']) ? $atts['limit'] : false; 
 	$random						= ($atts['random']) ? true : false; 
 	$show_author				= ($atts['hide_author']) ? false : true; 
@@ -236,21 +237,30 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 
 	$conditions					= " WHERE public = 'yes'";
 
-	if($tags) {
-		$taglist = explode(',', $tags);
-		$tag_conditions = '';
-		foreach($taglist as $tag) {
-			$tag = mysql_real_escape_string(strip_tags(trim($tag)));
-			if($tag_conditions) {
-				if ( $tags_all ) {
-					$tag_conditions .= ' AND ';
-				} else {
-					$tag_conditions .= ' OR ';
-				}
+	if($ids) {
+		$idlist					= explode(',', $ids);
+		$id_conditions			= '';
+		foreach($idlist as $id) {
+			$id					= mysql_real_escape_string(strip_tags(trim($id)));
+			if($id_conditions) {
+				$id_conditions	.= ' OR ';
 			}
-			$tag_conditions .= "FIND_IN_SET('{$tag}', tags)";
+			$id_conditions		.= "FIND_IN_SET('{$id}', testimonial_id)";
 		}
-		$conditions .= " AND ({$tag_conditions})";
+		$conditions				.= " AND ({$id_conditions})";
+	}
+
+	if($tags) {
+		$taglist				= explode(',', $tags);
+		$tag_conditions			= '';
+		foreach($taglist as $tag) {
+			$tag				= mysql_real_escape_string(strip_tags(trim($tag)));
+			if($tag_conditions) {
+				$tag_conditions	.= ' OR ';
+			}
+			$tag_conditions		.= "FIND_IN_SET('{$tag}', tags)";
+		}
+		$conditions				.= " AND ({$tag_conditions})";
 	}
 
 	if($random) {
