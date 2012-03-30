@@ -1,7 +1,7 @@
 === Testimonials Widget ===
 Contributors: comprock, j0hnsmith
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GGPVLS64ZMNV8
-Tags: testimonials, quotes, quotations, random quote, sidebar, widget
+Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 0.2.4
