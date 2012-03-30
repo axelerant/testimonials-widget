@@ -7,7 +7,8 @@ Author: comprock, j0hnsmith
 License: GPL2
  */
 
-/*  Copyright 2011 j0hnsmith
+/*  Copyright 2012 Michael Cannon
+	Copyright 2011 j0hnsmith
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -44,7 +45,7 @@ require_once('testimonials-widget-admin.php');
 function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 10, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500, $widget_number = '', $tags_all = 0) {
 	$conditions = " WHERE public = 'yes'";
 
-	if(char_limit && is_numeric($char_limit)) {
+	if($char_limit && is_numeric($char_limit)) {
 		$conditions .= " AND CHAR_LENGTH(testimonial) <= ".$char_limit;
 	} else {
 		$options['char_limit'] = 0;
@@ -227,29 +228,66 @@ function testimonialswidget_init() {
 add_action('init', 'testimonialswidget_init');
 
 function testimonialswidget_list_shortcode($atts, $content = null) {
-	$show_author = ($atts['hide_author']) ? false : true; 
-	$show_source = ($atts['hide_source']) ? false : true; 
+	$limit						= ($atts['limit']) ? $atts['limit'] : false; 
+	$random						= ($atts['random']) ? true : false; 
+	$show_author				= ($atts['hide_author']) ? false : true; 
+	$show_source				= ($atts['hide_source']) ? false : true; 
+	$tags						= ($atts['tags']) ? $atts['tags'] : false; 
 
-	$testimonials = testimonialswidget_get_testimonials();
+	$conditions					= " WHERE public = 'yes'";
 
-	$html .= '<div class="testimonialswidget_testimonials_list">';
-
-	foreach ($testimonials as $testimonial) {
-		$html .= '<div class="testimonialswidget_testimonial_list">';
-		$html .= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
-		$cite = '';
-		if($show_author && ! empty( $testimonial['author'] ) )
-			$cite = '<span class="testimonialswidget_author">'. make_clickable( $testimonial['author'] ) .'</span>';
-
-		if($show_source && ! empty( $testimonial['source'] ) ) {
-			if($cite) $cite .= ', ';
-			$cite .= '<span class="testimonialswidget_source">'. make_clickable( $testimonial['source'] ) .'</span>';
+	if($tags) {
+		$taglist = explode(',', $tags);
+		$tag_conditions = '';
+		foreach($taglist as $tag) {
+			$tag = mysql_real_escape_string(strip_tags(trim($tag)));
+			if($tag_conditions) {
+				if ( $tags_all ) {
+					$tag_conditions .= ' AND ';
+				} else {
+					$tag_conditions .= ' OR ';
+				}
+			}
+			$tag_conditions .= "FIND_IN_SET('{$tag}', tags)";
 		}
-		if($cite) $cite = " <cite>&mdash;&nbsp;{$cite}</cite>";
-		$html .= $cite."</p></div>";
+		$conditions .= " AND ({$tag_conditions})";
 	}
 
-	$html .= '</div>';
+	if($random) {
+		$conditions				.= " ORDER BY RAND()";
+	} else {
+		$conditions				.= " ORDER BY testimonial_id DESC";
+	}
+
+	if ( $limit )
+		$conditions				.= " LIMIT {$limit}";
+
+	$testimonials				= testimonialswidget_get_testimonials( $conditions );
+
+	$html						.= '<div class="testimonialswidget_testimonials_list">';
+
+	foreach ($testimonials as $testimonial) {
+		$html					.= '<div class="testimonialswidget_testimonial_list">';
+		$html					.= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
+
+		$cite					= '';
+		if($show_author && ! empty( $testimonial['author'] ) )
+			$cite				= '<span class="testimonialswidget_author">'. make_clickable( $testimonial['author'] ) .'</span>';
+
+		if($show_source && ! empty( $testimonial['source'] ) ) {
+			if($cite)
+				$cite			.= ', ';
+
+			$cite				.= '<span class="testimonialswidget_source">'. make_clickable( $testimonial['source'] ) .'</span>';
+		}
+
+		if($cite)
+			$cite				= " <cite>&mdash;&nbsp;{$cite}</cite>";
+
+		$html					.= $cite."</p></div>";
+	}
+
+	$html						.= '</div>';
 
 	return $html;
 
