@@ -2,33 +2,33 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.3
+Version: 0.2.4
 Author: comprock, j0hnsmith
 License: GPL2
-*/
+ */
 
 /*  Copyright 2011 j0hnsmith
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
 
 /*  This plugin borrows code from the Quotes Collection plugin by Srini G
-    http://srinig.com/wordpress/plugins/quotes-collection/
+	http://srinig.com/wordpress/plugins/quotes-collection/
 
-    Additional contributions from comprock and ChrisCree
-*/
+	Additional contributions from comprock and ChrisCree
+ */
 
 
 /*  Refer http://codex.wordpress.org/Roles_and_Capabilities */
@@ -90,7 +90,7 @@ function testimonialswidget_display_testimonials($title = '', $random = 1, $min_
 EOF;
 	if ( 0 != $refresh_interval ) {
 		$html .= <<<EOF
-    <script type="text/javascript">
+	<script type="text/javascript">
 			function nextTestimonial$widget_number() {
 				if (!jQuery('.$id_base').first().hasClass('hovered')) {
 					var active = jQuery('.$id_base .testimonialswidget_active');
@@ -107,7 +107,7 @@ EOF;
 				jQuery('.$id_base').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
 				setInterval('nextTestimonial$widget_number()', $refresh_interval * 1000);
 		});
-    </script>
+	</script>
 EOF;
 	}
 
@@ -141,8 +141,7 @@ EOF;
 }
 
 
-function testimonialswidget_get_testimonials($conditions = '')
-{
+function testimonialswidget_get_testimonials($conditions = '') {
 	global $wpdb;
 	$sql = "SELECT testimonial_id, testimonial, author, source, tags, public
 		FROM " . $wpdb->prefix . "testimonialswidget"
@@ -155,8 +154,7 @@ function testimonialswidget_get_testimonials($conditions = '')
 }
 
 
-function testimonialswidget_install()
-{
+function testimonialswidget_install() {
 	global $wpdb;
 	$table_name = $wpdb->prefix . "testimonialswidget";
 
@@ -168,19 +166,19 @@ function testimonialswidget_install()
 
 	// if table name already exists
 	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-   		$wpdb->query("ALTER TABLE `{$table_name}` {$db_charset} {$db_collate}");
+		$wpdb->query("ALTER TABLE `{$table_name}` {$db_charset} {$db_collate}");
 
-   		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY testimonial TEXT {$db_charset} {$db_collate}");
+		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY testimonial TEXT {$db_charset} {$db_collate}");
 
-   		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY author VARCHAR(255) {$db_charset} {$db_collate}");
+		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY author VARCHAR(255) {$db_charset} {$db_collate}");
 
-   		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY source VARCHAR(255) {$db_charset} {$db_collate}");
+		$wpdb->query("ALTER TABLE `{$table_name}` MODIFY source VARCHAR(255) {$db_charset} {$db_collate}");
 
-   		if(!($wpdb->get_results("SHOW COLUMNS FROM {$table_name} LIKE 'tags'"))) {
-   			$wpdb->query("ALTER TABLE `{$table_name}` ADD `tags` VARCHAR(255) {$db_charset} {$db_collate} AFTER `source`");
+		if(!($wpdb->get_results("SHOW COLUMNS FROM {$table_name} LIKE 'tags'"))) {
+			$wpdb->query("ALTER TABLE `{$table_name}` ADD `tags` VARCHAR(255) {$db_charset} {$db_collate} AFTER `source`");
 		}
-   		if(!($wpdb->get_results("SHOW COLUMNS FROM {$table_name} LIKE 'public'"))) {
-   			$wpdb->query("ALTER TABLE `{$table_name}` CHANGE `visible` `public` enum('yes', 'no') DEFAULT 'yes' NOT NULL");
+		if(!($wpdb->get_results("SHOW COLUMNS FROM {$table_name} LIKE 'public'"))) {
+			$wpdb->query("ALTER TABLE `{$table_name}` CHANGE `visible` `public` enum('yes', 'no') DEFAULT 'yes' NOT NULL");
 		}
 	}
 	else {
@@ -195,7 +193,7 @@ function testimonialswidget_install()
 			time_added datetime NOT NULL,
 			time_updated datetime,
 			PRIMARY KEY  (testimonial_id)
-		) {$db_charset} {$db_collate};";
+	) {$db_charset} {$db_collate};";
 		$results = $wpdb->query( $sql );
 	}
 
@@ -207,16 +205,13 @@ function testimonialswidget_install()
 }
 
 
-function testimonialswidget_css_head()
-{
-	?>
+function testimonialswidget_css_head() {
+?>
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url(); ?>/testimonials-widget/testimonials-widget.css" />
-	<?php
+<?php
 }
 
-
-function testimonialswidget_enqueue_scripts()
-{
+function testimonialswidget_enqueue_scripts() {
 	wp_enqueue_script('jquery');
 }
 
@@ -230,5 +225,36 @@ function testimonialswidget_init() {
 }
 
 add_action('init', 'testimonialswidget_init');
+
+function testimonialswidget_list_shortcode($atts, $content = null) {
+	$show_author = ($atts['hide_author']) ? false : true; 
+	$show_source = ($atts['hide_source']) ? false : true; 
+
+	$testimonials = testimonialswidget_get_testimonials();
+
+	$html .= '<div class="testimonialswidget_testimonials_list">';
+
+	foreach ($testimonials as $testimonial) {
+		$html .= '<div class="testimonialswidget_testimonial_list">';
+		$html .= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
+		$cite = '';
+		if($show_author && ! empty( $testimonial['author'] ) )
+			$cite = '<span class="testimonialswidget_author">'. make_clickable( $testimonial['author'] ) .'</span>';
+
+		if($show_source && ! empty( $testimonial['source'] ) ) {
+			if($cite) $cite .= ', ';
+			$cite .= '<span class="testimonialswidget_source">'. make_clickable( $testimonial['source'] ) .'</span>';
+		}
+		if($cite) $cite = " <cite>&mdash;&nbsp;{$cite}</cite>";
+		$html .= $cite."</p></div>";
+	}
+
+	$html .= '</div>';
+
+	return $html;
+
+}
+
+add_shortcode('testimonialswidget_list', 'testimonialswidget_list_shortcode'); 
 
 ?>
