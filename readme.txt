@@ -32,18 +32,20 @@ You can make a simple client or portfolio rotator by using the testimonial field
 	* Show only quotes with all tags
 	* Specify a character limit to filter out longer quotes
 * Allows for multiple widgets. Useful for using tags to keep widgets separated.
-* [[testimonialswidget_list]] shortcode
-	* [[testimonialswidget_list hide_author=true hide_source=true]] 
-	* [[testimonialswidget_list tags="test,fun" limit=1]]
-	* [[testimonialswidget_list ids=1]]
-* Shortcode Options
+* Compatible with WordPress 3.0 multi-site functionality.
+
+= Shortcode [[testimonialswidget_list]] =
+* Options
 	* hide_author - default show; hide_author=true
 	* hide_source - default show; hide_source=true
 	* ids - default none; ids=2 or ids="2,4,6"
 	* limit - default no limit; limit=10
 	* random - default newest first; random=true
 	* tags - default none; tags=fire or tags="fire,water"
-* Compatible with WordPress 3.0 multi-site functionality.
+* [[testimonialswidget_list]] Examples
+	* [[testimonialswidget_list hide_author=true hide_source=true]] 
+	* [[testimonialswidget_list tags="test,fun" limit=1]]
+	* [[testimonialswidget_list ids=1]]
 
 = Need More Power? =
 Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-collection/) plugin by [SriniG](http://profiles.wordpress.org/users/SriniG/profile/public/)
