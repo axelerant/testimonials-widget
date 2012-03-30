@@ -35,14 +35,13 @@ You can make a simple client or portfolio rotator by using the testimonial field
 * [[testimonialswidget_list]] shortcode
 	* [[testimonialswidget_list hide_author=true hide_source=true]] 
 	* [[testimonialswidget_list tags="test,fun" limit=1]]
-* Compatible with WordPress 3.0 multi-site functionality.
-
 * Shortcode Options
-	* hide_author - default show
-	* hide_source - default show
-	* limit - default no limit
-	* tags - default none
-	* random - default newest first 
+	* hide_author - default show, hide_author=true
+	* hide_source - default show, hide_source=true
+	* limit - default no limit, limit=10
+	* tags - default none, tags="fire,water"
+	* random - default newest first, random=true
+* Compatible with WordPress 3.0 multi-site functionality.
 
 = Need More Power? =
 Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-collection/) plugin by [SriniG](http://profiles.wordpress.org/users/SriniG/profile/public/)
