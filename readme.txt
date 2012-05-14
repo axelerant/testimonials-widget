@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.2.5
+Stable tag: 0.2.4
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
