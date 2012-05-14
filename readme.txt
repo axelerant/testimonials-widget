@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.2.4
+Stable tag: 0.2.5
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
@@ -102,6 +102,9 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 = trunk =
 -
 
+= 0.2.5 =
+* nl2br enabled
+
 = 0.2.4 =
 * Shortcode added - Thank you Hal Gatewood
 
@@ -124,4 +127,4 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 * initial release
 
 == TODO ==
-* TBD
+* No nl2br when content is already using HTML
