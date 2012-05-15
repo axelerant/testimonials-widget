@@ -66,13 +66,17 @@ The usual problem is that jQuery is included twice. Once by WordPress and again 
 
 If you're not seeing any testimonials, even when not using tags filter, you might try increasing the Character limit or setting it to '0' or 'none' in the widget box.
 
+= How do I apply custom CSS to a testimonial widget? =
+
+The easiest thing is to check the source code of your page with the widget and look for the testimonial widgets div container id tag. It'll be something like `id="testimonials_widget-3"`.
+
 = How to stop testimonial text/author/source being cut off? =
 
 Specify a larger minimum height in the testimonials widget, see screenshot 2.
 
 = How to get rid of the quotation marks that surround the random quote? =
 
-Open the testimonials-widget.css file that comes along with the plugin, scroll down and look towards the bottom.
+Open the testimonials-widget.css file that comes along with the plugin, scroll down and look towards the bottom for the comment "Uncomment the block below if you want to get rid of the quotation marks before and after the quote".
 
 = How to change the random quote text color? =
 
