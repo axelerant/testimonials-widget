@@ -58,6 +58,10 @@ Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-col
 
 == Frequently Asked Questions ==
 
+= Testimonials widget is not showing up =
+
+The usual problem is that jQuery is included twice. Once by WordPress and again by a theme. Remove the jQuery version included by your theme and you should be fine.
+
 = I'm not seeing any testimonials but the title =
 
 If you're not seeing any testimonials, even when not using tags filter, you might try increasing the Character limit or setting it to '0' or 'none' in the widget box.
