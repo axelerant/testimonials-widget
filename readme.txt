@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.2.4
+Stable tag: 0.2.5
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
@@ -57,6 +57,13 @@ Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-col
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' widget into the sidebar
 
 == Frequently Asked Questions ==
+
+= How do I hide the comma after the author? =
+
+Use CSS.
+`span.testimonialswidget_join {
+	display: none;
+}`
 
 = Testimonials widget is not showing up =
 
@@ -111,7 +118,8 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 -
 
 = 0.2.5 =
-* nl2br enabled
+* Add span.testimonialswidget_join for author , join text
+* Add nl2br for testimonials display on a page
 
 = 0.2.4 =
 * Shortcode added - Thank you Hal Gatewood
