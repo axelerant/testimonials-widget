@@ -34,7 +34,7 @@ You can make a simple client or portfolio rotator by using the testimonial field
 * Allows for multiple widgets. Useful for using tags to keep widgets separated.
 * Compatible with WordPress 3.0 multi-site functionality.
 
-= Shortcode [[testimonialswidget_list]] =
+= Shortcode [testimonialswidget_list] =
 * Options
 	* hide_author - default show; hide_author=true
 	* hide_source - default show; hide_source=true
@@ -42,10 +42,10 @@ You can make a simple client or portfolio rotator by using the testimonial field
 	* limit - default no limit; limit=10
 	* random - default newest first; random=true
 	* tags - default none; tags=fire or tags="fire,water"
-* [[testimonialswidget_list]] Examples
-	* [[testimonialswidget_list hide_author=true hide_source=true]] 
-	* [[testimonialswidget_list tags="test,fun" limit=1]]
-	* [[testimonialswidget_list ids=1]]
+* [testimonialswidget_list] Examples
+	* [testimonialswidget_list hide_author=true hide_source=true] 
+	* [testimonialswidget_list tags="test,fun" limit=1]
+	* [testimonialswidget_list ids=1]
 
 = Need More Power? =
 Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-collection/) plugin by [SriniG](http://profiles.wordpress.org/users/SriniG/profile/public/)
@@ -57,6 +57,13 @@ Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-col
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' widget into the sidebar
 
 == Frequently Asked Questions ==
+
+= How can I add the testimonials plugin to any where on the site? ie. somewhere other than the side bar like the contact page etc.? =
+
+Use [testimonialswidget_list]. Usage examples are at the bottom of http://wordpress.org/extend/plugins/testimonials-widget/.
+
+Look for `[testimonialswidget_list]`.
+
 
 = How do I hide the comma after the author? =
 
