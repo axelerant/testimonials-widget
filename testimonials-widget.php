@@ -2,7 +2,7 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.5
+Version: 0.2.6
 Author: Michael Cannon
 Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 License: GPL2
@@ -275,10 +275,10 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 
 	$testimonials				= testimonialswidget_get_testimonials( $conditions );
 
-	$html						.= '<div class="testimonialswidget_testimonials_list">';
+	$html						.= '<div class="testimonialswidget_testimonials testimonialswidget_testimonials_list">';
 
 	foreach ($testimonials as $testimonial) {
-		$html					.= '<div class="testimonialswidget_testimonial_list">';
+		$html					.= '<div class="testimonialswidget_testimonial testimonialswidget_testimonial_list">';
 		$html					.= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
 
 		$cite					= '';
