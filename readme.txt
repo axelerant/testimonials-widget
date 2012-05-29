@@ -102,7 +102,11 @@ Open the testimonials-widget.css file that comes along with the plugin, scroll d
 
 = How to change the random quote text color? =
 
-Styling such as text color, font size, background color, etc., of the random quote can be customized by editing the testimonials-widget.css file.
+Styling such as text color, font size, background color, etc., of the random quote can be customized by editing the testimonials-widget.css file or applying CSS like the following.
+
+`.testimonialswidget_testimonial q {
+	color: blue;
+}`
 
 = How to change the admin access level setting for the quotes collection admin page? =
 
