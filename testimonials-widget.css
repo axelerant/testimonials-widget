@@ -19,15 +19,15 @@
 /* See http://www.w3schools.com/css/pr_gen_quotes.asp */
 q:lang(en)
 {
-quotes: "“" "”" "‘" "’";
+	quotes: "“" "”" "‘" "’";
 }
 
 /* Uncomment the block below if you want to get rid of the quotation marks before and after the quote */
 /*
 q:before, q:after {
-	content:"";
+content:"";
 }
-*/
+ */
 
 .testimonialswidget_testimonials { 
 	position: relative;
@@ -46,4 +46,10 @@ q:before, q:after {
 }
 h4.testimonialswidget {
 	margin: 0;
+}
+.testimonialswidget_testimonial_list { 
+	position: initial; 
+	top: initial;
+	left: initial;
+	display: block;
 }
