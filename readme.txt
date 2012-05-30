@@ -58,6 +58,12 @@ Check out the [Quotes Collection](http://wordpress.org/extend/plugins/quotes-col
 
 == Frequently Asked Questions ==
 
+= How do you include the actual testimonials for the widget? Where do I quote my customers? I mean, where do I enter the actual text? =
+
+Checkout the first screenshot 1 at http://wordpress.org/extend/plugins/testimonials-widget/screenshots/ to see where to manage testimonials.
+
+Basically, look down the left side of your WordPress admin area for the Testimonials sections. Click on that section link, then scroll down or click "Add new ttestimonial" to add quotes.
+
 = What CSS applies to testimonials container? =
 
 CSS class `testimonialswidget_testimonials` wraps all testimonials. Additionally, shortcode lists are wrapped by `testimonialswidget_testimonials testimonialswidget_testimonials_list`.
