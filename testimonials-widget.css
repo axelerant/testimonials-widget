@@ -48,7 +48,7 @@ h4.testimonialswidget {
 	margin: 0;
 }
 .testimonialswidget_testimonial_list { 
-	position: initial; 
+	position: relative; 
 	top: initial;
 	left: initial;
 	display: block;
