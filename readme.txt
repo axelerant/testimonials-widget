@@ -86,7 +86,7 @@ Use CSS.
 	display: none;
 }`
 
-= Testimonials widget is not showing up =
+= Testimonials widget is not showing or rotating =
 
 The usual problem is that jQuery is included twice. Once by WordPress and again by a theme. Remove the jQuery version included by your theme and you should be fine.
 
