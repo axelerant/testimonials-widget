@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.2.8
+Stable tag: 0.2.9
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
@@ -116,7 +116,7 @@ Styling such as text color, font size, background color, etc., of the random quo
 
 = How to change the admin access level setting for the quotes collection admin page? =
 
-Change the value of the variable `$testimonialswidget_admin_userlevel` on line 33 of the testimonials-widget.php file. Refer [WordPress documentation](http://codex.wordpress.org/Roles_and_Capabilities) for more information about user roles and capabilities.
+Change the value of the variable `$testimonialswidget_admin_userlevel` on line 33 of the testimonials-widget.php file. Refer [WordPress documentation](http://codex.wordpress.org/Roles_and_Capabilities#Capability_vs._Role_Table) for more information about user roles and capabilities.
 
 == Screenshots ==
 
@@ -141,6 +141,9 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 ==Changelog==
 = trunk =
 -
+
+= 0.2.9 =
+* Require Editor role for managing Testimonials
 
 = 0.2.8 =
 * CSS testimonialswidget_testimonial_list fix #2
