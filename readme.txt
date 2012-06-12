@@ -78,7 +78,6 @@ Use [testimonialswidget_list]. Usage examples are at the bottom of http://wordpr
 
 Look for `[testimonialswidget_list]`.
 
-
 = How do I hide the comma after the author? =
 
 Use CSS.
@@ -113,6 +112,33 @@ Styling such as text color, font size, background color, etc., of the random quo
 `.testimonialswidget_testimonial q {
 	color: blue;
 }`
+
+= How can I style the shortcode testimonials? =
+
+Using my own testimonials page, http://typo3vagabond.com/typo3-vagabond-testimonials/, as the example.
+
+Each shortcode testimonial is wrapped by a `div` using classes `testimonialswidget_testimonial testimonialswidget_testimonial_list`. As such, to increase spacing between testimonials, try…
+
+`
+.testimonialswidget_testimonial_list {
+padding-bottom: 1em;
+}
+`
+Making the citation line a different color is a little trickier. The reason being is that applying a color to `.testimonialswidget_testimonial cite` will change the entire citation line in the widget display as well. To only change the shortcode testimonial citation color, try…
+
+`
+.testimonialswidget_testimonial_list cite {
+color: blue;
+}
+`
+If you're wanting to change only the source (URL/email address) color, then try.
+
+`
+.testimonialswidget_testimonial_list cite .testimonialswidget_source  {
+color: purple;
+}
+`
+Like wise, the author uses class `testimonialswidget_author` and join ", " uses class `testimonialswidget_join`.
 
 = How to change the admin access level setting for the quotes collection admin page? =
 
