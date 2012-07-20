@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 0.2.10
+Stable tag: 0.2.11
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
@@ -40,9 +40,10 @@ You can make a simple client or portfolio rotator by using the testimonial field
 	* hide_author - default show; hide_author=true
 	* hide_source - default show; hide_source=true
 	* ids - default none; ids=2 or ids="2,4,6"
-	* limit - default no limit; limit=10
+	* limit - default none; limit=10
 	* random - default newest first; random=true
 	* tags - default none; tags=fire or tags="fire,water"
+	* char_limit - default none; char_limit=200
 * [testimonialswidget_list] Examples
 	* [testimonialswidget_list hide_author=true hide_source=true] 
 	* [testimonialswidget_list tags="test,fun" limit=1]
@@ -168,6 +169,9 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 ==Changelog==
 = trunk =
 -
+
+= 0.2.11 =
+* Enable character limit for shortcode
 
 = 0.2.10 =
 * Character limit nows forces text truncation than preventing of testimonial to show
