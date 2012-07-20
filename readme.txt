@@ -3,8 +3,8 @@ Contributors: comprock, j0hnsmith
 Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: testimonial, testimonials, quote, quotes, quotations, random quote, sidebar, widget
 Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 0.2.9
+Tested up to: 3.4.1
+Stable tag: 0.2.10
 
 Testimonials widget plugin allows you display testimonials in a widget on your WordPress blog.
 
@@ -30,7 +30,8 @@ You can make a simple client or portfolio rotator by using the testimonial field
 	* Choose random or sequential order for refresh
 	* Show only quotes with certain tags
 	* Show only quotes with all tags
-	* Specify a character limit to filter out longer quotes
+	* Specify a character limit to filter out longer quotes - 0 means no limit
+	* Limit number of testimonials to pull at a time - 0 means no limit
 * Allows for multiple widgets. Useful for using tags to keep widgets separated.
 * Compatible with WordPress 3.0 multi-site functionality.
 
@@ -167,6 +168,12 @@ Change the value of the variable `$testimonialswidget_admin_userlevel` on line 3
 ==Changelog==
 = trunk =
 -
+
+= 0.2.10 =
+* Character limit nows forces text truncation than preventing of testimonial to show
+* Add option - Limit number of testimonials to pull at a time
+* Sanitize widget variables
+* Fix random_order issue on testimonials widget
 
 = 0.2.9 =
 * Require Editor role for managing Testimonials

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials Widget 0.2.3\n"
+"Project-Id-Version: Testimonials Widget 0.2.10\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2012-02-20 09:21:45+00:00\n"
+"POT-Creation-Date: 2012-07-20 06:19:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -212,82 +212,90 @@ msgid ""
 "your WordPress blog."
 msgstr ""
 
-#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 0.2.3)  #-#-#-#-#
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 0.2.10)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: testimonials-widget-widget.php:30
 msgid "Testimonials Widget"
 msgstr ""
 
-#: testimonials-widget-widget.php:82
-msgid "none"
-msgstr ""
-
-#: testimonials-widget-widget.php:99
+#: testimonials-widget-widget.php:90
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials-widget-widget.php:123
+#: testimonials-widget-widget.php:115
 msgid "Title"
 msgstr ""
 
-#: testimonials-widget-widget.php:124
+#: testimonials-widget-widget.php:116
 msgid "Minimum Height"
 msgstr ""
 
-#: testimonials-widget-widget.php:124
+#: testimonials-widget-widget.php:116
 msgid ""
 "Minimum height in px, this must be set to a value that suits your logest "
 "testimonial (increase this value if you find that your testimonials are "
 "getting cut off)."
 msgstr ""
 
-#: testimonials-widget-widget.php:125
+#: testimonials-widget-widget.php:117
 msgid "Show author?"
 msgstr ""
 
-#: testimonials-widget-widget.php:126
+#: testimonials-widget-widget.php:118
 msgid "Show source?"
 msgstr ""
 
-#: testimonials-widget-widget.php:127
+#: testimonials-widget-widget.php:119
 msgid "Advanced options"
 msgstr ""
 
-#: testimonials-widget-widget.php:129
+#: testimonials-widget-widget.php:121
 msgid "Refresh Interval"
 msgstr ""
 
-#: testimonials-widget-widget.php:129
+#: testimonials-widget-widget.php:121
 msgid "In seconds or 0 for no refresh."
 msgstr ""
 
-#: testimonials-widget-widget.php:130
+#: testimonials-widget-widget.php:122
 msgid "Random order"
 msgstr ""
 
-#: testimonials-widget-widget.php:130
+#: testimonials-widget-widget.php:122
 msgid ""
 "Unchecking this will rotate testimonials in the order added, latest first."
 msgstr ""
 
-#: testimonials-widget-widget.php:131
+#: testimonials-widget-widget.php:123
 msgid "Tags filter"
 msgstr ""
 
-#: testimonials-widget-widget.php:131
+#: testimonials-widget-widget.php:123
 msgid "Comma separated"
 msgstr ""
 
-#: testimonials-widget-widget.php:132
+#: testimonials-widget-widget.php:124
 msgid "Require all tags"
 msgstr ""
 
-#: testimonials-widget-widget.php:132
+#: testimonials-widget-widget.php:124
 msgid "Checking this will select only testimonials with all of the given tags."
 msgstr ""
 
-#: testimonials-widget-widget.php:133
+#: testimonials-widget-widget.php:125
 msgid "Character limit"
+msgstr ""
+
+#: testimonials-widget-widget.php:125
+msgid "Number of characters to limit testimonial views to. Zero means no limit"
+msgstr ""
+
+#: testimonials-widget-widget.php:126
+msgid "Limit"
+msgstr ""
+
+#: testimonials-widget-widget.php:126
+msgid "Number of testimonials to pull at a time. Zero means no limit"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -297,5 +305,9 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "comprock, j0hnsmith"
+msgid "Michael Cannon"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://typo3vagabond.com/about-typo3-vagabond/hire-michael/"
 msgstr ""

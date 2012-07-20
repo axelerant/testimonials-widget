@@ -38,30 +38,22 @@ class testimonials_widget extends WP_Widget {
 
 		/* Our variables from the widget settings. */
 		$title = apply_filters('the_title', $instance['title']);
-		$min_height = $instance['min_height'];
-		$show_author = $instance['show_author'];
-		$show_source = $instance['show_source'];
-		$random_order = $instance['random_order'];
-		$tags_all = $instance['tags_all'];
-		$refresh_interval = $instance['refresh_interval'];
-		$char_limit = $instance['char_limit'];
-		$tags = $instance['tags'];
 
-		$testimonials = testimonialswidget_display_testimonials($title, $random_order, $min_height, $refresh_interval, $show_source, $show_author, $tags, $char_limit, $this->number, $tags_all);
+		$testimonials = testimonialswidget_display_testimonials( $instance, $this->number );
 
 		/* Before widget (defined by themes). */
-			echo $before_widget;
+		echo $before_widget;
 
 		/* Display the widget title if one was input (before and after defined by themes). */
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
 		/* Display Widget */
-			echo $testimonials;
+		echo $testimonials;
 
 		/* After widget (defined by themes). */
-			echo $after_widget;
-		}
+		echo $after_widget;
+	}
 
 	/* ---------------------------- */
 	/* ------- Update Widget -------- */
@@ -69,17 +61,16 @@ class testimonials_widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
-		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
-		$instance['min_height'] = strip_tags(stripslashes($new_instance['min_height']));
-		$instance['show_author'] = (isset($new_instance['show_author']) && $new_instance['show_author'])?1:0;
-		$instance['show_source'] = (isset($new_instance['show_source']) && $new_instance['show_source'])?1:0;
-		$instance['refresh_interval'] = strip_tags(stripslashes($new_instance['refresh_interval']));
-		$instance['random_order'] = (isset($new_instance['random_order']) && $new_instance['random_order'])?1:0;
+		$instance['title'] = wp_kses_data($new_instance['title']);
+		$instance['min_height'] = intval($new_instance['min_height']);
+		$instance['show_author'] = (isset($new_instance['show_author']) && $new_instance['show_author']) ? true : false;
+		$instance['show_source'] = (isset($new_instance['show_source']) && $new_instance['show_source']) ? true : false;
+		$instance['refresh_interval'] = intval($new_instance['refresh_interval']);
+		$instance['random_order'] = (isset($new_instance['random_order']) && $new_instance['random_order']) ? true : false;
 		$instance['tags_all'] = (isset($new_instance['tags_all']) && $new_instance['tags_all'])?1:0;
-		$instance['tags'] = strip_tags(stripslashes($new_instance['tags']));
-		$instance['char_limit'] = strip_tags(stripslashes($new_instance['char_limit']));
-		if(!$instance['char_limit'])
-			$instance['char_limit'] = __('none', 'testimonials-widget');
+		$instance['tags'] = wp_filter_nohtml_kses($new_instance['tags']);
+		$instance['char_limit'] = intval($new_instance['char_limit']);
+		$instance['limit'] = intval($new_instance['limit']);
 
 		return $instance;
 	}
@@ -104,7 +95,8 @@ class testimonials_widget extends WP_Widget {
 			'tags_all' => 0,
 			'refresh_interval' => 10,
 			'tags' => '',
-			'char_limit' => 500
+			'char_limit' => 500,
+			'limit' => 10
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -130,7 +122,8 @@ class testimonials_widget extends WP_Widget {
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'random_order' ).'" name="'.$this->get_field_name( 'random_order' ).'" value="1"'.$random_order_checked.' /> <label for="'.$this->get_field_id( 'random_order' ).'">'.__('Random order', 'testimonials-widget').'</label><br/><span class="setting-description"><small>'.__('Unchecking this will rotate testimonials in the order added, latest first.', 'testimonials-widget').'</small></span></p>';
 		echo '<p><label for="'.$this->get_field_id( 'tags' ).'">'.__('Tags filter', 'testimonials-widget').' </label><input class="widefat" type="text" id="'.$this->get_field_id( 'tags' ).'" name="'.$this->get_field_name( 'tags' ).'" value="'.htmlspecialchars($instance['tags'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__('Comma separated', 'testimonials-widget').'</small></span></p>';
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'tags_all' ).'" name="'.$this->get_field_name( 'tags_all' ).'" value="1"'.$tags_all_checked.' /> <label for="'.$this->get_field_id( 'tags_all' ).'">'.__('Require all tags', 'testimonials-widget').'</label><br/><span class="setting-description"><small>'.__('Checking this will select only testimonials with all of the given tags.', 'testimonials-widget').'</small></span></p>';
-		echo '<p><label for="'.$this->get_field_id( 'char_limit' ).'">'.__('Character limit', 'testimonials-widget').' </label><input class="widefat" type="text" id="'.$this->get_field_id( 'char_limit' ).'" name="'.$this->get_field_name( 'char_limit' ).'" value="'.htmlspecialchars($instance['char_limit'], ENT_QUOTES).'" /></p>';
+		echo '<p><label for="'.$this->get_field_id( 'char_limit' ).'">'.__('Character limit', 'testimonials-widget').' </label><input class="widefat" type="text" id="'.$this->get_field_id( 'char_limit' ).'" name="'.$this->get_field_name( 'char_limit' ).'" value="'.htmlspecialchars($instance['char_limit'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__('Number of characters to limit testimonial views to. Zero means no limit', 'testimonials-widget').'</small></span></p>';
+		echo '<p><label for="'.$this->get_field_id( 'limit' ).'">'.__('Limit', 'testimonials-widget').' </label><input class="widefat" type="text" id="'.$this->get_field_id( 'limit' ).'" name="'.$this->get_field_name( 'limit' ).'" value="'.htmlspecialchars($instance['limit'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__('Number of testimonials to pull at a time. Zero means no limit', 'testimonials-widget').'</small></span></p>';
 		echo '</div>';
 	}
 }

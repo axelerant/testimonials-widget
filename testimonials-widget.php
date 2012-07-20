@@ -2,14 +2,13 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.9
+Version: 0.2.10
 Author: Michael Cannon
 Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 License: GPL2
  */
 
 /*  Copyright 2012 Michael Cannon
-	Copyright 2011 j0hnsmith
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -56,14 +55,10 @@ require_once('testimonials-widget-widget.php');
 require_once('testimonials-widget-admin.php');
 
 
-function testimonialswidget_display_testimonials($title = '', $random = 1, $min_height, $refresh_interval = 10, $show_source = 0, $show_author = 1, $tags = '', $char_limit = 500, $widget_number = '', $tags_all = 0) {
-	$conditions = " WHERE public = 'yes'";
+function testimonialswidget_display_testimonials( $args, $widget_number = '' ) {
+	extract( $args );
 
-	if($char_limit && is_numeric($char_limit)) {
-		$conditions .= " AND CHAR_LENGTH(testimonial) <= ".$char_limit;
-	} else {
-		$options['char_limit'] = 0;
-	}
+	$conditions = " WHERE public = 'yes'";
 
 	if($tags) {
 		$taglist = explode(',', $tags);
@@ -82,11 +77,14 @@ function testimonialswidget_display_testimonials($title = '', $random = 1, $min_
 		$conditions .= " AND ({$tag_conditions})";
 	}
 
-	if($random) {
+	if($random_order) {
 		$conditions .= " ORDER BY RAND()";
 	} else {
 		$conditions .= " ORDER BY testimonial_id DESC";
 	}
+
+	if ( $limit )
+		$conditions				.= " LIMIT {$limit}";
 
 	if ( 0 == $refresh_interval )
 		$conditions .= " LIMIT 1";
@@ -129,7 +127,16 @@ EOF;
 	$html .= '<div class="'.$id.' '.$id_base.'">';
 	$first = true;
 
+	if( $char_limit && is_numeric($char_limit) ) {
+		$char_limit				= intval( $char_limit );
+	} else {
+		$char_limit				= false;
+	}
+
 	foreach ($testimonials as $testimonial) {
+		if( $char_limit ) {
+			$testimonial['testimonial']	= testimonialswidget_truncate( $testimonial['testimonial'], $char_limit );
+		}
 
 		if (!$first) {
 			$html .= '<div class="testimonialswidget_testimonial">';
@@ -277,7 +284,7 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 		$conditions				.= " AND ({$tag_conditions})";
 	}
 
-	if($random) {
+	if ( $random ) {
 		$conditions				.= " ORDER BY RAND()";
 	} else {
 		$conditions				.= " ORDER BY testimonial_id DESC";
@@ -318,5 +325,19 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 }
 
 add_shortcode('testimonialswidget_list', 'testimonialswidget_list_shortcode'); 
+
+// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
+function testimonialswidget_truncate( $string, $char_limit, $break = ' ', $pad = '…' ) {
+	// return with no change if string is shorter than $char_limit
+	if( strlen( $string ) <= $char_limit )
+		return $string;
+
+	$string						= substr( $string, 0, $char_limit );
+	if( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
+		$string					= substr( $string, 0, $breakpoint );
+	}
+
+	return $string . $pad;
+}
 
 ?>
