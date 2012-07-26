@@ -1,55 +1,58 @@
-/* Random quote */
-.testimonialswidget_testimonial q {
-}
-
-.testimonialswidget_testimonial cite {
-	display:block; /* To display author and source in a new line */
-	text-align:right; 
-}
-
-.testimonialswidget_testimonial { /* author */
-	font-style:normal;
-}
-
-.testimonialswidget_testimonial { /* source */
-	font-style: italic;
-}
-
-
-/* See http://www.w3schools.com/css/pr_gen_quotes.asp */
-q:lang(en)
-{
-	quotes: "“" "”" "‘" "’";
-}
-
-/* Uncomment the block below if you want to get rid of the quotation marks before and after the quote */
-/*
-q:before, q:after {
-content:"";
-}
- */
-
-.testimonialswidget_testimonials { 
-	position: relative;
-}
-.testimonialswidget_testimonial { 
-	position: absolute; 
-	top: 0;
-	left: 0;
-	display: none;
-}
-.testimonialswidget_testimonials .testimonialswidget_active {
-	display: block;
-}
-.testimonialswidget_testimonials p {
-	margin: 0 0 1em;
-}
 h4.testimonialswidget {
 	margin: 0;
 }
+
+.testimonialswidget_testimonials { 
+	/* quotes wrapper */
+	position: relative;
+}
+
+.testimonialswidget_testimonials .testimonialswidget_active {
+	/* active quote */
+	display: block;
+}
+
+.testimonialswidget_testimonial {
+	display: none;
+	left: 0;
+	margin: 0 0 1em;
+	position: absolute; 
+	top: 0;
+	width: 100%;
+}
+
+.testimonialswidget_testimonial q {
+	/* the quote */
+	quotes: "“" "”" "‘" "’";
+	/* Uncomment the block below if you want to get rid of the quotation marks before and after the quote */
+	/*
+	quotes: none;
+	*/
+}
+
+.testimonialswidget_testimonial cite {
+	/* outer wrapper for author & source */
+	display: block; /* To display author and source in a new line */
+	text-align: right; 
+}
+
+.testimonialswidget_testimonial .testimonialswidget_author {
+	/* quote author */
+	font-style: normal;
+}
+
+.testimonialswidget_testimonial .testimonialswidget_join {
+	/* join text */
+}
+
+.testimonialswidget_testimonial .testimonialswidget_source {
+	/* quote source */
+	font-style: italic;
+}
+
 .testimonialswidget_testimonial_list { 
+	display: block;
+	left: initial;
 	position: relative; 
 	top: initial;
-	left: initial;
-	display: block;
 }

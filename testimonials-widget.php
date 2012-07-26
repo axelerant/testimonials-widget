@@ -2,7 +2,7 @@
 /*
 Plugin Name: Testimonials Widget
 Description: Testimonial widget plugin helps you display testimonials in a sidebar on your WordPress blog.
-Version: 0.2.12
+Version: 0.2.13
 Author: Michael Cannon
 Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 License: GPL2
@@ -144,7 +144,7 @@ EOF;
 			$html .= '<div class="testimonialswidget_testimonial testimonialswidget_active">';
 			$first = false;
 		}
-		$html .= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
+		$html .= "<q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
 		$cite = '';
 		if($show_author && ! empty( $testimonial['author'] ) )
 			$cite = '<span class="testimonialswidget_author">'. make_clickable( $testimonial['author'] ) .'</span>';
@@ -154,7 +154,7 @@ EOF;
 			$cite .= '<span class="testimonialswidget_source">'. make_clickable( $testimonial['source'] ) .'</span>';
 		}
 		if($cite) $cite = " <cite>&mdash;&nbsp;{$cite}</cite>";
-		$html .= $cite."</p></div>";
+		$html .= $cite."</div>";
 
 	}
 	$html .= '</div>';
@@ -309,7 +309,7 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 		}
 
 		$html					.= '<div class="testimonialswidget_testimonial testimonialswidget_testimonial_list">';
-		$html					.= "<p><q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
+		$html					.= "<q>". make_clickable( $testimonial['testimonial'] ) ."</q>";
 
 		$cite					= '';
 		if($show_author && ! empty( $testimonial['author'] ) )
@@ -325,7 +325,7 @@ function testimonialswidget_list_shortcode($atts, $content = null) {
 		if($cite)
 			$cite				= " <cite>&mdash;&nbsp;{$cite}</cite>";
 
-		$html					.= $cite."</p></div>";
+		$html					.= $cite."</div>";
 	}
 
 	$html						.= '</div>';
