@@ -23,8 +23,7 @@ h4.testimonialswidget {
 
 .testimonialswidget_testimonial q {
 	/* the quote */
-	quotes: "“" "”" "‘" "’";
-	/* Uncomment the block below if you want to get rid of the quotation marks before and after the quote */
+	/* Remove quotes by uncommenting the following */
 	/*
 	quotes: none;
 	*/
