@@ -37,7 +37,7 @@ class testimonials_widget extends WP_Widget {
 		extract( $args );
 
 		/* Our variables from the widget settings. */
-		$title = apply_filters('the_title', $instance['title'], null);
+		$title = apply_filters('widget_title', $instance['title'], null);
 
 		$testimonials = testimonialswidget_display_testimonials( $instance, $this->number );
 
