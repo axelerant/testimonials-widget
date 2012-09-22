@@ -4,23 +4,25 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
+License: GPLv2 or later
 
-Testimonials Widget plugin allows you to display random, rotating quotes or other content with images on your WordPress blog. You can insert content via widgets, shortcode or a theme function with multiple selection and display options.
+Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
 
 
 == Description ==
 
-Testimonials Widget plugin allows you to display random, rotating quotes or other content with images on your WordPress blog. You can insert content via widgets, shortcode or a theme function with multiple selection and display options.
+Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, testimonials, or other text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options to include random or specific ordering.
 
-More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type based upon your desired categories, tags, and other selection options. Furthermore, you can choose to display a short or long list or rotation of testimonials. Additionally, each Testimonal Widget has its own CSS identifier for custom styling.
+More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Also, each Testimonal Widget has its own CSS identifier for custom styling.
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you also select only Portfolio testimonials, but then allow web and media tags.
 
 = Features =
 * Admin interface to add, edit and manage testimonials
 * Auto-migration from old custom table to new custom post type
-	* Company, URL and email details attempted to be identified and placed properly
+	* Company, URL and email details are attempted to be identified and placed properly
+	* Public testimonials are saved as Published. Non-public, are marked as Private.
 * Compatible with WordPress multi-site
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
@@ -114,9 +116,27 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' widget into the desired widget area
 1. Configure the Testimonial Widget to select quotes and display as needed
-1. Alternately, use the `[testimonialswidget_list]` to display on a page or in a post
-1. Or use `<?php echo do_shortcode("[testimonialswidget_list]"); ?>` to pull testimonials into your theme
-1. Or read the description for `testimonialswidget_list()` theme function usage
+1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` to display testimonials on a page or in a post
+1. Or read the description for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
+
+
+== Upgrade Notice ==
+
+= Version 2.0.0 =
+* CSS
+	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
+	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
+	* The tighten widget display up, p tags within q are displayed inline.
+* Shortcode options
+	* `hide_source` replaced by `hide_url`
+	* `hide_author` replaced by `hide_source`
+* Testimonials
+	* Migration from the old custom table to new custom post type is automatically done. Import might take a few moments to complete.
+	* Company, URL and email details are attempted to be identified and placed properly based upon the original author and source fields. The company is "guessed" from the `author` field when there's a ", " or " of " context. If the `source` is an email, it's saved as such. Otherwise, it's assumed to be a URL.
+	* Public testimonials are saved as Published. Non-public testimonials are marked as Private.
+* Widget options
+	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
+	* Default `min-height` is now 250px than 150px.
 
 
 == Frequently Asked Questions ==
@@ -169,7 +189,7 @@ If you're not seeing any testimonials, even when not using tags filter, you migh
 The easiest thing is to check the source code of your page with the widget and look for the testimonial widgets div container id tag. It'll be something like `id="testimonials_widget-3"`.
 
 = How to stop testimonial text being cut off in the widget? =
-Specify a larger minimum height in the testimonials widget, see screenshot 2.
+Specify a larger minimum height in the testimonials widget, see screenshot 3.
 
 = How to get rid of the quotation marks that surround the random quote? =
 `
@@ -251,24 +271,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 1. Testimonials admin interface
 2. Edit testimonial
 3. Testimonials Widget options - top
-4. [testimonialswidget_widget] in post and testimonial widget in the sidebar 
-5. [testimonialswidget_list] in post
-6. [testimonialswidget_list] results
-7. Testimonials Widget options - bottom
+4. Testimonials Widget options - bottom
+5. [testimonialswidget_widget] in post and testimonial widget in the sidebar 
+6. [testimonialswidget_list] in post
+7. [testimonialswidget_list] results
 	
-
-== Upgrade Notice ==
-
-= Version 2.0.0 =
-* CSS
-	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
-	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
-* Shortcode options
-	* `hide_source` replaced by `hide_url`
-	* `hide_author` replaced by `hide_source`
-* Widget options
-	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
-
 
 == TODO ==
 
@@ -297,6 +304,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 -
+
+= 2.0.1 =
+* Verbiage updates
+* Readme.txt validation
+* widget q p tag display inline
+* GPL2 licensing
+* Move upgrade notice text towards installation
+* Reorder screenshots
 
 = 2.0.0 =
 * Major rewrite

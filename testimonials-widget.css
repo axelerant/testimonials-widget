@@ -36,6 +36,10 @@
 	*/
 }
 
+.widget .testimonialswidget_testimonial q p {
+	display: inline;
+}
+
 .testimonialswidget_testimonial cite {
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
