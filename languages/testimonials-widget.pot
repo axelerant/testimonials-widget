@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials Widget 0.2.10\n"
+"Project-Id-Version: Testimonials Widget 2.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2012-07-20 06:19:51+00:00\n"
+"POT-Creation-Date: 2012-09-22 16:47:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,296 +12,280 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: testimonials-widget-admin.php:72
-msgid "Go to the first page"
+#: lib/testimonials-widget-widget.php:27
+msgid "Display testimonials with multiple selection and display options"
 msgstr ""
 
-#: testimonials-widget-admin.php:73
-msgid "Go to the previous page"
-msgstr ""
-
-#: testimonials-widget-admin.php:75
-msgid "Go to the next page"
-msgstr ""
-
-#: testimonials-widget-admin.php:76
-msgid "Go to the last page"
-msgstr ""
-
-#: testimonials-widget-admin.php:80
-msgid "Goto page:"
-msgstr ""
-
-#: testimonials-widget-admin.php:96
-msgid "Nothing added to the database."
-msgstr ""
-
-#: testimonials-widget-admin.php:100 testimonials-widget-admin.php:136
-msgid "Database table not found"
-msgstr ""
-
-#: testimonials-widget-admin.php:123 testimonials-widget-admin.php:164
-#: testimonials-widget-admin.php:178
-msgid "There was an error in the MySQL query"
-msgstr ""
-
-#: testimonials-widget-admin.php:125
-msgid "Testimonial added"
-msgstr ""
-
-#: testimonials-widget-admin.php:131
-msgid "Testimonial not updated."
-msgstr ""
-
-#: testimonials-widget-admin.php:166
-msgid "Changes saved"
-msgstr ""
-
-#: testimonials-widget-admin.php:180
-msgid "Testimonial deleted"
-msgstr ""
-
-#: testimonials-widget-admin.php:182
-msgid "The testimonial cannot be deleted"
-msgstr ""
-
-#: testimonials-widget-admin.php:198 testimonials-widget-admin.php:300
-msgid "Add Testimonial"
-msgstr ""
-
-#: testimonials-widget-admin.php:215 testimonials-widget-admin.php:304
-msgid "Save changes"
-msgstr ""
-
-#: testimonials-widget-admin.php:216
-msgid "Back"
-msgstr ""
-
-#: testimonials-widget-admin.php:220 testimonials-widget-admin.php:459
-msgid "The testimonial"
-msgstr ""
-
-#: testimonials-widget-admin.php:221 testimonials-widget-admin.php:443
-#: testimonials-widget-admin.php:461
-msgid "Author"
-msgstr ""
-
-#: testimonials-widget-admin.php:222 testimonials-widget-admin.php:444
-#: testimonials-widget-admin.php:461
-msgid "Source"
-msgstr ""
-
-#: testimonials-widget-admin.php:223 testimonials-widget-admin.php:463
-msgid "Tags"
-msgstr ""
-
-#: testimonials-widget-admin.php:224 testimonials-widget-admin.php:464
-msgid "Public?"
-msgstr ""
-
-#: testimonials-widget-admin.php:225
-msgid "optional"
-msgstr ""
-
-#: testimonials-widget-admin.php:226
-msgid "email address or website URL"
-msgstr ""
-
-#: testimonials-widget-admin.php:227
-msgid "comma separated"
-msgstr ""
-
-#: testimonials-widget-admin.php:264 testimonials-widget-admin.php:280
-msgid "Nothing done!"
-msgstr ""
-
-#: testimonials-widget-admin.php:272
-msgid "Selected testimonials made public"
-msgstr ""
-
-#: testimonials-widget-admin.php:274
-msgid "Selected testimonials made private"
-msgstr ""
-
-#: testimonials-widget-admin.php:285
-msgid "Testimonial(s) deleted"
-msgstr ""
-
-#: testimonials-widget-admin.php:311
-msgid "Edit testimonial"
-msgstr ""
-
-#: testimonials-widget-admin.php:337 testimonials-widget-admin.php:346
-#: testimonials-widget-admin.php:483
-msgid "Add new testimonial"
-msgstr ""
-
-#: testimonials-widget-admin.php:342 testimonials-widget-admin.php:479
-msgid "No testimonials in the database"
-msgstr ""
-
-#: testimonials-widget-admin.php:412
-msgid "Edit"
-msgstr ""
-
-#: testimonials-widget-admin.php:412
-msgid "Are you sure you want to delete this testimonial?"
-msgstr ""
-
-#: testimonials-widget-admin.php:412 testimonials-widget-admin.php:433
-msgid "Delete"
-msgstr ""
-
-#: testimonials-widget-admin.php:419
-msgid "No"
-msgstr ""
-
-#: testimonials-widget-admin.php:420
-msgid "Yes"
-msgstr ""
-
-#: testimonials-widget-admin.php:432
-msgid "Bulk Actions"
-msgstr ""
-
-#: testimonials-widget-admin.php:434
-msgid "Make public"
-msgstr ""
-
-#: testimonials-widget-admin.php:435
-msgid "Keep private"
-msgstr ""
-
-#: testimonials-widget-admin.php:437
-msgid "Apply"
-msgstr ""
-
-#: testimonials-widget-admin.php:439
-msgid "Sort by: "
-msgstr ""
-
-#: testimonials-widget-admin.php:441 testimonials-widget-admin.php:442
-msgid "Testimonial"
-msgstr ""
-
-#: testimonials-widget-admin.php:445
-msgid "Date added"
-msgstr ""
-
-#: testimonials-widget-admin.php:446
-msgid "Date updated"
-msgstr ""
-
-#: testimonials-widget-admin.php:447
-msgid "Visibility"
-msgstr ""
-
-#: testimonials-widget-admin.php:450
-msgid "Go"
-msgstr ""
-
-#: testimonials-widget-admin.php:452 testimonials-widget-admin.php:470
-msgid "%d testimonials"
-msgid_plural "%d testimonials"
-msgstr[0] ""
-msgstr[1] ""
-
-#: testimonials-widget-widget.php:24
-msgid ""
-"Testimonial widget plugin allows you display testimonials in a sidebar on "
-"your WordPress blog."
-msgstr ""
-
-#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 0.2.10)  #-#-#-#-#
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.0.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: testimonials-widget-widget.php:30
+#: lib/testimonials-widget-widget.php:38
 msgid "Testimonials Widget"
 msgstr ""
 
-#: testimonials-widget-widget.php:90
+#: lib/testimonials-widget-widget.php:93 testimonials-widget.php:214
+#: testimonials-widget.php:235
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials-widget-widget.php:115
+#: lib/testimonials-widget-widget.php:96
 msgid "Title"
 msgstr ""
 
-#: testimonials-widget-widget.php:116
-msgid "Minimum Height"
+#: lib/testimonials-widget-widget.php:98
+msgid "Category filter"
 msgstr ""
 
-#: testimonials-widget-widget.php:116
-msgid ""
-"Minimum height in px, this must be set to a value that suits your logest "
-"testimonial (increase this value if you find that your testimonials are "
-"getting cut off)."
+#: lib/testimonials-widget-widget.php:98
+msgid "Comma separated category slug-names"
 msgstr ""
 
-#: testimonials-widget-widget.php:117
-msgid "Show author?"
-msgstr ""
-
-#: testimonials-widget-widget.php:118
-msgid "Show source?"
-msgstr ""
-
-#: testimonials-widget-widget.php:119
-msgid "Advanced options"
-msgstr ""
-
-#: testimonials-widget-widget.php:121
-msgid "Refresh Interval"
-msgstr ""
-
-#: testimonials-widget-widget.php:121
-msgid "In seconds or 0 for no refresh."
-msgstr ""
-
-#: testimonials-widget-widget.php:122
-msgid "Random order"
-msgstr ""
-
-#: testimonials-widget-widget.php:122
-msgid ""
-"Unchecking this will rotate testimonials in the order added, latest first."
-msgstr ""
-
-#: testimonials-widget-widget.php:123
+#: lib/testimonials-widget-widget.php:100
 msgid "Tags filter"
 msgstr ""
 
-#: testimonials-widget-widget.php:123
-msgid "Comma separated"
+#: lib/testimonials-widget-widget.php:100
+msgid "Comma separated tag slug-names"
 msgstr ""
 
-#: testimonials-widget-widget.php:124
+#: lib/testimonials-widget-widget.php:102
 msgid "Require all tags"
 msgstr ""
 
-#: testimonials-widget-widget.php:124
-msgid "Checking this will select only testimonials with all of the given tags."
+#: lib/testimonials-widget-widget.php:102
+msgid "Select only testimonials with all of the given tags"
 msgstr ""
 
-#: testimonials-widget-widget.php:125
+#: lib/testimonials-widget-widget.php:104
+msgid "Advanced options"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:108
+msgid "Hide image?"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:110
+msgid "Hide source?"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:112
+msgid "Hide email?"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:114
+msgid "Hide company?"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:116
+msgid "Hide URL?"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:118
 msgid "Character limit"
 msgstr ""
 
-#: testimonials-widget-widget.php:125
-msgid "Number of characters to limit testimonial views to. Zero means no limit"
+#: lib/testimonials-widget-widget.php:118
+msgid "Number of characters to limit testimonial views to"
 msgstr ""
 
-#: testimonials-widget-widget.php:126
+#: lib/testimonials-widget-widget.php:120
+msgid "IDs filter"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:120
+msgid "Comma separated IDs"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:122
 msgid "Limit"
 msgstr ""
 
-#: testimonials-widget-widget.php:126
-msgid "Number of testimonials to pull at a time. Zero means no limit"
+#: lib/testimonials-widget-widget.php:122
+msgid "Number of testimonials to pull at a time"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:124
+msgid "Minimum Height"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:124
+msgid ""
+"Increase this value if your testimonials are getting cut off when displayed"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:126
+msgid "ORDER BY"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:126
+msgid "Used when Random order is disabled"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:128
+msgid "ORDER BY Order"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:128
+msgid "DESC or ASC"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:130
+msgid "Random order"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:130
+msgid ""
+"Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order "
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:132
+msgid "Refresh Interval"
+msgstr ""
+
+#: lib/testimonials-widget-widget.php:132
+msgid "In seconds or 0 for no refresh"
+msgstr ""
+
+#: testimonials-widget.php:191
+msgid "Image"
+msgstr ""
+
+#: testimonials-widget.php:192
+msgid "Source"
+msgstr ""
+
+#: testimonials-widget.php:193
+msgid "Shortcode"
+msgstr ""
+
+#: testimonials-widget.php:194 testimonials-widget.php:574
+msgid "Email"
+msgstr ""
+
+#: testimonials-widget.php:195 testimonials-widget.php:580
+msgid "Company"
+msgstr ""
+
+#: testimonials-widget.php:196 testimonials-widget.php:586
+msgid "URL"
+msgstr ""
+
+#: testimonials-widget.php:197
+msgid "Published by"
+msgstr ""
+
+#: testimonials-widget.php:198
+msgid "Category"
+msgstr ""
+
+#: testimonials-widget.php:199
+msgid "Tags"
+msgstr ""
+
+#: testimonials-widget.php:200
+msgid "Date"
+msgstr ""
+
+#: testimonials-widget.php:211
+msgid "New Testimonial"
+msgstr ""
+
+#: testimonials-widget.php:212 testimonials-widget.php:215
+msgid "Add New Testimonial"
+msgstr ""
+
+#: testimonials-widget.php:213
+msgid "Edit Testimonial"
+msgstr ""
+
+#: testimonials-widget.php:216 testimonials-widget.php:358
+msgid "No testimonials found"
+msgstr ""
+
+#: testimonials-widget.php:217
+msgid "No testimonials found in Trash"
+msgstr ""
+
+#: testimonials-widget.php:219
+msgid "Search Testimonials"
+msgstr ""
+
+#: testimonials-widget.php:220
+msgid "Testimonial"
+msgstr ""
+
+#: testimonials-widget.php:221
+msgid "View Testimonial"
+msgstr ""
+
+#: testimonials-widget.php:568
+msgid "Testimonial Data"
+msgstr ""
+
+#: testimonials-widget.php:612
+msgid "Enter title here"
+msgstr ""
+
+#: testimonials-widget.php:613
+msgid "Enter testimonial source here"
+msgstr ""
+
+#: testimonials-widget.php:637
+msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
+msgstr ""
+
+#: testimonials-widget.php:638
+msgid "Custom field updated."
+msgstr ""
+
+#: testimonials-widget.php:639
+msgid "Custom field deleted."
+msgstr ""
+
+#: testimonials-widget.php:640
+msgid "Testimonial updated."
+msgstr ""
+
+#. translators: %s: date and time of the revision
+#: testimonials-widget.php:642
+msgid "Testimonial restored to revision from %s"
+msgstr ""
+
+#: testimonials-widget.php:643
+msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
+msgstr ""
+
+#: testimonials-widget.php:644
+msgid "Testimonial saved."
+msgstr ""
+
+#: testimonials-widget.php:645
+msgid ""
+"Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
+"a>"
+msgstr ""
+
+#: testimonials-widget.php:646
+msgid ""
+"Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview testimonial</a>"
+msgstr ""
+
+#: testimonials-widget.php:647
+msgid ""
+"Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
+"testimonial</a>"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/testimonials-widget/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Testimonial widget plugin helps you display testimonials in a sidebar on "
-"your WordPress blog."
+"Testimonials Widget plugin allows you to display random, rotating quotes or "
+"other content with images on your WordPress blog. You can insert content via "
+"widgets, shortcode or a theme function with multiple selection and display "
+"options."
 msgstr ""
 
 #. Author of the plugin/theme
