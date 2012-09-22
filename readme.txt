@@ -297,8 +297,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 		* Number of refresh interations
 		* Widget options inherit from global
 	* Minimum height removal for widgets
+	* Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
+	* Next/Back buttons or click to advance - http://wordpress.org/support/topic/plugin-testimonials-widget-how-to-add-nextback-buttons-or-clickthrough
 	* Pagination when using shortcode
+	* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 	* Testimonial manual ordering
+	* Translate with WPML
 
 
 == Changelog ==
