@@ -313,6 +313,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Move upgrade notice text towards installation
 * Reorder screenshots
 * Apply 'the_content' filters directly to prevent plugin baggage
+* Update screenshot-7.png
 
 = 2.0.0 =
 * Major rewrite
