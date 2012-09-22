@@ -387,7 +387,11 @@ EOF;
 
 			$content			= $testimonial['testimonial_content'];
 			$content			= self::testimonials_truncate( $content, $char_limit );
-			$content			= apply_filters( 'the_content', $content );
+			$content			= apply_filters( 'wptexturize', $content );
+			$content			= apply_filters( 'convert_smilies', $content );
+			$content			= apply_filters( 'convert_chars', $content );
+			$content			= apply_filters( 'wpautop', $content );
+			$content			= apply_filters( 'shortcode_unautop', $content );
 			$content			= force_balance_tags( $content );
 			$content			= make_clickable( $content );
 

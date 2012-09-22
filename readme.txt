@@ -312,6 +312,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * GPL2 licensing
 * Move upgrade notice text towards installation
 * Reorder screenshots
+* Apply 'the_content' filters directly to prevent plugin baggage
 
 = 2.0.0 =
 * Major rewrite
