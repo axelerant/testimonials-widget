@@ -20,6 +20,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			'tags_all'			=> '',
 	);
 
+
 	public function Testimonials_Widget_Widget() {
 		// Widget settings
 		$widget_ops				= array(
@@ -39,6 +40,11 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$widget_ops,
 			$control_ops
 		);
+	}
+	
+	
+	public function get_testimonials_scripts() {
+		Testimonials_Widget::get_testimonials_scripts();
 	}
 
 

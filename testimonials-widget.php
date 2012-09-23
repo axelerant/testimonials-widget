@@ -347,7 +347,9 @@ EOF;
 </script>
 EOF;
 				self::$scripts[]	= $javascript;
-				add_action( 'wp_footer', 'Testimonials_Widget::get_testimonials_scripts', 20 );
+				// BUGFIX http://wordpress.org/support/topic/plugin-testimonials-widget-warning-call_user_func_array?replies=4#post-3193346
+				// add_action( 'wp_footer', 'Testimonials_Widget::get_testimonials_scripts', 20 );
+				add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
 			}
 
 			$html				.= '<div class="' . $id . ' ' . $id_base . '">';
