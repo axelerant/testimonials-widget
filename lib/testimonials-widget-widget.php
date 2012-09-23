@@ -87,7 +87,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['order']				= ( preg_match( '#^desc|asc$#i', $new_instance['order'] ) ) ? $new_instance['order'] : $this->defaults['order'];
 		$instance['orderby']			= ( preg_match( '#^\w+$#', $new_instance['orderby'] ) ) ? $new_instance['orderby'] : $this->defaults['orderby'];
 		$instance['random']				= ( 'true' == $new_instance['random'] ) ? 'true' : $this->defaults['random'];
-		$instance['refresh_interval']	= ( is_numeric( $new_instance['refresh_interval'] ) && 0 < $new_instance['refresh_interval'] ) ? intval( $new_instance['refresh_interval'] ) : $this->defaults['refresh_interval'];
+		$instance['refresh_interval']	= ( is_numeric( $new_instance['refresh_interval'] ) && 0 <= $new_instance['refresh_interval'] ) ? intval( $new_instance['refresh_interval'] ) : $this->defaults['refresh_interval'];
 		$instance['tags']				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $new_instance['tags'] ) ) ? $new_instance['tags'] : $this->defaults['tags'];
 		$instance['tags_all']			= ( 'true' == $new_instance['tags_all'] ) ? 'true' : $this->defaults['tags_all'];
 		$instance['title']				= wp_kses_data( $new_instance['title'] );
