@@ -84,13 +84,13 @@ Through categories and tagging, you can create organizational structures based u
 
 = Theme Function `testimonialswidget_list()` =
 * `<?php echo testimonialswidget_list( $args ); ?>`
-* `$args` is an array of the above [testimonialswidget_list] shortcode options
+* `$args` is an array of the above [testimonialswidget_list] shortcode options - optional
 
 = Theme Function `testimonialswidget_widget()` =
 * For calling the widget with rotation code into your theme directly
 * `<?php echo testimonialswidget_widget( $args, $number ); ?>`
-* `$args` is an array of the above [testimonialswidget_list] shortcode options
-* `$number` should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs
+* `$args` is an array of the above [testimonialswidget_list] shortcode options - optional
+* `$number` should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
 
 = Notes =
 * Default image size is based upon Thumbnail size in Media Settings 
@@ -307,6 +307,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Mark `testimonialswidget_widget() $number` argument as optional
 -
 
 = 2.0.4 =
