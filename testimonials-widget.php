@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.0.3
+	Version: 2.0.4
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -303,7 +303,7 @@ class Testimonials_Widget {
 		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
 		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 < $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
-		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 < $atts['refresh_interval'] ) ? intval( $atts['refresh_interval'] ) : 5;
+		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= $atts['refresh_interval'] ) ? intval( $atts['refresh_interval'] ) : 5;
 
 		$id = 'testimonialswidget_testimonials';
 
