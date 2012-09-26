@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.0.4
+	Version: 2.0.5
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -61,14 +61,26 @@ class Testimonials_Widget {
 	public function update() {
 		$options				= get_option( 'testimonialswidget' );
 
-		if ( ! empty( $options['migrated'] ) )
+		// testimonials already migrated?
+		if ( true === $options['migrated'] )
 			return;
 
 		global $wpdb;
 		$table_name				= $wpdb->prefix . 'testimonialswidget';
+		$meta_key				= '_' . self::pt . ':testimonial_id';
 
 		// check that db table exists and has entries
 		$query					= 'SELECT `testimonial_id`, `testimonial`, `author`, `source`, `tags`, `public`, `time_added`, `time_updated` FROM `' . $table_name . '`';
+
+		// ignore already imported
+		$done_import_query		= 'SELECT meta_value FROM ' . $wpdb->postmeta . ' WHERE meta_key = "' . $meta_key . '"';
+		$done_import			= $wpdb->get_col( $done_import_query );
+
+		if ( ! empty( $done_import ) ) {
+			$done_import		= array_unique( $done_import );
+			$query				.= " WHERE testimonial_id NOT IN ( " . implode( ',', $done_import ) . " )";
+		}
+
 		$results				= $wpdb->get_results( $query );
 		if( ! empty( $results ) ) {
 			foreach ( $results as $result ) {
@@ -113,7 +125,7 @@ class Testimonials_Widget {
 				$post_id		= wp_insert_post( $post_data, true );
 
 				// track/link testimonial import to new post
-				add_post_meta( $post_id, '_' . self::pt . ':testimonial_id', $result->testimonial_id );
+				add_post_meta( $post_id, $meta_key, $result->testimonial_id );
 
 				if ( ! empty( $company ) ) {
 					add_post_meta( $post_id, 'testimonials-widget-company', $company );
