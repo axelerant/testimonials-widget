@@ -68,7 +68,7 @@ Through categories and tagging, you can create organizational structures based u
 	* `hide_url` - default show; hide_url=true
 	* `ids` - default none; ids=2 or ids="2,4,6"
 	* `limit` - default 25; limit=10
-	* `min_height` - default 250; limit=100
+	* `min_height` - default 250; min_height=100
 	* `order` - default DESC; orderby=ASC
 	* `orderby` - default ID; order=post_date
 	* `random` - default newest first; random=true (overrides `order` and `orderby`)
