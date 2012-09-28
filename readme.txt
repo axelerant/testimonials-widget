@@ -391,12 +391,11 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Read More links to full testimonial page
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 * Testimonial manual ordering
-* Translate with WPML
 
 
 == Changelog ==
 = trunk =
-* Begin WPML efforts
+* Enable WPML
 -
 
 = 2.1.3 =
