@@ -154,14 +154,30 @@ Basically, look down the left side of your WordPress admin area for the Testimon
 = How do I change the image size? =
 The default image size is based upon Thumbnail size in Media Settings. If changing that doesn't work for you, then use `add_filter` in your theme to adjust the image size.
 
-`add_filter( 'testimonials_widget_image_size', array( 120, 90 ) );`
+`
+add_filter( 'testimonials_widget_image_size', 'my_testimonials_widget_image_size' );
+
+function my_testimonials_widget_image_size( $size ) {
+	$size						= array( 120, 90 );
+
+	return $size;
+}
+`
 
 You can use either a string keyword (thumbnail, medium, large or full) or a 2-item array representing width and height in pixels, e.g. array(32,32).
 
 = How do I change the Gravatar size? =
 Use an `add_filter` in your theme to adjust the Gravatar size.
 
-`add_filter( 'testimonials_widget_gravatar_size', 120 );`
+`
+add_filter( 'testimonials_widget_gravatar_size', 'my_testimonials_widget_gravatar_size' );
+
+function my_testimonials_widget_gravatar_size( $size ) {
+	$size						= 120;
+
+	return $size;
+}
+`
 
 Default Gravatar size is 96, maximum 512.
 
@@ -307,6 +323,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 	* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 	* Testimonial manual ordering
 	* Translate with WPML
+	* Working full testimonial URLs
 
 
 == Changelog ==
