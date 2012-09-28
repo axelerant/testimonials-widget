@@ -8,12 +8,18 @@
 	display: block;
 }
 
+.testimonialswidget_paging {
+	font-weight: bold;
+	clear: both;
+	height: 1.4em;
+}
+
 .testimonialswidget_testimonial {
 	clear: left;
 	display: none;
 	left: 0;
 	margin: 0;
-	margin-bottom: 1em;
+	margin-bottom: 1.4em;
 	position: absolute; 
 	top: 0;
 	width: 100%;
@@ -21,7 +27,7 @@
 
 .testimonialswidget_testimonial .testimonialswidget_image {
 	float: left;
-	margin-bottom: 1em;
+	margin-bottom: 1.4em;
 }
 
 .widget .testimonialswidget_testimonial .testimonialswidget_image {

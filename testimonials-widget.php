@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.0.6
+	Version: 2.1.0
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -27,23 +27,33 @@
  */
 
 
-// TODO
-// upgrade handling http://codex.localhost/Creating_Tables_with_Plugins
-
-
 class Testimonials_Widget {
+	const page_key				= 'twlpg';
 	const pt					= 'testimonials-widget';
+	private $max_num_pages		= 0;
+	private $post_count			= 0;
 	static $scripts				= array();
 	static $widget_number		= 100000;
 
 	public function __construct() {
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
-		add_action( 'init', array( &$this, 'init_post_type' ) );
+		add_action( 'init', array( &$this, 'init' ) );
 		add_action( 'widgets_init', array( &$this, 'init_widgets' ) );
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		add_theme_support( 'post-thumbnails' );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
+	}
+
+
+	public function init() {
+		self::init_post_type();
+	}
+
+
+	public function activation() {
+		self::init();
+		flush_rewrite_rules();
 	}
 
 
@@ -262,7 +272,7 @@ class Testimonials_Widget {
 			)
 		);
 
-		register_post_type( self::pt, $args );
+		register_post_type( Testimonials_Widget::pt, $args );
 	}
 
 
@@ -285,6 +295,8 @@ class Testimonials_Widget {
 
 		if ( empty( $widget_number ) )
 			$widget_number		= self::$widget_number++;
+
+		unset( $atts['paging'] );
 
 		$testimonials			= self::get_testimonials( $atts );
 		$content				= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -315,6 +327,7 @@ class Testimonials_Widget {
 		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
 		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 < $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
+		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= $atts['refresh_interval'] ) ? intval( $atts['refresh_interval'] ) : 5;
 
 		$id = 'testimonialswidget_testimonials';
@@ -372,6 +385,10 @@ EOF;
 				array( 'testimonial_content'	=>	__( 'No testimonials found' , 'testimonials-widget') )
 			);
 		}
+		
+		if ( $paging ) {
+			$html				.= self::get_testimonials_paging( $testimonials, $atts );
+		} 
 
 		$is_first				= true;
 
@@ -457,9 +474,97 @@ EOF;
 			$html				.= '</div>';
 		}
 
+		if ( $paging ) {
+			$html				.= self::get_testimonials_paging( $testimonials, $atts, false );
+		} 
+
 		$html					.= '</div>';
 
 		return $html;
+	}
+
+
+	public function get_testimonials_paging( $testimonials, $atts, $prepend = true ) {
+		$html					= '';
+
+		// if testimonials 1 or less, return
+		if ( is_home() || 1 === $this->max_num_pages ) {
+			return $html;
+		}
+
+		$html					.= '<div class="testimonialswidget_paging';
+
+		if ( $prepend ) {
+			$html				.= ' prepend';
+		} else {
+			$html				.= ' append';
+		}
+
+		$html					.= '">';
+
+		if ( ! empty( $_REQUEST[ self::page_key ] ) ) {
+			$paged				= intval( $_REQUEST[ self::page_key ] );
+		} else {
+			$paged				= 1;
+		}
+
+		$html					.= '	<div class="alignleft">';
+
+		if ( 1 < $paged ) {
+			$html				.= self::get_previous_posts_link( __( '&laquo;' ), $paged );
+		} else {
+			// $html				.= __( '&laquo;' );
+		}
+
+		$html					.= '	</div>';
+
+		$html					.= '	<div class="alignright">';
+
+		if ( $paged != $this->max_num_pages ) {
+			$html				.= self::get_next_posts_link( __( '&raquo;' ), $paged );
+		} else {
+			// $html				.= __( '&raquo;' );
+		}
+
+		$html					.= '	</div>';
+
+		$html					.= '</div>';
+
+		return $html;
+	}
+
+
+	function get_pagenum_link( $pagenum = 1 ) {
+		$request				= remove_query_arg( self::page_key );
+
+		if ( 1 != $pagenum ) {
+			$base				= trailingslashit( get_bloginfo( 'url' ) );
+			$request			= add_query_arg( self::page_key, $pagenum, $base . $request );
+		}
+
+		return esc_url( $request );
+	}
+
+
+	function get_previous_posts_link( $label, $paged = 1 ) {
+		if ( $paged > $this->max_num_pages ) {
+			return '<a href="' . $this->get_pagenum_link() . '">' . $label . '</a>';
+		} elseif ( $paged > 1 ) {
+			return '<a href="' . $this->get_pagenum_link( $paged - 1 ) . '">' . $label . '</a>';
+		} else {
+			return '';
+		}
+	}
+
+
+	function get_next_posts_link( $label, $paged = 1 ) {
+		$next_page				= intval( $paged ) + 1;
+
+		if ( $next_page <= $this->max_num_pages ) {
+			return '<a href="' . $this->get_pagenum_link( $next_page ) . '">' . $label . '</a>';
+		} else {
+			return '';
+		}
 	}
 
 
@@ -489,14 +594,13 @@ EOF;
 
 
 	public function get_testimonials( $atts ) {
-		// TODO caching based upon md5(serialized($atts
-
 		// selection attributes
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['category'] ) ) ? $atts['category'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)?$#', $atts['ids'] ) ) ? $atts['ids'] : false;
 		$limit					= ( is_numeric( $atts['limit'] ) && 0 < $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
+		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
 		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['tags'] ) ) ? $atts['tags'] : false;
 		$tags_all				= ( 'true' == $atts['tags_all'] ) ? true : false;
@@ -512,6 +616,10 @@ EOF;
 			'post_type'			=> self::pt,
 			'posts_per_page'	=> $limit,
 		);
+
+		if ( $paging && ! empty( $_REQUEST[ self::page_key ] ) ) {
+			$args['paged']		= intval( $_REQUEST[ self::page_key ] );
+		}
 
 		if ( $order ) {
 			$args['order']		= $order;
@@ -538,6 +646,9 @@ EOF;
 		}
 
 		$testimonials			= new WP_Query( $args );
+		$this->max_num_pages	= $testimonials->max_num_pages;
+		$this->post_count		= $testimonials->post_count	;
+
 		wp_reset_postdata();
 
 		$testimonial_data		= array();
@@ -672,5 +783,7 @@ EOF;
 
 
 $Testimonials_Widget			= new Testimonials_Widget();
+
+register_activation_hook( __FILE__, array( &$Testimonials_Widget, 'activation' ) );
 
 ?>

@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.0.6
+Stable tag: 2.1.0
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -35,7 +35,7 @@ Through categories and tagging, you can create organizational structures based u
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 * Testimonials Widget widget displays static and rotating testimonials 
-* [testimonialswidget_list] shortcode
+* [testimonialswidget_list] shortcode that supports paging
 * [testimonialswidget_widget] shortcode
 * Widget options
 	* Title
@@ -69,6 +69,7 @@ Through categories and tagging, you can create organizational structures based u
 	* `ids` - default none; ids=2 or ids="2,4,6"
 	* `limit` - default 25; limit=10
 	* `min_height` - default 250; min_height=100
+	* `paging` - default none; paging=true
 	* `order` - default DESC; orderby=ASC
 	* `orderby` - default ID; order=post_date
 	* `random` - default newest first; random=true (overrides `order` and `orderby`)
@@ -80,6 +81,7 @@ Through categories and tagging, you can create organizational structures based u
 	* [testimonialswidget_list tags="test,fun" random=true]
 	* [testimonialswidget_list category="product" tags="widget" limit=5]
 	* [testimonialswidget_list ids="1,11,111"]
+	* [testimonialswidget_list paging=true limit=10]
 * [testimonialswidget_widget] Examples
 	* [testimonialswidget_widget]
 	* [testimonialswidget_widget tags="sometag" random=true]
@@ -301,8 +303,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 		* Widget options inherit from global
 	* Minimum height removal for widgets
 	* Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
-	* Next/Back buttons or click to advance - http://wordpress.org/support/topic/plugin-testimonials-widget-how-to-add-nextback-buttons-or-clickthrough
-	* Pagination when using shortcode
 	* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 	* Testimonial manual ordering
 	* Translate with WPML
@@ -311,6 +311,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 -
+
+= 2.1.0 =
+* Enable paging for [testimonialswidget_list] shortcode
+* Flush rewrite rules on activation
+* Disallow paging in widget and [testimonialswidget_widget] shortcode
 
 = 2.0.6 =
 * Update shortcode option directions
