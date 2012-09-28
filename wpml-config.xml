@@ -1,0 +1,33 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="copy">quantity</custom-field>
+        <custom-field action="translate">custom-title</custom-field>
+        <custom-field action="copy">weight</custom-field>
+        <custom-field action="translate">custom-description</custom-field>
+        <custom-field action="ignore">date-added</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="1">book</custom-type>
+        <custom-type translate="1">DVD</custom-type>
+    </custom-types>    
+    <taxonomies>
+        <taxonomy translate="1">genre</taxonomy>
+        <taxonomy translate="1">type</taxonomy>
+        <taxonomy translate="0">publisher</taxonomy>
+    </taxonomies>    
+    <admin-texts>
+        <key name="my_plugins_options">
+            <key name="option_name_1" />
+            <key name="option_name_2" />
+            <key name="options_group_1">
+                <key name="sub_option_name_11" />
+                <key name="sub_option_name_12" />
+            </key>
+            <key name="options_group_2">
+                <key name="sub_option_name_21" />
+                <key name="sub_option_name_22" />
+            </key>
+        </key>
+        <key name="simple_string_option" />
+    </admin-texts>    
+</wpml-config>

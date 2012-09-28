@@ -396,6 +396,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
+* Begin WPML efforts
 -
 
 = 2.1.3 =
