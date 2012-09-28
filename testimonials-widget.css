@@ -9,8 +9,8 @@
 }
 
 .testimonialswidget_paging {
-	font-weight: bold;
 	clear: both;
+	font-weight: bold;
 	height: 1.4em;
 }
 
@@ -18,8 +18,8 @@
 	clear: left;
 	display: none;
 	left: 0;
-	margin: 0;
 	margin-bottom: 1.4em;
+	margin: 0;
 	position: absolute; 
 	top: 0;
 	width: 100%;
@@ -28,6 +28,7 @@
 .testimonialswidget_testimonial .testimonialswidget_image {
 	float: left;
 	margin-bottom: 1.4em;
+	margin-right: .2em;
 }
 
 .widget .testimonialswidget_testimonial .testimonialswidget_image {
@@ -73,6 +74,11 @@
 .testimonialswidget_testimonial .testimonialswidget_url {
 	/* testimonial company and url informaiton */
 }
+
+.testimonialswidget_testimonial .testimonialswidget_extra {
+	/* testimonial source */
+}
+
 
 .testimonialswidget_testimonial_list { 
 	display: block;

@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -25,9 +25,11 @@ Through categories and tagging, you can create organizational structures based u
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
 * Compatible with WordPress multi-site
+* Customizeable testimonial data field `testimonial_extra`
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
 * Fields for source, testimonial, email, company and URL
+* Filters for `testimonials_widget_image_size`, `testimonials_widget_gravatar_size`, `testimonials_widget_data`
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
@@ -43,6 +45,7 @@ Through categories and tagging, you can create organizational structures based u
 	* Tags filter
 	* Require all tags
 	* Advanced options
+	* Hide gravatar?
 	* Hide image?
 	* Hide source?
 	* Hide email?
@@ -53,6 +56,7 @@ Through categories and tagging, you can create organizational structures based u
 	* Limit
 	* Minimum Height
 	* ORDER BY
+	* Sort by meta key
 	* ORDER BY Order
 	* Random order
 	* Refresh Interval
@@ -63,6 +67,7 @@ Through categories and tagging, you can create organizational structures based u
 	* `char_limit` - default none; char_limit=200
 	* `hide_company` - default show; hide_company=true
 	* `hide_email` - default show; hide_email=true
+	* `hide_gravatar` - default show; hide_gravatar=true
 	* `hide_image` - default show; hide_image=true
 	* `hide_source` - default show; hide_source=true
 	* `hide_url` - default show; hide_url=true
@@ -70,8 +75,9 @@ Through categories and tagging, you can create organizational structures based u
 	* `limit` - default 25; limit=10
 	* `min_height` - default 250; min_height=100
 	* `paging` - default none; paging=true
-	* `order` - default DESC; orderby=ASC
-	* `orderby` - default ID; order=post_date
+	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
+	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
+	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-url]; meta_key=testimonials-widget-company
 	* `random` - default newest first; random=true (overrides `order` and `orderby`)
 	* `refresh_interval` - default 5; refresh_interval=0
 	* `tags_all` - default OR; tags_all=true
@@ -82,6 +88,7 @@ Through categories and tagging, you can create organizational structures based u
 	* [testimonialswidget_list category="product" tags="widget" limit=5]
 	* [testimonialswidget_list ids="1,11,111"]
 	* [testimonialswidget_list paging=true limit=10]
+	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=10]
 * [testimonialswidget_widget] Examples
 	* [testimonialswidget_widget]
 	* [testimonialswidget_widget tags="sometag" random=true]
@@ -132,6 +139,8 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
 	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
 	* The tighten widget display up, p tags within q are displayed inline.
+* JavaScript
+	* The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer.
 * Shortcode options
 	* `hide_source` replaced by `hide_url`
 	* `hide_author` replaced by `hide_source`
@@ -150,6 +159,35 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 Checkout the first screenshot 1 at http://wordpress.org/extend/plugins/testimonials-widget/screenshots/ to see where to manage testimonials.
 
 Basically, look down the left side of your WordPress admin area for the Testimonials sections. Click on that section link, then scroll down or click "Add new ttestimonial" to add quotes.
+
+= How do I filter the testimonials data before display processing? =
+`
+function my_testimonials_widget_data( $array ) {
+	foreach( $array as $key => $testimonial ) {
+		// do something with the $testimonial entry
+		// the keys below are those that are currently available
+		// 'testimonial_extra' is the key in which you can put in your own custom content for display
+		$testimonial	= array(
+			'post_id'				=> …,
+			'testimonial_source'	=> …,
+			'testimonial_company'	=> …,
+			'testimonial_content'	=> …,
+			'testimonial_email'		=> …,
+			'testimonial_image'		=> …,
+			'testimonial_url'		=> …,
+			'testimonial_extra'		=> …,
+		);
+
+		$array[ $key ]			= $testimonial;
+	}
+
+	return $array;
+}
+
+add_filter( 'testimonials_widget_data', 'my_testimonials_widget_data' );
+`
+
+Do note that content truncation might still remove your appended content if you're using `char_limit`.
 
 = How do I change the image size? =
 The default image size is based upon Thumbnail size in Media Settings. If changing that doesn't work for you, then use `add_filter` in your theme to adjust the image size.
@@ -283,6 +321,31 @@ In CSS put the following.
 }
 `
 
+= After upgrading, testimonial rotations have stopped =
+The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer. Check to make sure your theme has the `wp_footer()` call in footer.php or the equivalent file.
+
+= How can I justify testimonials text? =
+
+To justify all testimonials try…
+`
+.testimonialswidget_testimonial {
+	text-align: justify;
+}
+`
+To justify only the testimonials list try…
+`
+.testimonialswidget_testimonial_list {
+	text-align: justify;
+}
+`
+
+= How about testimonials own URL? =
+Testimonial Widgets records are a custom post type and therefore can be viewed via a URL like http://www.example.com/testimonial/michael-cannon-senior-developer/.
+
+When you look at the Testimonials Widget admin list, you can click on the View link to see the testimonial.
+
+Going further though, you'll need to enable feature image, gravatar and custom post meta like company, email, etc. on your own for your theme.
+
 = I'm stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -323,12 +386,23 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 	* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 	* Testimonial manual ordering
 	* Translate with WPML
-	* Working full testimonial URLs
 
 
 == Changelog ==
 = trunk =
 -
+
+= 2.1.2 =
+* Add `hide_gravatar` option
+* Add apply_filters( 'testimonials_widget_data', $testimonial_data ) to process data before display processing
+* Add right margin to gravatar image
+* Added empty testimonial data field `testimonial_extra` for customization in testimonials
+* Allow widget and shortcode sorting by post meta values via `meta_key`
+* Correct PHP static accessors
+* Update FAQ
+* Update localization pot file
+* Update widget options screenshots
+* Working full testimonial URLs
 
 = 2.1.1 =
 * Add [testimonialswidget_list] paging screenshot

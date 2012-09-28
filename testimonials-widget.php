@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.1.1
+	Version: 2.1.2
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -162,7 +162,7 @@ class Testimonials_Widget {
 		global $user_level, $user_ID;
 
 		// author's and below
-		if( $query->is_admin && $query->is_main_query && $query->is_post_type_archive( self::pt ) && $user_level < 3 )
+		if( $query->is_admin && $query->is_main_query && $query->is_post_type_archive( Testimonials_Widget::pt ) && $user_level < 3 )
 			$query->set( 'post_author', $user_ID );
 
 		return $query;
@@ -372,8 +372,6 @@ EOF;
 </script>
 EOF;
 				self::$scripts[]	= $javascript;
-				// BUGFIX http://wordpress.org/support/topic/plugin-testimonials-widget-warning-call_user_func_array?replies=4#post-3193346
-				// add_action( 'wp_footer', 'Testimonials_Widget::get_testimonials_scripts', 20 );
 				add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
 			}
 
@@ -471,6 +469,14 @@ EOF;
 				$cite			= '<cite>' . $cite . '</cite>';
 
 			$html				.= $cite;
+
+			$extra				= $testimonial['testimonial_extra'];
+			if ( ! empty( $extra ) ) {
+				$html			.= '<div class="testimonialswidget_extra';
+				$html			.= $extra;
+				$html			.= '</div>';
+			}
+
 			$html				.= '</div>';
 		}
 
@@ -598,12 +604,15 @@ EOF;
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['category'] ) ) ? $atts['category'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)?$#', $atts['ids'] ) ) ? $atts['ids'] : false;
 		$limit					= ( is_numeric( $atts['limit'] ) && 0 < $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
+		$meta_key				= ( preg_match( '#^[\w-]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
 		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['tags'] ) ) ? $atts['tags'] : false;
 		$tags_all				= ( 'true' == $atts['tags_all'] ) ? true : false;
+
+		$hide_gravatar			= ( 'true' == $atts['hide_gravatar'] ) ? true : false;
 
 		if ( $random ) {
 			$orderby			= 'rand';
@@ -613,12 +622,17 @@ EOF;
 		$args					= array(
 			'orderby'			=> $orderby,
 			'post_status'		=> 'publish',
-			'post_type'			=> self::pt,
+			'post_type'			=> Testimonials_Widget::pt,
 			'posts_per_page'	=> $limit,
 		);
 
 		if ( $paging && ! empty( $_REQUEST[ self::page_key ] ) ) {
 			$args['paged']		= intval( $_REQUEST[ self::page_key ] );
+		}
+
+		if ( ! $random && $meta_key ) {
+			$args['meta_key']	= $meta_key;
+			$args['orderby']	= 'meta_value';
 		}
 
 		if ( $order ) {
@@ -660,7 +674,7 @@ EOF;
 			if ( has_post_thumbnail( $post_id ) ) {
 				$image_size		= apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
 				$image			= get_the_post_thumbnail( $post_id, $image_size );
-			} elseif ( is_email( $email ) ) {
+			} elseif ( ! $hide_gravatar && is_email( $email ) ) {
 				$gravatar_size	= apply_filters( 'testimonials_widget_gravatar_size', 96 );
 				$image			= get_avatar( $email, $gravatar_size );
 			} else {
@@ -668,14 +682,18 @@ EOF;
 			}
 
 			$testimonial_data[]	= array(
+				'post_id'				=> $post_id,
 				'testimonial_source'	=> $row->post_title,
 				'testimonial_company'	=> get_post_meta( $post_id, 'testimonials-widget-company', true ),
 				'testimonial_content'	=> $row->post_content,
 				'testimonial_email'		=> $email,
 				'testimonial_image'		=> $image,
 				'testimonial_url'		=> get_post_meta( $post_id, 'testimonials-widget-url', true ),
+				'testimonial_extra'		=> '',
 			);
 		}
+
+		$testimonial_data		= apply_filters( 'testimonials_widget_data', $testimonial_data );
 
 		return $testimonial_data;
 	}
