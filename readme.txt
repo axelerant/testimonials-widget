@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -346,6 +346,9 @@ When you look at the Testimonials Widget admin list, you can click on the View l
 
 Going further though, you'll need to enable feature image, gravatar and custom post meta like company, email, etc. on your own for your theme.
 
+= My testimonial URL says "Page not found" =
+Go to WordPress > Plugins to Deactivate and then Activate Testimonials Widget. The `flush_rewrite_rules` function needs to run.
+
 = I'm stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -364,33 +367,44 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-* Ideas
-	* Caching
-	* Centralized defaults - share widgets and shortcode options
-	* CSV import
-	* Custom CSS
-	* Custom templating
-	* Disable post password
-	* During migration
-		* Pull out images and attach correctly
-		* Set category
-	* Fields to show
-		* Category
-		* Date
-		* Tags
-	* Global options page
-		* Number of refresh interations
-		* Widget options inherit from global
-	* Minimum height removal for widgets
-	* Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
-	* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
-	* Testimonial manual ordering
-	* Translate with WPML
+Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
+
+* Caching
+* Centralized defaults - share widgets and shortcode options
+* CSV import
+* Custom CSS
+* Custom meta fields
+* Custom templating
+* Disable post password
+* During migration
+	* Pull out images and attach correctly
+	* Set category
+* Fields to show
+	* Category
+	* Date
+	* Tags
+* Global options page
+	* Number of refresh interations
+	* Widget options inherit from global
+* Minimum height removal for widgets
+* Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
+* Read More links to full testimonial page
+* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
+* Testimonial manual ordering
+* Translate with WPML
 
 
 == Changelog ==
 = trunk =
 -
+
+= 2.1.3 =
+* Allow commas in meta_key
+* FAQ on page not found
+* Fix widget Random order always true condition
+* Increase bottom margin spacing for listed testimonials
+* TODO vote casting note
+* Update localization pot file
 
 = 2.1.2 =
 * Add `hide_gravatar` option
@@ -400,7 +414,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Allow widget and shortcode sorting by post meta values via `meta_key`
 * Correct PHP static accessors
 * Update FAQ
-* Update localization pot file
 * Update widget options screenshots
 * Working full testimonial URLs
 

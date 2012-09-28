@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.1.2
+	Version: 2.1.3
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -517,7 +517,7 @@ EOF;
 		$html					.= '	<div class="alignleft">';
 
 		if ( 1 < $paged ) {
-			$html				.= self::get_previous_posts_link( __( '&laquo;' ), $paged );
+			$html				.= self::get_previous_posts_link( __( '&laquo;' , 'testimonials-widget'), $paged );
 		} else {
 			// $html				.= __( '&laquo;' );
 		}
@@ -527,7 +527,7 @@ EOF;
 		$html					.= '	<div class="alignright">';
 
 		if ( $paged != $this->max_num_pages ) {
-			$html				.= self::get_next_posts_link( __( '&raquo;' ), $paged );
+			$html				.= self::get_next_posts_link( __( '&raquo;' , 'testimonials-widget'), $paged );
 		} else {
 			// $html				.= __( '&raquo;' );
 		}
@@ -604,7 +604,7 @@ EOF;
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['category'] ) ) ? $atts['category'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)?$#', $atts['ids'] ) ) ? $atts['ids'] : false;
 		$limit					= ( is_numeric( $atts['limit'] ) && 0 < $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
-		$meta_key				= ( preg_match( '#^[\w-]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
+		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;

@@ -83,6 +83,7 @@
 .testimonialswidget_testimonial_list { 
 	display: block;
 	left: initial;
+	margin-bottom: 1.0em;
 	position: relative; 
 	top: initial;
 }
