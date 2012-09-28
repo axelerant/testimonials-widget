@@ -369,9 +369,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
 
-* Caching
-* Centralized defaults - share widgets and shortcode options
 * CSV import
+* Caching
 * Custom CSS
 * Custom meta fields
 * Custom templating
@@ -384,6 +383,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Date
 	* Tags
 * Global options page
+	* Centralized defaults - share widgets and shortcode options
 	* Number of refresh interations
 	* Widget options inherit from global
 * Minimum height removal for widgets
@@ -396,6 +396,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 == Changelog ==
 = trunk =
 * Enable WPML
+* Revise TODO
 -
 
 = 2.1.3 =
