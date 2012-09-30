@@ -1,7 +1,7 @@
 === Testimonials Widget ===
 Contributors: comprock
 Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
-Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget
+Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
 Stable tag: 2.1.4
@@ -34,12 +34,15 @@ Through categories and tagging, you can create organizational structures based u
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
 * Rotation JavaScript in footer than body
+* Shortcodes
+	* Listings with paging `[testimonialswidget_list]`
+	* Rotating `[testimonialswidget_widget]`
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 * Testimonials Widget widget displays static and rotating testimonials 
-* [testimonialswidget_list] shortcode that supports paging
-* [testimonialswidget_widget] shortcode
-* Widget options
+* WordPress Multilingual enabled [WPML](http://wpml.org/)
+
+= Widget Options =
 	* Title
 	* Category filter
 	* Tags filter
@@ -61,8 +64,10 @@ Through categories and tagging, you can create organizational structures based u
 	* Random order
 	* Refresh Interval
 
-= Shortcodes [testimonialswidget_list] [testimonialswidget_widget] =
-* Shortcode Options
+= Shortcodes =
+* [testimonialswidget_list] - list of testimonials
+* [testimonialswidget_widget] - rotating testimonials
+* Options
 	* `category` - default none; category=product or category="product,services"
 	* `char_limit` - default none; char_limit=200
 	* `hide_company` - default show; hide_company=true
@@ -82,14 +87,17 @@ Through categories and tagging, you can create organizational structures based u
 	* `refresh_interval` - default 5; refresh_interval=0
 	* `tags_all` - default OR; tags_all=true
 	* `tags` - default none; tags=fire or tags="fire,water"
-* [testimonialswidget_list] Examples
+
+= Shortcode Examples =
+* [testimonialswidget_list]
+	* [testimonialswidget_list]
 	* [testimonialswidget_list hide_source=true hide_url=true] 
 	* [testimonialswidget_list tags="test,fun" random=true]
 	* [testimonialswidget_list category="product" tags="widget" limit=5]
 	* [testimonialswidget_list ids="1,11,111"]
 	* [testimonialswidget_list paging=true limit=10]
 	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=10]
-* [testimonialswidget_widget] Examples
+* [testimonialswidget_widget]
 	* [testimonialswidget_widget]
 	* [testimonialswidget_widget tags="sometag" random=true]
 	* [testimonialswidget_widget category="product" order="asc"]
@@ -401,6 +409,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 = 2.1.4 =
 * Enable WPML
 * Idea - Maximum height setting
+* Revise description
 * Revise TODO
 
 = 2.1.3 =
