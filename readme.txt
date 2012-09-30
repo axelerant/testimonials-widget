@@ -43,26 +43,26 @@ Through categories and tagging, you can create organizational structures based u
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Widget Options =
-	* Title
-	* Category filter
-	* Tags filter
-	* Require all tags
-	* Advanced options
-	* Hide gravatar?
-	* Hide image?
-	* Hide source?
-	* Hide email?
-	* Hide company?
-	* Hide URL?
-	* Character limit
-	* IDs filter
-	* Limit
-	* Minimum Height
-	* ORDER BY
-	* Sort by meta key
-	* ORDER BY Order
-	* Random order
-	* Refresh Interval
+* Title
+* Category filter
+* Tags filter
+* Require all tags
+* Advanced options
+* Hide gravatar?
+* Hide image?
+* Hide source?
+* Hide email?
+* Hide company?
+* Hide URL?
+* Character limit
+* IDs filter
+* Limit
+* Minimum Height
+* ORDER BY
+* Sort by meta key
+* ORDER BY Order
+* Random order
+* Refresh Interval
 
 = Shortcodes =
 * [testimonialswidget_list] - list of testimonials
