@@ -44,25 +44,24 @@ Through categories and tagging, you can create organizational structures based u
 
 = Widget Options =
 * Title
-* Category filter
-* Tags filter
-* Require all tags
-* Advanced options
+* Category filter - Comma separated category slug-names
+* Tags filter - Comma separated tag slug-names
+* Require all tags - Select only testimonials with all of the given tags
 * Hide gravatar?
 * Hide image?
 * Hide source?
 * Hide email?
 * Hide company?
 * Hide URL?
-* Character limit
-* IDs filter
-* Limit
-* Minimum Height
-* ORDER BY
-* Sort by meta key
-* ORDER BY Order
-* Random order
-* Refresh Interval
+* Character limit - Number of characters to limit testimonial views to
+* IDs filter - Comma separated IDs
+* Limit - Number of testimonials to pull at a time
+* Minimum Height - Increase this value if your testimonials are getting cut off when displayed
+* ORDER BY - Used when Random order is disabled
+* Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
+* ORDER BY Order - DESC or ASC
+* Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
+* Refresh Interval - Seconds between testimonial rotations or 0 for no refresh
 
 = Shortcodes =
 * [testimonialswidget_list] - list of testimonials
@@ -404,6 +403,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
+* Widget option explanations
 -
 
 = 2.1.5 =
