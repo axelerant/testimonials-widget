@@ -196,6 +196,8 @@ add_filter( 'testimonials_widget_data', 'my_testimonials_widget_data' );
 
 Do note that content truncation might still remove your appended content if you're using `char_limit`.
 
+Content of `testimonial_extra` is appended after the closing `cite` tag within the testimonial with CSS class `testimonialswidget_extra`.
+
 = How do I change the image size? =
 The default image size is based upon Thumbnail size in Media Settings. If changing that doesn't work for you, then use `add_filter` in your theme to adjust the image size.
 
@@ -396,13 +398,16 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Maximum height setting
 * Minimum height removal for widgets
 * Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
-* Read More links to full testimonial page
+* Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
+* Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 * Testimonial manual ordering
 
 
 == Changelog ==
 = trunk =
+* FAQ `testimonial_extra` explanation
+* Next testimonial link idea
 * Widget option explanations
 -
 
