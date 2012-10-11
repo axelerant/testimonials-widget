@@ -32,6 +32,7 @@ class Testimonials_Widget {
 	const pt					= 'testimonials-widget';
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
+	static $css					= array();
 	static $scripts				= array();
 	static $widget_number		= 100000;
 
@@ -324,11 +325,12 @@ class Testimonials_Widget {
 		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
 		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
 		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
+		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
 		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
 		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 < $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
-		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= $atts['refresh_interval'] ) ? intval( $atts['refresh_interval'] ) : 5;
+		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 
 		$id = 'testimonialswidget_testimonials';
 
@@ -343,15 +345,17 @@ class Testimonials_Widget {
 			$html				= '';
 			$id_base			= $id . $widget_number;
 
-			$html			.= <<<EOF
+			$css				= <<<EOF
 <style>
 .$id_base {
 	min-height: {$min_height}px;
 }
 </style>
 EOF;
+			self::$css[]	= $css;
+			add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
 
-			if ( 0 != $refresh_interval ) {
+			if ( $refresh_interval ) {
 				$javascript		= <<<EOF
 <script type="text/javascript">
 	function nextTestimonial$widget_number() {
@@ -361,6 +365,7 @@ EOF;
 			active.fadeOut(1250, function(){
 				active.removeClass('testimonialswidget_active');
 				next.fadeIn(500);
+				next.removeClass('testimonialswidget_display_none');
 				next.addClass('testimonialswidget_active');
 			});
 		}
@@ -374,12 +379,13 @@ EOF;
 EOF;
 				self::$scripts[]	= $javascript;
 				add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
+
 			}
 
 			$html				.= '<div class="' . $id . ' ' . $id_base . '">';
 		}
 
-		if ( empty( $testimonials ) ) {
+		if ( empty( $testimonials ) && ! $hide_not_found ) {
 			$testimonials		= array(
 				array( 'testimonial_content'	=>	__( 'No testimonials found' , 'testimonials-widget') )
 			);
@@ -405,6 +411,8 @@ EOF;
 			} elseif ( $is_first ) {
 				$html			.= ' testimonialswidget_active';
 				$is_first		= false;
+			} elseif ( ! $is_first ) {
+				$html			.= ' testimonialswidget_display_none';
 			}
 
 			$html				.= '">';
@@ -571,6 +579,13 @@ EOF;
 			return '<a href="' . $this->get_pagenum_link( $next_page ) . '">' . $label . '</a>';
 		} else {
 			return '';
+		}
+	}
+
+
+	public function get_testimonials_css() {
+		foreach( self::$css as $key => $css ) {
+			echo $css;
 		}
 	}
 

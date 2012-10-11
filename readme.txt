@@ -25,6 +25,7 @@ Through categories and tagging, you can create organizational structures based u
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
 * Compatible with WordPress multi-site
+* Custom CSS in footer for HTML validation
 * Customizeable testimonial data field `testimonial_extra`
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
@@ -49,6 +50,7 @@ Through categories and tagging, you can create organizational structures based u
 * Require all tags - Select only testimonials with all of the given tags
 * Hide gravatar?
 * Hide image?
+* Hide not found?
 * Hide source?
 * Hide email?
 * Hide company?
@@ -61,7 +63,7 @@ Through categories and tagging, you can create organizational structures based u
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 * ORDER BY Order - DESC or ASC
 * Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
-* Refresh Interval - Seconds between testimonial rotations or 0 for no refresh
+* Rotation Speed - Seconds between testimonial rotations or 0 for no refresh
 
 = Shortcodes =
 * [testimonialswidget_list] - list of testimonials
@@ -73,6 +75,7 @@ Through categories and tagging, you can create organizational structures based u
 	* `hide_email` - default show; hide_email=true
 	* `hide_gravatar` - default show; hide_gravatar=true
 	* `hide_image` - default show; hide_image=true
+	* `hide_not_found` - default show; hide_not_found=true
 	* `hide_source` - default show; hide_source=true
 	* `hide_url` - default show; hide_url=true
 	* `ids` - default none; ids=2 or ids="2,4,6"
@@ -90,16 +93,17 @@ Through categories and tagging, you can create organizational structures based u
 = Shortcode Examples =
 * [testimonialswidget_list]
 	* [testimonialswidget_list]
+	* [testimonialswidget_list category=product hide_not_found=true]
+	* [testimonialswidget_list category=product tags=widget limit=5]
 	* [testimonialswidget_list hide_source=true hide_url=true] 
-	* [testimonialswidget_list tags="test,fun" random=true]
-	* [testimonialswidget_list category="product" tags="widget" limit=5]
 	* [testimonialswidget_list ids="1,11,111"]
-	* [testimonialswidget_list paging=true limit=10]
 	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=10]
+	* [testimonialswidget_list paging=true limit=10]
+	* [testimonialswidget_list tags="test,fun" random=true]
 * [testimonialswidget_widget]
 	* [testimonialswidget_widget]
-	* [testimonialswidget_widget tags="sometag" random=true]
-	* [testimonialswidget_widget category="product" order="asc"]
+	* [testimonialswidget_widget category=product order=asc]
+	* [testimonialswidget_widget tags=sometag random=true]
 
 = Theme Function `testimonialswidget_list()` =
 * `<?php echo testimonialswidget_list( $args ); ?>`
@@ -358,6 +362,20 @@ Going further though, you'll need to enable feature image, gravatar and custom p
 = My testimonial URL says "Page not found" =
 Go to WordPress > Plugins to Deactivate and then Activate Testimonials Widget. The `flush_rewrite_rules` function needs to run.
 
+= Does this plug in use admin-ajax.php to refresh? =
+No, it doesn't call admin-ajax.php at all.
+
+= Is there a way to reorder testimonials? =
+Look for ORDER BY under Advanced Options of the Testimonials Widget. In ORDER BY, put post_date. Then you use dates to put your testimonials into the order you want.
+
+= How do I create a next link? =
+See http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination.
+
+= How do I hide the "No testimonials found" text? =
+In Widget options, check "Hide testimonials not found?" or in shortcode options use `hide_not_found=true`.
+
+`[testimonialswidget_list hide_not_found=true]`
+
 = I'm stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -397,7 +415,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Widget options inherit from global
 * Maximum height setting
 * Minimum height removal for widgets
-* Move CSS to footer? - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
 * Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
@@ -407,10 +424,16 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
-* FAQ `testimonial_extra` explanation
+* FAQ: `ORDER BY` explanation
+* FAQ: `testimonial_extra` explanation
+* Moved CSS to footer - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
 * Next testimonial link idea
+* Option: Add `hide_not_found` to prevent showing "No testimonials found"
 * Revise theme methods as functions
+* Screenhsot: Update upper widget options
+* Staged widget testimonials are initially `display: none` via CSS `.testimonialswidget_display_none`
 * TODO updates
+* Verbiage: Refresh Interval to Rotation Speed
 * Widget option explanations
 -
 
@@ -537,7 +560,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* ORDER BY
 	* ORDER BY Order
 	* Random order
-	* Refresh Interval
+	* Rotation Speed
 * Move caching to ideas
 * Add theme function `testimonialswidget_widget()` doc
 * Update POT

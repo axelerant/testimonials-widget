@@ -8,6 +8,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			'hide_email'		=> '',
 			'hide_gravatar'		=> '',
 			'hide_image'		=> '',
+			'hide_not_found'	=> '',
 			'hide_source'		=> '',
 			'hide_url'			=> '',
 			'ids'				=> '',
@@ -45,6 +46,11 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	}
 	
 	
+	public function get_testimonials_css() {
+		Testimonials_Widget::get_testimonials_css();
+	}
+
+
 	public function get_testimonials_scripts() {
 		Testimonials_Widget::get_testimonials_scripts();
 	}
@@ -82,6 +88,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['hide_email']			= ( 'true' == $new_instance['hide_email'] ) ? 'true' : $this->defaults['hide_email'];
 		$instance['hide_gravatar']		= ( 'true' == $new_instance['hide_gravatar'] ) ? 'true' : $this->defaults['hide_gravatar'];
 		$instance['hide_image']			= ( 'true' == $new_instance['hide_image'] ) ? 'true' : $this->defaults['hide_image'];
+		$instance['hide_not_found']		= ( 'true' == $new_instance['hide_not_found'] ) ? 'true' : $this->defaults['hide_not_found'];
 		$instance['hide_source']		= ( 'true' == $new_instance['hide_source'] ) ? 'true' : $this->defaults['hide_source'];
 		$instance['hide_url']			= ( 'true' == $new_instance['hide_url'] ) ? 'true' : $this->defaults['hide_url'];
 		$instance['ids']				= ( preg_match( '#^\d+(,\d+)?$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $this->defaults['ids'];
@@ -119,6 +126,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_image' ).'" name="'.$this->get_field_name( 'hide_image' ).'" value="true"'.checked( $instance['hide_image'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_image' ).'">'.__( 'Hide image?', 'testimonials-widget' ).'</label></p>';
 
+		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_not_found' ).'" name="'.$this->get_field_name( 'hide_not_found' ).'" value="true"'.checked( $instance['hide_not_found'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_not_found' ).'">'.__( 'Hide testimonials not found?', 'testimonials-widget' ).'</label></p>';
+
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_source' ).'" name="'.$this->get_field_name( 'hide_source' ).'" value="true"'.checked( $instance['hide_source'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_source' ).'">'.__( 'Hide source?', 'testimonials-widget' ).'</label></p>';
 
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_email' ).'" name="'.$this->get_field_name( 'hide_email' ).'" value="true"'.checked( $instance['hide_email'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_email' ).'">'.__( 'Hide email?', 'testimonials-widget' ).'</label></p>';
@@ -143,7 +152,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'random' ).'" name="'.$this->get_field_name( 'random' ).'" value="true"'.checked( $instance['random'], 'true', false ).' /> <label for="'.$this->get_field_id( 'random' ).'">'.__( 'Random order', 'testimonials-widget' ).'</label><br/><span class="setting-description"><small>'.__( 'Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order', 'testimonials-widget' ).'</small></span></p>';
 
-		echo '<p><label for="'.$this->get_field_id( 'refresh_interval' ).'">'.__( 'Refresh Interval', 'testimonials-widget' ).' </label><input size="4" type="text" id="'.$this->get_field_id( 'refresh_interval' ).'" name="'.$this->get_field_name( 'refresh_interval' ).'" value="'.htmlspecialchars($instance['refresh_interval'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__( 'Seconds between testimonial rotations or 0 for no refresh', 'testimonials-widget' ).'</small></span></p>';
+		echo '<p><label for="'.$this->get_field_id( 'refresh_interval' ).'">'.__( 'Rotation Speed', 'testimonials-widget' ).' </label><input size="4" type="text" id="'.$this->get_field_id( 'refresh_interval' ).'" name="'.$this->get_field_name( 'refresh_interval' ).'" value="'.htmlspecialchars($instance['refresh_interval'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__( 'Seconds between testimonial rotations or 0 for no refresh', 'testimonials-widget' ).'</small></span></p>';
 
 		echo '</div>';
 	}

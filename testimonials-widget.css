@@ -8,6 +8,11 @@
 	display: block;
 }
 
+.testimonialswidget_testimonials .testimonialswidget_display_none {
+	/* staged testimonials */
+	display: none;
+}
+
 .testimonialswidget_paging {
 	clear: both;
 	font-weight: bold;
