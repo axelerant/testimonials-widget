@@ -402,6 +402,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 * Testimonial manual ordering
+* Widget options dropdown for ORDER BY entries
 
 
 == Changelog ==
@@ -409,6 +410,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * FAQ `testimonial_extra` explanation
 * Next testimonial link idea
 * Revise theme methods as functions
+* TODO updates
 * Widget option explanations
 -
 
