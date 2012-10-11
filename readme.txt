@@ -408,6 +408,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 = trunk =
 * FAQ `testimonial_extra` explanation
 * Next testimonial link idea
+* Revise theme methods as functions
 * Widget option explanations
 -
 

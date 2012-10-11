@@ -805,4 +805,14 @@ $Testimonials_Widget			= new Testimonials_Widget();
 
 register_activation_hook( __FILE__, array( &$Testimonials_Widget, 'activation' ) );
 
+
+function testimonialswidget_list( $atts ) {
+	return Testimonials_Widget::testimonialswidget_list( $atts );
+}
+
+
+function testimonialswidget_widget( $atts, $widget_number = null ) {
+	return Testimonials_Widget::testimonialswidget_widget( $atts, $widget_number );
+}
+
 ?>
