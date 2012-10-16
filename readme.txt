@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -41,6 +41,7 @@ Through categories and tagging, you can create organizational structures based u
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 * Testimonials Widget widget displays static and rotating testimonials 
+* URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Widget Options =
@@ -55,6 +56,7 @@ Through categories and tagging, you can create organizational structures based u
 * Hide email?
 * Hide company?
 * Hide URL?
+* URL Target
 * Character limit - Number of characters to limit testimonial views to
 * IDs filter - Comma separated IDs
 * Limit - Number of testimonials to pull at a time
@@ -95,6 +97,7 @@ Through categories and tagging, you can create organizational structures based u
 	* [testimonialswidget_list]
 	* [testimonialswidget_list category=product hide_not_found=true]
 	* [testimonialswidget_list category=product tags=widget limit=5]
+	* [testimonialswidget_list char_limit=0 target=_new]
 	* [testimonialswidget_list hide_source=true hide_url=true] 
 	* [testimonialswidget_list ids="1,11,111"]
 	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=10]
@@ -419,11 +422,17 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 * Testimonial manual ordering
+* Title field - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
 * Widget options dropdown for ORDER BY entries
 
 
 == Changelog ==
 = trunk =
+
+= 2.1.7 =
+* 0 disables char_limit - http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget
+* Set link target - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions?replies=1; http://core.trac.wordpress.org/browser/tags/3.4.2/wp-includes/formatting.php#L0 - links_add_target
+* Update widget option top screenshot
 
 = 2.1.6 =
 * FAQ: `ORDER BY` explanation

@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.1.6
+	Version: 2.1.7
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -288,7 +288,7 @@ class Testimonials_Widget {
 	public function testimonialswidget_widget( $atts, $widget_number = null ) {
 		self::scripts();
 
-		if ( empty( $atts['char_limit'] ) )
+		if ( ! is_numeric( $atts['char_limit'] ) || 0 > intval( $atts['char_limit'] ) )
 			$atts['char_limit']	= 500;
 
 		if ( empty( $atts['random'] ) )
@@ -321,7 +321,7 @@ class Testimonials_Widget {
 		self::styles();
 
 		// display attributes
-		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 < $atts['char_limit'] ) ? intval( $atts['char_limit'] ) : false;
+		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
 		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
 		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
@@ -331,6 +331,7 @@ class Testimonials_Widget {
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 < $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
+		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
 		$id = 'testimonialswidget_testimonials';
 
@@ -425,12 +426,12 @@ EOF;
 
 			$content			= $testimonial['testimonial_content'];
 			$content			= self::testimonials_truncate( $content, $char_limit );
+			$content			= force_balance_tags( $content );
 			$content			= apply_filters( 'wptexturize', $content );
 			$content			= apply_filters( 'convert_smilies', $content );
 			$content			= apply_filters( 'convert_chars', $content );
 			$content			= apply_filters( 'wpautop', $content );
 			$content			= apply_filters( 'shortcode_unautop', $content );
-			$content			= force_balance_tags( $content );
 			$content			= make_clickable( $content );
 
 			$html				.= '<q>';
@@ -494,6 +495,9 @@ EOF;
 		} 
 
 		$html					.= '</div>';
+
+		if ( $target )
+			$html				= links_add_target( $html, $target );
 
 		return $html;
 	}

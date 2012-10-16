@@ -21,6 +21,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			'refresh_interval'	=> 5,
 			'tags'				=> '',
 			'tags_all'			=> '',
+			'target'			=> '',
 	);
 
 
@@ -83,7 +84,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance						= $old_instance;
 
 		$instance['category']			= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $new_instance['category'] ) ) ? $new_instance['category'] : $this->defaults['category'];
-		$instance['char_limit']			= ( is_numeric( $new_instance['char_limit'] ) && 0 < $new_instance['char_limit'] ) ? intval( $new_instance['char_limit'] ) : $this->defaults['char_limit'];
+		$instance['char_limit']			= ( is_numeric( $new_instance['char_limit'] ) && 0 <= $new_instance['char_limit'] ) ? intval( $new_instance['char_limit'] ) : $this->defaults['char_limit'];
 		$instance['hide_company']		= ( 'true' == $new_instance['hide_company'] ) ? 'true' : $this->defaults['hide_company'];
 		$instance['hide_email']			= ( 'true' == $new_instance['hide_email'] ) ? 'true' : $this->defaults['hide_email'];
 		$instance['hide_gravatar']		= ( 'true' == $new_instance['hide_gravatar'] ) ? 'true' : $this->defaults['hide_gravatar'];
@@ -101,6 +102,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['refresh_interval']	= ( is_numeric( $new_instance['refresh_interval'] ) && 0 <= $new_instance['refresh_interval'] ) ? intval( $new_instance['refresh_interval'] ) : $this->defaults['refresh_interval'];
 		$instance['tags']				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $new_instance['tags'] ) ) ? $new_instance['tags'] : $this->defaults['tags'];
 		$instance['tags_all']			= ( 'true' == $new_instance['tags_all'] ) ? 'true' : $this->defaults['tags_all'];
+		$instance['target']				= ( preg_match( '#^\w+$#', $new_instance['target'] ) ) ? $new_instance['target'] : $this->defaults['target'];
 		$instance['title']				= wp_kses_data( $new_instance['title'] );
 
 		return $instance;
@@ -135,6 +137,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_company' ).'" name="'.$this->get_field_name( 'hide_company' ).'" value="true"'.checked( $instance['hide_company'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_company' ).'">'.__( 'Hide company?', 'testimonials-widget' ).'</label></p>';
 
 		echo '<p><input type="checkbox" id="'.$this->get_field_id( 'hide_url' ).'" name="'.$this->get_field_name( 'hide_url' ).'" value="true"'.checked( $instance['hide_url'], 'true', false ).' /> <label for="'.$this->get_field_id( 'hide_url' ).'">'.__( 'Hide URL?', 'testimonials-widget' ).'</label></p>';
+
+		echo '<p><label for="'.$this->get_field_id( 'target' ).'">'.__( 'URL Target', 'testimonials-widget' ).' </label><input size="15" type="text" id="'.$this->get_field_id( 'target' ).'" name="'.$this->get_field_name( 'target' ).'" value="'.htmlspecialchars($instance['target'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__( 'Leave blank if none', 'testimonials-widget' ).'</small></span></p>';
 
 		echo '<p><label for="'.$this->get_field_id( 'char_limit' ).'">'.__( 'Character limit', 'testimonials-widget' ).' </label><input size="4" type="text" id="'.$this->get_field_id( 'char_limit' ).'" name="'.$this->get_field_name( 'char_limit' ).'" value="'.htmlspecialchars($instance['char_limit'], ENT_QUOTES).'" /><br/><span class="setting-description"><small>'.__( 'Number of characters to limit testimonial views to', 'testimonials-widget' ).'</small></span></p>';
 
