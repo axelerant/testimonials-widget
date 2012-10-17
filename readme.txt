@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -404,6 +404,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Custom CSS
 * Custom meta fields
 * Custom templating
+* Debug true - clear out PHP notices and such
 * Disable post password
 * During migration
 	* Pull out images and attach correctly
@@ -428,6 +429,10 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
+
+= 2.1.8 =
+* Remove testimonialswidget_widget char_limit default
+* TODO - debug true
 
 = 2.1.7 =
 * 0 disables char_limit - http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget
