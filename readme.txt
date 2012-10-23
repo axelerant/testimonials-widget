@@ -169,6 +169,24 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 == Frequently Asked Questions ==
 
+= How do I use the theme function `testimonialswidget_list()`? =
+
+In your theme functions file, place code similar to the following for the configuration you need.
+
+`
+<?php
+
+$args							= array(
+	'category'					=> 'product',
+	'tags'						=> 'widget',
+	'limit'						=> 5
+);
+
+echo testimonialswidget_list( $args );
+
+?>
+`
+
 = How do you include the actual testimonials for the widget? Where do I quote my customers? I mean, where do I enter the actual text? =
 Checkout the first screenshot 1 at http://wordpress.org/extend/plugins/testimonials-widget/screenshots/ to see where to manage testimonials.
 
@@ -421,6 +439,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Minimum height removal for widgets
 * Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
+* Remove `.testimonialswidget_testimonial { position: absolute; }` - http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 * Testimonial manual ordering
 * Title field - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
@@ -429,6 +448,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
+* FAQ - How do I use the theme function `testimonialswidget_list()`?
 
 = 2.1.8 =
 * Remove testimonialswidget_widget char_limit default
