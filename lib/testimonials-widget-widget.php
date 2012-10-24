@@ -95,7 +95,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['ids']				= ( preg_match( '#^\d+(,\d+)?$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $this->defaults['ids'];
 		$instance['limit']				= ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ? intval( $new_instance['limit'] ) : $this->defaults['limit'];;
 		$instance['meta_key']			= ( preg_match( '#^[\w-,]+$#', $new_instance['meta_key'] ) ) ? $new_instance['meta_key'] : $this->defaults['meta_key'];
-		$instance['min_height']				= ( is_numeric( $new_instance['min_height'] ) && 0 < $new_instance['min_height'] ) ? intval( $new_instance['min_height'] ) : $this->defaults['min_height'];;
+		$instance['min_height']				= ( is_numeric( $new_instance['min_height'] ) && 0 <= $new_instance['min_height'] ) ? intval( $new_instance['min_height'] ) : $this->defaults['min_height'];;
 		$instance['order']				= ( preg_match( '#^desc|asc$#i', $new_instance['order'] ) ) ? $new_instance['order'] : $this->defaults['order'];
 		$instance['orderby']			= ( preg_match( '#^\w+$#', $new_instance['orderby'] ) ) ? $new_instance['orderby'] : $this->defaults['orderby'];
 		$instance['random']				= ( 'true' == $new_instance['random'] ) ? 'true' : '';

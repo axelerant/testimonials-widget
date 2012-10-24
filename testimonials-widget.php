@@ -325,7 +325,7 @@ class Testimonials_Widget {
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
 		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
 		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
-		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 < $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
+		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
@@ -343,15 +343,18 @@ class Testimonials_Widget {
 			$html				= '';
 			$id_base			= $id . $widget_number;
 
-			$css				= <<<EOF
+			if ( $min_height ) {
+				$css			= <<<EOF
 <style>
 .$id_base {
 	min-height: {$min_height}px;
 }
 </style>
 EOF;
-			self::$css[]	= $css;
-			add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
+				self::$css[]	= $css;
+
+				add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
+			}
 
 			if ( $refresh_interval ) {
 				$javascript		= <<<EOF
