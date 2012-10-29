@@ -34,6 +34,7 @@ Through categories and tagging, you can create organizational structures based u
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
+* Multisite compatible
 * Rotation JavaScript in footer than body
 * Shortcodes
 	* Listings with paging `[testimonialswidget_list]`
@@ -452,6 +453,8 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
+* Multisite compatible
+-
 
 = 2.1.10 =
 * Add title field  - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
