@@ -463,6 +463,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Remove CSS `position` attributes `.testimonialswidget_testimonial { position: absolute; }` - http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages
 * TODO cleanup
 * Update language POT
+* Update WPML
 * Widget options dropdown for ORDER BY entries
 
 = 2.1.9 =
