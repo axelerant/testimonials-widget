@@ -328,8 +328,8 @@ class Testimonials_Widget {
 		if ( empty( $widget_number ) )
 			$widget_number		= self::$widget_number++;
 
-		$atts					= wp_parse_args( $atts, self::$defaults );
 		$atts['paging']			= false;
+		$atts					= wp_parse_args( $atts, self::$defaults );
 
 		$testimonials			= self::get_testimonials( $atts );
 		$content				= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -890,17 +890,14 @@ $Testimonials_Widget			= new Testimonials_Widget();
 register_activation_hook( __FILE__, array( &$Testimonials_Widget, 'activation' ) );
 
 
-function testimonialswidget_list( $atts = false ) {
-	if ( false === $atts )
-		$atts					= wp_parse_args( $atts, Testimonials_Widget::$defaults );
-
+function testimonialswidget_list( $atts = array() ) {
 	return Testimonials_Widget::testimonialswidget_list( $atts );
 }
 
 
-function testimonialswidget_widget( $atts = false, $widget_number = null ) {
-	if ( false === $atts )
-		$atts					= wp_parse_args( $atts, Testimonials_Widget::$defaults );
+function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
+	if ( empty( $atts['random'] ) )
+		$atts['random']			= 'true';
 
 	return Testimonials_Widget::testimonialswidget_widget( $atts, $widget_number );
 }

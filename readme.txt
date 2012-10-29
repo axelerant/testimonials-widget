@@ -460,6 +460,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 = 2.2.2 =
 * BUGFIX - Now getting fatal error when using testimonialswidget_list() - http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list?replies=1
+* Theme function defaults
 * TODO updates
 
 = 2.2.1 =
