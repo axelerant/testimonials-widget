@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.1.9
+	Version: 2.1.10
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -30,9 +30,37 @@
 class Testimonials_Widget {
 	const page_key				= 'twlpg';
 	const pt					= 'testimonials-widget';
+
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
+
 	static $css					= array();
+	static $defaults			= array(
+			'category'			=> '',
+			'char_limit'		=> '',
+			'hide_author'		=> '',
+			'hide_company'		=> '',
+			'hide_email'		=> '',
+			'hide_gravatar'		=> '',
+			'hide_image'		=> '',
+			'hide_not_found'	=> '',
+			'hide_source'		=> '',
+			'hide_title'		=> '',
+			'hide_url'			=> '',
+			'ids'				=> '',
+			'limit'				=> 25,
+			'meta_key'			=> '',
+			'max_height'		=> '',
+			'min_height'		=> '',
+			'order'				=> 'DESC',
+			'orderby'			=> 'ID',
+			'paging'			=> '',
+			'random'			=> '',
+			'refresh_interval'	=> 5,
+			'tags'				=> '',
+			'tags_all'			=> '',
+			'target'			=> '',
+	);
 	static $scripts				= array();
 	static $widget_number		= 100000;
 
@@ -48,6 +76,7 @@ class Testimonials_Widget {
 
 
 	public function init() {
+		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
 	}
@@ -164,7 +193,7 @@ class Testimonials_Widget {
 		global $user_level, $user_ID;
 
 		// author's and below
-		if( $query->is_admin && $query->is_main_query && $query->is_post_type_archive( Testimonials_Widget::pt ) && $user_level < 3 )
+		if( $query->is_admin && ! empty( $query->is_main_query ) && $query->is_post_type_archive( Testimonials_Widget::pt ) && $user_level < 3 )
 			$query->set( 'post_author', $user_ID );
 
 		return $query;
@@ -182,6 +211,7 @@ class Testimonials_Widget {
 			break;
 
 		case 'testimonials-widget-company':
+		case 'testimonials-widget-title':
 			$result				=  get_post_meta( $post_id, $column, true );
 			break;
 
@@ -215,6 +245,7 @@ class Testimonials_Widget {
 			'thumbnail'						=> __( 'Image' , 'testimonials-widget'),
 			'title'							=> __( 'Source' , 'testimonials-widget'),
 			'shortcode'						=> __( 'Shortcode' , 'testimonials-widget'),
+			'testimonials-widget-title'		=> __( 'Title' , 'testimonials-widget'),
 			'testimonials-widget-email'		=> __( 'Email' , 'testimonials-widget'),
 			'testimonials-widget-company'	=> __( 'Company' , 'testimonials-widget'),
 			'testimonials-widget-url'		=> __( 'URL' , 'testimonials-widget'),
@@ -279,6 +310,8 @@ class Testimonials_Widget {
 
 
 	public function testimonialswidget_list( $atts ) {
+		$atts					= wp_parse_args( $atts, self::$defaults );
+
 		$testimonials			= self::get_testimonials( $atts );
 		$content				= self::get_testimonials_html( $testimonials, $atts );
 
@@ -295,7 +328,8 @@ class Testimonials_Widget {
 		if ( empty( $widget_number ) )
 			$widget_number		= self::$widget_number++;
 
-		unset( $atts['paging'] );
+		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts['paging']			= false;
 
 		$testimonials			= self::get_testimonials( $atts );
 		$content				= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -318,13 +352,15 @@ class Testimonials_Widget {
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
+		$hide_title				= ( 'true' == $atts['hide_title'] ) ? true : false;
 		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
 		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
 		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
 		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
 		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
-		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : 250;
+		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
+		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
@@ -351,7 +387,20 @@ class Testimonials_Widget {
 </style>
 EOF;
 				self::$css[]	= $css;
+			}
 
+			if ( $max_height ) {
+				$css			= <<<EOF
+<style>
+.$id_base {
+	max-height: {$max_height}px;
+}
+</style>
+EOF;
+				self::$css[]	= $css;
+			}
+
+			if ( $min_height || $max_height ) {
 				add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
 			}
 
@@ -399,6 +448,7 @@ EOF;
 
 		foreach ( $testimonials as $testimonial ) {
 			$do_source			= ! $hide_source && ! empty( $testimonial['testimonial_source'] );
+			$do_title			= ! $hide_title && ! empty( $testimonial['testimonial_title'] );
 			$do_company			= ! $hide_company && ! empty( $testimonial['testimonial_company'] );
 			$do_email			= ! $hide_email && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 			$do_image			= ! $hide_image && ! empty( $testimonial['testimonial_image'] );
@@ -452,6 +502,15 @@ EOF;
 			} elseif ( $do_email ) {
 				$cite			.= '<span class="testimonialswidget_email">';
 				$cite			.= make_clickable( $testimonial['testimonial_email'] );
+				$cite			.= '</span>';
+			}
+
+			if ( $do_title && $cite )
+				$cite			.= '<span class="testimonialswidget_join_title"></span>';
+
+			if ( $do_title ) {
+				$cite			.= '<span class="testimonialswidget_title">';
+				$cite			.= $testimonial['testimonial_title'];
 				$cite			.= '</span>';
 			}
 
@@ -708,6 +767,7 @@ EOF;
 				'testimonial_extra'		=> '',
 				'testimonial_image'		=> $image,
 				'testimonial_source'	=> $row->post_title,
+				'testimonial_title'		=> get_post_meta( $post_id, 'testimonials-widget-title', true ),
 				'testimonial_url'		=> get_post_meta( $post_id, 'testimonials-widget-url', true ),
 			);
 		}
@@ -736,6 +796,12 @@ EOF;
 				'_object_types'	=> 'testimonials-widget',
 				'priority'		=> 'high',
 				'_fields'		=> array(
+					array(
+						'name' 	=> __( 'Title' , 'testimonials-widget'),
+						'id' 	=> 'testimonials-widget-title',
+						'type' 	=> 'text',
+						'desc'	=> __( '' , 'testimonials-widget'),
+					),
 					array(
 						'name' 	=> __( 'Email' , 'testimonials-widget'),
 						'id' 	=> 'testimonials-widget-email',
@@ -773,7 +839,7 @@ EOF;
 
 		global $post;
 
-		if ( self::pt == $post->post_type ) {
+		if ( is_object( $post ) && self::pt == $post->post_type ) {
 			switch( $translation ) {
 			case __( 'Enter title here' , 'testimonials-widget'):
 				return __( 'Enter testimonial source here' , 'testimonials-widget');

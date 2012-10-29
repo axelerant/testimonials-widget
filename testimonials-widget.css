@@ -1,6 +1,5 @@
 .testimonialswidget_testimonials { 
 	/* testimonials wrapper */
-	position: relative;
 }
 
 .testimonialswidget_testimonials .testimonialswidget_active {
@@ -22,12 +21,7 @@
 .testimonialswidget_testimonial {
 	clear: left;
 	display: none;
-	left: 0;
-	margin-bottom: 1.4em;
-	margin: 0;
-	position: absolute; 
-	top: 0;
-	width: 100%;
+	margin: 0 0 1.4em 0;
 }
 
 .testimonialswidget_testimonial .testimonialswidget_image {
@@ -66,29 +60,28 @@
 	/* testimonial source */
 }
 
+.testimonialswidget_testimonial .testimonialswidget_join_title,
 .testimonialswidget_testimonial .testimonialswidget_join {
 	/* section between source and company information */
 }
 
+.testimonialswidget_testimonial .testimonialswidget_join_title:before,
 .testimonialswidget_testimonial .testimonialswidget_join:before {
 	/* join text */
 	content: ", "
 }
 
+.testimonialswidget_testimonial .testimonialswidget_title,
 .testimonialswidget_testimonial .testimonialswidget_company,
 .testimonialswidget_testimonial .testimonialswidget_url {
-	/* testimonial company and url informaiton */
+	/* testimonial title, company and url informaiton */
 }
 
 .testimonialswidget_testimonial .testimonialswidget_extra {
 	/* testimonial source */
 }
 
-
 .testimonialswidget_testimonial_list { 
 	display: block;
-	left: initial;
 	margin-bottom: 1.0em;
-	position: relative; 
-	top: initial;
 }

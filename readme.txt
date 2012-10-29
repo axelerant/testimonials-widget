@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.1.9
+Stable tag: 2.1.10
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -29,7 +29,7 @@ Through categories and tagging, you can create organizational structures based u
 * Customizeable testimonial data field `testimonial_extra`
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
-* Fields for source, testimonial, email, company and URL
+* Fields for source, title, testimonial, email, company and URL
 * Filters for `testimonials_widget_image_size`, `testimonials_widget_gravatar_size`, `testimonials_widget_data`
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
@@ -53,6 +53,7 @@ Through categories and tagging, you can create organizational structures based u
 * Hide image?
 * Hide not found?
 * Hide source?
+* Hide title?
 * Hide email?
 * Hide company?
 * Hide URL?
@@ -60,7 +61,8 @@ Through categories and tagging, you can create organizational structures based u
 * Character limit - Number of characters to limit testimonial views to
 * IDs filter - Comma separated IDs
 * Limit - Number of testimonials to pull at a time
-* Minimum Height - Increase this value if your testimonials are getting cut off when displayed
+* Maximum Height - Set for maximum display height
+* Minimum Height - Set for minimum display height
 * ORDER BY - Used when Random order is disabled
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 * ORDER BY Order - DESC or ASC
@@ -73,24 +75,29 @@ Through categories and tagging, you can create organizational structures based u
 * Options
 	* `category` - default none; category=product or category="product,services"
 	* `char_limit` - default none; char_limit=200
+		* For widget, `char_limit` default is 500
 	* `hide_company` - default show; hide_company=true
 	* `hide_email` - default show; hide_email=true
 	* `hide_gravatar` - default show; hide_gravatar=true
 	* `hide_image` - default show; hide_image=true
 	* `hide_not_found` - default show; hide_not_found=true
 	* `hide_source` - default show; hide_source=true
+	* `hide_title` - default show; hide_title=true
 	* `hide_url` - default show; hide_url=true
 	* `ids` - default none; ids=2 or ids="2,4,6"
 	* `limit` - default 25; limit=10
-	* `min_height` - default 250; min_height=100
-	* `paging` - default none; paging=true
+	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
+	* `max_height` - default none; max_height=250
+	* `min_height` - default none; min_height=100
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
-	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-url]; meta_key=testimonials-widget-company
+	* `paging` - default none; paging=true
 	* `random` - default newest first; random=true (overrides `order` and `orderby`)
+		* For widget, `random` default is true
 	* `refresh_interval` - default 5; refresh_interval=0
 	* `tags_all` - default OR; tags_all=true
 	* `tags` - default none; tags=fire or tags="fire,water"
+	* `target` - default none; target=_new
 
 = Shortcode Examples =
 * [testimonialswidget_list]
@@ -106,6 +113,7 @@ Through categories and tagging, you can create organizational structures based u
 * [testimonialswidget_widget]
 	* [testimonialswidget_widget]
 	* [testimonialswidget_widget category=product order=asc]
+	* [testimonialswidget_widget min_height=250 max_height=500]
 	* [testimonialswidget_widget tags=sometag random=true]
 
 = Theme Function `testimonialswidget_list()` =
@@ -115,7 +123,7 @@ Through categories and tagging, you can create organizational structures based u
 = Theme Function `testimonialswidget_widget()` =
 * For calling the widget with rotation code into your theme directly
 * `<?php echo testimonialswidget_widget( $args, $number ); ?>`
-* `$args` is an array of the above [testimonialswidget_list] shortcode options - optional
+* `$args` is an array of the above [testimonialswidget_list] shortcode options - optional, see FAQ for usage
 * `$number` should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
 
 = Notes =
@@ -281,9 +289,6 @@ If you're not seeing any testimonials, even when not using tags filter, you migh
 = How do I apply custom CSS to a testimonial widget? =
 The easiest thing is to check the source code of your page with the widget and look for the testimonial widgets div container id tag. It'll be something like `id="testimonials_widget-3"`.
 
-= How to stop testimonial text being cut off in the widget? =
-Specify a larger minimum height in the testimonials widget, see screenshot 3.
-
 = How to get rid of the quotation marks that surround the random quote? =
 `
 .testimonialswidget_testimonial q {
@@ -340,6 +345,19 @@ In CSS, revise the join content like the following.
 
 = How to change the admin access level setting for the quotes collection admin page? =
 Change the value of the variable `$testimonialswidget_admin_userlevel` on line 33 of the testimonials-widget.php file. Refer [WordPress documentation](http://codex.wordpress.org/Roles_and_Capabilities#Capability_vs._Role_Table) for more information about user roles and capabilities.
+
+= How do I put the title on a separate line? =
+In CSS put the following.
+
+`
+.testimonialswidget_testimonial .testimonialswidget_join_title {
+	display: none;
+}
+
+.testimonialswidget_testimonial .testimonialswidget_title {
+	display: block;
+}
+`
 
 = How do I put company details on a separate line? =
 In CSS put the following.
@@ -419,14 +437,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 * CSV import
 * Caching
-* Custom CSS
-* Custom meta fields
-* Custom templating
-* Debug true - clear out PHP notices and such
-* Disable post password
-* During migration
-	* Pull out images and attach correctly
-	* Set category
 * Fields to show
 	* Category
 	* Date
@@ -435,19 +445,25 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Centralized defaults - share widgets and shortcode options
 	* Number of refresh interations
 	* Widget options inherit from global
-* Maximum height setting
-* Minimum height removal for widgets
 * Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
-* Remove `.testimonialswidget_testimonial { position: absolute; }` - http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
-* Testimonial manual ordering
-* Title field - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
-* Widget options dropdown for ORDER BY entries
 
 
 == Changelog ==
 = trunk =
+
+= 2.1.10 =
+* Add title field  - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
+* Consolidate defaults to simplify code maintenance
+* Correct CSS testimonial list spacing
+* Debug true - clear out PHP notices and such
+* Default minimum height removed for widgets, now optional
+* Maximum height setting
+* Remove CSS `position` attributes `.testimonialswidget_testimonial { position: absolute; }` - http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages
+* TODO cleanup
+* Update language POT
+* Widget options dropdown for ORDER BY entries
 
 = 2.1.9 =
 * Allow min_height 0
@@ -595,6 +611,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Character limit
 	* IDs filter
 	* Limit
+	* Maximum Height
 	* Minimum Height
 	* ORDER BY
 	* ORDER BY Order

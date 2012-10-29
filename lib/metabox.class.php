@@ -887,7 +887,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		?>
 		<table class="form-table">
 			<?php 
-			do_action("{$this->_class}_before");
+			// do_action("{$this->_class}_before");
 			$custom = get_post_custom($this->_id);
 			
 			foreach ((array)$fields as $field):
