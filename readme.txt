@@ -41,6 +41,7 @@ Through categories and tagging, you can create organizational structures based u
 	* Rotating `[testimonialswidget_widget]`
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
+	* If you don't include the "http://" it points to an internal page, and if you do, it points to the external page
 * Testimonials Widget widget displays static and rotating testimonials 
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
@@ -462,6 +463,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * BUGFIX - Now getting fatal error when using testimonialswidget_list() - http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list?replies=1
 * Theme function defaults
 * TODO updates
+* URL pointing update
 
 = 2.2.1 =
 * Number FAQ Entries
