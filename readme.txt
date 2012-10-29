@@ -175,7 +175,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 == Frequently Asked Questions ==
 
-= How do I use the theme functions `testimonialswidget_list()` and `testimonialswidget_widget()`? =
+= 1. How do I use the theme functions `testimonialswidget_list()` and `testimonialswidget_widget()`? =
 
 In your theme functions file, place code similar to the following for the configuration you need.
 
@@ -197,12 +197,12 @@ echo testimonialswidget_widget( $args );
 ?>
 `
 
-= How do you include the actual testimonials for the widget? Where do I quote my customers? I mean, where do I enter the actual text? =
+= 2. How do you include the actual testimonials for the widget? Where do I quote my customers? I mean, where do I enter the actual text? =
 Checkout the first screenshot 1 at http://wordpress.org/extend/plugins/testimonials-widget/screenshots/ to see where to manage testimonials.
 
 Basically, look down the left side of your WordPress admin area for the Testimonials sections. Click on that section link, then scroll down or click "Add new ttestimonial" to add quotes.
 
-= How do I filter the testimonials data before display processing? =
+= 3. How do I filter the testimonials data before display processing? =
 `
 function my_testimonials_widget_data( $array ) {
 	foreach( $array as $key => $testimonial ) {
@@ -233,7 +233,7 @@ Do note that content truncation might still remove your appended content if you'
 
 Content of `testimonial_extra` is appended after the closing `cite` tag within the testimonial with CSS class `testimonialswidget_extra`.
 
-= How do I change the image size? =
+= 4. How do I change the image size? =
 The default image size is based upon Thumbnail size in Media Settings. If changing that doesn't work for you, then use `add_filter` in your theme to adjust the image size.
 
 `
@@ -248,7 +248,7 @@ function my_testimonials_widget_image_size( $size ) {
 
 You can use either a string keyword (thumbnail, medium, large or full) or a 2-item array representing width and height in pixels, e.g. array(32,32).
 
-= How do I change the Gravatar size? =
+= 5. How do I change the Gravatar size? =
 Use an `add_filter` in your theme to adjust the Gravatar size.
 
 `
@@ -263,18 +263,18 @@ function my_testimonials_widget_gravatar_size( $size ) {
 
 Default Gravatar size is 96, maximum 512.
 
-= What CSS applies to testimonials container? =
+= 6. What CSS applies to testimonials container? =
 CSS class `testimonialswidget_testimonials` wraps all testimonials. Additionally, shortcode lists are wrapped by `testimonialswidget_testimonials testimonialswidget_testimonials_list`.
 
-= What CSS applies to single testimonial container? =
+= 7. What CSS applies to single testimonial container? =
 CSS class `testimonialswidget_testimonial` wraps a single testimonial. Additionally, single shortcode list tems are wrapped by `testimonialswidget_testimonial testimonialswidget_testimonial_list`.
 
-= How can I add the testimonials plugin to any where on the site? ie. somewhere other than the side bar like the contact page etc.? =
+= 8. How can I add the testimonials plugin to any where on the site? ie. somewhere other than the side bar like the contact page etc.? =
 Use [testimonialswidget_list]. Usage examples are at the bottom of http://wordpress.org/extend/plugins/testimonials-widget/.
 
 Look for `[testimonialswidget_list]`.
 
-= How do I hide the comma after the source? =
+= 9. How do I hide the comma after the source? =
 Use CSS.
 `
 .testimonialswidget_testimonial .testimonialswidget_join {
@@ -282,23 +282,23 @@ Use CSS.
 }
 `
 
-= Testimonials widget is not showing or rotating =
+= 10. Testimonials widget is not showing or rotating =
 The usual problem is that jQuery is included twice. Once by WordPress and again by a theme. Remove the jQuery version included by your theme and you should be fine.
 
-= I'm not seeing any testimonials but the title =
+= 11. I'm not seeing any testimonials but the title =
 If you're not seeing any testimonials, even when not using tags filter, you might try increasing the Character limit or setting it to '0' or 'none' in the widget box.
 
-= How do I apply custom CSS to a testimonial widget? =
+= 12. How do I apply custom CSS to a testimonial widget? =
 The easiest thing is to check the source code of your page with the widget and look for the testimonial widgets div container id tag. It'll be something like `id="testimonials_widget-3"`.
 
-= How to get rid of the quotation marks that surround the random quote? =
+= 13. How to get rid of the quotation marks that surround the random quote? =
 `
 .testimonialswidget_testimonial q {
 	quotes: none;
 }
 `
 
-= How to change the random quote text color? =
+= 14. How to change the random quote text color? =
 Styling such as text color, font size, background color, etc., of the random quote can be customized by editing the testimonials-widget.css file or applying CSS like the following.
 
 `
@@ -307,7 +307,7 @@ Styling such as text color, font size, background color, etc., of the random quo
 }
 `
 
-= How can I style the shortcode testimonials? =
+= 15. How can I style the shortcode testimonials? =
 Using my own testimonials page, http://typo3vagabond.com/typo3-vagabond-testimonials/, as the example.
 
 Each shortcode testimonial is wrapped by a `div` using classes `testimonialswidget_testimonial testimonialswidget_testimonial_list`. As such, to increase spacing between testimonials, try…
@@ -336,7 +336,7 @@ If you're wanting to change only the company or URL color, then try.
 
 Like wise, the source uses class `testimonialswidget_source`.
 
-= How do I change the join ", " text? =
+= 16. How do I change the join ", " text? =
 In CSS, revise the join content like the following.
 
 `
@@ -345,10 +345,10 @@ In CSS, revise the join content like the following.
 }
 `
 
-= How to change the admin access level setting for the quotes collection admin page? =
+= 17. How to change the admin access level setting for the quotes collection admin page? =
 Change the value of the variable `$testimonialswidget_admin_userlevel` on line 33 of the testimonials-widget.php file. Refer [WordPress documentation](http://codex.wordpress.org/Roles_and_Capabilities#Capability_vs._Role_Table) for more information about user roles and capabilities.
 
-= How do I put the title on a separate line? =
+= 18. How do I put the title on a separate line? =
 In CSS put the following.
 
 `
@@ -361,7 +361,7 @@ In CSS put the following.
 }
 `
 
-= How do I put company details on a separate line? =
+= 19. How do I put company details on a separate line? =
 In CSS put the following.
 
 `
@@ -375,10 +375,10 @@ In CSS put the following.
 }
 `
 
-= After upgrading, testimonial rotations have stopped =
+= 20. After upgrading, testimonial rotations have stopped =
 The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer. Check to make sure your theme has the `wp_footer()` call in footer.php or the equivalent file.
 
-= How can I justify testimonials text? =
+= 21. How can I justify testimonials text? =
 
 To justify all testimonials try…
 `
@@ -393,31 +393,32 @@ To justify only the testimonials list try…
 }
 `
 
-= How about testimonials own URL? =
+= 22. How about testimonials own URL? =
 Testimonial Widgets records are a custom post type and therefore can be viewed via a URL like http://www.example.com/testimonial/michael-cannon-senior-developer/.
 
 When you look at the Testimonials Widget admin list, you can click on the View link to see the testimonial.
 
 Going further though, you'll need to enable feature image, gravatar and custom post meta like company, email, etc. on your own for your theme.
 
-= My testimonial URL says "Page not found" =
+= 23. My testimonial URL says "Page not found" =
 Go to WordPress > Plugins to Deactivate and then Activate Testimonials Widget. The `flush_rewrite_rules` function needs to run.
 
-= Does this plug in use admin-ajax.php to refresh? =
+= 24. Does this plug in use admin-ajax.php to refresh? =
 No, it doesn't call admin-ajax.php at all.
 
-= Is there a way to reorder testimonials? =
+= 25. Is there a way to reorder testimonials? =
 Look for ORDER BY under Advanced Options of the Testimonials Widget. In ORDER BY, put post_date. Then you use dates to put your testimonials into the order you want.
 
-= How do I create a next link? =
+= 26. How do I create a next link? =
 See http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination.
 
-= How do I hide the "No testimonials found" text? =
+= 27. How do I hide the "No testimonials found" text? =
 In Widget options, check "Hide testimonials not found?" or in shortcode options use `hide_not_found=true`.
 
 `[testimonialswidget_list hide_not_found=true]`
 
-= I'm stuck, how can I get help? =
+
+= I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
 
@@ -457,6 +458,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 -
 
 = 2.2.1 =
+* Number FAQ Entries
 * Revise Installation Usage text
 * Revise Shortcode and Widget Options text
 
