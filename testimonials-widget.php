@@ -49,6 +49,7 @@ class Testimonials_Widget {
 
 	public function init() {
 		self::init_post_type();
+		self::styles();
 	}
 
 
@@ -315,8 +316,6 @@ class Testimonials_Widget {
 
 
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
-		self::styles();
-
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;

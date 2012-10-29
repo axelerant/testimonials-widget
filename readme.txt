@@ -448,8 +448,9 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 == Changelog ==
 = trunk =
-* FAQ - How do I use the theme function `testimonialswidget_list()`?
 * Allow min_height 0
+* FAQ - How do I use the theme function `testimonialswidget_list()`?
+* Move CSS include to header
 
 = 2.1.8 =
 * Remove testimonialswidget_widget char_limit default
