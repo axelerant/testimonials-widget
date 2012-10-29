@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -448,6 +448,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Centralized defaults - share widgets and shortcode options
 	* Number of refresh interations
 	* Widget options inherit from global
+* Make the widget title clickable - http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable?replies=1
 * Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
 * Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
 * Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
@@ -456,6 +457,10 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 == Changelog ==
 = trunk =
 -
+
+= 2.2.2 =
+* BUGFIX - Now getting fatal error when using testimonialswidget_list() - http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list?replies=1
+* TODO updates
 
 = 2.2.1 =
 * Number FAQ Entries
