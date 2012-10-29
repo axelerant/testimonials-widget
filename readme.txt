@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
@@ -45,59 +45,55 @@ Through categories and tagging, you can create organizational structures based u
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
-= Widget Options =
-* Title
+= Shortcode and Widget Options =
 * Category filter - Comma separated category slug-names
-* Tags filter - Comma separated tag slug-names
-* Require all tags - Select only testimonials with all of the given tags
-* Hide gravatar?
-* Hide image?
-* Hide not found?
-* Hide source?
-* Hide title?
-* Hide email?
-* Hide company?
-* Hide URL?
-* URL Target
-* Character limit - Number of characters to limit testimonial views to
-* IDs filter - Comma separated IDs
-* Limit - Number of testimonials to pull at a time
-* Maximum Height - Set for maximum display height
-* Minimum Height - Set for minimum display height
-* ORDER BY - Used when Random order is disabled
-* Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
-* ORDER BY Order - DESC or ASC
-* Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
-* Rotation Speed - Seconds between testimonial rotations or 0 for no refresh
-
-= Shortcodes =
-* [testimonialswidget_list] - list of testimonials
-* [testimonialswidget_widget] - rotating testimonials
-* Options
 	* `category` - default none; category=product or category="product,services"
+* Character limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
-		* For widget, `char_limit` default is 500
+	* Widget - default 500
+* Hide company?
 	* `hide_company` - default show; hide_company=true
+* Hide email?
 	* `hide_email` - default show; hide_email=true
+* Hide gravatar?
 	* `hide_gravatar` - default show; hide_gravatar=true
+* Hide image?
 	* `hide_image` - default show; hide_image=true
+* Hide not found?
 	* `hide_not_found` - default show; hide_not_found=true
+* Hide source?
 	* `hide_source` - default show; hide_source=true
+* Hide title?
 	* `hide_title` - default show; hide_title=true
+* Hide URL?
 	* `hide_url` - default show; hide_url=true
+* IDs filter - Comma separated IDs
 	* `ids` - default none; ids=2 or ids="2,4,6"
+* Limit - Number of testimonials to pull at a time
 	* `limit` - default 25; limit=10
+* Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
+* Maximum Height - Set for maximum display height
 	* `max_height` - default none; max_height=250
+* Minimum Height - Set for minimum display height
 	* `min_height` - default none; min_height=100
+* ORDER BY Order - DESC or ASC
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
+* ORDER BY - Used when Random order is disabled
 	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
+* Enable paging for [testimonialswidget_list]
 	* `paging` - default none; paging=true
-	* `random` - default newest first; random=true (overrides `order` and `orderby`)
-		* For widget, `random` default is true
+	* Widget - Not functional
+* Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
+	* `random` - default none; random=true (overrides `order` and `orderby`)
+	* Widget = default true
+* Rotation Speed - Seconds between testimonial rotations or 0 for no refresh
 	* `refresh_interval` - default 5; refresh_interval=0
+* Require all tags - Select only testimonials with all of the given tags
 	* `tags_all` - default OR; tags_all=true
+* Tags filter - Comma separated tag slug-names
 	* `tags` - default none; tags=fire or tags="fire,water"
+* URL Target
 	* `target` - default none; target=_new
 
 = Shortcode Examples =
@@ -124,6 +120,7 @@ Through categories and tagging, you can create organizational structures based u
 = Theme Function `testimonialswidget_widget()` =
 * For calling the widget with rotation code into your theme directly
 * `<?php echo testimonialswidget_widget( $args, $number ); ?>`
+* `<?php echo testimonialswidget_widget( $args ); ?>`
 * `$args` is an array of the above [testimonialswidget_list] shortcode options - optional, see FAQ for usage
 * `$number` should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
 
@@ -149,10 +146,10 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Usage =
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
-1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' widget into the desired widget area
-1. Configure the Testimonial Widget to select quotes and display as needed
-1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` to display testimonials on a page or in a post
-1. Or read the description for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
+1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials Widget' into the desired widget area
+1. Configure the 'Testimonials Widget' to select quotes and display as needed
+1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
+1. Alternately, read the FAQ for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
 
 
 == Upgrade Notice ==
@@ -458,6 +455,10 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 == Changelog ==
 = trunk =
 -
+
+= 2.2.1 =
+* Revise Installation Usage text
+* Revise Shortcode and Widget Options text
 
 = 2.2.0 =
 * FAQ `testimonialswidget_widget()` example
