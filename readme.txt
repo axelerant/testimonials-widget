@@ -6,6 +6,7 @@ Requires at least: 3.4
 Tested up to: 3.4.2
 Stable tag: 2.2.2
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
 
@@ -41,7 +42,7 @@ Through categories and tagging, you can create organizational structures based u
 	* Rotating `[testimonialswidget_widget]`
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
-	* If you don't include the "http://" it points to an internal page, and if you do, it points to the external page
+	* The URL requires a protocol like `http://` or `https://`
 * Testimonials Widget widget displays static and rotating testimonials 
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
@@ -151,27 +152,6 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 1. Configure the 'Testimonials Widget' to select quotes and display as needed
 1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
 1. Alternately, read the FAQ for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
-
-
-== Upgrade Notice ==
-
-= Version 2.0.0 =
-* CSS
-	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
-	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
-	* The tighten widget display up, p tags within q are displayed inline.
-* JavaScript
-	* The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer.
-* Shortcode options
-	* `hide_source` replaced by `hide_url`
-	* `hide_author` replaced by `hide_source`
-* Testimonials
-	* Migration from the old custom table to new custom post type is automatically done. Import might take a few moments to complete.
-	* Company, URL and email details are attempted to be identified and placed properly based upon the original author and source fields. The company is "guessed" from the `author` field when there's a ", " or " of " context. If the `source` is an email, it's saved as such. Otherwise, it's assumed to be a URL.
-	* Public testimonials are saved as Published. Non-public testimonials are marked as Private.
-* Widget options
-	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
-	* Default `min-height` is now 250px than 150px.
 
 
 == Frequently Asked Questions ==
@@ -433,34 +413,18 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results
 8. [testimonialswidget_list] with paging
-	
-
-== TODO ==
-
-Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
-
-* CSV import
-* Caching
-* Fields to show
-	* Category
-	* Date
-	* Tags
-* Global options page
-	* Centralized defaults - share widgets and shortcode options
-	* Number of refresh interations
-	* Widget options inherit from global
-* Make the widget title clickable - http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable?replies=1
-* Next testimonial - http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination
-* Read More links to full testimonial page - http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial
-* Scrolling text - http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial
 
 
 == Changelog ==
 = trunk =
+* Clean up links
+* [Correct readme.txt to standard](http://wordpress.org/extend/plugins/about/readme.txt)
+* Correct company and URL link usage
+* TODO update
 -
 
 = 2.2.2 =
-* BUGFIX - Now getting fatal error when using testimonialswidget_list() - http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list?replies=1
+* BUGFIX [Now getting fatal error when using testimonialswidget_list()](http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list?replies=1)
 * Theme function defaults
 * TODO updates
 * URL pointing update
@@ -476,13 +440,13 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Reversion as 2.1.10 was a minor release than only bug fixes
 
 = 2.1.10 =
-* Add title field  - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions
+* [Add title field ](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions)
 * Consolidate defaults to simplify code maintenance
 * Correct CSS testimonial list spacing
 * Debug true - clear out PHP notices and such
 * Default minimum height removed for widgets, now optional
 * Maximum height setting
-* Remove CSS `position` attributes `.testimonialswidget_testimonial { position: absolute; }` - http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages
+* [Remove CSS `position` attributes `.testimonialswidget_testimonial { position: absolute; }`](http://wordpress.org/support/topic/testimonials-widget-not-showing-correctly-on-sub-pages)
 * TODO cleanup
 * Update language POT
 * Update screenshots
@@ -499,14 +463,14 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * TODO - debug true
 
 = 2.1.7 =
-* 0 disables char_limit - http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget
-* Set link target - http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions?replies=1; http://core.trac.wordpress.org/browser/tags/3.4.2/wp-includes/formatting.php#L0 - links_add_target
+* [0 disables char_limit](http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget)
+* [Set link target](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions?replies=1; http://core.trac.wordpress.org/browser/tags/3.4.2/wp-includes/formatting.php#L0 - links_add_target)
 * Update widget option top screenshot
 
 = 2.1.6 =
 * FAQ: `ORDER BY` explanation
 * FAQ: `testimonial_extra` explanation
-* Moved CSS to footer - http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation
+* [Moved CSS to footer](http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation)
 * Next testimonial link idea
 * Option: Add `hide_not_found` to prevent showing "No testimonials found"
 * Revise theme methods as functions
@@ -701,3 +665,45 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 = 2011-08-12: Version 0.1 =
 * initial release
+
+
+== Upgrade Notice ==
+
+= 2.0.0 =
+* CSS
+	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
+	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
+	* The tighten widget display up, p tags within q are displayed inline.
+* JavaScript
+	* The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer.
+* Shortcode options
+	* `hide_source` replaced by `hide_url`
+	* `hide_author` replaced by `hide_source`
+* Testimonials
+	* Migration from the old custom table to new custom post type is automatically done. Import might take a few moments to complete.
+	* Company, URL and email details are attempted to be identified and placed properly based upon the original author and source fields. The company is "guessed" from the `author` field when there's a ", " or " of " context. If the `source` is an email, it's saved as such. Otherwise, it's assumed to be a URL.
+	* Public testimonials are saved as Published. Non-public testimonials are marked as Private.
+* Widget options
+	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
+	* Default `min-height` is now 250px than 150px.
+
+
+== TODO ==
+
+Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
+
+* CSV import
+* Caching
+* Fields to show
+	* Category
+	* Date
+	* Tags
+* Global options page
+	* Centralized defaults - share widgets and shortcode options
+	* Number of refresh interations
+	* Widget options inherit from global
+* Improved single page view - image and all fields
+* [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable?replies=1)
+* [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
+* [Read More links to full testimonial page](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial)
+* [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
