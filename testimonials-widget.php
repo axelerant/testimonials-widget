@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.2.2
+	Version: 2.2.3
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -72,6 +72,11 @@ class Testimonials_Widget {
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		add_theme_support( 'post-thumbnails' );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
+
+		$tw_premium_file		= WP_PLUGIN_DIR . '/testimonials-widget/testimonials-widget-premium.php';
+		if ( file_exists( $tw_premium_file ) ) {
+			include_once( $tw_premium_file );
+		}
 	}
 
 
@@ -404,7 +409,7 @@ EOF;
 				add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
 			}
 
-			if ( $refresh_interval ) {
+			if ( $refresh_interval && 1 < count( $testimonials ) ) {
 				$javascript		= <<<EOF
 <script type="text/javascript">
 	function nextTestimonial$widget_number() {
@@ -737,11 +742,16 @@ EOF;
 			}
 		}
 
+		$testimonials			= apply_filters( 'testimonials_widget_cache', null, $args );
+
 		$testimonials			= new WP_Query( $args );
 		$this->max_num_pages	= $testimonials->max_num_pages;
 		$this->post_count		= $testimonials->post_count	;
 
 		wp_reset_postdata();
+
+		$image_size				= apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
+		$gravatar_size			= apply_filters( 'testimonials_widget_gravatar_size', 96 );
 
 		$testimonial_data		= array();
 		foreach( $testimonials->posts as $row ) {
@@ -750,10 +760,8 @@ EOF;
 			$email				= get_post_meta( $post_id, 'testimonials-widget-email', true );
 
 			if ( has_post_thumbnail( $post_id ) ) {
-				$image_size		= apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
 				$image			= get_the_post_thumbnail( $post_id, $image_size );
 			} elseif ( ! $hide_gravatar && is_email( $email ) ) {
-				$gravatar_size	= apply_filters( 'testimonials_widget_gravatar_size', 96 );
 				$image			= get_avatar( $email, $gravatar_size );
 			} else {
 				$image			= false;
@@ -891,15 +899,19 @@ register_activation_hook( __FILE__, array( &$Testimonials_Widget, 'activation' )
 
 
 function testimonialswidget_list( $atts = array() ) {
-	return Testimonials_Widget::testimonialswidget_list( $atts );
+	global $Testimonials_Widget;
+
+	return $Testimonials_Widget->testimonialswidget_list( $atts );
 }
 
 
 function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
+	global $Testimonials_Widget;
+
 	if ( empty( $atts['random'] ) )
 		$atts['random']			= 'true';
 
-	return Testimonials_Widget::testimonialswidget_widget( $atts, $widget_number );
+	return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
 }
 
 ?>
