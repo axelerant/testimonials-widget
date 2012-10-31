@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Through categories and tagging, you can create organizational structures based u
 * Testimonials Widget widget displays static and rotating testimonials 
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
+
+= Premium Features =
+* Caching of testimonials queries and content to decrease server load time improve page loading speed
 
 = Shortcode and Widget Options =
 * Category filter - Comma separated category slug-names
@@ -419,6 +422,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 -
 
+= 2.2.4 =
+* BUGFIX [Tags - no more than 2?](http://wordpress.org/support/topic/tags-no-more-than-2)
+* Clean up PHP notices
+* Fix Changelog link
+* PREMIUM Implement testimonials query and content caching
+* TODO update
+
 = 2.2.3 =
 * Begin premium plugin adaptions
 * BUGFIX [Tags - no more than 2?](http://wordpress.org/support/topic/tags-no-more-than-2)
@@ -470,7 +480,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 = 2.1.7 =
 * [0 disables char_limit](http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget)
-* [Set link target](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions; http://core.trac.wordpress.org/browser/tags/3.4.2/wp-includes/formatting.php#L0 - links_add_target)
+* [Set link target](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions)
 * Update widget option top screenshot
 
 = 2.1.6 =
@@ -700,7 +710,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 
 * CSV import
 * [CSV Export](http://wordpress.org/support/topic/csv-export-publish-new)
-* Caching
 * Fields to show
 	* Category
 	* Date
@@ -716,3 +725,4 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
 * [Read More links to full testimonial page](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
+* Widget category select helper

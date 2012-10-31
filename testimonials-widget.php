@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.2.3
+	Version: 2.2.4
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -316,9 +316,15 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_list( $atts ) {
 		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts['type']			= 'testimonialswidget_list';
 
-		$testimonials			= self::get_testimonials( $atts );
-		$content				= self::get_testimonials_html( $testimonials, $atts );
+		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+
+		if ( false === $content ) {
+			$testimonials		= self::get_testimonials( $atts );
+			$content			= self::get_testimonials_html( $testimonials, $atts );
+			$content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+		}
 
 		return $content;
 	}
@@ -335,9 +341,15 @@ class Testimonials_Widget {
 
 		$atts['paging']			= false;
 		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts['type']			= 'testimonialswidget_widget';
 
-		$testimonials			= self::get_testimonials( $atts );
-		$content				= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
+		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+
+		if ( false === $content ) {
+			$testimonials		= self::get_testimonials( $atts );
+			$content			= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
+			$content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+		}
 
 		return $content;
 	}
@@ -543,10 +555,9 @@ EOF;
 
 			$html				.= $cite;
 
-			$extra				= $testimonial['testimonial_extra'];
-			if ( ! empty( $extra ) ) {
+			if ( ! empty( $testimonial['testimonial_extra'] ) ) {
 				$html			.= '<div class="testimonialswidget_extra';
-				$html			.= $extra;
+				$html			.= $testimonial['testimonial_extra'];
 				$html			.= '</div>';
 			}
 
@@ -684,15 +695,15 @@ EOF;
 
 	public function get_testimonials( $atts ) {
 		// selection attributes
-		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['category'] ) ) ? $atts['category'] : false;
-		$ids					= ( preg_match( '#^\d+(,\d+)?$#', $atts['ids'] ) ) ? $atts['ids'] : false;
+		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['category'] ) ) ? $atts['category'] : false;
+		$ids					= ( preg_match( '#^\d+(,\d+)*$#', $atts['ids'] ) ) ? $atts['ids'] : false;
 		$limit					= ( is_numeric( $atts['limit'] ) && 0 < $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
 		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
-		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)?$#', $atts['tags'] ) ) ? $atts['tags'] : false;
+		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['tags'] ) ) ? $atts['tags'] : false;
 		$tags_all				= ( 'true' == $atts['tags_all'] ) ? true : false;
 
 		$hide_gravatar			= ( 'true' == $atts['hide_gravatar'] ) ? true : false;
@@ -742,9 +753,13 @@ EOF;
 			}
 		}
 
-		$testimonials			= apply_filters( 'testimonials_widget_cache', null, $args );
+		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $args );
 
-		$testimonials			= new WP_Query( $args );
+		if ( false === $testimonials ) {
+			$testimonials		= new WP_Query( $args );
+			$testimonials		= apply_filters( 'testimonials_widget_cache_set', $testimonials, $args );
+		}
+
 		$this->max_num_pages	= $testimonials->max_num_pages;
 		$this->post_count		= $testimonials->post_count	;
 
@@ -754,6 +769,10 @@ EOF;
 		$gravatar_size			= apply_filters( 'testimonials_widget_gravatar_size', 96 );
 
 		$testimonial_data		= array();
+		
+		if ( empty( $this->post_count ) )
+			return $testimonial_data;
+
 		foreach( $testimonials->posts as $row ) {
 			$post_id			= $row->ID;
 
