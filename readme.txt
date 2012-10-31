@@ -49,6 +49,7 @@ Through categories and tagging, you can create organizational structures based u
 
 = Premium Features =
 Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium level code.
+
 * Caching of testimonials queries and content to decrease server load time improve page loading speed
 
 = Shortcode and Widget Options =
@@ -421,6 +422,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Correct verbiage spacing
 -
 
 = 2.2.4 =
