@@ -48,6 +48,7 @@ Through categories and tagging, you can create organizational structures based u
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Premium Features =
+Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium level code.
 * Caching of testimonials queries and content to decrease server load time improve page loading speed
 
 = Shortcode and Widget Options =
