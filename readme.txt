@@ -50,7 +50,7 @@ Through categories and tagging, you can create organizational structures based u
 = Premium Features =
 Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium level code.
 
-* Caching of testimonials queries and content to decrease server load time improve page loading speed
+* Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 
 = Shortcode and Widget Options =
 * Category filter - Comma separated category slug-names
