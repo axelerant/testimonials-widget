@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,7 +76,7 @@ Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for acces
 	* `hide_url` - default show; hide_url=true
 * IDs filter - Comma separated IDs
 	* `ids` - default none; ids=2 or ids="2,4,6"
-* Limit - Number of testimonials to pull at a time
+* Limit - Number of testimonials to rotate through via widget or show at a time when listing
 	* `limit` - default 25; limit=10
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
@@ -145,11 +145,16 @@ A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.gi
 
 Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
 
+= Support =
+
+Please request support through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget). Additionally, if you need to send sensitive information, please email <support@typo3vagabond.com>.
+
 
 == Installation ==
 
-1. Upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
-1. Activate the 'Testimonials Widget' plugin through the 'Plugins' menu in WordPress
+1. Via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
+1. Alternately, via FTP, upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
+1. Activate the 'Testimonials Widget' plugin through WordPress Admin > Plugins
 
 = Usage =
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
@@ -422,8 +427,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* Correct verbiage spacing
 -
+
+= 2.2.5 =
+* Adapt for [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+* Add support text
+* Correct verbiage spacing
+* Explain `limit`
+* TODO revisions
 
 = 2.2.4 =
 * BUGFIX [Tags - no more than 2?](http://wordpress.org/support/topic/tags-no-more-than-2)
@@ -724,7 +735,8 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Improved single page view - image and all fields
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
-* Premium edition for indepth feature requests
+* [Next, Previous page indicators](http://wordpress.org/support/topic/next-previous-page-indicators)
+* [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
 * [Read More links to full testimonial page](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
