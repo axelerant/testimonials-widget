@@ -408,6 +408,14 @@ In Widget options, check "Hide testimonials not found?" or in shortcode options 
 
 `[testimonialswidget_list hide_not_found=true]`
 
+= 28. How do I export testimonials? =
+
+Use the WordPress Admin > Tools > Export option to do so. Besure to select 'All content' or 'Testimonials'.
+
+= 29. How do I import testimonials from WordPress export? =
+
+Go WordPress Admin > Tools > Import > WordPress, install and activate that WordPress importer. Then repeat the WordPress Admin > Tools > Import > WordPress sequence to actually import up your export.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -427,6 +435,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ - Export/import
 -
 
 = 2.2.5 =
