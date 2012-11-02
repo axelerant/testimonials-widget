@@ -436,6 +436,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * FAQ - Export/import
+* TODO - Updates
 -
 
 = 2.2.5 =
@@ -731,6 +732,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
 
+* [Clarify CSS classes](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
 * CSV import
 * [CSV Export](http://wordpress.org/support/topic/csv-export-publish-new)
 * Fields to show
@@ -747,6 +749,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Next, Previous page indicators](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
-* [Read More links to full testimonial page](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial)
+* [Read More links](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial) to [full testimonial page](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Widget category select helper
