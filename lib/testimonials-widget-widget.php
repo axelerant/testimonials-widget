@@ -57,30 +57,30 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 
 	public function update( $new_instance, $old_instance ) {
-		$instance				= $old_instance;
+		$instance					= $old_instance;
 
-		$instance['category']		= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $new_instance['category'] ) ) ? $new_instance['category'] : $instance['category'];
-		$instance['char_limit']		= ( is_numeric( $new_instance['char_limit'] ) && 0 <= $new_instance['char_limit'] ) ? intval( $new_instance['char_limit'] ) : $instance['char_limit'];
-		$instance['hide_company']	= ( 'true' == $new_instance['hide_company'] ) ? 'true' : $instance['hide_company'];
-		$instance['hide_email']		= ( 'true' == $new_instance['hide_email'] ) ? 'true' : $instance['hide_email'];
-		$instance['hide_gravatar']	= ( 'true' == $new_instance['hide_gravatar'] ) ? 'true' : $instance['hide_gravatar'];
-		$instance['hide_image']		= ( 'true' == $new_instance['hide_image'] ) ? 'true' : $instance['hide_image'];
-		$instance['hide_not_found']	= ( 'true' == $new_instance['hide_not_found'] ) ? 'true' : $instance['hide_not_found'];
-		$instance['hide_source']	= ( 'true' == $new_instance['hide_source'] ) ? 'true' : $instance['hide_source'];
-		$instance['hide_title']		= ( 'true' == $new_instance['hide_title'] ) ? 'true' : $instance['hide_title'];
-		$instance['hide_url']		= ( 'true' == $new_instance['hide_url'] ) ? 'true' : $instance['hide_url'];
-		$instance['ids']			= ( preg_match( '#^\d+(,\d+)*$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $instance['ids'];
-		$instance['limit']			= ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ? intval( $new_instance['limit'] ) : $instance['limit'];;
-		$instance['max_height']		= ( is_numeric( $new_instance['max_height'] ) && 0 <= $new_instance['max_height'] ) ? intval( $new_instance['max_height'] ) : $instance['max_height'];;
+		$instance['category']		= ( empty( $new_instance['category'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $new_instance['category'] ) ) ? $new_instance['category'] : $instance['category'];
+		$instance['char_limit']		= ( empty( $new_instance['char_limit'] ) || ( is_numeric( $new_instance['char_limit'] ) && 0 <= $new_instance['char_limit'] ) ) ? $new_instance['char_limit'] : $instance['char_limit'];
+		$instance['hide_company']	= ( 'true' == $new_instance['hide_company'] ) ? 'true' : '';
+		$instance['hide_email']		= ( 'true' == $new_instance['hide_email'] ) ? 'true' : '';
+		$instance['hide_gravatar']	= ( 'true' == $new_instance['hide_gravatar'] ) ? 'true' : '';
+		$instance['hide_image']		= ( 'true' == $new_instance['hide_image'] ) ? 'true' : '';
+		$instance['hide_not_found']	= ( 'true' == $new_instance['hide_not_found'] ) ? 'true' : '';
+		$instance['hide_source']	= ( 'true' == $new_instance['hide_source'] ) ? 'true' : '';
+		$instance['hide_title']		= ( 'true' == $new_instance['hide_title'] ) ? 'true' : '';
+		$instance['hide_url']		= ( 'true' == $new_instance['hide_url'] ) ? 'true' : '';
+		$instance['ids']			= ( empty( $new_instance['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $instance['ids'];
+		$instance['limit']			= ( empty( $new_instance['limit'] ) || ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ) ? $new_instance['limit'] : $instance['limit'];;
+		$instance['max_height']		= ( empty( $new_instance['max_height'] ) || ( is_numeric( $new_instance['max_height'] ) && 0 <= $new_instance['max_height'] ) ) ? $new_instance['max_height'] : $instance['max_height'];;
 		$instance['meta_key']		= ( preg_match( '#^[\w-,]+$#', $new_instance['meta_key'] ) ) ? $new_instance['meta_key'] : $instance['meta_key'];
-		$instance['min_height']		= ( is_numeric( $new_instance['min_height'] ) && 0 <= $new_instance['min_height'] ) ? intval( $new_instance['min_height'] ) : $instance['min_height'];;
+		$instance['min_height']		= ( empty( $new_instance['min_height'] ) || ( is_numeric( $new_instance['min_height'] ) && 0 <= $new_instance['min_height'] ) ) ? $new_instance['min_height'] : $instance['min_height'];;
 		$instance['order']			= ( preg_match( '#^desc|asc$#i', $new_instance['order'] ) ) ? $new_instance['order'] : $instance['order'];
 		$instance['orderby']		= ( preg_match( '#^\w+$#', $new_instance['orderby'] ) ) ? $new_instance['orderby'] : $instance['orderby'];
-		$instance['random']			= ( 'true' == $new_instance['random'] ) ? 'true' : $instance['random'];
-		$instance['refresh_interval']	= ( is_numeric( $new_instance['refresh_interval'] ) && 0 <= $new_instance['refresh_interval'] ) ? intval( $new_instance['refresh_interval'] ) : $instance['refresh_interval'];
-		$instance['tags']			= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $new_instance['tags'] ) ) ? $new_instance['tags'] : $instance['tags'];
-		$instance['tags_all']		= ( 'true' == $new_instance['tags_all'] ) ? 'true' : $instance['tags_all'];
-		$instance['target']			= ( preg_match( '#^\w+$#', $new_instance['target'] ) ) ? $new_instance['target'] : $instance['target'];
+		$instance['random']			= ( 'true' == $new_instance['random'] ) ? 'true' : '';
+		$instance['refresh_interval']	= ( empty( $new_instance['refresh_interval'] ) || ( is_numeric( $new_instance['refresh_interval'] ) && 0 <= $new_instance['refresh_interval'] ) ) ? $new_instance['refresh_interval'] : $instance['refresh_interval'];
+		$instance['tags']			= ( empty( $new_instance['tags'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $new_instance['tags'] ) ) ? $new_instance['tags'] : $instance['tags'];
+		$instance['tags_all']		= ( 'true' == $new_instance['tags_all'] ) ? 'true' : '';
+		$instance['target']			= ( empty( $new_instance['target'] ) || preg_match( '#^\w+$#', $new_instance['target'] ) ) ? $new_instance['target'] : $instance['target'];
 		$instance['title']			= wp_kses_data( $new_instance['title'] );
 
 		return $instance;
