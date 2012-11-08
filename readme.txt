@@ -435,6 +435,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* PHP notice fix - esc_attr
 -
 
 = 2.2.6 =

@@ -900,9 +900,9 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 				// grabbing the meta value
 				if (array_key_exists($id, $custom)) {
 					if (isset($custom[$id][0]))
-						$meta = attribute_escape( $custom[$id][0] );
+						$meta = esc_attr( $custom[$id][0] );
 					else
-						$meta = attribute_escape( $custom[$id] );
+						$meta = esc_attr( $custom[$id] );
 				} else {
 					$meta = $default;
 				}
