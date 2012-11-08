@@ -72,11 +72,6 @@ class Testimonials_Widget {
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		add_theme_support( 'post-thumbnails' );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
-
-		$tw_premium_file		= WP_PLUGIN_DIR . '/testimonials-widget-premium/testimonials-widget-premium.php';
-		if ( file_exists( $tw_premium_file ) ) {
-			include_once( $tw_premium_file );
-		}
 	}
 
 
@@ -342,6 +337,7 @@ class Testimonials_Widget {
 		$atts['paging']			= false;
 		$atts					= wp_parse_args( $atts, self::$defaults );
 		$atts['type']			= 'testimonialswidget_widget';
+		$atts['widget_number']	= $widget_number;
 
 		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
 

@@ -435,7 +435,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Catch widget number in cache
 * PHP notice fix - esc_attr
+* Remove premium code include
 -
 
 = 2.2.6 =
