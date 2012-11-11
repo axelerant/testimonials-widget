@@ -416,6 +416,21 @@ Use the WordPress Admin > Tools > Export option to do so. Besure to select 'All 
 
 Go WordPress Admin > Tools > Import > WordPress, install and activate that WordPress importer. Then repeat the WordPress Admin > Tools > Import > WordPress sequence to actually import up your export.
 
+= 30. What's one way to programmatically query testimonials on a page without using shortcodes or widgets? =
+
+`
+<?php
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+$args = array( 'paged' => $paged, 'posts_per_page' => 10, 'orderby' => DESC, 'post_type' => Testimonials_Widget::pt );
+// The Query
+query_posts( $args );
+// The Loop
+while ( have_posts() ) : the_post();
+// do your thing…
+?>
+`
+
+Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without-widget) for this suggestion.
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -436,9 +451,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Catch widget number in cache
+* FAQ Custom query code. Thank you [tcwebguru](http://wordpress.org/support/topic/display-on-page-without-widget)
 * PHP notice fix - esc_attr
 * Remove premium code include
--
 
 = 2.2.6 =
 * BUGFIX Widget config not saving correctly
