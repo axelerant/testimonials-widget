@@ -432,6 +432,14 @@ while ( have_posts() ) : the_post();
 
 Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without-widget) for this suggestion.
 
+= 31. How do I change Testimonials Widget text labels? =
+
+1. Create a localized `YOUR_WPLANG.mo` file from `languages/testimonials-widget.pot`. See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
+1. Create a directory named `languages` inside of `wp-includes`.
+1. Put your `YOUR_WPLANG.mo` file into your `wp-includes/languages` directory.
+1. Set `WPLANG` inside of `wp-config.php` to your chosen language. See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
+1. The default `WPLANG` is `en_US`. Use `en_US.mo` as the filename of your localization changes if you're sticking with US English.
+
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -452,6 +460,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * Catch widget number in cache
 * FAQ Custom query code. Thank you [tcwebguru](http://wordpress.org/support/topic/display-on-page-without-widget)
+* FAQ Change Testimonials Widget text labels
 * Language verbiage correction
 * PHP notice fix - esc_attr
 * Remove premium code include
