@@ -239,6 +239,8 @@ function my_testimonials_widget_image_size( $size ) {
 
 You can use either a string keyword (thumbnail, medium, large or full) or a 2-item array representing width and height in pixels, e.g. array(32,32).
 
+I recommend putting your theme customizations into a `custom-functions.php` file and then include that in your theme's `functions.php` file via `include 'custom-functions.php';`.
+
 = 5. How do I change the Gravatar size? =
 Use an `add_filter` in your theme to adjust the Gravatar size.
 
@@ -458,6 +460,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 4 custom code placement clarification
 
 = 2.2.7 =
 * Catch widget number in cache
