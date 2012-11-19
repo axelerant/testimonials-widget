@@ -442,6 +442,10 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 1. Set `WPLANG` inside of `wp-config.php` to your chosen language. See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
 1. The default `WPLANG` is `en_US`. Use `en_US.mo` as the filename of your localization changes if you're sticking with US English.
 
+= 32. How do I prevent testimonials in my footer from changing the page height? =
+
+Use the shortcode or widget `min-height` option to keep the testimonial widget height consistent.
+
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -460,7 +464,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* FAQ 4 custom code placement clarification
+* FAQ 4 Custom code placement clarification
+* FAQ 32 Min-height usage
+* TODO Updates
 
 = 2.2.7 =
 * Catch widget number in cache
@@ -780,6 +786,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Number of refresh interations
 	* Widget options inherit from global
 * Improved single page view - image and all fields
+* [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * [Next, Previous page indicators](http://wordpress.org/support/topic/next-previous-page-indicators)
