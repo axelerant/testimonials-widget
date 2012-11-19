@@ -489,11 +489,15 @@ EOF;
 			$content			= $testimonial['testimonial_content'];
 			$content			= self::testimonials_truncate( $content, $char_limit );
 			$content			= force_balance_tags( $content );
-			$content			= apply_filters( 'wptexturize', $content );
-			$content			= apply_filters( 'convert_smilies', $content );
-			$content			= apply_filters( 'convert_chars', $content );
-			$content			= apply_filters( 'wpautop', $content );
-			$content			= apply_filters( 'shortcode_unautop', $content );
+			$content			= wptexturize( $content );
+			$content			= convert_smilies( $content );
+			$content			= convert_chars( $content );
+
+			if ( is_null( $widget_number ) ) {
+				$content		= wpautop( $content );
+				$content		= shortcode_unautop( $content );
+			}
+
 			$content			= make_clickable( $content );
 
 			$html				.= '<q>';
@@ -550,6 +554,12 @@ EOF;
 				$cite			= '<cite>' . $cite . '</cite>';
 
 			$html				.= $cite;
+
+			if ( ! empty( $testimonial['testimonial_readme'] ) ) {
+				$html			.= '<div class="testimonialswidget_readme';
+				$html			.= $testimonial['testimonial_readme'];
+				$html			.= '</div>';
+			}
 
 			if ( ! empty( $testimonial['testimonial_extra'] ) ) {
 				$html			.= '<div class="testimonialswidget_extra';
@@ -789,6 +799,7 @@ EOF;
 				'testimonial_email'		=> $email,
 				'testimonial_extra'		=> '',
 				'testimonial_image'		=> $image,
+				'testimonial_readme'	=> '',
 				'testimonial_source'	=> $row->post_title,
 				'testimonial_title'		=> get_post_meta( $post_id, 'testimonials-widget-title', true ),
 				'testimonial_url'		=> get_post_meta( $post_id, 'testimonials-widget-url', true ),

@@ -17,6 +17,8 @@ Testimonials Widget plugin allows you to display rotating content, portfolio, qu
 
 More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Also, each Testimonal Widget has its own CSS identifier for custom styling.
 
+Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them.
+
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you also select only Portfolio testimonials, but then allow web and media tags.
 
 = Features =
@@ -464,9 +466,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* FAQ 4 Custom code placement clarification
+* Begin "Read more…" preparations
+* Correct content display processing
 * FAQ 32 Min-height usage
+* FAQ 4 Custom code placement clarification
 * TODO Updates
+* Widgets display content sans `wpautop` formatting
 
 = 2.2.7 =
 * Catch widget number in cache
