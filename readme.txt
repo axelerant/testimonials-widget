@@ -446,7 +446,7 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 
 = 32. How do I prevent testimonials in my footer from changing the page height? =
 
-Use the shortcode or widget `min-height` option to keep the testimonial widget height consistent.
+Use the shortcode or widget `max-height` option to keep the testimonial widget height consistent.
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
