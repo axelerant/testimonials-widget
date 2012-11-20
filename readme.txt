@@ -169,7 +169,6 @@ Please request support through the [WordPress forums for Testimonials Widget](ht
 == Frequently Asked Questions ==
 
 = 1. How do I use the theme functions `testimonialswidget_list()` and `testimonialswidget_widget()`? =
-
 In your theme functions file, place code similar to the following for the configuration you need.
 
 `
@@ -466,6 +465,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Refactor testimonial HTML creation methods
+* Sanitize names
+* TEMP Prevent widget caching
+* TODO Updates
 
 = 2.2.9 =
 * BUGFIX [Testimonial List Loading 2nd Blank Box](http://wordpress.org/support/topic/testimonial-list-loading-2nd-blank-box)
@@ -787,6 +790,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Clarify CSS classes](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
 * CSV import
 * [CSV Export](http://wordpress.org/support/topic/csv-export-publish-new)
+* [Custom widget text](http://wordpress.org/support/topic/add-a-line-of-text-after-the-testimonials-in-the-widget)
 * Fields to show
 	* Category
 	* Date

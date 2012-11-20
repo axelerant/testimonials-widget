@@ -129,19 +129,19 @@ class Testimonials_Widget {
 				$author			= $result->author;
 				$company		= false;
 
-				// ex: Catherine Upton of Elearning!
+				// ex: First Last of Company!
 				$author			= str_replace( ' of ', ', ', $author );
-				// now ex: Catherine Upton, Elearning!
+				// now ex: First Last, Company!
 
-				// ex: Mark Gillingham, The Great Books Foundation
-				// ex: Steve Adams, Web Development Manager, Topcon Positioning Systems, Inc.
-				// ex: Karen Richard, Owner, Karen Richard Photography, LLC
+				// ex: First Last, Company
+				// ex: First Last, Web Development Manager, Topcon Positioning Systems, Inc.
+				// ex: First Last, Owner, Company, LLC
 				$author			= str_replace( ' of ', ', ', $author );
 				$temp_comma		= '^^^';
 				$author			= str_replace( ', LLC', $temp_comma . ' LLC', $author );
-				// now ex: Karen Richard, Owner, Karen Richard Photography^^^ LLC
+				// now ex: First Last, Owner, Company^^^ LLC
 				$author			= str_replace( ', Inc', $temp_comma . ' Inc', $author );
-				// ex: Steve Adams, Web Development Manager, Topcon Positioning Systems^^^ Inc.
+				// ex: First Last, Web Development Manager, Company^^^ Inc.
 				// it's possible to have "Michael Cannon, Senior Developer" and "Senior Developer" become the company. Okay for now
 				$author			= explode( ', ', $author );
 
@@ -334,17 +334,20 @@ class Testimonials_Widget {
 		if ( empty( $widget_number ) )
 			$widget_number		= self::$widget_number++;
 
-		$atts['paging']			= false;
 		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts['paging']			= false;
 		$atts['type']			= 'testimonialswidget_widget';
 		$atts['widget_number']	= $widget_number;
 
-		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		// TODO need JavaScript in footer
+		// $content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$content				= false;
 
 		if ( false === $content ) {
 			$testimonials		= self::get_testimonials( $atts );
 			$content			= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
-			$content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+			// TODO need JavaScript in footer
+			// $content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
 		}
 
 		return $content;
@@ -364,32 +367,25 @@ class Testimonials_Widget {
 
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
-		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
-		$hide_title				= ( 'true' == $atts['hide_title'] ) ? true : false;
-		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
-		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
-		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
-		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
-		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
-		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
 		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
-		$id = 'testimonialswidget_testimonials';
+		$html					= '';
+		$id						= 'testimonialswidget_testimonials';
 
 		if ( is_null( $widget_number ) ) {
-			$html				= '<div class="' . $id;
+			$html				.= '<div class="' . $id;
 
 			if ( $is_list )
 				$html			.= ' testimonialswidget_testimonials_list';
 
 			$html				.= '">';
 		} else {
-			$html				= '';
 			$id_base			= $id . $widget_number;
+			$html				.= '<div class="' . $id . ' ' . $id_base . '">';
 
 			if ( $min_height ) {
 				$css			= <<<EOF
@@ -443,8 +439,6 @@ EOF;
 				add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
 
 			}
-
-			$html				.= '<div class="' . $id . ' ' . $id_base . '">';
 		}
 
 		if ( empty( $testimonials ) && ! $hide_not_found ) {
@@ -460,126 +454,142 @@ EOF;
 		$is_first				= true;
 
 		foreach ( $testimonials as $testimonial ) {
-			$do_source			= ! $hide_source && ! empty( $testimonial['testimonial_source'] );
-			$do_title			= ! $hide_title && ! empty( $testimonial['testimonial_title'] );
-			$do_company			= ! $hide_company && ! empty( $testimonial['testimonial_company'] );
-			$do_email			= ! $hide_email && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-			$do_image			= ! $hide_image && ! empty( $testimonial['testimonial_image'] );
-			$do_url				= ! $hide_url && ! empty( $testimonial['testimonial_url'] );
-
-			$html				.= '<div class="testimonialswidget_testimonial';
-
-			if ( $is_list ) {
-				$html			.= ' testimonialswidget_testimonial_list';
-			} elseif ( $is_first ) {
-				$html			.= ' testimonialswidget_active';
-				$is_first		= false;
-			} elseif ( ! $is_first ) {
-				$html			.= ' testimonialswidget_display_none';
-			}
-
-			$html				.= '">';
-
-			if ( $do_image ) {
-				$html			.= '<span class="testimonialswidget_image">';
-				$html			.= $testimonial['testimonial_image'];
-				$html			.= '</span>';
-			}
-
-			$content			= $testimonial['testimonial_content'];
-			$content			= trim( $content );
-			$content			= self::testimonials_truncate( $content, $char_limit );
-			$content			= force_balance_tags( $content );
-			$content			= wptexturize( $content );
-			$content			= convert_smilies( $content );
-			$content			= convert_chars( $content );
-
-			if ( is_null( $widget_number ) ) {
-				$content		= trim( $content );
-				$content		= wpautop( $content );
-				$content		= shortcode_unautop( $content );
-			}
-
-			$content			= make_clickable( $content );
-
-			$html				.= '<q>';
-			$html				.= $content;
-			$html				.= '</q>';
-
-			$cite				= '';
-
-			if ( $do_source && $do_email ) {
-				$cite			.= '<span class="testimonialswidget_author">';
-				$cite			.= '<a href="mailto:' . $testimonial['testimonial_email'] . '">';
-				$cite			.= $testimonial['testimonial_source'];
-				$cite			.= '</a>';
-				$cite			.= '</span>';
-			} elseif ( $do_source ) {
-				$cite			.= '<span class="testimonialswidget_author">';
-				$cite			.= $testimonial['testimonial_source'];
-				$cite			.= '</span>';
-			} elseif ( $do_email ) {
-				$cite			.= '<span class="testimonialswidget_email">';
-				$cite			.= make_clickable( $testimonial['testimonial_email'] );
-				$cite			.= '</span>';
-			}
-
-			if ( $do_title && $cite )
-				$cite			.= '<span class="testimonialswidget_join_title"></span>';
-
-			if ( $do_title ) {
-				$cite			.= '<span class="testimonialswidget_title">';
-				$cite			.= $testimonial['testimonial_title'];
-				$cite			.= '</span>';
-			}
-
-			if ( ( $do_company || $do_url ) && $cite )
-				$cite			.= '<span class="testimonialswidget_join"></span>';
-
-			if ( $do_company && $do_url ) {
-				$cite			.= '<span class="testimonialswidget_company">';
-				$cite			.= '<a href="' . $testimonial['testimonial_url'] . '">';
-				$cite			.= $testimonial['testimonial_company'];
-				$cite			.= '</a>';
-				$cite			.= '</span>';
-			} elseif ( $do_company ) {
-				$cite			.= '<span class="testimonialswidget_company">';
-				$cite			.= $testimonial['testimonial_company'];
-				$cite			.= '</span>';
-			} elseif ( $do_url ) {
-				$cite			.= '<span class="testimonialswidget_url">';
-				$cite			.= make_clickable( $testimonial['testimonial_url'] );
-				$cite			.= '</span>';
-			}
-
-			if ( ! empty( $cite ) )
-				$cite			= '<cite>' . $cite . '</cite>';
-
-			$html				.= $cite;
-
-			if ( ! empty( $testimonial['testimonial_readme'] ) ) {
-				$html			.= '<div class="testimonialswidget_readme';
-				$html			.= $testimonial['testimonial_readme'];
-				$html			.= '</div>';
-			}
-
-			if ( ! empty( $testimonial['testimonial_extra'] ) ) {
-				$html			.= '<div class="testimonialswidget_extra';
-				$html			.= $testimonial['testimonial_extra'];
-				$html			.= '</div>';
-			}
-
-			$html				.= '</div>';
-		}
-
-		if ( $paging ) {
-			$html				.= self::get_testimonials_paging( $testimonials, $atts, false );
+			$html				.= self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
+			$is_first			= false;
 		} 
 
 		$html					.= '</div>';
 
 		if ( $target )
 			$html				= links_add_target( $html, $target );
+
+		return $html;
+	}
+
+
+	public function get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number ) {
+		// display attributes
+		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
+		$hide_title				= ( 'true' == $atts['hide_title'] ) ? true : false;
+		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
+		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
+		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
+		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
+		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
+		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
+
+		$do_source				= ! $hide_source && ! empty( $testimonial['testimonial_source'] );
+		$do_title				= ! $hide_title && ! empty( $testimonial['testimonial_title'] );
+		$do_company				= ! $hide_company && ! empty( $testimonial['testimonial_company'] );
+		$do_email				= ! $hide_email && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_image				= ! $hide_image && ! empty( $testimonial['testimonial_image'] );
+		$do_url					= ! $hide_url && ! empty( $testimonial['testimonial_url'] );
+
+		$html					= '<div class="testimonialswidget_testimonial';
+
+		if ( $is_list ) {
+			$html				.= ' testimonialswidget_testimonial_list';
+		} elseif ( $is_first ) {
+			$html				.= ' testimonialswidget_active';
+		} elseif ( ! $is_first ) {
+			$html				.= ' testimonialswidget_display_none';
+		}
+
+		$html					.= '">';
+
+		// TODO make into array to manage position of elements and add read more
+		if ( $do_image ) {
+			$html				.= '<span class="testimonialswidget_image">';
+			$html				.= $testimonial['testimonial_image'];
+			$html				.= '</span>';
+		}
+
+		$content				= $testimonial['testimonial_content'];
+		$content				= trim( $content );
+		$content				= self::testimonials_truncate( $content, $char_limit );
+		$content				= force_balance_tags( $content );
+		$content				= wptexturize( $content );
+		$content				= convert_smilies( $content );
+		$content				= convert_chars( $content );
+
+		if ( is_null( $widget_number ) ) {
+			$content			= trim( $content );
+			$content			= wpautop( $content );
+			$content			= shortcode_unautop( $content );
+		}
+
+		$content				= make_clickable( $content );
+
+		$html					.= '<q>';
+		$html					.= $content;
+		$html					.= '</q>';
+
+		$cite					= '';
+
+		if ( $do_source && $do_email ) {
+			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= '<a href="mailto:' . $testimonial['testimonial_email'] . '">';
+			$cite				.= $testimonial['testimonial_source'];
+			$cite				.= '</a>';
+			$cite				.= '</span>';
+		} elseif ( $do_source ) {
+			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= $testimonial['testimonial_source'];
+			$cite				.= '</span>';
+		} elseif ( $do_email ) {
+			$cite				.= '<span class="testimonialswidget_email">';
+			$cite				.= make_clickable( $testimonial['testimonial_email'] );
+			$cite				.= '</span>';
+		}
+
+		if ( $do_title && $cite )
+			$cite				.= '<span class="testimonialswidget_join_title"></span>';
+
+		if ( $do_title ) {
+			$cite				.= '<span class="testimonialswidget_title">';
+			$cite				.= $testimonial['testimonial_title'];
+			$cite				.= '</span>';
+		}
+
+		if ( ( $do_company || $do_url ) && $cite )
+			$cite				.= '<span class="testimonialswidget_join"></span>';
+
+		if ( $do_company && $do_url ) {
+			$cite				.= '<span class="testimonialswidget_company">';
+			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '">';
+			$cite				.= $testimonial['testimonial_company'];
+			$cite				.= '</a>';
+			$cite				.= '</span>';
+		} elseif ( $do_company ) {
+			$cite				.= '<span class="testimonialswidget_company">';
+			$cite				.= $testimonial['testimonial_company'];
+			$cite				.= '</span>';
+		} elseif ( $do_url ) {
+			$cite				.= '<span class="testimonialswidget_url">';
+			$cite				.= make_clickable( $testimonial['testimonial_url'] );
+			$cite				.= '</span>';
+		}
+
+		if ( ! empty( $cite ) )
+			$cite				= '<cite>' . $cite . '</cite>';
+
+		$html					.= $cite;
+
+		if ( ! empty( $testimonial['testimonial_readmore'] ) ) {
+			$html				.= '<div class="testimonialswidget_readmore">';
+			$html				.= $testimonial['testimonial_readmore'];
+			$html				.= '</div>';
+		}
+
+		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
+			$html				.= '<div class="testimonialswidget_extra">';
+			$html				.= $testimonial['testimonial_extra'];
+			$html				.= '</div>';
+		}
+
+		// TODO add filter to manage testimonial elements
+
+		$html					.= '</div>';
 
 		return $html;
 	}
@@ -794,18 +804,19 @@ EOF;
 				$image			= false;
 			}
 
-			$testimonial_data[]	= array(
+			$data				= array(
 				'post_id'				=> $post_id,
 				'testimonial_company'	=> get_post_meta( $post_id, 'testimonials-widget-company', true ),
 				'testimonial_content'	=> $row->post_content,
 				'testimonial_email'		=> $email,
 				'testimonial_extra'		=> '',
 				'testimonial_image'		=> $image,
-				'testimonial_readme'	=> '',
 				'testimonial_source'	=> $row->post_title,
 				'testimonial_title'		=> get_post_meta( $post_id, 'testimonials-widget-title', true ),
 				'testimonial_url'		=> get_post_meta( $post_id, 'testimonials-widget-url', true ),
 			);
+
+			$testimonial_data[]	= $data;
 		}
 
 		$testimonial_data		= apply_filters( 'testimonials_widget_data', $testimonial_data );
