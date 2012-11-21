@@ -49,8 +49,8 @@ Through categories and tagging, you can create organizational structures based u
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
-= [Testimonials Widget Premium Plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) Features =
-Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium plugin.
+= Testimonials Widget Premium Plugin Features =
+Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) by [donating](http://typo3vagabond.com/about-typo3-vagabond/donate/).
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Read more links on testimonials exceeding the character limit
