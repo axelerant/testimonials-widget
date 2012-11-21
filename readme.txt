@@ -468,6 +468,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Refactor testimonial HTML creation methods
 * Sanitize names
 * TEMP Prevent widget caching
+* TODO Clarify 'Read more'
 * TODO Updates
 
 = 2.2.9 =
@@ -791,6 +792,9 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * CSV import
 * [CSV Export](http://wordpress.org/support/topic/csv-export-publish-new)
 * [Custom widget text](http://wordpress.org/support/topic/add-a-line-of-text-after-the-testimonials-in-the-widget)
+	* [Example 1](http://www.isbo.ge/mats/sampletestimonial.gif)
+	* Example 2: "This is a test quote, which is very long. I have..." Read more - Author, location
+	* [Example 3](http://demo.themeshift.com/deposito/blog/) - immediately after the cite, aligned left with the text, prefaced with an HTML arrow symbol
 * Fields to show
 	* Category
 	* Date
