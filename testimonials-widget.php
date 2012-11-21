@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.2.9
+	Version: 2.3.0
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -311,6 +311,7 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_list( $atts ) {
 		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts['paged']			= ( ! empty( $_REQUEST[ self::page_key ] ) ) ? intval( $_REQUEST[ self::page_key ] ) : 1;
 		$atts['type']			= 'testimonialswidget_list';
 
 		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
@@ -339,14 +340,14 @@ class Testimonials_Widget {
 		$atts['type']			= 'testimonialswidget_widget';
 		$atts['widget_number']	= $widget_number;
 
-		// TODO need JavaScript in footer
+		// TODO disabled full widget caching as JavaScript and possible custom
+		// CSS is needed in footer
 		// $content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
 		$content				= false;
 
 		if ( false === $content ) {
 			$testimonials		= self::get_testimonials( $atts );
 			$content			= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
-			// TODO need JavaScript in footer
 			// $content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
 		}
 
@@ -367,6 +368,7 @@ class Testimonials_Widget {
 
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
+		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
 		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
@@ -458,6 +460,10 @@ EOF;
 			$is_first			= false;
 		} 
 
+		if ( $paging ) {
+			$html				.= self::get_testimonials_paging( $testimonials, $atts, false );
+		} 
+
 		$html					.= '</div>';
 
 		if ( $target )
@@ -470,20 +476,15 @@ EOF;
 	public function get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number ) {
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
-		$hide_title				= ( 'true' == $atts['hide_title'] ) ? true : false;
-		$hide_company			= ( 'true' == $atts['hide_company'] ) ? true : false;
-		$hide_email				= ( 'true' == $atts['hide_email'] ) ? true : false;
-		$hide_image				= ( 'true' == $atts['hide_image'] ) ? true : false;
-		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
-		$hide_source			= ( 'true' == $atts['hide_source'] || 'true' == $atts['hide_author'] ) ? true : false;
-		$hide_url				= ( 'true' == $atts['hide_url'] ) ? true : false;
-
-		$do_source				= ! $hide_source && ! empty( $testimonial['testimonial_source'] );
-		$do_title				= ! $hide_title && ! empty( $testimonial['testimonial_title'] );
-		$do_company				= ! $hide_company && ! empty( $testimonial['testimonial_company'] );
-		$do_email				= ! $hide_email && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-		$do_image				= ! $hide_image && ! empty( $testimonial['testimonial_image'] );
-		$do_url					= ! $hide_url && ! empty( $testimonial['testimonial_url'] );
+		$content_more			= apply_filters( 'testimonials_widget_content_more', __( ' …', 'testimonials-widget' ) );
+		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
+		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_image				= ( 'true' != $atts['hide_image'] ) && ! empty( $testimonial['testimonial_image'] );
+		$do_source				= ( 'true' != $atts['hide_source'] || 'true' == $atts['hide_author'] ) && ! empty( $testimonial['testimonial_source'] );
+		$do_title				= ( 'true' != $atts['hide_title'] ) && ! empty( $testimonial['testimonial_title'] );
+		$do_url					= ( 'true' != $atts['hide_url'] ) && ! empty( $testimonial['testimonial_url'] );
+		// 6 is 5 characters for average word length plus a space
+		$word_count				= ( $char_limit ) ? ceil( $char_limit / 6 ) : null;
 
 		$html					= '<div class="testimonialswidget_testimonial';
 
@@ -497,7 +498,6 @@ EOF;
 
 		$html					.= '">';
 
-		// TODO make into array to manage position of elements and add read more
 		if ( $do_image ) {
 			$html				.= '<span class="testimonialswidget_image">';
 			$html				.= $testimonial['testimonial_image'];
@@ -505,19 +505,14 @@ EOF;
 		}
 
 		$content				= $testimonial['testimonial_content'];
-		$content				= trim( $content );
-		$content				= self::testimonials_truncate( $content, $char_limit );
-		$content				= force_balance_tags( $content );
-		$content				= wptexturize( $content );
-		$content				= convert_smilies( $content );
-		$content				= convert_chars( $content );
+		$content				= self::format_content( $content, $widget_number );
 
-		if ( is_null( $widget_number ) ) {
-			$content			= trim( $content );
-			$content			= wpautop( $content );
-			$content			= shortcode_unautop( $content );
+		if ( $char_limit ) {
+			$content			= wp_trim_words( $content, $word_count, $content_more );
+			$content			= force_balance_tags( $content );
 		}
 
+		$content				= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $content_more, $word_count );
 		$content				= make_clickable( $content );
 
 		$html					.= '<q>';
@@ -575,23 +570,36 @@ EOF;
 
 		$html					.= $cite;
 
-		if ( ! empty( $testimonial['testimonial_readmore'] ) ) {
-			$html				.= '<div class="testimonialswidget_readmore">';
-			$html				.= $testimonial['testimonial_readmore'];
-			$html				.= '</div>';
-		}
-
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
 			$html				.= '<div class="testimonialswidget_extra">';
 			$html				.= $testimonial['testimonial_extra'];
 			$html				.= '</div>';
 		}
 
-		// TODO add filter to manage testimonial elements
-
 		$html					.= '</div>';
 
 		return $html;
+	}
+
+	public function format_content( $content, $widget_number ) {
+		if ( empty ( $content ) )
+			return $content;
+
+		$content				= trim( $content );
+		$content				= wptexturize( $content );
+		$content				= convert_smilies( $content );
+		$content				= convert_chars( $content );
+
+		if ( is_null( $widget_number ) ) {
+			$content			= wpautop( $content );
+			$content			= shortcode_unautop( $content );
+		} else {
+			$content			= strip_shortcodes( $content );
+		}
+		
+		$content				= str_replace(']]>', ']]&gt;', $content);
+		
+		return $content;
 	}
 
 
@@ -622,9 +630,10 @@ EOF;
 		$html					.= '	<div class="alignleft">';
 
 		if ( 1 < $paged ) {
-			$html				.= self::get_previous_posts_link( __( '&laquo;' , 'testimonials-widget'), $paged );
+			$laquo			= apply_filters( 'testimonials_widget_previous_posts_link_text', __( '&laquo;' , 'testimonials-widget') );
+			$html				.= self::get_previous_posts_link( $laquo, $paged );
 		} else {
-			// $html				.= __( '&laquo;' );
+			// $html				.= __( '&laquo;' , 'testimonials-widget');
 		}
 
 		$html					.= '	</div>';
@@ -632,9 +641,10 @@ EOF;
 		$html					.= '	<div class="alignright">';
 
 		if ( $paged != $this->max_num_pages ) {
-			$html				.= self::get_next_posts_link( __( '&raquo;' , 'testimonials-widget'), $paged );
+			$raquo				= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;' , 'testimonials-widget') );
+			$html				.= self::get_next_posts_link( $raquo, $paged );
 		} else {
-			// $html				.= __( '&raquo;' );
+			// $html				.= __( '&raquo;' , 'testimonials-widget');
 		}
 
 		$html					.= '	</div>';
@@ -690,24 +700,6 @@ EOF;
 		foreach( self::$scripts as $key => $script ) {
 			echo $script;
 		}
-	}
-
-
-	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
-	public function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…' ) {
-		if ( ! $char_limit )
-			return $string;
-
-		// return with no change if string is shorter than $char_limit
-		if ( strlen( $string ) <= $char_limit )
-			return $string;
-
-		$string					= substr( $string, 0, $char_limit );
-		if ( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
-			$string				= substr( $string, 0, $breakpoint );
-		}
-
-		return $string . $pad;
 	}
 
 

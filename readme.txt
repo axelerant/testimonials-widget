@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, business, client, commendation, custom post type, customer, quotations, quotations widget, quote, quote shortcode, quotes, quotes collection, random, random content, random quote, recommendation, reference, shortcode, sidebar, sidebar quote, testimonial, testimonial widget, testimonials, testimonials widget, testimony, widget,wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.2.9
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,10 +49,11 @@ Through categories and tagging, you can create organizational structures based u
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
-= Premium Features =
-Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium level code.
+= [Testimonials Widget Premium Plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) Features =
+Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for access to the premium plugin.
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Read more links on testimonials exceeding the character limit
 
 = Shortcode and Widget Options =
 * Category filter - Comma separated category slug-names
@@ -60,6 +61,7 @@ Please [donate](http://typo3vagabond.com/about-typo3-vagabond/donate/) for acces
 * Character limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
+	* `char_limit` is converted to a word limit using 6 as the average word length plus a space
 * Hide company?
 	* `hide_company` - default show; hide_company=true
 * Hide email?
@@ -196,12 +198,15 @@ Basically, look down the left side of your WordPress admin area for the Testimon
 
 = 3. How do I filter the testimonials data before display processing? =
 `
-function my_testimonials_widget_data( $array ) {
-	foreach( $array as $key => $testimonial ) {
+function my_testimonials_widget_data( $data ) {
+	if ( empty( $data ) )
+		return $data;
+
+	foreach( $data as $key => $testimonial ) {
 		// do something with the $testimonial entry
 		// the keys below are those that are currently available
 		// 'testimonial_extra' is the key in which you can put in your own custom content for display
-		$testimonial	= array(
+		$testimonial			= array(
 			'post_id'				=> …,
 			'testimonial_source'	=> …,
 			'testimonial_company'	=> …,
@@ -212,10 +217,10 @@ function my_testimonials_widget_data( $array ) {
 			'testimonial_extra'		=> …,
 		);
 
-		$array[ $key ]			= $testimonial;
+		$data[ $key ]			= $testimonial;
 	}
 
-	return $array;
+	return $data;
 }
 
 add_filter( 'testimonials_widget_data', 'my_testimonials_widget_data' );
@@ -447,6 +452,100 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 
 Use the shortcode or widget `max-height` option to keep the testimonial widget height consistent.
 
+= 33. How do I change the more content ellipsis? =
+In your theme's `functions.php` file, add similar code as follows.
+`
+add_filter( 'testimonials_widget_content_more', function() { return ' Continue reading &rarr;'; } );
+`
+or
+`
+function my_content_more() {
+	return ' Continue reading &rarr;';
+}
+
+add_filter( 'testimonials_widget_content_more', 'my_content_more' );
+`
+
+= 34. How is an active testimonial widget formatted with CSS? =
+`
+<!-- testimonials outer wrapper begin -->
+<!-- The NNN of testimonialswidget_testimonialsNNN represents the widget number for specific widget styling -->
+<div class="testimonialswidget_testimonials testimonialswidget_testimonialsNNN">
+	<!-- individual testimonial wrapper begin -->
+	<div class="testimonialswidget_testimonial testimonialswidget_active">
+		<span class="testimonialswidget_image">
+			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
+		</span>
+		<q>
+			<p>Testimonial AKA post content</p>
+		</q>
+		<cite>
+			<span class="testimonialswidget_author">
+				<a href="mailto:email@example.com">Source AKA post title</a>
+			</span>
+			<span class="testimonialswidget_join_title"></span>
+			<span class="testimonialswidget_title">Title</span>
+			<span class="testimonialswidget_join"></span>
+			<span class="testimonialswidget_company">
+				<a href="http://example.com">Company, LLC</a>
+			</span>
+		</cite>
+	</div>
+	<!-- individual testimonial wrapper end -->
+</div>
+<!-- testimonials outer wrapper end -->
+`
+
+Please view the `testimonials-widget.css` file for CSS customizations.
+
+= 35. How is a testimonial list formatted with CSS? =
+`
+<!-- testimonials outer wrapper begin -->
+<div class="testimonialswidget_testimonials testimonialswidget_testimonials_list">
+	<!-- individual testimonial wrapper begin -->
+	<div class="testimonialswidget_testimonial testimonialswidget_testimonial_list">
+		<span class="testimonialswidget_image">
+			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
+		</span>
+		<q>
+			<p>Testimonial AKA post content</p>
+		</q>
+		<cite>
+			<span class="testimonialswidget_author">
+				<a href="mailto:email@example.com">Source AKA post title</a>
+			</span>
+			<span class="testimonialswidget_join_title"></span>
+			<span class="testimonialswidget_title">Title</span>
+			<span class="testimonialswidget_join"></span>
+			<span class="testimonialswidget_company">
+				<a href="http://example.com">Company, LLC</a>
+			</span>
+		</cite>
+	</div>
+	<!-- individual testimonial wrapper end -->
+</div>
+<!-- testimonials outer wrapper end -->
+`
+
+Please view the `testimonials-widget.css` file for CSS customizations.
+
+= 36. How do I configure Next and Previous page indicators? =
+For previous page links, in your theme's `functions.php` file, add similar code as follows.
+`
+add_filter( 'testimonials_widget_previous_posts_link_text', function() { return 'Previous'; } );
+`
+or
+`
+function my_testimonials_widget_previous_posts_link_text() {
+	return 'Previous';
+}
+
+add_filter( 'testimonials_widget_previous_posts_link_text', 'my_testimonials_widget_previous_posts_link_text' );
+`
+
+For next page links, use `testimonials_widget_next_posts_link` instead of `testimonials_widget_previous_posts_link_text` in above.
+
+
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
 
@@ -461,15 +560,32 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results
 8. [testimonialswidget_list] with paging
+9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 
 
 == Changelog ==
 = trunk =
+
+= 2.3.0 =
+* BUGFIX No paging when cached
+* FAQ 3 Check for empty $data
+* FAQ 33 Change more content ellipsis
+* FAQ 34/35 Clarify CSS classes
+* FAQ 36 Configure Next and Previous page indicators
+* FEATURE (Premium) [Read More links](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial) to [full testimonial page](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
+* FEATURE Easier to configure Next and Previous page indicators
+* Refactor `get_testimonial_html`
 * Refactor testimonial HTML creation methods
+* Remove "Read more…" preparations
+* Replace `testimonials_truncate` with WordPress's `wp_trim_words`
+* SCREENSHOTS 'Read more' links
 * Sanitize names
 * TEMP Prevent widget caching
 * TODO Clarify 'Read more'
+* TODO Remove - CSV Export
 * TODO Updates
+* Update POT file
 
 = 2.2.9 =
 * BUGFIX [Testimonial List Loading 2nd Blank Box](http://wordpress.org/support/topic/testimonial-list-loading-2nd-blank-box)
@@ -765,6 +881,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Upgrade Notice ==
 
+= 2.3.0 =
+* `char_limit` is converted to a word limit using 6 as the average word length plus a space
+
 = 2.0.0 =
 * CSS
 	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
@@ -788,13 +907,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
 
-* [Clarify CSS classes](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
 * CSV import
-* [CSV Export](http://wordpress.org/support/topic/csv-export-publish-new)
 * [Custom widget text](http://wordpress.org/support/topic/add-a-line-of-text-after-the-testimonials-in-the-widget)
-	* [Example 1](http://www.isbo.ge/mats/sampletestimonial.gif)
-	* Example 2: "This is a test quote, which is very long. I have..." Read more - Author, location
-	* [Example 3](http://demo.themeshift.com/deposito/blog/) - immediately after the cite, aligned left with the text, prefaced with an HTML arrow symbol
+	* [Example](http://www.isbo.ge/mats/sampletestimonial.gif)
+	* [Example](http://demo.themeshift.com/deposito/blog/) - immediately after the cite, aligned left with the text, prefaced with an HTML arrow symbol
 * Fields to show
 	* Category
 	* Date
@@ -807,9 +923,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
-* [Next, Previous page indicators](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
-* [Read More links](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial) to [full testimonial page](http://wordpress.org/support/topic/very-easy-to-use-moderately-easy-to-style)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Widget category select helper
