@@ -545,6 +545,15 @@ add_filter( 'testimonials_widget_previous_posts_link_text', 'my_testimonials_wid
 
 For next page links, use `testimonials_widget_next_posts_link` instead of `testimonials_widget_previous_posts_link_text` in above.
 
+= 36. Why should I donate for Testimonials Widget Premium? =
+The free Testimonials Widget 2.3.0 release update provides several new filters, one of which, `testimonials_widget_content`, is the same that I'm using for incorporating the 'read more' links.
+
+You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without donating.
+
+Personally, it was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for donations are an acceptable request to help pay for the normally free and ongoing support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
+
+Furthermore, if someone can't afford to donate, they can always email me directly, not via the forums, and ask politely for a copy of the premium plugin. The support email address is found under the "Support" heading at http://wordpress.org/extend/plugins/testimonials-widget/.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -566,6 +575,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 36 Why donate?
 
 = 2.3.0 =
 * BUGFIX No paging when cached
