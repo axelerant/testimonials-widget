@@ -76,7 +76,8 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		add_theme_support( 'post-thumbnails' );
+		// add_theme_support( 'post-thumbnails' );
+		add_post_type_support( self::pt, 'thumbnail' );
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
@@ -296,7 +297,10 @@ class Testimonials_Widget {
 			'public' 			=> true,
 			'publicly_queryable'	=> true,
 			'query_var' 		=> true,
-			'rewrite'			=> array( 'slug' => 'testimonial' ),
+			'rewrite'			=> array(
+			 	'slug' => 'testimonial',
+				'with_front' => false
+			),
 			'show_in_menu'		=> true,
 			'show_ui' 			=> true,
 			'supports' 			=> $supports,

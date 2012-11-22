@@ -587,7 +587,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 8. [testimonialswidget_list] with paging
 9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
-11. Widget with Premium Options
+11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 
 
 == Changelog ==
