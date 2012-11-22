@@ -597,6 +597,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 38 Use filter `testimonials_widget_defaults`
 * FEATURE Centralized defaults via filter `testimonials_widget_defaults`
 * Only grab `paged` information once
+* Prepend HTTP protocol if missing in URL
 * Simplify filter `testimonials_widget_content`
 * Trim content after formatting
 * TBD

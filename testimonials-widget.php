@@ -812,6 +812,11 @@ EOF;
 				$image			= false;
 			}
 
+			$url				= get_post_meta( $post_id, 'testimonials-widget-url', true );
+			if ( ! empty( $url ) && preg_match( "#https?://#", $url ) === 0) {
+				$url = 'http://' . $url;
+			}
+
 			$data				= array(
 				'post_id'				=> $post_id,
 				'testimonial_company'	=> get_post_meta( $post_id, 'testimonials-widget-company', true ),
@@ -821,7 +826,7 @@ EOF;
 				'testimonial_image'		=> $image,
 				'testimonial_source'	=> $row->post_title,
 				'testimonial_title'		=> get_post_meta( $post_id, 'testimonials-widget-title', true ),
-				'testimonial_url'		=> get_post_meta( $post_id, 'testimonials-widget-url', true ),
+				'testimonial_url'		=> $url,
 			);
 
 			$testimonial_data[]	= $data;
