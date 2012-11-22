@@ -592,10 +592,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
+* Combine source and url display when no email or company
 * FAQ renumber second 36 to 37
 * FAQ 38 Use filter `testimonials_widget_defaults`
 * FEATURE Centralized defaults via filter `testimonials_widget_defaults`
 * Only grab `paged` information once
+* Simplify filter `testimonials_widget_content`
 * Trim content after formatting
 * TBD
 

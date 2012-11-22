@@ -519,7 +519,7 @@ EOF;
 			$content			= force_balance_tags( $content );
 		}
 
-		$content				= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $content_more, $word_count );
+		$content				= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 		$content				= make_clickable( $content );
 
 		$html					.= '<q>';
@@ -527,6 +527,7 @@ EOF;
 		$html					.= '</q>';
 
 		$cite					= '';
+		$done_url				= false;
 
 		if ( $do_source && $do_email ) {
 			$cite				.= '<span class="testimonialswidget_author">';
@@ -534,6 +535,13 @@ EOF;
 			$cite				.= $testimonial['testimonial_source'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';
+		} elseif ( $do_source && ! $do_company && $do_url ) {
+			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '">';
+			$cite				.= $testimonial['testimonial_source'];
+			$cite				.= '</a>';
+			$cite				.= '</span>';
+			$done_url			= true;
 		} elseif ( $do_source ) {
 			$cite				.= '<span class="testimonialswidget_author">';
 			$cite				.= $testimonial['testimonial_source'];
@@ -553,7 +561,7 @@ EOF;
 			$cite				.= '</span>';
 		}
 
-		if ( ( $do_company || $do_url ) && $cite )
+		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite )
 			$cite				.= '<span class="testimonialswidget_join"></span>';
 
 		if ( $do_company && $do_url ) {
@@ -566,7 +574,7 @@ EOF;
 			$cite				.= '<span class="testimonialswidget_company">';
 			$cite				.= $testimonial['testimonial_company'];
 			$cite				.= '</span>';
-		} elseif ( $do_url ) {
+		} elseif ( $do_url && ! $done_url ) {
 			$cite				.= '<span class="testimonialswidget_url">';
 			$cite				.= make_clickable( $testimonial['testimonial_url'] );
 			$cite				.= '</span>';
