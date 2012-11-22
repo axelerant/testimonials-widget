@@ -21,6 +21,8 @@ Widgets display content sans `wpautop` formatting. This means no forced paragrap
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you also select only Portfolio testimonials, but then allow web and media tags.
 
+Single testimonial view supports image, source, title, email, company and URL details.
+
 = Features =
 * Admin interface to add, edit and manage testimonials
 * Auto-migration from old custom table to new custom post type
@@ -42,6 +44,7 @@ Through categories and tagging, you can create organizational structures based u
 * Shortcodes
 	* Listings with paging `[testimonialswidget_list]`
 	* Rotating `[testimonialswidget_widget]`
+* Single testimonial view includes image, source, title, email, company and URL details
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 	* The URL requires a protocol like `http://` or `https://`
