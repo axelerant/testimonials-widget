@@ -545,7 +545,7 @@ add_filter( 'testimonials_widget_previous_posts_link_text', 'my_testimonials_wid
 
 For next page links, use `testimonials_widget_next_posts_link` instead of `testimonials_widget_previous_posts_link_text` in above.
 
-= 36. Why should I donate for Testimonials Widget Premium? =
+= 37. Why should I donate for Testimonials Widget Premium? =
 The free Testimonials Widget 2.3.0 release update provides several new filters, one of which, `testimonials_widget_content`, is the same that I'm using for incorporating the 'read more' links.
 
 You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without donating.
@@ -553,6 +553,22 @@ You and other developers are very welcome to code your own version of [Testimoni
 Personally, it was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for donations are an acceptable request to help pay for the normally free and ongoing support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
 
 Furthermore, if someone can't afford to donate, they can always email me directly, not via the forums, and ask politely for a copy of the premium plugin. The support email address is found under the "Support" heading at http://wordpress.org/extend/plugins/testimonials-widget/.
+
+= 38. How do I use filter `testimonials_widget_defaults`? =
+To create a global or central Testimonials Widget configuration, in your theme's `functions.php` file, add similar code as follows.
+
+`
+function my_testimonials_widget_defaults( $array ) {
+	$array['category']			= 'testimony';
+	$array['char_limit']		= 250;
+	$array['paging']			= 'true';
+	$array['refresh_interval']	= 10;
+
+	return $array;
+}
+
+add_filter( 'testimonials_widget_defaults', 'my_testimonials_widget_defaults' );
+`
 
 
 = I'm still stuck, how can I get help? =
@@ -576,6 +592,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
+* FAQ renumber second 36 to 37
+* FAQ 38 Use filter `testimonials_widget_defaults`
+* FEATURE Centralized defaults via filter `testimonials_widget_defaults`
 * Only grab `paged` information once
 * Trim content after formatting
 * TBD
@@ -932,10 +951,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Category
 	* Date
 	* Tags
-* Global options page
-	* Centralized defaults - share widgets and shortcode options
-	* Number of refresh interations
-	* Widget options inherit from global
 * Improved single page view - image and all fields
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)

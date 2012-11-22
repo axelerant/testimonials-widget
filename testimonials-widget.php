@@ -310,8 +310,13 @@ class Testimonials_Widget {
 	}
 
 
+	public function get_defaults() {
+		return apply_filters( 'testimonials_widget_defaults', self::$defaults );
+	}
+
+
 	public function testimonialswidget_list( $atts ) {
-		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts					= wp_parse_args( $atts, self::get_defaults() );
 		$atts['paged']			= ( ! empty( $_REQUEST[ self::page_key ] ) ) ? intval( $_REQUEST[ self::page_key ] ) : 1;
 		$atts['type']			= 'testimonialswidget_list';
 
@@ -336,7 +341,7 @@ class Testimonials_Widget {
 		if ( empty( $widget_number ) )
 			$widget_number		= self::$widget_number++;
 
-		$atts					= wp_parse_args( $atts, self::$defaults );
+		$atts					= wp_parse_args( $atts, self::get_defaults() );
 		$atts['paging']			= false;
 		$atts['type']			= 'testimonialswidget_widget';
 		$atts['widget_number']	= $widget_number;

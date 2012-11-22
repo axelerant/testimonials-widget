@@ -88,9 +88,14 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 	public function form( $instance ) {
 		if ( empty( $instance ) ) {
-			$defaults				= Testimonials_Widget::$defaults;
-			$defaults['char_limit']	= 500;
-			$defaults['random']		= 'true';
+			$defaults				= Testimonials_Widget::get_defaults();
+
+			if ( empty( $defaults['char_limit']	) )
+				$defaults['char_limit']	= 500;
+
+			if ( empty( $defaults['random']	) )
+				$defaults['random']		= 'true';
+
 			$instance				= wp_parse_args( array(), $defaults );
 		}
 
