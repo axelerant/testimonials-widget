@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -592,6 +592,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* TBD
+
+= 2.3.2 =
 * Add filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
 * BUGFIX ["featured image" module disappeared](http://wordpress.org/support/topic/no-image-upload?replies=12#post-3423001)
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
@@ -605,7 +608,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Simplify filter `testimonials_widget_content`
 * Simplify read more ellipsis
 * Trim content after formatting
-* TBD
 
 = 2.3.1 =
 * BUGFIX [No image upload](http://wordpress.org/support/topic/no-image-upload)
