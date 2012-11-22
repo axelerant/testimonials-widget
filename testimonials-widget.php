@@ -64,13 +64,14 @@ class Testimonials_Widget {
 	static $scripts				= array();
 	static $widget_number		= 100000;
 
+
 	public function __construct() {
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 		add_action( 'init', array( &$this, 'init' ) );
 		add_action( 'widgets_init', array( &$this, 'init_widgets' ) );
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails', array( self::pt ) );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
 	}
 

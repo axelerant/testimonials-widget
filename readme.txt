@@ -575,6 +575,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* BUGFIX [No image upload](http://wordpress.org/support/topic/no-image-upload)
 * FAQ 36 Why donate?
 
 = 2.3.0 =
