@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.3.2
+	Version: 2.3.3
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -76,11 +76,30 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		// add_theme_support( 'post-thumbnails' );
-		add_post_type_support( self::pt, 'thumbnail' );
+		add_filter( 'the_content', array( &$this, 'get_single' ) );
+		add_theme_support( 'post-thumbnails' );
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
+	}
+
+
+	public function get_single( $content ) {
+		global $post;
+
+		if ( self::pt != $post->post_type )
+			return $content;
+
+		$atts					= self::get_defaults();
+		$atts['ids']			= $post->ID;
+		$atts['ignore_content']	= 'true';
+
+		$testimonials			= self::get_testimonials( $atts );
+		$testimonial			= $testimonials[0];
+
+		$details				= self::get_testimonial_html( $testimonial, $atts );
+
+		return $content . $details;
 	}
 
 
@@ -484,7 +503,7 @@ EOF;
 	}
 
 
-	public function get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number ) {
+	public function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
@@ -526,9 +545,11 @@ EOF;
 		$content				= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 		$content				= make_clickable( $content );
 
-		$html					.= '<q>';
-		$html					.= $content;
-		$html					.= '</q>';
+		if ( empty( $atts['ignore_content'] ) ) {
+			$html				.= '<q>';
+			$html				.= $content;
+			$html				.= '</q>';
+		}
 
 		$cite					= '';
 		$done_url				= false;

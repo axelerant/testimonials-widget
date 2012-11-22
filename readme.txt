@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.4.2
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -588,11 +588,17 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+12. Single testimonial view
 
 
 == Changelog ==
 = trunk =
 * TBD
+
+= 2.3.3 =
+* FEATURE Improved single page view
+* SCREENSHOT Single testimonial view
+* TODO Meta capabilities
 
 = 2.3.2 =
 * Add filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
@@ -732,7 +738,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Next testimonial link idea
 * Option: Add `hide_not_found` to prevent showing "No testimonials found"
 * Revise theme methods as functions
-* Screenhsot: Update upper widget options
+* Screenshot: Update upper widget options
 * Staged widget testimonials are initially `display: none` via CSS `.testimonialswidget_display_none`
 * TODO updates
 * Verbiage: Refresh Interval to Rotation Speed
@@ -961,9 +967,9 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 	* Category
 	* Date
 	* Tags
-* Improved single page view - image and all fields
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
+* [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
