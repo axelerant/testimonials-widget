@@ -576,6 +576,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
+* Only grab `paged` information once
+* Trim content after formatting
 * TBD
 
 = 2.3.1 =

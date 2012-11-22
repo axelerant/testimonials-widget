@@ -343,6 +343,7 @@ class Testimonials_Widget {
 
 		// TODO disabled full widget caching as JavaScript and possible custom
 		// CSS is needed in footer
+		// However, caching is still working for get_testimonials()
 		// $content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
 		$content				= false;
 
@@ -599,6 +600,7 @@ EOF;
 		}
 		
 		$content				= str_replace(']]>', ']]&gt;', $content);
+		$content				= trim( $content );
 		
 		return $content;
 	}
@@ -622,8 +624,8 @@ EOF;
 
 		$html					.= '">';
 
-		if ( ! empty( $_REQUEST[ self::page_key ] ) ) {
-			$paged				= intval( $_REQUEST[ self::page_key ] );
+		if ( ! empty( $atts['paged'] ) ) {
+			$paged				= $atts['paged'];
 		} else {
 			$paged				= 1;
 		}
@@ -731,8 +733,8 @@ EOF;
 			'posts_per_page'	=> $limit,
 		);
 
-		if ( $paging && ! empty( $_REQUEST[ self::page_key ] ) ) {
-			$args['paged']		= intval( $_REQUEST[ self::page_key ] );
+		if ( $paging && ! empty( $atts['paged'] ) ) {
+			$args['paged']		= $atts['paged'];
 		}
 
 		if ( ! $random && $meta_key ) {
