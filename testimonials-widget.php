@@ -76,7 +76,7 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		add_theme_support( 'post-thumbnails', array( self::pt ) );
+		add_theme_support( 'post-thumbnails' );
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
@@ -483,7 +483,7 @@ EOF;
 	public function get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number ) {
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
-		$content_more			= apply_filters( 'testimonials_widget_content_more', __( ' …', 'testimonials-widget' ) );
+		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
 		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
 		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image				= ( 'true' != $atts['hide_image'] ) && ! empty( $testimonial['testimonial_image'] );

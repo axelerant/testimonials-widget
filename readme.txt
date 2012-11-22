@@ -587,10 +587,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 8. [testimonialswidget_list] with paging
 9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+11. Widget with Premium Options
 
 
 == Changelog ==
 = trunk =
+* Add filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
+* BUGFIX ["featured image" module disappeared](http://wordpress.org/support/topic/no-image-upload?replies=12#post-3423001)
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
 * Combine source and url display when no email or company
 * FAQ renumber second 36 to 37
@@ -598,7 +601,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FEATURE Centralized defaults via filter `testimonials_widget_defaults`
 * Only grab `paged` information once
 * Prepend HTTP protocol if missing in URL
+* SCREENSHOT Widget Premium Options
 * Simplify filter `testimonials_widget_content`
+* Simplify read more ellipsis
 * Trim content after formatting
 * TBD
 
