@@ -1,6 +1,6 @@
 === Testimonials Widget ===
 Contributors: comprock
-Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
+Donate link: http://typo3vagabond.com/downloads/testimonials-widget-premium-wordpress-plugin/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
@@ -597,6 +597,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Test with WordPress 3.5.0 RC1
+* TODO remove Publish & New - just click 'New Testimonial' after Publishing
+* Update donate link
 * TBD
 
 = 2.3.3 =
@@ -976,6 +978,5 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
-* [Publish & New](http://wordpress.org/support/topic/csv-export-publish-new)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Widget category select helper
