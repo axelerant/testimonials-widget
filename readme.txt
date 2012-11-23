@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/downloads/testimonials-widget-premium-word
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.3.4
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* Listings with paging `[testimonialswidget_list]`
 	* Rotating `[testimonialswidget_widget]`
 * Single testimonial view includes image, source, title, email, company and URL details
+* Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 	* The URL requires a protocol like `http://` or `https://`
@@ -581,6 +582,11 @@ add_filter( 'testimonials_widget_defaults', 'my_testimonials_widget_defaults' );
 = 39. How do I style the custom widget text? =
 In your theme's `styles.css` file use the CSS class `.testimonialswidget_widget_text` to style the custom widget text.
 
+= 40. How do I get page numbers for pagination? =
+Install and activate [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) to get page numbers for pagination of testimonials via the shortcode `[testimonialswidget_list paging=true]`.
+
+Additionally, you can use filter `testimonials_widget_wp_pagenavi` to configure WP-PageNavi specifically for Testimonial Widgets. Read WP-PageNavi's `[core.php](http://plugins.svn.wordpress.org/wp-pagenavi/trunk/core.php)` `wp_pagenavi` function declaration for available options.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -601,22 +607,28 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 12. Single testimonial view
 13. Widget with clickable title and custom text/HTML on bottom
+14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 
 
 == Changelog ==
 = trunk =
 * TBD
 
+= 2.4.0 =
 * FAQ 39 Style the custom widget text
+* FAQ 40 Page number pagination
 * FEATURE Custom widget text
 * FEATURE Make the widget title clickable
+* FEATURE Page numbers via WP-PageNavi
 * Refactor paging to use WordPress functions
-* SCREENSHOT 3 update
-* SCREENSHOT 4 update
 * SCREENSHOT 12 recrop
 * SCREENSHOT 13 Widget with clickable title and custom text/HTML on bottom
-* TODO Remove Custom widget text - completed
-* TODO Remove Make the widget title clickable - completed
+* SCREENSHOT 14 WP-PageNavi compatible for page numbers than default arrows
+* SCREENSHOT 3 update
+* SCREENSHOT 4 update
+* TODO Remove Custom widget text - added
+* TODO Remove Make the widget title clickable - added
+* TODO Remove Page numbers - added
 * TODO Remove fields to show - done via theme
 
 = 2.3.4 =
@@ -987,12 +999,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
+Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/typo3-vagabond-testimonials/).
 
 * CSV import
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
-* [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Widget category select helper

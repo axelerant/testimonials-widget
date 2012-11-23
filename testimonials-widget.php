@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.3.4
+	Version: 2.4.0
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -32,6 +32,7 @@ class Testimonials_Widget {
 
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
+	private $wp_query			= null;
 
 	static $css					= array();
 	static $defaults			= array(
@@ -703,27 +704,36 @@ EOF;
 			$paged				= 1;
 		}
 
-		$html					.= '	<div class="alignleft">';
+		if ( ! function_exists( 'wp_pagenavi' ) ) {
+			$html				.= '	<div class="alignleft">';
 
-		if ( 1 < $paged ) {
-			$laquo			= apply_filters( 'testimonials_widget_previous_posts_link_text', __( '&laquo;' , 'testimonials-widget') );
-			$html				.= get_previous_posts_link( $laquo, $paged );
+			if ( 1 < $paged ) {
+				$laquo			= apply_filters( 'testimonials_widget_previous_posts_link_text', __( '&laquo;' , 'testimonials-widget') );
+				$html			.= get_previous_posts_link( $laquo, $paged );
+			} else {
+				// $html			.= __( '&laquo;' , 'testimonials-widget');
+			}
+
+			$html				.= '	</div>';
+
+			$html				.= '	<div class="alignright">';
+
+			if ( $paged != $this->max_num_pages ) {
+				$raquo			= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;' , 'testimonials-widget') );
+				$html			.= get_next_posts_link( $raquo, $this->max_num_pages );
+			} else {
+				// $html		.= __( '&raquo;' , 'testimonials-widget');
+			}
+
+			$html				.= '	</div>';
 		} else {
-			// $html				.= __( '&laquo;' , 'testimonials-widget');
+			$args				= array(
+				'echo'			=> false,
+				'query'			=> $this->wp_query,
+			);
+			$args				= apply_filters( 'testimonials_widget_wp_pagenavi', $args );
+			$html				.= wp_pagenavi( $args );
 		}
-
-		$html					.= '	</div>';
-
-		$html					.= '	<div class="alignright">';
-
-		if ( $paged != $this->max_num_pages ) {
-			$raquo				= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;' , 'testimonials-widget') );
-			$html				.= get_next_posts_link( $raquo, $this->max_num_pages );
-		} else {
-			// $html				.= __( '&raquo;' , 'testimonials-widget');
-		}
-
-		$html					.= '	</div>';
 
 		$html					.= '</div>';
 
@@ -813,7 +823,8 @@ EOF;
 		}
 
 		$this->max_num_pages	= $testimonials->max_num_pages;
-		$this->post_count		= $testimonials->post_count	;
+		$this->post_count		= $testimonials->post_count;
+		$this->wp_query			= $testimonials;
 
 		wp_reset_postdata();
 
