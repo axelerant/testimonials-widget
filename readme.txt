@@ -59,6 +59,8 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * Read more links on testimonials exceeding the character limit
 
 = Shortcode and Widget Options =
+* Title - Widget title
+* Title Link - URL or Post ID to link widget title to
 * Category filter - Comma separated category slug-names
 	* `category` - default none; category=product or category="product,services"
 * Character limit - Number of characters to limit testimonial views to

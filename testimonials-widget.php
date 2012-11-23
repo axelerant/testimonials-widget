@@ -60,6 +60,7 @@ class Testimonials_Widget {
 			'tags'				=> '',
 			'tags_all'			=> '',
 			'target'			=> '',
+			'title_link'		=> '',
 	);
 	static $scripts				= array();
 	static $widget_number		= 100000;
