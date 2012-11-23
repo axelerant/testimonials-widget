@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.3.3
+	Version: 2.3.4
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -77,10 +77,29 @@ class Testimonials_Widget {
 
 	public function init() {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
-		add_theme_support( 'post-thumbnails' );
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
+	}
+
+
+	public function support_thumbnails() {
+		global $_wp_theme_features;
+
+		$feature				= 'post-thumbnails';
+		$feature_level			= get_theme_support( $feature );
+
+		if ( true === $feature_level ) {
+			// already enabled for all post types
+			return;
+		} elseif ( false === $feature_level ) {
+			// none allowed, only enable for our own
+			add_theme_support( $feature, array( self::pt ) );
+		} else {
+			// add our own to list of supported
+			$feature_level[0][]			= self::pt;
+			add_theme_support( $feature, $feature_level[0] );
+		}
 	}
 
 
@@ -117,6 +136,7 @@ class Testimonials_Widget {
 		add_filter( 'manage_' . self::pt . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
 		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
+		self::support_thumbnails();
 	}
 
 
