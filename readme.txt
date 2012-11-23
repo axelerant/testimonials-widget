@@ -3,7 +3,7 @@ Contributors: comprock
 Donate link: http://typo3vagabond.com/about-typo3-vagabond/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
-Tested up to: 3.4.2
+Tested up to: 3.5.0
 Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -596,6 +596,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Test with WordPress 3.5.0 RC1
 * TBD
 
 = 2.3.3 =
