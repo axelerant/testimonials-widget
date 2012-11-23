@@ -49,8 +49,8 @@ class Testimonials_Widget {
 			'hide_url'			=> '',
 			'ids'				=> '',
 			'limit'				=> 25,
-			'meta_key'			=> '',
 			'max_height'		=> '',
+			'meta_key'			=> '',
 			'min_height'		=> '',
 			'order'				=> 'DESC',
 			'orderby'			=> 'ID',
@@ -61,6 +61,7 @@ class Testimonials_Widget {
 			'tags_all'			=> '',
 			'target'			=> '',
 			'title_link'		=> '',
+			'widget_text'		=> '',
 	);
 	static $scripts				= array();
 	static $widget_number		= 100000;
@@ -513,6 +514,13 @@ EOF;
 		if ( $paging ) {
 			$html				.= self::get_testimonials_paging( $testimonials, $atts, false );
 		} 
+
+		if ( ! empty( $atts['widget_text'] ) ) {
+			$html               .= '<div class="testimonialswidget_widget_text">';
+			$html               .= $atts['widget_text'];
+			$html               .= '</div>';
+		}
+
 
 		$html					.= '</div>';
 

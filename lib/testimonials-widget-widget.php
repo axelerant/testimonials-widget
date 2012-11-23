@@ -125,6 +125,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['target']			= ( empty( $new_instance['target'] ) || preg_match( '#^\w+$#', $new_instance['target'] ) ) ? $new_instance['target'] : $instance['target'];
 		$instance['title']			= wp_kses_data( $new_instance['title'] );
 		$instance['title_link']		= wp_kses_data( $new_instance['title_link'] );
+		$instance['widget_text']	= wp_kses_post( $new_instance['widget_text'] );
 
 		$instance					= apply_filters( 'testimonials_widget_options_update', $instance, $new_instance );
 
@@ -146,13 +147,13 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$form_parts				= array();
 
-		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
+		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
 
-		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title Link', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title Link', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['category']	= '<p><label for="' . $this->get_field_id( 'category' ) . '">' . __( 'Category filter', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'category' ) . '" name="' . $this->get_field_name( 'category' ) . '" value="' . htmlspecialchars($instance['category'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated category slug-names', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['category']	= '<p><label for="' . $this->get_field_id( 'category' ) . '">' . __( 'Category filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'category' ) . '" name="' . $this->get_field_name( 'category' ) . '" value="' . htmlspecialchars($instance['category'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated category slug-names', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['tags']		= '<p><label for="' . $this->get_field_id( 'tags' ) . '">' . __( 'Tags filter', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'tags' ) . '" name="' . $this->get_field_name( 'tags' ) . '" value="' . htmlspecialchars($instance['tags'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated tag slug-names', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['tags']		= '<p><label for="' . $this->get_field_id( 'tags' ) . '">' . __( 'Tags filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'tags' ) . '" name="' . $this->get_field_name( 'tags' ) . '" value="' . htmlspecialchars($instance['tags'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated tag slug-names', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['tags_all']	= '<p><input type="checkbox" id="' . $this->get_field_id( 'tags_all' ) . '" name="' . $this->get_field_name( 'tags_all' ) . '" value="true"' . checked( $instance['tags_all'], 'true', false ) . ' /> <label for="' . $this->get_field_id( 'tags_all' ) . '">' . __( 'Require all tags', 'testimonials-widget' ) . '</label><br/><span class="setting-description"><small>' . __( 'Select only testimonials with all of the given tags', 'testimonials-widget' ) . '</small></span></p>';
 
@@ -176,17 +177,17 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$form_parts['hide_url']	= '<p><input type="checkbox" id="' . $this->get_field_id( 'hide_url' ) . '" name="' . $this->get_field_name( 'hide_url' ) . '" value="true"' . checked( $instance['hide_url'], 'true', false ) . ' /> <label for="' . $this->get_field_id( 'hide_url' ) . '">' . __( 'Hide URL?', 'testimonials-widget' ) . '</label></p>';
 
-		$form_parts['target']	= '<p><label for="' . $this->get_field_id( 'target' ) . '">' . __( 'URL Target', 'testimonials-widget' ) . ' </label><input size="15" type="text" id="' . $this->get_field_id( 'target' ) . '" name="' . $this->get_field_name( 'target' ) . '" value="' . htmlspecialchars($instance['target'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Leave blank if none', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['target']	= '<p><label for="' . $this->get_field_id( 'target' ) . '">' . __( 'URL Target', 'testimonials-widget' ) . '</label><input size="15" type="text" id="' . $this->get_field_id( 'target' ) . '" name="' . $this->get_field_name( 'target' ) . '" value="' . htmlspecialchars($instance['target'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Leave blank if none', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['char_limit']	= '<p><label for="' . $this->get_field_id( 'char_limit' ) . '">' . __( 'Character limit', 'testimonials-widget' ) . ' </label><input size="4" type="text" id="' . $this->get_field_id( 'char_limit' ) . '" name="' . $this->get_field_name( 'char_limit' ) . '" value="' . htmlspecialchars($instance['char_limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of characters to limit testimonial views to', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['char_limit']	= '<p><label for="' . $this->get_field_id( 'char_limit' ) . '">' . __( 'Character limit', 'testimonials-widget' ) . '</label><input size="4" type="text" id="' . $this->get_field_id( 'char_limit' ) . '" name="' . $this->get_field_name( 'char_limit' ) . '" value="' . htmlspecialchars($instance['char_limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of characters to limit testimonial views to', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['ids']		= '<p><label for="' . $this->get_field_id( 'ids' ) . '">' . __( 'IDs filter', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'ids' ) . '" name="' . $this->get_field_name( 'ids' ) . '" value="' . htmlspecialchars($instance['ids'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated IDs', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['ids']		= '<p><label for="' . $this->get_field_id( 'ids' ) . '">' . __( 'IDs filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'ids' ) . '" name="' . $this->get_field_name( 'ids' ) . '" value="' . htmlspecialchars($instance['ids'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated IDs', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['limit']	= '<p><label for="' . $this->get_field_id( 'limit' ) . '">' . __( 'Limit', 'testimonials-widget' ) . ' </label><input size="4" type="text" id="' . $this->get_field_id( 'limit' ) . '" name="' . $this->get_field_name( 'limit' ) . '" value="' . htmlspecialchars($instance['limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of testimonials to rotate through', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['limit']	= '<p><label for="' . $this->get_field_id( 'limit' ) . '">' . __( 'Limit', 'testimonials-widget' ) . '</label><input size="4" type="text" id="' . $this->get_field_id( 'limit' ) . '" name="' . $this->get_field_name( 'limit' ) . '" value="' . htmlspecialchars($instance['limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of testimonials to rotate through', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['min_height']	= '<p><label for="' . $this->get_field_id( 'min_height' ) . '">' . __('Minimum Height', 'testimonials-widget') . ' </label><input size="4" type="text" id="' . $this->get_field_id( 'min_height' ) . '" name="' . $this->get_field_name( 'min_height' ) . '" value="' . htmlspecialchars($instance['min_height'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __('Set for minimum display height', 'testimonials-widget') . '</small></span></p>';
+		$form_parts['min_height']	= '<p><label for="' . $this->get_field_id( 'min_height' ) . '">' . __('Minimum Height', 'testimonials-widget') . '</label><input size="4" type="text" id="' . $this->get_field_id( 'min_height' ) . '" name="' . $this->get_field_name( 'min_height' ) . '" value="' . htmlspecialchars($instance['min_height'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __('Set for minimum display height', 'testimonials-widget') . '</small></span></p>';
 
-		$form_parts['max_height']	= '<p><label for="' . $this->get_field_id( 'max_height' ) . '">' . __('Maximum Height', 'testimonials-widget') . ' </label><input size="4" type="text" id="' . $this->get_field_id( 'max_height' ) . '" name="' . $this->get_field_name( 'max_height' ) . '" value="' . htmlspecialchars($instance['max_height'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __('Set for maximum display height', 'testimonials-widget') . '</small></span></p>';
+		$form_parts['max_height']	= '<p><label for="' . $this->get_field_id( 'max_height' ) . '">' . __('Maximum Height', 'testimonials-widget') . '</label><input size="4" type="text" id="' . $this->get_field_id( 'max_height' ) . '" name="' . $this->get_field_name( 'max_height' ) . '" value="' . htmlspecialchars($instance['max_height'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __('Set for maximum display height', 'testimonials-widget') . '</small></span></p>';
 
 		$orderby_select			= '<select id="' . $this->get_field_id( 'orderby' ) . '" name="' . $this->get_field_name( 'orderby' ) . '">';
 		$orderby_options		= array(
@@ -206,7 +207,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$orderby_select			.= '</select>';
 
-		$form_parts['orderby']	= '<p><label for="' . $this->get_field_id( 'orderby' ) . '">' . __( 'ORDER BY', 'testimonials-widget' ) . ' </label>' . $orderby_select . '<br/><span class="setting-description"><small>' . __( 'Used when Random order is disabled', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['orderby']	= '<p><label for="' . $this->get_field_id( 'orderby' ) . '">' . __( 'ORDER BY', 'testimonials-widget' ) . '</label>' . $orderby_select . '<br/><span class="setting-description"><small>' . __( 'Used when Random order is disabled', 'testimonials-widget' ) . '</small></span></p>';
 
 		$meta_key_select		= '<select id="' . $this->get_field_id( 'meta_key' ) . '" name="' . $this->get_field_name( 'meta_key' ) . '">';
 		$meta_key_options		= array(
@@ -227,7 +228,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$meta_key_select		.= '</select>';
 
-		$form_parts['meta_key']	= '<p><label for="' . $this->get_field_id( 'meta_key' ) . '">' . __( 'Sort by meta key', 'testimonials-widget' ) . ' </label>' . $meta_key_select . '<br/><span class="setting-description"><small>' . __( 'Used when Random order is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['meta_key']	= '<p><label for="' . $this->get_field_id( 'meta_key' ) . '">' . __( 'Sort by meta key', 'testimonials-widget' ) . '</label>' . $meta_key_select . '<br/><span class="setting-description"><small>' . __( 'Used when Random order is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY', 'testimonials-widget' ) . '</small></span></p>';
 
 		$order_select			= '<select id="' . $this->get_field_id( 'order' ) . '" name="' . $this->get_field_name( 'order' ) . '">';
 		$order_options			= array(
@@ -245,11 +246,13 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$order_select			.= '</select>';
 
-		$form_parts['order']	= '<p><label for="' . $this->get_field_id( 'order' ) . '">' . __( 'ORDER BY Order', 'testimonials-widget' ) . ' </label>' . $order_select . '</p>';
+		$form_parts['order']	= '<p><label for="' . $this->get_field_id( 'order' ) . '">' . __( 'ORDER BY Order', 'testimonials-widget' ) . '</label>' . $order_select . '</p>';
 
 		$form_parts['random']	= '<p><input type="checkbox" id="' . $this->get_field_id( 'random' ) . '" name="' . $this->get_field_name( 'random' ) . '" value="true"' . checked( $instance['random'], 'true', false ) . ' /> <label for="' . $this->get_field_id( 'random' ) . '">' . __( 'Random order', 'testimonials-widget' ) . '</label><br/><span class="setting-description"><small>' . __( 'Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order', 'testimonials-widget' ) . '</small></span></p>';
 
-		$form_parts['refresh_interval']	= '<p><label for="' . $this->get_field_id( 'refresh_interval' ) . '">' . __( 'Rotation Speed', 'testimonials-widget' ) . ' </label><input size="4" type="text" id="' . $this->get_field_id( 'refresh_interval' ) . '" name="' . $this->get_field_name( 'refresh_interval' ) . '" value="' . htmlspecialchars($instance['refresh_interval'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Seconds between testimonial rotations or 0 for no refresh', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['refresh_interval']	= '<p><label for="' . $this->get_field_id( 'refresh_interval' ) . '">' . __( 'Rotation Speed', 'testimonials-widget' ) . '</label><input size="4" type="text" id="' . $this->get_field_id( 'refresh_interval' ) . '" name="' . $this->get_field_name( 'refresh_interval' ) . '" value="' . htmlspecialchars($instance['refresh_interval'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Seconds between testimonial rotations or 0 for no refresh', 'testimonials-widget' ) . '</small></span></p>';
+
+		$form_parts['widget_text']	= '<p><label for="' . $this->get_field_id( 'widget_text' ) . '">' . __( 'Widget Bottom Text', 'testimonials-widget' ) . '</label><br/><span class="setting-description"><small>' . __( 'Custom text or HTML for bottom of widgets', 'testimonials-widget' ) . '</small></span><textarea class="widefat" type="text" id="' . $this->get_field_id( 'widget_text' ) . '" name="' . $this->get_field_name( 'widget_text' ) . '" rows="8">' . htmlspecialchars($instance['widget_text'], ENT_QUOTES) . '</textarea></p>';
 
 		$form_parts['end_div']	= '</div>';
 

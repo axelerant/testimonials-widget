@@ -31,6 +31,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* Ignores already imported
 * Compatible with WordPress multi-site
 * Custom CSS in footer for HTML validation
+* Custom text or HTML for bottom of widgets
 * Customizeable testimonial data field `testimonial_extra`
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
@@ -89,10 +90,10 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 	* `limit` - default 25; limit=10
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
-* Maximum Height - Set for maximum display height
-	* `max_height` - default none; max_height=250
 * Minimum Height - Set for minimum display height
 	* `min_height` - default none; min_height=100
+* Maximum Height - Set for maximum display height
+	* `max_height` - default none; max_height=250
 * ORDER BY Order - DESC or ASC
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 * ORDER BY - Used when Random order is disabled
@@ -111,6 +112,8 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 	* `tags` - default none; tags=fire or tags="fire,water"
 * URL Target
 	* `target` - default none; target=_new
+* Widget Bottom Text - Custom text or HTML for bottom of widgets
+	* `widget_text` - default none; widget_text="<h3><a href="http://example.com">All testimonials</a></h3>"
 
 = Shortcode Examples =
 * [testimonialswidget_list]
@@ -575,6 +578,9 @@ function my_testimonials_widget_defaults( $array ) {
 add_filter( 'testimonials_widget_defaults', 'my_testimonials_widget_defaults' );
 `
 
+= 39. How do I style the custom widget text? =
+In your theme's `styles.css` file use the CSS class `.testimonialswidget_widget_text` to style the custom widget text.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -594,16 +600,23 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 12. Single testimonial view
+13. Widget with clickable title and custom text/HTML on bottom
 
 
 == Changelog ==
 = trunk =
 * TBD
 
+* FAQ 39 Style the custom widget text
+* FEATURE Custom widget text
 * FEATURE Make the widget title clickable
-* TODO Remove fields to show - done via theme
-* TODO Remove Make the widget title clickable - completed
 * SCREENSHOT 3 update
+* SCREENSHOT 4 update
+* SCREENSHOT 12 recrop
+* SCREENSHOT 13 Widget with clickable title and custom text/HTML on bottom
+* TODO Remove Custom widget text - completed
+* TODO Remove Make the widget title clickable - completed
+* TODO Remove fields to show - done via theme
 
 = 2.3.4 =
 * BUGFIX [Testimonial plugin means Set Feature Image Not Displaying](http://wordpress.org/support/topic/testimonial-plugin-means-set-feature-image-not-displaying)
@@ -976,11 +989,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/contact-typo3vagabond/).
 
 * CSV import
-* [Custom widget text](http://wordpress.org/support/topic/add-a-line-of-text-after-the-testimonials-in-the-widget)
-	* [Example](http://www.isbo.ge/mats/sampletestimonial.gif)
-	* [Example](http://demo.themeshift.com/deposito/blog/) - immediately after the cite, aligned left with the text, prefaced with an HTML arrow symbol
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
-* [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * [Page numbers](http://wordpress.org/support/topic/next-previous-page-indicators)
