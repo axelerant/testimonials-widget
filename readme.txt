@@ -603,6 +603,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FEATURE Make the widget title clickable
 * TODO Remove fields to show - done via theme
 * TODO Remove Make the widget title clickable - completed
+* SCREENSHOT 3 update
 
 = 2.3.4 =
 * BUGFIX [Testimonial plugin means Set Feature Image Not Displaying](http://wordpress.org/support/topic/testimonial-plugin-means-set-feature-image-not-displaying)
