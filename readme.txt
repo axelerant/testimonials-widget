@@ -114,7 +114,7 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * URL Target
 	* `target` - default none; target=_new
 * Widget Bottom Text - Custom text or HTML for bottom of widgets
-	* `widget_text` - default none; widget_text="<h3><a href="http://example.com">All testimonials</a></h3>"
+	* `widget_text` - default none; widget_text="`<h3><a href="http://example.com">All testimonials</a></h3>`"
 
 = Shortcode Examples =
 * [testimonialswidget_list]
@@ -585,7 +585,7 @@ In your theme's `styles.css` file use the CSS class `.testimonialswidget_widget_
 = 40. How do I get page numbers for pagination? =
 Install and activate [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) to get page numbers for pagination of testimonials via the shortcode `[testimonialswidget_list paging=true]`.
 
-Additionally, you can use filter `testimonials_widget_wp_pagenavi` to configure WP-PageNavi specifically for Testimonial Widgets. Read WP-PageNavi's `[core.php](http://plugins.svn.wordpress.org/wp-pagenavi/trunk/core.php)` `wp_pagenavi` function declaration for available options.
+Additionally, you can use filter `testimonials_widget_wp_pagenavi` to configure WP-PageNavi specifically for Testimonial Widgets. Read WP-PageNavi's [core.php](http://plugins.svn.wordpress.org/wp-pagenavi/trunk/core.php) `wp_pagenavi` function declaration for available options.
 
 
 = I'm still stuck, how can I get help? =
