@@ -610,6 +610,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 39 Style the custom widget text
 * FEATURE Custom widget text
 * FEATURE Make the widget title clickable
+* Refactor paging to use WordPress functions
 * SCREENSHOT 3 update
 * SCREENSHOT 4 update
 * SCREENSHOT 12 recrop

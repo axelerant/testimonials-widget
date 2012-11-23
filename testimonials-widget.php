@@ -28,7 +28,6 @@
 
 
 class Testimonials_Widget {
-	const page_key				= 'twlpg';
 	const pt					= 'testimonials-widget';
 
 	private $max_num_pages		= 0;
@@ -361,7 +360,15 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_list( $atts ) {
 		$atts					= wp_parse_args( $atts, self::get_defaults() );
-		$atts['paged']			= ( ! empty( $_REQUEST[ self::page_key ] ) ) ? intval( $_REQUEST[ self::page_key ] ) : 1;
+
+		if ( get_query_var('paged') ) {
+			$atts['paged']		= get_query_var('paged');
+		} elseif ( get_query_var('page') ) {
+			$atts['paged']		= get_query_var('page');
+		} else {
+			$atts['paged']		= 1;
+		}
+
 		$atts['type']			= 'testimonialswidget_list';
 
 		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
@@ -700,7 +707,7 @@ EOF;
 
 		if ( 1 < $paged ) {
 			$laquo			= apply_filters( 'testimonials_widget_previous_posts_link_text', __( '&laquo;' , 'testimonials-widget') );
-			$html				.= self::get_previous_posts_link( $laquo, $paged );
+			$html				.= get_previous_posts_link( $laquo, $paged );
 		} else {
 			// $html				.= __( '&laquo;' , 'testimonials-widget');
 		}
@@ -711,7 +718,7 @@ EOF;
 
 		if ( $paged != $this->max_num_pages ) {
 			$raquo				= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;' , 'testimonials-widget') );
-			$html				.= self::get_next_posts_link( $raquo, $paged );
+			$html				.= get_next_posts_link( $raquo, $this->max_num_pages );
 		} else {
 			// $html				.= __( '&raquo;' , 'testimonials-widget');
 		}
@@ -721,40 +728,6 @@ EOF;
 		$html					.= '</div>';
 
 		return $html;
-	}
-
-
-	function get_pagenum_link( $pagenum = 1 ) {
-		$request				= remove_query_arg( self::page_key );
-
-		if ( 1 != $pagenum ) {
-			$base				= trailingslashit( get_bloginfo( 'url' ) );
-			$request			= add_query_arg( self::page_key, $pagenum, $base . $request );
-		}
-
-		return esc_url( $request );
-	}
-
-
-	function get_previous_posts_link( $label, $paged = 1 ) {
-		if ( $paged > $this->max_num_pages ) {
-			return '<a href="' . $this->get_pagenum_link() . '">' . $label . '</a>';
-		} elseif ( $paged > 1 ) {
-			return '<a href="' . $this->get_pagenum_link( $paged - 1 ) . '">' . $label . '</a>';
-		} else {
-			return '';
-		}
-	}
-
-
-	function get_next_posts_link( $label, $paged = 1 ) {
-		$next_page				= intval( $paged ) + 1;
-
-		if ( $next_page <= $this->max_num_pages ) {
-			return '<a href="' . $this->get_pagenum_link( $next_page ) . '">' . $label . '</a>';
-		} else {
-			return '';
-		}
 	}
 
 
