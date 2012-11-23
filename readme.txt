@@ -598,6 +598,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* FEATURE Make the widget title clickable
+* TODO Remove fields to show - done via theme
+* TODO Remove Make the widget title clickable - completed
+
 = 2.3.4 =
 * BUGFIX [Testimonial plugin means Set Feature Image Not Displaying](http://wordpress.org/support/topic/testimonial-plugin-means-set-feature-image-not-displaying)
 * Test with WordPress 3.5.0 RC1
@@ -972,10 +976,6 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Custom widget text](http://wordpress.org/support/topic/add-a-line-of-text-after-the-testimonials-in-the-widget)
 	* [Example](http://www.isbo.ge/mats/sampletestimonial.gif)
 	* [Example](http://demo.themeshift.com/deposito/blog/) - immediately after the cite, aligned left with the text, prefaced with an HTML arrow symbol
-* Fields to show
-	* Category
-	* Date
-	* Tags
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Make the widget title clickable](http://wordpress.org/support/topic/possible-to-make-the-widget-title-clickable)
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)

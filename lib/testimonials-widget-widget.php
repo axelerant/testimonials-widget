@@ -34,6 +34,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 
 	public function widget( $args, $instance ) {
+		global $before_widget, $before_title, $after_title, $after_widget;
+
 		extract( $args );
 
 		// Our variables from the widget settings
@@ -45,8 +47,48 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		echo $before_widget;
 
 		// Display the widget title if one was input (before and after defined by themes)
-		if ( $title )
+		if ( ! empty( $title ) ) {
+			if ( ! empty( $instance['title_link'] ) ) {
+				// revise title with title_link link creation
+				$title_link		= $instance['title_link'];
+			   
+				if ( preg_match( '#^\d+$#', $title_link ) ) {
+					$new_title	= '<a href="';
+					$new_title	.= get_permalink( $title_link );
+					$new_title	.= '" title="';
+					$new_title	.= get_the_title( $title_link );
+					$new_title	.= '">';
+					$new_title	.= $title;
+					$new_title	.= '</a>';
+
+					$title		= $new_title;
+				} else {
+					if ( ! empty( $title_link ) && 0 === preg_match( "#https?://#", $title_link ) ) {
+						$title_link	= 'http://' . $title_link;
+					}
+
+					$new_title	= '<a href="';
+					$new_title	.= $title_link;
+					$new_title	.= '" title="';
+					$new_title	.= $title;
+					$new_title	.= '"';
+
+					if ( ! empty( $instance['target'] ) ) {
+						$new_title	.= ' target="';
+						$new_title	.= $instance['target'];
+						$new_title	.= '" ';
+					}
+
+					$new_title	.= '>';
+					$new_title	.= $title;
+					$new_title	.= '</a>';
+
+					$title		= $new_title;
+				}
+			}
+			
 			echo $before_title . $title . $after_title;
+		}
 
 		// Display Widget
 		echo $testimonials;
@@ -82,6 +124,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['tags_all']		= ( 'true' == $new_instance['tags_all'] ) ? 'true' : '';
 		$instance['target']			= ( empty( $new_instance['target'] ) || preg_match( '#^\w+$#', $new_instance['target'] ) ) ? $new_instance['target'] : $instance['target'];
 		$instance['title']			= wp_kses_data( $new_instance['title'] );
+		$instance['title_link']		= wp_kses_data( $new_instance['title_link'] );
 
 		$instance					= apply_filters( 'testimonials_widget_options_update', $instance, $new_instance );
 
@@ -104,6 +147,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$form_parts				= array();
 
 		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
+
+		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title Link', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['category']	= '<p><label for="' . $this->get_field_id( 'category' ) . '">' . __( 'Category filter', 'testimonials-widget' ) . ' </label><input class="widefat" type="text" id="' . $this->get_field_id( 'category' ) . '" name="' . $this->get_field_name( 'category' ) . '" value="' . htmlspecialchars($instance['category'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated category slug-names', 'testimonials-widget' ) . '</small></span></p>';
 

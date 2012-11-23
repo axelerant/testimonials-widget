@@ -84,8 +84,6 @@ class Testimonials_Widget {
 
 
 	public function support_thumbnails() {
-		global $_wp_theme_features;
-
 		$feature				= 'post-thumbnails';
 		$feature_level			= get_theme_support( $feature );
 
@@ -148,6 +146,7 @@ class Testimonials_Widget {
 			return;
 
 		global $wpdb;
+
 		$table_name				= $wpdb->prefix . 'testimonialswidget';
 		$meta_key				= '_' . self::pt . ':testimonial_id';
 
@@ -858,8 +857,8 @@ EOF;
 			}
 
 			$url				= get_post_meta( $post_id, 'testimonials-widget-url', true );
-			if ( ! empty( $url ) && preg_match( "#https?://#", $url ) === 0) {
-				$url = 'http://' . $url;
+			if ( ! empty( $url ) && 0 === preg_match( "#https?://#", $url ) ) {
+				$url			= 'http://' . $url;
 			}
 
 			$data				= array(
