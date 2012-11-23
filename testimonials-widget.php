@@ -683,7 +683,6 @@ EOF;
 	public function get_testimonials_paging( $testimonials, $atts, $prepend = true ) {
 		$html					= '';
 
-		// if testimonials 1 or less, return
 		if ( is_home() || 1 === $this->max_num_pages ) {
 			return $html;
 		}

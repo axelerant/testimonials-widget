@@ -36,7 +36,20 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Display testimonials directly in template via theme function
 * Editors and admins can edit testimonial publisher
 * Fields for source, title, testimonial, email, company and URL
-* Filters for `testimonials_widget_image_size`, `testimonials_widget_gravatar_size`, `testimonials_widget_data`
+* Filters
+	* `testimonials_widget_cache_get` - caching helper
+	* `testimonials_widget_cache_set` - caching helper
+	* `testimonials_widget_content` - testimonial content parser helper
+	* `testimonials_widget_content_more` - more content ellipsis
+	* `testimonials_widget_data` - process testimonials data before display processing
+	* `testimonials_widget_defaults` - create a global or central Testimonials Widget configuration
+	* `testimonials_widget_gravatar_size` - change the Gravatar size
+	* `testimonials_widget_image_size` - change the image size
+	* `testimonials_widget_next_posts_link` - configure Next page indicator
+	* `testimonials_widget_options_form` - customize widget form
+	* `testimonials_widget_options_update` - widget update helper
+	* `testimonials_widget_previous_posts_link_text` - configure Previous page indicator
+	* `testimonials_widget_wp_pagenavi` - configure WP-PageNavi specifically for Testimonial Widgets
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
@@ -149,7 +162,7 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * Gravatar image is configured in the Avatar section of Discussion Settings
 
 = Languages =
-You can translate this plugin into your own if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://typo3vagabond.com/contact-typo3vagabond/) to the plugin author.
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://typo3vagabond.com/contact-typo3vagabond/) to the plugin author.
 
 = Background & Thanks =
 Version 2.0.0 of Testimonials Widget is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
@@ -613,6 +626,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* Comment and verbiage cleanups
 
 = 2.4.0 =
 * FAQ 39 Style the custom widget text
