@@ -113,7 +113,7 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * ORDER BY - Used when Random order is disabled
 	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
 * Enable paging for [testimonialswidget_list]
-	* `paging` - default none; paging=true
+	* `paging` - default true; paging=false
 	* Widget - Not functional
 * Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
 	* `random` - default none; random=true (overrides `order` and `orderby`)
@@ -628,6 +628,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TBD
 
 * Comment and verbiage cleanups
+* Minor refactor of `get_testimonial_html`
+* TODO Added Template engine
 
 = 2.4.0 =
 * FAQ 39 Style the custom widget text
@@ -990,6 +992,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Upgrade Notice ==
 
+= 2.4.1 =
+* Paging is on by default, except for widgets
+
 = 2.3.0 =
 * `char_limit` is converted to a word limit using 6 as the average word length plus a space
 
@@ -1021,4 +1026,5 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
+* Template engine
 * Widget category select helper

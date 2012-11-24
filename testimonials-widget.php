@@ -40,6 +40,7 @@ class Testimonials_Widget {
 			'char_limit'		=> '',
 			'hide_author'		=> '',
 			'hide_company'		=> '',
+			'hide_content'		=> '',
 			'hide_email'		=> '',
 			'hide_gravatar'		=> '',
 			'hide_image'		=> '',
@@ -54,7 +55,7 @@ class Testimonials_Widget {
 			'min_height'		=> '',
 			'order'				=> 'DESC',
 			'orderby'			=> 'ID',
-			'paging'			=> '',
+			'paging'			=> 'true',
 			'random'			=> '',
 			'refresh_interval'	=> 5,
 			'tags'				=> '',
@@ -111,7 +112,7 @@ class Testimonials_Widget {
 
 		$atts					= self::get_defaults();
 		$atts['ids']			= $post->ID;
-		$atts['ignore_content']	= 'true';
+		$atts['hide_content']	= 'true';
 
 		$testimonials			= self::get_testimonials( $atts );
 		$testimonial			= $testimonials[0];
@@ -427,10 +428,10 @@ class Testimonials_Widget {
 
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
-		$hide_not_found			= ( 'true' == $atts['hide_not_found'] ) ? true : false;
+		$hide_not_found			= ( 'true' == $atts['hide_not_found'] );
 		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
-		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
+		$paging					= ( 'true' == $atts['paging'] );
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
@@ -544,6 +545,7 @@ EOF;
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
 		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
+		$do_content				= ( 'true' != $atts['hide_content'] );
 		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image				= ( 'true' != $atts['hide_image'] ) && ! empty( $testimonial['testimonial_image'] );
 		$do_source				= ( 'true' != $atts['hide_source'] || 'true' == $atts['hide_author'] ) && ! empty( $testimonial['testimonial_source'] );
@@ -570,18 +572,18 @@ EOF;
 			$html				.= '</span>';
 		}
 
-		$content				= $testimonial['testimonial_content'];
-		$content				= self::format_content( $content, $widget_number );
+		if ( $do_content ) {
+			$content			= $testimonial['testimonial_content'];
+			$content			= self::format_content( $content, $widget_number );
 
-		if ( $char_limit ) {
-			$content			= wp_trim_words( $content, $word_count, $content_more );
-			$content			= force_balance_tags( $content );
-		}
+			if ( $char_limit ) {
+				$content		= wp_trim_words( $content, $word_count, $content_more );
+				$content		= force_balance_tags( $content );
+			}
 
-		$content				= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
-		$content				= make_clickable( $content );
+			$content			= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
+			$content			= make_clickable( $content );
 
-		if ( empty( $atts['ignore_content'] ) ) {
 			$html				.= '<q>';
 			$html				.= $content;
 			$html				.= '</q>';
