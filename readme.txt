@@ -100,7 +100,7 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * IDs filter - Comma separated IDs
 	* `ids` - default none; ids=2 or ids="2,4,6"
 * Limit - Number of testimonials to rotate through via widget or show at a time when listing
-	* `limit` - default 25; limit=10
+	* `limit` - default 10; limit=25
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
 	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
 * Minimum Height - Set for minimum display height
@@ -136,8 +136,8 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 	* [testimonialswidget_list char_limit=0 target=_new]
 	* [testimonialswidget_list hide_source=true hide_url=true] 
 	* [testimonialswidget_list ids="1,11,111"]
-	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=10]
-	* [testimonialswidget_list paging=true limit=10]
+	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+	* [testimonialswidget_list paging=true limit=25]
 	* [testimonialswidget_list tags="test,fun" random=true]
 * [testimonialswidget_widget]
 	* [testimonialswidget_widget]
@@ -625,6 +625,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* Adjust default `limit` to 10 from 25
 
 = 2.4.2 =
 * BUGFIX [No image](http://wordpress.org/support/topic/update-17?replies=4) in [widget](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial?replies=16)

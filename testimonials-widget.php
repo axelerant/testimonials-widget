@@ -49,7 +49,7 @@ class Testimonials_Widget {
 			'hide_title'		=> '',
 			'hide_url'			=> '',
 			'ids'				=> '',
-			'limit'				=> 25,
+			'limit'				=> 10,
 			'max_height'		=> '',
 			'meta_key'			=> '',
 			'min_height'		=> '',
