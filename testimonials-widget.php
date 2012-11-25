@@ -545,7 +545,7 @@ EOF;
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
 		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
-		$do_content				= ( 'true' != $atts['hide_content'] );
+		$do_content				= ( 'true' != $atts['hide_content'] ) && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image				= ( 'true' != $atts['hide_image'] ) && ! empty( $testimonial['testimonial_image'] );
 		$do_source				= ( 'true' != $atts['hide_source'] || 'true' == $atts['hide_author'] ) && ! empty( $testimonial['testimonial_source'] );
