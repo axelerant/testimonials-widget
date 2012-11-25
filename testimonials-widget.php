@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.4.1
+	Version: 2.4.2
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -552,8 +552,6 @@ EOF;
 		$do_source				= ( 'true' != $atts['hide_source'] || 'true' == $atts['hide_author'] ) && ! empty( $testimonial['testimonial_source'] );
 		$do_title				= ( 'true' != $atts['hide_title'] ) && ! empty( $testimonial['testimonial_title'] );
 		$do_url					= ( 'true' != $atts['hide_url'] ) && ! empty( $testimonial['testimonial_url'] );
-		// 6 is 5 characters for average word length plus a space
-		$word_count				= ( $char_limit ) ? ceil( $char_limit / 6 ) : null;
 
 		$html					= '<div class="testimonialswidget_testimonial';
 
@@ -578,7 +576,7 @@ EOF;
 			$content			= self::format_content( $content, $widget_number );
 
 			if ( $char_limit ) {
-				$content		= wp_trim_words( $content, $word_count, $content_more );
+				$content		= self::testimonials_truncate( $content, $char_limit, ' ', $content_more );
 				$content		= force_balance_tags( $content );
 			}
 
@@ -659,6 +657,25 @@ EOF;
 
 		return $html;
 	}
+
+
+	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
+	public function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…' ) {
+		if ( ! $char_limit )
+			return $string;
+
+		// return with no change if string is shorter than $char_limit
+		if ( strlen( $string ) <= $char_limit )
+			return $string;
+
+		$string					= substr( $string, 0, $char_limit );
+		if ( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
+			$string				= substr( $string, 0, $breakpoint );
+		}
+
+		return $string . $pad;
+	}
+
 
 	public function format_content( $content, $widget_number ) {
 		if ( empty ( $content ) )

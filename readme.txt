@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/downloads/testimonials-widget-premium-word
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,7 +81,6 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 * Character limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
-	* `char_limit` is converted to a word limit using 6 as the average word length plus a space
 * Hide company?
 	* `hide_company` - default show; hide_company=true
 * Hide email?
@@ -627,6 +626,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.4.2 =
+* BUGFIX [No image](http://wordpress.org/support/topic/update-17?replies=4) in [widget](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial?replies=16)
+* TODO Add refactor `get_testimonials_html`
+
 = 2.4.1 =
 * BUGFIX `testimonialswidget_widget` always random
 * Comment and verbiage cleanups
@@ -997,9 +1000,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = 2.4.1 =
 * Paging is on by default, except for widgets
 
-= 2.3.0 =
-* `char_limit` is converted to a word limit using 6 as the average word length plus a space
-
 = 2.0.0 =
 * CSS
 	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
@@ -1027,6 +1027,7 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
+* Refactor `get_testimonials_html` to break out CSS/JS generation
 * [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Template engine
 * Widget category select helper
