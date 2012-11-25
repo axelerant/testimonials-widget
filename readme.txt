@@ -1,6 +1,6 @@
 === Testimonials Widget ===
 Contributors: comprock
-Donate link: http://typo3vagabond.com/downloads/testimonials-widget-premium-wordpress-plugin/
+Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
@@ -627,6 +627,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TBD
 
 * Adjust default `limit` to 10 from 25
+* Donate link update
 
 = 2.4.2 =
 * BUGFIX [No image](http://wordpress.org/support/topic/update-17?replies=4) in [widget](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial?replies=16)
