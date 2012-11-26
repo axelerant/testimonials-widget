@@ -49,6 +49,7 @@
 .testimonialswidget_testimonial cite {
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
+	margin-top: 0.2em;
 	text-align: right; 
 }
 
@@ -78,9 +79,11 @@
 }
 
 .testimonialswidget_testimonial .testimonialswidget_extra {
+	margin-top: 0.8em;
 }
 
 .testimonialswidget_testimonial .testimonialswidget_widget_text {
+	margin-top: 1.4em;
 }
 
 .testimonialswidget_testimonial_list { 
