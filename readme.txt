@@ -599,6 +599,11 @@ Install and activate [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagena
 
 Additionally, you can use filter `testimonials_widget_wp_pagenavi` to configure WP-PageNavi specifically for Testimonial Widgets. Read WP-PageNavi's [core.php](http://plugins.svn.wordpress.org/wp-pagenavi/trunk/core.php) `wp_pagenavi` function declaration for available options.
 
+= 41. How do I make my widget height consistent and not overlapping? =
+In short, set `min-height` and `max-height` options to be the same.
+
+Why? Because testimonial lengths differ and there might be an image or not, the normal CSS `height` property fails for our dynamic rotations.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -628,6 +633,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 * Adjust default `limit` to 10 from 25
 * Donate link update
+* FAQ 41 Widget height consistency
 
 = 2.4.2 =
 * BUGFIX [No image](http://wordpress.org/support/topic/update-17?replies=4) in [widget](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial?replies=16)
