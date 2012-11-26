@@ -192,7 +192,7 @@ Please request support through the [WordPress forums for Testimonials Widget](ht
 == Frequently Asked Questions ==
 
 = 1. How do I use the theme functions `testimonialswidget_list()` and `testimonialswidget_widget()`? =
-In your theme functions file, place code similar to the following for the configuration you need.
+In your theme `functions.php` file, place code similar to the following for the configuration you need.
 
 `
 <?php
