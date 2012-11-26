@@ -839,7 +839,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 = 2.1.2 =
 * Add `hide_gravatar` option
-* Add apply_filters( 'testimonials_widget_data', $testimonial_data ) to process data before display processing
+* Add apply_filters( 'testimonials_widget_data', $testimonial_data ) to process data before display
 * Add right margin to gravatar image
 * Added empty testimonial data field `testimonial_extra` for customization in testimonials
 * Allow widget and shortcode sorting by post meta values via `meta_key`
