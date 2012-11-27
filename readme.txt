@@ -511,6 +511,7 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 				<a href="http://example.com">Company, LLC</a>
 			</span>
 		</cite>
+		<div class="testimonialswidget_widget_text">Custom widget text</div>
 	</div>
 	<!-- individual testimonial wrapper end -->
 </div>
@@ -542,6 +543,7 @@ Please view the `testimonials-widget.css` file for CSS customizations.
 				<a href="http://example.com">Company, LLC</a>
 			</span>
 		</cite>
+		<div class="testimonialswidget_widget_text">Custom widget text</div>
 	</div>
 	<!-- individual testimonial wrapper end -->
 </div>
@@ -630,6 +632,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* FAQ 34 Update CSS
+* FAQ 35 Update CSS
 
 = 2.4.3 =
 * Adjust default `limit` to 10 from 25
