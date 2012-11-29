@@ -606,6 +606,38 @@ In short, set `min-height` and `max-height` options to be the same.
 
 Why? Because testimonial lengths differ and there might be an image or not, the normal CSS `height` property fails for our dynamic rotations.
 
+= 42. How do I exclude testimonial categories from Category widget? =
+Add the following to your theme's `functions.php` file:
+
+`
+function exclude_widget_categories( $args ) {
+	// Make sure to replace the category IDs 8,10 with yours.
+	$exclude					= '8,10';
+	$args['exclude']			= $exclude;
+	return $args;
+}
+add_filter( 'widget_categories_args', 'exclude_widget_categories' );
+`
+
+Thank you [katiewp](http://wordpress.org/support/topic/plugin-testimonials-widget-categories-tags-best-practices?replies=7#post-3460607) for the answer.
+
+= 43. How do I exclude testimonial categories from my sitemap? =
+Change the following in your theme's `functions.php` or `sitemap.php` file:
+
+Before:
+`
+<?php wp_list_categories('sort_column=name&optioncount=1&hierarchical=0&title_li='); ?>
+`
+
+After:
+`
+<?php wp_list_categories('sort_column=name&optioncount=1&hierarchical=0&title_li=&exclude=8,10'); ?>
+`
+
+Make sure to replace the category IDs 8,10 with yours.
+
+Thank you [katiewp](http://wordpress.org/support/topic/plugin-testimonials-widget-categories-tags-best-practices?replies=7#post-3460607) for the answer.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -635,6 +667,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 * FAQ 34 Update CSS
 * FAQ 35 Update CSS
+* FAQ 42 Exclude testimonial categories from Category widget
+* FAQ 43 Exclude testimonial categories from my sitemap
 
 = 2.4.3 =
 * Adjust default `limit` to 10 from 25
