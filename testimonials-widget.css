@@ -1,4 +1,4 @@
-.testimonialswidget_testimonials { 
+.testimonialswidget_testimonials {
 	/* testimonials wrapper */
 }
 
@@ -50,7 +50,7 @@
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
 	margin-top: 0.2em;
-	text-align: right; 
+	text-align: right;
 }
 
 .testimonialswidget_testimonial cite:before {
@@ -61,13 +61,13 @@
 	/* testimonial source */
 }
 
-.testimonialswidget_testimonial .testimonialswidget_join_title,
-.testimonialswidget_testimonial .testimonialswidget_join {
+.testimonialswidgetpremium_testimonials_links .testimonialswidget_join_title,
+.testimonialswidgetpremium_testimonials_links .testimonialswidget_join {
 	/* section between source and company information */
 }
 
-.testimonialswidget_testimonial .testimonialswidget_join_title:before,
-.testimonialswidget_testimonial .testimonialswidget_join:before {
+.testimonialswidgetpremium_testimonials_links .testimonialswidget_join_title:before,
+.testimonialswidgetpremium_testimonials_links .testimonialswidget_join:before {
 	/* join text */
 	content: ", "
 }
@@ -86,7 +86,7 @@
 	margin-top: 1.4em;
 }
 
-.testimonialswidget_testimonial_list { 
+.testimonialswidget_testimonial_list {
 	display: block;
-	margin-bottom: 1.0em;
+	margin-bottom: 1.4em;
 }
