@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.4.3
+Stable tag: 2.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,8 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Read more links on testimonials exceeding the character limit
+* Shortcode
+	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
 
 = Shortcode and Widget Options =
 * Title - Widget title
@@ -659,16 +661,19 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 12. Single testimonial view
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-
+15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
 
 == Changelog ==
 = trunk =
 * TBD
 
+= 2.4.4 =
+* Add screenshot 15
 * FAQ 34 Update CSS
 * FAQ 35 Update CSS
 * FAQ 42 Exclude testimonial categories from Category widget
 * FAQ 43 Exclude testimonial categories from my sitemap
+* Update premium features
 
 = 2.4.3 =
 * Adjust default `limit` to 10 from 25
