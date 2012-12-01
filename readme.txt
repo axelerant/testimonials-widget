@@ -640,6 +640,9 @@ Make sure to replace the category IDs 8,10 with yours.
 
 Thank you [katiewp](http://wordpress.org/support/topic/plugin-testimonials-widget-categories-tags-best-practices?replies=7#post-3460607) for the answer.
 
+= 44. Can I change how quickly the testimonials change? =
+Yes. Look for the "Rotation Speed" on the widget options panel or use the `refresh_interval` option in shortcode to adjust the number of seconds between testimonial rotations.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -666,6 +669,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* FAQ 44 Refresh interval - Thank you [biztips](http://wordpress.org/support/topic/fatal-error-558?replies=6#post-3475595)
 
 = 2.4.4 =
 * Add screenshot 15
