@@ -37,19 +37,19 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Editors and admins can edit testimonial publisher
 * Fields for source, title, testimonial, email, company and URL
 * Filters
-	* `testimonials_widget_cache_get` - caching helper
-	* `testimonials_widget_cache_set` - caching helper
-	* `testimonials_widget_content` - testimonial content parser helper
-	* `testimonials_widget_content_more` - more content ellipsis
-	* `testimonials_widget_data` - process testimonials data before display processing
-	* `testimonials_widget_defaults` - create a global or central Testimonials Widget configuration
-	* `testimonials_widget_gravatar_size` - change the Gravatar size
-	* `testimonials_widget_image_size` - change the image size
-	* `testimonials_widget_next_posts_link` - configure Next page indicator
-	* `testimonials_widget_options_form` - customize widget form
-	* `testimonials_widget_options_update` - widget update helper
-	* `testimonials_widget_previous_posts_link_text` - configure Previous page indicator
-	* `testimonials_widget_wp_pagenavi` - configure WP-PageNavi specifically for Testimonial Widgets
+	* `testimonials_widget_cache_get` - Caching grabber
+	* `testimonials_widget_cache_set` - Caching setter
+	* `testimonials_widget_content_more` - More content ellipsis
+	* `testimonials_widget_content` - Testimonial content parser helper
+	* `testimonials_widget_data` - Process testimonials data before display processing
+	* `testimonials_widget_defaults` - Create a global or central Testimonials Widget configuration
+	* `testimonials_widget_gravatar_size` - Change the Gravatar size
+	* `testimonials_widget_image_size` - Change the image size
+	* `testimonials_widget_next_posts_link` - Configure Next page indicator
+	* `testimonials_widget_options_form` - Customize widget form
+	* `testimonials_widget_options_update` - Widget update helper
+	* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
+	* `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
@@ -669,6 +669,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* Update filters listing
 
 = 2.4.5 =
 * BUGFIX Missing CSS for testimonialswidget_join_title
