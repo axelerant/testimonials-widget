@@ -165,6 +165,9 @@ Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/test
 = Languages =
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://typo3vagabond.com/contact-typo3vagabond/) to the plugin author.
 
+= Recommendation =
+* Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
+
 = Background & Thanks =
 Version 2.0.0 of Testimonials Widget is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
 
@@ -670,6 +673,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* Add Recommendation heading
 * Update filters listing
 
 = 2.4.5 =
