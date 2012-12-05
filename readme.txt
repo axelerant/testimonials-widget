@@ -646,6 +646,9 @@ Thank you [katiewp](http://wordpress.org/support/topic/plugin-testimonials-widge
 = 44. Can I change how quickly the testimonials change? =
 Yes. Look for the "Rotation Speed" on the widget options panel or use the `refresh_interval` option in shortcode to adjust the number of seconds between testimonial rotations.
 
+= 45. Why don't I see all of my testimonial? =
+The widget option by default has a 500 character limit. To view more characters, increase the limit or set it to 0. See bottom of [screenshot 3](http://s.wordpress.org/extend/plugins/testimonials-widget/screenshot-3.png). 
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -675,6 +678,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 * Add Recommendation heading
 * Update filters listing
+* Add FAQ 45 testimonial character limit
 
 = 2.4.5 =
 * BUGFIX Missing CSS for testimonialswidget_join_title
