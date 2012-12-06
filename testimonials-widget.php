@@ -82,6 +82,7 @@ class Testimonials_Widget {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
+		self::styles();
 	}
 
 
@@ -427,8 +428,6 @@ class Testimonials_Widget {
 
 
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
-		self::styles();
-
 		// display attributes
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] );
 		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
