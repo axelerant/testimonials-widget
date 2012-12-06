@@ -29,6 +29,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* Company, URL and email details are attempted to be identified and placed properly
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
+* CSS only included as needed
 * Compatible with WordPress multi-site
 * Custom CSS in footer for HTML validation
 * Custom text or HTML for bottom of widgets
@@ -676,9 +677,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
-* Add Recommendation heading
-* Update filters listing
 * Add FAQ 45 testimonial character limit
+* Add Recommendation heading
+* Only include CSS styling as needed
+* Update filters listing
 
 = 2.4.5 =
 * BUGFIX Missing CSS for testimonialswidget_join_title
