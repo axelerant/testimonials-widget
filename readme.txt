@@ -425,7 +425,7 @@ When you look at the Testimonials Widget admin list, you can click on the View l
 
 Going further though, you'll need to enable feature image, gravatar and custom post meta like company, email, etc. on your own for your theme.
 
-= 23. My testimonial URL says "Page not found" =
+= 23. My testimonial URL says "Page not found" or 404 =
 Go to WordPress > Plugins to Deactivate and then Activate Testimonials Widget. The `flush_rewrite_rules` function needs to run.
 
 = 24. Does this plug in use admin-ajax.php to refresh? =
@@ -678,6 +678,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 * Add FAQ 45 testimonial character limit
 * Add Recommendation heading
+* FAQ 23 mention 404
 * Update filters listing
 
 = 2.4.5 =
