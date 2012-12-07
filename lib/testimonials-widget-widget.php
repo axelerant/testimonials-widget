@@ -195,6 +195,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			'author'			=> __( 'Author', 'testimonials-widget' ),
 			'title'				=> __( 'Source', 'testimonials-widget' ),
 			'date'				=> __( 'Date', 'testimonials-widget' ),
+			'none'				=> __( 'No order', 'testimonials-widget' ),
 		);
 
 		foreach ( $orderby_options as $option => $title ) {

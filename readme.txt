@@ -678,6 +678,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* Add 'No order' as an Order By widget option
 * Add FAQ 45 testimonial character limit
 * Add Recommendation heading
 * FAQ 23 mention 404
