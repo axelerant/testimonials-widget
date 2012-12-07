@@ -428,6 +428,8 @@ Going further though, you'll need to enable feature image, gravatar and custom p
 = 23. My testimonial URL says "Page not found" or 404 =
 Go to WordPress > Plugins to Deactivate and then Activate Testimonials Widget. The `flush_rewrite_rules` function needs to run.
 
+If that still doesn't work, go to WordPress > Settings > Permalinks and click "Save Changes".
+
 = 24. Does this plug in use admin-ajax.php to refresh? =
 No, it doesn't call admin-ajax.php at all.
 
