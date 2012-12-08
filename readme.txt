@@ -687,6 +687,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* TODO clean up for premium version
+
 = 2.4.6 =
 * Add 'No order' as an Order By widget option
 * Add FAQ 45 testimonial character limit
@@ -1112,11 +1114,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/typo3-vagabond-testimonials/).
 
-* CSV import
-* [List of links to all testimonials](http://wordpress.org/support/topic/list-of-testimonials-links-to-each)
-* [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
-* [Next testimonial](http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination)
 * Refactor `get_testimonials_html` to break out CSS/JS generation
-* [Scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial)
 * Template engine
 * Widget category select helper
+* [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
