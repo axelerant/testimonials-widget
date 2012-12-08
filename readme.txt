@@ -688,6 +688,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TBD
 
 * TODO clean up for premium version
+* TODO Optional wpautop functionality for better formatting
 
 = 2.4.6 =
 * Add 'No order' as an Order By widget option
@@ -1118,3 +1119,4 @@ Cast your vote on what to do next with [donations](http://typo3vagabond.com/abou
 * Template engine
 * Widget category select helper
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
+* [Optional wpautop functionality for better formatting](http://wordpress.org/support/topic/optional-wpautop-functionality-for-better-formatting?replies=1)
