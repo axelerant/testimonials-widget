@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.4.5
+Stable tag: 2.4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -651,6 +651,15 @@ Yes. Look for the "Rotation Speed" on the widget options panel or use the `refre
 = 45. Why don't I see all of my testimonial? =
 The widget option by default has a 500 character limit. To view more characters, increase the limit or set it to 0. See bottom of [screenshot 3](http://s.wordpress.org/extend/plugins/testimonials-widget/screenshot-3.png). 
 
+= 46. How do you order testimonials by given IDs? =
+To display the testimonials with IDs 538, 451, 442, 449, and 565 in that same order; you need to use the `ids` and `orderby` shortcode or widget options.
+
+`
+[testimonialswidget_list ids="538,451,442,449,565" orderby=none]
+`
+
+Thank you [Ionrot](http://wordpress.org/support/topic/order-by-id-list?replies=5#post-3517737) for inspiring this FAQ and code feature.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -678,11 +687,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.4.6 =
 * Add 'No order' as an Order By widget option
 * Add FAQ 45 testimonial character limit
 * Add Recommendation heading
 * FAQ 23 mention 404
+* FAQ 46 testimonial ordering by given IDs
 * Update filters listing
+* Use `posts_results` filter to put posts in same orders as post__in
 
 = 2.4.5 =
 * BUGFIX Missing CSS for testimonialswidget_join_title

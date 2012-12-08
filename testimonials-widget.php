@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.4.5
+	Version: 2.4.6
 	Author: Michael Cannon
 	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
 	License: GPLv2 or later
@@ -817,6 +817,10 @@ EOF;
 			$ids				= explode( ',', $ids );
 
 			$args['post__in']	= $ids;
+
+			if ( 'none' == $args['orderby'] ) {
+				add_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ), 10, 2 );
+			}
 		}
 
 		if ( $category ) {
@@ -838,6 +842,10 @@ EOF;
 		if ( false === $testimonials ) {
 			$testimonials		= new WP_Query( $args );
 			$testimonials		= apply_filters( 'testimonials_widget_cache_set', $testimonials, $args );
+		}
+
+		if ( has_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) ) ) {
+			remove_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) );
 		}
 
 		$this->max_num_pages	= $testimonials->max_num_pages;
@@ -890,6 +898,26 @@ EOF;
 		$testimonial_data		= apply_filters( 'testimonials_widget_data', $testimonial_data );
 
 		return $testimonial_data;
+	}
+
+
+	public function posts_results_sort_none( $posts, $query ) {
+		$order					= $query->query_vars['post__in'];
+		if ( empty( $order ) )
+			return $posts;
+
+		$posts_none_sorted		= array();
+		// put posts in same orders as post__in
+		foreach( $order as $id ) {
+			foreach( $posts as $key => $post ) {
+				if ( $id == $post->ID ) {
+					$posts_none_sorted[]	= $post;
+					unset( $posts[$key] );
+				}
+			}
+		}
+
+		return $posts_none_sorted;
 	}
 
 
