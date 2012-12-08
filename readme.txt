@@ -694,7 +694,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 23 mention 404
 * FAQ 46 testimonial ordering by given IDs
 * Update filters listing
-* Use `posts_results` filter to put posts in same orders as post__in
+* Use `posts_results` filter to put posts in same orders as post__in when orderby=none
 
 = 2.4.5 =
 * BUGFIX Missing CSS for testimonialswidget_join_title
