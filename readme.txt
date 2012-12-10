@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.4.6
+Stable tag: 2.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_content` - Testimonial content parser helper
 	* `testimonials_widget_data` - Process testimonials data before display processing
 	* `testimonials_widget_defaults` - Create a global or central Testimonials Widget configuration
+	* `testimonials_widget_defaults_single` - Create a global or central Testimonials Widget configuration for single view
 	* `testimonials_widget_gravatar_size` - Change the Gravatar size
 	* `testimonials_widget_image_size` - Change the image size
 	* `testimonials_widget_next_posts_link` - Configure Next page indicator
@@ -687,6 +688,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.4.7 =
+* Add filter `testimonials_widget_defaults_single`
 * TODO clean up for premium version
 * TODO Optional wpautop functionality for better formatting
 
