@@ -69,12 +69,15 @@ Single testimonial view supports image, source, title, email, company and URL de
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Testimonials Widget Premium Plugin Features =
-Get [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) by [donating](http://typo3vagabond.com/about-typo3-vagabond/donate/).
+[Purchase Testimonials Widget Premium](http://typo3vagabond.com/about-typo3-vagabond/donate/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Filters for caching control, text replacement and more
 * Read more links on testimonials exceeding the character limit
 * Shortcode
 	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
+
+[Learn more about Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
 = Shortcode and Widget Options =
 * Title - Widget title
@@ -576,14 +579,14 @@ add_filter( 'testimonials_widget_previous_posts_link_text', 'my_testimonials_wid
 
 For next page links, use `testimonials_widget_next_posts_link` instead of `testimonials_widget_previous_posts_link_text` in above.
 
-= 37. Why should I donate for Testimonials Widget Premium? =
+= 37. Why should I purchase for Testimonials Widget Premium? =
 The free Testimonials Widget 2.3.0 release update provides several new filters, one of which, `testimonials_widget_content`, is the same that I'm using for incorporating the 'read more' links.
 
-You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without donating.
+You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without purchase.
 
-Personally, it was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for donations are an acceptable request to help pay for the normally free and ongoing support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
+Personally, it was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for --donations-- purchase are an acceptable request to help pay for the normally free and ongoing support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
 
-Furthermore, if someone can't afford to donate, they can always email me directly, not via the forums, and ask politely for a copy of the premium plugin. The support email address is found under the "Support" heading at http://wordpress.org/extend/plugins/testimonials-widget/.
+Furthermore, if someone can't afford to purchase, they can always email me directly, not via the forums, and ask politely for a copy of the premium plugin. The support email address is found under the "Support" heading at http://wordpress.org/extend/plugins/testimonials-widget/.
 
 = 38. How do I use filter `testimonials_widget_defaults`? =
 To create a global or central Testimonials Widget configuration, in your theme's `functions.php` file, add similar code as follows.
@@ -689,6 +692,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TBD
 
 * [CleanCSS](http://cleancss.com/) the CSS
+* Donate to purchase verbiage change - One bad experience ruins it for all
+* TODO Add location field
 
 = 2.4.7 =
 * Add filter `testimonials_widget_defaults_single`
@@ -1120,6 +1125,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/typo3-vagabond-testimonials/).
 
+* Add location field - title can be used, but sometimes both fields are available
 * Refactor `get_testimonials_html` to break out CSS/JS generation
 * Template engine
 * Widget category select helper
