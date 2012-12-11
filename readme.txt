@@ -688,6 +688,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* [CleanCSS](http://cleancss.com/) the CSS
+
 = 2.4.7 =
 * Add filter `testimonials_widget_defaults_single`
 * TODO clean up for premium version

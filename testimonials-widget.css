@@ -14,14 +14,14 @@
 
 .testimonialswidget_paging {
 	clear: both;
-	font-weight: bold;
+	font-weight: 700;
 	height: 1.4em;
 }
 
 .testimonialswidget_testimonial {
 	clear: left;
 	display: none;
-	margin: 0 0 1.4em 0;
+	margin: 0 0 1.4em;
 }
 
 .testimonialswidget_testimonial .testimonialswidget_image {
@@ -49,7 +49,7 @@
 .testimonialswidget_testimonial cite {
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
-	margin-top: 0.2em;
+	margin-top: .2em;
 	text-align: right;
 }
 
@@ -79,11 +79,15 @@
 }
 
 .testimonialswidget_testimonial .testimonialswidget_extra {
-	margin-top: 0.8em;
+	margin-top: .8em;
 }
 
 .testimonialswidget_testimonial .testimonialswidget_widget_text {
 	margin-top: 1.4em;
+}
+
+.testimonialswidget_testimonials_list  {
+	/* testimonials list wrapper */
 }
 
 .testimonialswidget_testimonial_list {
