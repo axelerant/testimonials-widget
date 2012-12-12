@@ -1134,6 +1134,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/typo3-vagabond-testimonials/).
 
 * Add location field - title can be used, but sometimes both fields are available
+* Add donate link in plugin section
 * Refactor `get_testimonials_html` to break out CSS/JS generation
 * Template engine
 * Widget category select helper
