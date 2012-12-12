@@ -664,6 +664,13 @@ To display the testimonials with IDs 538, 451, 442, 449, and 565 in that same or
 
 Thank you [Ionrot](http://wordpress.org/support/topic/order-by-id-list?replies=5#post-3517737) for inspiring this FAQ and code feature.
 
+= 47. How to make testimonials widget a list, not rotating individual testimonials? =
+You use the `testimonialswidget_list` shortcode, but you also need to add `add_filter('widget_text', 'do_shortcode');` to your themes `functions.php` file.
+
+Having formatting issues? See [How to: Add shortcodes in sidebar Widgets](http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/) for further help.
+
+Thank you [davidnjacoby](http://wordpress.org/support/topic/make-testimonials-widget-a-list-not-rotating-individual-testimonials?replies=2#post-3548911) for recommending this FAQ.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -693,6 +700,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 * [CleanCSS](http://cleancss.com/) the CSS
 * Donate to purchase verbiage change - One bad experience ruins it for all
+* FAQ 47 testimonials list in a widget
 * TODO Add location field
 
 = 2.4.7 =
