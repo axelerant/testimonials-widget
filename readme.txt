@@ -4,7 +4,7 @@ Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.4.7
+Stable tag: 2.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Testimonials Widget Premium Plugin Features =
-[Purchase Testimonials Widget Premium](http://typo3vagabond.com/about-typo3-vagabond/donate/) plugin for WordPress. In using it, You'll not be sorry.
+[Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Filters for caching control, text replacement and more
@@ -698,10 +698,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
-* [CleanCSS](http://cleancss.com/) the CSS
+= 2.4.8 =
 * Donate to purchase verbiage change - One bad experience ruins it for all
 * FAQ 47 testimonials list in a widget
 * TODO Add location field
+* TODO Add plugin donate link
+* [CleanCSS](http://cleancss.com/) the CSS
 
 = 2.4.7 =
 * Add filter `testimonials_widget_defaults_single`
