@@ -667,7 +667,7 @@ Thank you [Ionrot](http://wordpress.org/support/topic/order-by-id-list?replies=5
 = 47. How to make testimonials widget a list, not rotating individual testimonials? =
 You use the `testimonialswidget_list` shortcode, but you also need to add `add_filter('widget_text', 'do_shortcode');` to your themes `functions.php` file.
 
-Having formatting issues? See [How to: Add shortcodes in sidebar Widgets](http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/) for further help.
+Having formatting issues? See [Enabling shortcodes in widgets, quick WordPress tip.](http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/) for further help.
 
 Thank you [davidnjacoby](http://wordpress.org/support/topic/make-testimonials-widget-a-list-not-rotating-individual-testimonials?replies=2#post-3548911) for recommending this FAQ.
 
