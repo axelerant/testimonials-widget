@@ -1,10 +1,10 @@
 === Testimonials Widget ===
 Contributors: comprock
-Donate link: http://typo3vagabond.com/wordpress/testimonials-widget-premium/
+Donate link: http://aihr.us/wordpress/testimonials-widget-premium/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,7 +77,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Shortcode
 	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
 
-[Learn more about Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium/) plugin for WordPress.
+[Learn more about Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
 = Shortcode and Widget Options =
 * Title - Widget title
@@ -169,7 +169,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Gravatar image is configured in the Avatar section of Discussion Settings
 
 = Languages =
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://typo3vagabond.com/contact-typo3vagabond/) to the plugin author.
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) to the plugin author.
 
 = Recommendation =
 * Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
@@ -183,7 +183,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-Please request support through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget). Additionally, if you need to send sensitive information, please email <support@typo3vagabond.com>.
+Please request support through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget). Additionally, if you need to send sensitive information, please email <support@aihr.us>.
 
 
 == Installation ==
@@ -339,7 +339,7 @@ Styling such as text color, font size, background color, etc., of the random quo
 `
 
 = 15. How can I style the shortcode testimonials? =
-Using my own testimonials page, http://typo3vagabond.com/typo3-vagabond-testimonials/, as the example.
+Using my own testimonials page, http://aihr.us/typo3-vagabond-testimonials/, as the example.
 
 Each shortcode testimonial is wrapped by a `div` using classes `testimonialswidget_testimonial testimonialswidget_testimonial_list`. As such, to increase spacing between testimonials, try…
 
@@ -584,7 +584,7 @@ For next page links, use `testimonials_widget_next_posts_link` instead of `testi
 = 37. Why should I purchase for Testimonials Widget Premium? =
 The free Testimonials Widget 2.3.0 release update provides several new filters, one of which, `testimonials_widget_content`, is the same that I'm using for incorporating the 'read more' links.
 
-You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://typo3vagabond.com/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without purchase.
+You and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without purchase.
 
 Personally, it was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for --donations-- purchase are an acceptable request to help pay for the normally free and ongoing support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
 
@@ -690,18 +690,21 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results
 8. [testimonialswidget_list] with paging
-9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
-10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
-11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 12. Single testimonial view
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 16. Widget whitespace kept
 
 == Changelog ==
 = trunk =
 * TBD
+
+= 2.5.2 =
+* Aihrus branding
 
 = 2.5.1 =
 * Update POT file
@@ -854,7 +857,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TODO Updates
 
 = 2.2.5 =
-* Adapt for [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 * Add support text
 * Correct verbiage spacing
 * Explain `limit`
@@ -1147,7 +1150,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-Cast your vote on what to do next with [donations](http://typo3vagabond.com/about-typo3-vagabond/donate/) and [testimonials](http://typo3vagabond.com/typo3-vagabond-testimonials/).
+Cast your vote on what to do next with [donations](http://aihr.us/about-aihrus/donate/) and [testimonials](http://aihr.us/typo3-vagabond-testimonials/).
 
 * Add location field - title can be used, but sometimes both fields are available
 * Add donate link in plugin section
