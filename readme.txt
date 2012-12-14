@@ -105,6 +105,8 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `hide_url` - default show; hide_url=true
 * IDs filter - Comma separated IDs
 	* `ids` - default none; ids=2 or ids="2,4,6"
+* Keep whitespace? - Keeps testimonials looking as entered than sans auto-formatting
+	* `keep_whitespace` - default none; keep_whitespace=true
 * Limit - Number of testimonials to rotate through via widget or show at a time when listing
 	* `limit` - default 10; limit=25
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
@@ -695,13 +697,16 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://typo3vagabond.com/wordpress/testimonials-widget-premium/)
+16. Widget whitespace kept
 
 == Changelog ==
 = trunk =
 * TBD
 
+* Add option Keep whitespace? - Thank you [kangchenjunga](http://wordpress.org/support/topic/optional-wpautop-functionality-for-better-formatting?replies=2) for the suggestion
 * Revise FAQ 47
 * Update Author URL
+* Screenshot 16 - Widget whitespace kept
 
 = 2.4.8 =
 * Donate to purchase verbiage change - One bad experience ruins it for all

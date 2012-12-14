@@ -49,6 +49,7 @@ class Testimonials_Widget {
 			'hide_title'		=> '',
 			'hide_url'			=> '',
 			'ids'				=> '',
+			'keep_whitespace'	=> '',
 			'limit'				=> 10,
 			'max_height'		=> '',
 			'meta_key'			=> '',
@@ -549,6 +550,7 @@ EOF;
 		$do_source				= ( 'true' != $atts['hide_source'] || 'true' == $atts['hide_author'] ) && ! empty( $testimonial['testimonial_source'] );
 		$do_title				= ( 'true' != $atts['hide_title'] ) && ! empty( $testimonial['testimonial_title'] );
 		$do_url					= ( 'true' != $atts['hide_url'] ) && ! empty( $testimonial['testimonial_url'] );
+		$keep_whitespace		= ( 'true' == $atts['keep_whitespace'] );
 
 		$html					= '<div class="testimonialswidget_testimonial';
 
@@ -570,7 +572,7 @@ EOF;
 
 		if ( $do_content ) {
 			$content			= $testimonial['testimonial_content'];
-			$content			= self::format_content( $content, $widget_number );
+			$content			= self::format_content( $content, $widget_number, $keep_whitespace );
 
 			if ( $char_limit ) {
 				$content		= self::testimonials_truncate( $content, $char_limit, ' ', $content_more );
@@ -680,7 +682,7 @@ EOF;
 	}
 
 
-	public function format_content( $content, $widget_number ) {
+	public function format_content( $content, $widget_number, $keep_whitespace = false ) {
 		if ( empty ( $content ) )
 			return $content;
 
@@ -692,6 +694,8 @@ EOF;
 		if ( is_null( $widget_number ) ) {
 			$content			= wpautop( $content );
 			$content			= shortcode_unautop( $content );
+		} elseif ( $keep_whitespace ) {
+			$content			= wpautop( $content );
 		} else {
 			$content			= strip_shortcodes( $content );
 		}

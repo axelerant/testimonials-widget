@@ -112,6 +112,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['hide_title']		= ( 'true' == $new_instance['hide_title'] ) ? 'true' : '';
 		$instance['hide_url']		= ( 'true' == $new_instance['hide_url'] ) ? 'true' : '';
 		$instance['ids']			= ( empty( $new_instance['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $instance['ids'];
+		$instance['keep_whitespace']	= ( 'true' == $new_instance['keep_whitespace'] ) ? 'true' : '';
 		$instance['limit']			= ( empty( $new_instance['limit'] ) || ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ) ? $new_instance['limit'] : $instance['limit'];;
 		$instance['max_height']		= ( empty( $new_instance['max_height'] ) || ( is_numeric( $new_instance['max_height'] ) && 0 <= $new_instance['max_height'] ) ) ? $new_instance['max_height'] : $instance['max_height'];;
 		$instance['meta_key']		= ( preg_match( '#^[\w-,]+$#', $new_instance['meta_key'] ) ) ? $new_instance['meta_key'] : $instance['meta_key'];
@@ -149,13 +150,15 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
 
-		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title Link', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
+		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title link', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['category']	= '<p><label for="' . $this->get_field_id( 'category' ) . '">' . __( 'Category filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'category' ) . '" name="' . $this->get_field_name( 'category' ) . '" value="' . htmlspecialchars($instance['category'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated category slug-names', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['tags']		= '<p><label for="' . $this->get_field_id( 'tags' ) . '">' . __( 'Tags filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'tags' ) . '" name="' . $this->get_field_name( 'tags' ) . '" value="' . htmlspecialchars($instance['tags'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated tag slug-names', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['tags_all']	= '<p><input type="checkbox" id="' . $this->get_field_id( 'tags_all' ) . '" name="' . $this->get_field_name( 'tags_all' ) . '" value="true"' . checked( $instance['tags_all'], 'true', false ) . ' /> <label for="' . $this->get_field_id( 'tags_all' ) . '">' . __( 'Require all tags', 'testimonials-widget' ) . '</label><br/><span class="setting-description"><small>' . __( 'Select only testimonials with all of the given tags', 'testimonials-widget' ) . '</small></span></p>';
+
+		$form_parts['keep_whitespace']	= '<p><input type="checkbox" id="' . $this->get_field_id( 'keep_whitespace' ) . '" name="' . $this->get_field_name( 'keep_whitespace' ) . '" value="true"' . checked( $instance['keep_whitespace'], 'true', false ) . ' /> <label for="' . $this->get_field_id( 'keep_whitespace' ) . '">' . __( 'Keep whitespace?', 'testimonials-widget' ) . '</label><br/><span class="setting-description"><small>' . __( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['adv_key']	= "<p style=\"text-align:left;\"><small><a id=\"" . $this->get_field_id( 'adv_key' ) . "\" style=\"cursor:pointer;\" onclick=\"jQuery( 'div#" . $this->get_field_id( 'adv_opts' ) . "' ) . slideToggle();\">" . __( 'Advanced Options', 'testimonials-widget' ) . " &raquo;</a></small></p>";
 
