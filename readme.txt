@@ -339,7 +339,7 @@ Styling such as text color, font size, background color, etc., of the random quo
 `
 
 = 15. How can I style the shortcode testimonials? =
-Using my own testimonials page, http://aihr.us/typo3-vagabond-testimonials/, as the example.
+Using my own testimonials page, http://aihr.us/about-aihrus/testimonials/, as the example.
 
 Each shortcode testimonial is wrapped by a `div` using classes `testimonialswidget_testimonial testimonialswidget_testimonial_list`. As such, to increase spacing between testimonials, try…
 
@@ -703,7 +703,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* Aihrus testimonial URL correction
+
 = 2.5.3 =
+* Add donate link in plugin section
 * Donate links
 
 = 2.5.2 =
@@ -1153,10 +1156,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-Cast your vote on what to do next with [donations](http://aihr.us/about-aihrus/donate/) and [testimonials](http://aihr.us/typo3-vagabond-testimonials/).
+Cast your vote on what to do next with [donations](http://aihr.us/about-aihrus/donate/) and [testimonials](http://aihr.us/about-aihrus/testimonials/).
 
 * Add location field - title can be used, but sometimes both fields are available
-* Add donate link in plugin section
 * Refactor `get_testimonials_html` to break out CSS/JS generation
 * Template engine
 * Widget category select helper
