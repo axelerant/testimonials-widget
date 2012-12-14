@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.5.2
+	Version: 2.5.3
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
@@ -34,8 +34,10 @@ class Testimonials_Widget {
 	private $post_count			= 0;
 	private $wp_query			= null;
 
-	static $css					= array();
-	static $defaults			= array(
+	private static $_base;
+
+	public static $css			= array();
+	public static $defaults		= array(
 			'category'			=> '',
 			'char_limit'		=> '',
 			'hide_author'		=> '',
@@ -81,6 +83,7 @@ class Testimonials_Widget {
 
 	public function init() {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
+		self::$_base   				= plugin_basename(__FILE__);
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
@@ -136,9 +139,25 @@ class Testimonials_Widget {
 		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
 		add_action( 'manage_' . self::pt . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
 		add_filter( 'manage_' . self::pt . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
+		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta'), 10, 2 );
 		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
 		self::support_thumbnails();
+	}
+
+
+	public static function plugin_row_meta( $input, $file ) {
+		if ( $file != self::$_base ) {
+			return $input;
+		}
+		
+		$links					= array(
+			'<a href="http://aihr.us/about-aihrus/donate/">Donate</a>'
+		);
+
+		$input					= array_merge( $input, $links );
+		
+		return $input;
 	}
 
 
