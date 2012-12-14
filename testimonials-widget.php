@@ -5,7 +5,7 @@
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
 	Version: 2.4.8
 	Author: Michael Cannon
-	Author URI: http://typo3vagabond.com/about-typo3-vagabond/hire-michael/
+	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
  */
 
