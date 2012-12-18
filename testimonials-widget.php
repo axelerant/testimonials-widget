@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.5.4
+	Version: 2.5.5
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
@@ -254,10 +254,10 @@ class Testimonials_Widget {
 
 
 	public function pre_get_posts_author( $query ) {
-		global $user_level, $user_ID;
+		global $user_ID;
 
 		// author's and below
-		if( $query->is_admin && ! empty( $query->is_main_query ) && $query->is_post_type_archive( Testimonials_Widget::pt ) && $user_level < 3 )
+		if( $query->is_admin && ! empty( $query->is_main_query ) && $query->is_post_type_archive( Testimonials_Widget::pt ) && ! current_user_can( 'edit_others_posts' ) )
 			$query->set( 'post_author', $user_ID );
 
 		return $query;
@@ -324,8 +324,6 @@ class Testimonials_Widget {
 
 
 	public function init_post_type() {
-		global $user_level;
-
 		$labels = array(
 			'add_new'			=> __( 'New Testimonial' , 'testimonials-widget'),
 			'add_new_item'		=> __( 'Add New Testimonial' , 'testimonials-widget'),
@@ -347,7 +345,7 @@ class Testimonials_Widget {
 		);
 
 		// editor's and up
-		if( $user_level > 3 )
+		if( current_user_can( 'edit_others_posts' ) )
 			$supports[] 		= 'author';
 
 		$args = array(

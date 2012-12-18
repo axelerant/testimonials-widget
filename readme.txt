@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.5.4
+Stable tag: 2.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Testimonials Widget plugin allows you to display rotating content, portfolio, qu
 
 More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Also, each Testimonal Widget has its own CSS identifier for custom styling.
 
-Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them.
+Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can optionally enable `wpautop`.
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you also select only Portfolio testimonials, but then allow web and media tags.
 
@@ -57,6 +57,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Localizable - see `languages/testimonials-widget.pot`
 * Multiple widget capable
 * Multisite compatible
+* Respects meta capabilities
 * Rotation JavaScript in footer than body
 * Shortcodes
 	* Listings with paging `[testimonialswidget_list]`
@@ -731,8 +732,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.5.5 =
 * Enable widget caching
 * Refactor `get_testimonials_html` to break out CSS/JS generation
+* Respect [meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
+* Revise TODO text
 * TODO remove Template engine - see `testimonials_widget_testimonial_html*` filters
 
 = 2.5.4 =
@@ -1194,8 +1198,4 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-Cast your vote on what to do next with [donations](http://aihr.us/about-aihrus/donate/) and [testimonials](http://aihr.us/about-aihrus/testimonials/).
-
-* Add location field - title can be used, but sometimes both fields are available
-* Widget category select helper
-* [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
+Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or send along an awesome [testimonial](http://aihr.us/about-aihrus/testimonials/).
