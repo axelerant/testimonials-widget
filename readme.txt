@@ -533,6 +533,8 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 
 Please view the `testimonials-widget.css` file for CSS customizations.
 
+Review your HTML source code to find your specific `testimonialswidget_testimonialsNNN` instance naming.
+
 = 35. How is a testimonial list formatted with CSS? =
 `
 <!-- testimonials outer wrapper begin -->
@@ -704,6 +706,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * TBD
 
 * Aihrus testimonial URL correction
+* FAQ 34 Find `testimonialswidget_testimonialsNNN` instance naming
 
 = 2.5.3 =
 * Add donate link in plugin section
