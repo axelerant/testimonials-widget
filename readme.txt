@@ -731,6 +731,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* Enable widget caching
+* Refactor `get_testimonials_html` to break out CSS/JS generation
+* TODO remove Template engine - see `testimonials_widget_testimonial_html*` filters
+
 = 2.5.4 =
 * Add filter `testimonials_widget_testimonial_html_single`
 * Add filter `testimonials_widget_testimonial_html`
@@ -1193,7 +1197,5 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Cast your vote on what to do next with [donations](http://aihr.us/about-aihrus/donate/) and [testimonials](http://aihr.us/about-aihrus/testimonials/).
 
 * Add location field - title can be used, but sometimes both fields are available
-* Refactor `get_testimonials_html` to break out CSS/JS generation
-* Template engine
 * Widget category select helper
 * [Meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)

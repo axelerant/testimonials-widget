@@ -425,16 +425,49 @@ class Testimonials_Widget {
 		$atts['type']			= 'testimonialswidget_widget';
 		$atts['widget_number']	= $widget_number;
 
-		// TODO disabled full widget caching as JavaScript and possible custom
-		// CSS is needed in footer
-		// However, caching is still working for get_testimonials()
-		// $content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
-		$content				= false;
+		$atts['data']			= true;
+		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+
+		if ( false === $testimonials ) {
+			$testimonials		= self::get_testimonials( $atts );
+			$testimonials		= apply_filters( 'testimonials_widget_cache_set', $testimonials, $atts );
+		}
+
+		unset( $atts['data'] );
+
+		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
 		if ( false === $content ) {
-			$testimonials		= self::get_testimonials( $atts );
 			$content			= self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
-			// $content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+			$content			= apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+		}
+
+		// Generate CSS
+		$atts['type']			= 'testimonialswidget_widget_css';
+		$css					= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+
+		if ( false === $css ) {
+			$css				= self::get_testimonials_html_css( $atts, $widget_number );
+			$css				= apply_filters( 'testimonials_widget_cache_set', $css, $atts );
+		}
+
+		if ( ! empty( $css ) ) {
+			self::$css			= array_merge( $css, self::$css );
+			add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
+		}
+
+		// Generate JS
+		$atts['type']			= 'testimonialswidget_widget_js';
+		$js						= apply_filters( 'testimonials_widget_cache_get', false, $atts );
+
+		if ( false === $js ) {
+			$js					= self::get_testimonials_html_js( $testimonials, $atts, $widget_number );
+			$js					= apply_filters( 'testimonials_widget_cache_set', $js, $atts );
+		}
+
+		if ( ! empty( $js ) ) {
+			self::$scripts		= array_merge( $js, self::$scripts );
+			add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
 		}
 
 		return $content;
@@ -452,11 +485,79 @@ class Testimonials_Widget {
 	}
 
 
+	public function get_testimonials_html_css( $atts, $widget_number = null ) {
+		// display attributes
+		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
+		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
+
+		$css					= array();
+		$id						= 'testimonialswidget_testimonials';
+		$id_base				= $id . $widget_number;
+
+		if ( $min_height ) {
+			$css[]				= <<<EOF
+<style>
+.$id_base {
+min-height: {$min_height}px;
+}
+</style>
+EOF;
+		}
+
+		if ( $max_height ) {
+			$css[]				= <<<EOF
+<style>
+.$id_base {
+max-height: {$max_height}px;
+}
+</style>
+EOF;
+		}
+
+		return $css;
+	}
+
+
+	public function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
+		// display attributes
+		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
+
+		$id						= 'testimonialswidget_testimonials';
+		$id_base				= $id . $widget_number;
+		$scripts				= array();
+
+		if ( $refresh_interval && 1 < count( $testimonials ) ) {
+			$javascript		= <<<EOF
+<script type="text/javascript">
+function nextTestimonial$widget_number() {
+	if (!jQuery('.$id_base').first().hasClass('hovered')) {
+		var active = jQuery('.$id_base .testimonialswidget_active');
+		var next = (jQuery('.$id_base .testimonialswidget_active').next().length > 0) ? jQuery('.$id_base .testimonialswidget_active').next() : jQuery('.$id_base .testimonialswidget_testimonial:first');
+		active.fadeOut(1250, function(){
+			active.removeClass('testimonialswidget_active');
+			next.fadeIn(500);
+			next.removeClass('testimonialswidget_display_none');
+			next.addClass('testimonialswidget_active');
+		});
+	}
+}
+
+jQuery(document).ready(function(){
+	jQuery('.$id_base').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
+	setInterval('nextTestimonial$widget_number()', $refresh_interval * 1000);
+});
+</script>
+EOF;
+			$scripts[]			= $javascript;
+		}
+
+		return $scripts;
+	}
+
+
 	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] );
-		$max_height				= ( is_numeric( $atts['max_height'] ) && 0 <= $atts['max_height'] ) ? intval( $atts['max_height'] ) : false;
-		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
 		$paging					= ( 'true' == $atts['paging'] );
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
@@ -474,59 +575,6 @@ class Testimonials_Widget {
 		} else {
 			$id_base			= $id . $widget_number;
 			$html				.= '<div class="' . $id . ' ' . $id_base . '">';
-
-			if ( $min_height ) {
-				$css			= <<<EOF
-<style>
-.$id_base {
-	min-height: {$min_height}px;
-}
-</style>
-EOF;
-				self::$css[]	= $css;
-			}
-
-			if ( $max_height ) {
-				$css			= <<<EOF
-<style>
-.$id_base {
-	max-height: {$max_height}px;
-}
-</style>
-EOF;
-				self::$css[]	= $css;
-			}
-
-			if ( $min_height || $max_height ) {
-				add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
-			}
-
-			if ( $refresh_interval && 1 < count( $testimonials ) ) {
-				$javascript		= <<<EOF
-<script type="text/javascript">
-	function nextTestimonial$widget_number() {
-		if (!jQuery('.$id_base').first().hasClass('hovered')) {
-			var active = jQuery('.$id_base .testimonialswidget_active');
-			var next = (jQuery('.$id_base .testimonialswidget_active').next().length > 0) ? jQuery('.$id_base .testimonialswidget_active').next() : jQuery('.$id_base .testimonialswidget_testimonial:first');
-			active.fadeOut(1250, function(){
-				active.removeClass('testimonialswidget_active');
-				next.fadeIn(500);
-				next.removeClass('testimonialswidget_display_none');
-				next.addClass('testimonialswidget_active');
-			});
-		}
-	}
-
-	jQuery(document).ready(function(){
-		jQuery('.$id_base').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
-		setInterval('nextTestimonial$widget_number()', $refresh_interval * 1000);
-	});
-</script>
-EOF;
-				self::$scripts[]	= $javascript;
-				add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
-
-			}
 		}
 
 		if ( empty( $testimonials ) && ! $hide_not_found ) {
