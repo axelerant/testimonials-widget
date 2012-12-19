@@ -686,8 +686,8 @@ If you want to change the layout of the testimonials, then you can use the `test
 `
 add_filter( 'testimonials_widget_testimonial_html', 'my_testimonials_widget_testimonial_html', 10, 5 );
 
-function my_testimonials_widget_testimonial_html( $content, $testimonials, $atts, $is_list = true, $widget_number = null ) {
-	// do stuff… see Testimonials_Widget::get_testimonials_html for default processing
+function my_testimonials_widget_testimonial_html( $content, $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
+	// do stuff… see Testimonials_Widget::get_testimonial_html for default processing
 	return $content;
 }
 `
@@ -698,7 +698,7 @@ See FAQ 48 for more details.
 `
 add_filter( 'testimonials_widget_testimonial_html_single', 'my_testimonials_widget_testimonial_html_single', 10, 3 );
 
-function my_testimonials_widget_testimonial_html_single( $content, $testimonials, $atts ) {
+function my_testimonials_widget_testimonial_html_single( $content, $testimonial, $atts ) {
 	// do stuff… see Testimonials_Widget::get_testimonials_html for default processing
 	return $content;
 }
@@ -731,6 +731,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+* FAQ 48 Code correction
+* FAQ 49 Code correction
 
 = 2.5.5 =
 * Enable widget caching
