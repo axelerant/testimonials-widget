@@ -410,7 +410,7 @@ In CSS put the following.
 `
 
 = 20. After upgrading, testimonial rotations have stopped =
-The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer. Check to make sure your theme has the `wp_footer()` call in footer.php or the equivalent file.
+The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer. Check to make sure your theme has the `<?php wp_footer(); ?>` call in footer.php or the equivalent file.
 
 = 21. How can I justify testimonials text? =
 
@@ -732,6 +732,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* FAQ 20 Add PHP tags
 * FAQ 48 Code correction
 * FAQ 49 Code correction
 
