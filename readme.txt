@@ -704,6 +704,21 @@ function my_testimonials_widget_testimonial_html_single( $content, $testimonial,
 }
 `
 
+= 50. Example to set widget gradient background color =
+Look in the final HTML source code of your webpage for the unique testimonial widget class identifier. In our case, it's `.testimonialswidget_testimonials3`.
+
+Then write CSS like the following.
+
+`
+.testimonialswidget_testimonials3 {
+	background-image: linear-gradient(to bottom right, #FFEF87 0%, #EFEFEF 100%);
+}
+`
+
+There you have it, you've changed the color behind the widget to a light gradient gold.
+
+A special thanks to [inode86](http://wordpress.org/support/topic/gradient-background-color?replies=2) for this suggestion.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -732,6 +747,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+* Add FAQ 50 Example to set widget gradient background color
 * FAQ 20 Add PHP tags
 * FAQ 48 Code correction
 * FAQ 49 Code correction
