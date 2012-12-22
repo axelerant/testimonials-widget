@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.5.5
+Stable tag: 2.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -326,6 +326,8 @@ If you're not seeing any testimonials, even when not using tags filter, you migh
 The easiest thing is to check the source code of your page with the widget and look for the testimonial widgets div container id tag. It'll be something like `id="testimonials_widget-3"`.
 
 = 13. How to get rid of the quotation marks that surround the random quote? =
+In your theme's `custom.css` or `styles.css` file write the following CSS.
+
 `
 .testimonialswidget_testimonial q {
 	quotes: none;
@@ -747,7 +749,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.5.6 =
 * Add FAQ 50 Example to set widget gradient background color
+* FAQ 13 Update
 * FAQ 20 Add PHP tags
 * FAQ 48 Code correction
 * FAQ 49 Code correction
