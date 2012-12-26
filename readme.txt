@@ -538,7 +538,7 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 
 Please view the `testimonials-widget.css` file for CSS customizations.
 
-Review your HTML source code to find your specific `testimonialswidget_testimonialsNNN` instance naming.
+Review your website HTML source code to find your specific `testimonialswidget_testimonialsNNN` instance naming.
 
 = 35. How is a testimonial list formatted with CSS? =
 `
@@ -707,7 +707,9 @@ function my_testimonials_widget_testimonial_html_single( $content, $testimonial,
 `
 
 = 50. Example to set widget gradient background color =
-Look in the final HTML source code of your webpage for the unique testimonial widget class identifier. In our case, it's `.testimonialswidget_testimonials3`.
+The CSS class `testimonialswidget_testimonialsNNN` is dynamically generated. As such, you're not going to find it specifically in the Testimonials Widget CSS file. The reason being is that each Testimonials Widget is standalone so that many can be on a page.
+
+Therefore, look in your webpage's HTML source code of your webpage for the unique testimonial widget class identifier. In our case, it's `.testimonialswidget_testimonials3`.
 
 Then write CSS like the following.
 
@@ -748,6 +750,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+
+* FAQ 50 Revise
 
 = 2.5.6 =
 * Add FAQ 50 Example to set widget gradient background color
