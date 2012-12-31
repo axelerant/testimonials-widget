@@ -620,24 +620,26 @@ EOF;
 		$do_url					= ( 'true' != $atts['hide_url'] ) && ! empty( $testimonial['testimonial_url'] );
 		$keep_whitespace		= ( 'true' == $atts['keep_whitespace'] );
 
-		$html					= '<div class="testimonialswidget_testimonial';
+		$div_open				= '<div class="testimonialswidget_testimonial';
 
 		if ( $is_list ) {
-			$html				.= ' testimonialswidget_testimonial_list';
+			$div_open			.= ' testimonialswidget_testimonial_list';
 		} elseif ( $is_first ) {
-			$html				.= ' testimonialswidget_active';
+			$div_open			.= ' testimonialswidget_active';
 		} elseif ( ! $is_first ) {
-			$html				.= ' testimonialswidget_display_none';
+			$div_open			.= ' testimonialswidget_display_none';
 		}
 
-		$html					.= '">';
+		$div_open				.= '">';
 
+		$image					= '';
 		if ( $do_image ) {
-			$html				.= '<span class="testimonialswidget_image">';
-			$html				.= $testimonial['testimonial_image'];
-			$html				.= '</span>';
+			$image				.= '<span class="testimonialswidget_image">';
+			$image				.= $testimonial['testimonial_image'];
+			$image				.= '</span>';
 		}
 
+		$quote					= '';
 		if ( $do_content ) {
 			$content			= $testimonial['testimonial_content'];
 			$content			= self::format_content( $content, $widget_number, $keep_whitespace );
@@ -650,9 +652,9 @@ EOF;
 			$content			= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 			$content			= make_clickable( $content );
 
-			$html				.= '<q>';
-			$html				.= $content;
-			$html				.= '</q>';
+			$quote				= '<q>';
+			$quote				.= $content;
+			$quote				.= '</q>';
 		}
 
 		$cite					= '';
@@ -712,21 +714,28 @@ EOF;
 		if ( ! empty( $cite ) )
 			$cite				= '<cite>' . $cite . '</cite>';
 
-		$html					.= $cite;
-
+		$extra					= '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
-			$html				.= '<div class="testimonialswidget_extra">';
-			$html				.= $testimonial['testimonial_extra'];
-			$html				.= '</div>';
+			$extra				.= '<div class="testimonialswidget_extra">';
+			$extra				.= $testimonial['testimonial_extra'];
+			$extra				.= '</div>';
 		}
 
+		$widget_text			= '';
 		if ( ! empty( $atts['widget_text'] ) ) {
-			$html               .= '<div class="testimonialswidget_widget_text">';
-			$html               .= $atts['widget_text'];
-			$html               .= '</div>';
+			$widget_text		= '<div class="testimonialswidget_widget_text">';
+			$widget_text		.= $atts['widget_text'];
+			$widget_text		.= '</div>';
 		}
 
-		$html					.= '</div>';
+		$div_close				= '</div>';
+		$html					= $div_open
+									. $image
+									. $quote
+									. $cite
+									. $extra
+									. $widget_text
+									. $div_close;
 
 		return $html;
 	}

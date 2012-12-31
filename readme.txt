@@ -751,8 +751,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
-
 * FAQ 50 Revise
+* Reorganize `get_testimonial_html`
 
 = 2.5.6 =
 * Add FAQ 50 Example to set widget gradient background color
