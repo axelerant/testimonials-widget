@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.5.6
+Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,8 +50,9 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_options_form` - Customize widget form
 	* `testimonials_widget_options_update` - Widget update helper
 	* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
-	* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output
-	* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output
+	* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
+	* `testimonials_widget_get_testimonial_html` - Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.
+	* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
 	* `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
@@ -64,6 +65,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* Rotating `[testimonialswidget_widget]`
 * Single testimonial view includes image, source, title, email, company and URL details
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
+* Testimonial content and layout completely customizable via filters
 * Testimonial supports HTML
 * Testimonial, email, and URL fields are clickable
 	* The URL requires a protocol like `http://` or `https://`
@@ -723,6 +725,39 @@ There you have it, you've changed the color behind the widget to a light gradien
 
 A special thanks to [inode86](http://wordpress.org/support/topic/gradient-background-color?replies=2) for this suggestion.
 
+= 51. How do I use filter `testimonials_widget_get_testimonial_html`?
+Also see FAQ 48.
+
+`
+add_filter( 'testimonials_widget_get_testimonial_html', 'my_testimonials_widget_get_testimonial_html', 10, 13 );
+
+function my_testimonials_widget_get_testimonial_html( $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $widget_text, $div_close ) {
+	// do stuff… see Testimonials_Widget::get_testimonials_html for default processing
+	if ( is_page( 437 ) ) {
+		echo __LINE__ . ':' . basename( __FILE__ ) . '<br />';
+		$source					= '';
+		if ( ! empty( $testimonial['testimonial_source'] ) )
+			$source				= '<h3>' . $testimonial['testimonial_source'] . '</h3>';
+
+		$html					= $div_open
+			. $source
+			. $image
+			. $quote
+			// . $cite
+			// . $extra
+			// . $widget_text
+			. $div_close;
+		return $html;
+	} elseif ( false && $is_list ) {
+		return '<li>' . $image . $testimonial['testimonial_title'] . '</li>';
+	} else {
+		return $html;
+	}
+}
+`
+
+Thank you to [Georgia Gibbs Design](http://georgia-gibbs.com/) for suggesting this capability.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -751,6 +786,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * TBD
 
+= 2.6.0 =
+* Add FAQ 51 filter `testimonials_widget_get_testimonial_html` usage
 * FAQ 50 Revise
 * Reorganize `get_testimonial_html`
 
