@@ -734,7 +734,6 @@ add_filter( 'testimonials_widget_get_testimonial_html', 'my_testimonials_widget_
 function my_testimonials_widget_get_testimonial_html( $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $widget_text, $div_close ) {
 	// do stuff… see Testimonials_Widget::get_testimonials_html for default processing
 	if ( is_page( 437 ) ) {
-		echo __LINE__ . ':' . basename( __FILE__ ) . '<br />';
 		$source					= '';
 		if ( ! empty( $testimonial['testimonial_source'] ) )
 			$source				= '<h3>' . $testimonial['testimonial_source'] . '</h3>';
