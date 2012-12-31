@@ -725,7 +725,7 @@ There you have it, you've changed the color behind the widget to a light gradien
 
 A special thanks to [inode86](http://wordpress.org/support/topic/gradient-background-color?replies=2) for this suggestion.
 
-= 51. How do I use filter `testimonials_widget_get_testimonial_html`?
+= 51. How do I use filter `testimonials_widget_get_testimonial_html`? =
 Also see FAQ 48.
 
 `
