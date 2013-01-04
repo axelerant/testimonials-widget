@@ -78,12 +78,13 @@ Single testimonial view supports image, source, title, email, company and URL de
 [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
 * Read more links on testimonials exceeding the character limit
 * Shortcode
 	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
 
-[Learn more about Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
+[Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
 = Shortcode and Widget Options =
 * Title - Widget title
@@ -790,6 +791,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Add filter `testimonials_widget_testimonial_html_single_content`
 * Add `force_pad` option to `testimonials_truncate`
 * Copyright year update
+* Update Premium features
 
 = 2.6.0 =
 * Add FAQ 51 filter `testimonials_widget_get_testimonial_html` usage
