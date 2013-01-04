@@ -3,14 +3,14 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.6.0
+	Version: 2.6.1
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
  */
 
 /*
-	Copyright 2012 Michael Cannon (email: mc@aihr.us)
+	Copyright 2013 Michael Cannon (email: mc@aihr.us)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -111,7 +111,7 @@ class Testimonials_Widget {
 	public function get_single( $content ) {
 		global $post;
 
-		if ( self::pt != $post->post_type )
+		if ( ! is_single() && self::pt != $post->post_type )
 			return $content;
 
 		$atts					= self::get_defaults( true );
@@ -123,6 +123,7 @@ class Testimonials_Widget {
 
 		$details				= self::get_testimonial_html( $testimonial, $atts );
 		$details				= apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
+		$content				= apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
 
 		return $content . $details;
 	}
@@ -743,17 +744,21 @@ EOF;
 
 
 	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
-	public function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…' ) {
-		if ( ! $char_limit )
-			return $string;
+	public function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…', $force_pad = false ) {
+		if ( empty( $force_pad ) ) {
+			if ( empty( $char_limit ) )
+				return $string;
 
-		// return with no change if string is shorter than $char_limit
-		if ( strlen( $string ) <= $char_limit )
-			return $string;
+			// return with no change if string is shorter than $char_limit
+			if ( strlen( $string ) <= $char_limit )
+				return $string;
+		}
 
-		$string					= substr( $string, 0, $char_limit );
-		if ( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
-			$string				= substr( $string, 0, $breakpoint );
+		if ( ! empty( $char_limit ) ) {
+			$string				= substr( $string, 0, $char_limit );
+			if ( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
+				$string			= substr( $string, 0, $breakpoint );
+			}
 		}
 
 		return $string . $pad;

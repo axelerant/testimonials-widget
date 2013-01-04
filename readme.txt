@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.5.0
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,14 +44,15 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_data` - Process testimonials data before display processing
 	* `testimonials_widget_defaults_single` - Create a global or central Testimonials Widget configuration for single view
 	* `testimonials_widget_defaults` - Create a global or central Testimonials Widget configuration
+	* `testimonials_widget_get_testimonial_html` - Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.
 	* `testimonials_widget_gravatar_size` - Change the Gravatar size
 	* `testimonials_widget_image_size` - Change the image size
 	* `testimonials_widget_next_posts_link` - Configure Next page indicator
 	* `testimonials_widget_options_form` - Customize widget form
 	* `testimonials_widget_options_update` - Widget update helper
 	* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
+	* `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
 	* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
-	* `testimonials_widget_get_testimonial_html` - Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.
 	* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
 	* `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
 * Image, Gravatar, category and tag enabled
@@ -784,6 +785,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * TBD
+
+= 2.6.1 =
+* Add filter `testimonials_widget_testimonial_html_single_content`
+* Add `force_pad` option to `testimonials_truncate`
+* Copyright year update
 
 = 2.6.0 =
 * Add FAQ 51 filter `testimonials_widget_get_testimonial_html` usage
