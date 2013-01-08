@@ -785,6 +785,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* CSS - block disply widget image
 
 = 2.6.2 =
 * Compatible with WordPress 3.6

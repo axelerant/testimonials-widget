@@ -31,6 +31,7 @@
 }
 
 .widget .testimonialswidget_testimonial .testimonialswidget_image {
+	display: block;
 	float: initial;
 }
 
