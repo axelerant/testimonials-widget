@@ -87,8 +87,10 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deletes old cache entries automatically
+* Deletes related cache entries on testimonial update
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
+* Optional alternate destinations for "Read more" links
 * Read more links on testimonials exceeding the character limit
 * Select only testimonials with images
 * Select testimonials of arbitrary maximum and minimum length
@@ -830,6 +832,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 34/35 CSS styling update
 * Scrolling testimonials for maximum height restricted widgets
 * Testimonials have `get_post_class` applied 
+* Update premium features
 
 = 2.6.3 =
 * Add filter `testimonials_widget_query_args`
