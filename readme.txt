@@ -39,6 +39,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Filters
 	* `testimonials_widget_cache_get` - Caching grabber
 	* `testimonials_widget_cache_set` - Caching setter
+	* `testimonials_widget_columns` - Customize testimonial posts column headers
 	* `testimonials_widget_content_more` - More content ellipsis
 	* `testimonials_widget_content` - Testimonial content parser helper
 	* `testimonials_widget_data` - Process testimonials data before display processing
@@ -47,9 +48,11 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_get_testimonial_html` - Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.
 	* `testimonials_widget_gravatar_size` - Change the Gravatar size
 	* `testimonials_widget_image_size` - Change the image size
+	* `testimonials_widget_meta_box` - Modify Testimonial Data fields
 	* `testimonials_widget_next_posts_link` - Configure Next page indicator
 	* `testimonials_widget_options_form` - Customize widget form
 	* `testimonials_widget_options_update` - Widget update helper
+	* `testimonials_widget_posts_custom_column` - Customize testimonial posts column contents
 	* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
 	* `testimonials_widget_query_args` - Alter WP_Query arguments for testimonial selection
 	* `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
@@ -64,16 +67,18 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Multisite compatible
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
+* Scrolling testimonials for maximum height restricted widgets
 * Shortcodes
 	* Listings with paging `[testimonialswidget_list]`
 	* Rotating `[testimonialswidget_widget]`
 * Single testimonial view includes image, source, title, email, company and URL details
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content and layout completely customizable via filters
-* Testimonial supports HTML
+* Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable
 	* The URL requires a protocol like `http://` or `https://`
 * Testimonials Widget widget displays static and rotating testimonials 
+* Testimonials support styling based upon CSS classes for category, tags and post id
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
@@ -525,7 +530,7 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 <!-- The NNN of testimonialswidget_testimonialsNNN represents the widget number for specific widget styling -->
 <div class="testimonialswidget_testimonials testimonialswidget_testimonialsNNN">
 	<!-- individual testimonial wrapper begin -->
-	<div class="testimonialswidget_testimonial testimonialswidget_active">
+	<div class="post-NNN testimonials-widget type-testimonials-widget status-publish hentry category-slug_name tag-slug_name testimonialswidget_testimonial testimonialswidget_active">
 		<span class="testimonialswidget_image">
 			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
 		</span>
@@ -559,7 +564,7 @@ Review your website HTML source code to find your specific `testimonialswidget_t
 <!-- testimonials outer wrapper begin -->
 <div class="testimonialswidget_testimonials testimonialswidget_testimonials_list">
 	<!-- individual testimonial wrapper begin -->
-	<div class="testimonialswidget_testimonial testimonialswidget_testimonial_list">
+	<div class="post-NNN testimonials-widget type-testimonials-widget status-publish hentry category-slug_name tag-slug_name testimonialswidget_testimonial testimonialswidget_testimonial_list">
 		<span class="testimonialswidget_image">
 			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
 		</span>
@@ -816,6 +821,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Add filters `testimonials_widget_posts_custom_column`, `testimonials_widget_columns`, `testimonials_widget_meta_box`
+* BUGFIX Testimonial posts page column URL now correctly clickable
+* Code spacing cleanup
+* Enabled [scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial) for maximum height restricted testimonial widgets
+* FAQ 34/35 CSS styling update
+* Scrolling testimonials for maximum height restricted widgets
+* Testimonials have `get_post_class` applied 
 
 = 2.6.3 =
 * Add filter `testimonials_widget_query_args`
@@ -1320,4 +1332,4 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == TODO ==
 
-Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or send along an awesome [testimonial](http://aihr.us/about-aihrus/testimonials/).
+Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
