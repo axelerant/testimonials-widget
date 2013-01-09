@@ -113,7 +113,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$instance['hide_url']		= ( 'true' == $new_instance['hide_url'] ) ? 'true' : '';
 		$instance['ids']			= ( empty( $new_instance['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $new_instance['ids'] ) ) ? $new_instance['ids'] : $instance['ids'];
 		$instance['keep_whitespace']	= ( 'true' == $new_instance['keep_whitespace'] ) ? 'true' : '';
-		$instance['limit']			= ( empty( $new_instance['limit'] ) || ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ) ? $new_instance['limit'] : $instance['limit'];;
+		$instance['limit']			= ( empty( $new_instance['limit'] ) || ( is_numeric( $new_instance['limit'] ) && 0 < $new_instance['limit'] ) ) ? $new_instance['limit'] : $instance['limit'];
 		$instance['max_height']		= ( empty( $new_instance['max_height'] ) || ( is_numeric( $new_instance['max_height'] ) && 0 <= $new_instance['max_height'] ) ) ? $new_instance['max_height'] : $instance['max_height'];;
 		$instance['meta_key']		= ( preg_match( '#^[\w-,]+$#', $new_instance['meta_key'] ) ) ? $new_instance['meta_key'] : $instance['meta_key'];
 		$instance['min_height']		= ( empty( $new_instance['min_height'] ) || ( is_numeric( $new_instance['min_height'] ) && 0 <= $new_instance['min_height'] ) ) ? $new_instance['min_height'] : $instance['min_height'];;

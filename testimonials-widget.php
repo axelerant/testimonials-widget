@@ -928,6 +928,8 @@ EOF;
 			}
 		}
 
+		$args					= apply_filters( 'testimonials_widget_query_args', $args, $atts );
+
 		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $args );
 
 		if ( false === $testimonials ) {

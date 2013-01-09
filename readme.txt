@@ -51,6 +51,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_options_form` - Customize widget form
 	* `testimonials_widget_options_update` - Widget update helper
 	* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
+	* `testimonials_widget_query_args` - Alter WP_Query arguments for testimonial selection
 	* `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
 	* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
 	* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
@@ -759,6 +760,24 @@ function my_testimonials_widget_get_testimonial_html( $html, $testimonial, $atts
 
 Thank you to [Georgia Gibbs Design](http://georgia-gibbs.com/) for suggesting this capability.
 
+= 52. How do I include testimonies in my archive view? =
+`
+add_filter( 'pre_get_posts', 'pre_get_posts_allow_testimonials' );
+function pre_get_posts_allow_testimonials( $query ) {
+	if ( $query->is_admin ) {
+		return $query;
+	} elseif ( ( $query->is_main_query() || is_feed() )
+		&& ! is_page()
+		&& ( ( ! empty( $query->query_vars['post_type'] ) && 'post' == $query->query_vars['post_type'] )
+			|| is_archive() )
+	) {
+		$query->set( 'post_type', array( 'post', Testimonials_Widget::pt ) );
+	}
+
+	return $query;
+}
+`
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -785,7 +804,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Add filter `testimonials_widget_query_args`
 * CSS - block disply widget image
+* FAQ 52 Include testimonies in archive view
+* Update POT
 
 = 2.6.2 =
 * Compatible with WordPress 3.6
