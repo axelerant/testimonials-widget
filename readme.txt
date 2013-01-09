@@ -823,6 +823,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Correct screenshot 11 & 18
 
 = 2.6.4 =
 * Add filters `testimonials_widget_posts_custom_column`, `testimonials_widget_columns`, `testimonials_widget_meta_box`
