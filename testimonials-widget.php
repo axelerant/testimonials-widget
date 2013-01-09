@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
-	Version: 2.6.2
+	Version: 2.6.3
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
@@ -37,6 +37,7 @@ class Testimonials_Widget {
 	private static $_base;
 
 	public static $css			= array();
+	public static $css_called	= false;
 	public static $defaults		= array(
 			'category'			=> '',
 			'char_limit'		=> '',
@@ -67,8 +68,9 @@ class Testimonials_Widget {
 			'title_link'		=> '',
 			'widget_text'		=> '',
 	);
-	static $scripts				= array();
-	static $widget_number		= 100000;
+	public static $scripts		= array();
+	public static $scripts_called	= false;
+	public static $widget_number	= 100000;
 
 
 	public function __construct() {
@@ -78,6 +80,7 @@ class Testimonials_Widget {
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
+		register_activation_hook( __FILE__, array( &$this, 'activation' ) );
 	}
 
 
@@ -513,6 +516,8 @@ max-height: {$max_height}px;
 EOF;
 		}
 
+		$css					= apply_filters( 'testimonials_widget_testimonials_css', $css, $atts, $widget_number );
+
 		return $css;
 	}
 
@@ -528,10 +533,10 @@ EOF;
 		if ( $refresh_interval && 1 < count( $testimonials ) ) {
 			$javascript		= <<<EOF
 <script type="text/javascript">
-function nextTestimonial$widget_number() {
-	if (!jQuery('.$id_base').first().hasClass('hovered')) {
-		var active = jQuery('.$id_base .testimonialswidget_active');
-		var next = (jQuery('.$id_base .testimonialswidget_active').next().length > 0) ? jQuery('.$id_base .testimonialswidget_active').next() : jQuery('.$id_base .testimonialswidget_testimonial:first');
+function nextTestimonial{$widget_number}() {
+	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
+		var active = jQuery('.{$id_base} .testimonialswidget_active');
+		var next = (jQuery('.{$id_base} .testimonialswidget_active').next().length > 0) ? jQuery('.{$id_base} .testimonialswidget_active').next() : jQuery('.{$id_base} .testimonialswidget_testimonial:first');
 		active.fadeOut(1250, function(){
 			active.removeClass('testimonialswidget_active');
 			next.fadeIn(500);
@@ -542,13 +547,20 @@ function nextTestimonial$widget_number() {
 }
 
 jQuery(document).ready(function(){
-	jQuery('.$id_base').hover(function() { jQuery(this).addClass('hovered') }, function() { jQuery(this).removeClass('hovered') });
-	setInterval('nextTestimonial$widget_number()', $refresh_interval * 1000);
+	jQuery('.{$id_base}').hover(function() {
+		jQuery(this).addClass('hovered')
+	}, function() {
+		jQuery(this).removeClass('hovered')
+	});
+	nextTestimonial{$widget_number}interval = setInterval('nextTestimonial{$widget_number}()', {$refresh_interval} * 1000);
 });
 </script>
 EOF;
-			$scripts[]			= $javascript;
+
+			$scripts[ $id_base ]	= $javascript;
 		}
+
+		$scripts					= apply_filters( 'testimonials_widget_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
 
 		return $scripts;
 	}
@@ -851,24 +863,31 @@ EOF;
 
 
 	public function get_testimonials_css() {
-		foreach( self::$css as $key => $css ) {
-			echo $css;
+		if ( empty( self::$css_called ) ) {
+			foreach( self::$css as $key => $css ) {
+				echo $css;
+			}
+			
+			self::$css_called	= true;
 		}
 	}
 
 
 	public function get_testimonials_scripts() {
-		foreach( self::$scripts as $key => $script ) {
-			echo $script;
+		if ( empty( self::$scripts_called ) ) {
+			foreach( self::$scripts as $key => $script ) {
+				echo $script;
+			}
+			
+			self::$scripts_called	= true;
 		}
 	}
 
 
-	public function get_testimonials( $atts ) {
-		// selection attributes
+	public function get_query_args( $atts ) {
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['category'] ) ) ? $atts['category'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)*$#', $atts['ids'] ) ) ? $atts['ids'] : false;
-		$limit					= ( is_numeric( $atts['limit'] ) && 0 < $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
+		$limit					= ( is_numeric( $atts['limit'] ) && -1 <= $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
 		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
@@ -876,8 +895,6 @@ EOF;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
 		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['tags'] ) ) ? $atts['tags'] : false;
 		$tags_all				= ( 'true' == $atts['tags_all'] ) ? true : false;
-
-		$hide_gravatar			= ( 'true' == $atts['hide_gravatar'] ) ? true : false;
 
 		if ( $random ) {
 			$orderby			= 'rand';
@@ -929,6 +946,15 @@ EOF;
 		}
 
 		$args					= apply_filters( 'testimonials_widget_query_args', $args, $atts );
+
+		return $args;
+	}
+
+
+	public function get_testimonials( $atts ) {
+		$hide_gravatar			= ( 'true' == $atts['hide_gravatar'] ) ? true : false;
+
+		$args					= self::get_query_args( $atts );
 
 		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $args );
 
@@ -1122,8 +1148,6 @@ EOF;
 
 
 $Testimonials_Widget			= new Testimonials_Widget();
-
-register_activation_hook( __FILE__, array( &$Testimonials_Widget, 'activation' ) );
 
 
 function testimonialswidget_list( $atts = array() ) {

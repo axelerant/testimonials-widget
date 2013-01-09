@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.6.2
+Stable tag: 2.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,8 @@ Single testimonial view supports image, source, title, email, company and URL de
 	* `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
 	* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
 	* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
+	* `testimonials_widget_testimonials_css` - Alter dynamically generated CSS
+	* `testimonials_widget_testimonials_js` - Alter dynamically generated JavaScript
 	* `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
 * Image, Gravatar, category and tag enabled
 * Localizable - see `languages/testimonials-widget.pot`
@@ -76,16 +78,21 @@ Single testimonial view supports image, source, title, email, company and URL de
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Testimonials Widget Premium Plugin Features =
-[Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
+Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Deletes old cache entries automatically
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
 * Read more links on testimonials exceeding the character limit
 * Select only testimonials with images
 * Select testimonials of arbitrary maximum and minimum length
-* Shortcode
-	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
+* Shortcodes
+	* Count of testimonials `[testimonialswidgetpremium_count]`
+	* List of testimonial source and title linking to full entry `[testimonialswidgetpremium_link_list]` 
+* Theme functions
+	* `<?php echo testimonialswidgetpremium_count( $args ); ?>`
+	* `<?php echo testimonialswidgetpremium_link_list( $args ); ?>`
 
 [Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
@@ -804,12 +811,23 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 16. Widget whitespace kept
 17. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+18. Widget with 'Next testimonial…' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+
 
 == Changelog ==
 = trunk =
+
+= 2.6.3 =
 * Add filter `testimonials_widget_query_args`
+* Add filters `testimonials_widget_testimonials_css`, `testimonials_widget_testimonials_js`
+* Allow `limit=-1`
+* BUGFIX Repeated footer CSS and JavaScript
 * CSS - block disply widget image
 * FAQ 52 Include testimonies in archive view
+* Refactor `get_query_args` out of `get_testimonials`
+* Revise JavaScript handling
+* Screenshot 17 `require_image`, `minimum_length` and `maximum_length` shortcode option examples
+* Screenshot 18 Widget with 'Next testimonial…' link
 * Update POT
 * Update premium features
 * Update premium screenshots
