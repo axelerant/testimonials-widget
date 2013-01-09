@@ -82,6 +82,8 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
 * Read more links on testimonials exceeding the character limit
+* Select only testimonials with images
+* Select testimonials of arbitrary maximum and minimum length
 * Shortcode
 	* `[testimonialswidgetpremium_link_list]` for list of testimonial source and title linking to full testimonial
 
@@ -793,14 +795,15 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results
 8. [testimonialswidget_list] with paging
-9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
-10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
-11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+9. Shortcode with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+10. Widget with 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 12. Single testimonial view
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+15. `[testimonialswidgetpremium_link_list]` Shortcode example - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 16. Widget whitespace kept
+17. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 == Changelog ==
 = trunk =
@@ -808,6 +811,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * CSS - block disply widget image
 * FAQ 52 Include testimonies in archive view
 * Update POT
+* Update premium features
+* Update premium screenshots
 
 = 2.6.2 =
 * Compatible with WordPress 3.6
