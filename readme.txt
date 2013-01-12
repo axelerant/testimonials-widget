@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.6.5
+Stable tag: 2.6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -794,6 +794,16 @@ function pre_get_posts_allow_testimonials( $query ) {
 }
 `
 
+= 53. How do I scroll my widget based testimonial content? =
+In your theme's `styles.css` file add code like the following.
+
+`
+.testimonialswidget_testimonialsNNN {
+	overflow: auto;
+`
+
+See FAQ 50 on finding the correct name for `.testimonialswidget_testimonialsNNN`.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -823,6 +833,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.6.6 =
+* Remove CSS `overflow: auto` - too many complaints
+* FAQ 53 Scroll widget based testimonial content
 
 = 2.6.5 =
 * BUGFIX: overflow auto than scroll
