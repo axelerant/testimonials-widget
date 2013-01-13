@@ -804,6 +804,20 @@ In your theme's `styles.css` file add code like the following.
 
 See FAQ 50 on finding the correct name for `.testimonialswidget_testimonialsNNN`.
 
+= 54. Why is that there is an update like every other day? =
+I believe as Eric S. Raymond, author of "The Cathedral and the Bazaar" wrote
+
+> Release early. Release often. And listen to your customers.
+
+Through 20 years of software development experience, I've found that Wikipedia's definition and reasoning for frequent releases is true.
+
+> Release early, release often is a software development philosophy that emphasizes the importance of early and frequent releases in creating a tight feedback loop between developers and testers or users, contrary to a feature-based release strategy. Advocates argue that this allows the software development to progress faster, enables the user to help define what the software will become, better conforms to the users' requirements for the software, and ultimately results in higher quality software.
+
+References
+* [Release Early, Release Often](http://haacked.com/archive/2011/04/20/release-early-and-often.aspx)
+* [Rules for Entrepreneurs: Release Early and Often](http://technosailor.com/2011/09/28/rules-for-entrepreneurs-release-early-and-often/)
+* [Wikipedia](http://en.wikipedia.org/wiki/Release_early,_release_often)
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -833,6 +847,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+* FAQ 54 Release early. Release often.
 
 = 2.6.6 =
 * Remove CSS `overflow: auto` - too many complaints
