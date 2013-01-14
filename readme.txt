@@ -820,6 +820,7 @@ Through 20 years of software development experience, I've found that Wikipedia's
 > Release early, release often is a software development philosophy that emphasizes the importance of early and frequent releases in creating a tight feedback loop between developers and testers or users, contrary to a feature-based release strategy. Advocates argue that this allows the software development to progress faster, enables the user to help define what the software will become, better conforms to the users' requirements for the software, and ultimately results in higher quality software.
 
 References
+
 * [Release Early, Release Often](http://haacked.com/archive/2011/04/20/release-early-and-often.aspx)
 * [Rules for Entrepreneurs: Release Early and Often](http://technosailor.com/2011/09/28/rules-for-entrepreneurs-release-early-and-often/)
 * [Wikipedia](http://en.wikipedia.org/wiki/Release_early,_release_often)
