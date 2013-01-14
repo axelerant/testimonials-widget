@@ -242,7 +242,7 @@ In your theme's `functions.php` file, place code similar to the following for th
 `
 <?php
 
-// `$args` is an optional array of desired shortcode options
+// $args is an optional array of desired shortcode options
 $args							= array(
 	'category'					=> 'product',
 	'tags'						=> 'widget',
@@ -257,8 +257,8 @@ $args['refresh_interval']		= 15;
 // For calling the widget with rotation code into your theme directly
 echo testimonialswidget_widget( $args );
 
-// `$number` should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
-// This creates widget with specific class `.testimonialswidget_testimonials1234`
+// $number should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
+// This creates widget with specific class .testimonialswidget_testimonials1234
 $number							= 1234;
 echo testimonialswidget_widget( $args, $number );
 
