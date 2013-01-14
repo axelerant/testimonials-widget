@@ -26,7 +26,7 @@
 
 .testimonialswidget_testimonial .testimonialswidget_image {
 	float: left;
-	margin-bottom: 1.4em;
+	margin-bottom: .4em;
 	margin-right: .2em;
 }
 
@@ -35,16 +35,26 @@
 	float: initial;
 }
 
-.testimonialswidget_testimonial q {
+.testimonialswidget_testimonial q,
+.widget .testimonialswidget_testimonial q {
 	/* the testimonial itself */
-	/* Remove quotes by uncommenting the following */
 	/*
 	quotes: none;
 	*/
 }
 
-.widget .testimonialswidget_testimonial q p {
-	display: inline;
+/* quotes are handled by p tags than q */
+.testimonialswidget_testimonial_list q,
+.testimonialswidget_whitespace q {
+	quotes: none;
+}
+
+.testimonialswidget_testimonial q p:first-child:before {
+	content: '\201C';
+}
+
+.testimonialswidget_testimonial q p:last-child:after {
+	content: '\201D';
 }
 
 .testimonialswidget_testimonial cite {

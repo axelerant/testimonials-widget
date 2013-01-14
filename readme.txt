@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: ajax, client, customer, quotations, quote, quotes, random, content, random, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.6.6
+Stable tag: 2.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -350,8 +350,14 @@ The easiest thing is to check the source code of your page with the widget and l
 In your theme's `custom.css` or `styles.css` file write the following CSS.
 
 `
-.testimonialswidget_testimonial q {
+.testimonialswidget_testimonial q,
+.widget .testimonialswidget_testimonial q {
 	quotes: none;
+}
+
+.testimonialswidget_testimonial q p:first-child:before,
+.testimonialswidget_testimonial q p:last-child:after {
+	content: none;
 }
 `
 
@@ -848,7 +854,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 
+= 2.7.0 =
+* FAQ 13 Update
 * FAQ 54 Release early. Release often.
+* Redo content opening and closing quotes display
+* Upgrade notification for 2.7.0
 
 = 2.6.6 =
 * Remove CSS `overflow: auto` - too many complaints
@@ -1346,6 +1356,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 
 == Upgrade Notice ==
+
+= 2.7.0
+* Quotes with `keep_whitespace=true` aren't applied via CSS `.testimonialswidget_testimonial q` tag anymore, but `.testimonialswidget_testimonial q p:first-child:before` and `.testimonialswidget_testimonial q p:last-child:after`
+* Widget testimonial `p` tags are no longer CSS `display: inline`, `display: block` as expected
 
 = 2.4.1 =
 * Paging is on by default, except for widgets
