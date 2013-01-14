@@ -931,16 +931,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 5. Testimonial widget in the sidebar 
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results with paging
-8. TBD
-9. TBD
+8. Widget whitespace kept
+9. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 10. Widget with "Read more" and "Next testimonial…" links - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 12. Single testimonial view
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 15. `[testimonialswidgetpremium_link_list]` Shortcode example, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-16. Widget whitespace kept
-17. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 
 == Changelog ==
@@ -978,11 +976,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Screenshot 5 update
 * Screenshot 6 update
 * Screenshot 7 update
-* Screenshot 8 removed
-* Screenshot 9 removed
+* Screenshot 8 replaced
+* Screenshot 9 replaced
 * Screenshot 12 update
 * Screenshot 15 update
-* Screenshot 17 update
+* Screenshot 16 removed
+* Screenshot 17 removed
 * Screenshot 18 removed
 
 = 2.7.0 =
