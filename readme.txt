@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.1
+Stable tag: 2.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -937,15 +937,20 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 9. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 10. Widget with "Read more" and "Next testimonial…" links - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-12. Single testimonial view
+12. Single view with and without excerpt - Excerpt is feature of [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 15. `[testimonialswidgetpremium_link_list]` Shortcode example, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 
 == Changelog ==
 = trunk =
+
+= 2.7.2 =
 * FAQ 54 update
+* Screenshot 12 update
+* Screenshot 16 Edit testimonial with "Excerpt" and "Read More Link" fields - Testimonials Widget Premium plugin
 
 = 2.7.1 =
 * Description update
