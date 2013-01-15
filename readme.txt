@@ -917,6 +917,8 @@ References
 * [Rules for Entrepreneurs: Release Early and Often](http://technosailor.com/2011/09/28/rules-for-entrepreneurs-release-early-and-often/)
 * [Wikipedia](http://en.wikipedia.org/wiki/Release_early,_release_often)
 
+Thank you [gingalley](http://wordpress.org/support/profile/gingalley) for the explanation request.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -943,6 +945,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 54 update
 
 = 2.7.1 =
 * Description update
