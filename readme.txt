@@ -941,6 +941,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Screenshot 10 replaced
 
 = 2.7.3 =
 * Apply quotes only around testimonial content
