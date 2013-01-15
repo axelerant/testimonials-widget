@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.2
+Stable tag: 2.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -396,13 +396,8 @@ Then, in your theme's `custom.css` or `styles.css` file write CSS like the follo
 In your theme's `custom.css` or `styles.css` file write the following CSS.
 
 `
-.testimonialswidget_testimonial q,
-.widget .testimonialswidget_testimonial q {
-	quotes: none;
-}
-
-.testimonialswidget_testimonial q p:first-child:before,
-.testimonialswidget_testimonial q p:last-child:after {
+.testimonialswidget_testimonial .testimonialswidget_open_quote:before,
+.testimonialswidget_testimonial .testimonialswidget_close_quote:after {
 	content: none;
 }
 `
@@ -615,7 +610,7 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
 		</span>
 		<q>
-			<p>Testimonial AKA post content</p>
+			<span class="testimonialswidget_open_quote"></span>Testimonial AKA post content<span class="testimonialswidget_close_quote"></span>
 		</q>
 		<cite>
 			<span class="testimonialswidget_author">
@@ -651,7 +646,7 @@ Review your website HTML source code to find your specific `testimonialswidget_t
 			<img width="150" height="150" src="http://example.com/example.jpg" class="attachment-thumbnail wp-post-image" alt="Example" title="Example">
 		</span>
 		<q>
-			<p>Testimonial AKA post content</p>
+			<span class="testimonialswidget_open_quote"></span>Testimonial AKA post content<span class="testimonialswidget_close_quote"></span>
 		</q>
 		<cite>
 			<span class="testimonialswidget_author">
@@ -946,6 +941,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.3 =
+* Apply quotes only around testimonial content
+* FAQ 13 update
+* FAQ 34 update
+* FAQ 35 update
+* Screenshot 8 replaced
+* Simplified quotes handling
 
 = 2.7.2 =
 * FAQ 54 update

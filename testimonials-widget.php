@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.7.2
+	Version: 2.7.3
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
@@ -633,6 +633,7 @@ EOF;
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
+		$content_more			.= '<span class="testimonialswidget_close_quote"></span>';
 		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
 		$do_content				= ( 'true' != $atts['hide_content'] ) && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
@@ -795,6 +796,13 @@ EOF;
 	public function format_content( $content, $widget_number, $keep_whitespace = false ) {
 		if ( empty ( $content ) )
 			return $content;
+
+		// wrap our own quote class around the content before any formatting 
+		// happens
+		$temp_content			= '<span class="testimonialswidget_open_quote"></span>';
+		$temp_content			.= $content;
+		$temp_content			.= '<span class="testimonialswidget_close_quote"></span>';
+		$content				= $temp_content;
 
 		$content				= trim( $content );
 		$content				= wptexturize( $content );

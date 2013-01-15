@@ -35,26 +35,17 @@
 	float: initial;
 }
 
-.testimonialswidget_testimonial q,
-.widget .testimonialswidget_testimonial q {
+.testimonialswidget_testimonial q {
 	/* the testimonial itself */
-	/*
-	quotes: none;
-	*/
-}
-
-/* quotes are handled by p tags than q */
-.testimonialswidget_testimonial_list q,
-.testimonialswidget_whitespace q {
 	quotes: none;
 }
 
-.testimonialswidget_testimonial q p:first-child:before {
-	content: '\201C';
+.testimonialswidget_testimonial .testimonialswidget_open_quote:before {
+		content: '\201C';
 }
 
-.testimonialswidget_testimonial q p:last-child:after {
-	content: '\201D';
+.testimonialswidget_testimonial .testimonialswidget_close_quote:after {
+		content: '\201D';
 }
 
 .testimonialswidget_testimonial cite {
