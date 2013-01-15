@@ -949,6 +949,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 35 update
 * Screenshot 8 replaced
 * Simplified quotes handling
+* Upgrade notification
 
 = 2.7.2 =
 * FAQ 54 update
@@ -1498,7 +1499,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Upgrade Notice ==
 
-= 2.7.0
+= 2.7.3 =
+* Quotes are no longer handled via `q`, `p:before`, or `p:after` CSS. It's handled via `.testimonialswidget_testimonial .testimonialswidget_open_quote:before` and `.testimonialswidget_testimonial .testimonialswidget_close_quote:after`
+* This change was made to keep consistency in how quotes were managed and to reduce the number of exception cases. In the end, this is simpler.
+
+= 2.7.0 =
 * Quotes with `keep_whitespace=true` aren't applied via CSS `.testimonialswidget_testimonial q` tag anymore, but `.testimonialswidget_testimonial q p:first-child:before` and `.testimonialswidget_testimonial q p:last-child:after`
 * Widget testimonial `p` tags are no longer CSS `display: inline`, `display: block` as expected
 
