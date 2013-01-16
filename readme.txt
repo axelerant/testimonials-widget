@@ -935,6 +935,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 15. `[testimonialswidgetpremium_link_list]` Shortcode example, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 
 == Changelog ==
@@ -942,6 +944,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Premium feature updates
 * Screenshot 10 replaced
 * Screenshot 11 updated
+* Screenshot 17 Single `[testimonialswidget_list]` entry with and without 'Read more' link
+* Screenshot 18 `[testimonialswidgetpremium_count]` Examples
 
 = 2.7.3 =
 * Apply quotes only around testimonial content
