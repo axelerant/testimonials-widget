@@ -942,9 +942,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* Asset header help request
 
 = 2.7.4 =
+* Asset header help request
 * Premium feature updates
 * Screenshot 9 updated
 * Screenshot 10 replaced
