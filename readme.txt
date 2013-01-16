@@ -42,15 +42,13 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
 * Optional alternate destinations for "Read more" links
+* Optionally disable caching for widget, shortcode or theme functions
+* Optionally show excerpts with single view
 * Read more links on testimonials exceeding the character limit
 * Select only testimonials with images
 * Select testimonials of arbitrary maximum and minimum length
-* Shortcodes
-	* Count of testimonials `[testimonialswidgetpremium_count]`
-	* List of testimonial source and title linking to full entry `[testimonialswidgetpremium_link_list]` 
-* Theme functions
-	* `<?php echo testimonialswidgetpremium_count( $args ); ?>`
-	* `<?php echo testimonialswidgetpremium_link_list( $args ); ?>`
+* Shortcodes and theme functions for testimonials count and testimonial link list
+* Update notification for automatic upgrading
 
 [Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
@@ -941,7 +939,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Premium feature updates
 * Screenshot 10 replaced
+* Screenshot 11 updated
 
 = 2.7.3 =
 * Apply quotes only around testimonial content
