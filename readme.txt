@@ -12,6 +12,7 @@ Testimonials Widget plugin allows you to display random or rotating portfolio, q
 
 
 == Description ==
+Testimonials Widget needs a header image for above. Please submit your suggestion to the support email mentioned below. If selected, I'll provide a copy of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) and a public thank you with backlink below. If you already have Testimonials Widget Premium, then I'll answer a support question for you instead.
 
 Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
@@ -941,6 +942,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Asset header help request
 
 = 2.7.4 =
 * Premium feature updates
