@@ -942,6 +942,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* TODO Exclude IDs option
 
 = 2.7.4 =
 * Asset header help request
@@ -1543,3 +1544,5 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
+
+* Exclude IDs option
