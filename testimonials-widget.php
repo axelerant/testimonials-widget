@@ -41,6 +41,7 @@ class Testimonials_Widget {
 	public static $defaults		= array(
 			'category'			=> '',
 			'char_limit'		=> '',
+			'exclude'			=> '',
 			'hide_author'		=> '',
 			'hide_company'		=> '',
 			'hide_content'		=> '',
@@ -909,6 +910,7 @@ EOF;
 
 	public function get_query_args( $atts ) {
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['category'] ) ) ? $atts['category'] : false;
+		$exclude				= ( preg_match( '#^\d+(,\d+)*$#', $atts['exclude'] ) ) ? $atts['exclude'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)*$#', $atts['ids'] ) ) ? $atts['ids'] : false;
 		$limit					= ( is_numeric( $atts['limit'] ) && -1 <= $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
 		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
@@ -952,6 +954,12 @@ EOF;
 			if ( 'none' == $args['orderby'] ) {
 				add_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ), 10, 2 );
 			}
+		}
+
+		if ( $exclude ) {
+			$exclude				= explode( ',', $exclude );
+
+			$args['post__not_in']	= $exclude;
 		}
 
 		if ( $category ) {

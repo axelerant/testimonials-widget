@@ -36,6 +36,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		global $before_widget, $before_title, $after_title, $after_widget;
 
+		$args					= wp_parse_args( $args, Testimonials_Widget::get_defaults() );
 		extract( $args );
 
 		// Our variables from the widget settings
@@ -103,6 +104,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$instance['category']		= ( empty( $new_instance['category'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $new_instance['category'] ) ) ? $new_instance['category'] : $instance['category'];
 		$instance['char_limit']		= ( empty( $new_instance['char_limit'] ) || ( is_numeric( $new_instance['char_limit'] ) && 0 <= $new_instance['char_limit'] ) ) ? $new_instance['char_limit'] : $instance['char_limit'];
+		$instance['exclude']		= ( empty( $new_instance['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $new_instance['exclude'] ) ) ? $new_instance['exclude'] : $instance['exclude'];
 		$instance['hide_company']	= ( 'true' == $new_instance['hide_company'] ) ? 'true' : '';
 		$instance['hide_email']		= ( 'true' == $new_instance['hide_email'] ) ? 'true' : '';
 		$instance['hide_gravatar']	= ( 'true' == $new_instance['hide_gravatar'] ) ? 'true' : '';
@@ -134,8 +136,9 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	}
 
 	public function form( $instance ) {
+		$defaults				= Testimonials_Widget::get_defaults();
+
 		if ( empty( $instance ) ) {
-			$defaults				= Testimonials_Widget::get_defaults();
 
 			if ( empty( $defaults['char_limit']	) )
 				$defaults['char_limit']	= 500;
@@ -143,9 +146,10 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			if ( empty( $defaults['random']	) )
 				$defaults['random']		= 'true';
 
-			$instance				= wp_parse_args( array(), $defaults );
+			$instance			= array();
 		}
 
+		$instance				= wp_parse_args( $instance, $defaults );
 		$form_parts				= array();
 
 		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
@@ -185,6 +189,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$form_parts['char_limit']	= '<p><label for="' . $this->get_field_id( 'char_limit' ) . '">' . __( 'Character limit', 'testimonials-widget' ) . '</label><input size="4" type="text" id="' . $this->get_field_id( 'char_limit' ) . '" name="' . $this->get_field_name( 'char_limit' ) . '" value="' . htmlspecialchars($instance['char_limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of characters to limit testimonial views to', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['ids']		= '<p><label for="' . $this->get_field_id( 'ids' ) . '">' . __( 'IDs filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'ids' ) . '" name="' . $this->get_field_name( 'ids' ) . '" value="' . htmlspecialchars($instance['ids'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated IDs', 'testimonials-widget' ) . '</small></span></p>';
+
+		$form_parts['exclude']	= '<p><label for="' . $this->get_field_id( 'exclude' ) . '">' . __( 'Exclude IDs filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'exclude' ) . '" name="' . $this->get_field_name( 'exclude' ) . '" value="' . htmlspecialchars($instance['exclude'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated IDs', 'testimonials-widget' ) . '</small></span></p>';
 
 		$form_parts['limit']	= '<p><label for="' . $this->get_field_id( 'limit' ) . '">' . __( 'Limit', 'testimonials-widget' ) . '</label><input size="4" type="text" id="' . $this->get_field_id( 'limit' ) . '" name="' . $this->get_field_name( 'limit' ) . '" value="' . htmlspecialchars($instance['limit'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Number of testimonials to rotate through', 'testimonials-widget' ) . '</small></span></p>';
 

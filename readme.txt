@@ -42,6 +42,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Deletes related cache entries on testimonial update
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching control, text replacement and more
+* Include or exclude specific testimonials for display
 * Optional alternate destinations for "Read more" links
 * Optionally disable caching for widget, shortcode or theme functions
 * Optionally show excerpts with single view
@@ -93,6 +94,8 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Character limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
+* Exclude IDs filter - Comma separated IDs
+	* `exclude` - default none; exclude=2 or exclude="2,4,6"
 * Hide company?
 	* `hide_company` - default show; hide_company=true
 * Hide email?
@@ -153,7 +156,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 	* [testimonialswidget_list ids="1,11,111"]
 	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
 	* [testimonialswidget_list paging=true limit=25]
-	* [testimonialswidget_list tags="test,fun" random=true]
+	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
 * [testimonialswidget_widget]
 	* [testimonialswidget_widget]
 	* [testimonialswidget_widget category=product order=asc]
@@ -942,7 +945,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* TODO Exclude IDs option
+* BUGFIX PHP Warning for new fields in widget when widget already exists
+* Exclude IDs option
+* TODO Prevent on page duplicates
 
 = 2.7.4 =
 * Asset header help request
@@ -1545,4 +1550,4 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
-* Exclude IDs option
+* [Prevent on page duplicates](http://wordpress.org/support/topic/multiple-instancesprevent-same-testimonial-to-appear-again?replies=1)
