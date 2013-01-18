@@ -34,7 +34,7 @@ class Testimonials_Widget {
 	private $post_count			= 0;
 	private $wp_query			= null;
 
-	private static $_base;
+	private static $base;
 
 	public static $css			= array();
 	public static $css_called	= false;
@@ -87,7 +87,7 @@ class Testimonials_Widget {
 
 	public function init() {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
-		self::$_base  				= plugin_basename(__FILE__);
+		self::$base  				= plugin_basename(__FILE__);
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
@@ -153,7 +153,7 @@ class Testimonials_Widget {
 
 
 	public static function plugin_row_meta( $input, $file ) {
-		if ( $file != self::$_base ) {
+		if ( $file != self::$base ) {
 			return $input;
 		}
 		
