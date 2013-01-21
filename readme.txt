@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.4
+Stable tag: 2.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,20 +37,18 @@ Single testimonial view supports image, source, title, email, company and URL de
 
 Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
 
+* Alternate destinations for "Read more" links
+* Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
-* Deletes old cache entries automatically
-* Deletes related cache entries on testimonial update
+* Deletes old and related testimonial cache entries automatically
+* Disable caching for widget, shortcode or theme functions
 * Excerpts for widget view, with read more link to complete testimonial
-* Filters for caching control, text replacement and more
-* Optional alternate destinations for "Read more" links
-* Optionally disable caching for widget, shortcode or theme functions
-* Optionally prevent duplicate testimonials on a page
-* Optionally show excerpts with single view
-* Read more links on testimonials exceeding the character limit
-* Select only testimonials with images
-* Select testimonials of arbitrary maximum and minimum length
+* Filters for caching and more link control, text replacement, and more
+* Prevent duplicate testimonials when using multiple testimonial instances
+* Read more links for testimonials exceeding the character limit
+* Select only testimonials with images or of arbitrary maximum and minimum length
 * Shortcodes and theme functions for testimonials count and testimonial link list
-* Update notification for automatic upgrading
+* Show excerpts with single view
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
@@ -947,8 +945,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.5 =
 * BUGFIX PHP Warning for new fields in widget when widget already exists
 * Exclude IDs option
+* Implement instance tracking
 * Protect shortcode examples
 * Update asset header size
 * Update premium features

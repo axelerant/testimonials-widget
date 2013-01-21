@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.7.4
+	Version: 2.7.5
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
 	License: GPLv2 or later
@@ -69,9 +69,10 @@ class Testimonials_Widget {
 			'title_link'		=> '',
 			'widget_text'		=> '',
 	);
-	public static $scripts		= array();
-	public static $scripts_called	= false;
-	public static $widget_number	= 100000;
+	public static $instance_number		= 0;
+	public static $scripts				= array();
+	public static $scripts_called		= false;
+	public static $widget_number		= 100000;
 
 
 	public function __construct() {
@@ -85,12 +86,35 @@ class Testimonials_Widget {
 	}
 
 
+	public function admin_init() {
+		$this->add_meta_box_testimonials_widget();
+		$this->update();
+		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
+		add_action( 'manage_' . self::pt . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
+		add_filter( 'manage_' . self::pt . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
+		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta'), 10, 2 );
+		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
+		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
+		self::support_thumbnails();
+	}
+
+
 	public function init() {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base  				= plugin_basename(__FILE__);
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
 		self::styles();
+	}
+
+
+	public function get_instance() {
+		return self::$instance_number;
+	}
+
+
+	public function add_instance() {
+		self::$instance_number++;
 	}
 
 
@@ -136,19 +160,6 @@ class Testimonials_Widget {
 	public function activation() {
 		self::init();
 		flush_rewrite_rules();
-	}
-
-
-	public function admin_init() {
-		$this->add_meta_box_testimonials_widget();
-		$this->update();
-		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
-		add_action( 'manage_' . self::pt . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
-		add_filter( 'manage_' . self::pt . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
-		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta'), 10, 2 );
-		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
-		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
-		self::support_thumbnails();
 	}
 
 
@@ -398,6 +409,8 @@ class Testimonials_Widget {
 
 
 	public function testimonialswidget_list( $atts ) {
+		self::add_instance();
+
 		$atts					= wp_parse_args( $atts, self::get_defaults() );
 
 		if ( get_query_var('paged') ) {
@@ -424,6 +437,7 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_widget( $atts, $widget_number = null ) {
 		self::scripts();
+		self::add_instance();
 
 		if ( empty( $widget_number ) ) {
 			$widget_number		= self::$widget_number++;
