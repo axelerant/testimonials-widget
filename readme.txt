@@ -244,6 +244,7 @@ In your theme's `functions.php` file, place code similar to the following for th
 `
 <?php
 
+// The following argument configuration selects 5 testimonials of the "product" category, having the "widget" tag.
 // $args is an optional array of desired shortcode options
 $args							= array(
 	'category'					=> 'product',
@@ -251,18 +252,24 @@ $args							= array(
 	'limit'						=> 5,
 );
 
+// Displays the testimonials as a list into your theme directly
 echo testimonialswidget_list( $args );
 
-// For listing testimonials with paging into your theme directly
-$args['refresh_interval']		= 15;
 
-// For calling the widget with rotation code into your theme directly
+// The following argument configuration selects testimonials of the "review" tag and sets a slower rotation speed for the display widget
+$args							= array(
+	'tags'						=> 'review',
+	'refresh_interval'			=> 15,
+);
+
+// Displays the testimonials as a rotating widget into your theme directly
 echo testimonialswidget_widget( $args );
 
-// $number should be an arbitrarily number that doesn't conflict with existing actual Testimonial Widgets widget IDs - optional
-// This creates widget with specific class .testimonialswidget_testimonials1234
-$number							= 1234;
-echo testimonialswidget_widget( $args, $number );
+
+// $widget_number is an optional, arbitrarily number (probably safe between 1,000 and 9,999) that helps create a uniquely identifiable testimonials widget display instance.
+$widget_number					= 1234;
+// Displays the testimonials as a rotating widget into your theme directly  with specific class .testimonialswidget_testimonials1234
+echo testimonialswidget_widget( $args, $widget_number );
 
 ?>
 `
@@ -941,10 +948,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 17. Single `[[testimonialswidget_list]]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 18. `[[testimonialswidgetpremium_count]]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+19. `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 
 == Changelog ==
 = trunk =
+* FAQ 1 Update
+* Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
 
 = 2.7.5 =
 * BUGFIX PHP Warning for new fields in widget when widget already exists
