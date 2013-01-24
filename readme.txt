@@ -901,6 +901,7 @@ In your theme's `styles.css` file add code like the following.
 `
 .testimonialswidget_testimonialsNNN {
 	overflow: auto;
+}
 `
 
 See FAQ 50 on finding the correct name for `.testimonialswidget_testimonialsNNN`.
@@ -953,7 +954,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* CSS cite `margin-top` adjustment
 * FAQ 1 Update
+* FAQ 53 Update
 * Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
 
 = 2.7.5 =

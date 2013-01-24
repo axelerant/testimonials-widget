@@ -55,6 +55,15 @@
 	text-align: right;
 }
 
+.widget .testimonialswidget_testimonial cite {
+	margin-top: .8em;
+}
+
+.widget .testimonialswidget_testimonial .testimonialswidget_whitespace cite,
+.widget .testimonialswidget_whitespace cite {
+	margin-top: .2em;
+}
+
 .testimonialswidget_testimonial cite:before {
 	content: "– "
 }
