@@ -924,6 +924,29 @@ References
 
 Thank you [gingalley](http://wordpress.org/support/profile/gingalley) for the explanation request.
 
+= 55. How do I style about page testimonials while leaving other testimonials alone or vice versa? =
+To style a page's testimonials or a particular testimonial widget instance, you need to style it with a page or testimonial wrapper class. Each page and testimonial has `body` or `div` class tags to support such.
+
+To style a particular testimonial widget instance, look at the [FAQ page](http://wordpress.org/extend/plugins/testimonials-widget/faq/) and read the entries with "NNN". Then look at the source code of your website to determine your actual `.testimonialswidget_testimonialsNNN` naming.
+
+With that information they can design testimonials uniquely.
+
+`
+.testimonialswidget_testimonialsNNN .testimonialswidget_testimonial {
+	…
+}
+`
+
+*Don't forget to change `NNN` to the number in the website source code of the testimonial instance you're working with.*
+
+To style for a particular page, we use that page's CSS class. As an example, [Aihrus' about page](http://aihr.us/about-aihrus/), has the `body` tag `<body class="custom about-aihrus single-page content-sidebar default">`. Therefore, I would do something like the following to style my testimonials.
+
+`
+.about-aihrus .testimonialswidget_testimonial {
+	…
+}
+`
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -957,6 +980,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * CSS cite `margin-top` adjustment
 * FAQ 1 Update
 * FAQ 53 Update
+* FAQ 55 Style page and instance testimonials 
 * Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
 
 = 2.7.5 =
