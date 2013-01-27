@@ -876,6 +876,7 @@ function my_testimonials_widget_get_testimonial_html( $html, $testimonial, $atts
 Thank you to [Georgia Gibbs Design](http://georgia-gibbs.com/) for suggesting this capability.
 
 = 52. How do I include testimonies in my archive view? =
+In your theme's `functions.php` file, place code similar to the following for the configuration you need.
 
 `
 add_filter( 'pre_get_posts', 'pre_get_posts_allow_testimonials' );
@@ -979,6 +980,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * CSS cite `margin-top` adjustment
 * FAQ 1 Update
+* FAQ 52 Update
 * FAQ 53 Update
 * FAQ 55 Style page and instance testimonials 
 * Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
