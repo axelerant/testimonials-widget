@@ -139,7 +139,6 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$defaults				= Testimonials_Widget::get_defaults();
 
 		if ( empty( $instance ) ) {
-
 			if ( empty( $defaults['char_limit']	) )
 				$defaults['char_limit']	= 500;
 

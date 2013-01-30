@@ -3,9 +3,9 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.7.5
+	Version: 2.7.6
 	Author: Michael Cannon
-	Author URI: http://aihr.us/about-aihrus/michael-cannons-resume/
+	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
 	License: GPLv2 or later
  */
 
@@ -104,7 +104,6 @@ class Testimonials_Widget {
 		self::$base  				= plugin_basename(__FILE__);
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
-		self::styles();
 	}
 
 
@@ -288,6 +287,10 @@ class Testimonials_Widget {
 			$result				= '[testimonialswidget_list ids="';
 			$result				.= $post_id;
 			$result				.= '"]';
+			$result				.= '<br />';
+			$result				.= '[testimonialswidget_widget ids="';
+			$result				.= $post_id;
+			$result				.= '"]';
 			break;
 
 		case 'testimonials-widget-company':
@@ -331,7 +334,7 @@ class Testimonials_Widget {
 			'cb'							=> '<input type="checkbox" />',
 			'thumbnail'						=> __( 'Image' , 'testimonials-widget' ),
 			'title'							=> __( 'Source' , 'testimonials-widget' ),
-			'shortcode'						=> __( 'Shortcode' , 'testimonials-widget' ),
+			'shortcode'						=> __( 'Shortcodes' , 'testimonials-widget' ),
 			'testimonials-widget-title'		=> __( 'Title' , 'testimonials-widget' ),
 			'testimonials-widget-email'		=> __( 'Email' , 'testimonials-widget' ),
 			'testimonials-widget-company'	=> __( 'Company' , 'testimonials-widget' ),
@@ -376,7 +379,7 @@ class Testimonials_Widget {
 		$args = array(
 			'label'				=> __( 'Testimonials' , 'testimonials-widget' ),
 			'capability_type' 	=> 'post',
-			'has_archive'		=> true,
+			'has_archive'		=> 'testimonials',
 			'hierarchical' 		=> false,
 			'labels'			=> $labels,
 			'public' 			=> true,
@@ -410,6 +413,7 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_list( $atts ) {
 		self::add_instance();
+		self::styles();
 
 		$atts					= wp_parse_args( $atts, self::get_defaults() );
 
@@ -436,8 +440,9 @@ class Testimonials_Widget {
 
 
 	public function testimonialswidget_widget( $atts, $widget_number = null ) {
-		self::scripts();
 		self::add_instance();
+		self::scripts();
+		self::styles();
 
 		if ( empty( $widget_number ) ) {
 			$widget_number		= self::$widget_number++;
@@ -451,15 +456,7 @@ class Testimonials_Widget {
 		$atts['type']			= 'testimonialswidget_widget';
 		$atts['widget_number']	= $widget_number;
 
-		$atts['data']			= true;
-		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $atts );
-
-		if ( false === $testimonials ) {
-			$testimonials		= self::get_testimonials( $atts );
-			$testimonials		= apply_filters( 'testimonials_widget_cache_set', $testimonials, $atts );
-		}
-
-		unset( $atts['data'] );
+		$testimonials			= self::get_testimonials( $atts );
 
 		$content				= apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
@@ -548,7 +545,7 @@ EOF;
 
 	public function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
 		// display attributes
-		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
+		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : self::$defaults['refresh_interval'];
 
 		$id						= 'testimonialswidget_testimonials';
 		$id_base				= $id . $widget_number;
@@ -594,7 +591,7 @@ EOF;
 		// display attributes
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] );
 		$paging					= ( 'true' == $atts['paging'] );
-		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : 5;
+		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : self::$defaults['refresh_interval'];
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
 		$html					= '';
@@ -926,10 +923,10 @@ EOF;
 		$category				= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['category'] ) ) ? $atts['category'] : false;
 		$exclude				= ( preg_match( '#^\d+(,\d+)*$#', $atts['exclude'] ) ) ? $atts['exclude'] : false;
 		$ids					= ( preg_match( '#^\d+(,\d+)*$#', $atts['ids'] ) ) ? $atts['ids'] : false;
-		$limit					= ( is_numeric( $atts['limit'] ) && -1 <= $atts['limit'] ) ? intval( $atts['limit'] ) : 25;
+		$limit					= ( is_numeric( $atts['limit'] ) && -1 <= $atts['limit'] ) ? intval( $atts['limit'] ) : self::$defaults['limit'];
 		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
-		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : 'DESC';
-		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : 'ID';
+		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : self::$defaults['order'];
+		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : self::$defaults['orderby'];
 		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
 		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['tags'] ) ) ? $atts['tags'] : false;
@@ -1000,6 +997,7 @@ EOF;
 		$hide_gravatar			= ( 'true' == $atts['hide_gravatar'] ) ? true : false;
 
 		$args					= self::get_query_args( $atts );
+		$args['query']			= true;
 
 		$testimonials			= apply_filters( 'testimonials_widget_cache_get', false, $args );
 

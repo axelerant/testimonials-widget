@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.5
+Stable tag: 2.7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Multiple widgets on a single page capable
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, email, company and URL details
+* Testimonials archive view
 
 = Testimonials Widget Premium Plugin Features =
 
@@ -948,6 +949,14 @@ To style for a particular page, we use that page's CSS class. As an example, [Ai
 }
 `
 
+= 56. What's the testimonials archive view URL? =
+
+It's your URL with `/testimonials/` appended. Like `http://example.com/testimonials/`.
+
+= 57. What's the testimonial single view URL? =
+
+It's your URL with `/testimonial/post-title-slug/` appended. Like `http://example.com/testimonials/your-work-is-awesome/`.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -978,12 +987,20 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.6 =
+* Add `[[testimonialswidget_widget]]` to Shortcodes column
 * CSS cite `margin-top` adjustment
+* Enable testimonials archive view
 * FAQ 1 Update
 * FAQ 52 Update
 * FAQ 53 Update
 * FAQ 55 Style page and instance testimonials 
+* FAQ 56 Testimonials archive view URL
+* FAQ 57 Testimonial single view URL
+* Only include CSS if testimonials instance called
 * Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
+* Set arg defaults via `defaults`
 
 = 2.7.5 =
 * BUGFIX PHP Warning for new fields in widget when widget already exists
