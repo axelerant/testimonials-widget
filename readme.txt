@@ -82,8 +82,8 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 
 = Shortcodes =
 
-* `[[testimonialswidget_list]]` - Listings with paging 
-* `[[testimonialswidget_widget]]` - Rotating
+* `[testimonialswidget_list]` - Listings with paging 
+* `[testimonialswidget_widget]` - Rotating
 
 = Shortcode and Widget Options =
 
@@ -128,7 +128,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 * ORDER BY - Used when Random order is disabled
 	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
-* Enable paging for [[testimonialswidget_list]]
+* Enable paging for [testimonialswidget_list]
 	* `paging` - default true; paging=false
 	* Widget - Not functional
 * Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
@@ -147,22 +147,22 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 
 = Shortcode Examples =
 
-* [[testimonialswidget_list]]
-	* [[testimonialswidget_list]]
-	* [[testimonialswidget_list order=ASC orderby=title]]
-	* [[testimonialswidget_list category=product hide_not_found=true]]
-	* [[testimonialswidget_list category=product tags=widget limit=5]]
-	* [[testimonialswidget_list char_limit=0 target=_new]]
-	* [[testimonialswidget_list hide_source=true hide_url=true]] 
-	* [[testimonialswidget_list ids="1,11,111"]]
-	* [[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]
-	* [[testimonialswidget_list paging=true limit=25]]
-	* [[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]
-* [[testimonialswidget_widget]]
-	* [[testimonialswidget_widget]]
-	* [[testimonialswidget_widget category=product order=asc]]
-	* [[testimonialswidget_widget min_height=250 max_height=500]]
-	* [[testimonialswidget_widget tags=sometag random=true]]
+* [testimonialswidget_list]
+	* [testimonialswidget_list]
+	* [testimonialswidget_list order=ASC orderby=title]
+	* [testimonialswidget_list category=product hide_not_found=true]
+	* [testimonialswidget_list category=product tags=widget limit=5]
+	* [testimonialswidget_list char_limit=0 target=_new]
+	* [testimonialswidget_list hide_source=true hide_url=true] 
+	* [testimonialswidget_list ids="1,11,111"]
+	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+	* [testimonialswidget_list paging=true limit=25]
+	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
+* [testimonialswidget_widget]
+	* [testimonialswidget_widget]
+	* [testimonialswidget_widget category=product order=asc]
+	* [testimonialswidget_widget min_height=250 max_height=500]
+	* [testimonialswidget_widget tags=sometag random=true]
 
 = Theme Functions =
 
@@ -232,7 +232,7 @@ Please request support through the [WordPress forums for Testimonials Widget](ht
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials Widget' into the desired widget area
 1. Configure the 'Testimonials Widget' to select quotes and display as needed
-1. Alternately, use the `[[testimonialswidget_list]]` or `[[testimonialswidget_widget]]` shortcodes to display testimonials on a page or in a post
+1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
 1. Alternately, read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
 
 
@@ -549,7 +549,7 @@ Either purchase [Testimonials Widget Premium](http://aihr.us/downloads/testimoni
 
 In Widget options, check "Hide testimonials not found?" or in shortcode options use `hide_not_found=true`.
 
-`[[testimonialswidget_list hide_not_found=true]]`
+`[testimonialswidget_list hide_not_found=true]`
 
 = 28. How do I export testimonials? =
 
@@ -727,7 +727,7 @@ In your theme's `styles.css` file use the CSS class `.testimonialswidget_widget_
 
 = 40. How do I get page numbers for pagination? =
 
-Install and activate [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) to get page numbers for pagination of testimonials via the shortcode `[[testimonialswidget_list]]`.
+Install and activate [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) to get page numbers for pagination of testimonials via the shortcode `[testimonialswidget_list]`.
 
 Additionally, you can use filter `testimonials_widget_wp_pagenavi` to configure WP-PageNavi specifically for Testimonial Widgets. Read WP-PageNavi's [core.php](http://plugins.svn.wordpress.org/wp-pagenavi/trunk/core.php) `wp_pagenavi` function declaration for available options.
 
@@ -784,7 +784,7 @@ The widget option by default has a 500 character limit. To view more characters,
 To display the testimonials with IDs 538, 451, 442, 449, and 565 in that same order; you need to use the `ids` and `orderby` shortcode or widget options.
 
 `
-[[testimonialswidget_list ids="538,451,442,449,565" orderby=none]]
+[testimonialswidget_list ids="538,451,442,449,565" orderby=none]
 `
 
 Thank you [Ionrot](http://wordpress.org/support/topic/order-by-id-list?replies=5#post-3517737) for inspiring this FAQ and code feature.
@@ -793,7 +793,7 @@ Thank you [Ionrot](http://wordpress.org/support/topic/order-by-id-list?replies=5
 
 First, you'll need to enable shortcodes in widget by adding `add_filter('widget_text', 'do_shortcode');` to the bottom of your themes `functions.php` file, before the closing `?>`.
 
-Then for the testimonials listing in a widget, use a Text widget with a shortcode like `[[testimonialswidget_list limit=5]]`.
+Then for the testimonials listing in a widget, use a Text widget with a shortcode like `[testimonialswidget_list limit=5]`.
 
 If you have formatting issues, you can check out [Enabling shortcodes in widgets, quick WordPress tip.](http://dannyvankooten.com/630/enabling-shortcodes-in-widgets-quick-wordpress-tip/) for further help.
 
@@ -969,8 +969,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 3. Collasped Testimonials Widget options
 4. Expanded Testimonials Widget options
 5. Testimonial widget in the sidebar 
-6. [[testimonialswidget_list]] in post
-7. [[testimonialswidget_list]] results with paging
+6. [testimonialswidget_list] in post
+7. [testimonialswidget_list] results with paging
 8. Widget whitespace kept
 9. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 10. Widget with "Read more" and "Next testimonial…" links - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
@@ -978,18 +978,19 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 12. Single view with and without excerpt - Excerpt is feature of [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-15. `[[testimonialswidgetpremium_link_list]]` Shortcode examples, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+15. `[testimonialswidgetpremium_link_list]` Shortcode examples, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-17. Single `[[testimonialswidget_list]]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-18. `[[testimonialswidgetpremium_count]]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-19. `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 
 
 == Changelog ==
 = trunk =
+* "[[" to "["
 
 = 2.7.6 =
-* Add `[[testimonialswidget_widget]]` to Shortcodes column
+* Add `[testimonialswidget_widget]` to Shortcodes column
 * CSS cite `margin-top` adjustment
 * Enable testimonials archive view
 * FAQ 1 Update
@@ -999,7 +1000,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 56 Testimonials archive view URL
 * FAQ 57 Testimonial single view URL
 * Only include CSS if testimonials instance called
-* Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
+* Screenshot 19 `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation
 * Set arg defaults via `defaults`
 
 = 2.7.5 =
@@ -1017,8 +1018,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Screenshot 10 replaced
 * Screenshot 11 updated
 * Screenshot 15 updated
-* Screenshot 17 Single `[[testimonialswidget_list]]` entry with and without 'Read more' link
-* Screenshot 18 `[[testimonialswidgetpremium_count]]` Examples
+* Screenshot 17 Single `[testimonialswidget_list]` entry with and without 'Read more' link
+* Screenshot 18 `[testimonialswidgetpremium_count]` Examples
 
 = 2.7.3 =
 * Apply quotes only around testimonial content
@@ -1417,12 +1418,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Working full testimonial URLs
 
 = 2.1.1 =
-* Add [[testimonialswidget_list]] paging screenshot
+* Add [testimonialswidget_list] paging screenshot
 
 = 2.1.0 =
-* Enable paging for [[testimonialswidget_list]] shortcode
+* Enable paging for [testimonialswidget_list] shortcode
 * Flush rewrite rules on activation
-* Disallow paging in widget and [[testimonialswidget_widget]] shortcode
+* Disallow paging in widget and [testimonialswidget_widget] shortcode
 
 = 2.0.6 =
 * Update shortcode option directions
@@ -1516,8 +1517,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Move caching to ideas
 * Add theme function `testimonialswidget_widget()` doc
 * Update POT
-* [[testimonialswidget_widget]] shortcode
-* Match [[testimonialswidget_widget]] shortcode option defaults to widget
+* [testimonialswidget_widget] shortcode
+* Match [testimonialswidget_widget] shortcode option defaults to widget
 * Update screenshots
 * Readd Minimum Height - need help getting around this
 
