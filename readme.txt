@@ -36,13 +36,14 @@ Single testimonial view supports image, source, title, email, company and URL de
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
+Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Alternate destinations for "Read more" links
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deletes old and related testimonial cache entries automatically
 * Disable caching for widget, shortcode or theme functions
+* Ensure unique testimonial display per page
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
 * Prevent duplicate testimonials when using multiple testimonial instances
@@ -149,13 +150,14 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 
 * [testimonialswidget_list]
 	* [testimonialswidget_list]
-	* [testimonialswidget_list order=ASC orderby=title]
+	* [testimonialswidget_list category="parent-category/sub-category"] – Specify a sub-category
 	* [testimonialswidget_list category=product hide_not_found=true]
 	* [testimonialswidget_list category=product tags=widget limit=5]
 	* [testimonialswidget_list char_limit=0 target=_new]
 	* [testimonialswidget_list hide_source=true hide_url=true] 
 	* [testimonialswidget_list ids="1,11,111"]
 	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+	* [testimonialswidget_list order=ASC orderby=title]
 	* [testimonialswidget_list paging=true limit=25]
 	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
 * [testimonialswidget_widget]
@@ -958,6 +960,14 @@ It's your URL with `/testimonials/` appended. Like `http://example.com/testimoni
 
 It's your URL with `/testimonial/post-title-slug/` appended. Like `http://example.com/testimonials/your-work-is-awesome/`.
 
+= 58. How do you specify testimonials per page or section? =
+
+Please view [Make Specific testimonial appear in only one page](http://wordpress.org/support/topic/make-specific-testimonial-appear-in-only-one-page).
+
+= 59. Why does my rotating widget show all testimonials than only one at a time? =
+
+Please view [Widget Displaying Whole List Of Testimonials](http://wordpress.org/support/topic/widget-displaying-whole-list-of-testimonials).
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -988,6 +998,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 58 Specify testimonials per page or section
+* FAQ 59 Rotating widget show all testimonials than only one at a time
+* Thank you to [mkearns](http://wordpress.org/support/topic/just-excellent-3) for specifying a sub-category shortcode example
+* Update premium URL
+* Update premium features
 
 = 2.7.7 =
 * FAQ 13 Update
