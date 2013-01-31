@@ -581,12 +581,13 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 
 = 31. How do I change Testimonials Widget text labels? =
 
-
 1. Create a localized `YOUR_WPLANG.mo` file from `languages/testimonials-widget.pot`. See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
 1. Create a directory named `languages` inside of `wp-includes`.
 1. Put your `YOUR_WPLANG.mo` file into your `wp-includes/languages` directory.
 1. Set `WPLANG` inside of `wp-config.php` to your chosen language. See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
 1. The default `WPLANG` is `en_US`. Use `en_US.mo` as the filename of your localization changes if you're sticking with US English.
+
+Also check out [Translating WordPress Plugins & Themes](http://urbangiraffe.com/articles/translating-wordpress-themes-and-plugins/).
 
 = 32. How do I prevent testimonials in my footer from changing the page height? =
 
@@ -990,6 +991,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 = 2.7.7 =
 * FAQ 13 Update
+* FAQ 31 Update
 * Shortcode examples "[[" to "["
 
 = 2.7.6 =
