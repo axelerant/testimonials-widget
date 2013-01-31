@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.6
+Stable tag: 2.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -408,7 +408,7 @@ In your theme's `custom.css` or `styles.css` file write the following CSS.
 `
 .testimonialswidget_testimonial .testimonialswidget_open_quote:before,
 .testimonialswidget_testimonial .testimonialswidget_close_quote:after {
-	content: none;
+	display: none;
 }
 `
 
@@ -987,7 +987,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* "[[" to "["
+
+= 2.7.7 =
+* FAQ 13 Update
+* Shortcode examples "[[" to "["
 
 = 2.7.6 =
 * Add `[testimonialswidget_widget]` to Shortcodes column
