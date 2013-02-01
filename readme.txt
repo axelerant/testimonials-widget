@@ -50,11 +50,11 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Read more links for testimonials exceeding the character limit
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Shortcodes and theme functions for testimonials count and testimonial link list
-* Show excerpts with single view
+* Show excerpts with list and single views
 * Testimonial list has alternating `.even` and `.odd` CSS classes
 * WPML compatible
 
-[Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
+[Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
 
 = Additional Features =
 
@@ -1007,6 +1007,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Update premium features
+* Update premium URL
 
 = 2.7.10 =
 * BUGFIX extra excerpt in single view
