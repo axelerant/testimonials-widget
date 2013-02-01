@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.7
+Stable tag: 2.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,7 +130,10 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * ORDER BY - Used when Random order is disabled
 	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
 * Enable paging for [testimonialswidget_list]
-	* `paging` - default true; paging=false
+	* `paging` - default true [true|before|after|false]; paging=false
+		* `true` – display paging before and after testimonial entries
+		* `before` – display paging only before testimonial entries
+		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
 * Random order - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order
 	* `random` - default none; random=true (overrides `order` and `orderby`)
@@ -221,7 +224,11 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-Please request support through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget). Additionally, if you need to send sensitive information, please email <support@aihr.us>.
+So that others can share in the answer, please submit your support requests through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget).
+
+If you want private or priority support, then [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your support request to <support@aihr.us>.
+
+Thank you for your understanding.
 
 
 == Installation ==
@@ -998,8 +1005,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.8 =
+* Add `before` and `after` options to `paging`
 * FAQ 58 Specify testimonials per page or section
 * FAQ 59 Rotating widget show all testimonials than only one at a time
+* Revert on-demand CSS to always included
+* Support process and donation update
 * Thank you to [mkearns](http://wordpress.org/support/topic/just-excellent-3) for specifying a sub-category shortcode example
 * Update premium URL
 * Update premium features

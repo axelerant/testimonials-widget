@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.7.7
+	Version: 2.7.8
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
 	License: GPLv2 or later
@@ -104,6 +104,7 @@ class Testimonials_Widget {
 		self::$base  				= plugin_basename(__FILE__);
 		self::$defaults['title']	= __( 'Testimonials', 'testimonials-widget' );
 		self::init_post_type();
+		self::styles();
 	}
 
 
@@ -413,7 +414,6 @@ class Testimonials_Widget {
 
 	public function testimonialswidget_list( $atts ) {
 		self::add_instance();
-		self::styles();
 
 		$atts					= wp_parse_args( $atts, self::get_defaults() );
 
@@ -442,7 +442,6 @@ class Testimonials_Widget {
 	public function testimonialswidget_widget( $atts, $widget_number = null ) {
 		self::add_instance();
 		self::scripts();
-		self::styles();
 
 		if ( empty( $widget_number ) ) {
 			$widget_number		= self::$widget_number++;
@@ -591,6 +590,8 @@ EOF;
 		// display attributes
 		$hide_not_found			= ( 'true' == $atts['hide_not_found'] );
 		$paging					= ( 'true' == $atts['paging'] );
+		$paging_before			= ( 'before' == $atts['paging'] );
+		$paging_after			= ( 'after' == $atts['paging'] );
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : self::$defaults['refresh_interval'];
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
@@ -615,7 +616,7 @@ EOF;
 			);
 		}
 		
-		if ( $paging ) {
+		if ( $paging || $paging_before ) {
 			$html				.= self::get_testimonials_paging( $testimonials, $atts );
 		} 
 
@@ -628,7 +629,7 @@ EOF;
 			$is_first			= false;
 		} 
 
-		if ( $paging ) {
+		if ( $paging || $paging_after ) {
 			$html				.= self::get_testimonials_paging( $testimonials, $atts, false );
 		} 
 
@@ -927,7 +928,7 @@ EOF;
 		$meta_key				= ( preg_match( '#^[\w-,]+$#', $atts['meta_key'] ) ) ? $atts['meta_key'] : false;
 		$order					= ( preg_match( '#^desc|asc$#i', $atts['order'] ) ) ? $atts['order'] : self::$defaults['order'];
 		$orderby				= ( preg_match( '#^\w+$#', $atts['orderby'] ) ) ? $atts['orderby'] : self::$defaults['orderby'];
-		$paging					= ( 'true' == $atts['paging'] ) ? true : false;
+		$paging					= ( 'true' == $atts['paging'] || 'before' == $atts['paging'] || 'after' == $atts['paging'] ) ? true : false;
 		$random					= ( 'true' == $atts['random'] ) ? true : false;
 		$tags					= ( preg_match( '#^[\w-]+(,[\w-]+)*$#', $atts['tags'] ) ) ? $atts['tags'] : false;
 		$tags_all				= ( 'true' == $atts['tags_all'] ) ? true : false;

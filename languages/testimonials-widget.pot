@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials Widget 2.7.7\n"
+"Project-Id-Version: Testimonials Widget 2.7.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-01-31 03:49:47+00:00\n"
+"POT-Creation-Date: 2013-02-01 03:24:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,15 +16,15 @@ msgstr ""
 msgid "Display testimonials with multiple selection and display options"
 msgstr ""
 
-#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.7.7)  #-#-#-#-#
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.7.8)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: lib/testimonials-widget-widget.php:19
 msgid "Testimonials Widget"
 msgstr ""
 
 #: lib/testimonials-widget-widget.php:154
-#: lib/testimonials-widget-widget.php:224 testimonials-widget.php:338
-#: testimonials-widget.php:1098
+#: lib/testimonials-widget-widget.php:224 testimonials-widget.php:339
+#: testimonials-widget.php:1099
 msgid "Title"
 msgstr ""
 
@@ -165,11 +165,11 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:204 testimonials-widget.php:336
+#: lib/testimonials-widget-widget.php:204 testimonials-widget.php:337
 msgid "Source"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:205 testimonials-widget.php:345
+#: lib/testimonials-widget-widget.php:205 testimonials-widget.php:346
 msgid "Date"
 msgstr ""
 
@@ -189,18 +189,18 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:225 testimonials-widget.php:339
-#: testimonials-widget.php:1104
+#: lib/testimonials-widget-widget.php:225 testimonials-widget.php:340
+#: testimonials-widget.php:1105
 msgid "Email"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:226 testimonials-widget.php:340
-#: testimonials-widget.php:1110
+#: lib/testimonials-widget-widget.php:226 testimonials-widget.php:341
+#: testimonials-widget.php:1111
 msgid "Company"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:227 testimonials-widget.php:341
-#: testimonials-widget.php:1116
+#: lib/testimonials-widget-widget.php:227 testimonials-widget.php:342
+#: testimonials-widget.php:1117
 msgid "URL"
 msgstr ""
 
@@ -251,129 +251,129 @@ msgstr ""
 msgid "Custom text or HTML for bottom of widgets"
 msgstr ""
 
-#: testimonials-widget.php:105 testimonials-widget.php:359
-#: testimonials-widget.php:380
+#: testimonials-widget.php:105 testimonials-widget.php:360
+#: testimonials-widget.php:381
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:335
+#: testimonials-widget.php:336
 msgid "Image"
 msgstr ""
 
-#: testimonials-widget.php:337
+#: testimonials-widget.php:338
 msgid "Shortcodes"
 msgstr ""
 
-#: testimonials-widget.php:342
+#: testimonials-widget.php:343
 msgid "Published by"
 msgstr ""
 
-#: testimonials-widget.php:343
+#: testimonials-widget.php:344
 msgid "Category"
 msgstr ""
 
-#: testimonials-widget.php:344
+#: testimonials-widget.php:345
 msgid "Tags"
 msgstr ""
 
-#: testimonials-widget.php:356
+#: testimonials-widget.php:357
 msgid "New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:357 testimonials-widget.php:360
+#: testimonials-widget.php:358 testimonials-widget.php:361
 msgid "Add New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:358
+#: testimonials-widget.php:359
 msgid "Edit Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:361 testimonials-widget.php:614
+#: testimonials-widget.php:362 testimonials-widget.php:615
 msgid "No testimonials found"
 msgstr ""
 
-#: testimonials-widget.php:362
+#: testimonials-widget.php:363
 msgid "No testimonials found in Trash"
 msgstr ""
 
-#: testimonials-widget.php:364
+#: testimonials-widget.php:365
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:365
+#: testimonials-widget.php:366
 msgid "Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:366
+#: testimonials-widget.php:367
 msgid "View Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:647
+#: testimonials-widget.php:648
 msgid "…"
 msgstr ""
 
-#: testimonials-widget.php:867
+#: testimonials-widget.php:868
 msgid "&laquo;"
 msgstr ""
 
-#: testimonials-widget.php:878
+#: testimonials-widget.php:879
 msgid "&raquo;"
 msgstr ""
 
-#: testimonials-widget.php:1128
+#: testimonials-widget.php:1129
 msgid "Testimonial Data"
 msgstr ""
 
-#: testimonials-widget.php:1153
+#: testimonials-widget.php:1154
 msgid "Enter title here"
 msgstr ""
 
-#: testimonials-widget.php:1154
+#: testimonials-widget.php:1155
 msgid "Enter testimonial source here"
 msgstr ""
 
-#: testimonials-widget.php:1178
+#: testimonials-widget.php:1179
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1179
+#: testimonials-widget.php:1180
 msgid "Custom field updated."
 msgstr ""
 
-#: testimonials-widget.php:1180
+#: testimonials-widget.php:1181
 msgid "Custom field deleted."
 msgstr ""
 
-#: testimonials-widget.php:1181
+#: testimonials-widget.php:1182
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
-#: testimonials-widget.php:1183
+#: testimonials-widget.php:1184
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: testimonials-widget.php:1184
+#: testimonials-widget.php:1185
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1185
+#: testimonials-widget.php:1186
 msgid "Testimonial saved."
 msgstr ""
 
-#: testimonials-widget.php:1186
+#: testimonials-widget.php:1187
 msgid ""
 "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
 "a>"
 msgstr ""
 
-#: testimonials-widget.php:1187
+#: testimonials-widget.php:1188
 msgid ""
 "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
 "\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1188
+#: testimonials-widget.php:1189
 msgid ""
 "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
 "testimonial</a>"
