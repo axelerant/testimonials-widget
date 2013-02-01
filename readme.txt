@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.9
+Stable tag: 2.7.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,7 +48,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Filters for caching and more link control, text replacement, and more
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
-* Select only testimonials with images or of arbitrary maximum and minimum length
+* Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Show excerpts with single view
 * Testimonial list has alternating `.even` and `.odd` CSS classes
@@ -1007,6 +1007,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.10 =
+* BUGFIX extra excerpt in single view
+* Screenshot 11 updated
+* Update premium features
 
 = 2.7.9 =
 * Revise content truncation to respect HTML tags
