@@ -155,7 +155,6 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 
 * [testimonialswidget_list]
 	* [testimonialswidget_list]
-	* [testimonialswidget_list category="parent-category/sub-category"] – Specify a sub-category
 	* [testimonialswidget_list category=product hide_not_found=true]
 	* [testimonialswidget_list category=product tags=widget limit=5]
 	* [testimonialswidget_list char_limit=0 target=_new]
@@ -1007,6 +1006,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Removed sub-category shortcode example
 * Update premium features
 * Update premium URL
 
