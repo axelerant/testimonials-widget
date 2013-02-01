@@ -36,7 +36,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress. In using it, You'll not be sorry.
+Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, excerpts, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Alternate destinations for "Read more" links
 * Built-in update notification
@@ -1010,6 +1010,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 = 2.7.9 =
 * Revise content truncation to respect HTML tags
+* Update premium description
 * Update premium features
 
 = 2.7.8 =
