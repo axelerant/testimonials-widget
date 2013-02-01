@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.7.8
+	Version: 2.7.9
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
 	License: GPLv2 or later
@@ -69,10 +69,13 @@ class Testimonials_Widget {
 			'title_link'		=> '',
 			'widget_text'		=> '',
 	);
-	public static $instance_number		= 0;
-	public static $scripts				= array();
-	public static $scripts_called		= false;
-	public static $widget_number		= 100000;
+	public static $instance_number	= 0;
+	public static $scripts			= array();
+	public static $scripts_called	= false;
+	public static $tag_close_quote	= '<span class="testimonialswidget_close_quote"></span>';
+	public static $tag_open_quote	= '<span class="testimonialswidget_open_quote"></span>';
+
+	public static $widget_number	= 100000;
 
 
 	public function __construct() {
@@ -646,7 +649,7 @@ EOF;
 		// display attributes
 		$char_limit				= ( is_numeric( $atts['char_limit'] ) && 0 <= intval( $atts['char_limit'] ) ) ? intval( $atts['char_limit'] ) : false;
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
-		$content_more			.= '<span class="testimonialswidget_close_quote"></span>';
+		$content_more			.= self::$tag_close_quote;
 		$do_company				= ( 'true' != $atts['hide_company'] ) && ! empty( $testimonial['testimonial_company'] );
 		$do_content				= ( 'true' != $atts['hide_content'] ) && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ( 'true' != $atts['hide_email'] ) && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
@@ -794,15 +797,119 @@ EOF;
 			if ( strlen( $string ) <= $char_limit )
 				return $string;
 		}
-
+		
 		if ( ! empty( $char_limit ) ) {
-			$string				= substr( $string, 0, $char_limit );
-			if ( false !== ( $breakpoint = strrpos( $string, $break ) ) ) {
-				$string			= substr( $string, 0, $breakpoint );
-			}
+			return self::truncate( $string, $char_limit, $pad, $force_pad );
 		}
 
 		return $string . $pad;
+	}
+
+
+	/**
+	 * Truncate HTML, close opened tags. UTF-8 aware, and aware of unpaired tags
+	 * (which don't need a matching closing tag)
+	 *
+	 * @param int $max_length Maximum length of the characters of the string
+	 * @param string $html
+	 * @param string $indicator Suffix to use if string was truncated.
+	 * @param boolean $force_indicator Suffix to use if string was truncated.
+	 * @return string
+	 *
+	 * @ref http://pastie.org/3084080
+	 */
+	public static function truncate( $html, $max_length, $indicator = '&hellip;', $force_indicator = false )
+	{
+		$output_length = 0; // number of counted characters stored so far in $output
+		$position = 0;      // character offset within input string after last tag/entity
+		$tag_stack = array(); // stack of tags we've encountered but not closed
+		$output = '';
+		$truncated = false;
+
+		/** these tags don't have matching closing elements, in HTML (in XHTML they
+		 * theoretically need a closing /> )
+		 * @see http://www.netstrider.com/tutorials/HTMLRef/a_d.html
+		 * @see http://www.w3schools.com/tags/default.asp
+		 * @see http://stackoverflow.com/questions/3741896/what-do-you-call-tags-that-need-no-ending-tag
+		 */
+		$unpaired_tags = array( 'doctype', '!doctype',
+			'area','base','basefont','bgsound','br','col',
+			'embed','frame','hr','img','input','link','meta',
+			'param','sound','spacer','wbr');
+
+		// loop through, splitting at HTML entities or tags
+		while ($output_length < $max_length
+			&& preg_match('{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position))
+		{
+			list($tag, $tag_position) = $match[0];
+
+			// get text leading up to the tag, and store it (up to max_length)
+			$text = mb_strcut($html, $position, $tag_position - $position);
+			if ($output_length + mb_strlen($text) > $max_length)
+			{
+				$output .= mb_strcut($text, 0, $max_length - $output_length);
+				$truncated = true;
+				$output_length = $max_length;
+				break;
+			}
+
+			// store everything, it wasn't too long
+			$output .= $text;
+			$output_length += mb_strlen($text);
+
+			if ($tag[0] == '&') // Handle HTML entity by copying straight through
+			{
+				$output .= $tag;
+				$output_length++; // only counted as one character
+			}
+			else // Handle HTML tag
+			{
+				$tag_inner = $match[1][0];
+				if ($tag[1] == '/') // This is a closing tag.
+				{
+					$output .= $tag;
+					// If input tags aren't balanced, we leave the popped tag
+					// on the stack so hopefully we're not introducing more
+					// problems.
+					if ( end($tag_stack) == $tag_inner )
+					{
+						array_pop($tag_stack);
+					}
+				}
+				else if ($tag[mb_strlen($tag) - 2] == '/'
+					|| in_array(strtolower($tag_inner),$unpaired_tags) )
+				{
+					// Self-closing or unpaired tag
+					$output .= $tag;
+				}
+				else // Opening tag.
+				{
+					$output .= $tag;
+					$tag_stack[] = $tag_inner; // push tag onto the stack
+				}
+			}
+
+			// Continue after the tag we just found
+			$position = $tag_position + mb_strlen($tag);
+		}
+
+		// Print any remaining text after the last tag, if there's room.
+		if ($output_length < $max_length && $position < mb_strlen($html))
+		{
+			$output .= mb_strcut($html, $position, $max_length - $output_length);
+		}
+
+		$truncated = mb_strlen($html)-$position > $max_length - $output_length;
+
+		// add terminator if it was truncated in loop or just above here
+		if ( $truncated || $force_indicator )
+			$output .= $indicator;
+
+		// Close any open tags
+		while (!empty($tag_stack))
+			$output .= '</'.array_pop($tag_stack).'>';
+
+		return $output;
 	}
 
 
@@ -812,9 +919,9 @@ EOF;
 
 		// wrap our own quote class around the content before any formatting 
 		// happens
-		$temp_content			= '<span class="testimonialswidget_open_quote"></span>';
+		$temp_content			= self::$tag_open_quote;
 		$temp_content			.= $content;
-		$temp_content			.= '<span class="testimonialswidget_close_quote"></span>';
+		$temp_content			.= self::$tag_close_quote;
 		$content				= $temp_content;
 
 		$content				= trim( $content );

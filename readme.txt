@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.8
+Stable tag: 2.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Select only testimonials with images or of arbitrary maximum and minimum length
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Show excerpts with single view
+* Testimonial list has alternating `.even` and `.odd` CSS classes
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
@@ -62,6 +63,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
 * Compatible with WordPress multi-site
+* Content truncation to respect HTML tags
 * Custom CSS in footer for HTML validation
 * Custom text or HTML for bottom of widgets
 * Customizeable testimonial data field `testimonial_extra`
@@ -226,7 +228,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 So that others can share in the answer, please submit your support requests through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget).
 
-If you want private or priority support, then [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your support request to <support@aihr.us>.
+If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your support request to <support@aihr.us>.
 
 Thank you for your understanding.
 
@@ -1005,6 +1007,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.9 =
+* Revise content truncation to respect HTML tags
+* Update premium features
 
 = 2.7.8 =
 * Add `before` and `after` options to `paging`
