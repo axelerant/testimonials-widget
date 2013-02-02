@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.10
+Stable tag: 2.7.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Testimonials Widget plugin allows you to display random or rotating portfolio, q
 
 More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
 
-Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep Whitespace?" option.
+Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
 
@@ -117,6 +117,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 	* `ids` - default none; ids=2 or ids="2,4,6"
 * Keep whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
+	* The citation has no whitespace adaptions. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
 * Limit - Number of testimonials to rotate through via widget or show at a time when listing
 	* `limit` - default 10; limit=25
 * Sort by meta key - Used when Random order is disabled and sorting by a testimonials meta key is needed
@@ -711,7 +712,7 @@ For next page links, use `testimonials_widget_next_posts_link` instead of `testi
 
 Simply said, to demonstrate on-going support for the development of Testimonials Widget.
 
-Further, you and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium) plugin's caching and 'read more' link capabilities without purchase. Since version 2.3.0, the free Testimonials Widget plugin provides several new filters or hooks which provides for easily incorporating the premium features.
+Further, you and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin's caching and 'read more' link capabilities without purchase. Since version 2.3.0, the free Testimonials Widget plugin provides several new filters or hooks which provides for easily incorporating the premium features.
 
 It was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for you to purchase [Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) is an acceptable request to help pay for the free, quick support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
 
@@ -1006,9 +1007,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.11 =
+* Citation styling note
 * Removed sub-category shortcode example
-* Update premium features
+* Thanks to Joe Weber for asset header
 * Update premium URL
+* Update premium features
+* Update premium purchase URL
 
 = 2.7.10 =
 * BUGFIX extra excerpt in single view
