@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.11
+Stable tag: 2.7.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -253,6 +253,13 @@ Thank you for your understanding.
 
 In your theme's `functions.php` file, place code similar to the following for the configuration you need.
 
+A basic testimonial list or widget with no options.
+`
+<?php echo testimonialswidget_list(); ?>
+<?php echo testimonialswidget_widget(); ?>
+`
+
+Testimonial list or widget with options.
 `
 <?php
 
@@ -1007,7 +1014,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.12 =
 * Change Aihrus support email to contact form
+* FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
 * Update Testimonials Widget Premium URL
 
 = 2.7.11 =
