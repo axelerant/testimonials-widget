@@ -1015,6 +1015,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 
+= 2.7.13 =
+* Adapt for `mb_strcut` and `mb_strlen` alternatives
+
 = 2.7.12 =
 * Change Aihrus support email to contact form
 * FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration

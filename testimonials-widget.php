@@ -838,6 +838,9 @@ EOF;
 			'embed','frame','hr','img','input','link','meta',
 			'param','sound','spacer','wbr');
 
+		$func_strcut			= function_exists( 'mb_strcut' ) ? 'mb_strcut' : 'substr';
+		$func_strlen			= function_exists( 'mb_strlen' ) ? 'mb_strlen' : 'strlen';
+
 		// loop through, splitting at HTML entities or tags
 		while ($output_length < $max_length
 			&& preg_match('{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position))
@@ -845,10 +848,10 @@ EOF;
 			list($tag, $tag_position) = $match[0];
 
 			// get text leading up to the tag, and store it (up to max_length)
-			$text = mb_strcut($html, $position, $tag_position - $position);
-			if ($output_length + mb_strlen($text) > $max_length)
+			$text = $func_strcut($html, $position, $tag_position - $position);
+			if ($output_length + $func_strlen($text) > $max_length)
 			{
-				$output .= mb_strcut($text, 0, $max_length - $output_length);
+				$output .= $func_strcut($text, 0, $max_length - $output_length);
 				$truncated = true;
 				$output_length = $max_length;
 				break;
@@ -856,7 +859,7 @@ EOF;
 
 			// store everything, it wasn't too long
 			$output .= $text;
-			$output_length += mb_strlen($text);
+			$output_length += $func_strlen($text);
 
 			if ($tag[0] == '&') // Handle HTML entity by copying straight through
 			{
@@ -877,7 +880,7 @@ EOF;
 						array_pop($tag_stack);
 					}
 				}
-				else if ($tag[mb_strlen($tag) - 2] == '/'
+				else if ($tag[$func_strlen($tag) - 2] == '/'
 					|| in_array(strtolower($tag_inner),$unpaired_tags) )
 				{
 					// Self-closing or unpaired tag
@@ -891,16 +894,16 @@ EOF;
 			}
 
 			// Continue after the tag we just found
-			$position = $tag_position + mb_strlen($tag);
+			$position = $tag_position + $func_strlen($tag);
 		}
 
 		// Print any remaining text after the last tag, if there's room.
-		if ($output_length < $max_length && $position < mb_strlen($html))
+		if ($output_length < $max_length && $position < $func_strlen($html))
 		{
-			$output .= mb_strcut($html, $position, $max_length - $output_length);
+			$output .= $func_strcut($html, $position, $max_length - $output_length);
 		}
 
-		$truncated = mb_strlen($html)-$position > $max_length - $output_length;
+		$truncated = $func_strlen($html)-$position > $max_length - $output_length;
 
 		// add terminator if it was truncated in loop or just above here
 		if ( $truncated || $force_indicator )
