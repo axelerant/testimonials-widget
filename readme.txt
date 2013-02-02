@@ -34,7 +34,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, excerpts, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress. In using it, You'll not be sorry.
+Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, excerpts, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
 
 * Alternate destinations for "Read more" links
 * Built-in update notification
@@ -52,7 +52,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Testimonial list has alternating `.even` and `.odd` CSS classes
 * WPML compatible
 
-[Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
+[Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
 
 = Additional Features =
 
@@ -534,7 +534,7 @@ When you look at the WP > Admin > Testimonials post list, you can click on the V
 	
 The filters `testimonials_widget_testimonial_html_single` and `testimonials_widget_testimonial_html_single_content` are related to the single view.
 
-Please purchase [Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) to get "Read more" link capability or use the filters to create your own.
+Please purchase [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) to get "Read more" link capability or use the filters to create your own.
 
 = 23. My testimonial URL says "Page not found" or 404 =
 
@@ -554,7 +554,7 @@ Alternately, use the `orderby` shortcode option.
 
 = 26. How do I create a next link? =
 
-Either purchase [Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) or see http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination for tips.
+Either purchase [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) or see http://wordpress.org/support/topic/plugin-testimonials-widget-next-testimonial-not-pagination for tips.
 
 = 27. How do I hide the "No testimonials found" text? =
 
@@ -714,7 +714,7 @@ Simply said, to demonstrate on-going support for the development of Testimonials
 
 Further, you and other developers are very welcome to code your own version of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin's caching and 'read more' link capabilities without purchase. Since version 2.3.0, the free Testimonials Widget plugin provides several new filters or hooks which provides for easily incorporating the premium features.
 
-It was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for you to purchase [Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) is an acceptable request to help pay for the free, quick support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
+It was a hard choice making the 'Read more' link feature a premium option. I knew that there were going to be people not happy with me for doing so. However, I feel that asking for you to purchase [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) is an acceptable request to help pay for the free, quick support and development like Testimonials Widget's [17 high-level changes](http://plugins.trac.wordpress.org/changeset?reponame=&old=627496%40testimonials-widget&new=628068%40testimonials-widget) to go from version 2.2.9 to 2.3.0.
 
 = 38. How do I use filter `testimonials_widget_defaults`? =
 
@@ -992,22 +992,23 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 6. [testimonialswidget_list] in post
 7. [testimonialswidget_list] results with paging
 8. Widget whitespace kept
-9. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-10. Widget with "Read more" and "Next testimonial…" links - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-12. Single view with and without excerpt - Excerpt is feature of [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+9. `require_image`, `minimum_length` and `maximum_length` shortcode option examples - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+10. Widget with "Read more" and "Next testimonial…" links - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+11. Widget with Premium Options - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+12. Single view with and without excerpt - Excerpt is feature of [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-15. `[testimonialswidgetpremium_link_list]` Shortcode examples, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
-19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+15. `[testimonialswidgetpremium_link_list]` Shortcode examples, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+16. Edit testimonial with "Excerpt" and "Read More Link" fields - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 
 
 == Changelog ==
 = trunk =
 * Change Aihrus support email to contact form
+* Update Testimonials Widget Premium URL
 
 = 2.7.11 =
 * Citation styling note
