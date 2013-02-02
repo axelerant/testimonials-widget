@@ -1017,6 +1017,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 = 2.7.13 =
 * Adapt for `mb_strcut` and `mb_strlen` alternatives
+* BUGFIX [Widget doesn't appear](http://wordpress.org/support/topic/widget-doesnt-appear-1)
 
 = 2.7.12 =
 * Change Aihrus support email to contact form
@@ -1678,5 +1679,3 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
-
-* BUG [Widget doesn't appear](http://wordpress.org/support/topic/widget-doesnt-appear-1)
