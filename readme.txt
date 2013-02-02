@@ -12,8 +12,6 @@ Testimonials Widget plugin allows you to display random or rotating portfolio, q
 
 
 == Description ==
-Testimonials Widget needs a 772 pixel wide x 250 pixel tall header image for above. Please submit your suggestion to the support email mentioned below. If selected, I'll provide a copy of [Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) and a public thank you with backlink below. If you already have Testimonials Widget Premium, then I'll answer a support question for you instead.
-
 Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
 More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
@@ -216,6 +214,8 @@ You can translate this plugin into your own language if it's not done so already
 * Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
 
 = Background & Thanks =
+
+A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials Widget banner. It's fantastic.
 
 Version 2.0.0 of Testimonials Widget is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
 
