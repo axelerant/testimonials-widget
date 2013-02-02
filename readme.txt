@@ -228,7 +228,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 So that others can share in the answer, please submit your support requests through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget).
 
-If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your support request to <support@aihr.us>.
+If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your [support request](http://aihr.us/contact-aihrus/).
 
 Thank you for your understanding.
 
@@ -1007,6 +1007,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Change Aihrus support email to contact form
 
 = 2.7.11 =
 * Citation styling note
