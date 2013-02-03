@@ -293,6 +293,15 @@ echo testimonialswidget_widget( $args, $widget_number );
 ?>
 `
 
+In case of `Fatal error: Call to undefined function testimonialswidget_widget() in…`, please try including `testimonials-widget.php` like the following.
+
+`
+<?php 
+include_once( WP_PLUGIN_DIR . '/testimonials-widget/testimonials-widget.php' );
+echo testimonialswidget_widget(); 
+?>
+`
+
 = 2. How do you include the actual testimonials for the widget? Where do I quote my customers? I mean, where do I enter the actual text? =
 
 In WordPress Admin > Testimonials. See [screenshot 1](http://s.wordpress.org/extend/plugins/testimonials-widget/screenshot-1.png).
@@ -984,6 +993,10 @@ Please view [Make Specific testimonial appear in only one page](http://wordpress
 
 Please view [Widget Displaying Whole List Of Testimonials](http://wordpress.org/support/topic/widget-displaying-whole-list-of-testimonials).
 
+= 60. How do I download older versions of Testimonials Widget? =
+
+You can browse code and download current and other versions of Testimonials Widget via its [Developers](http://wordpress.org/extend/plugins/testimonials-widget/developers/) page.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1014,6 +1027,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
+* FAQ 60 Download older versions of Testimonials Widget
 
 = 2.7.13 =
 * Adapt for `mb_strcut` and `mb_strlen` alternatives
