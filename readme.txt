@@ -49,7 +49,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Show excerpts with list and single views
-* Testimonial list has alternating `.even` and `.odd` CSS classes
+* Testimonial list entries have alternating `.even` and `.odd` CSS classes for backgrounds and other styling
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
@@ -1023,12 +1023,15 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+20. Alternating background colors – Courtesy of [placeofstillness](http://www.heartattune.com/clients-say/) - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 
 
 == Changelog ==
 = trunk =
 * FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
 * FAQ 60 Download older versions of Testimonials Widget
+* Premium feature update
+* Screenshot 20 added
 
 = 2.7.13 =
 * Adapt for `mb_strcut` and `mb_strlen` alternatives
