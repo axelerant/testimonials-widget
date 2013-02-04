@@ -30,7 +30,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Multiple widgets on a single page capable
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, email, company and URL details
-* Testimonials archive view
+* Testimonials archive view – Disabled for now
 
 = Testimonials Widget Premium Plugin Features =
 
@@ -979,6 +979,8 @@ To style for a particular page, we use that page's CSS class. As an example, [Ai
 
 = 56. What's the testimonials archive view URL? =
 
+**Disabled for now**
+
 It's your URL with `/testimonials/` appended. Like `http://example.com/testimonials/`.
 
 = 57. What's the testimonial single view URL? =
@@ -1028,6 +1030,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.14 =
+* BUGFIX [Testimonials archive view URL conflicts with Page slug](http://wordpress.org/support/topic/testimonials-archive-view-url-conflicts-with-page-slug)
 * FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
 * FAQ 60 Download older versions of Testimonials Widget
 * Premium feature update
