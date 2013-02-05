@@ -29,6 +29,7 @@
 
 class Testimonials_Widget {
 	const pt					= 'testimonials-widget';
+	const id					= 'testimonialswidget_testimonials';
 
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
@@ -41,6 +42,7 @@ class Testimonials_Widget {
 	public static $defaults		= array(
 			'category'			=> '',
 			'char_limit'		=> '',
+			'css_class'			=> '',
 			'exclude'			=> '',
 			'hide_author'		=> '',
 			'hide_company'		=> '',
@@ -518,8 +520,7 @@ class Testimonials_Widget {
 		$min_height				= ( is_numeric( $atts['min_height'] ) && 0 <= $atts['min_height'] ) ? intval( $atts['min_height'] ) : false;
 
 		$css					= array();
-		$id						= 'testimonialswidget_testimonials';
-		$id_base				= $id . $widget_number;
+		$id_base				= self::id . $widget_number;
 
 		if ( $min_height ) {
 			$css[]				= <<<EOF
@@ -551,8 +552,7 @@ EOF;
 		// display attributes
 		$refresh_interval		= ( is_numeric( $atts['refresh_interval'] ) && 0 <= intval( $atts['refresh_interval'] ) ) ? intval( $atts['refresh_interval'] ) : self::$defaults['refresh_interval'];
 
-		$id						= 'testimonialswidget_testimonials';
-		$id_base				= $id . $widget_number;
+		$id_base				= self::id . $widget_number;
 		$scripts				= array();
 
 		if ( $refresh_interval && 1 < count( $testimonials ) ) {
@@ -601,13 +601,13 @@ EOF;
 		$target					= ( preg_match( '#^\w+$#', $atts['target'] ) ) ? $atts['target'] : false;
 
 		$html					= '';
-		$id						= 'testimonialswidget_testimonials';
+		$id						= self::id;
 
 		if ( is_null( $widget_number ) ) {
 			$html				.= '<div class="' . $id;
 
 			if ( $is_list )
-				$html			.= ' testimonialswidget_testimonials_list';
+				$html			.= ' ' . $id . '_list';
 
 			$html				.= '">';
 		} else {

@@ -79,6 +79,7 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Testimonials Widget widget displays static and rotating testimonials 
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * URLs can be opened in new windows
+* Unique CSS class per widget
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Shortcodes =
@@ -671,7 +672,7 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 
 Please view the `testimonials-widget.css` file for CSS customizations.
 
-Review your website HTML source code to find your specific `testimonialswidget_testimonialsNNN` instance naming.
+See FAQ 61 for NNN identification.
 
 = 35. How is a testimonial list formatted with CSS? =
 
@@ -706,6 +707,8 @@ Review your website HTML source code to find your specific `testimonialswidget_t
 `
 
 Please view the `testimonials-widget.css` file for CSS customizations.
+
+See FAQ 61 for NNN identification.
 
 = 36. How do I configure Next and Previous page indicators? =
 
@@ -855,19 +858,13 @@ function my_testimonials_widget_testimonial_html_single( $content, $testimonial,
 
 = 50. Example to set widget gradient background color =
 
-The CSS class `testimonialswidget_testimonialsNNN` is dynamically generated. As such, you're not going to find it specifically in the Testimonials Widget CSS file. The reason being is that each Testimonials Widget is standalone so that many can be on a page.
-
-Therefore, look in your webpage's HTML source code of your webpage for the unique testimonial widget class identifier. In our case, it's `.testimonialswidget_testimonials3`.
-
-Then write CSS like the following.
+See FAQ 61 for NNN identification. Then write CSS like the following change the color behind the widget to a light gradient gold.
 
 `
 .testimonialswidget_testimonials3 {
 	background-image: linear-gradient(to bottom right, #FFEF87 0%, #EFEFEF 100%);
 }
 `
-
-There you have it, you've changed the color behind the widget to a light gradient gold.
 
 A special thanks to [inode86](http://wordpress.org/support/topic/gradient-background-color?replies=2) for this suggestion.
 
@@ -926,15 +923,13 @@ function pre_get_posts_allow_testimonials( $query ) {
 
 = 53. How do I scroll my widget based testimonial content? =
 
-In your theme's `styles.css` file add code like the following.
+See FAQ 61 for NNN identification. Then in your theme's `styles.css` file add CSS like the following.
 
 `
 .testimonialswidget_testimonialsNNN {
 	overflow: auto;
 }
 `
-
-See FAQ 50 on finding the correct name for `.testimonialswidget_testimonialsNNN`.
 
 = 54. Why is that there is an update like every other day? =
 
@@ -957,17 +952,13 @@ Thank you [gingalley](http://wordpress.org/support/profile/gingalley) for the ex
 = 55. How do I style about page testimonials while leaving other testimonials alone or vice versa? =
 To style a page's testimonials or a particular testimonial widget instance, you need to style it with a page or testimonial wrapper class. Each page and testimonial has `body` or `div` class tags to support such.
 
-To style a particular testimonial widget instance, look at the [FAQ page](http://wordpress.org/extend/plugins/testimonials-widget/faq/) and read the entries with "NNN". Then look at the source code of your website to determine your actual `.testimonialswidget_testimonialsNNN` naming.
-
-With that information they can design testimonials uniquely.
+See FAQ 61 for NNN identification. Then in your theme's `styles.css` file add CSS like the following.
 
 `
 .testimonialswidget_testimonialsNNN .testimonialswidget_testimonial {
 	…
 }
 `
-
-*Don't forget to change `NNN` to the number in the website source code of the testimonial instance you're working with.*
 
 To style for a particular page, we use that page's CSS class. As an example, [Aihrus' about page](http://aihr.us/about-aihrus/), has the `body` tag `<body class="custom about-aihrus single-page content-sidebar default">`. Therefore, I would do something like the following to style my testimonials.
 
@@ -998,6 +989,23 @@ Please view [Widget Displaying Whole List Of Testimonials](http://wordpress.org/
 = 60. How do I download older versions of Testimonials Widget? =
 
 You can browse code and download current and other versions of Testimonials Widget via its [Developers](http://wordpress.org/extend/plugins/testimonials-widget/developers/) page.
+
+= 61. What's NNN of ".testimonialswidget_testimonialsNNN"? =
+
+As the CSS class `.testimonialswidget_testimonialsNNN` is dynamically generated, you're not going to find it in the Testimonials Widget CSS file. The reason being is that each Testimonials Widget instance is unique so that many can be used and styled on a page.
+
+You may find your NNN value by looking at…
+* "CSS class" from your widget's option panel - screenshot 3
+* Your webpage's HTML source code for the unique testimonial widget class identifier
+	* Ex: `<div class="testimonialswidget_testimonials testimonialswidget_testimonials20">` means you use CSS class `.testimonialswidget_testimonials20`
+
+*When writing testimonials CSS, don't forget to change `NNN` to the number found above*
+
+= 62. Why do I get "No testimonials found" when using category and tags? =
+
+Because, there's no testimonials having that category with those tags.
+
+When using tags only, it's possible to select from many testimonials unless you check the "Require all tags" option. Then only testimonials with all of those tags are selected.
 
 
 = I'm still stuck, how can I get help? =
@@ -1030,6 +1038,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Add "CSS class" to widget options window
+* FAQ 34/35/50/53/55 updates
+* FAQ 61 Determine .testimonialswidget_testimonialsNNN
+* FAQ 62 Category and tag selection
+* Feature updates
+* Screenshot 3 updated
 
 = 2.7.14 =
 * BUGFIX [Testimonials archive view URL conflicts with Page slug](http://wordpress.org/support/topic/testimonials-archive-view-url-conflicts-with-page-slug)

@@ -137,8 +137,10 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 	public function form( $instance ) {
 		$defaults				= Testimonials_Widget::get_defaults();
+		$do_number				= true;
 
 		if ( empty( $instance ) ) {
+			$do_number			= false;
 			if ( empty( $defaults['char_limit']	) )
 				$defaults['char_limit']	= 500;
 
@@ -154,6 +156,12 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		$form_parts['title']	= '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . htmlspecialchars($instance['title'], ENT_QUOTES) . '" /></p>';
 
 		$form_parts['title_link']	= '<p><label for="' . $this->get_field_id( 'title_link' ) . '">' . __( 'Title link', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'title_link' ) . '" name="' . $this->get_field_name( 'title_link' ) . '" value="' . htmlspecialchars($instance['title_link'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'URL or Post ID to link widget title to', 'testimonials-widget' ) . '</small></span></p>';
+
+		if ( $do_number ) {
+			$number				= $this->number;
+			$class				= ' .' . Testimonials_Widget::id . $number;
+			$form_parts['css_class']	= '<p><label for="' . $this->get_field_id( 'css_class' ) . '">' . __( 'CSS class', 'testimonials-widget' ) . '</label><input class="widefat" type="text" readonly="readonly" id="' . $this->get_field_id( 'css_class' ) . '" name="' . $this->get_field_name( 'css_class' ) . '" value="' . $class . '" /><br/><span class="setting-description"><small>' . __( 'Widget\'s unique CSS class for styling', 'testimonials-widget' ) . '</small></span></p>';
+		}
 
 		$form_parts['category']	= '<p><label for="' . $this->get_field_id( 'category' ) . '">' . __( 'Category filter', 'testimonials-widget' ) . '</label><input class="widefat" type="text" id="' . $this->get_field_id( 'category' ) . '" name="' . $this->get_field_name( 'category' ) . '" value="' . htmlspecialchars($instance['category'], ENT_QUOTES) . '" /><br/><span class="setting-description"><small>' . __( 'Comma separated category slug-names', 'testimonials-widget' ) . '</small></span></p>';
 
