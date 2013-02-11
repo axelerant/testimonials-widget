@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.14
+Stable tag: 2.7.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -210,6 +210,8 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 = Languages =
 
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) to the plugin author.
+
+* [Hebrew by Ahrale](http://atar4u.com/)
 
 = Recommendation =
 
@@ -1040,11 +1042,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.15 =
 * Add "CSS class" to widget options window
 * FAQ 31/34/35/50/53/55 updates
 * FAQ 61 Determine .testimonialswidget_testimonialsNNN
 * FAQ 62 Category and tag selection
 * Feature updates
+* Localization, Hebrew
 * Screenshot 3 updated
 
 = 2.7.14 =
