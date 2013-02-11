@@ -610,10 +610,12 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 = 31. How do I change Testimonials Widget text labels? =
 
 1. Create a localized `YOUR_WPLANG.mo` file from `languages/testimonials-widget.pot`. See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
-1. Create a directory named `languages` inside of `wp-includes`.
-1. Put your `YOUR_WPLANG.mo` file into your `wp-includes/languages` directory.
+1. Create a directory named `languages` inside of `wp-content`.
+1. Put your `YOUR_WPLANG.mo` file into your `wp-content/languages` directory.
 1. Set `WPLANG` inside of `wp-config.php` to your chosen language. See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
 1. The default `WPLANG` is `en_US`. Use `en_US.mo` as the filename of your localization changes if you're sticking with US English.
+
+Ex: `<?php define('WPLANG', 'de_DE'); ?>`
 
 Also check out [Translating WordPress Plugins & Themes](http://urbangiraffe.com/articles/translating-wordpress-themes-and-plugins/).
 
@@ -1039,7 +1041,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * Add "CSS class" to widget options window
-* FAQ 34/35/50/53/55 updates
+* FAQ 31/34/35/50/53/55 updates
 * FAQ 61 Determine .testimonialswidget_testimonialsNNN
 * FAQ 62 Category and tag selection
 * Feature updates
