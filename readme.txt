@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.15
+Stable tag: 2.7.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1043,6 +1043,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 
+= 2.7.16 =
+* Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
+* TODO Admin panel
+
 = 2.7.15 =
 * Add "CSS class" to widget options window
 * FAQ 31/34/35/50/53/55 updates
@@ -1724,3 +1728,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
+
+* Admin panel
+	* simple localization
+	* set display defaults
