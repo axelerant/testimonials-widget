@@ -1011,6 +1011,14 @@ Because, there's no testimonials having that category with those tags.
 
 When using tags only, it's possible to select from many testimonials unless you check the "Require all tags" option. Then only testimonials with all of those tags are selected.
 
+= 63. How do I remove the cite –? =
+
+In your theme's `custom.css` or `styles.css` file write the following CSS.
+
+.testimonialswidget_testimonial cite::before {
+	display: none;
+}
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1042,6 +1050,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 63 Remove the cite –
 
 = 2.7.16 =
 * Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
