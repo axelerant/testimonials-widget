@@ -131,7 +131,6 @@ class Testimonials_Widget {
 
 
 	function admin_menu() {
-		echo __LINE__ . ':' . basename( __FILE__ ) . '<br />';
 		$this->menu_id			= add_submenu_page( __( 'edit.php?post_type=testimonials-widget', 'Testimonials Widget Settings', 'testimonials-widget' ), __( 'Settings', 'testimonials-widget' ), 'manage_options', 'tw-settings-link', array( &$this, 'user_interface' ) );
 
         add_screen_meta_link(
@@ -215,7 +214,8 @@ class Testimonials_Widget {
 		}
 		
 		$links					= array(
-			'<a href="http://aihr.us/about-aihrus/donate/">Donate</a>'
+			'<a href="http://aihr.us/about-aihrus/donate/">Donate</a>',
+			'<a href="http://aihr.us/wordpress/testimonials-widget-premium/">Purchase Testimonials Widget Premium</a>'
 		);
 
 		$input					= array_merge( $input, $links );

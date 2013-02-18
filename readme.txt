@@ -1070,6 +1070,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Add purchase Testimonials Widget Premium plugin meta link
 * Begin settings screen work
 * FAQ 20 Update
 * FAQ 31 Update
