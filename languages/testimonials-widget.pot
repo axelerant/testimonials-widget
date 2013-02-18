@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.7.16\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-02-11 23:26:00+00:00\n"
+"POT-Creation-Date: 2013-02-18 04:08:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,8 +23,8 @@ msgid "Testimonials Widget"
 msgstr ""
 
 #: lib/testimonials-widget-widget.php:156
-#: lib/testimonials-widget-widget.php:232 testimonials-widget.php:345
-#: testimonials-widget.php:1212
+#: lib/testimonials-widget-widget.php:232 testimonials-widget.php:385
+#: testimonials-widget.php:1252
 msgid "Title"
 msgstr ""
 
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:212 testimonials-widget.php:343
+#: lib/testimonials-widget-widget.php:212 testimonials-widget.php:383
 msgid "Source"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:213 testimonials-widget.php:352
+#: lib/testimonials-widget-widget.php:213 testimonials-widget.php:392
 msgid "Date"
 msgstr ""
 
@@ -197,18 +197,18 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:233 testimonials-widget.php:346
-#: testimonials-widget.php:1218
+#: lib/testimonials-widget-widget.php:233 testimonials-widget.php:386
+#: testimonials-widget.php:1258
 msgid "Email"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:234 testimonials-widget.php:347
-#: testimonials-widget.php:1224
+#: lib/testimonials-widget-widget.php:234 testimonials-widget.php:387
+#: testimonials-widget.php:1264
 msgid "Company"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:235 testimonials-widget.php:348
-#: testimonials-widget.php:1230
+#: lib/testimonials-widget-widget.php:235 testimonials-widget.php:388
+#: testimonials-widget.php:1270
 msgid "URL"
 msgstr ""
 
@@ -259,129 +259,241 @@ msgstr ""
 msgid "Custom text or HTML for bottom of widgets"
 msgstr ""
 
-#: testimonials-widget.php:110 testimonials-widget.php:366
-#: testimonials-widget.php:388
+#: settings.testimonials-widget.php:27
+msgid "General"
+msgstr ""
+
+#: settings.testimonials-widget.php:28
+msgid "Testing"
+msgstr ""
+
+#: settings.testimonials-widget.php:29
+msgid "Reset"
+msgstr ""
+
+#: settings.testimonials-widget.php:30
+msgid "About Testimonials Widget"
+msgstr ""
+
+#: settings.testimonials-widget.php:47 settings.testimonials-widget.php:105
+msgid "Testimonials Widget Settings"
+msgstr ""
+
+#: settings.testimonials-widget.php:47 settings.testimonials-widget.php:54
+#: testimonials-widget.php:150 testimonials-widget.php:406
+#: testimonials-widget.php:428
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:342
+#: settings.testimonials-widget.php:70
+msgid "Default Field"
+msgstr ""
+
+#: settings.testimonials-widget.php:71
+msgid "This is a default description."
+msgstr ""
+
+#: settings.testimonials-widget.php:120
+msgid "Save Changes"
+msgstr ""
+
+#: settings.testimonials-widget.php:122
+msgid "view testimonials"
+msgstr ""
+
+#: settings.testimonials-widget.php:123
+msgid "add a testimonial"
+msgstr ""
+
+#: settings.testimonials-widget.php:323
+msgid "Debug Mode?"
+msgstr ""
+
+#: settings.testimonials-widget.php:324
+msgid "Not implemented yet"
+msgstr ""
+
+#: settings.testimonials-widget.php:334
+msgid "Reset plugin"
+msgstr ""
+
+#: settings.testimonials-widget.php:338
+msgid ""
+"Check this box and click \"Save Changes\" below to reset plugin options to "
+"their defaults."
+msgstr ""
+
+#: settings.testimonials-widget.php:344
+msgid "Example Text Input"
+msgstr ""
+
+#: settings.testimonials-widget.php:345
+msgid "This is a description for the text input."
+msgstr ""
+
+#: settings.testimonials-widget.php:352
+msgid "Example Textarea Input"
+msgstr ""
+
+#: settings.testimonials-widget.php:353
+msgid "This is a description for the textarea input."
+msgstr ""
+
+#: settings.testimonials-widget.php:361
+msgid "Example Checkbox"
+msgstr ""
+
+#: settings.testimonials-widget.php:362
+msgid "This is a description for the checkbox."
+msgstr ""
+
+#: settings.testimonials-widget.php:376
+msgid "Example Radio"
+msgstr ""
+
+#: settings.testimonials-widget.php:377
+msgid "This is a description for the radio buttons."
+msgstr ""
+
+#: settings.testimonials-widget.php:389
+msgid "Example Select"
+msgstr ""
+
+#: settings.testimonials-widget.php:390
+msgid "This is a description for the drop-down."
+msgstr ""
+
+#: testimonials-widget.php:104 testimonials-widget.php:135
+#: testimonials-widget.php:139
+msgid "Settings"
+msgstr ""
+
+#: testimonials-widget.php:125
+msgid "Import"
+msgstr ""
+
+#: testimonials-widget.php:135
+msgid "edit.php?post_type=testimonials-widget"
+msgstr ""
+
+#: testimonials-widget.php:382
 msgid "Image"
 msgstr ""
 
-#: testimonials-widget.php:344
+#: testimonials-widget.php:384
 msgid "Shortcodes"
 msgstr ""
 
-#: testimonials-widget.php:349
+#: testimonials-widget.php:389
 msgid "Published by"
 msgstr ""
 
-#: testimonials-widget.php:350
+#: testimonials-widget.php:390
 msgid "Category"
 msgstr ""
 
-#: testimonials-widget.php:351
+#: testimonials-widget.php:391
 msgid "Tags"
 msgstr ""
 
-#: testimonials-widget.php:363
+#: testimonials-widget.php:403
 msgid "New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:364 testimonials-widget.php:367
+#: testimonials-widget.php:404 testimonials-widget.php:407
 msgid "Add New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:365
+#: testimonials-widget.php:405
 msgid "Edit Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:368 testimonials-widget.php:621
+#: testimonials-widget.php:408 testimonials-widget.php:661
 msgid "No testimonials found"
 msgstr ""
 
-#: testimonials-widget.php:369
+#: testimonials-widget.php:409
 msgid "No testimonials found in Trash"
 msgstr ""
 
-#: testimonials-widget.php:371
+#: testimonials-widget.php:411
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:372
+#: testimonials-widget.php:412
 msgid "Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:373
+#: testimonials-widget.php:413
 msgid "View Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:654
+#: testimonials-widget.php:694
 msgid "…"
 msgstr ""
 
-#: testimonials-widget.php:981
+#: testimonials-widget.php:1021
 msgid "&laquo;"
 msgstr ""
 
-#: testimonials-widget.php:992
+#: testimonials-widget.php:1032
 msgid "&raquo;"
 msgstr ""
 
-#: testimonials-widget.php:1242
+#: testimonials-widget.php:1282
 msgid "Testimonial Data"
 msgstr ""
 
-#: testimonials-widget.php:1267
+#: testimonials-widget.php:1307
 msgid "Enter title here"
 msgstr ""
 
-#: testimonials-widget.php:1268
+#: testimonials-widget.php:1308
 msgid "Enter testimonial source here"
 msgstr ""
 
-#: testimonials-widget.php:1292
+#: testimonials-widget.php:1332
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1293
+#: testimonials-widget.php:1333
 msgid "Custom field updated."
 msgstr ""
 
-#: testimonials-widget.php:1294
+#: testimonials-widget.php:1334
 msgid "Custom field deleted."
 msgstr ""
 
-#: testimonials-widget.php:1295
+#: testimonials-widget.php:1335
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
-#: testimonials-widget.php:1297
+#: testimonials-widget.php:1337
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: testimonials-widget.php:1298
+#: testimonials-widget.php:1338
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1299
+#: testimonials-widget.php:1339
 msgid "Testimonial saved."
 msgstr ""
 
-#: testimonials-widget.php:1300
+#: testimonials-widget.php:1340
 msgid ""
 "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
 "a>"
 msgstr ""
 
-#: testimonials-widget.php:1301
+#: testimonials-widget.php:1341
 msgid ""
 "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
 "\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1302
+#: testimonials-widget.php:1342
 msgid ""
 "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
 "testimonial</a>"

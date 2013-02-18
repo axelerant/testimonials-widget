@@ -32,6 +32,8 @@ class Testimonials_Widget {
 	const id					= 'testimonialswidget_testimonials';
 
 	private $max_num_pages		= 0;
+	private $menu_id			= '';
+	private $options_link		= '';
 	private $post_count			= 0;
 	private $wp_query			= null;
 
@@ -92,6 +94,18 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
+		if ( false ) {
+			require_once( 'settings.testimonials-widget.php' );
+
+			if ( ! function_exists( 'add_screen_meta_link' ) ) {
+				require_once( 'screen-meta-links.php' );
+			}
+
+			$this->options_link		= '<a href="' . get_admin_url() . 'options-general.php?page=tw-options">' . __('Settings', 'testimonials-widget') . '</a>';
+			add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
+			add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+		}
+
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
 		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
@@ -101,6 +115,32 @@ class Testimonials_Widget {
 		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
 		self::support_thumbnails();
+	}
+
+
+	function plugin_action_links( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			array_unshift( $links, $this->options_link );
+
+			$link				= '<a href="'.get_admin_url().'tools.php?page=testimonials-widget">'.__('Import', 'testimonials-widget').'</a>';
+			array_unshift( $links, $link );
+		}
+
+		return $links;
+	}
+
+
+	function admin_menu() {
+		echo __LINE__ . ':' . basename( __FILE__ ) . '<br />';
+		$this->menu_id			= add_submenu_page( __( 'edit.php?post_type=testimonials-widget', 'Testimonials Widget Settings', 'testimonials-widget' ), __( 'Settings', 'testimonials-widget' ), 'manage_options', 'tw-settings-link', array( &$this, 'user_interface' ) );
+
+        add_screen_meta_link(
+        	'tw-settings-link',
+			__( 'Settings', 'testimonials-widget' ),
+			admin_url( 'options-general.php?page=tw-options' ),
+			$this->menu_id,
+			array( 'style' => 'font-weight: bold;' )
+		);
 	}
 
 

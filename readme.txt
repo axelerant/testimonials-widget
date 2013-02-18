@@ -529,6 +529,8 @@ In CSS put the following.
 
 The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer. Check to make sure your theme has the `<?php wp_footer(); ?>` call in footer.php or the equivalent file.
 
+Alternately, enable Developer Mode in your browser, right-click on a testimonial, select "Inspect Element", and then click on the Console tab to review and resolve the JavaScript errors.
+
 = 21. How can I justify testimonials text? =
 
 
@@ -611,15 +613,33 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 
 = 31. How do I change Testimonials Widget text labels? =
 
-1. Create a localized `YOUR_WPLANG.mo` file from `languages/testimonials-widget.pot`. See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
+1. The default `WPLANG` is `en_US`.
+	* Use `en_US.mo` and `en_US.po` as the filenames of your localization changes if you're sticking with US English.
+	* `de_DE` – German
+	* `en_UK` – UK English
+	* `es_ES` – Spanish
+	* `fr_FR` – French
+	* `ja_JP.EUC-JP.mo` – Japanese in EUC-JP encoding
+	* `zh-TW` – Traditional Chinese
+	* `zh_CN` – Simplified Chinese
+1. Create localized `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files from `languages/testimonials-widget.pot`.
+	* See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
+	* Ensure that `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files contain the correct `Language:` tag like `Language: es_ES` and `"Language: es_ES\n"` respectively.
 1. Create a directory named `languages` inside of `wp-content`.
-1. Put your `YOUR_WPLANG.mo` file into your `wp-content/languages` directory.
-1. Set `WPLANG` inside of `wp-config.php` to your chosen language. See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
-1. The default `WPLANG` is `en_US`. Use `en_US.mo` as the filename of your localization changes if you're sticking with US English.
+1. Put your `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files into your `wp-content/languages` directory.
+1. Set `WPLANG` in `wp-config.php` to your chosen language.
+	* See [Using Localizations](http://codex.wordpress.org/Translating_WordPress#Using_Localizations) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.  
+	* Ex: `<?php define('WPLANG', 'de_DE'); ?>`
 
-Ex: `<?php define('WPLANG', 'de_DE'); ?>`
+*Sometimes the above doesn't work, so…*
 
-Also check out [Translating WordPress Plugins & Themes](http://urbangiraffe.com/articles/translating-wordpress-themes-and-plugins/).
+1. Create localized `testimonials-widget-YOUR_WPLANG.mo` and `testimonials-widget-YOUR_WPLANG.po` files from `languages/testimonials-widget.pot`.
+1. Put your localized `testimonials-widget-YOUR_WPLANG.mo` and `testimonials-widget-YOUR_WPLANG.po` files into directory `wp-content/plugins/testimonials-widget/languages/`.
+1. Set `WPLANG` in `wp-config.php` to your chosen language.
+
+When done translating, please [send your translation](http://aihr.us/contact-aihrus/) for inclusion with the Testimonials Widget plugin release.
+
+Check out [Translating WordPress Plugins & Themes](http://urbangiraffe.com/articles/translating-wordpress-themes-and-plugins/) for fuller explanations.
 
 = 32. How do I prevent testimonials in my footer from changing the page height? =
 
@@ -1050,7 +1070,11 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Begin settings screen work
+* FAQ 20 Update
+* FAQ 31 Update
 * FAQ 63 Remove the cite –
+* Update localization verbiage
 
 = 2.7.16 =
 * Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
