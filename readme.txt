@@ -625,6 +625,7 @@ Cheers to [tcwebguru](http://wordpress.org/support/topic/display-on-page-without
 1. Create localized `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files from `languages/testimonials-widget.pot`.
 	* See [Translation Tools](http://codex.wordpress.org/Translating_WordPress#Translation_Tools) of [Translating WordPress](http://codex.wordpress.org/Translating_WordPress) for help.
 	* Ensure that `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files contain the correct `Language:` tag like `Language: es_ES` and `"Language: es_ES\n"` respectively.
+	* Example: See screenshot 21. "Poedit Catalog properties"
 1. Create a directory named `languages` inside of `wp-content`.
 1. Put your `YOUR_WPLANG.mo` and `YOUR_WPLANG.po` files into your `wp-content/languages` directory.
 1. Set `WPLANG` in `wp-config.php` to your chosen language.
@@ -1066,6 +1067,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 20. Alternating background colors – Courtesy of [placeofstillness](http://www.heartattune.com/clients-say/) - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+21. Poedit Catalog properties
 
 
 == Changelog ==
@@ -1076,6 +1078,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 31 Update
 * FAQ 63 Remove the cite –
 * Update localization verbiage
+* Screenshot 21 Poedit Catalog properties
 
 = 2.7.16 =
 * Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
@@ -1766,3 +1769,5 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * Admin panel
 	* simple localization
 	* set display defaults
+* BUG
+	* [JetPack J-Shortcodes conflict](http://wordpress.org/support/topic/just-realised-my-testimonial-is-not-rotating)
