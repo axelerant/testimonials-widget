@@ -1040,6 +1040,11 @@ In your theme's `custom.css` or `styles.css` file write the following CSS.
 	display: none;
 }
 
+= 64. What plugins potentially conflict with Testimonials Widget? =
+
+* JetPack shortcodes
+* FancyBox for WordPress
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1077,6 +1082,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * FAQ 20 Update
 * FAQ 31 Update
 * FAQ 63 Remove the cite –
+* FAQ 64 Plugin conflict
 * Update localization verbiage
 * Screenshot 21 Poedit Catalog properties
 
