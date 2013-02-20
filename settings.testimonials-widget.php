@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Testimonials Widget settings class
+ * Flickr Shortcode Importer settings class
  *
  * @ref http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  * @since 1.0
  */
-class TW_Settings {
+class FSI_Settings {
 	
-	private $sections			= null;
-	private $reset				= null;
-	private $settings			= null;
+	private $sections;
+	private $reset;
+	private $settings;
 	
 	/**
 	 * Construct
@@ -24,18 +24,22 @@ class TW_Settings {
 		$this->settings					= array();
 		$this->get_settings();
 		
-		$this->sections['general']      = __( 'General' , 'testimonials-widget');
-		$this->sections['testing']		= __( 'Testing' , 'testimonials-widget');
-		$this->sections['reset']        = __( 'Reset' , 'testimonials-widget');
-		$this->sections['about']        = __( 'About Testimonials Widget' , 'testimonials-widget');
+		$this->sections['general']      = __( 'Import Settings' , 'flickr-shortcode-importer');
+		$this->sections['api']   		= __( 'Flickr API' , 'flickr-shortcode-importer');
+		$this->sections['selection']	= __( 'Posts Selection' , 'flickr-shortcode-importer');
+		$this->sections['testing']		= __( 'Testing Options' , 'flickr-shortcode-importer');
+		$this->sections['posts']		= __( 'Post Options' , 'flickr-shortcode-importer');
+		$this->sections['reset']        = __( 'Reset/Restore' , 'flickr-shortcode-importer');
+		$this->sections['about']        = __( 'About Flickr Shortcode Importer' , 'flickr-shortcode-importer');
 		
 		add_action( 'admin_menu', array( &$this, 'add_pages' ) );
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
 
-		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
+		load_plugin_textdomain( 'flickr-shortcode-importer', false, '/flickr-shortcode-importer/languages/' );
 		
-		if ( ! get_option( 'tw_options' ) )
+		if ( ! get_option( 'fsi_options' ) )
 			$this->initialize_settings();
+		
 	}
 	
 	/**
@@ -44,18 +48,20 @@ class TW_Settings {
 	 * @since 1.0
 	 */
 	public function add_pages() {
-		$admin_page = add_options_page( __( 'Testimonials Widget Settings' , 'testimonials-widget'), __( 'Testimonials' , 'testimonials-widget'), 'manage_options', 'tw-options', array( &$this, 'display_page' ) );
+		
+		$admin_page = add_options_page( __( 'Flickr Shortcode Importer Settings' , 'flickr-shortcode-importer'), __( '[flickr] Importer' , 'flickr-shortcode-importer'), 'manage_options', 'fsi-options', array( &$this, 'display_page' ) );
 		
 		add_action( 'admin_print_scripts-' . $admin_page, array( &$this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . $admin_page, array( &$this, 'styles' ) );
 
 		add_screen_meta_link(
-        	'tw-importer-link',
-			__('Testimonials', 'testimonials-widget'),
-			admin_url('edit.php?post_type=testimonials-widget'),
+        	'fsi-importer-link',
+			__('[Flickr] Importer', 'flickr-shortcode-importer'),
+			admin_url('tools.php?page=flickr-shortcode-importer'),
 			$admin_page,
 			array('style' => 'font-weight: bold;')
 		);
+		
 	}
 	
 	/**
@@ -67,8 +73,8 @@ class TW_Settings {
 		
 		$defaults = array(
 			'id'      => 'default_field',
-			'title'   => __( 'Default Field' , 'testimonials-widget'),
-			'desc'    => __( 'This is a default description.' , 'testimonials-widget'),
+			'title'   => __( 'Default Field' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a default description.' , 'flickr-shortcode-importer'),
 			'std'     => '',
 			'type'    => 'text',
 			'section' => 'general',
@@ -90,7 +96,7 @@ class TW_Settings {
 		
 		$this->reset[$id] = $std;
 		
-		add_settings_field( $id, $title, array( $this, 'display_setting' ), 'tw-options', $section, $field_args );
+		add_settings_field( $id, $title, array( $this, 'display_setting' ), 'fsi-options', $section, $field_args );
 	}
 	
 	/**
@@ -102,11 +108,11 @@ class TW_Settings {
 		
 		echo '<div class="wrap">
 	<div class="icon32" id="icon-options-general"></div>
-	<h2>' . __( 'Testimonials Widget Settings' , 'testimonials-widget') . '</h2>';
+	<h2>' . __( 'Flickr Shortcode Importer Settings' , 'flickr-shortcode-importer') . '</h2>';
 	
 		echo '<form action="options.php" method="post">';
 	
-		settings_fields( 'tw_options' );
+		settings_fields( 'fsi_options' );
 		echo '<div class="ui-tabs">
 			<ul class="ui-tabs-nav">';
 		
@@ -117,10 +123,9 @@ class TW_Settings {
 		do_settings_sections( $_GET['page'] );
 		
 		echo '</div>
-		<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes' , 'testimonials-widget') . '" /></p>
+		<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes' , 'flickr-shortcode-importer') . '" /></p>
 
-		<p>When ready, <a href="'.get_admin_url().'edit.php?post_type=testimonials-widget">'.__('view testimonials', 'testimonials-widget').'</a>
-		or <a href="'.get_admin_url().'post-new.php?post_type=testimonials-widget">'.__('add a testimonial', 'testimonials-widget').'</a>.
+		<p>When ready, <a href="'.get_admin_url().'tools.php?page=flickr-shortcode-importer">'.__('begin [flickr] importing', 'flickr-shortcode-importer').'</a>
 		
 	</form>';
 
@@ -205,10 +210,9 @@ EOD;
 		
 		echo					<<<EOD
 			<div style="width: 50%;">
-				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>.</p>
-				<p>Hello, I’m Michael Cannon, <a title="Lot's of stuff about Peichi Liu..." href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an&nbsp;adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>,&nbsp;<a title="Aihrus –&nbsp;website support made easy since 1999" href="http://aihrus.localhost/">chief technology officer</a>,&nbsp;<a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>,&nbsp;<a title="Michael's poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>,&nbsp;<a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a>&nbsp;and&nbsp;<a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
-				<p>If you like this plugin, please donate.</p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_donations"><input type="hidden" name="business" value="mc@aihr.us"><input type="hidden" name="return" value="http://aihrus.localhost/about-aihrus/donate/thank-you/"><input type="hidden" name="item_name" value="Sponsor software development"><input type="hidden" name="currency_code" value="USD"><input type="image" alt="PayPal - The safer, easier way to pay online." name="submit" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"></form>
+				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/flickr-shortcode-importer/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/flickr-shortcode-importer/">Flickr Shortcode Importer</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>.</p>
+				<p>He's <a title="Lot's of stuff about Peichi Liu..." href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesezodiachoroscope.com/facebook/index1.php?user_id=690714457" target="_blank">water-rat</a>, <a title="Michael's poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">road biker</a>, <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and is the <a title="The TYPO3 Vagabond" href="http://aihr.us/c/featured/">TYPO3 Vagabond</a>.</p>
+				<p>If you like this plugin, <a href="http://aihr.us/about-aihrus/donate/">please donate</a>.</p>
 			</div>
 EOD;
 		
@@ -223,7 +227,7 @@ EOD;
 		
 		extract( $args );
 		
-		$options = get_option( 'tw_options' );
+		$options = get_option( 'fsi_options' );
 		
 		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
 			$options[$id] = $std;
@@ -242,7 +246,7 @@ EOD;
 			
 			case 'checkbox':
 				
-				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="tw_options[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
+				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="fsi_options[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 				
 				if ( $desc != '' )
 					echo '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
@@ -250,7 +254,7 @@ EOD;
 				break;
 			
 			case 'select':
-				echo '<select class="select' . $field_class . '" name="tw_options[' . $id . ']">';
+				echo '<select class="select' . $field_class . '" name="fsi_options[' . $id . ']">';
 				
 				foreach ( $choices as $value => $label )
 					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
@@ -265,7 +269,7 @@ EOD;
 			case 'radio':
 				$i = 0;
 				foreach ( $choices as $value => $label ) {
-					echo '<input class="radio' . $field_class . '" type="radio" name="tw_options[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
+					echo '<input class="radio' . $field_class . '" type="radio" name="fsi_options[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
 					if ( $i < count( $options ) - 1 )
 						echo '<br />';
 					$i++;
@@ -277,7 +281,7 @@ EOD;
 				break;
 			
 			case 'textarea':
-				echo '<textarea class="' . $field_class . '" id="' . $id . '" name="tw_options[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				echo '<textarea class="' . $field_class . '" id="' . $id . '" name="fsi_options[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 				
 				if ( $desc != '' )
 					echo '<br /><span class="description">' . $desc . '</span>';
@@ -285,7 +289,7 @@ EOD;
 				break;
 			
 			case 'password':
-				echo '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="tw_options[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+				echo '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="fsi_options[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
 				
 				if ( $desc != '' )
 					echo '<br /><span class="description">' . $desc . '</span>';
@@ -294,7 +298,7 @@ EOD;
 			
 			case 'text':
 			default:
-		 		echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="tw_options[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+		 		echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="fsi_options[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
 		 		
 		 		if ( $desc != '' )
 		 			echo '<br /><span class="description">' . $desc . '</span>';
@@ -315,42 +319,299 @@ EOD;
 		/* General Settings
 		===========================================*/
 		
+		$this->settings['skip_videos'] = array(
+			'section' => 'general',
+			'title'   => __( 'Skip Importing Videos?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Importing videos from Flickr often fails. Shortcode is still converted to object/embed linking to Flickr.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
 		
-		/* Debug
-		===========================================*/
-		$this->settings['debug_mode'] = array(
-			'section' => 'testing',
-			'title'   => __( 'Debug Mode?' , 'testimonials-widget'),
-			'desc'	  => __( 'Not implemented yet', 'testimonials-widget' ),
+		$this->settings['import_flickr_sourced_tags'] = array(
+			'section' => 'general',
+			'title'   => __( 'Import Flickr-sourced A/IMG tags?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Converts Flickr-sourced A/IMG tags to [flickr] and then proceeds with import.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
+		
+		$this->settings['set_featured_image'] = array(
+			'section' => 'general',
+			'title'   => __( 'Set Featured Image?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Set the first [flickr] or [flickrset] image found as the Featured Image. Will not replace the current Featured Image of a post.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
+		
+		$this->settings['force_set_featured_image'] = array(
+			'section' => 'general',
+			'title'   => __( 'Force Set Featured Image?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Set the Featured Image even if one already exists for a post.', 'flickr-shortcode-importer'),
 			'type'    => 'checkbox',
 			'std'     => 0
 		);
 		
+		$this->settings['remove_first_flickr_shortcode'] = array(
+			'section' => 'general',
+			'title'   => __( 'Remove First Flickr Shortcode?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Removes the first [flickr] from post content. If you use Featured Images as header or lead images, then this might prevent duplicate images in your post.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['make_nice_image_title'] = array(
+			'section' => 'general',
+			'title'   => __( 'Make Nice Image Title?' , 'flickr-shortcode-importer'),
+			'desc'    => __( "Try to make a nice title if none is set. For Flickr set images, Flickr set title plus a numeric suffix is applied." , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
+		
+		$this->settings['replace_file_name'] = array(
+			'section' => 'general',
+			'title'   => __( 'Replace Filename with Image Title?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Mainly for SEO purposes. This setting replaces the imported media filename with the media\'s title. For non-images, this is always done.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
+		
+		$this->settings['image_import_size'] = array(
+			'section' => 'general',
+			'title'   => __( 'Image Import Size' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Size of image to import into media library from Flickr. If requested size doesn\'t exist, then original is imported because it\'s the closest to the requested import size.' , 'flickr-shortcode-importer'),
+			'type'    => 'select',
+			'std'     => 'Large',
+			'choices' => array(
+				'Small'			=> 'Small (240px wide)',
+				'Medium 640'	=> 'Medium (640px wide)',
+				'Large'			=> 'Large (1024px wide)',
+				'Original'		=> 'Original'
+			)
+		);
+		
+		$this->settings['default_image_alignment'] = array(
+			'section' => 'general',
+			'title'   => __( 'Default Image Alignment' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Default alignment of image displayed in post when no alignment is found.' , 'flickr-shortcode-importer'),
+			'type'    => 'select',
+			'std'     => 'left',
+			'choices' => array(
+				'none'		=> 'None',
+				'left'		=> 'Left',
+				'center'	=> 'Center',
+				'right'		=> 'Right',
+			)
+		);
+		
+		$this->settings['default_image_size'] = array(
+			'section' => 'general',
+			'title'   => __( 'Default Image Size' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Default size of image displayed in post when no size is found.' , 'flickr-shortcode-importer'),
+			'type'    => 'select',
+			'std'     => 'medium',
+			'choices' => array(
+				'thumbnail'	=> 'Thumbnail',
+				'medium'	=> 'Medium',
+				'large'		=> 'Large',
+				'full'		=> 'Full'
+			)
+		);
+		
+		$this->settings['default_a_tag_class'] = array(
+			'title'   => __( 'Default A Tag Class' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Inserts a class into links around imported images. Useful for lightbox\'ing.' , 'flickr-shortcode-importer'),
+			'std'     => '',
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['link_image_to_attach_page'] = array(
+			'section' => 'general',
+			'title'   => __( 'Link Image to Attachment Page?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'If set, post single view images are linked to attachment pages. Otherwise the image links to its source file.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 1
+		);
+		
+		$this->settings['image_wrap_class'] = array(
+			'title'   => __( 'Image Wrap Class' , 'flickr-shortcode-importer'),
+			'desc'   => __( 'If set, a span tag is wrapped around the image with the given class. Also wraps attribution if enabled. e.g. Providing `flickr-image` results in `&lt;span class="flickr-image"&gt;|&lt;/span&gt;`' , 'flickr-shortcode-importer'),
+			'std'     => __( '' , 'flickr-shortcode-importer'),
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['set_caption'] = array(
+			'section' => 'general',
+			'title'   => __( 'Set Captions?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Uses media title as the caption.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['flickr_image_attribution'] = array(
+			'section' => 'general',
+			'title'   => __( 'Include Flickr Author Attribution?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Appends Flickr username, linked back to Flickr image to the imported Flickr image.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['flickr_image_attribution_text'] = array(
+			'title'   => __( 'Flickr Author Attribution Text' , 'flickr-shortcode-importer'),
+			'desc'    => __( '' , 'flickr-shortcode-importer'),
+			'std'     => __( 'Photo by ' , 'flickr-shortcode-importer'),
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['flickr_image_attribution_wrap_class'] = array(
+			'title'   => __( 'Flickr Author Attribution Wrap Class' , 'flickr-shortcode-importer'),
+			'desc'   => __( 'If set, a span tag is wrapped around the attribution with the given class. e.g. Providing `flickr-attribution` results in `&lt;span class="flickr-attribution"&gt;|&lt;/span&gt;`' , 'flickr-shortcode-importer'),
+			'std'     => __( '' , 'flickr-shortcode-importer'),
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['flickr_link_in_desc'] = array(
+			'section' => 'general',
+			'title'   => __( 'Add Flickr Attribution to Description?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Like `Include Flickr Author Attribution` but appends the image description.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['flickr_link_text'] = array(
+			'title'   => __( 'Flickr Attribution Text' , 'flickr-shortcode-importer'),
+			'desc'    => __( '' , 'flickr-shortcode-importer'),
+			'std'     => __( 'Photo by ' , 'flickr-shortcode-importer'),
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['flickr_image_license'] = array(
+			'section' => 'general',
+			'title'   => __( 'Add Image License to Description?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Append image license and link to image description.' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['flickr_image_license_text'] = array(
+			'title'   => __( 'Flickr Image License Text' , 'flickr-shortcode-importer'),
+			'desc'    => __( '' , 'flickr-shortcode-importer'),
+			'std'     => __( 'License ' , 'flickr-shortcode-importer'),
+			'type'    => 'text',
+			'section' => 'general'
+		);
+		
+		$this->settings['posts_to_import'] = array(
+			'title'   => __( 'Posts to Import' , 'flickr-shortcode-importer'),
+			'desc'    => __( "A CSV list of post ids to import, like '1,2,3'." , 'flickr-shortcode-importer'),
+			'std'     => '',
+			'type'    => 'text',
+			'section' => 'selection'
+		);
+		
+		$this->settings['skip_importing_post_ids'] = array(
+			'title'   => __( 'Skip Importing Posts' , 'flickr-shortcode-importer'),
+			'desc'    => __( "A CSV list of post ids to not import, like '1,2,3'." , 'flickr-shortcode-importer'),
+			'std'     => '',
+			'type'    => 'text',
+			'section' => 'selection'
+		);
+		
+		$this->settings['limit'] = array(
+			'title'   => __( 'Import Limit' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Useful for testing import on a limited amount of posts. 0 or blank means unlimited.' , 'flickr-shortcode-importer'),
+			'std'     => '',
+			'type'    => 'text',
+			'section' => 'testing'
+		);
+		
+		$this->settings['debug_mode'] = array(
+			'section' => 'testing',
+			'title'   => __( 'Debug Mode?' , 'flickr-shortcode-importer'),
+			'desc'	  => __( 'Bypass Ajax controller to handle posts_to_import directly for testing purposes', 'flickr-shortcode-importer' ),
+			'type'    => 'checkbox',
+			'std'     => 0
+		);
+		
+		$this->settings['flickr_api_key'] = array(
+			'title'   => __( 'Flickr API Key' , 'flickr-shortcode-importer'),
+			'desc'    => __( '<a href="http://www.flickr.com/services/api/">Flickr API Documentation</a>' , 'flickr-shortcode-importer'),
+			'std'     => '9f9508c77dc554c1ee7fdc006aa1879e',
+			'type'    => 'text',
+			'section' => 'api'
+		);
+		
+		$this->settings['flickr_api_secret'] = array(
+			'title'   => __( 'Flickr API Secret' , 'flickr-shortcode-importer'),
+			'desc'    => __( '' , 'flickr-shortcode-importer'),
+			'std'     => 'e63952df7d02cc03',
+			'type'    => 'text',
+			'section' => 'api'
+		);
+		
+		$this->settings['role_enable_post_widget'] = array(
+			'section' => 'posts',
+			'title'   => __( 'Post [flickr] Import Widget?' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'Minimum role to enable for [flickr] Import widget on posts and page edit screens.' , 'flickr-shortcode-importer'),
+			'type'    => 'select',
+			'std'     => 'level_1',
+			'choices' => array(
+				''			=> 'Disable',
+				'level_10'	=> 'Administrator',
+				'level_7'	=> 'Editor',
+				'level_4'	=> 'Author',
+				'level_1'	=> 'Contributor',
+			)
+		);
+				
+		$post_types				= get_post_types( array( 'public' => true ), 'objects' );
+		foreach( $post_types as $post_type => $ptype_obj ) {
+			$this->settings[ 'enable_post_widget_' . $post_type ] = array(
+				'section' => 'posts',
+				'title'   => __( 'Enable for ' . $ptype_obj->labels->name, 'flickr-shortcode-importer'),
+				'desc'    => __( '' , 'flickr-shortcode-importer'),
+ 				'type'    => 'checkbox',
+				'std'     => ( 'attachment' != $post_type ) ? 1 : 0,
+			);
+		}
+
 		/* Reset
 		===========================================*/
 		
+		$this->settings['force_reimport'] = array(
+			'section' => 'reset',
+			'title'   => __( 'Reimport Flickr Source Images' , 'flickr-shortcode-importer'),
+			'type'    => 'checkbox',
+			'std'     => 0,
+			'desc'    => __( 'Needed when changing the Flickr image import size from prior imports.' , 'flickr-shortcode-importer')
+		);
+		
 		$this->settings['reset_plugin'] = array(
 			'section' => 'reset',
-			'title'   => __( 'Reset plugin' , 'testimonials-widget'),
+			'title'   => __( 'Reset plugin' , 'flickr-shortcode-importer'),
 			'type'    => 'checkbox',
 			'std'     => 0,
 			'class'   => 'warning', // Custom class for CSS
-			'desc'    => __( 'Check this box and click "Save Changes" below to reset plugin options to their defaults.' , 'testimonials-widget')
+			'desc'    => __( 'Check this box and click "Save Changes" below to reset plugin options to their defaults.' , 'flickr-shortcode-importer')
 		);
 
 		// Here for reference
-		if ( true ) {
+		if ( false ) {
 		$this->settings['example_text'] = array(
-			'title'   => __( 'Example Text Input' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the text input.' , 'testimonials-widget'),
+			'title'   => __( 'Example Text Input' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a description for the text input.' , 'flickr-shortcode-importer'),
 			'std'     => 'Default value',
 			'type'    => 'text',
 			'section' => 'general'
 		);
 		
 		$this->settings['example_textarea'] = array(
-			'title'   => __( 'Example Textarea Input' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the textarea input.' , 'testimonials-widget'),
+			'title'   => __( 'Example Textarea Input' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a description for the textarea input.' , 'flickr-shortcode-importer'),
 			'std'     => 'Default value',
 			'type'    => 'textarea',
 			'section' => 'general'
@@ -358,8 +619,8 @@ EOD;
 		
 		$this->settings['example_checkbox'] = array(
 			'section' => 'general',
-			'title'   => __( 'Example Checkbox' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the checkbox.' , 'testimonials-widget'),
+			'title'   => __( 'Example Checkbox' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a description for the checkbox.' , 'flickr-shortcode-importer'),
 			'type'    => 'checkbox',
 			'std'     => 1 // Set to 1 to be checked by default, 0 to be unchecked by default.
 		);
@@ -373,8 +634,8 @@ EOD;
 		
 		$this->settings['example_radio'] = array(
 			'section' => 'general',
-			'title'   => __( 'Example Radio' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the radio buttons.' , 'testimonials-widget'),
+			'title'   => __( 'Example Radio' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a description for the radio buttons.' , 'flickr-shortcode-importer'),
 			'type'    => 'radio',
 			'std'     => '',
 			'choices' => array(
@@ -386,8 +647,8 @@ EOD;
 		
 		$this->settings['example_select'] = array(
 			'section' => 'general',
-			'title'   => __( 'Example Select' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the drop-down.' , 'testimonials-widget'),
+			'title'   => __( 'Example Select' , 'flickr-shortcode-importer'),
+			'desc'    => __( 'This is a description for the drop-down.' , 'flickr-shortcode-importer'),
 			'type'    => 'select',
 			'std'     => '',
 			'choices' => array(
@@ -413,7 +674,7 @@ EOD;
 				$default_settings[$id] = $setting['std'];
 		}
 		
-		update_option( 'tw_options', $default_settings );
+		update_option( 'fsi_options', $default_settings );
 		
 	}
 	
@@ -424,13 +685,13 @@ EOD;
 	*/
 	public function register_settings() {
 		
-		register_setting( 'tw_options', 'tw_options', array ( &$this, 'validate_settings' ) );
+		register_setting( 'fsi_options', 'fsi_options', array ( &$this, 'validate_settings' ) );
 		
 		foreach ( $this->sections as $slug => $title ) {
 			if ( $slug == 'about' )
-				add_settings_section( $slug, $title, array( &$this, 'display_about_section' ), 'tw-options' );
+				add_settings_section( $slug, $title, array( &$this, 'display_about_section' ), 'fsi-options' );
 			else
-				add_settings_section( $slug, $title, array( &$this, 'display_section' ), 'tw-options' );
+				add_settings_section( $slug, $title, array( &$this, 'display_section' ), 'fsi-options' );
 		}
 		
 		$this->get_settings();
@@ -460,8 +721,8 @@ EOD;
 	*/
 	public function styles() {
 		
-		wp_register_style( 'tw-admin', plugins_url( 'settings.css', __FILE__ ) );
-		wp_enqueue_style( 'tw-admin' );
+		wp_register_style( 'fsi-admin', plugins_url( 'settings.css', __FILE__ ) );
+		wp_enqueue_style( 'fsi-admin' );
 		
 	}
 	
@@ -500,10 +761,10 @@ EOD;
 	
 }
 
-$TW_Settings					= new TW_Settings();
+$FSI_Settings					= new FSI_Settings();
 
-function tw_get_options( $option, $default = false ) {
-	$options					= get_option( 'tw_options', $default );
+function fsi_get_options( $option, $default = false ) {
+	$options					= get_option( 'fsi_options', $default );
 
 	if ( isset( $options[$option] ) )
 		return $options[$option];
@@ -511,14 +772,14 @@ function tw_get_options( $option, $default = false ) {
 		return false;
 }
 
-function update_tw_options( $option, $value = null ) {
-	$options					= get_option( 'tw_options' );
+function update_fsi_options( $option, $value = null ) {
+	$options					= get_option( 'fsi_options' );
 
 	if ( ! is_array( $options ) ) {
 		$options				= array();
 	}
 
 	$options[$option]			= $value;
-	update_option( 'tw_options', $options );
+	update_option( 'fsi_options', $options );
 }
 ?>
