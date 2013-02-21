@@ -41,36 +41,36 @@ class Testimonials_Widget {
 	public static $css			= array();
 	public static $css_called	= false;
 	public static $defaults		= array(
-			'category'			=> '',
-			'char_limit'		=> '',
-			'css_class'			=> '',
-			'exclude'			=> '',
-			'hide_author'		=> '',
-			'hide_company'		=> '',
-			'hide_content'		=> '',
-			'hide_email'		=> '',
-			'hide_gravatar'		=> '',
-			'hide_image'		=> '',
-			'hide_not_found'	=> '',
-			'hide_source'		=> '',
-			'hide_title'		=> '',
-			'hide_url'			=> '',
-			'ids'				=> '',
-			'keep_whitespace'	=> '',
-			'limit'				=> 10,
-			'max_height'		=> '',
-			'meta_key'			=> '',
-			'min_height'		=> '',
-			'order'				=> 'DESC',
-			'orderby'			=> 'ID',
-			'paging'			=> 'true',
-			'random'			=> '',
-			'refresh_interval'	=> 5,
-			'tags'				=> '',
-			'tags_all'			=> '',
-			'target'			=> '',
-			'title_link'		=> '',
-			'widget_text'		=> '',
+		'category'				=> '',
+		'char_limit'			=> '',
+		'css_class'				=> '',
+		'exclude'				=> '',
+		'hide_author'			=> '',
+		'hide_company'			=> '',
+		'hide_content'			=> '',
+		'hide_email'			=> '',
+		'hide_gravatar'			=> '',
+		'hide_image'			=> '',
+		'hide_not_found'		=> '',
+		'hide_source'			=> '',
+		'hide_title'			=> '',
+		'hide_url'				=> '',
+		'ids'					=> '',
+		'keep_whitespace'		=> '',
+		'limit'					=> 10,
+		'max_height'			=> '',
+		'meta_key'				=> '',
+		'min_height'			=> '',
+		'order'					=> 'DESC',
+		'orderby'				=> 'ID',
+		'paging'				=> 'true',
+		'random'				=> '',
+		'refresh_interval'		=> 5,
+		'tags'					=> '',
+		'tags_all'				=> '',
+		'target'				=> '',
+		'title_link'			=> '',
+		'widget_text'			=> '',
 	);
 	public static $instance_number	= 0;
 	public static $scripts			= array();
@@ -115,10 +115,10 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		if ( function_exists( 'admin_url' ) ) {
-			require_once( 'settings.testimonials-widget.php' );
+		if ( false && function_exists( 'admin_url' ) ) {
+			require_once( 'lib/settings.testimonials-widget.php' );
 
-			$this->settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=testimonials-widget&page=settings.testimonials-widget.php">' . __('Settings', 'testimonials-widget') . '</a>';
+			$this->settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
 			add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
 		}
 

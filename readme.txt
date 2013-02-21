@@ -1773,7 +1773,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * Admin panel
-	* simple localization
 	* set display defaults
 * BUG
 	* [JetPack J-Shortcodes conflict](http://wordpress.org/support/topic/just-realised-my-testimonial-is-not-rotating)
