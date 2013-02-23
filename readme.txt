@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.7.16
+Stable tag: 2.7.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1077,14 +1077,17 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.7.17 =
 * Add purchase Testimonials Widget Premium plugin meta link
 * Begin settings screen work
 * FAQ 20 Update
 * FAQ 31 Update
 * FAQ 63 Remove the cite –
 * FAQ 64 Plugin conflict
-* Update localization verbiage
 * Screenshot 21 Poedit Catalog properties
+* TODO class removal
+* Update localization verbiage
 
 = 2.7.16 =
 * Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
@@ -1776,3 +1779,4 @@ Is there something you want done? Write it up on the [support forums](http://wor
 	* set display defaults
 * BUG
 	* [JetPack J-Shortcodes conflict](http://wordpress.org/support/topic/just-realised-my-testimonial-is-not-rotating)
+* Remove `.hentry` class
