@@ -1087,6 +1087,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 13. Widget with clickable title and custom text/HTML on bottom
 14. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 15. `[testimonialswidgetpremium_link_list]` Shortcode examples, unstyled - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+16. Testimonials Widget Settings > Premium tab - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 17. Single `[testimonialswidget_list]` entry with and without 'Read more' link - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 18. `[testimonialswidgetpremium_count]` Examples - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 19. `[testimonialswidget_widget unique=true]` Show multiple testimonials in rotation - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
@@ -1096,7 +1097,6 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 23. Expanded 'Selection Options' in Testimonials Widget options
 24. Expanded 'Ordering Options' in Testimonials Widget options
 25. Testimonials Widget Settings > Selection tab
-26. Testimonials Widget Settings > Premium tab - [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
 
 
 == Changelog ==
@@ -1121,13 +1121,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Revise Settings page footer
 * Revise widget options update and validation
 * Screenshot 11 updated
-* Screenshot 16 removed
+* Screenshot 16 updated
 * Screenshot 2 updated
 * Screenshot 22 Testimonials Widget Settings > General tab
 * Screenshot 23 Expanded 'Selection Options' Testimonials Widget 
 * Screenshot 24 Expanded 'Ordering Options' Testimonials Widget 
 * Screenshot 25 Testimonials Widget Settings > Selection tab
-* Screenshot 26 Testimonials Widget Settings > Premium tab
 * Screenshot 3 updated
 * Screenshot 4 updated, Expanded 'General Options' Testimonials Widget 
 * Update "Shortcode and Widget Options" verbiage
