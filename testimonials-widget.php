@@ -362,8 +362,14 @@ class Testimonials_Widget {
 			'title',
 			'editor',
 			'thumbnail',
-			'comments',
 		);
+
+		$allow_comments			= tw_get_option( 'allow_comments', false );
+		if ( $allow_comments )
+			$supports[] 		= 'comments';
+
+		$has_archive			= tw_get_option( 'has_archive', true );
+		$rewrite_slug			= tw_get_option( 'rewrite_slug', 'testimonial' );
 
 		// editor's and up
 		if( current_user_can( 'edit_others_posts' ) )
@@ -372,15 +378,14 @@ class Testimonials_Widget {
 		$args = array(
 			'label'				=> __( 'Testimonials', 'testimonials-widget' ),
 			'capability_type' 	=> 'post',
-			// 'has_archive'		=> 'testimonials',
-			'has_archive'		=> true,
+			'has_archive'		=> $has_archive,
 			'hierarchical' 		=> false,
 			'labels'			=> $labels,
 			'public' 			=> true,
 			'publicly_queryable'	=> true,
 			'query_var' 		=> true,
 			'rewrite'			=> array(
-			 	'slug' => 'testimonial',
+			 	'slug' => $rewrite_slug,
 				'with_front' => false
 			),
 			'show_in_menu'		=> true,

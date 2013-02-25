@@ -31,7 +31,7 @@ Single testimonial view supports image, source, title, email, company and URL de
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, email, company and URL details
-* Testimonials archive view – Disabled for now
+* Testimonials archive view
 
 = Testimonials Widget Premium Plugin Features =
 
@@ -61,10 +61,12 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 	* Company, URL and email details are attempted to be identified and placed properly
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
+* Commenting on testimonial single-view pages
 * Compatible with WordPress multi-site
 * Content truncation to respect HTML tags
 * Custom CSS in footer for HTML validation
 * Custom text or HTML for bottom of widgets
+* Customizable archive and testimonial URLs
 * Customizeable testimonial data field `testimonial_extra`
 * Editors and admins can edit testimonial publisher
 * Image, Gravatar, category and tag enabled
@@ -1097,10 +1099,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 23. Expanded 'Selection Options' in Testimonials Widget options
 24. Expanded 'Ordering Options' in Testimonials Widget options
 25. Testimonials Widget Settings > Selection tab
+26. Testimonials Widget Settings > Post Type tab
 
 
 == Changelog ==
 = trunk =
+* Customizable archive and testimonial URLs
+* Optional commenting on testimonial single-view pages
+* Screenshot 26 Testimonials Widget Settings > Post Type tab
 
 = 2.8.0 =
 * Merge in settings branch

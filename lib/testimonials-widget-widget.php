@@ -139,6 +139,9 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		// remove non-widget parts
 		unset( $form_parts['paging'] );
 		unset( $form_parts['debug_mode'] );
+		unset( $form_parts['allow_comments'] );
+		unset( $form_parts['has_archive'] );
+		unset( $form_parts['rewrite_slug'] );
 
 		// fixme make reset work
 		unset( $form_parts['reset_defaults'] );

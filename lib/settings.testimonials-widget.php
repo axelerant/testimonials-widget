@@ -39,6 +39,7 @@ class Testimonials_Widget_Settings {
 		self::$sections['ordering']		= __( 'Ordering' , 'testimonials-widget');
 		self::$sections['widget']		= __( 'Widget' , 'testimonials-widget');
 		// self::$sections['testing']	= __( 'Testing' , 'testimonials-widget');
+		self::$sections['post_type']	= __( 'Post Type' , 'testimonials-widget');
 		self::$sections['reset']		= __( 'Reset' , 'testimonials-widget');
 		self::$sections['about']		= __( 'About Testimonials Widget' , 'testimonials-widget');
 
@@ -293,6 +294,33 @@ class Testimonials_Widget_Settings {
 			'title'   => __( 'Debug Mode?' , 'testimonials-widget'),
 			'desc'	  => __( 'Not implemented yet', 'testimonials-widget' ),
 			'type'    => 'checkbox',
+		);
+
+		// Post Type
+		self::$settings['allow_comments'] = array(
+			'section'			=> 'post_type',
+			'title'				=> __( 'Allow Comments?' , 'testimonials-widget'),
+			'desc'				=> __( 'If checked, allows commenting on testimonial single-view pages', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+		);
+
+		$desc					= __( 'URL slug-name for <a href="%1s">testimonials archive</a> page. After changing, you must click "Save Changes" on <a href="%2s">Permalink Settings</a> to update them.', 'testimonials-widget' );
+		$has_archive			= tw_get_option( 'has_archive', '' );
+		$site_url				= site_url( '/' . $has_archive );
+		$url					= admin_url( 'options-permalink.php' );
+		self::$settings['has_archive'] = array(
+			'section'			=> 'post_type',
+			'title'				=> __( 'Archive Page URL' , 'testimonials-widget'),
+			'desc'				=> sprintf( $desc, $site_url, $url ),
+			'std'				=> 'testimonials',
+		);
+
+		$desc					= __( 'URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on <a href="%1s">Permalink Settings</a> to update them.', 'testimonials-widget' );
+		self::$settings['rewrite_slug'] = array(
+			'section'			=> 'post_type',
+			'title'				=> __( 'Testimonial Page URL' , 'testimonials-widget'),
+			'desc'				=> sprintf( $desc, $url ),
+			'std'				=> 'testimonial',
 		);
 
 		// Reset
@@ -676,10 +704,12 @@ EOD;
 			unset( $input['reset_defaults']	);
 		}
 
+		$input['allow_comments']	= empty( $input['allow_comments'] ) ? 0 : self::is_true_int( $input['allow_comments'] );
 		$input['bottom_text']	= wp_kses_post( $input['bottom_text'] );
 		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $input['category'] ) ) ? $input['category'] : self::$defaults['category'];
 		$input['char_limit']	= ( empty( $input['char_limit'] ) || ( is_numeric( $input['char_limit'] ) && 0 <= $input['char_limit'] ) ) ? $input['char_limit'] : self::$defaults['char_limit'];
 		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
+		$input['has_archive']	= sanitize_title( $input['has_archive'] );
 		$input['hide_company']	= empty( $input['hide_company'] ) ? 0 : self::is_true_int( $input['hide_company'] );
 		$input['hide_content']	= empty( $input['hide_content'] ) ? 0 : self::is_true_int( $input['hide_content'] );
 		$input['hide_email']	= empty( $input['hide_email'] ) ? 0 : self::is_true_int( $input['hide_email'] );
@@ -700,6 +730,7 @@ EOD;
 		$input['random']		= empty( $input['random'] ) ? 0 : self::is_true_int( $input['random'] );
 		$input['refresh_interval']	= ( empty( $input['refresh_interval'] ) || ( is_numeric( $input['refresh_interval'] ) && 0 <= $input['refresh_interval'] ) ) ? $input['refresh_interval'] : self::$defaults['refresh_interval'];
 		$input['remove_hentry']		= empty( $input['remove_hentry'] ) ? 0 : self::is_true_int( $input['remove_hentry'] );
+		$input['rewrite_slug']	= sanitize_title( $input['rewrite_slug'] );
 		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $input['tags'] ) ) ? $input['tags'] : self::$defaults['tags'];
 		$input['tags_all']		= empty( $input['tags_all'] ) ? 0 : self::is_true_int( $input['tags_all'] );
 		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
