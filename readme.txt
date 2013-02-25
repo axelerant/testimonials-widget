@@ -35,7 +35,9 @@ Single testimonial view supports image, source, title, email, company and URL de
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium extends the Testimonials Widget plugin with additional selection options, caching, excerpts, shortcodes and more. [Purchase Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress. In using it, You'll not be sorry.
+Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/wordpress/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. The Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
+
+In using Testimonials Widget Premium, you'll not be sorry.
 
 * Alternate destinations for "Read more" links
 * Built-in update notification
@@ -47,7 +49,9 @@ Testimonials Widget Premium extends the Testimonials Widget plugin with addition
 * Filters for caching and more link control, text replacement, and more
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
+* Select post, page and other custom post types for rotations
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
+* Settings screen for site-wide option defaults
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Show excerpts with list and single views
 * Testimonial list entries have alternating `.even` and `.odd` CSS classes for backgrounds and other styling
@@ -1108,6 +1112,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Update Premium features
+* Screenshot 11/16 updated
 
 = 2.8.1 =
 * Customizable archive and testimonial URLs
