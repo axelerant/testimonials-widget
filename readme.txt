@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1067,6 +1067,10 @@ function my_init() {
 
 Thank you [sazanetti](http://wordpress.org/support/topic/css-tweaks?replies=4#post-3893996) for the suggestion.
 
+= 66. How do I change the testimonials archive or single view URL? =
+
+Visit WordPress Admin > Testimonials > Settings > Post Type tab and adjust the "Archive Page URL" and "Testimonial Page URL" as desired. Don't forget to update your Permalink Settings via WordPress Admin > Settings > Permalinks and clicking "Save Changes". 
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1104,9 +1108,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.8.1 =
 * Customizable archive and testimonial URLs
+* FAQ 66 Change the testimonials archive or single view URL
 * Optional commenting on testimonial single-view pages
 * Screenshot 26 Testimonials Widget Settings > Post Type tab
+* Update POT
 
 = 2.8.0 =
 * Merge in settings branch
