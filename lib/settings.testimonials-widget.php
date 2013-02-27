@@ -21,6 +21,7 @@ class Testimonials_Widget_Settings {
 	public static $defaults		= array();
 	public static $sections		= array();
 	public static $settings		= array();
+	public static $version		= null;
 
 
 	public function __construct() {
@@ -412,7 +413,11 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_init() {
-		if ( ! get_option( self::id ) )
+		$version				= tw_get_option( 'version' );
+		self::$version			= Testimonials_Widget::version;
+		self::$version			= apply_filters( 'testimonials_widget_version', self::$version );
+
+		if ( $version != self::$version )
 			$this->initialize_settings();
 
 		$this->register_settings();
@@ -662,6 +667,7 @@ EOD;
 
 	public function initialize_settings() {
 		$defaults				= self::get_defaults();
+		$defaults['version']	= self::$version;
 
 		update_option( self::id, $defaults );
 	}
@@ -736,6 +742,7 @@ EOD;
 		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
 		$input['title']			= wp_kses_post( $input['title'] );
 		$input['title_link']	= wp_kses_data( $input['title_link'] );
+		$input['version']		= self::$version;
 
 		$input					= apply_filters( 'testimonials_widget_validate_settings', $input );
 
@@ -778,7 +785,7 @@ function tw_get_options() {
 
 
 function tw_get_option( $option, $default = null ) {
-	$options					= get_option( Testimonials_Widget_Settings::id, array() );
+	$options					= get_option( Testimonials_Widget_Settings::id, null );
 
 	if ( isset( $options[$option] ) )
 		return $options[$option];

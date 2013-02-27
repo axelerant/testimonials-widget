@@ -28,12 +28,14 @@
 
 
 class Testimonials_Widget {
-	const pt					= 'testimonials-widget';
 	const id					= 'testimonialswidget_testimonials';
+	const old_name				= 'testimonialswidget';
+	const pt					= 'testimonials-widget';
+	const version				= '2.8.1';
 
 	private $max_num_pages		= 0;
-	private $settings_link		= '';
 	private $post_count			= 0;
+	private $settings_link		= '';
 	private $wp_query			= null;
 
 	private static $base;
@@ -45,7 +47,6 @@ class Testimonials_Widget {
 	public static $scripts_called	= false;
 	public static $tag_close_quote	= '<span class="testimonialswidget_close_quote"></span>';
 	public static $tag_open_quote	= '<span class="testimonialswidget_open_quote"></span>';
-
 	public static $widget_number	= 100000;
 
 
@@ -170,7 +171,7 @@ class Testimonials_Widget {
 
 
 	public function update() {
-		$options				= get_option( 'testimonialswidget' );
+		$options				= get_option( self::old_name );
 
 		// testimonials already migrated?
 		if ( true === $options['migrated'] )
@@ -178,7 +179,7 @@ class Testimonials_Widget {
 
 		global $wpdb;
 
-		$table_name				= $wpdb->prefix . 'testimonialswidget';
+		$table_name				= $wpdb->prefix . self::old_name;
 		$meta_key				= '_' . self::pt . ':testimonial_id';
 
 		// check that db table exists and has entries
@@ -255,8 +256,8 @@ class Testimonials_Widget {
 		}
 
 		$options['migrated']	= true;
-		delete_option( 'testimonialswidget' );
-		add_option( 'testimonialswidget', $options, null, 'no' );
+		delete_option( self::old_name );
+		add_option( self::old_name, $options, null, 'no' );
 	}
 
 
@@ -1235,7 +1236,7 @@ EOF;
 		$fields					= apply_filters( 'testimonials_widget_meta_box', $fields );
 
 		$meta_box				= redrokk_metabox_class::getInstance(
-			'testimonialswidget',
+			self::old_name,
 			array(
 				'title'			=> __( 'Testimonial Data', 'testimonials-widget' ),
 				'description'	=> '',
