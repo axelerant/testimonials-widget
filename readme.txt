@@ -1117,6 +1117,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = 2.8.2 =
 * Add filter `testimonials_widget_version`
 * Screenshot 11/16 updated
+* Update POT
 * Update Premium features
 * Version tracking for default settings 
 
