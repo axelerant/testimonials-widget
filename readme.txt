@@ -201,18 +201,19 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * `testimonials_widget_image_size` - Change the image size
 * `testimonials_widget_meta_box` - Modify Testimonial Data fields
 * `testimonials_widget_next_posts_link` - Configure Next page indicator
-* `testimonials_widget_validate_settings` - Validate settings helper
 * `testimonials_widget_posts_custom_column` - Customize testimonial posts column contents
 * `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
 * `testimonials_widget_query_args` - Alter WP_Query arguments for testimonial selection
+* `testimonials_widget_sections` – Alter section options
+* `testimonials_widget_settings` – Alter setting options
 * `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
 * `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
 * `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
 * `testimonials_widget_testimonials_css` - Alter dynamically generated CSS
 * `testimonials_widget_testimonials_js` - Alter dynamically generated JavaScript
+* `testimonials_widget_validate_settings` - Validate settings helper
+* `testimonials_widget_version` - Version tracking for settings
 * `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
-* `testimonials_widget_sections` – Alter section options
-* `testimonials_widget_settings` – Alter setting options
 
 = Notes =
 
@@ -1114,6 +1115,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 
 = 2.8.2 =
+* Add filter `testimonials_widget_version`
 * Screenshot 11/16 updated
 * Update Premium features
 * Version tracking for default settings 
