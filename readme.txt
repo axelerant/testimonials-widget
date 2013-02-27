@@ -1112,8 +1112,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
-* Update Premium features
 * Screenshot 11/16 updated
+* TODO Version tracking for default settings 
+* Update Premium features
 
 = 2.8.1 =
 * Customizable archive and testimonial URLs
@@ -1860,3 +1861,4 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * BUG [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
+* Version tracking for default settings 
