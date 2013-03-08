@@ -1076,6 +1076,10 @@ Thank you [sazanetti](http://wordpress.org/support/topic/css-tweaks?replies=4#po
 
 Visit WordPress Admin > Testimonials > Settings > Post Type tab and adjust the "Archive Page URL" and "Testimonial Page URL" as desired. Don't forget to update your Permalink Settings via WordPress Admin > Settings > Permalinks and clicking "Save Changes". 
 
+= 67. My testimonials paging doesn't work =
+
+Follow resolution in FAQ 23.
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1113,6 +1117,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* FAQ 67 testimonials paging doesn't work
 
 = 2.8.2 =
 * Add filter `testimonials_widget_version`
