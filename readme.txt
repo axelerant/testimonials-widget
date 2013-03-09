@@ -1080,6 +1080,10 @@ Visit WordPress Admin > Testimonials > Settings > Post Type tab and adjust the "
 
 Follow resolution in FAQ 23.
 
+= 68. Where's feature XYZ? =
+
+See this [forum entry](http://wordpress.org/support/topic/customers-input-page?replies=2#post-3950825).
+
 
 = I'm still stuck, how can I get help? =
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question.
@@ -1118,6 +1122,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Changelog ==
 = trunk =
 * FAQ 67 testimonials paging doesn't work
+* FAQ 68 feature XYZ
 
 = 2.8.2 =
 * Add filter `testimonials_widget_version`
