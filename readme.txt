@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.8.2
+Stable tag: 2.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1121,6 +1121,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.8.3 =
+* BUGFIX [Selection > Category Filter doesn't remember >1 category](http://wordpress.org/support/topic/selection-category-filter-doesnt-remember-1-category)
 * FAQ 67 testimonials paging doesn't work
 * FAQ 68 feature XYZ
 

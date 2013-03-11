@@ -712,7 +712,7 @@ EOD;
 
 		$input['allow_comments']	= empty( $input['allow_comments'] ) ? 0 : self::is_true_int( $input['allow_comments'] );
 		$input['bottom_text']	= wp_kses_post( $input['bottom_text'] );
-		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $input['category'] ) ) ? $input['category'] : self::$defaults['category'];
+		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['category'] ) ) ? preg_replace( "#\s#", '', $input['category'] ) : self::$defaults['category'];
 		$input['char_limit']	= ( empty( $input['char_limit'] ) || ( is_numeric( $input['char_limit'] ) && 0 <= $input['char_limit'] ) ) ? $input['char_limit'] : self::$defaults['char_limit'];
 		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
 		$input['has_archive']	= sanitize_title( $input['has_archive'] );
@@ -737,7 +737,7 @@ EOD;
 		$input['refresh_interval']	= ( empty( $input['refresh_interval'] ) || ( is_numeric( $input['refresh_interval'] ) && 0 <= $input['refresh_interval'] ) ) ? $input['refresh_interval'] : self::$defaults['refresh_interval'];
 		$input['remove_hentry']		= empty( $input['remove_hentry'] ) ? 0 : self::is_true_int( $input['remove_hentry'] );
 		$input['rewrite_slug']	= sanitize_title( $input['rewrite_slug'] );
-		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,[\w-]+)*$#', $input['tags'] ) ) ? $input['tags'] : self::$defaults['tags'];
+		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['tags'] ) ) ? preg_replace( "#\s#", '', $input['tags'] ) : self::$defaults['tags'];
 		$input['tags_all']		= empty( $input['tags_all'] ) ? 0 : self::is_true_int( $input['tags_all'] );
 		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
 		$input['title']			= wp_kses_post( $input['title'] );
