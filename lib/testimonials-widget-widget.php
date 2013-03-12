@@ -64,7 +64,12 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 					$title		= $new_title;
 				} else {
-					if ( 0 === preg_match( "#https?://#", $title_link ) ) {
+					$do_http	= true;
+
+					if ( 0 === strpos( $title_link, '/' ) )
+						$do_http	= false;
+
+					if ( $do_http && 0 === preg_match( "#https?://#", $title_link ) ) {
 						$title_link	= 'http://' . $title_link;
 					}
 

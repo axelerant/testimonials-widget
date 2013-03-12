@@ -741,7 +741,7 @@ EOD;
 		$input['tags_all']		= empty( $input['tags_all'] ) ? 0 : self::is_true_int( $input['tags_all'] );
 		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
 		$input['title']			= wp_kses_post( $input['title'] );
-		$input['title_link']	= wp_kses_data( $input['title_link'] );
+		$input['title_link']	= wp_kses_data( trim( $input['title_link'] ) );
 		$input['version']		= self::$version;
 
 		$input					= apply_filters( 'testimonials_widget_validate_settings', $input );
