@@ -1136,6 +1136,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Add location related options
 * FAQ 18, 34, 35 update
 * Screenshot 2, 4, 5 updated
+* Update POT
 
 = 2.8.4 =
 * BUGFIX [Title link does not allow a relative link](http://wordpress.org/support/topic/title-link-does-not-allow-a-relative-link)
