@@ -3,7 +3,7 @@
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
-	Version: 2.8.4
+	Version: 2.9.0
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
 	License: GPLv2 or later
@@ -287,6 +287,7 @@ class Testimonials_Widget {
 			break;
 
 		case 'testimonials-widget-company':
+		case 'testimonials-widget-location':
 		case 'testimonials-widget-title':
 			$result				= get_post_meta( $post_id, $column, true );
 			break;
@@ -329,6 +330,7 @@ class Testimonials_Widget {
 			'title'							=> __( 'Source', 'testimonials-widget' ),
 			'shortcode'						=> __( 'Shortcodes', 'testimonials-widget' ),
 			'testimonials-widget-title'		=> __( 'Title', 'testimonials-widget' ),
+			'testimonials-widget-location'	=> __( 'Location', 'testimonials-widget' ),
 			'testimonials-widget-email'		=> __( 'Email', 'testimonials-widget' ),
 			'testimonials-widget-company'	=> __( 'Company', 'testimonials-widget' ),
 			'testimonials-widget-url'		=> __( 'URL', 'testimonials-widget' ),
@@ -651,6 +653,7 @@ EOF;
 		$do_content				= ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image				= ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
+		$do_location			= ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
 		$do_source				= ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
 		$do_title				= ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
 		$do_url					= ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
@@ -739,6 +742,15 @@ EOF;
 		if ( $do_title ) {
 			$cite				.= '<span class="testimonialswidget_title">';
 			$cite				.= $testimonial['testimonial_title'];
+			$cite				.= '</span>';
+		}
+
+		if ( $do_location && $cite )
+			$cite				.= '<span class="testimonialswidget_join_location"></span>';
+
+		if ( $do_location ) {
+			$cite				.= '<span class="testimonialswidget_location">';
+			$cite				.= $testimonial['testimonial_location'];
 			$cite				.= '</span>';
 		}
 
@@ -1162,6 +1174,7 @@ EOF;
 				'testimonial_email'		=> $email,
 				'testimonial_extra'		=> '',
 				'testimonial_image'		=> $image,
+				'testimonial_location'	=> get_post_meta( $post_id, 'testimonials-widget-location', true ),
 				'testimonial_source'	=> $row->post_title,
 				'testimonial_title'		=> get_post_meta( $post_id, 'testimonials-widget-title', true ),
 				'testimonial_url'		=> $url,
@@ -1210,6 +1223,12 @@ EOF;
 					array(
 						'name' 	=> __( 'Title', 'testimonials-widget' ),
 						'id' 	=> 'testimonials-widget-title',
+						'type' 	=> 'text',
+						'desc'	=> '',
+					),
+					array(
+						'name' 	=> __( 'Location', 'testimonials-widget' ),
+						'id' 	=> 'testimonials-widget-location',
 						'type' 	=> 'text',
 						'desc'	=> '',
 					),

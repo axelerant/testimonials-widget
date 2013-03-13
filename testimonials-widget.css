@@ -73,17 +73,20 @@
 }
 
 .testimonialswidget_testimonial .testimonialswidget_join_title,
+.testimonialswidget_testimonial .testimonialswidget_join_location,
 .testimonialswidget_testimonial .testimonialswidget_join {
 	/* section between source and company information */
 }
 
 .testimonialswidget_testimonial .testimonialswidget_join_title:before,
+.testimonialswidget_testimonial .testimonialswidget_join_location:before,
 .testimonialswidget_testimonial .testimonialswidget_join:before {
 	/* join text */
 	content: ", "
 }
 
 .testimonialswidget_testimonial .testimonialswidget_title,
+.testimonialswidget_testimonial .testimonialswidget_location,
 .testimonialswidget_testimonial .testimonialswidget_company,
 .testimonialswidget_testimonial .testimonialswidget_url {
 	/* testimonial title, company and url informaiton */

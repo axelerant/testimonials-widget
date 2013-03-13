@@ -136,6 +136,11 @@ class Testimonials_Widget_Settings {
 			'type'				=> 'checkbox',
 		);
 
+		self::$settings['hide_location']	= array(
+			'title'   			=> __( 'Hide Location?', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+		);
+
 		self::$settings['hide_company']	= array(
 			'title'   			=> __( 'Hide Company?', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
@@ -721,6 +726,7 @@ EOD;
 		$input['hide_email']	= empty( $input['hide_email'] ) ? 0 : self::is_true_int( $input['hide_email'] );
 		$input['hide_gravatar']	= empty( $input['hide_gravatar'] ) ? 0 : self::is_true_int( $input['hide_gravatar'] );
 		$input['hide_image']	= empty( $input['hide_image'] ) ? 0 : self::is_true_int( $input['hide_image'] );
+		$input['hide_location']	= empty( $input['hide_location'] ) ? 0 : self::is_true_int( $input['hide_location'] );
 		$input['hide_not_found']	= empty( $input['hide_not_found'] ) ? 0 : self::is_true_int( $input['hide_not_found'] );
 		$input['hide_source']	= empty( $input['hide_source'] ) ? 0 : self::is_true_int( $input['hide_source'] );
 		$input['hide_title']	= empty( $input['hide_title'] ) ? 0 : self::is_true_int( $input['hide_title'] );

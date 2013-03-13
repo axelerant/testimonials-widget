@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.8.4
+Stable tag: 2.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,17 +20,17 @@ Widgets display content sans `wpautop` formatting. This means no forced paragrap
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
 
-Single testimonial view supports image, source, title, email, company and URL details.
+Single testimonial view supports image, source, title, location, email, company and URL details.
 
 = Primary Features =
 
 * Admin interface to add, edit and manage testimonials
 * Filters to manipulate testimonial layout and presentation
-* Has fields for source, title, testimonial, email, company and URL details
+* Has fields for source, title, location, testimonial, email, company and URL details
 * Multiple widgets on a single page capable
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
-* Single testimonial view includes image, source, title, email, company and URL details
+* Single testimonial view includes image, source, title, location,, email, company and URL details
 * Testimonials archive view
 
 = Testimonials Widget Premium Plugin Features =
@@ -121,6 +121,8 @@ In using Testimonials Widget Premium, you'll not be sorry.
 	* `hide_source` - default show; hide_source=true
 * Hide Title?
 	* `hide_title` - default show; hide_title=true
+* Hide Location?
+	* `hide_location` - default show; hide_location=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
 * Include IDs Filter - Comma separated IDs
@@ -133,7 +135,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Limit - Number of testimonials to rotate through via widget or show at a time when listing
 	* `limit` - default 10; limit=25
 * ORDER BY meta_key - Used when "Random Order" is disabled and sorting by a testimonials meta key is needed
-	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-url]; meta_key=testimonials-widget-company
+	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-location|testimonials-widget-url]; meta_key=testimonials-widget-company
 * Minimum Height - Set for minimum display height, in pixels
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
@@ -414,7 +416,8 @@ See the "Shortcode Examples", "Theme Function `testimonialswidget_list()`" and "
 Use CSS.
 
 `
-.testimonialswidget_testimonial .testimonialswidget_join_title {
+.testimonialswidget_testimonial .testimonialswidget_join_location,
+.testimonialswidget_testimonial .testimonialswidget_join_title,
 .testimonialswidget_testimonial .testimonialswidget_join {
 	display: none;
 }
@@ -509,15 +512,17 @@ In CSS, revise the join content like the following.
 
 All users can see and use the testimonials system. However, only users with `edit_others_posts` ability get to set author or edit other author's testimonials.
 
-= 18. How do I put the title on a separate line? =
+= 18. How do I put the title or location on a separate line? =
 
 In CSS put the following.
 
 `
+.testimonialswidget_testimonial .testimonialswidget_join_location,
 .testimonialswidget_testimonial .testimonialswidget_join_title {
 	display: none;
 }
 
+.testimonialswidget_testimonial .testimonialswidget_location,
 .testimonialswidget_testimonial .testimonialswidget_title {
 	display: block;
 }
@@ -695,6 +700,8 @@ add_filter( 'testimonials_widget_content_more', 'my_content_more' );
 			</span>
 			<span class="testimonialswidget_join_title"></span>
 			<span class="testimonialswidget_title">Title</span>
+			<span class="testimonialswidget_join_location"></span>
+			<span class="testimonialswidget_location">Location</span>
 			<span class="testimonialswidget_join"></span>
 			<span class="testimonialswidget_company">
 				<a href="http://example.com">Company, LLC</a>
@@ -731,6 +738,8 @@ See FAQ 61 for NNN identification.
 			</span>
 			<span class="testimonialswidget_join_title"></span>
 			<span class="testimonialswidget_title">Title</span>
+			<span class="testimonialswidget_join_location"></span>
+			<span class="testimonialswidget_location">Location</span>
 			<span class="testimonialswidget_join"></span>
 			<span class="testimonialswidget_company">
 				<a href="http://example.com">Company, LLC</a>
@@ -1121,6 +1130,12 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+
+= 2.9.0 =
+* Add location meta field after title
+* Add location related options
+* FAQ 18, 34, 35 update
+* Screenshot 2, 4, 5 updated
 
 = 2.8.4 =
 * BUGFIX [Title link does not allow a relative link](http://wordpress.org/support/topic/title-link-does-not-allow-a-relative-link)
@@ -1882,4 +1897,3 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * BUG [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
-* Add location field after title
