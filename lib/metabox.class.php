@@ -526,7 +526,7 @@ class redrokk_metabox_class
 	function _renderListImageAttachments()
 	{
 		global $post, $current_screen;
-		$images =& get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image" );
+		$images = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image" );
 		
 		// no images to render
 		if (empty($images)) {
@@ -742,7 +742,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		global $post;
 		
 		//pull new listings
-		$videos =& get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=video/mp4" );
+		$videos = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=video/mp4" );
 		
 		// no images to render
 		if (!empty($videos)) {
@@ -1450,7 +1450,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		{
 			$options['_id'] = $_id;
 			$class = get_class();
-			self::$_instances[$_id] =& new $class($options);
+			self::$_instances[$_id] = new $class($options);
 		}
 		return self::$_instances[$_id];
 	}

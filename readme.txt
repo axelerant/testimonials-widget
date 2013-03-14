@@ -1130,6 +1130,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php
 
 = 2.9.0 =
 * Add location meta field after title
