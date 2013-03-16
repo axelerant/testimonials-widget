@@ -721,7 +721,7 @@ EOF;
 			$cite				.= '</span>';
 		} elseif ( $do_source && ! $do_company && $do_url ) {
 			$cite				.= '<span class="testimonialswidget_author">';
-			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '">';
+			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
 			$cite				.= $testimonial['testimonial_source'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';
@@ -759,7 +759,7 @@ EOF;
 
 		if ( $do_company && $do_url ) {
 			$cite				.= '<span class="testimonialswidget_company">';
-			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '">';
+			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
 			$cite				.= $testimonial['testimonial_company'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';

@@ -1130,6 +1130,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Added rel="nofollow" to URL - Thanks Nick for the suggestion
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php
