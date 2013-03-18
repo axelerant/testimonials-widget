@@ -107,6 +107,8 @@ In using Testimonials Widget Premium, you'll not be sorry.
 	* Widget - default 500
 * Exclude IDs Filter - Comma separated IDs
 	* `exclude` - default none; exclude=2 or exclude="2,4,6"
+* Hide Content?
+	* `hide_content` - default show; hide_content=true
 * Hide Company?
 	* `hide_company` - default show; hide_company=true
 * Hide Email?
@@ -1130,7 +1132,9 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 == Changelog ==
 = trunk =
+* Add `hide_content` option verbiage
 * Added rel="nofollow" to URL - Thank you Nicholas Corrieri for the suggestion
+* Enable echo/return for display_setting
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php

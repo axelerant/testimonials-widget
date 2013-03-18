@@ -576,10 +576,11 @@ EOD;
 	}
 
 
-	public static function display_setting( $args = array() ) {
-		extract( $args );
-
+	public static function display_setting( $args = array(), $do_echo = true ) {
+		$content				= '';
 		$options				= get_option( self::id );
+
+		extract( $args );
 
 		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
 			$options[$id]		= $std;
@@ -593,27 +594,27 @@ EOD;
 		switch ( $type ) {
 
 			case 'heading':
-				echo '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
+				$content		.= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
 				break;
 
 			case 'checkbox':
-				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
+				$content		.= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
 				if ( ! empty( $desc ) )
-					echo '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
+					$content	.= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
 
 				break;
 
 			case 'select':
-				echo '<select class="select' . $field_class . '" name="' . self::id . '[' . $id . ']">';
+				$content		.= '<select class="select' . $field_class . '" name="' . self::id . '[' . $id . ']">';
 
 				foreach ( $choices as $value => $label )
-					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+					$content	.= '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
 
-				echo '</select>';
+				$content		.= '</select>';
 
 				if ( ! empty( $desc ) )
-					echo '<br /><span class="description">' . $desc . '</span>';
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
 
 				break;
 
@@ -621,51 +622,62 @@ EOD;
 				$i				= 0;
 				$count_options	= count( $options ) - 1;
 				foreach ( $choices as $value => $label ) {
-					echo '<input class="radio' . $field_class . '" type="radio" name="' . self::id . '[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
+					$content	.= '<input class="radio' . $field_class . '" type="radio" name="' . self::id . '[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
 					if ( $i < $count_options )
-						echo '<br />';
+						$content	.= '<br />';
 					$i++;
 				}
 
 				if ( ! empty( $desc ) )
-					echo '<br /><span class="description">' . $desc . '</span>';
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
 
 				break;
 
 			case 'textarea':
-				echo '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				$content		.= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 
 				if ( ! empty( $desc ) )
-					echo '<br /><span class="description">' . $desc . '</span>';
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
 
 				break;
 
 			case 'password':
-				echo '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+				$content		.= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( ! empty( $desc ) )
-					echo '<br /><span class="description">' . $desc . '</span>';
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
 
 				break;
 
 			case 'readonly':
-				echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
+				$content		.= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
 
 				if ( ! empty( $desc ) )
-					echo '<br /><span class="description">' . $desc . '</span>';
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
 
 				break;
 
 			case 'text':
-		 		echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+		 		$content		.= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( ! empty( $desc ) )
-		 			echo '<br /><span class="description">' . $desc . '</span>';
+		 			$content	.= '<br /><span class="description">' . $desc . '</span>';
+
+		 		break;
+
+			case 'hidden':
+		 		$content		.= '<input type="hidden" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
 
 		 		break;
 
 			default:
 		 		break;
+		}
+
+		if ( $do_echo ) {
+			echo $content;
+		} else {
+			return $content;
 		}
 	}
 
