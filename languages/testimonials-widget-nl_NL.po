@@ -1,0 +1,631 @@
+# Copyright (C) 2013 Testimonials Widget
+# This file is distributed under the same license as the Testimonials Widget package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Testimonials Widget 2.9.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
+"POT-Creation-Date: 2013-03-13 13:55:03+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-03-16 16:22+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.5.5\n"
+"Language: Dutch/Nederlands\n"
+
+#: lib/settings.testimonials-widget.php:38
+msgid "General"
+msgstr "Algemeen"
+
+#: lib/settings.testimonials-widget.php:39
+msgid "Selection"
+msgstr "Selectie"
+
+#: lib/settings.testimonials-widget.php:40
+msgid "Ordering"
+msgstr "Volgorde"
+
+#: lib/settings.testimonials-widget.php:41
+msgid "Widget"
+msgstr "Widget"
+
+#: lib/settings.testimonials-widget.php:43
+msgid "Post Type"
+msgstr "Post Type"
+
+#: lib/settings.testimonials-widget.php:44
+msgid "Reset"
+msgstr "Herstellen"
+
+#: lib/settings.testimonials-widget.php:45
+msgid "About Testimonials Widget"
+msgstr "Over Testimonials Widget"
+
+#: lib/settings.testimonials-widget.php:55
+msgid "Widget Title"
+msgstr "Widget Titel"
+
+#: lib/settings.testimonials-widget.php:56 testimonials-widget.php:354
+#: testimonials-widget.php:382
+msgid "Testimonials"
+msgstr "Testimonials"
+
+#: lib/settings.testimonials-widget.php:61
+msgid "Title Link"
+msgstr "Titel Link"
+
+#: lib/settings.testimonials-widget.php:62
+msgid "URL or Post ID to link widget title to. Ex: 123 or http://example.com"
+msgstr ""
+"URL of Post ID om de widget titel naar te linken. Vb.: 123 of http://"
+"voorbeeld.com"
+
+#: lib/settings.testimonials-widget.php:67
+msgid "Keep Whitespace?"
+msgstr "Witruimte behouden?"
+
+#: lib/settings.testimonials-widget.php:68
+msgid "Keeps testimonials looking as entered than sans auto-formatting"
+msgstr "Behoud testimonials zoals ingegeven ipv auto-opmaak"
+
+#: lib/settings.testimonials-widget.php:74
+msgid "Minimum Height"
+msgstr "Minimum Hoogte"
+
+#: lib/settings.testimonials-widget.php:75
+msgid "Set for minimum display height, in pixels"
+msgstr "Geef de minimum weer te geven hoogte, in pixels"
+
+#: lib/settings.testimonials-widget.php:80
+msgid "Maximum Height"
+msgstr "Maximum Hoogte"
+
+#: lib/settings.testimonials-widget.php:81
+msgid "Set for maximum display height, in pixels"
+msgstr "Geef de maximum weer te geven hoogte, in pixels"
+
+#: lib/settings.testimonials-widget.php:86
+msgid "Rotation Speed"
+msgstr "Rotatiesnelheid"
+
+#: lib/settings.testimonials-widget.php:87
+msgid ""
+"Number of seconds between testimonial rotations or 0 for no rotation at all "
+"refresh"
+msgstr "Aantal seconden tussen testimonial rotaties of 0 voor geen rotatie"
+
+#: lib/settings.testimonials-widget.php:93
+msgid "General Options"
+msgstr "Algemene Opties"
+
+#: lib/settings.testimonials-widget.php:98
+msgid "Character Limit"
+msgstr "Teken limiet"
+
+#: lib/settings.testimonials-widget.php:99
+msgid "Number of characters to limit non-single testimonial views to"
+msgstr "Aantal karakters om enkelvoudige testimonials tot te beperken"
+
+#: lib/settings.testimonials-widget.php:103
+msgid "Hide \"Testimonials Not Found\"?"
+msgstr "Verberg \"Testimonials Niet gevonden\"?"
+
+#: lib/settings.testimonials-widget.php:108
+msgid "Hide Gravatar Image?"
+msgstr "Verberg Gravatar afbeelding?"
+
+#: lib/settings.testimonials-widget.php:113
+msgid "Hide Image?"
+msgstr "Verberg Afbeelding?"
+
+#: lib/settings.testimonials-widget.php:118
+msgid "Hide Testimonial Content?"
+msgstr "Verberg Testimonial inhoud?"
+
+#: lib/settings.testimonials-widget.php:123
+msgid "Hide Author/Source?"
+msgstr "Verberg Auteur/Bron?"
+
+#: lib/settings.testimonials-widget.php:125
+msgid "Don't display \"Post Title\" in cite"
+msgstr "Verberg \"Post Titel\" in citaat"
+
+#: lib/settings.testimonials-widget.php:129
+msgid "Hide Email?"
+msgstr "Verberg Email?"
+
+#: lib/settings.testimonials-widget.php:135
+msgid "Hide Title?"
+msgstr "Verberg Titel?"
+
+#: lib/settings.testimonials-widget.php:140
+msgid "Hide Location?"
+msgstr "Verberg Locatie?"
+
+#: lib/settings.testimonials-widget.php:145
+msgid "Hide Company?"
+msgstr "Verberg Bedrijf?"
+
+#: lib/settings.testimonials-widget.php:150
+msgid "Hide URL?"
+msgstr "Verberg URL?"
+
+#: lib/settings.testimonials-widget.php:155
+msgid "URL Target"
+msgstr "URL doel"
+
+#: lib/settings.testimonials-widget.php:156
+msgid "Adds target to all URLs; leave blank if none"
+msgstr "Voeg doel aan alle URLs toe; Laat leeg voor geen toe te voegen"
+
+#: lib/settings.testimonials-widget.php:160
+msgid "Testimonial Bottom Text"
+msgstr "Testimonial Bottom Text"
+
+#: lib/settings.testimonials-widget.php:161
+msgid "Custom text or HTML for bottom of testimonials"
+msgstr "Aangepaste text of HTML for onder de testimonials"
+
+#: lib/settings.testimonials-widget.php:166
+msgid "Enable Paging?"
+msgstr "Activeer Pagina nummering?"
+
+#: lib/settings.testimonials-widget.php:167
+msgid "For `[testimonialswidget_list]`"
+msgstr "Voor `[testimonialswidget_list]`"
+
+#: lib/settings.testimonials-widget.php:170
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: lib/settings.testimonials-widget.php:171
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: lib/settings.testimonials-widget.php:172
+msgid "Before testimonials"
+msgstr "Voor testimonials"
+
+#: lib/settings.testimonials-widget.php:173
+msgid "After testimonials"
+msgstr "Na testimonials"
+
+#: lib/settings.testimonials-widget.php:179
+msgid "Remove `.hentry` CSS?"
+msgstr "Verwijder '.hentry' CSS?"
+
+#: lib/settings.testimonials-widget.php:180
+msgid ""
+"Some themes use class `.hentry` in a manner that breaks Testimonials Widgets "
+"CSS"
+msgstr ""
+"Sommige thema's gebruiken class '.hentry' dat de functies van Testimonials "
+"Widgets CSS schaadt."
+
+#: lib/settings.testimonials-widget.php:191
+msgid "Selection Options"
+msgstr "Selectie Opties"
+
+#: lib/settings.testimonials-widget.php:197
+msgid "Category Filter"
+msgstr "Categorie Filter"
+
+#: lib/settings.testimonials-widget.php:198
+msgid "Comma separated category slug-names. Ex: category-a, another-category"
+msgstr ""
+"Komma gescheiden categorie slug-namen. Vb.: categorie-a, andere-categorie"
+
+#: lib/settings.testimonials-widget.php:203
+msgid "Tags Filter"
+msgstr "Tags Filter"
+
+#: lib/settings.testimonials-widget.php:204
+msgid "Comma separated tag slug-names. Ex: tag-a, another-tag"
+msgstr "Komma gescheiden tag slug-namen. Vb.: tag-a, andere-tag"
+
+#: lib/settings.testimonials-widget.php:209
+msgid "Require All Tags?"
+msgstr "Vereist alle tags?"
+
+#: lib/settings.testimonials-widget.php:210
+msgid "Select only testimonials with all of the given tags"
+msgstr "Selecteer alleen testimonials met alle opgegeven tags"
+
+#: lib/settings.testimonials-widget.php:216
+msgid "Include IDs Filter"
+msgstr "Ingesloten IDs filter"
+
+#: lib/settings.testimonials-widget.php:217
+#: lib/settings.testimonials-widget.php:223
+msgid "Comma separated testimonial IDs. Ex: 3,1,2"
+msgstr "Komma gescheiden testimonial IDs. Vb.: 3,1,2"
+
+#: lib/settings.testimonials-widget.php:222
+msgid "Exclude IDs Filter"
+msgstr "Uitgesloten IDs filter"
+
+#: lib/settings.testimonials-widget.php:228
+msgid "Limit"
+msgstr "Limiet"
+
+#: lib/settings.testimonials-widget.php:229
+msgid "Number of testimonials to select per instance"
+msgstr "Aantal testimonials om te selecteren per exemplaar"
+
+#: lib/settings.testimonials-widget.php:241
+msgid "Ordering Options"
+msgstr "Volgorde Opties"
+
+#: lib/settings.testimonials-widget.php:247
+msgid "Random Order?"
+msgstr "Willekeurige Volgorde?"
+
+#: lib/settings.testimonials-widget.php:248
+msgid ""
+"If checked, ignores ORDER BY, ORDER BY meta_key, and ORDER BY Order. Widgets "
+"are random by default automatically"
+msgstr ""
+"Wanneer aangevinkt, negeer ORDER BY, ORDER BY meta_key, and ORDER BY Order. "
+"Widgets worden automatisch willekeurig ingesteld"
+
+#: lib/settings.testimonials-widget.php:254
+msgid "ORDER BY"
+msgstr "ORDER BY"
+
+#: lib/settings.testimonials-widget.php:255
+msgid "Used when \"Random Order\" is disabled"
+msgstr "Gebruikt wanneer \"Willekeurige Volgorde\" is uitgeschakeld"
+
+#: lib/settings.testimonials-widget.php:258
+msgid "Testimonial ID"
+msgstr "Testimonial ID"
+
+#: lib/settings.testimonials-widget.php:259
+msgid "Author"
+msgstr "Auteur"
+
+#: lib/settings.testimonials-widget.php:260 testimonials-widget.php:330
+msgid "Source"
+msgstr "Bron"
+
+#: lib/settings.testimonials-widget.php:261 testimonials-widget.php:340
+msgid "Date"
+msgstr "Datum"
+
+#: lib/settings.testimonials-widget.php:262
+msgid "No order"
+msgstr "Geen volgorde"
+
+#: lib/settings.testimonials-widget.php:269
+msgid "ORDER BY meta_key"
+msgstr "ORDER BY meta_key"
+
+#: lib/settings.testimonials-widget.php:270
+msgid ""
+"Used when \"Random Order\" is disabled and sorting by a testimonials meta "
+"key is needed. Overrides ORDER BY"
+msgstr ""
+"Gebruikt wanneer \"Willekeurige Volgorde\" uitgeschakeld is en de volgorde "
+"bepaald moet worden door meta key. Overheerst ORDER BY"
+
+#: lib/settings.testimonials-widget.php:273
+msgid "None"
+msgstr "Geen"
+
+#: lib/settings.testimonials-widget.php:274 testimonials-widget.php:332
+#: testimonials-widget.php:1224
+msgid "Title"
+msgstr "Titel"
+
+#: lib/settings.testimonials-widget.php:275 testimonials-widget.php:334
+#: testimonials-widget.php:1236
+msgid "Email"
+msgstr "Email"
+
+#: lib/settings.testimonials-widget.php:276 testimonials-widget.php:335
+#: testimonials-widget.php:1242
+msgid "Company"
+msgstr "Bedrijf"
+
+#: lib/settings.testimonials-widget.php:277 testimonials-widget.php:336
+#: testimonials-widget.php:1248
+msgid "URL"
+msgstr "URL"
+
+#: lib/settings.testimonials-widget.php:283
+msgid "ORDER BY Order"
+msgstr "ORDER BY Order"
+
+#: lib/settings.testimonials-widget.php:286
+msgid "Descending"
+msgstr "Aflopend"
+
+#: lib/settings.testimonials-widget.php:287
+msgid "Ascending"
+msgstr "Oplopend"
+
+#: lib/settings.testimonials-widget.php:300
+msgid "Debug Mode?"
+msgstr "Foutopsporingsmodus?"
+
+#: lib/settings.testimonials-widget.php:301
+msgid "Not implemented yet"
+msgstr "Nog niet geïmplementeerd"
+
+#: lib/settings.testimonials-widget.php:308
+msgid "Allow Comments?"
+msgstr "Commentaren toestaan?"
+
+#: lib/settings.testimonials-widget.php:309
+msgid "If checked, allows commenting on testimonial single-view pages"
+msgstr ""
+"Wanneer aangevinkt, staat commentaren toe op enkelvoudig testimonial pagina's"
+
+#: lib/settings.testimonials-widget.php:313
+msgid ""
+"URL slug-name for <a href=\"%1s\">testimonials archive</a> page. After "
+"changing, you must click \"Save Changes\" on <a href=\"%2s\">Permalink "
+"Settings</a> to update them."
+msgstr ""
+"URL slug-naam voor <a href=\"%1s\">testimonials archief</a> pagina. Na "
+"wijzigingen, klik op \"Wijzigingen opslaan\" om <a href=\"%2s\">Permalink "
+"instellingen</a> bij te werken."
+
+#: lib/settings.testimonials-widget.php:319
+msgid "Archive Page URL"
+msgstr "Archief pagina URL"
+
+#: lib/settings.testimonials-widget.php:324
+msgid ""
+"URL slug-name for testimonial view pages. After changing, you must click "
+"\"Save Changes\" on <a href=\"%1s\">Permalink Settings</a> to update them."
+msgstr ""
+"URL slug-naam voor testimonial pagina's. Na wijzigingen, klik \"Wijzigingen "
+"opslaan\" op <a href=\"%1s\">Permalink instellingen</a> om deze bij te "
+"werken."
+
+#: lib/settings.testimonials-widget.php:327
+msgid "Testimonial Page URL"
+msgstr "Testimonial Pagina URL"
+
+#: lib/settings.testimonials-widget.php:335
+msgid "Reset to Defaults?"
+msgstr "Herstellen naar standaard?"
+
+#: lib/settings.testimonials-widget.php:338
+msgid "Check this box to reset options to their defaults"
+msgstr "Vink aan om de opties te herstellen naar standaard opties"
+
+#: lib/settings.testimonials-widget.php:344
+msgid "Example Text Input"
+msgstr "Voorbeeld tekst invoer"
+
+#: lib/settings.testimonials-widget.php:345
+msgid "This is a description for the text input."
+msgstr "Dit is een beschrijving voor tekst invoer."
+
+#: lib/settings.testimonials-widget.php:350
+msgid "Example Textarea Input"
+msgstr "Voorbeeld tekstveld"
+
+#: lib/settings.testimonials-widget.php:351
+msgid "This is a description for the textarea input."
+msgstr "Dit is een beschrijving voor het tekstveld."
+
+#: lib/settings.testimonials-widget.php:357
+msgid "Example Checkbox"
+msgstr "Voorbeeld keuzevakje"
+
+#: lib/settings.testimonials-widget.php:358
+msgid "This is a description for the checkbox."
+msgstr "Dit is een beschrijving voor het keuzevakje."
+
+#: lib/settings.testimonials-widget.php:370
+msgid "Example Radio"
+msgstr "Voorbeeld keuzerondje"
+
+#: lib/settings.testimonials-widget.php:371
+msgid "This is a description for the radio buttons."
+msgstr "Dit is een beschrijving voor het keuzerondje."
+
+#: lib/settings.testimonials-widget.php:381
+msgid "Example Select"
+msgstr "Voorbeeld selectie"
+
+#: lib/settings.testimonials-widget.php:382
+msgid "This is a description for the drop-down."
+msgstr "Dit is een beschrijving voor de selectie."
+
+#: lib/settings.testimonials-widget.php:433
+#: lib/settings.testimonials-widget.php:465
+msgid "Testimonials Widget Settings"
+msgstr "Testimonials Widget Settings"
+
+#: lib/settings.testimonials-widget.php:433 testimonials-widget.php:90
+msgid "Settings"
+msgstr "Instellingen"
+
+#: lib/settings.testimonials-widget.php:484
+msgid "Save Changes"
+msgstr "Wijzigingen Opslaan"
+
+#: lib/settings.testimonials-widget.php:495
+msgid "Copyright &copy;%1$s %2$s."
+msgstr "Copyright &copy;%1$s %2$s."
+
+#: lib/testimonials-widget-widget.php:8
+msgid "Display testimonials with multiple selection and display options"
+msgstr "Geef testimonials weer met meerdere selectie en weergave mogelijkheden"
+
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.9.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: lib/testimonials-widget-widget.php:19
+msgid "Testimonials Widget"
+msgstr "Testimonials Widget"
+
+#: lib/testimonials-widget-widget.php:138
+msgid "CSS Class"
+msgstr "CSS Class"
+
+#: lib/testimonials-widget-widget.php:139
+msgid "This widget's unique CSS class for styling"
+msgstr "Deze widget uniele CSS class voor stijlopmaak"
+
+#: lib/testimonials-widget-widget.php:177
+msgid "Expand/Collapse"
+msgstr "Uitvouwen/Samenvouwen"
+
+#: testimonials-widget.php:329
+msgid "Image"
+msgstr "Afbeelding"
+
+#: testimonials-widget.php:331
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: testimonials-widget.php:333 testimonials-widget.php:1230
+msgid "Location"
+msgstr "Locatie"
+
+#: testimonials-widget.php:337
+msgid "Published by"
+msgstr "Gepubliceerd door"
+
+#: testimonials-widget.php:338
+msgid "Category"
+msgstr "Categorie"
+
+#: testimonials-widget.php:339
+msgid "Tags"
+msgstr "Tags"
+
+#: testimonials-widget.php:351
+msgid "Add New"
+msgstr "Nieuw Toevoegen"
+
+#: testimonials-widget.php:352 testimonials-widget.php:355
+msgid "Add New Testimonial"
+msgstr "Nieuwe testimonial toevoegen"
+
+#: testimonials-widget.php:353
+msgid "Edit Testimonial"
+msgstr "Testimonial bewerken"
+
+#: testimonials-widget.php:356 testimonials-widget.php:617
+msgid "No testimonials found"
+msgstr "Geen testimonials gevonden"
+
+#: testimonials-widget.php:357
+msgid "No testimonials found in Trash"
+msgstr "Geen testimonials gevonden in prullenbak"
+
+#: testimonials-widget.php:359
+msgid "Search Testimonials"
+msgstr "Zoek testimonials"
+
+#: testimonials-widget.php:360
+msgid "Testimonial"
+msgstr "Testimonial"
+
+#: testimonials-widget.php:361
+msgid "View Testimonial"
+msgstr "Bekijk testimonial"
+
+#: testimonials-widget.php:650
+msgid "…"
+msgstr "..."
+
+#: testimonials-widget.php:996
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: testimonials-widget.php:1005
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: testimonials-widget.php:1260
+msgid "Testimonial Data"
+msgstr "Testimonial Data"
+
+#: testimonials-widget.php:1285
+msgid "Enter title here"
+msgstr "Geef titel op"
+
+#: testimonials-widget.php:1286
+msgid "Enter testimonial source here"
+msgstr "Geef testimonial bron op"
+
+#: testimonials-widget.php:1310
+msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
+msgstr "Testimonial bijgewerkt. <a href=\"%s\">Bekijk testimonial</a>"
+
+#: testimonials-widget.php:1311
+msgid "Custom field updated."
+msgstr "Aangepast veld bijgewerkt."
+
+#: testimonials-widget.php:1312
+msgid "Custom field deleted."
+msgstr "Aangepast veld verwijderd."
+
+#: testimonials-widget.php:1313
+msgid "Testimonial updated."
+msgstr "Testimonial bijgewerkt."
+
+#. translators: %s: date and time of the revision
+#: testimonials-widget.php:1315
+msgid "Testimonial restored to revision from %s"
+msgstr "Testimonial herstelt naar revisie van %s"
+
+#: testimonials-widget.php:1316
+msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
+msgstr "Testimonial gepubliceerd. <a href=\"%s\">Bekijk testimonial</a>"
+
+#: testimonials-widget.php:1317
+msgid "Testimonial saved."
+msgstr "Testimonial opgeslaan."
+
+#: testimonials-widget.php:1318
+msgid ""
+"Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
+"a>"
+msgstr ""
+"Testimonial toegevoegd. <a target=\"_blank\" href=\"%s\">Bekijk voorbeeld "
+"testimonial</a>"
+
+#: testimonials-widget.php:1319
+msgid ""
+"Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Preview testimonial</a>"
+msgstr ""
+"Testimonial gepland voor: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Bekijk voorbeeld testimonial</a>"
+
+#: testimonials-widget.php:1320
+msgid ""
+"Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
+"testimonial</a>"
+msgstr ""
+"Testimonial concept bijgewerkt. <a target=\"_blank\" href=\"%s\">Bekijk "
+"voorbeeld</a>"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/testimonials-widget/"
+msgstr "http://wordpress.org/extend/plugins/testimonials-widget/"
+
+#. Description of the plugin/theme
+msgid ""
+"Testimonials Widget plugin allows you to display random or rotating "
+"portfolio, quotes, reviews, showcases, or text with images on your WordPress "
+"blog."
+msgstr ""
+"Testimonials Widget plugin laat je toe om willekeurig of roterend portfolio, "
+"quotes, recensies, showcases, of tekst met afbeeldingen op uw WordPress blog."
+
+#. Author of the plugin/theme
+msgid "Michael Cannon"
+msgstr "Michael Cannon"
+
+#. Author URI of the plugin/theme
+msgid "http://aihr.us/about-aihrus/michael-cannon-resume/"
+msgstr "http://aihr.us/about-aihrus/michael-cannon-resume/"

@@ -228,6 +228,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) to the plugin author.
 
+* Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
 = Recommendation =
@@ -1134,6 +1135,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * Add `hide_content` option verbiage
 * Added rel="nofollow" to URL - Thank you Nicholas Corrieri for the suggestion
+* Dutch translation by Bjorn Robijns
 * Enable echo/return for display_setting
 
 = 2.9.1 =
