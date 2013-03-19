@@ -1137,6 +1137,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Added rel="nofollow" to URL - Thank you Nicholas Corrieri for the suggestion
 * Dutch translation by Bjorn Robijns
 * Enable echo/return for display_setting
+* TODO Delete data option on deactivation
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php
@@ -1908,3 +1909,4 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * BUG [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
+* Delete data on deactivation
