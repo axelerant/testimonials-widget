@@ -341,50 +341,50 @@ class Testimonials_Widget_Settings {
 		// Reference
 		if ( false ) {
 		self::$settings['example_text'] = array(
-			'title'   => __( 'Example Text Input' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the text input.' , 'testimonials-widget'),
-			'std'     => 'Default value',
+			'title'				=> __( 'Example Text Input' , 'testimonials-widget'),
+			'desc'				=> __( 'This is a description for the text input.' , 'testimonials-widget'),
+			'std'				=> 'Default value',
 		);
 
 		self::$settings['example_textarea'] = array(
-			'title'   => __( 'Example Textarea Input' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the textarea input.' , 'testimonials-widget'),
-			'std'     => 'Default value',
-			'type'    => 'textarea',
+			'title'				=> __( 'Example Textarea Input' , 'testimonials-widget'),
+			'desc'				=> __( 'This is a description for the textarea input.' , 'testimonials-widget'),
+			'std'				=> 'Default value',
+			'type'				=> 'textarea',
 		);
 
 		self::$settings['example_checkbox'] = array(
-			'title'   => __( 'Example Checkbox' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the checkbox.' , 'testimonials-widget'),
-			'type'    => 'checkbox',
-			'std'     => 1 // Set to 1 to be checked by default, 0 to be unchecked by default.
+			'title'				=> __( 'Example Checkbox' , 'testimonials-widget'),
+			'desc'				=> __( 'This is a description for the checkbox.' , 'testimonials-widget'),
+			'type'				=> 'checkbox',
+			'std'				=> 1 // Set to 1 to be checked by default, 0 to be unchecked by default.
 		);
 
 		self::$settings['example_heading'] = array(
-			'title'   => '', // Not used for headings.
-			'desc'    => 'Example Heading',
-			'type'    => 'heading'
+			'title'				=> '', // Not used for headings.
+			'desc'				=> 'Example Heading',
+			'type'				=> 'heading'
 		);
 
 		self::$settings['example_radio'] = array(
-			'title'   => __( 'Example Radio' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the radio buttons.' , 'testimonials-widget'),
-			'type'    => 'radio',
-			'choices' => array(
-				'choice1' => 'Choice 1',
-				'choice2' => 'Choice 2',
-				'choice3' => 'Choice 3'
+			'title'				=> __( 'Example Radio' , 'testimonials-widget'),
+			'desc'				=> __( 'This is a description for the radio buttons.' , 'testimonials-widget'),
+			'type'				=> 'radio',
+			'choices'			=> array(
+				'choice1'			=> 'Choice 1',
+				'choice2'			=> 'Choice 2',
+				'choice3'			=> 'Choice 3'
 			)
 		);
 
 		self::$settings['example_select'] = array(
-			'title'   => __( 'Example Select' , 'testimonials-widget'),
-			'desc'    => __( 'This is a description for the drop-down.' , 'testimonials-widget'),
-			'type'    => 'select',
-			'choices' => array(
-				'choice1' => 'Other Choice 1',
-				'choice2' => 'Other Choice 2',
-				'choice3' => 'Other Choice 3'
+			'title'				=> __( 'Example Select' , 'testimonials-widget'),
+			'desc'				=> __( 'This is a description for the drop-down.' , 'testimonials-widget'),
+			'type'				=> 'select',
+			'choices'			=> array(
+				'choice1'			=> 'Other Choice 1',
+				'choice2'			=> 'Other Choice 2',
+				'choice3'			=> 'Other Choice 3'
 			)
 		);
 		}
@@ -576,16 +576,23 @@ EOD;
 	}
 
 
-	public static function display_setting( $args = array(), $do_echo = true ) {
+	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content				= '';
-		$options				= get_option( self::id );
 
 		extract( $args );
 
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
+		if ( is_null( $input ) ) {
+			$options			= get_option( self::id );
+		} else {
+			$options			= array();
+			$options[$id]		= $input;
+		}
+
+		if ( ! isset( $options[$id] ) && $type != 'checkbox' ) {
 			$options[$id]		= $std;
-		elseif ( ! isset( $options[$id] ) )
+		} elseif ( ! isset( $options[$id] ) ) {
 			$options[$id]		= 0;
+		}
 
 		$field_class			= '';
 		if ( ! empty( $class ) )
@@ -619,12 +626,14 @@ EOD;
 				break;
 
 			case 'radio':
-				$i				= 0;
-				$count_options	= count( $options ) - 1;
+				$i				= 1;
+				$count_choices	= count( $choices );
 				foreach ( $choices as $value => $label ) {
 					$content	.= '<input class="radio' . $field_class . '" type="radio" name="' . self::id . '[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
-					if ( $i < $count_options )
+
+					if ( $i < $count_choices )
 						$content	.= '<br />';
+
 					$i++;
 				}
 
