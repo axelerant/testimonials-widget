@@ -1135,8 +1135,10 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 = trunk =
 * Add `hide_content` option verbiage
 * Added rel="nofollow" to URL - Thank you Nicholas Corrieri for the suggestion
+* Convert validation to configuration
 * Correct breakline on radio settings display
 * Correct checkbox checking
+* Correct paging handling
 * Dutch translation by Bjorn Robijns
 * Enable echo/return for display_setting
 * TODO Delete data option on deactivation

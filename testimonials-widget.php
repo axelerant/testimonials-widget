@@ -451,7 +451,6 @@ class Testimonials_Widget {
 			if ( empty( $atts['random'] ) )
 				$atts['random']		= 1;
 		}
-
 		$atts					= wp_parse_args( $atts, self::get_defaults() );
 		$atts					= Testimonials_Widget_Settings::validate_settings( $atts );
 
@@ -592,8 +591,8 @@ EOF;
 		// display attributes
 		$hide_not_found			= $atts['hide_not_found'];
 		$paging					= Testimonials_Widget_Settings::is_true( $atts['paging'] );
-		$paging_before			= ( 'before' == $atts['paging'] );
-		$paging_after			= ( 'after' == $atts['paging'] );
+		$paging_before			= ( 'before' === strtolower( $atts['paging'] ) );
+		$paging_after			= ( 'after' === strtolower( $atts['paging'] ) );
 		$refresh_interval		= $atts['refresh_interval'];
 		$target					= $atts['target'];
 

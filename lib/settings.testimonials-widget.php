@@ -9,14 +9,15 @@ class Testimonials_Widget_Settings {
 	const id					= 'testimonialswidget_settings';
 
 	public static $default		= array(
-			'id'      			=> 'default_field',
-			'section' 			=> 'general',
-			'title'   			=> '',
-			'desc'    			=> '',
-			'type'    			=> 'text',
-			'choices' 			=> array(),
-			'std'     			=> '',
-			'class'   			=> ''
+			'id'      				=> 'default_field',
+			'section' 				=> 'general',
+			'title'   				=> '',
+			'desc'    				=> '',
+			'type'    				=> 'text',
+			'choices' 				=> array(),
+			'std'     				=> '',
+			'class'   				=> '',
+			'validate'				=> '',
 	);
 	public static $defaults		= array();
 	public static $sections		= array();
@@ -54,12 +55,14 @@ class Testimonials_Widget_Settings {
 			'section'			=> 'widget',
 			'title'   			=> __( 'Widget Title', 'testimonials-widget' ),
 			'std'     			=> __( 'Testimonials', 'testimonials-widget' ),
+			'validate'			=> 'wp_kses_post',
 		);
 
 		self::$settings['title_link']	= array(
 			'section'			=> 'widget',
 			'title'   			=> __( 'Title Link', 'testimonials-widget' ),
 			'desc'    			=> __( 'URL or Post ID to link widget title to. Ex: 123 or http://example.com', 'testimonials-widget' ),
+			'validate'			=> 'wp_kses_data',
 		);
 
 		self::$settings['keep_whitespace']	= array(
@@ -73,12 +76,14 @@ class Testimonials_Widget_Settings {
 			'section'			=> 'widget',
 			'title'   			=> __( 'Minimum Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Set for minimum display height, in pixels', 'testimonials-widget' ),
+			'validate'			=> 'absint',
 		);
 
 		self::$settings['max_height']	= array(
 			'section'			=> 'widget',
 			'title'   			=> __( 'Maximum Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Set for maximum display height, in pixels', 'testimonials-widget' ),
+			'validate'			=> 'absint',
 		);
 
 		self::$settings['refresh_interval']	= array(
@@ -86,6 +91,7 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Rotation Speed', 'testimonials-widget' ),
 			'desc'				=> __( 'Number of seconds between testimonial rotations or 0 for no rotation at all refresh', 'testimonials-widget' ),
 			'std'				=> 5,
+			'validate'			=> 'absint',
 		);
 
 		// General
@@ -97,6 +103,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['char_limit']	= array(
 			'title'   			=> __( 'Character Limit', 'testimonials-widget' ),
 			'desc'				=> __( 'Number of characters to limit non-single testimonial views to', 'testimonials-widget' ),
+			'validate'			=> 'absint',
 		);
 
 		self::$settings['hide_not_found']	= array(
@@ -160,6 +167,7 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Testimonial Bottom Text', 'testimonials-widget' ),
 			'desc'				=> __( 'Custom text or HTML for bottom of testimonials', 'testimonials-widget' ),
 			'type'    			=> 'textarea',
+			'validate'    		=> 'wp_kses_post',
 		);
 
 		self::$settings['paging']	= array(
@@ -228,6 +236,7 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Limit', 'testimonials-widget' ),
 			'desc'				=> __( 'Number of testimonials to select per instance', 'testimonials-widget' ),
 			'std'				=> 10,
+			'validate'			=> 'absint',
 		);
 
 		self::$settings['selection_expand_end']	= array(
@@ -319,6 +328,7 @@ class Testimonials_Widget_Settings {
 			'title'				=> __( 'Archive Page URL' , 'testimonials-widget'),
 			'desc'				=> sprintf( $desc, $site_url, $url ),
 			'std'				=> 'testimonials',
+			'validate'			=> 'sanitize_title',
 		);
 
 		$desc					= __( 'URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on <a href="%1s">Permalink Settings</a> to update them.', 'testimonials-widget' );
@@ -327,6 +337,7 @@ class Testimonials_Widget_Settings {
 			'title'				=> __( 'Testimonial Page URL' , 'testimonials-widget'),
 			'desc'				=> sprintf( $desc, $url ),
 			'std'				=> 'testimonial',
+			'validate'			=> 'sanitize_title',
 		);
 
 		// Reset
@@ -727,58 +738,105 @@ EOD;
 	}
 
 
-	public static function validate_settings( $input ) {
-		if ( ! empty( $input['reset_defaults'] ) ) {
-			foreach ( self::$defaults as $id => $std ) {
-				$input[$id]		= $std;
-			}
+	public static function validate_settings( $input, $options = null, $do_errors = false ) {
+		$errors					= array();
 
-			unset( $input['reset_defaults']	);
+		if ( is_null( $options ) ) {
+			$options			= self::get_settings();
+			$defaults			= self::get_defaults();
+
+			if ( ! empty( $input['reset_defaults'] ) ) {
+				foreach ( $defaults as $id => $std ) {
+					$input[$id]	= $std;
+				}
+
+				unset( $input['reset_defaults']	);
+				// TODO fixme?
+				// figure out why defaults via premium are incomplete
+				delete_option( Testimonials_Widget_Settings::id );
+			}
 		}
 
-		$input['allow_comments']	= empty( $input['allow_comments'] ) ? 0 : self::is_true_int( $input['allow_comments'] );
-		$input['bottom_text']	= wp_kses_post( $input['bottom_text'] );
-		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['category'] ) ) ? preg_replace( "#\s#", '', $input['category'] ) : self::$defaults['category'];
-		$input['char_limit']	= ( empty( $input['char_limit'] ) || ( is_numeric( $input['char_limit'] ) && 0 <= $input['char_limit'] ) ) ? $input['char_limit'] : self::$defaults['char_limit'];
-		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
-		$input['has_archive']	= sanitize_title( $input['has_archive'] );
-		$input['hide_company']	= empty( $input['hide_company'] ) ? 0 : self::is_true_int( $input['hide_company'] );
-		$input['hide_content']	= empty( $input['hide_content'] ) ? 0 : self::is_true_int( $input['hide_content'] );
-		$input['hide_email']	= empty( $input['hide_email'] ) ? 0 : self::is_true_int( $input['hide_email'] );
-		$input['hide_gravatar']	= empty( $input['hide_gravatar'] ) ? 0 : self::is_true_int( $input['hide_gravatar'] );
-		$input['hide_image']	= empty( $input['hide_image'] ) ? 0 : self::is_true_int( $input['hide_image'] );
-		$input['hide_location']	= empty( $input['hide_location'] ) ? 0 : self::is_true_int( $input['hide_location'] );
-		$input['hide_not_found']	= empty( $input['hide_not_found'] ) ? 0 : self::is_true_int( $input['hide_not_found'] );
-		$input['hide_source']	= empty( $input['hide_source'] ) ? 0 : self::is_true_int( $input['hide_source'] );
-		$input['hide_title']	= empty( $input['hide_title'] ) ? 0 : self::is_true_int( $input['hide_title'] );
-		$input['hide_url']		= empty( $input['hide_url'] ) ? 0 : self::is_true_int( $input['hide_url'] );
-		$input['ids']			= ( empty( $input['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $input['ids'] ) ) ? $input['ids'] : self::$defaults['ids'];
-		$input['keep_whitespace']	= empty( $input['keep_whitespace'] ) ? 0 : self::is_true_int( $input['keep_whitespace'] );
-		$input['limit']			= ( empty( $input['limit'] ) || ( is_numeric( $input['limit'] ) && 0 < $input['limit'] ) ) ? $input['limit'] : self::$defaults['limit'];
-		$input['max_height']	= ( empty( $input['max_height'] ) || ( is_numeric( $input['max_height'] ) && 0 <= $input['max_height'] ) ) ? $input['max_height'] : self::$defaults['max_height'];
-		$input['meta_key']		= ( empty( $input['meta_key'] ) || preg_match( '#^[\w-,]+$#', $input['meta_key'] ) ) ? $input['meta_key'] : self::$defaults['meta_key'];
-		$input['min_height']	= ( empty( $input['min_height'] ) || ( is_numeric( $input['min_height'] ) && 0 <= $input['min_height'] ) ) ? $input['min_height'] : self::$defaults['min_height'];
-		$input['order']			= ( empty( $input['order'] ) || preg_match( '#^desc|asc$#i', $input['order'] ) ) ? $input['order'] : self::$defaults['order'];
-		$input['orderby']		= ( empty( $input['orderby'] ) || preg_match( '#^\w+$#', $input['orderby'] ) ) ? $input['orderby'] : self::$defaults['orderby'];
-		$input['random']		= empty( $input['random'] ) ? 0 : self::is_true_int( $input['random'] );
-		$input['refresh_interval']	= ( empty( $input['refresh_interval'] ) || ( is_numeric( $input['refresh_interval'] ) && 0 <= $input['refresh_interval'] ) ) ? $input['refresh_interval'] : self::$defaults['refresh_interval'];
-		$input['remove_hentry']		= empty( $input['remove_hentry'] ) ? 0 : self::is_true_int( $input['remove_hentry'] );
-		$input['rewrite_slug']	= sanitize_title( $input['rewrite_slug'] );
-		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['tags'] ) ) ? preg_replace( "#\s#", '', $input['tags'] ) : self::$defaults['tags'];
-		$input['tags_all']		= empty( $input['tags_all'] ) ? 0 : self::is_true_int( $input['tags_all'] );
-		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
-		$input['title']			= wp_kses_post( $input['title'] );
-		$input['title_link']	= wp_kses_data( trim( $input['title_link'] ) );
+		foreach( $options as $id => $parts ) {
+			$default			= $parts['std'];
+			$type				= $parts['type'];
+			$validations		= ! empty( $parts['validate'] ) ? $parts['validate'] : array();
+			if ( ! empty( $validations ) )
+				$validations	= explode( ',', $validations );
+
+			if ( ! isset( $input[ $id ] ) && 'checkbox' != $type )
+				$input[ $id ]	= $default;
+
+			if ( ! isset( $input[ $id ] ) || $default == $input[ $id ] && ! in_array( 'required', $validations ) )
+				continue;
+			
+			if ( 'checkbox' == $type ) {
+				// is_true allows for true, 'true', 1, 'yes' to be true
+				if ( self::is_true( $input[ $id ] ) )
+					$input[ $id ]	= 1;
+				else
+					$input[ $id ]	= 0;
+			} elseif ( in_array( $type, array( 'radio', 'select' ) ) ) {
+				// single choices only
+				$keys			= array_keys( $parts['choices'] );
+
+				if ( ! in_array( $input[ $id ], $keys ) ) {
+					if ( self::is_true( $input[ $id ] ) )
+						$input[ $id ]	= 1;
+					else
+						$input[ $id ]	= 0;
+				}
+			}
+
+			if ( ! empty( $validations ) ) {
+				foreach ( $validations as $validate ) {
+					switch( $validate ) {
+					case 'required':
+						if ( empty( $input[ $id ] ) ) {
+							$errors[ $id ]	= __( 'Required' );
+							break 2;
+						}
+						break;
+
+					case 'sanitize_example':
+						$input[ $id ]	= self::sanitize_example( $input[ $id ] );
+						break;
+
+					default:
+						$input[ $id ]	= $validate( $input[ $id ] );
+						break;
+					}
+				}
+			}
+		}
+
 		$input['version']		= self::$version;
 
-		$input					= apply_filters( 'testimonials_widget_validate_settings', $input );
+		$input					= apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
 
-		return $input;
-	}
+		if ( empty( $do_errors ) ) {
+			$validated			= $input;
+		} else {
+			$validated			= array(
+				'input'				=> $input,
+				'errors'			=> $errors,
+			);
+		}
 
+		return $validated;
 
-	public static function is_true_int( $value = null ) {
-		return self::is_true( $value, false );
+		// TODO finish validate configuration move
+		if ( false ) {
+		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['category'] ) ) ? preg_replace( "#\s#", '', $input['category'] ) : self::$defaults['category'];
+		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
+		$input['has_archive']	= sanitize_title( $input['has_archive'] );
+		$input['ids']			= ( empty( $input['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $input['ids'] ) ) ? $input['ids'] : self::$defaults['ids'];
+		$input['meta_key']		= ( empty( $input['meta_key'] ) || preg_match( '#^[\w-,]+$#', $input['meta_key'] ) ) ? $input['meta_key'] : self::$defaults['meta_key'];
+		$input['order']			= ( empty( $input['order'] ) || preg_match( '#^desc|asc$#i', $input['order'] ) ) ? $input['order'] : self::$defaults['order'];
+		$input['orderby']		= ( empty( $input['orderby'] ) || preg_match( '#^\w+$#', $input['orderby'] ) ) ? $input['orderby'] : self::$defaults['orderby'];
+		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['tags'] ) ) ? preg_replace( "#\s#", '', $input['tags'] ) : self::$defaults['tags'];
+		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
+		}
 	}
 
 
