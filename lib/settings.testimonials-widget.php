@@ -161,6 +161,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['target']	= array(
 			'title'   			=> __( 'URL Target', 'testimonials-widget' ),
 			'desc'				=> __( 'Adds target to all URLs; leave blank if none', 'testimonials-widget' ),
+			'validate'			=> 'term',
 		);
 
 		self::$settings['bottom_text']	= array(
@@ -204,12 +205,14 @@ class Testimonials_Widget_Settings {
 			'section'   		=> 'selection',
 			'title'   			=> __( 'Category Filter', 'testimonials-widget' ),
 			'desc'    			=> __( 'Comma separated category slug-names. Ex: category-a, another-category', 'testimonials-widget' ),
+			'validate'			=> 'slugs',
 		);
 
 		self::$settings['tags']	= array(
 			'section'   		=> 'selection',
 			'title'   			=> __( 'Tags Filter', 'testimonials-widget' ),
 			'desc'    			=> __( 'Comma separated tag slug-names. Ex: tag-a, another-tag', 'testimonials-widget' ),
+			'validate'			=> 'slugs',
 		);
 
 		self::$settings['tags_all']	= array(
@@ -223,12 +226,14 @@ class Testimonials_Widget_Settings {
 			'section'   		=> 'selection',
 			'title'   			=> __( 'Include IDs Filter', 'testimonials-widget' ),
 			'desc'				=> __( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'validate'			=> 'ids',
 		);
 
 		self::$settings['exclude']	= array(
 			'section'   		=> 'selection',
 			'title'   			=> __( 'Exclude IDs Filter', 'testimonials-widget' ),
 			'desc'				=> __( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'validate'			=> 'ids',
 		);
 
 		self::$settings['limit']	= array(
@@ -271,6 +276,7 @@ class Testimonials_Widget_Settings {
 				'none'			=> __( 'No order', 'testimonials-widget' ),
 			),
 			'std'				=> 'ID',
+			'validate'			=> 'term',
 		);
 
 		self::$settings['meta_key']	= array(
@@ -285,6 +291,7 @@ class Testimonials_Widget_Settings {
 				'testimonials-widget-company' 	=> __( 'Company' , 'testimonials-widget'),
 				'testimonials-widget-url' 		=> __( 'URL' , 'testimonials-widget'),
 			),
+			'validate'			=> 'slug',
 		);
 
 		self::$settings['order']	= array(
@@ -296,6 +303,7 @@ class Testimonials_Widget_Settings {
 				'ASC'			=> __( 'Ascending', 'testimonials-widget' ),
 			),
 			'std'				=> 'DESC',
+			'validate'			=> 'order',
 		);
 
 		self::$settings['ordering_expand_end']	= array(
@@ -793,6 +801,14 @@ EOD;
 			if ( ! empty( $validations ) ) {
 				foreach ( $validations as $validate ) {
 					switch( $validate ) {
+					case 'ids':
+						$input[ $id ]	= self::validate_ids( $input[ $id ], $default );
+						break;
+
+					case 'order':
+						$input[ $id ]	= self::validate_order( $input[ $id ], $default );
+						break;
+
 					case 'required':
 						if ( empty( $input[ $id ] ) ) {
 							$errors[ $id ]	= __( 'Required' );
@@ -800,8 +816,16 @@ EOD;
 						}
 						break;
 
-					case 'sanitize_example':
-						$input[ $id ]	= self::sanitize_example( $input[ $id ] );
+					case 'slug':
+						$input[ $id ]	= self::validate_slug( $input[ $id ], $default );
+						break;
+
+					case 'slugs':
+						$input[ $id ]	= self::validate_slugs( $input[ $id ], $default );
+						break;
+
+					case 'term':
+						$input[ $id ]	= self::validate_term( $input[ $id ], $default );
 						break;
 
 					default:
@@ -826,18 +850,46 @@ EOD;
 		}
 
 		return $validated;
+	}
 
-		// TODO finish validate configuration move
-		if ( false ) {
-		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['category'] ) ) ? preg_replace( "#\s#", '', $input['category'] ) : self::$defaults['category'];
-		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
-		$input['ids']			= ( empty( $input['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $input['ids'] ) ) ? $input['ids'] : self::$defaults['ids'];
-		$input['meta_key']		= ( empty( $input['meta_key'] ) || preg_match( '#^[\w-,]+$#', $input['meta_key'] ) ) ? $input['meta_key'] : self::$defaults['meta_key'];
-		$input['order']			= ( empty( $input['order'] ) || preg_match( '#^desc|asc$#i', $input['order'] ) ) ? $input['order'] : self::$defaults['order'];
-		$input['orderby']		= ( empty( $input['orderby'] ) || preg_match( '#^\w+$#', $input['orderby'] ) ) ? $input['orderby'] : self::$defaults['orderby'];
-		$input['tags']			= ( empty( $input['tags'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['tags'] ) ) ? preg_replace( "#\s#", '', $input['tags'] ) : self::$defaults['tags'];
-		$input['target']		= ( empty( $input['target'] ) || preg_match( '#^\w+$#', $input['target'] ) ) ? $input['target'] : self::$defaults['target'];
-		}
+
+	public static function validate_ids( $input, $default ) {
+		if ( preg_match( '#^\d+(,\s?\d+)*$#', $input['exclude'] ) )
+			return preg_replace( "#\s#", '', $input );
+
+		return $default;
+	}
+
+
+	public static function validate_order( $input, $default ) {
+		if ( preg_match( '#^desc|asc$#i', $input ) )
+			return $input;
+
+		return $default;
+	}
+
+
+	public static function validate_slugs( $input, $default ) {
+		if ( preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input ) )
+			return preg_replace( "#\s#", '', $input );
+
+		return $default;
+	}
+
+
+	public static function validate_slug( $input, $default ) {
+		if ( preg_match( '#^[\w-]+$#', $input ) )
+			return $input;
+
+		return $default;
+	}
+
+
+	public static function validate_term( $input, $default ) {
+		if ( preg_match( '#^\w+$#', $input ) )
+			return $input;
+
+		return $default;
 	}
 
 

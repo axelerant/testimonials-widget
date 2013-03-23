@@ -1141,11 +1141,13 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Correct paging handling
 * Dutch translation by Bjorn Robijns
 * Enable echo/return for display_setting
+* Finish validation configuration move
 * Rename load_sections > _sections
 * Rename load_settings > settings
 * Save option defaults
 * Set missing checkbox values to 0 on validate
 * TODO Delete data option on deactivation
+* Update WPML configuration
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php
