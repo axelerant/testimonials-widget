@@ -26,8 +26,8 @@ class Testimonials_Widget_Settings {
 
 
 	public function __construct() {
-		self::load_sections();
-		self::load_settings();
+		self::sections();
+		self::settings();
 
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
@@ -35,7 +35,7 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public static function load_sections() {
+	public static function sections() {
 		self::$sections['general']		= __( 'General' , 'testimonials-widget');
 		self::$sections['selection']	= __( 'Selection' , 'testimonials-widget');
 		self::$sections['ordering']		= __( 'Ordering' , 'testimonials-widget');
@@ -49,7 +49,7 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public static function load_settings() {
+	public static function settings() {
 		// Widget
 		self::$settings['title']	= array(
 			'section'			=> 'widget',
@@ -410,7 +410,7 @@ class Testimonials_Widget_Settings {
 
 	public static function get_defaults() {
 		if ( empty( self::$defaults ) )
-			self::load_settings();
+			self::settings();
 
 		foreach ( self::$settings as $id => $parts ) {
 			self::$defaults[$id]	= isset( $parts[ 'std' ] ) ? $parts[ 'std' ] : '';
@@ -422,7 +422,7 @@ class Testimonials_Widget_Settings {
 
 	public static function get_settings() {
 		if ( empty( self::$settings ) )
-			self::load_settings();
+			self::settings();
 
 		return self::$settings;
 	}
@@ -751,9 +751,6 @@ EOD;
 				}
 
 				unset( $input['reset_defaults']	);
-				// TODO fixme?
-				// figure out why defaults via premium are incomplete
-				delete_option( Testimonials_Widget_Settings::id );
 			}
 		}
 
@@ -764,10 +761,15 @@ EOD;
 			if ( ! empty( $validations ) )
 				$validations	= explode( ',', $validations );
 
-			if ( ! isset( $input[ $id ] ) && 'checkbox' != $type )
-				$input[ $id ]	= $default;
+			if ( ! isset( $input[ $id ] ) ) {
+				if ( 'checkbox' != $type ) {
+					$input[ $id ]	= $default;
+				} else {
+					$input[ $id ]	= 0;
+				}
+			}
 
-			if ( ! isset( $input[ $id ] ) || $default == $input[ $id ] && ! in_array( 'required', $validations ) )
+			if ( $default == $input[ $id ] && ! in_array( 'required', $validations ) )
 				continue;
 			
 			if ( 'checkbox' == $type ) {
@@ -829,7 +831,6 @@ EOD;
 		if ( false ) {
 		$input['category']		= ( empty( $input['category'] ) || preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input['category'] ) ) ? preg_replace( "#\s#", '', $input['category'] ) : self::$defaults['category'];
 		$input['exclude']		= ( empty( $input['exclude'] ) || preg_match( '#^\d+(,\d+)*$#', $input['exclude'] ) ) ? $input['exclude'] : self::$defaults['exclude'];
-		$input['has_archive']	= sanitize_title( $input['has_archive'] );
 		$input['ids']			= ( empty( $input['ids'] ) || preg_match( '#^\d+(,\d+)*$#', $input['ids'] ) ) ? $input['ids'] : self::$defaults['ids'];
 		$input['meta_key']		= ( empty( $input['meta_key'] ) || preg_match( '#^[\w-,]+$#', $input['meta_key'] ) ) ? $input['meta_key'] : self::$defaults['meta_key'];
 		$input['order']			= ( empty( $input['order'] ) || preg_match( '#^desc|asc$#i', $input['order'] ) ) ? $input['order'] : self::$defaults['order'];
@@ -860,10 +861,12 @@ $Testimonials_Widget_Settings	= new Testimonials_Widget_Settings();
 
 
 function tw_get_options() {
-	$options					= get_option( Testimonials_Widget_Settings::id, false );
+	$options					= get_option( Testimonials_Widget_Settings::id );
 
-	if ( false === $options )
-		return Testimonials_Widget_Settings::get_defaults();
+	if ( false === $options ) {
+		$options				= Testimonials_Widget_Settings::get_defaults();
+		update_option( Testimonials_Widget_Settings::id, $options );
+	}
 
 	return $options;
 }
