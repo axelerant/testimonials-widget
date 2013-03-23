@@ -1148,6 +1148,8 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Set missing checkbox values to 0 on validate
 * TODO Delete data option on deactivation
 * Update WPML configuration
+* Describe settings defaults
+* Enable widget options no-show
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php

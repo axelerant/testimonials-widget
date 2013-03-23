@@ -142,19 +142,23 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		}
 
 		// remove non-widget parts
-		unset( $form_parts['paging'] );
-		unset( $form_parts['debug_mode'] );
-		unset( $form_parts['allow_comments'] );
-		unset( $form_parts['has_archive'] );
-		unset( $form_parts['rewrite_slug'] );
-
-		// fixme make reset work
-		unset( $form_parts['reset_defaults'] );
+		$form_parts				= self::widget_options( $form_parts );
 
 		foreach ( $form_parts as $key => $part ) {
 			$part[ 'id' ]		= $key;
 			$this->display_setting( $part, $instance );
 		}
+	}
+
+
+	public function widget_options( $options ) {
+		$settings				= Testimonials_Widget_Settings::get_settings();
+		foreach ( $settings as $id => $parts ) {
+			if ( empty( $parts['widget'] ) )
+				unset( $options[ $id ] );
+		}
+
+		return $options;
 	}
 
 

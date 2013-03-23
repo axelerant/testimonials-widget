@@ -13,11 +13,12 @@ class Testimonials_Widget_Settings {
 			'section' 				=> 'general',
 			'title'   				=> '',
 			'desc'    				=> '',
-			'type'    				=> 'text',
-			'choices' 				=> array(),
-			'std'     				=> '',
+			'type'    				=> 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
+			'choices' 				=> array(), // key => value
+			'std'     				=> '', // default key or value
 			'class'   				=> '',
-			'validate'				=> '',
+			'validate'				=> '', // required, term, slug, slugs, ids, order, single paramater PHP functions
+			'widget'				=> 1, // show in widget options, 0 off
 	);
 	public static $defaults		= array();
 	public static $sections		= array();
@@ -182,6 +183,7 @@ class Testimonials_Widget_Settings {
 				'after'			=> __( 'After testimonials', 'testimonials-widget' ),
 			),
 			'std'				=> 1,
+			'widget'			=> 0,
 		);
 
 		self::$settings['remove_hentry']	= array(
@@ -313,10 +315,11 @@ class Testimonials_Widget_Settings {
 
 		// Debug
 		self::$settings['debug_mode'] = array(
-			'section' => 'testing',
-			'title'   => __( 'Debug Mode?' , 'testimonials-widget'),
-			'desc'	  => __( 'Not implemented yet', 'testimonials-widget' ),
-			'type'    => 'checkbox',
+			'section'			=> 'testing',
+			'title'				=> __( 'Debug Mode?' , 'testimonials-widget'),
+			'desc'				=> __( 'Not implemented yet', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+			'widget'			=> 0,
 		);
 
 		// Post Type
@@ -325,6 +328,7 @@ class Testimonials_Widget_Settings {
 			'title'				=> __( 'Allow Comments?' , 'testimonials-widget'),
 			'desc'				=> __( 'If checked, allows commenting on testimonial single-view pages', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
+			'widget'			=> 0,
 		);
 
 		$desc					= __( 'URL slug-name for <a href="%1s">testimonials archive</a> page. After changing, you must click "Save Changes" on <a href="%2s">Permalink Settings</a> to update them.', 'testimonials-widget' );
@@ -337,6 +341,7 @@ class Testimonials_Widget_Settings {
 			'desc'				=> sprintf( $desc, $site_url, $url ),
 			'std'				=> 'testimonials',
 			'validate'			=> 'sanitize_title',
+			'widget'			=> 0,
 		);
 
 		$desc					= __( 'URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on <a href="%1s">Permalink Settings</a> to update them.', 'testimonials-widget' );
@@ -346,15 +351,17 @@ class Testimonials_Widget_Settings {
 			'desc'				=> sprintf( $desc, $url ),
 			'std'				=> 'testimonial',
 			'validate'			=> 'sanitize_title',
+			'widget'			=> 0,
 		);
 
 		// Reset
 		self::$settings['reset_defaults'] = array(
-			'section' => 'reset',
-			'title'   => __( 'Reset to Defaults?' , 'testimonials-widget'),
-			'type'    => 'checkbox',
-			'class'   => 'warning', // Custom class for CSS
-			'desc'    => __( 'Check this box to reset options to their defaults' , 'testimonials-widget')
+			'section'			=> 'reset',
+			'title'				=> __( 'Reset to Defaults?' , 'testimonials-widget'),
+			'type'				=> 'checkbox',
+			'class'				=> 'warning', // Custom class for CSS
+			'desc'				=> __( 'Check this box to reset options to their defaults' , 'testimonials-widget'),
+			'widget'			=> 0,
 		);
 
 		// Reference
