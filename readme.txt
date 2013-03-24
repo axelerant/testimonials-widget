@@ -275,7 +275,7 @@ See [FAQ](http://aihr.us/testimonials-widget/faq/)
 
 
 = I'm still stuck, how can I get help? =
-Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question. Don't forget to include the URL to see the problem.
+Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question. Don't forget to include the URL of where to see the problem.
 
 
 == Screenshots ==
