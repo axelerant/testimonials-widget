@@ -4,6 +4,37 @@
 
 = trunk =
 
+= 2.10.1 =
+* Moved [FAQ](http://aihr.us/testimonials-widget/faq/)
+* Removed premium screenshots
+* Rename screenshot-3.png screenshot-2.png
+* Rename screenshot-4.png screenshot-3.png
+* Rename screenshot-5.png screenshot-4.png
+* Rename screenshot-6.png screenshot-5.png
+* Rename screenshot-7.png screenshot-6.png
+* Rename screenshot-8.png screenshot-7.png
+* Rename screenshot-13.png screenshot-8.png
+* Rename screenshot-14.png screenshot-9.png
+* Rename screenshot-21.png screenshot-10.png
+* Rename screenshot-22.png screenshot-11.png
+* Rename screenshot-23.png screenshot-12.png
+* Rename screenshot-24.png screenshot-13.png
+* Rename screenshot-25.png screenshot-14.png
+* Rename screenshot-26.png screenshot-15.png
+* Screenshot 2 removed
+* Screenshot 9 removed
+* Screenshot 10 removed
+* Screenshot 11 removed
+* Screenshot 12 removed
+* Screenshot 15 removed
+* Screenshot 16 removed
+* Screenshot 17 removed
+* Screenshot 18 removed
+* Screenshot 19 removed
+* Screenshot 20 removed
+* Screenshot 27 removed
+* Screenshot 28 removed
+
 = 2.10.0 =
 * Add `hide_content` option verbiage
 * Add screenshot 27 `[[testimonialswidgetpremium_form]]` – Add a Testimonial
