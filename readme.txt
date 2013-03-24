@@ -47,7 +47,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Ensure unique testimonial display per page
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
-* Front-end entry form for user supplied testimonials
+* Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
 * Select post, page and other custom post types for rotations

@@ -20,6 +20,7 @@
 * Enable file input for settings
 * Enable widget options no-show
 * Finish validation configuration move
+* Form demo link
 * Move Changelog to changelog.txt
 * Rename load_sections > _sections
 * Rename load_settings > settings
