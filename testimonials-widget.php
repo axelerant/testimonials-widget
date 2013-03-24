@@ -1063,10 +1063,18 @@ EOF;
 
 		$args					= array(
 			'orderby'			=> $orderby,
-			'post_status'		=> 'publish',
+			'post_status'		=> array(
+				'publish', 
+				'private', 
+			),
 			'post_type'			=> Testimonials_Widget::pt,
 			'posts_per_page'	=> $limit,
 		);
+
+		if ( is_single() ) {
+			$args['post_status'][]	= 'pending';
+			$args['post_status'][]	= 'draft';
+		}
 
 		if ( $paging && ! empty( $atts['paged'] ) && is_singular() ) {
 			$args['paged']		= $atts['paged'];

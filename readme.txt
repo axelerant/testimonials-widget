@@ -35,7 +35,7 @@ Single testimonial view supports image, source, title, location, email, company 
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/wordpress/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. The Testimonials Widget plugin allows you to display rotating content, portfolio, quotes, showcase, or other text with images on your WordPress blog.
+Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/wordpress/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, user may optionally add testimonials via a front-end form.
 
 In using Testimonials Widget Premium, you'll not be sorry.
 
@@ -47,6 +47,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Ensure unique testimonial display per page
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
+* Front-end entry form for user supplied testimonials
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
 * Select post, page and other custom post types for rotations
@@ -1139,17 +1140,20 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 * Correct breakline on radio settings display
 * Correct checkbox checking
 * Correct paging handling
+* Correct post_status selection for single view
+* Describe settings defaults
 * Dutch translation by Bjorn Robijns
 * Enable echo/return for display_setting
+* Enable file input for settings
+* Enable widget options no-show
 * Finish validation configuration move
 * Rename load_sections > _sections
 * Rename load_settings > settings
 * Save option defaults
 * Set missing checkbox values to 0 on validate
 * TODO Delete data option on deactivation
+* Update Premium description
 * Update WPML configuration
-* Describe settings defaults
-* Enable widget options no-show
 
 = 2.9.1 =
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php

@@ -626,10 +626,6 @@ EOD;
 
 		switch ( $type ) {
 
-			case 'heading':
-				$content		.= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
-				break;
-
 			case 'checkbox':
 				$content		.= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
@@ -638,13 +634,25 @@ EOD;
 
 				break;
 
-			case 'select':
-				$content		.= '<select class="select' . $field_class . '" name="' . self::id . '[' . $id . ']">';
+			case 'file':
+		 		$content		.= '<input class="regular-text' . $field_class . '" type="file" id="' . $id . '" name="' . self::id . '[' . $id . ']" />';
 
-				foreach ( $choices as $value => $label )
-					$content	.= '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+				if ( ! empty( $desc ) )
+		 			$content	.= '<br /><span class="description">' . $desc . '</span>';
 
-				$content		.= '</select>';
+		 		break;
+
+			case 'heading':
+				$content		.= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
+				break;
+
+			case 'hidden':
+		 		$content		.= '<input type="hidden" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+
+		 		break;
+
+			case 'password':
+				$content		.= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( ! empty( $desc ) )
 					$content	.= '<br /><span class="description">' . $desc . '</span>';
@@ -668,24 +676,21 @@ EOD;
 
 				break;
 
-			case 'textarea':
-				$content		.= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
-
-				if ( ! empty( $desc ) )
-					$content	.= '<br /><span class="description">' . $desc . '</span>';
-
-				break;
-
-			case 'password':
-				$content		.= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
-
-				if ( ! empty( $desc ) )
-					$content	.= '<br /><span class="description">' . $desc . '</span>';
-
-				break;
-
 			case 'readonly':
 				$content		.= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
+
+				if ( ! empty( $desc ) )
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
+
+				break;
+
+			case 'select':
+				$content		.= '<select class="select' . $field_class . '" name="' . self::id . '[' . $id . ']">';
+
+				foreach ( $choices as $value => $label )
+					$content	.= '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+
+				$content		.= '</select>';
 
 				if ( ! empty( $desc ) )
 					$content	.= '<br /><span class="description">' . $desc . '</span>';
@@ -700,10 +705,13 @@ EOD;
 
 		 		break;
 
-			case 'hidden':
-		 		$content		.= '<input type="hidden" id="' . $id . '" name="' . self::id . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+			case 'textarea':
+				$content		.= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::id . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 
-		 		break;
+				if ( ! empty( $desc ) )
+					$content	.= '<br /><span class="description">' . $desc . '</span>';
+
+				break;
 
 			default:
 		 		break;
