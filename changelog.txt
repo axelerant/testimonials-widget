@@ -4,6 +4,9 @@
 
 = trunk =
 
+= 2.10.2 =
+* BUGFIX Settings initialization overwrote previous settings
+
 = 2.10.1 =
 * Moved [FAQ](http://aihr.us/testimonials-widget/faq/)
 * Removed premium screenshots

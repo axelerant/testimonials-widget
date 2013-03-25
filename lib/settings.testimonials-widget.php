@@ -727,9 +727,11 @@ EOD;
 
 	public function initialize_settings() {
 		$defaults				= self::get_defaults();
-		$defaults['version']	= self::$version;
+		$current				= get_option( self::id );
+		$current				= wp_parse_args( $current, $defaults );
+		$current['version']		= self::$version;
 
-		update_option( self::id, $defaults );
+		update_option( self::id, $current );
 	}
 
 
