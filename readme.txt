@@ -35,7 +35,7 @@ Single testimonial view supports image, source, title, location, email, company 
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/wordpress/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, user may optionally add testimonials via a front-end form.
+Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, user may optionally add testimonials via a front-end form.
 
 In using Testimonials Widget Premium, you'll not be sorry.
 
@@ -58,7 +58,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Testimonial list entries have alternating `.even` and `.odd` CSS classes for backgrounds and other styling
 * WPML compatible
 
-[Buy Testimonials Widget Premium](http://aihr.us/wordpress/testimonials-widget-premium/) plugin for WordPress.
+[Buy Testimonials Widget Premium](http://aihr.us/testimonials-widget-premium/) plugin for WordPress.
 
 = Additional Features =
 

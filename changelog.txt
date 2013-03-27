@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Update Premium link
 
 = 2.10.2 =
 * BUGFIX Settings initialization overwrote previous settings
@@ -523,7 +524,7 @@
 * TODO Updates
 
 = 2.2.5 =
-* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/wordpress/testimonials-widget-premium/)
+* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/testimonials-widget-premium/)
 * Add support text
 * Correct verbiage spacing
 * Explain `limit`

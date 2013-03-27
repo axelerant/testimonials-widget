@@ -161,7 +161,7 @@ class Testimonials_Widget {
 		
 		$links					= array(
 			'<a href="http://aihr.us/about-aihrus/donate/">Donate</a>',
-			'<a href="http://aihr.us/wordpress/testimonials-widget-premium/">Purchase Testimonials Widget Premium</a>'
+			'<a href="http://aihr.us/testimonials-widget-premium/">Purchase Testimonials Widget Premium</a>'
 		);
 
 		$input					= array_merge( $input, $links );
