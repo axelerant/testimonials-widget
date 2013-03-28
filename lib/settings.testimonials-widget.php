@@ -243,7 +243,7 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Limit', 'testimonials-widget' ),
 			'desc'				=> __( 'Number of testimonials to select per instance', 'testimonials-widget' ),
 			'std'				=> 10,
-			'validate'			=> 'absint',
+			'validate'			=> 'intval',
 		);
 
 		self::$settings['selection_expand_end']	= array(

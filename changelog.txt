@@ -3,7 +3,8 @@
 == Changelog ==
 
 = trunk =
-* Enable quotes for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
+* BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
+* Enable quotes and join for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
 * Update Premium link
 
 = 2.10.2 =
