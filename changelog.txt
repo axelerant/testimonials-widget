@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Enable quotes for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
 * Update Premium link
 
 = 2.10.2 =
