@@ -84,7 +84,7 @@
 .testimonialswidget_testimonial .testimonialswidget_join_location,
 .testimonialswidget_testimonial .testimonialswidget_join {
 	/* section between source and company information */
-	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = ',&amp;nbsp' );
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = ', ' );
 }
 
 .testimonialswidget_testimonial .testimonialswidget_join_title:before,
