@@ -273,8 +273,9 @@ class Testimonials_Widget_Settings {
 			'choices'			=> array(
 				'ID'			=> __( 'Testimonial ID', 'testimonials-widget' ),
 				'author'		=> __( 'Author', 'testimonials-widget' ),
-				'title'			=> __( 'Source', 'testimonials-widget' ),
 				'date'			=> __( 'Date', 'testimonials-widget' ),
+				'menu_order'	=> __( 'Menu Order', 'testimonials-widget' ),
+				'title'			=> __( 'Source', 'testimonials-widget' ),
 				'none'			=> __( 'No order', 'testimonials-widget' ),
 			),
 			'std'				=> 'ID',

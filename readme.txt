@@ -345,7 +345,6 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * BUG [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
-* BUG [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
 * Delete data on deactivation
 * Single height option to automatically set min and max height
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)

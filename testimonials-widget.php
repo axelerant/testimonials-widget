@@ -39,8 +39,8 @@ class Testimonials_Widget {
 
 	private static $base;
 
-	public static $css			= array();
-	public static $css_called	= false;
+	public static $css				= array();
+	public static $css_called		= false;
 	public static $instance_number	= 0;
 	public static $scripts			= array();
 	public static $scripts_called	= false;
@@ -1042,17 +1042,11 @@ EOF;
 
 
 	public function get_query_args( $atts ) {
-		$category				= $atts['category'];
-		$exclude				= $atts['exclude'];
-		$ids					= $atts['ids'];
-		$limit					= $atts['limit'];
-		$meta_key				= $atts['meta_key'];
-		$order					= $atts['order'];
-		$orderby				= $atts['orderby'];
-		$paging					= $atts['paging'];
-		$random					= $atts['random'];
-		$tags					= $atts['tags'];
-		$tags_all				= $atts['tags_all'];
+		extract( $atts );
+
+		if ( has_filter( 'posts_orderby', 'CPTOrderPosts' ) ) {
+			remove_filter( 'posts_orderby', 'CPTOrderPosts', 99, 2 );
+		}
 
 		if ( $random ) {
 			$orderby			= 'rand';
@@ -1343,9 +1337,6 @@ function testimonialswidget_list( $atts = array() ) {
 
 function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
 	global $Testimonials_Widget;
-
-	if ( empty( $atts['random'] ) )
-		$atts['random']			= 1;
 
 	return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
 }

@@ -3,7 +3,9 @@
 == Changelog ==
 
 = trunk =
+* Add "Menu Order" to Order By options
 * BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
+* BUGFIX [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
 * Enable quotes and join for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
 * Revise self::$base usage
 * Revise settings_link handling
