@@ -6,7 +6,9 @@
 * Add "Menu Order" to Order By options
 * BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
 * BUGFIX [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
+* Delete data on uninstall 
 * Enable quotes and join for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
+* Flush URLs on deactivation 
 * Revise self::$base usage
 * Revise settings_link handling
 * Update Premium link

@@ -58,6 +58,8 @@ class Testimonials_Widget {
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
 		register_activation_hook( __FILE__, array( &$this, 'activation' ) );
+		register_deactivation_hook( __FILE__, array( &$this, 'deactivation' ) );
+		register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 	}
 
 
@@ -149,6 +151,50 @@ class Testimonials_Widget {
 	public function activation() {
 		self::init();
 		flush_rewrite_rules();
+	}
+
+
+	public function deactivation() {
+		flush_rewrite_rules();
+	}
+
+
+	public function uninstall() {
+		require_once( 'lib/settings.testimonials-widget.php' );
+
+		delete_site_option( Testimonials_Widget_Settings::id );
+		self::delete_testimonials();
+	}
+
+
+	public static function delete_testimonials() {
+		global $wpdb;
+
+		$query					= "SELECT ID FROM {$wpdb->posts} WHERE post_type = '" . self::pt . "' LIMIT 10";
+		$posts					= $wpdb->get_results( $query );
+
+		foreach( $posts as $post ) {
+			$post_id			= $post->ID;
+			self::delete_attachments( $post_id );
+
+			// dels post, meta & comments
+			// true is force delete
+			wp_delete_post( $post_id, true );
+		}
+	}
+
+
+	public static function delete_attachments( $post_id = false ) {
+		global $wpdb;
+
+		$post_id				= $post_id ? $post_id : 0;
+		$query					= "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'attachment' AND post_parent = {$post_id}";
+		$attachments			= $wpdb->get_results( $query );
+
+		foreach( $attachments as $attachment ) {
+			// true is force delete
+			wp_delete_attachment( $attachment->ID, true );
+		}
 	}
 
 
