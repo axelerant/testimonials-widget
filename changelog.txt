@@ -5,8 +5,10 @@
 = trunk =
 * BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
 * Enable quotes and join for IE7 - Thank you [SFMichael](http://wordpress.org/support/topic/ie-7-quotes-fix)
+* Revise self::$base usage
 * Revise settings_link handling
 * Update Premium link
+* Update TODOs
 
 = 2.10.2 =
 * BUGFIX Settings initialization overwrote previous settings

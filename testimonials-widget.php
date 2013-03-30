@@ -31,7 +31,7 @@ class Testimonials_Widget {
 	const id					= 'testimonialswidget_testimonials';
 	const old_name				= 'testimonialswidget';
 	const pt					= 'testimonials-widget';
-	const version				= '2.10.2';
+	const version				= '2.10.3';
 
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
@@ -81,14 +81,14 @@ class Testimonials_Widget {
 		require_once( 'lib/settings.testimonials-widget.php' );
 
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
-		self::$base  				= plugin_basename(__FILE__);
+		self::$base  			= plugin_basename( __FILE__ );
 		self::init_post_type();
 		self::styles();
 	}
 
 
 	public function plugin_action_links( $links, $file ) {
-		if ( $file == plugin_basename( __FILE__ ) ) {
+		if ( $file == self::$base ) {
 			array_unshift( $links, self::$settings_link );
 		}
 
