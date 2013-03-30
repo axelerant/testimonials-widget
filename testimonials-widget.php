@@ -162,7 +162,7 @@ class Testimonials_Widget {
 	public function uninstall() {
 		require_once( 'lib/settings.testimonials-widget.php' );
 
-		delete_site_option( Testimonials_Widget_Settings::id );
+		delete_option( Testimonials_Widget_Settings::id );
 		self::delete_testimonials();
 	}
 
