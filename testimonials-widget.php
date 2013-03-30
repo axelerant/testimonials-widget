@@ -35,7 +35,6 @@ class Testimonials_Widget {
 
 	private $max_num_pages		= 0;
 	private $post_count			= 0;
-	private $settings_link		= '';
 	private $wp_query			= null;
 
 	private static $base;
@@ -45,6 +44,7 @@ class Testimonials_Widget {
 	public static $instance_number	= 0;
 	public static $scripts			= array();
 	public static $scripts_called	= false;
+	public static $settings_link	= '';
 	public static $tag_close_quote	= '<span class="testimonialswidget_close_quote"></span>';
 	public static $tag_open_quote	= '<span class="testimonialswidget_open_quote"></span>';
 	public static $widget_number	= 100000;
@@ -62,11 +62,14 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
+		self::$settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
+
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
 		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
 		add_action( 'manage_' . self::pt . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
 		add_filter( 'manage_' . self::pt . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
+		add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta'), 10, 2 );
 		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
@@ -74,27 +77,22 @@ class Testimonials_Widget {
 	}
 
 
-	public function plugin_action_links( $links, $file ) {
-		if ( $file == plugin_basename( __FILE__ ) ) {
-			array_unshift( $links, $this->settings_link );
-		}
-
-		return $links;
-	}
-
-
 	public function init() {
-		if ( function_exists( 'admin_url' ) ) {
-			require_once( 'lib/settings.testimonials-widget.php' );
-
-			$this->settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
-			add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
-		}
+		require_once( 'lib/settings.testimonials-widget.php' );
 
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base  				= plugin_basename(__FILE__);
 		self::init_post_type();
 		self::styles();
+	}
+
+
+	public function plugin_action_links( $links, $file ) {
+		if ( $file == plugin_basename( __FILE__ ) ) {
+			array_unshift( $links, self::$settings_link );
+		}
+
+		return $links;
 	}
 
 
