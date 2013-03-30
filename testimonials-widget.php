@@ -170,7 +170,7 @@ class Testimonials_Widget {
 	public static function delete_testimonials() {
 		global $wpdb;
 
-		$query					= "SELECT ID FROM {$wpdb->posts} WHERE post_type = '" . self::pt . "' LIMIT 10";
+		$query					= "SELECT ID FROM {$wpdb->posts} WHERE post_type = '" . self::pt . "'";
 		$posts					= $wpdb->get_results( $query );
 
 		foreach( $posts as $post ) {

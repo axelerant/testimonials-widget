@@ -224,6 +224,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 * Default image size is based upon Thumbnail size in Media Settings 
 * Gravatar image is configured in the Avatar section of Discussion Settings
+* When plugin is uninstalled, all data and settings are deleted
 
 = Languages =
 
@@ -345,7 +346,7 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
 
 * BUG [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
-* Delete data on deactivation
+* Settings export/import
 * Single height option to automatically set min and max height
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)
 * [Fix cite tag usage - it's title not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)
