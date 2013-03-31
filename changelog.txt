@@ -3,6 +3,9 @@
 == Changelog ==
 
 = trunk =
+* Beta testers needed section added
+* Update TODOs
+* Update features listing
 
 = 2.10.3 =
 * Add "Menu Order" to Order By options

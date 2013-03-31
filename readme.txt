@@ -25,9 +25,10 @@ Single testimonial view supports image, source, title, location, email, company 
 = Primary Features =
 
 * Admin interface to add, edit and manage testimonials
+* Capable of handling Multiple widgets per page or post
+* Fields for source, title, location, testimonial, email, company and URL details
 * Filters to manipulate testimonial layout and presentation
-* Has fields for source, title, location, testimonial, email, company and URL details
-* Multiple widgets on a single page capable
+* Multiple paging options for testimonials listings
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, location,, email, company and URL details
@@ -62,28 +63,34 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 = Additional Features =
 
-* Auto-migration from pre-2.0.0 custom table to new custom post type
-	* Company, URL and email details are attempted to be identified and placed properly
-	* Public testimonials are saved as Published. Non-public, are marked as Private.
-	* Ignores already imported
+* Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
+* Automatic linking of email and URL fields via source or company fields
+* Clickable widget titles
 * Commenting on testimonial single-view pages
 * Compatible with WordPress multi-site
-* Content truncation to respect HTML tags
+* Configuration based validation for easy extending or overriding
+* Content truncation respects HTML tags
 * Custom CSS in footer for HTML validation
 * Custom text or HTML for bottom of widgets
+* Custom widget bottom text
 * Customizable archive and testimonial URLs
 * Customizeable testimonial data field `testimonial_extra`
+* Deletes Testiomonials Widget custom post type and settings on uninstall 
+* Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
+* Flush URLs on deactivation 
+* IE7 CSS hacks for quotes and join parts
 * Image, Gravatar, category and tag enabled
+* Internal version tracking for compatiblity checks and automatic settings update
 * Localizable - see `languages/testimonials-widget.pot`
+* Optional commenting on testimonial single-view pages
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
 * Scrolling testimonials for maximum height restricted widgets
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content and layout completely customizable via filters
 * Testimonial content supports HTML
-* Testimonial, email, and URL fields are clickable
-	* The URL requires a protocol like `http://` or `https://`
+* Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
 * Testimonials Widget widget displays static and rotating testimonials 
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * URLs can be opened in new windows
@@ -224,6 +231,10 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 = Notes =
 
+* Auto-migration from pre-2.0.0 custom table to new custom post type
+	* Company, URL and email details are attempted to be identified and placed properly
+	* Public testimonials are saved as Published. Non-public, are marked as Private.
+	* Ignores already imported
 * Default image size is based upon Thumbnail size in Media Settings 
 * Gravatar image is configured in the Avatar section of Discussion Settings
 * When plugin is uninstalled, all data and settings are deleted
@@ -343,6 +354,15 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
 	* Default `min-height` is now 250px than 150px.
 
+== Beta Testers Needed ==
+
+I really want Testimonials Widget and Testimonials Widget Premium to be the best WordPress plugins of their type. However, it's getting beyond me to do it alone.
+
+I need beta testers to help with ensuring pending releases of Testimonials Widget and Testimonials Widget Premium are solid. This would benefit us all by helping reduce the number of releases and raise code quality.
+
+[Please contact me directly](http://aihr.us/contact-aihrus/).
+
+Beta testers benefit directly with latest versions, free access to Testimonials Widget Premium, and personal support assistance by me.
 
 == TODO ==
 
@@ -352,3 +372,4 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * Settings export/import
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)
 * [Fix cite tag usage - it's title not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)
+* Optionally disable quotation marks
