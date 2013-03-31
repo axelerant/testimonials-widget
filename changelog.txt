@@ -3,7 +3,10 @@
 == Changelog ==
 
 = trunk =
+
+= 2.10.3 =
 * Add "Menu Order" to Order By options
+* Add Height option to automatically set min and max height
 * BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
 * BUGFIX [Post Types Order](http://wordpress.org/support/topic/random-order-doesnt-work) - sorting conflict
 * Delete data on uninstall 
@@ -11,6 +14,7 @@
 * Flush URLs on deactivation 
 * Revise self::$base usage
 * Revise settings_link handling
+* Screenshot 16 Testimonials Widget Settings > Widget tab
 * Update Premium link
 * Update TODOs
 

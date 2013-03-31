@@ -73,6 +73,13 @@ class Testimonials_Widget_Settings {
 			'type'				=> 'checkbox',
 		);
 
+		self::$settings['height']	= array(
+			'section'			=> 'widget',
+			'title'   			=> __( 'Height', 'testimonials-widget' ),
+			'desc'				=> __( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
+			'validate'			=> 'absint',
+		);
+
 		self::$settings['min_height']	= array(
 			'section'			=> 'widget',
 			'title'   			=> __( 'Minimum Height', 'testimonials-widget' ),

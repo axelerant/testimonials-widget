@@ -4,7 +4,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.10.2
+Stable tag: 2.10.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,8 @@ In using Testimonials Widget Premium, you'll not be sorry.
 	* `limit` - default 10; limit=25
 * ORDER BY meta_key - Used when "Random Order" is disabled and sorting by a testimonials meta key is needed
 	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-location|testimonials-widget-url]; meta_key=testimonials-widget-company
+* Height - Testimonials height, in pixels. Overrides minimum and maximum height
+	* `height` - default none; height=300
 * Minimum Height - Set for minimum display height, in pixels
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
@@ -170,7 +172,6 @@ In using Testimonials Widget Premium, you'll not be sorry.
 = Shortcode Examples =
 
 * [testimonialswidget_list]
-	* [testimonialswidget_list]
 	* [testimonialswidget_list category=product hide_not_found=true]
 	* [testimonialswidget_list category=product tags=widget limit=5]
 	* [testimonialswidget_list char_limit=0 target=_new]
@@ -180,11 +181,12 @@ In using Testimonials Widget Premium, you'll not be sorry.
 	* [testimonialswidget_list order=ASC orderby=title]
 	* [testimonialswidget_list paging=true limit=25]
 	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
-* [testimonialswidget_widget]
-	* [testimonialswidget_widget]
-	* [testimonialswidget_widget category=product order=asc]
+	* [testimonialswidget_list]
+	* [testimonialswidget_widget category=product order=asc height=300]
 	* [testimonialswidget_widget min_height=250 max_height=500]
 	* [testimonialswidget_widget tags=sometag random=true]
+	* [testimonialswidget_widget]
+* [testimonialswidget_widget]
 
 = Theme Functions =
 
@@ -296,6 +298,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 13. Expanded 'Ordering Options' in Testimonials Widget options
 14. Testimonials Widget Settings > Selection tab
 15. Testimonials Widget Settings > Post Type tab
+16. Testimonials Widget Settings > Widget tab
 
 
 == Changelog ==
@@ -347,6 +350,5 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * BUG [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
 * Settings export/import
-* Single height option to automatically set min and max height
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)
 * [Fix cite tag usage - it's title not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)
