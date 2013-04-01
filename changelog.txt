@@ -6,6 +6,7 @@
 * Add location to meta_key ordering options
 * BUGFIX [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
 * Beta testers needed section added
+* Disable self-generated quotation marks
 * Enable backwards compatibility for default options
 * Revise README verbiage in general
 * Update TODOs

@@ -698,6 +698,7 @@ EOF;
 		$char_limit				= $atts['char_limit'];
 		$content_more			= apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
 		$content_more			.= self::$tag_close_quote;
+		$disable_quotes			= $atts['disable_quotes'];
 		$do_company				= ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
 		$do_content				= ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
@@ -746,7 +747,7 @@ EOF;
 		$quote					= '';
 		if ( $do_content ) {
 			$content			= $testimonial['testimonial_content'];
-			$content			= self::format_content( $content, $widget_number, $keep_whitespace );
+			$content			= self::format_content( $content, $widget_number, $atts );
 
 			if ( $char_limit ) {
 				$content		= self::testimonials_truncate( $content, $char_limit, ' ', $content_more );
@@ -864,6 +865,12 @@ EOF;
 									. $div_close;
 		
 		$html					= apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $bottom_text, $div_close );
+
+		// not done sooner as tag_close_quote is used for Premium
+		if ( $disable_quotes ) {
+			$html				= str_replace( self::$tag_open_quote, '', $html );
+			$html				= str_replace( self::$tag_close_quote, '', $html );
+		}
 
 		return $html;
 	}
@@ -998,12 +1005,15 @@ EOF;
 	}
 
 
-	public function format_content( $content, $widget_number, $keep_whitespace = false ) {
+	public function format_content( $content, $widget_number, $atts ) {
 		if ( empty ( $content ) )
 			return $content;
 
+		$keep_whitespace		= $atts['keep_whitespace'];
+
 		// wrap our own quote class around the content before any formatting 
 		// happens
+
 		$temp_content			= self::$tag_open_quote;
 		$temp_content			.= $content;
 		$temp_content			.= self::$tag_close_quote;

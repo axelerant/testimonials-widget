@@ -118,6 +118,12 @@ class Testimonials_Widget_Settings {
 			'validate'			=> 'absint',
 		);
 
+		self::$settings['disable_quotes']	= array(
+			'title'   			=> __( 'Hide built-in quotes?', 'testimonials-widget' ),
+			'desc'   			=> __( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+		);
+
 		self::$settings['hide_not_found']	= array(
 			'title'   			=> __( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
 			'type'				=> 'checkbox',

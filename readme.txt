@@ -80,6 +80,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Customizable archive and testimonial URLs
 * Customizeable testimonial data field `testimonial_extra`
 * Deletes testiomonials-widget custom post type entriess and settings on uninstall 
+* Disable self-generated quotation marks
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Flush URLs on deactivation 
@@ -111,6 +112,8 @@ General
 * Character Limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
+* Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
+	* `disable_quotes` - default false; disable_quotes=true
 * Hide "Testimonials Not Found"?
 	* `hide_not_found` - default show; hide_not_found=true
 * Hide Gravatar Image?
@@ -203,7 +206,7 @@ Compatibility & Reset
 [testimonialswidget_list]
 * [testimonialswidget_list category=product hide_not_found=true]
 * [testimonialswidget_list category=product tags=widget limit=5]
-* [testimonialswidget_list char_limit=0 target=_new]
+* [testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]
 * [testimonialswidget_list hide_source=true hide_url=true] 
 * [testimonialswidget_list ids="1,11,111" paging=false]
 * [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
@@ -395,7 +398,6 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* Optionally disable quotation marks
 * Settings export/import
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)
 * [Fix cite tag usage - it's title, not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)
