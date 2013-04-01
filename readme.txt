@@ -8,30 +8,30 @@ Stable tag: 2.10.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
 
 
 == Description ==
-Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
+Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
-More than one Testimonials Widget section can be displayed at a time. Each Testimonials Widget separately pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
+More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
 Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
 
-Single testimonial view supports image, source, title, location, email, company and URL details.
+The single testimonial view supports image, source, title, location, email, company and URL details.
 
 = Primary Features =
 
 * Admin interface to add, edit and manage testimonials
-* Capable of handling Multiple widgets per page or post
-* Fields for source, title, location, testimonial, email, company and URL details
-* Filters to manipulate testimonial layout and presentation
+* Capable of handling multiple widgets per page or post
+* Fields for source, testimonial, image, title, location, email, company and URL details
+* Filters to manipulate testimonials output
 * Multiple paging options for testimonials listings
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
-* Single testimonial view includes image, source, title, location,, email, company and URL details
+* Single testimonial view includes image, source, title, location, email, company and URL details
 * Testimonials archive view
 
 = Testimonials Widget Premium Plugin Features =
@@ -40,23 +40,27 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 
 In using Testimonials Widget Premium, you'll not be sorry.
 
+* "Read more" link column on testimonial posts admin page
 * Alternate destinations for "Read more" links
+* Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Default post author, category, and status options for user testimonial submissions
 * Deletes old and related testimonial cache entries automatically
 * Disable caching for widget, shortcode or theme functions
-* Ensure unique testimonial display per page
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
+* Plugin version tracking to ensure compatibility
+* Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
-* Select post, page and other custom post types for rotations
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
-* Settings screen for site-wide option defaults
-* Shortcodes and theme functions for testimonials count and testimonial link list
+* Select post, page and other custom post types for rotations
+* Settings and URL based cache clearing
+* Shortcodes and theme functions for testimonials count, testimonial link list, and user testimonial submission form
 * Show excerpts with list and single views
-* Testimonial list entries have alternating `.even` and `.odd` CSS classes for backgrounds and other styling
+* Show unique testmimonials on page with multiple testimonial instances
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/testimonials-widget-premium/) plugin for WordPress.
@@ -75,23 +79,22 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Custom widget bottom text
 * Customizable archive and testimonial URLs
 * Customizeable testimonial data field `testimonial_extra`
-* Deletes Testiomonials Widget custom post type and settings on uninstall 
+* Deletes testiomonials-widget custom post type entriess and settings on uninstall 
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Flush URLs on deactivation 
 * IE7 CSS hacks for quotes and join parts
-* Image, Gravatar, category and tag enabled
+* Image, email based Gravatar, category and tag enabled
 * Internal version tracking for compatiblity checks and automatic settings update
-* Localizable - see `languages/testimonials-widget.pot`
+* Localizable via `languages/testimonials-widget.pot`
 * Optional commenting on testimonial single-view pages
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
-* Scrolling testimonials for maximum height restricted widgets
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
-* Testimonial content and layout completely customizable via filters
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
 * Testimonials Widget widget displays static and rotating testimonials 
+* Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * URLs can be opened in new windows
 * Unique CSS class per widget
@@ -104,101 +107,118 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 = Shortcode and Widget Options =
 
-* Widget Title
-	* `title1 - default "Testimonials"
-* Title Link - URL or Post ID to link widget title to
-	* `title_link` - default none; title_link=123, title_link=http://example.com
-* Category Filter - Comma separated category slug-names
-	* `category` - default none; category=product or category="category-a, another-category"
+General
 * Character Limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
-* Exclude IDs Filter - Comma separated IDs
-	* `exclude` - default none; exclude=2 or exclude="2,4,6"
-* Hide Content?
-	* `hide_content` - default show; hide_content=true
-* Hide Company?
-	* `hide_company` - default show; hide_company=true
-* Hide Email?
-	* `hide_email` - default show; hide_email=true
+* Hide "Testimonials Not Found"?
+	* `hide_not_found` - default show; hide_not_found=true
 * Hide Gravatar Image?
 	* `hide_gravatar` - default show; hide_gravatar=true
 * Hide Image?
 	* `hide_image` - default show; hide_image=true
-* Hide "Testimonials Not Found"?
-	* `hide_not_found` - default show; hide_not_found=true
+* Hide Content?
+	* `hide_content` - default show; hide_content=true
 * Hide Author/Source? - Don't display "Post Title" in cite
 	* `hide_source` - default show; hide_source=true
+* Hide Email?
+	* `hide_email` - default show; hide_email=true
 * Hide Title?
 	* `hide_title` - default show; hide_title=true
 * Hide Location?
 	* `hide_location` - default show; hide_location=true
+* Hide Company?
+	* `hide_company` - default show; hide_company=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
-* Include IDs Filter - Comma separated IDs
-	* `ids` - default none; ids=2 or ids="2,4,6"
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
-	* `remove_hentry` - default none; remove_hentry=true
-* Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
-	* `keep_whitespace` - default none; keep_whitespace=true
-	* The citation has no whitespace adaptions. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
-* Limit - Number of testimonials to rotate through via widget or show at a time when listing
-	* `limit` - default 10; limit=25
-* ORDER BY meta_key - Used when "Random Order" is disabled and sorting by a testimonials meta key is needed
-	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-location|testimonials-widget-url]; meta_key=testimonials-widget-company
-* Height - Testimonials height, in pixels. Overrides minimum and maximum height
-	* `height` - default none; height=300
-* Minimum Height - Set for minimum display height, in pixels
-	* `min_height` - default none; min_height=100
-* Maximum Height - Set for maximum display height, in pixels
-	* `max_height` - default none; max_height=250
-* ORDER BY Order - DESC or ASC
-	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
-* ORDER BY - Used when Random order is disabled
-	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
+* URL Target - Adds target to all URLs; leave blank if none
+	* `target` - default none; target=_new
+* Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
+	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
 * Enable Paging - for [testimonialswidget_list]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
 		* `before` – display paging only before testimonial entries
 		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
-* Random Order? - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order. Widgets are random by default automatically
-	* `random` - default none; random=true (overrides `order` and `orderby`)
-	* Widget = default true
-* Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
-	* `refresh_interval` - default 5; refresh_interval=0
+
+Selection
+* Category Filter - Comma separated category slug-names
+	* `category` - default none; category=product or category="category-a, another-category"
 * Require All Tags - Select only testimonials with all of the given tags
 	* `tags_all` - default OR; tags_all=true
 * Tags Filter - Comma separated tag slug-names
 	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
-* URL Target - Adds target to all URLs; leave blank if none
-	* `target` - default none; target=_new
-* Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
-	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
+* Include IDs Filter - Comma separated IDs
+	* `ids` - default none; ids=2 or ids="2,4,6"
+* Exclude IDs Filter - Comma separated IDs
+	* `exclude` - default none; exclude=2 or exclude="2,4,6"
+* Limit - Number of testimonials to rotate through via widget or show at a time when listing
+	* `limit` - default 10; limit=25
+
+Ordering
+* Random Order? - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order. Widgets are random by default automatically
+	* `random` - default none; random=true (overrides `order` and `orderby`)
+	* Widget = default true
+* ORDER BY - Used when Random order is disabled
+	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
+* ORDER BY meta_key - Used when "Random Order" is disabled and sorting by a testimonials meta key is needed
+	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-location|testimonials-widget-url]; meta_key=testimonials-widget-company
+* ORDER BY Order - DESC or ASC
+	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
+
+Widget
+* Widget Title
+	* `title` - default "Testimonials"
+* Title Link - URL or Post ID to link widget title to
+	* `title_link` - default none; title_link=123, title_link=http://example.com
+* Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
+	* `keep_whitespace` - default none; keep_whitespace=true
+	* The citation has no whitespace adaptions. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
+* Height - Testimonials height, in pixels. Overrides minimum and maximum height
+	* `height` - default none; height=300
+* Minimum Height - Set for minimum display height, in pixels
+	* `min_height` - default none; min_height=100
+* Maximum Height - Set for maximum display height, in pixels
+	* `max_height` - default none; max_height=250
+* Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
+	* `refresh_interval` - default 5; refresh_interval=0
+
+= Other Options =
+
+Post Type
+* Allow Comments? –If checked, allows commenting on testimonial single-view pages
+* Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
+* Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
+
+Compatibility & Reset
+* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
+	* `remove_hentry` - default none; remove_hentry=true
+* Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
+	* `use_quote_tag` - default none; use_quote_tag=true
+* Reset to Defaults? – Check this box to reset options to their defaults
 
 = Shortcode Examples =
 
-* [testimonialswidget_list]
-	* [testimonialswidget_list category=product hide_not_found=true]
-	* [testimonialswidget_list category=product tags=widget limit=5]
-	* [testimonialswidget_list char_limit=0 target=_new]
-	* [testimonialswidget_list hide_source=true hide_url=true] 
-	* [testimonialswidget_list ids="1,11,111"]
-	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
-	* [testimonialswidget_list order=ASC orderby=title]
-	* [testimonialswidget_list paging=true limit=25]
-	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
-	* [testimonialswidget_list]
-	* [testimonialswidget_widget category=product order=asc height=300]
-	* [testimonialswidget_widget min_height=250 max_height=500]
-	* [testimonialswidget_widget tags=sometag random=true]
-	* [testimonialswidget_widget]
-* [testimonialswidget_widget]
+[testimonialswidget_list]
+* [testimonialswidget_list category=product hide_not_found=true]
+* [testimonialswidget_list category=product tags=widget limit=5]
+* [testimonialswidget_list char_limit=0 target=_new]
+* [testimonialswidget_list hide_source=true hide_url=true] 
+* [testimonialswidget_list ids="1,11,111" paging=false]
+* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+* [testimonialswidget_list order=ASC orderby=title]
+* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
+
+[testimonialswidget_widget]
+* [testimonialswidget_widget category=product order=asc height=300]
+* [testimonialswidget_widget min_height=250 max_height=500]
+* [testimonialswidget_widget tags=sometag random=true]
 
 = Theme Functions =
 
-* `testimonialswidget_list()` - Listings with paging 
-* `testimonialswidget_widget()` - Rotating
+* `testimonialswidget_list()` - Testimonials listing with paging 
+* `testimonialswidget_widget()` - Rotating testimonials
 
 = Filters =
 
@@ -243,6 +263,8 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) to the plugin author.
 
+See the FAQ for further localization tips.
+
 * Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
@@ -264,7 +286,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 So that others can share in the answer, please submit your support requests through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget).
 
-If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) $ 125 USD to cover my time. Then send your [support request](http://aihr.us/contact-aihrus/).
+If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) at least $ 65 USD to cover my time. Then send your [support request](http://aihr.us/contact-aihrus/).
 
 Thank you for your understanding.
 
@@ -273,22 +295,23 @@ Thank you for your understanding.
 
 1. Via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
 1. Alternately, via FTP, upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
-1. Activate the 'Testimonials Widget' plugin through WordPress Admin > Plugins
+1. Activate the 'Testimonials Widget' plugin after uploading or through WordPress Admin > Plugins
 
 = Usage =
+
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials Widget' into the desired widget area
 1. Configure the 'Testimonials Widget' to select quotes and display as needed
-1. Alternately, use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
-1. Alternately, read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
+1. Use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
+1. Read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
 
 
 == Frequently Asked Questions ==
 
 See [FAQ](http://aihr.us/testimonials-widget/faq/)
 
-
 = I'm still stuck, how can I get help? =
+
 Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question. Don't forget to include the URL of where to see the problem.
 
 
@@ -313,10 +336,14 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 
 
 == Changelog ==
+
 See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 
 == Upgrade Notice ==
+
+= 2.11.0 =
+* Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
 
 = 2.8.0 =
 * Deprecated
@@ -366,10 +393,9 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 == TODO ==
 
-Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [send along](http://aihr.us/contact-aihrus/) an [awesome testimonial](http://aihr.us/about-aihrus/testimonials/).
+Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* BUG [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
+* Optionally disable quotation marks
 * Settings export/import
 * [Add cite attribute to q/blockquote](http://www.w3schools.com/tags/att_blockquote_cite.asp)
-* [Fix cite tag usage - it's title not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)
-* Optionally disable quotation marks
+* [Fix cite tag usage - it's title, not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [footer](http://html5doctor.com/blockquote-q-cite/)

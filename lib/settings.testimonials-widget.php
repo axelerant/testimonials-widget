@@ -9,14 +9,18 @@ class Testimonials_Widget_Settings {
 	const id					= 'testimonialswidget_settings';
 
 	public static $default		= array(
+			'backwards' 			=> array(
+				'version'				=> '', // below this version number, use std
+				'std'					=> ''
+			),
+			'choices' 				=> array(), // key => value
+			'class'   				=> '',
+			'desc'    				=> '',
 			'id'      				=> 'default_field',
 			'section' 				=> 'general',
-			'title'   				=> '',
-			'desc'    				=> '',
-			'type'    				=> 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
-			'choices' 				=> array(), // key => value
 			'std'     				=> '', // default key or value
-			'class'   				=> '',
+			'title'   				=> '',
+			'type'    				=> 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
 			'validate'				=> '', // required, term, slug, slugs, ids, order, single paramater PHP functions
 			'widget'				=> 1, // show in widget options, 0 off
 	);
@@ -43,7 +47,7 @@ class Testimonials_Widget_Settings {
 		self::$sections['widget']		= __( 'Widget' , 'testimonials-widget');
 		// self::$sections['testing']	= __( 'Testing' , 'testimonials-widget');
 		self::$sections['post_type']	= __( 'Post Type' , 'testimonials-widget');
-		self::$sections['reset']		= __( 'Reset' , 'testimonials-widget');
+		self::$sections['reset']		= __( 'Compatibility & Reset' , 'testimonials-widget');
 		self::$sections['about']		= __( 'About Testimonials Widget' , 'testimonials-widget');
 
 		self::$sections			= apply_filters( 'testimonials_widget_sections', self::$sections );
@@ -193,12 +197,6 @@ class Testimonials_Widget_Settings {
 			'widget'			=> 0,
 		);
 
-		self::$settings['remove_hentry']	= array(
-			'title'   			=> __( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
-			'desc'   			=> __( 'Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
-			'type'				=> 'checkbox',
-		);
-
 		self::$settings['general_expand_end']	= array(
 			'type'				=> 'expand_end',
 		);
@@ -298,6 +296,7 @@ class Testimonials_Widget_Settings {
 				''								=> __( 'None' , 'testimonials-widget'),
 				'testimonials-widget-title' 	=> __( 'Title' , 'testimonials-widget'),
 				'testimonials-widget-email' 	=> __( 'Email' , 'testimonials-widget'),
+				'testimonials-widget-location' 	=> __( 'Location' , 'testimonials-widget'),
 				'testimonials-widget-company' 	=> __( 'Company' , 'testimonials-widget'),
 				'testimonials-widget-url' 		=> __( 'URL' , 'testimonials-widget'),
 			),
@@ -363,6 +362,34 @@ class Testimonials_Widget_Settings {
 		);
 
 		// Reset
+		self::$settings['reset_expand_begin']	= array(
+			'section'			=> 'reset',
+			'desc'				=> __( 'Compatiblity Options', 'testimonials-widget' ),
+			'type'				=> 'expand_begin',
+		);
+
+		self::$settings['remove_hentry']	= array(
+			'section'			=> 'reset',
+			'title'   			=> __( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
+			'desc'   			=> __( 'Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+			'backwards' 		=> array(
+				'version'			=> '2.6.4',
+				'std'				=> 1
+			),
+		);
+
+		self::$settings['use_quote_tag']	= array(
+			'section'			=> 'reset',
+			'title'   			=> __( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
+			'desc'   			=> __( 'Pre 2.11.0. Not HTML5 compliant', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+			'backwards' 		=> array(
+				'version'			=> '2.11.0',
+				'std'				=> 1
+			),
+		);
+
 		self::$settings['reset_defaults'] = array(
 			'section'			=> 'reset',
 			'title'				=> __( 'Reset to Defaults?' , 'testimonials-widget'),
@@ -370,6 +397,11 @@ class Testimonials_Widget_Settings {
 			'class'				=> 'warning', // Custom class for CSS
 			'desc'				=> __( 'Check this box to reset options to their defaults' , 'testimonials-widget'),
 			'widget'			=> 0,
+		);
+
+		self::$settings['reset_expand_end']	= array(
+			'section'			=> 'reset',
+			'type'				=> 'expand_end',
 		);
 
 		// Reference
@@ -431,12 +463,28 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public static function get_defaults() {
+	public static function get_defaults( $mode = null ) {
 		if ( empty( self::$defaults ) )
 			self::settings();
 
+		$do_backwards			= false;
+		if ( 'backwards' == $mode ) {
+			$old_version		= tw_get_option( 'version' );
+			if ( ! empty( $old_version ) )
+				$do_backwards	= true;
+		}
+
 		foreach ( self::$settings as $id => $parts ) {
-			self::$defaults[$id]	= isset( $parts[ 'std' ] ) ? $parts[ 'std' ] : '';
+			$std				= isset( $parts['std'] ) ? $parts['std'] : '';
+			if ( $do_backwards ) {
+				$version		= ! empty( $parts['backwards']['version'] ) ? $parts['backwards']['version'] : false;
+				if ( ! empty( $version ) ) {
+					if ( $old_version < $version )
+						$std	= $parts['backwards']['std'];
+				}
+			}
+			
+			self::$defaults[ $id ]	= $std;
 		}
 
 		return self::$defaults;
@@ -734,7 +782,7 @@ EOD;
 
 
 	public function initialize_settings() {
-		$defaults				= self::get_defaults();
+		$defaults				= self::get_defaults( 'backwards' );
 		$current				= get_option( self::id );
 		$current				= wp_parse_args( $current, $defaults );
 		$current['version']		= self::$version;

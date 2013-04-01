@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
-	Description: Testimonials Widget plugin allows you to display random or rotating portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+	Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
 	Version: 2.10.3
 	Author: Michael Cannon
 	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
@@ -708,6 +708,7 @@ EOF;
 		$do_url					= ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
 		$keep_whitespace		= $atts['keep_whitespace'];
 		$remove_hentry			= $atts['remove_hentry'];
+		$use_quote_tag			= $atts['use_quote_tag'];
 
 		$class					= 'testimonialswidget_testimonial';
 
@@ -755,9 +756,15 @@ EOF;
 			$content			= apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 			$content			= make_clickable( $content );
 
-			$quote				= '<q>';
-			$quote				.= $content;
-			$quote				.= '</q>';
+			if ( empty( $use_quote_tag ) ) {
+				$quote			= '<blockquote>';
+				$quote			.= $content;
+				$quote			.= '</blockquote>';
+			} else {
+				$quote			= '<q>';
+				$quote			.= $content;
+				$quote			.= '</q>';
+			}
 		}
 
 		$cite					= '';
@@ -822,8 +829,16 @@ EOF;
 			$cite				.= '</span>';
 		}
 
-		if ( ! empty( $cite ) )
-			$cite				= '<cite>' . $cite . '</cite>';
+		if ( ! empty( $cite ) ) {
+			if ( empty( $use_quote_tag ) ) {
+				$cite_new		= '<div class="testimonialswidget_attributes">';
+				$cite_new		.= $cite;
+				$cite_new		.= '</div>';
+				$cite			= $cite_new;
+			} else {
+				$cite			= '<cite>' . $cite . '</cite>';
+			}
+		}
 
 		$extra					= '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
@@ -877,8 +892,8 @@ EOF;
 	 * Truncate HTML, close opened tags. UTF-8 aware, and aware of unpaired tags
 	 * (which don't need a matching closing tag)
 	 *
-	 * @param int $max_length Maximum length of the characters of the string
 	 * @param string $html
+	 * @param int $max_length Maximum length of the characters of the string
 	 * @param string $indicator Suffix to use if string was truncated.
 	 * @param boolean $force_indicator Suffix to use if string was truncated.
 	 * @return string

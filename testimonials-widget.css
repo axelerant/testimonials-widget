@@ -35,7 +35,8 @@
 	float: initial;
 }
 
-.testimonialswidget_testimonial q {
+.testimonialswidget_testimonial q,
+.testimonialswidget_testimonial blockquote {
 	/* the testimonial itself */
 	quotes: none;
 }
@@ -56,23 +57,28 @@
 		content: '\201D';
 }
 
-.testimonialswidget_testimonial cite {
+.testimonialswidget_testimonial cite,
+.testimonialswidget_testimonial div.testimonialswidget_attributes {
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
 	margin-top: .2em;
 	text-align: right;
 }
 
-.widget .testimonialswidget_testimonial cite {
+.widget .testimonialswidget_testimonial cite,
+.widget .testimonialswidget_testimonial div.testimonialswidget_attributes {
 	margin-top: .8em;
 }
 
 .widget .testimonialswidget_testimonial .testimonialswidget_whitespace cite,
-.widget .testimonialswidget_whitespace cite {
+.widget .testimonialswidget_whitespace cite,
+.widget .testimonialswidget_testimonial .testimonialswidget_whitespace div.testimonialswidget_attributes,
+.widget .testimonialswidget_whitespace div.testimonialswidget_attributes {
 	margin-top: .2em;
 }
 
-.testimonialswidget_testimonial cite:before {
+.testimonialswidget_testimonial cite:before,
+.testimonialswidget_testimonial div.testimonialswidget_attributes:before {
 	content: "– "
 }
 
