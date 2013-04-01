@@ -1,4 +1,5 @@
 === Testimonials Widget ===
+
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
@@ -12,6 +13,7 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 
 == Description ==
+
 Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
 More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
@@ -111,6 +113,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 = Shortcode and Widget Options =
 
 General
+
 * Character Limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
@@ -148,6 +151,7 @@ General
 	* Widget - Not functional
 
 Selection
+
 * Category Filter - Comma separated category slug-names
 	* `category` - default none; category=product or category="category-a, another-category"
 * Require All Tags - Select only testimonials with all of the given tags
@@ -162,6 +166,7 @@ Selection
 	* `limit` - default 10; limit=25
 
 Ordering
+
 * Random Order? - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order. Widgets are random by default automatically
 	* `random` - default none; random=true (overrides `order` and `orderby`)
 	* Widget = default true
@@ -173,6 +178,7 @@ Ordering
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 
 Widget
+
 * Widget Title
 	* `title` - default "Testimonials"
 * Title Link - URL or Post ID to link widget title to
@@ -192,11 +198,13 @@ Widget
 = Other Options =
 
 Post Type
+
 * Allow Comments? –If checked, allows commenting on testimonial single-view pages
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
 Compatibility & Reset
+
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
 	* `remove_hentry` - default none; remove_hentry=true
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
@@ -206,6 +214,7 @@ Compatibility & Reset
 = Shortcode Examples =
 
 [testimonialswidget_list]
+
 * [testimonialswidget_list category=product hide_not_found=true]
 * [testimonialswidget_list category=product tags=widget limit=5]
 * [testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]
@@ -216,6 +225,7 @@ Compatibility & Reset
 * [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
 
 [testimonialswidget_widget]
+
 * [testimonialswidget_widget category=product order=asc height=300]
 * [testimonialswidget_widget min_height=250 max_height=500]
 * [testimonialswidget_widget tags=sometag random=true]
@@ -348,11 +358,13 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 == Upgrade Notice ==
 
 = 2.11.0 =
+
 * CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
 	* Ex: `.testimonialswidget_join` becomes `.join`
 * Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
 
 = 2.8.0 =
+
 * Deprecated
 	* `hide_author` now `hide_source`
 * Removed filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
@@ -360,17 +372,21 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 * Renamed variable and related class `widget_text` to `bottom_text`
 
 = 2.7.3 =
+
 * Quotes are no longer handled via `q`, `p:before`, or `p:after` CSS. It's handled via `.testimonialswidget_testimonial .testimonialswidget_open_quote:before` and `.testimonialswidget_testimonial .testimonialswidget_close_quote:after`
 * This change was made to keep consistency in how quotes were managed and to reduce the number of exception cases. In the end, this is simpler.
 
 = 2.7.0 =
+
 * Quotes with `keep_whitespace=true` aren't applied via CSS `.testimonialswidget_testimonial q` tag anymore, but `.testimonialswidget_testimonial q p:first-child:before` and `.testimonialswidget_testimonial q p:last-child:after`
 * Widget testimonial `p` tags are no longer CSS `display: inline`, `display: block` as expected
 
 = 2.4.1 =
+
 * Paging is on by default, except for widgets
 
 = 2.0.0 =
+
 * CSS
 	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
 	* Class `testimonialswidget_source` replaces `testimonialswidget_author`

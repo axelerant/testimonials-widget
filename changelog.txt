@@ -15,6 +15,7 @@
 * Update features listing
 * Update options listing
 * Update premium features
+* Update readme formatting
 
 = 2.10.3 =
 * Add "Menu Order" to Order By options
