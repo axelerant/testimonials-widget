@@ -45,8 +45,8 @@ class Testimonials_Widget {
 	public static $scripts			= array();
 	public static $scripts_called	= false;
 	public static $settings_link	= '';
-	public static $tag_close_quote	= '<span class="testimonialswidget_close_quote"></span>';
-	public static $tag_open_quote	= '<span class="testimonialswidget_open_quote"></span>';
+	public static $tag_close_quote	= '<span class="close_quote"></span>';
+	public static $tag_open_quote	= '<span class="open_quote"></span>';
 	public static $widget_number	= 100000;
 
 
@@ -606,13 +606,13 @@ EOF;
 <script type="text/javascript">
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
-		var active = jQuery('.{$id_base} .testimonialswidget_active');
-		var next = (jQuery('.{$id_base} .testimonialswidget_active').next().length > 0) ? jQuery('.{$id_base} .testimonialswidget_active').next() : jQuery('.{$id_base} .testimonialswidget_testimonial:first');
+		var active = jQuery('.{$id_base} .active');
+		var next = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonialswidget_testimonial:first');
 		active.fadeOut(1250, function(){
-			active.removeClass('testimonialswidget_active');
+			active.removeClass('active');
 			next.fadeIn(500);
-			next.removeClass('testimonialswidget_display_none');
-			next.addClass('testimonialswidget_active');
+			next.removeClass('display_none');
+			next.addClass('active');
 		});
 	}
 }
@@ -653,7 +653,7 @@ EOF;
 			$html				.= '<div class="' . $id;
 
 			if ( $is_list )
-				$html			.= ' ' . $id . '_list';
+				$html			.= ' listing';
 
 			$html				.= '">';
 		} else {
@@ -714,15 +714,15 @@ EOF;
 		$class					= 'testimonialswidget_testimonial';
 
 		if ( $is_list ) {
-			$class				.= ' testimonialswidget_testimonial_list';
+			$class				.= ' list';
 		} elseif ( $is_first ) {
-			$class				.= ' testimonialswidget_active';
+			$class				.= ' active';
 		} elseif ( ! $is_first ) {
-			$class				.= ' testimonialswidget_display_none';
+			$class				.= ' display_none';
 		}
 
 		if ( $keep_whitespace ) {
-			$class				.= ' testimonialswidget_whitespace';
+			$class				.= ' whitespace';
 		}
 
 		$div_open				= '<div class="';
@@ -739,7 +739,7 @@ EOF;
 
 		$image					= '';
 		if ( $do_image ) {
-			$image				.= '<span class="testimonialswidget_image">';
+			$image				.= '<span class="image">';
 			$image				.= $testimonial['testimonial_image'];
 			$image				.= '</span>';
 		}
@@ -794,48 +794,48 @@ EOF;
 		}
 
 		if ( $do_title && $cite )
-			$cite				.= '<span class="testimonialswidget_join_title"></span>';
+			$cite				.= '<span class="join_title"></span>';
 
 		if ( $do_title ) {
-			$cite				.= '<span class="testimonialswidget_title">';
+			$cite				.= '<span class="title">';
 			$cite				.= $testimonial['testimonial_title'];
 			$cite				.= '</span>';
 		}
 
 		if ( $do_location && $cite )
-			$cite				.= '<span class="testimonialswidget_join_location"></span>';
+			$cite				.= '<span class="join_location"></span>';
 
 		if ( $do_location ) {
-			$cite				.= '<span class="testimonialswidget_location">';
+			$cite				.= '<span class="location">';
 			$cite				.= $testimonial['testimonial_location'];
 			$cite				.= '</span>';
 		}
 
 		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite )
-			$cite				.= '<span class="testimonialswidget_join"></span>';
+			$cite				.= '<span class="join"></span>';
 
 		if ( $do_company && $do_url ) {
-			$cite				.= '<span class="testimonialswidget_company">';
+			$cite				.= '<span class="company">';
 			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
 			$cite				.= $testimonial['testimonial_company'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';
 		} elseif ( $do_company ) {
-			$cite				.= '<span class="testimonialswidget_company">';
+			$cite				.= '<span class="company">';
 			$cite				.= $testimonial['testimonial_company'];
 			$cite				.= '</span>';
 		} elseif ( $do_url && ! $done_url ) {
-			$cite				.= '<span class="testimonialswidget_url">';
+			$cite				.= '<span class="url">';
 			$cite				.= make_clickable( $testimonial['testimonial_url'] );
 			$cite				.= '</span>';
 		}
 
 		if ( ! empty( $cite ) ) {
 			if ( empty( $use_quote_tag ) ) {
-				$cite_new		= '<div class="testimonialswidget_attributes">';
-				$cite_new		.= $cite;
-				$cite_new		.= '</div>';
-				$cite			= $cite_new;
+				$temp			= '<div class="credit">';
+				$temp			.= $cite;
+				$temp			.= '</div>';
+				$cite			= $temp;
 			} else {
 				$cite			= '<cite>' . $cite . '</cite>';
 			}
@@ -843,14 +843,14 @@ EOF;
 
 		$extra					= '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
-			$extra				.= '<div class="testimonialswidget_extra">';
+			$extra				.= '<div class="extra">';
 			$extra				.= $testimonial['testimonial_extra'];
 			$extra				.= '</div>';
 		}
 
 		$bottom_text			= '';
 		if ( ! empty( $atts['bottom_text'] ) ) {
-			$bottom_text		= '<div class="testimonialswidget_bottom_text">';
+			$bottom_text		= '<div class="bottom_text">';
 			$bottom_text		.= $atts['bottom_text'];
 			$bottom_text		.= '</div>';
 		}
@@ -1047,7 +1047,7 @@ EOF;
 			return $html;
 		}
 
-		$html					.= '<div class="testimonialswidget_paging';
+		$html					.= '<div class="paging';
 
 		if ( $prepend ) {
 			$html				.= ' prepend';

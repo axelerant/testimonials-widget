@@ -8,7 +8,9 @@
 * Beta testers needed section added
 * Disable self-generated quotation marks
 * Enable backwards compatibility for default options
+* Rename CSS attributes to credit
 * Revise README verbiage in general
+* Simplify CSS naming
 * Update TODOs
 * Update features listing
 * Update options listing
