@@ -3,11 +3,17 @@
 == Changelog ==
 
 = trunk =
+* Add Option "Hide Image in Single View?" `hide_image_single`
+* Add `.author` and `.email` to CSS
+* Add `.single` to single view testimonials
 * Add location to meta_key ordering options
 * BUGFIX [Convert q tags to blockquote](http://wordpress.org/support/topic/open-link-in-new-tab-html-validation) [Why?](http://www.w3schools.com/tags/tag_blockquote.asp)
+* BUGFIX [Fix cite tag usage - it's title, not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [T](http://html5doctor.com/blockquote-q-cite/) [BD](http://oli.jp/2011/blockquote/)
 * Beta testers needed section added
 * Disable self-generated quotation marks
 * Enable backwards compatibility for default options
+* Ignore init() during AJAX and autosave operations
+* Optimize DB after uninstall
 * Rename CSS attributes to credit
 * Revise README verbiage in general
 * Simplify CSS naming

@@ -2,6 +2,12 @@
 	/* testimonials wrapper */
 }
 
+.testimonialswidget_testimonial {
+	clear: left;
+	display: none;
+	margin: 0 0 1.4em;
+}
+
 .testimonialswidget_testimonials .active {
 	/* active testimonials */
 	display: block;
@@ -18,13 +24,8 @@
 	height: 1.4em;
 }
 
-.testimonialswidget_testimonial {
-	clear: left;
-	display: none;
-	margin: 0 0 1.4em;
-}
-
-.testimonialswidget_testimonials .testimonialswidget_testimonial.list {
+.testimonialswidget_testimonial.list,
+.testimonialswidget_testimonial.single {
 	display: block;
 }
 
@@ -100,6 +101,8 @@
 	content: ", "
 }
 
+.testimonialswidget_testimonial .author,
+.testimonialswidget_testimonial .email,
 .testimonialswidget_testimonial .title,
 .testimonialswidget_testimonial .location,
 .testimonialswidget_testimonial .company,

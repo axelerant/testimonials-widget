@@ -125,6 +125,8 @@ General
 	* `hide_gravatar` - default show; hide_gravatar=true
 * Hide Image?
 	* `hide_image` - default show; hide_image=true
+* Hide Image in Single View?
+	* `hide_image_single` - default show; hide_image_single=true
 * Hide Content?
 	* `hide_content` - default show; hide_content=true
 * Hide Author/Source? - Don't display "Post Title" in cite
@@ -361,7 +363,9 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 * CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
 	* Ex: `.testimonialswidget_join` becomes `.join`
+	* Ex: `.testimonialswidget_author` becomes `.author`
 * Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
+	* `cite` is now `div.credit`
 
 = 2.8.0 =
 
@@ -419,4 +423,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
 * Settings export/import
-* [Fix cite tag usage - it's title, not source](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-cite-element) using [T](http://html5doctor.com/blockquote-q-cite/) [BD](http://oli.jp/2011/blockquote/)

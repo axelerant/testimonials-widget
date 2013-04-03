@@ -64,7 +64,8 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
-		self::$settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
+		if ( class_exists( 'Testimonials_Widget_Settings' ) )
+			self::$settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
 
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
@@ -80,6 +81,10 @@ class Testimonials_Widget {
 
 
 	public function init() {
+		if ( ( defined('DOING_AJAX') && DOING_AJAX ) || ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ) {
+			return;
+		}
+
 		require_once( 'lib/settings.testimonials-widget.php' );
 
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
@@ -160,10 +165,16 @@ class Testimonials_Widget {
 
 
 	public function uninstall() {
+		global $wpdb;
+
 		require_once( 'lib/settings.testimonials-widget.php' );
 
 		delete_option( Testimonials_Widget_Settings::id );
 		self::delete_testimonials();
+
+		$wpdb->query( "OPTIMIZE TABLE `" . $wpdb->options . "`" );
+		$wpdb->query( "OPTIMIZE TABLE `" . $wpdb->postmeta . "`" );
+		$wpdb->query( "OPTIMIZE TABLE `" . $wpdb->posts . "`" );
 	}
 
 
@@ -703,6 +714,7 @@ EOF;
 		$do_content				= ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
 		$do_email				= ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image				= ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
+		$do_image_single		= ! $atts['hide_image_single'];
 		$do_location			= ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
 		$do_source				= ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
 		$do_title				= ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
@@ -713,7 +725,9 @@ EOF;
 
 		$class					= 'testimonialswidget_testimonial';
 
-		if ( $is_list ) {
+		if ( is_single() && empty( $widget_number ) ) {
+			$class				.= ' single';
+		} elseif ( $is_list ) {
 			$class				.= ' list';
 		} elseif ( $is_first ) {
 			$class				.= ' active';
@@ -721,9 +735,8 @@ EOF;
 			$class				.= ' display_none';
 		}
 
-		if ( $keep_whitespace ) {
+		if ( $keep_whitespace )
 			$class				.= ' whitespace';
-		}
 
 		$div_open				= '<div class="';
 
@@ -742,6 +755,10 @@ EOF;
 			$image				.= '<span class="image">';
 			$image				.= $testimonial['testimonial_image'];
 			$image				.= '</span>';
+		}
+
+		if ( ! $do_image_single && 'get_single' == $atts['type'] ) {
+			$image				= '';
 		}
 
 		$quote					= '';
@@ -771,24 +788,24 @@ EOF;
 		$cite					= '';
 		$done_url				= false;
 		if ( $do_source && $do_email ) {
-			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= '<span class="author">';
 			$cite				.= '<a href="mailto:' . $testimonial['testimonial_email'] . '">';
 			$cite				.= $testimonial['testimonial_source'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';
 		} elseif ( $do_source && ! $do_company && $do_url ) {
-			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= '<span class="author">';
 			$cite				.= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
 			$cite				.= $testimonial['testimonial_source'];
 			$cite				.= '</a>';
 			$cite				.= '</span>';
 			$done_url			= true;
 		} elseif ( $do_source ) {
-			$cite				.= '<span class="testimonialswidget_author">';
+			$cite				.= '<span class="author">';
 			$cite				.= $testimonial['testimonial_source'];
 			$cite				.= '</span>';
 		} elseif ( $do_email ) {
-			$cite				.= '<span class="testimonialswidget_email">';
+			$cite				.= '<span class="email">';
 			$cite				.= make_clickable( $testimonial['testimonial_email'] );
 			$cite				.= '</span>';
 		}
@@ -856,6 +873,7 @@ EOF;
 		}
 
 		$div_close				= '</div>';
+
 		$html					= $div_open
 									. $image
 									. $quote

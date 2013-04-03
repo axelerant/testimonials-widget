@@ -139,6 +139,12 @@ class Testimonials_Widget_Settings {
 			'type'				=> 'checkbox',
 		);
 
+		self::$settings['hide_image_single']	= array(
+			'title'   			=> __( 'Hide Image in Single View?', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
+			'widget'			=> 0,
+		);
+
 		self::$settings['hide_content']	= array(
 			'title'   			=> __( 'Hide Testimonial Content?', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
