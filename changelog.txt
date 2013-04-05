@@ -17,6 +17,7 @@
 * Rename CSS attributes to credit
 * Revise README verbiage in general
 * Simplify CSS naming
+* Update Allow Comments verbiage
 * Update TODOs
 * Update features listing
 * Update options listing

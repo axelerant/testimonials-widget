@@ -201,7 +201,7 @@ Widget
 
 Post Type
 
-* Allow Comments? –If checked, allows commenting on testimonial single-view pages
+* Allow Comments? – Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 

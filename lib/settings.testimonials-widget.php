@@ -345,7 +345,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['allow_comments'] = array(
 			'section'			=> 'post_type',
 			'title'				=> __( 'Allow Comments?' , 'testimonials-widget'),
-			'desc'				=> __( 'If checked, allows commenting on testimonial single-view pages', 'testimonials-widget' ),
+			'desc'				=> __( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
 			'widget'			=> 0,
 		);
