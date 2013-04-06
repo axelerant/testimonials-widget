@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+
+= 2.11.0 =
 * Add Option "Hide Image in Single View?" `hide_image_single`
 * Add `.author` and `.email` to CSS
 * Add `.single` to single view testimonials

@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.10.3
+Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Default post author, category, and status options for user testimonial submissions
 * Deletes old and related testimonial cache entries automatically
 * Disable caching for widget, shortcode or theme functions
+* Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
