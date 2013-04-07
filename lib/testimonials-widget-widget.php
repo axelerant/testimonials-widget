@@ -1,5 +1,9 @@
 <?php
 
+
+require_once( WP_PLUGIN_DIR . '/testimonials-widget/lib/settings.testimonials-widget.php' );
+
+
 class Testimonials_Widget_Widget extends WP_Widget {
 	public function Testimonials_Widget_Widget() {
 		// Widget settings

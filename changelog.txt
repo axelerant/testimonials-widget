@@ -4,6 +4,9 @@
 
 = trunk =
 
+= 2.11.1 =
+* BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-testimonials_widget_settings)
+
 = 2.11.0 =
 * Add Option "Hide Image in Single View?" `hide_image_single`
 * Add `.author` and `.email` to CSS
