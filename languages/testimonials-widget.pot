@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials Widget 2.11.0\n"
+"Project-Id-Version: Testimonials Widget 2.11.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-04-06 19:38:06+00:00\n"
+"POT-Creation-Date: 2013-04-08 18:19:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -483,25 +483,25 @@ msgstr ""
 msgid "Required"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:8
+#: lib/testimonials-widget-widget.php:12
 msgid "Display testimonials with multiple selection and display options"
 msgstr ""
 
-#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.11.0)  #-#-#-#-#
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials Widget 2.11.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: lib/testimonials-widget-widget.php:19
+#: lib/testimonials-widget-widget.php:23
 msgid "Testimonials Widget"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:138
+#: lib/testimonials-widget-widget.php:142
 msgid "CSS Class"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:139
+#: lib/testimonials-widget-widget.php:143
 msgid "This widget's unique CSS class for styling"
 msgstr ""
 
-#: lib/testimonials-widget-widget.php:181
+#: lib/testimonials-widget-widget.php:185
 msgid "Expand/Collapse"
 msgstr ""
 

@@ -41,14 +41,14 @@ class Testimonials_Widget_Settings {
 
 
 	public static function sections() {
-		self::$sections['general']		= __( 'General' , 'testimonials-widget');
-		self::$sections['selection']	= __( 'Selection' , 'testimonials-widget');
-		self::$sections['ordering']		= __( 'Ordering' , 'testimonials-widget');
-		self::$sections['widget']		= __( 'Widget' , 'testimonials-widget');
-		// self::$sections['testing']	= __( 'Testing' , 'testimonials-widget');
-		self::$sections['post_type']	= __( 'Post Type' , 'testimonials-widget');
-		self::$sections['reset']		= __( 'Compatibility & Reset' , 'testimonials-widget');
-		self::$sections['about']		= __( 'About Testimonials Widget' , 'testimonials-widget');
+		self::$sections['general']		= __( 'General', 'testimonials-widget' );
+		self::$sections['selection']	= __( 'Selection', 'testimonials-widget' );
+		self::$sections['ordering']		= __( 'Ordering', 'testimonials-widget' );
+		self::$sections['widget']		= __( 'Widget', 'testimonials-widget' );
+		// self::$sections['testing']	= __( 'Testing', 'testimonials-widget' );
+		self::$sections['post_type']	= __( 'Post Type', 'testimonials-widget' );
+		self::$sections['reset']		= __( 'Compatibility & Reset', 'testimonials-widget' );
+		self::$sections['about']		= __( 'About Testimonials Widget', 'testimonials-widget' );
 
 		self::$sections			= apply_filters( 'testimonials_widget_sections', self::$sections );
 	}
@@ -305,12 +305,12 @@ class Testimonials_Widget_Settings {
 			'desc'				=> __( 'Used when "Random Order" is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY', 'testimonials-widget' ),
 			'type'    			=> 'select',
 			'choices'			=> array(
-				''								=> __( 'None' , 'testimonials-widget'),
-				'testimonials-widget-title' 	=> __( 'Title' , 'testimonials-widget'),
-				'testimonials-widget-email' 	=> __( 'Email' , 'testimonials-widget'),
-				'testimonials-widget-location' 	=> __( 'Location' , 'testimonials-widget'),
-				'testimonials-widget-company' 	=> __( 'Company' , 'testimonials-widget'),
-				'testimonials-widget-url' 		=> __( 'URL' , 'testimonials-widget'),
+				''								=> __( 'None', 'testimonials-widget' ),
+				'testimonials-widget-title' 	=> __( 'Title', 'testimonials-widget' ),
+				'testimonials-widget-email' 	=> __( 'Email', 'testimonials-widget' ),
+				'testimonials-widget-location' 	=> __( 'Location', 'testimonials-widget' ),
+				'testimonials-widget-company' 	=> __( 'Company', 'testimonials-widget' ),
+				'testimonials-widget-url' 		=> __( 'URL', 'testimonials-widget' ),
 			),
 			'validate'			=> 'slug',
 		);
@@ -335,7 +335,7 @@ class Testimonials_Widget_Settings {
 		// Debug
 		self::$settings['debug_mode'] = array(
 			'section'			=> 'testing',
-			'title'				=> __( 'Debug Mode?' , 'testimonials-widget'),
+			'title'				=> __( 'Debug Mode?', 'testimonials-widget' ),
 			'desc'				=> __( 'Not implemented yet', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
 			'widget'			=> 0,
@@ -344,7 +344,7 @@ class Testimonials_Widget_Settings {
 		// Post Type
 		self::$settings['allow_comments'] = array(
 			'section'			=> 'post_type',
-			'title'				=> __( 'Allow Comments?' , 'testimonials-widget'),
+			'title'				=> __( 'Allow Comments?', 'testimonials-widget' ),
 			'desc'				=> __( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
 			'widget'			=> 0,
@@ -356,7 +356,7 @@ class Testimonials_Widget_Settings {
 		$url					= admin_url( 'options-permalink.php' );
 		self::$settings['has_archive'] = array(
 			'section'			=> 'post_type',
-			'title'				=> __( 'Archive Page URL' , 'testimonials-widget'),
+			'title'				=> __( 'Archive Page URL', 'testimonials-widget' ),
 			'desc'				=> sprintf( $desc, $site_url, $url ),
 			'std'				=> 'testimonials',
 			'validate'			=> 'sanitize_title',
@@ -366,7 +366,7 @@ class Testimonials_Widget_Settings {
 		$desc					= __( 'URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on <a href="%1s">Permalink Settings</a> to update them.', 'testimonials-widget' );
 		self::$settings['rewrite_slug'] = array(
 			'section'			=> 'post_type',
-			'title'				=> __( 'Testimonial Page URL' , 'testimonials-widget'),
+			'title'				=> __( 'Testimonial Page URL', 'testimonials-widget' ),
 			'desc'				=> sprintf( $desc, $url ),
 			'std'				=> 'testimonial',
 			'validate'			=> 'sanitize_title',
@@ -404,10 +404,10 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['reset_defaults'] = array(
 			'section'			=> 'reset',
-			'title'				=> __( 'Reset to Defaults?' , 'testimonials-widget'),
+			'title'				=> __( 'Reset to Defaults?', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
 			'class'				=> 'warning', // Custom class for CSS
-			'desc'				=> __( 'Check this box to reset options to their defaults' , 'testimonials-widget'),
+			'desc'				=> __( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
 			'widget'			=> 0,
 		);
 
@@ -419,21 +419,21 @@ class Testimonials_Widget_Settings {
 		// Reference
 		if ( false ) {
 		self::$settings['example_text'] = array(
-			'title'				=> __( 'Example Text Input' , 'testimonials-widget'),
-			'desc'				=> __( 'This is a description for the text input.' , 'testimonials-widget'),
+			'title'				=> __( 'Example Text Input', 'testimonials-widget' ),
+			'desc'				=> __( 'This is a description for the text input.', 'testimonials-widget' ),
 			'std'				=> 'Default value',
 		);
 
 		self::$settings['example_textarea'] = array(
-			'title'				=> __( 'Example Textarea Input' , 'testimonials-widget'),
-			'desc'				=> __( 'This is a description for the textarea input.' , 'testimonials-widget'),
+			'title'				=> __( 'Example Textarea Input', 'testimonials-widget' ),
+			'desc'				=> __( 'This is a description for the textarea input.', 'testimonials-widget' ),
 			'std'				=> 'Default value',
 			'type'				=> 'textarea',
 		);
 
 		self::$settings['example_checkbox'] = array(
-			'title'				=> __( 'Example Checkbox' , 'testimonials-widget'),
-			'desc'				=> __( 'This is a description for the checkbox.' , 'testimonials-widget'),
+			'title'				=> __( 'Example Checkbox', 'testimonials-widget' ),
+			'desc'				=> __( 'This is a description for the checkbox.', 'testimonials-widget' ),
 			'type'				=> 'checkbox',
 			'std'				=> 1 // Set to 1 to be checked by default, 0 to be unchecked by default.
 		);
@@ -445,8 +445,8 @@ class Testimonials_Widget_Settings {
 		);
 
 		self::$settings['example_radio'] = array(
-			'title'				=> __( 'Example Radio' , 'testimonials-widget'),
-			'desc'				=> __( 'This is a description for the radio buttons.' , 'testimonials-widget'),
+			'title'				=> __( 'Example Radio', 'testimonials-widget' ),
+			'desc'				=> __( 'This is a description for the radio buttons.', 'testimonials-widget' ),
 			'type'				=> 'radio',
 			'choices'			=> array(
 				'choice1'			=> 'Choice 1',
@@ -456,8 +456,8 @@ class Testimonials_Widget_Settings {
 		);
 
 		self::$settings['example_select'] = array(
-			'title'				=> __( 'Example Select' , 'testimonials-widget'),
-			'desc'				=> __( 'This is a description for the drop-down.' , 'testimonials-widget'),
+			'title'				=> __( 'Example Select', 'testimonials-widget' ),
+			'desc'				=> __( 'This is a description for the drop-down.', 'testimonials-widget' ),
 			'type'				=> 'select',
 			'choices'			=> array(
 				'choice1'			=> 'Other Choice 1',
@@ -556,7 +556,7 @@ class Testimonials_Widget_Settings {
 	public function display_page() {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
-			<h2>' . __( 'Testimonials Widget Settings' , 'testimonials-widget') . '</h2>';
+			<h2>' . __( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
 		echo '<form action="options.php" method="post">';
 
@@ -575,7 +575,7 @@ class Testimonials_Widget_Settings {
 		echo '</div>';
 
 		echo '
-			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes' , 'testimonials-widget') . '" /></p>
+			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes', 'testimonials-widget' ) . '" /></p>
 		</form>
 		';
 
@@ -586,7 +586,7 @@ class Testimonials_Widget_Settings {
 			<p>If you like this plugin, <a href="http://aihr.us/about-aihrus/donate/" title="Donate for Good Karma">please donate</a> or <a href="http://aihr.us/testimonials-widget-premium/" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="http://wordpress.org/support/plugin/testimonials-widget" title="Support forums">support</a>.</p>
 		';
 
-		$text					= __( 'Copyright &copy;%1$s %2$s.' , 'testimonials-widget');
+		$text					= __( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
 		$link					= '<a href="http://aihr.us">Aihrus</a>';
 		$copyright				= '<div class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</div>';
 		echo $copyright;
@@ -896,7 +896,7 @@ EOD;
 
 					case 'required':
 						if ( empty( $input[ $id ] ) ) {
-							$errors[ $id ]	= __( 'Required' );
+							$errors[ $id ]	= __( 'Required', 'testimonials-widget' );
 							break 2;
 						}
 						break;

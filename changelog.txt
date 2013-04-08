@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Update text domain for localization and POT
 
 = 2.11.1 =
 * BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-testimonials_widget_settings)
