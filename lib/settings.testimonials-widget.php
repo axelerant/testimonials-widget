@@ -70,11 +70,11 @@ class Testimonials_Widget_Settings {
 			'validate'			=> 'wp_kses_data',
 		);
 
-		self::$settings['keep_whitespace']	= array(
+		self::$settings['char_limit']	= array(
 			'section'			=> 'widget',
-			'title'   			=> __( 'Keep Whitespace?', 'testimonials-widget' ),
-			'desc'    			=> __( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
-			'type'				=> 'checkbox',
+			'title'   			=> __( 'Character Limit', 'testimonials-widget' ),
+			'desc'				=> __( 'Number of characters to limit non-single testimonial views to', 'testimonials-widget' ),
+			'validate'			=> 'absint',
 		);
 
 		self::$settings['height']	= array(
@@ -82,6 +82,27 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
 			'validate'			=> 'absint',
+		);
+
+		self::$settings['refresh_interval']	= array(
+			'section'			=> 'widget',
+			'title'   			=> __( 'Rotation Speed', 'testimonials-widget' ),
+			'desc'				=> __( 'Number of seconds between testimonial rotations or 0 for no rotation at all refresh', 'testimonials-widget' ),
+			'std'				=> 5,
+			'validate'			=> 'absint',
+		);
+
+		self::$settings['widget_expand_begin']	= array(
+			'section'			=> 'widget',
+			'desc'				=> __( 'Additional Widget Options', 'testimonials-widget' ),
+			'type'				=> 'expand_begin',
+		);
+
+		self::$settings['keep_whitespace']	= array(
+			'section'			=> 'widget',
+			'title'   			=> __( 'Keep Whitespace?', 'testimonials-widget' ),
+			'desc'    			=> __( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
+			'type'				=> 'checkbox',
 		);
 
 		self::$settings['min_height']	= array(
@@ -98,24 +119,23 @@ class Testimonials_Widget_Settings {
 			'validate'			=> 'absint',
 		);
 
-		self::$settings['refresh_interval']	= array(
+		self::$settings['bottom_text']	= array(
 			'section'			=> 'widget',
-			'title'   			=> __( 'Rotation Speed', 'testimonials-widget' ),
-			'desc'				=> __( 'Number of seconds between testimonial rotations or 0 for no rotation at all refresh', 'testimonials-widget' ),
-			'std'				=> 5,
-			'validate'			=> 'absint',
+			'title'   			=> __( 'Testimonial Bottom Text', 'testimonials-widget' ),
+			'desc'				=> __( 'Custom text or HTML for bottom of testimonials', 'testimonials-widget' ),
+			'type'    			=> 'textarea',
+			'validate'    		=> 'wp_kses_post',
+		);
+
+		self::$settings['widget_expand_end']	= array(
+			'section'			=> 'widget',
+			'type'				=> 'expand_end',
 		);
 
 		// General
 		self::$settings['general_expand_begin']	= array(
 			'desc'				=> __( 'General Options', 'testimonials-widget' ),
 			'type'				=> 'expand_begin',
-		);
-
-		self::$settings['char_limit']	= array(
-			'title'   			=> __( 'Character Limit', 'testimonials-widget' ),
-			'desc'				=> __( 'Number of characters to limit non-single testimonial views to', 'testimonials-widget' ),
-			'validate'			=> 'absint',
 		);
 
 		self::$settings['disable_quotes']	= array(
@@ -186,13 +206,6 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'URL Target', 'testimonials-widget' ),
 			'desc'				=> __( 'Adds target to all URLs; leave blank if none', 'testimonials-widget' ),
 			'validate'			=> 'term',
-		);
-
-		self::$settings['bottom_text']	= array(
-			'title'   			=> __( 'Testimonial Bottom Text', 'testimonials-widget' ),
-			'desc'				=> __( 'Custom text or HTML for bottom of testimonials', 'testimonials-widget' ),
-			'type'    			=> 'textarea',
-			'validate'    		=> 'wp_kses_post',
 		);
 
 		self::$settings['paging']	= array(
@@ -886,6 +899,14 @@ EOD;
 			if ( ! empty( $validations ) ) {
 				foreach ( $validations as $validate ) {
 					switch( $validate ) {
+					case 'absint':
+					case 'intval':
+						if ( '' != $input[ $id ] )
+							$input[ $id ]	= $validate( $input[ $id ] );
+						else
+							$input[ $id ]	= $default;
+						break;
+
 					case 'ids':
 						$input[ $id ]	= self::validate_ids( $input[ $id ], $default );
 						break;

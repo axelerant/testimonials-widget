@@ -3,7 +3,12 @@
 == Changelog ==
 
 = trunk =
+* Always include settings class
+* Move lesser used widget options to expandable Additional Widget Options section
+* Revise `absint` and `intval` validation to default on blank entry
+* Update TODO
 * Update text domain for localization and POT
+* Use `links_add_target` for widget title link
 
 = 2.11.1 =
 * BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-testimonials_widget_settings)

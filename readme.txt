@@ -423,4 +423,7 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
+* Add http protocol to URLs on validation
+* Add notice about deleting data and settings on uninstall
 * Settings export/import
+* Show changelog on update

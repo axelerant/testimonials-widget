@@ -27,6 +27,9 @@
  */
 
 
+require_once( 'lib/settings.testimonials-widget.php' );
+
+
 class Testimonials_Widget {
 	const id					= 'testimonialswidget_testimonials';
 	const old_name				= 'testimonialswidget';
@@ -84,8 +87,6 @@ class Testimonials_Widget {
 		if ( ( defined('DOING_AJAX') && DOING_AJAX ) || ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ) {
 			return;
 		}
-
-		require_once( 'lib/settings.testimonials-widget.php' );
 
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base  			= plugin_basename( __FILE__ );
@@ -154,7 +155,10 @@ class Testimonials_Widget {
 
 
 	public function activation() {
+		// fixme
+		// add_action( 'admin_notices', array( 'Testimonials_Widget', 'notice_uninstall' ) );
 		self::init();
+
 		flush_rewrite_rules();
 	}
 
@@ -164,10 +168,18 @@ class Testimonials_Widget {
 	}
 
 
+	function notice_uninstall() {
+		$content				= '';
+		$content				.= '<div class="error"><p>';
+		$content				.= __( 'Deleting Testimonials Widget plugin will remove all data and settings.', 'testimonials-widget' );
+		$content				.= '</p></div>';
+
+		echo $content;
+	}
+
+
 	public function uninstall() {
 		global $wpdb;
-
-		require_once( 'lib/settings.testimonials-widget.php' );
 
 		delete_option( Testimonials_Widget_Settings::id );
 		self::delete_testimonials();
