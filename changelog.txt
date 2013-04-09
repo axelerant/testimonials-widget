@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Bold option headers
 
 = 2.11.2 =
 * Add `min1` and `nozero` validation

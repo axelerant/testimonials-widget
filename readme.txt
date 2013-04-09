@@ -113,7 +113,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 = Shortcode and Widget Options =
 
-General
+**General**
 
 * Character Limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
@@ -153,7 +153,7 @@ General
 		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
 
-Selection
+**Selection**
 
 * Category Filter - Comma separated category slug-names
 	* `category` - default none; category=product or category="category-a, another-category"
@@ -168,7 +168,7 @@ Selection
 * Limit - Number of testimonials to rotate through via widget or show at a time when listing
 	* `limit` - default 10; limit=25
 
-Ordering
+**Ordering**
 
 * Random Order? - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order. Widgets are random by default automatically
 	* `random` - default none; random=true (overrides `order` and `orderby`)
@@ -180,7 +180,7 @@ Ordering
 * ORDER BY Order - DESC or ASC
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 
-Widget
+**Widget**
 
 * Widget Title
 	* `title` - default "Testimonials"
@@ -200,13 +200,13 @@ Widget
 
 = Other Options =
 
-Post Type
+**Post Type**
 
 * Allow Comments? – Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
-Compatibility & Reset
+**Compatibility & Reset**
 
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
 	* `remove_hentry` - default none; remove_hentry=true
