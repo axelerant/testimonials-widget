@@ -3,9 +3,13 @@
 == Changelog ==
 
 = trunk =
+* Add `min1` and `nozero` validation
 * Always include settings class
+* BUGFIX Don't prepend http to email addresses
 * Move lesser used widget options to expandable Additional Widget Options section
+* Move settings setup to `init`
 * Revise `absint` and `intval` validation to default on blank entry
+* Update POT
 * Update TODO
 * Update text domain for localization and POT
 * Use `links_add_target` for widget title link

@@ -31,12 +31,16 @@ class Testimonials_Widget_Settings {
 
 
 	public function __construct() {
-		self::sections();
-		self::settings();
-
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
+		add_action( 'init', array( &$this, 'init' ) );
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
+	}
+
+
+	public function init() {
+		self::sections();
+		self::settings();
 	}
 
 
@@ -81,7 +85,7 @@ class Testimonials_Widget_Settings {
 			'section'			=> 'widget',
 			'title'   			=> __( 'Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
-			'validate'			=> 'absint',
+			'validate'			=> 'min1',
 		);
 
 		self::$settings['refresh_interval']	= array(
@@ -109,14 +113,14 @@ class Testimonials_Widget_Settings {
 			'section'			=> 'widget',
 			'title'   			=> __( 'Minimum Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Set for minimum display height, in pixels', 'testimonials-widget' ),
-			'validate'			=> 'absint',
+			'validate'			=> 'min1',
 		);
 
 		self::$settings['max_height']	= array(
 			'section'			=> 'widget',
 			'title'   			=> __( 'Maximum Height', 'testimonials-widget' ),
 			'desc'				=> __( 'Set for maximum display height, in pixels', 'testimonials-widget' ),
-			'validate'			=> 'absint',
+			'validate'			=> 'min1',
 		);
 
 		self::$settings['bottom_text']	= array(
@@ -273,7 +277,7 @@ class Testimonials_Widget_Settings {
 			'title'   			=> __( 'Limit', 'testimonials-widget' ),
 			'desc'				=> __( 'Number of testimonials to select per instance', 'testimonials-widget' ),
 			'std'				=> 10,
-			'validate'			=> 'intval',
+			'validate'			=> 'nozero',
 		);
 
 		self::$settings['selection_expand_end']	= array(
@@ -909,6 +913,18 @@ EOD;
 
 					case 'ids':
 						$input[ $id ]	= self::validate_ids( $input[ $id ], $default );
+						break;
+
+					case 'min1':
+						$input[ $id ]		= intval( $input[ $id ] );
+						if ( 0 >= $input[ $id ] )
+							$input[ $id ]	= $default;
+						break;
+
+					case 'nozero':
+						$input[ $id ]		= intval( $input[ $id ] );
+						if ( 0 === $input[ $id ] )
+							$input[ $id ]	= $default;
 						break;
 
 					case 'order':

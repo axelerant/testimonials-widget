@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 	Plugin Name: Testimonials Widget
 	Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
 	Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
@@ -8,8 +8,7 @@
 	Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
 	License: GPLv2 or later
  */
-
-/*
+/**
 	Copyright 2013 Michael Cannon (email: mc@aihr.us)
 
 	This program is free software; you can redistribute it and/or modify
@@ -40,7 +39,7 @@ class Testimonials_Widget {
 	private $post_count			= 0;
 	private $wp_query			= null;
 
-	private static $base;
+	private static $base		= null;
 
 	public static $css				= array();
 	public static $css_called		= false;
@@ -56,7 +55,7 @@ class Testimonials_Widget {
 	public function __construct() {
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 		add_action( 'init', array( &$this, 'init' ) );
-		add_action( 'widgets_init', array( &$this, 'init_widgets' ) );
+		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		load_plugin_textdomain( self::pt, false, 'testimonials-widget/languages' );
@@ -67,8 +66,7 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
-		if ( class_exists( 'Testimonials_Widget_Settings' ) )
-			self::$settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
+		self::$settings_link	= '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::pt . '&page=' . Testimonials_Widget_Settings::id . '">' . __('Settings', 'testimonials-widget') . '</a>';
 
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
@@ -362,7 +360,7 @@ class Testimonials_Widget {
 		case 'testimonials-widget-email':
 		case 'testimonials-widget-url':
 			$url				= get_post_meta( $post_id, $column, true );
-			if ( ! empty( $url ) && 0 === preg_match( "#https?://#", $url ) ) {
+			if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( "#https?://#", $url ) ) {
 				$url			= 'http://' . $url;
 			}
 
@@ -1315,7 +1313,7 @@ EOF;
 	}
 
 
-	public function init_widgets() {
+	public function widgets_init() {
 		require_once 'lib/testimonials-widget-widget.php';
 
 		register_widget( 'Testimonials_Widget_Widget' );
