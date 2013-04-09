@@ -4,6 +4,7 @@
 
 = trunk =
 * Bold option headers
+* Change `has_archive` default from `testimonials` to `testimonials-archive`
 
 = 2.11.2 =
 * Add `min1` and `nozero` validation

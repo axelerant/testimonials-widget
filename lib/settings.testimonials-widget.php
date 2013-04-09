@@ -375,7 +375,7 @@ class Testimonials_Widget_Settings {
 			'section'			=> 'post_type',
 			'title'				=> __( 'Archive Page URL', 'testimonials-widget' ),
 			'desc'				=> sprintf( $desc, $site_url, $url ),
-			'std'				=> 'testimonials',
+			'std'				=> 'testimonials-archive',
 			'validate'			=> 'sanitize_title',
 			'widget'			=> 0,
 		);
