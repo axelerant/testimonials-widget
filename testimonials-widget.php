@@ -82,10 +82,6 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		if ( ( defined('DOING_AJAX') && DOING_AJAX ) || ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ) {
-			return;
-		}
-
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base  			= plugin_basename( __FILE__ );
 		self::init_post_type();

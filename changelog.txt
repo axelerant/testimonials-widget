@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* BUGFIX [Can't set featured image](http://wordpress.org/support/topic/cant-set-featured-image-3)
 * Bold option headers
 * Change `has_archive` default from `testimonials` to `testimonials-archive`
 
