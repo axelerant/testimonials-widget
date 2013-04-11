@@ -6,6 +6,8 @@
 * BUGFIX [Can't set featured image](http://wordpress.org/support/topic/cant-set-featured-image-3)
 * Bold option headers
 * Change `has_archive` default from `testimonials` to `testimonials-archive`
+* Clean up static method calls to prevent PHP Strict notices
+* Secure activation, deactivation, uninstall operations
 
 = 2.11.2 =
 * Add `min1` and `nozero` validation

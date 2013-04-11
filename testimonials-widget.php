@@ -35,11 +35,10 @@ class Testimonials_Widget {
 	const pt					= 'testimonials-widget';
 	const version				= '2.11.2';
 
-	private $max_num_pages		= 0;
-	private $post_count			= 0;
-	private $wp_query			= null;
-
-	private static $base		= null;
+	private static $base			= null;
+	private static $max_num_pages	= 0;
+	private static $post_count		= 0;
+	private static $wp_query		= null;
 
 	public static $css				= array();
 	public static $css_called		= false;
@@ -98,17 +97,17 @@ class Testimonials_Widget {
 	}
 
 
-	public function get_instance() {
+	public static function get_instance() {
 		return self::$instance_number;
 	}
 
 
-	public function add_instance() {
+	public static function add_instance() {
 		self::$instance_number++;
 	}
 
 
-	public function support_thumbnails() {
+	public static function support_thumbnails() {
 		$feature				= 'post-thumbnails';
 		$feature_level			= get_theme_support( $feature );
 
@@ -149,6 +148,12 @@ class Testimonials_Widget {
 
 
 	public function activation() {
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+
+		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+		check_admin_referer( "activate-plugin_{$plugin}" );
+
 		// fixme
 		// add_action( 'admin_notices', array( 'Testimonials_Widget', 'notice_uninstall' ) );
 		self::init();
@@ -158,6 +163,12 @@ class Testimonials_Widget {
 
 
 	public function deactivation() {
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+
+		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
+		check_admin_referer( "deactivate-plugin_{$plugin}" );
+
 		flush_rewrite_rules();
 	}
 
@@ -173,6 +184,14 @@ class Testimonials_Widget {
 
 
 	public function uninstall() {
+		if ( ! current_user_can( 'activate_plugins' ) )
+			return;
+
+		if ( __FILE__ != WP_UNINSTALL_PLUGIN )
+			return;
+
+		check_admin_referer( 'bulk-plugins' );
+
 		global $wpdb;
 
 		delete_option( Testimonials_Widget_Settings::id );
@@ -465,7 +484,7 @@ class Testimonials_Widget {
 	}
 
 
-	public function get_defaults( $single_view = false ) {
+	public static function get_defaults( $single_view = false ) {
 		if ( empty( $single_view ) ) {
 			return apply_filters( 'testimonials_widget_defaults', tw_get_options() );
 		} else {
@@ -502,7 +521,7 @@ class Testimonials_Widget {
 	}
 
 
-	public function testimonialswidget_widget( $atts, $widget_number = null ) {
+	public static function testimonialswidget_widget( $atts, $widget_number = null ) {
 		self::add_instance();
 		self::scripts();
 
@@ -539,7 +558,7 @@ class Testimonials_Widget {
 
 		if ( ! empty( $css ) ) {
 			self::$css			= array_merge( $css, self::$css );
-			add_action( 'wp_footer', array( &$this, 'get_testimonials_css' ), 20 );
+			add_action( 'wp_footer', array( 'Testimonials_Widget', 'get_testimonials_css' ), 20 );
 		}
 
 		// Generate JS
@@ -553,25 +572,25 @@ class Testimonials_Widget {
 
 		if ( ! empty( $js ) ) {
 			self::$scripts		= array_merge( $js, self::$scripts );
-			add_action( 'wp_footer', array( &$this, 'get_testimonials_scripts' ), 20 );
+			add_action( 'wp_footer', array( 'Testimonials_Widget', 'get_testimonials_scripts' ), 20 );
 		}
 
 		return $content;
 	}
 
 
-	public function scripts() {
+	public static function scripts() {
 		wp_enqueue_script( 'jquery' );
 	}
 
 
-	public function styles() {
+	public static function styles() {
 		wp_register_style( 'testimonials-widget', plugins_url( 'testimonials-widget.css', __FILE__ ) );
 		wp_enqueue_style( 'testimonials-widget' );
 	}
 
 
-	public function get_testimonials_html_css( $atts, $widget_number = null ) {
+	public static function get_testimonials_html_css( $atts, $widget_number = null ) {
 		// display attributes
 		$height					= $atts['height'];
 		$max_height				= $atts['max_height'];
@@ -611,7 +630,7 @@ EOF;
 	}
 
 
-	public function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
+	public static function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
 		// display attributes
 		$refresh_interval		= $atts['refresh_interval'];
 
@@ -901,7 +920,7 @@ EOF;
 
 
 	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
-	public function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…', $force_pad = false ) {
+	public static function testimonials_truncate( $string, $char_limit = false, $break = ' ', $pad = '…', $force_pad = false ) {
 		if ( empty( $force_pad ) ) {
 			if ( empty( $char_limit ) )
 				return $string;
@@ -1029,7 +1048,7 @@ EOF;
 	}
 
 
-	public function format_content( $content, $widget_number, $atts ) {
+	public static function format_content( $content, $widget_number, $atts ) {
 		if ( empty ( $content ) )
 			return $content;
 
@@ -1064,10 +1083,10 @@ EOF;
 	}
 
 
-	public function get_testimonials_paging( $testimonials, $atts, $prepend = true ) {
+	public static function get_testimonials_paging( $testimonials, $atts, $prepend = true ) {
 		$html					= '';
 
-		if ( is_home() || 1 === $this->max_num_pages ) {
+		if ( is_home() || 1 === self::$max_num_pages ) {
 			return $html;
 		}
 
@@ -1099,16 +1118,16 @@ EOF;
 
 			$html				.= '	<div class="alignright">';
 
-			if ( $paged != $this->max_num_pages ) {
+			if ( $paged != self::$max_num_pages ) {
 				$raquo			= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;', 'testimonials-widget' ) );
-				$html			.= get_next_posts_link( $raquo, $this->max_num_pages );
+				$html			.= get_next_posts_link( $raquo, self::$max_num_pages );
 			}
 
 			$html				.= '	</div>';
 		} else {
 			$args				= array(
 				'echo'			=> false,
-				'query'			=> $this->wp_query,
+				'query'			=> self::$wp_query,
 			);
 			$args				= apply_filters( 'testimonials_widget_wp_pagenavi', $args );
 			$html				.= wp_pagenavi( $args );
@@ -1120,7 +1139,7 @@ EOF;
 	}
 
 
-	public function get_testimonials_css() {
+	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
 			foreach( self::$css as $key => $css ) {
 				echo $css;
@@ -1131,7 +1150,7 @@ EOF;
 	}
 
 
-	public function get_testimonials_scripts() {
+	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
 			foreach( self::$scripts as $key => $script ) {
 				echo $script;
@@ -1142,7 +1161,7 @@ EOF;
 	}
 
 
-	public function get_query_args( $atts ) {
+	public static function get_query_args( $atts ) {
 		extract( $atts );
 
 		if ( has_filter( 'posts_orderby', 'CPTOrderPosts' ) ) {
@@ -1218,7 +1237,7 @@ EOF;
 	}
 
 
-	public function get_testimonials( $atts ) {
+	public static function get_testimonials( $atts ) {
 		$hide_gravatar			= $atts['hide_gravatar'];
 
 		$args					= self::get_query_args( $atts );
@@ -1235,9 +1254,9 @@ EOF;
 			remove_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) );
 		}
 
-		$this->max_num_pages	= $testimonials->max_num_pages;
-		$this->post_count		= $testimonials->post_count;
-		$this->wp_query			= $testimonials;
+		self::$max_num_pages	= $testimonials->max_num_pages;
+		self::$post_count		= $testimonials->post_count;
+		self::$wp_query			= $testimonials;
 
 		wp_reset_postdata();
 
@@ -1246,7 +1265,7 @@ EOF;
 
 		$testimonial_data		= array();
 		
-		if ( empty( $this->post_count ) )
+		if ( empty( self::$post_count ) )
 			return $testimonial_data;
 
 		foreach( $testimonials->posts as $row ) {
