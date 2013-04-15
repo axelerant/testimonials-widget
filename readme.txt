@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.11.2
+Stable tag: 2.11.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -360,6 +360,10 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 == Upgrade Notice ==
 
+= 2.11.3 =
+
+* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
+
 = 2.11.0 =
 
 * CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
@@ -425,6 +429,7 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * Add http protocol to URLs on validation
 * Add notice about deleting data and settings on uninstall
+* BUG Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically on line 546 in file /Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/testimonials-widget.php
 * Settings export/import
 * Show changelog on update
 * Update to WordPress Coding standards
