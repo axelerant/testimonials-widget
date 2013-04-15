@@ -8,6 +8,8 @@
 * Bold option headers
 * Change `has_archive` default from `testimonials` to `testimonials-archive`
 * Clean up static method calls to prevent PHP Strict notices
+* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
+* Correct static methods calling
 * Secure activation, deactivation, uninstall operations
 * Update POT
 

@@ -252,7 +252,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * `testimonials_widget_gravatar_size` - Change the Gravatar size
 * `testimonials_widget_image_size` - Change the image size
 * `testimonials_widget_meta_box` - Modify Testimonial Data fields
-* `testimonials_widget_next_posts_link` - Configure Next page indicator
+* `testimonials_widget_next_posts_link_text` - Configure Next page indicator
 * `testimonials_widget_posts_custom_column` - Customize testimonial posts column contents
 * `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
 * `testimonials_widget_query_args` - Alter WP_Query arguments for testimonial selection

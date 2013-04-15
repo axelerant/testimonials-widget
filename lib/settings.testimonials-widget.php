@@ -570,7 +570,7 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public function display_page() {
+	public static function display_page() {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . __( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';

@@ -1119,7 +1119,7 @@ EOF;
 			$html				.= '	<div class="alignright">';
 
 			if ( $paged != self::$max_num_pages ) {
-				$raquo			= apply_filters( 'testimonials_widget_next_posts_link', __( '&raquo;', 'testimonials-widget' ) );
+				$raquo			= apply_filters( 'testimonials_widget_next_posts_link_text', __( '&raquo;', 'testimonials-widget' ) );
 				$html			.= get_next_posts_link( $raquo, self::$max_num_pages );
 			}
 
