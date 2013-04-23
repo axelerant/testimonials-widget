@@ -430,6 +430,7 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * Add http protocol to URLs on validation
 * Add notice about deleting data and settings on uninstall
 * BUG Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically on line 546 in file /Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/testimonials-widget.php
+* Explain options inheritance
 * Settings export/import
 * Show changelog on update
 * Update to WordPress Coding standards

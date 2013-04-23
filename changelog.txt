@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+* Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
+* Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
 
 = 2.11.3 =
 * BUGFIX [Can't set featured image](http://wordpress.org/support/topic/cant-set-featured-image-3)
