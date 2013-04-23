@@ -21,6 +21,7 @@
 		<exclude name="Generic.PHP.UpperCaseConstant.Found" />
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
 	</rule>
 
 	<rule ref="WordPress">
