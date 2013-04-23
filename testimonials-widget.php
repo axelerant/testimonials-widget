@@ -26,7 +26,7 @@
  */
 
 
-require_once( 'lib/settings.testimonials-widget.php' );
+require_once( 'lib/class-settings-testimonials-widget.php' );
 
 
 class Testimonials_Widget {
@@ -1329,7 +1329,7 @@ EOF;
 
 
 	public function widgets_init() {
-		require_once 'lib/testimonials-widget-widget.php';
+		require_once 'lib/class-testimonials-widget-widget.php';
 
 		register_widget( 'Testimonials_Widget_Widget' );
 	}
