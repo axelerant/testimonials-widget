@@ -427,10 +427,11 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* Add http protocol to URLs on validation
 * Add admin notice about deleting data and settings on uninstall after activation
+* Add http protocol to URLs on validation
 * BUG Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically on line 546 in file /Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/testimonials-widget.php
+* CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
 * Explain options inheritance
 * Settings export/import
 * Show changelog on update
-* Update to WordPress Coding standards
+* Update CSS and JavaScript to WordPress Coding standards

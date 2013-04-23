@@ -51,7 +51,7 @@
 }
 
 .testimonialswidget_testimonial .open_quote:before {
-		content: '\201C';
+	content: '\201C';
 }
 
 .testimonialswidget_testimonial .close_quote {
@@ -59,7 +59,7 @@
 }
 
 .testimonialswidget_testimonial .close_quote:after {
-		content: '\201D';
+	content: '\201D';
 }
 
 .testimonialswidget_testimonial cite,
