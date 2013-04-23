@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
 * Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
 

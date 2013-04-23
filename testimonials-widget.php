@@ -1336,7 +1336,7 @@ EOF;
 
 
 	public function add_meta_box_testimonials_widget() {
-		require_once( 'lib/metabox.class.php' );
+		require_once( 'lib/class-redrokk-metabox-class.php' );
 
 		$fields					= array(
 					array(
