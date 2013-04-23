@@ -873,7 +873,7 @@ EOD;
 	}
 
 
-	public function validators( $validate, $id, &$input, $default, &$errors ) {
+	public static function validators( $validate, $id, &$input, $default, &$errors ) {
 		switch ( $validate ) {
 		case 'absint':
 		case 'intval':
