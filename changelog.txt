@@ -11,12 +11,14 @@
 * Correct static validators call
 * Explain options inheritance
 * FEATURE Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
+* FEATURE Settings export/import
 * Refactor out get_quote and get_cite from get_testimonial_html
 * Remove $blank from testimonials_truncate()
 * Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
 * Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
 * Show latest updates notice on activation
+* Spellcheck readme.txt
 * Update CSS for WordPress Coding standards
 * Update FAQ
 * Update JavaScript for WordPress Coding standards

@@ -16,11 +16,11 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
-More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonal Widget has its own CSS identifier for custom styling.
+More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
-Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classificaton. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
+Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classification. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
 
 The single testimonial view supports image, source, title, location, email, company and URL details.
 
@@ -32,6 +32,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Filters to manipulate testimonials output
 * Multiple paging options for testimonials listings
 * Settings screen for site-wide option defaults
+* Settings export/import
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, location, email, company and URL details
 * Testimonials archive view
@@ -64,7 +65,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Settings and URL based cache clearing
 * Shortcodes and theme functions for testimonials count, testimonial link list, and user testimonial submission form
 * Show excerpts with list and single views
-* Show unique testmimonials on page with multiple testimonial instances
+* Show unique testimonials on page with multiple testimonial instances
 * Testimonial links listing with image, source, title, location, company, and URL fields
 * WPML compatible
 
@@ -76,29 +77,29 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
 * Commenting on testimonial single-view pages
-* Compatible with WordPress multi-site
+* Compatible with WordPress multisite
 * Configuration based validation for easy extending or overriding
 * Content truncation respects HTML tags
 * Custom CSS in footer for HTML validation
 * Custom text or HTML for bottom of widgets
 * Custom widget bottom text
 * Customizable archive and testimonial URLs
-* Customizeable testimonial data field `testimonial_extra`
-* Deletes testiomonials-widget custom post type entriess and settings on uninstall 
+* Customizable testimonial data field `testimonial_extra`
+* Deletes testimonials-widget custom post type entries and settings on uninstall 
 * Disable self-generated quotation marks
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Flush URLs on deactivation 
 * IE7 CSS hacks for quotes and join parts
 * Image, email based Gravatar, category and tag enabled
-* Internal version tracking for compatiblity checks and automatic settings update
+* Internal version tracking for compatibility checks and automatic settings update
 * Localizable via `languages/testimonials-widget.pot`
 * Optional commenting on testimonial single-view pages
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
-* Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
+* Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
 * Testimonials Widget widget displays static and rotating testimonials 
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
@@ -146,7 +147,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_company` - default show; hide_company=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
-* URL Target - Adds target to all URLs; leave blank if none
+* URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
 * Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
 	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
@@ -192,7 +193,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `title_link` - default none; title_link=123, title_link=http://example.com
 * Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
-	* The citation has no whitespace adaptions. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
+	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
 * Height - Testimonials height, in pixels. Overrides minimum and maximum height
 	* `height` - default none; height=300
 * Minimum Height - Set for minimum display height, in pixels
@@ -212,7 +213,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Compatibility & Reset**
 
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
+* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
 	* `remove_hentry` - default none; remove_hentry=true
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
@@ -301,7 +302,7 @@ A big, special thank you to [Joe Weber](https://plus.google.com/1000632712692773
 
 Version 2.0.0 of Testimonials Widget is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
 
-A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring metaboxes for your posts, pages or custom post types a snap.
+A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
 Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
 
@@ -360,7 +361,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 == Screenshots ==
 
 1. Testimonials admin interface
-2. Collasped Testimonials Widget options
+2. Collapsed Testimonials Widget options
 3. Expanded 'General Options' in Testimonials Widget options
 4. Testimonial widget in the sidebar 
 5. [testimonialswidget_list] in post
@@ -462,5 +463,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
-
-* Settings export/import

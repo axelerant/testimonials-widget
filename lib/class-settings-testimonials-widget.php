@@ -224,7 +224,7 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['target'] = array(
 			'title' => __( 'URL Target', 'testimonials-widget' ),
-			'desc' => __( 'Adds target to all URLs; leave blank if none', 'testimonials-widget' ),
+			'desc' => __( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
 			'validate' => 'term',
 		);
 
@@ -443,6 +443,19 @@ class Testimonials_Widget_Settings {
 			'type' => 'checkbox',
 			'class' => 'warning', // Custom class for CSS
 			'desc' => __( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
+			'widget' => 0,
+		);
+
+		$options                  = tw_get_options();
+		$serialized_options       = serialize( $options );
+		$_SESSION['importexport'] = $serialized_options;
+
+		self::$settings['importexport'] = array(
+			'section' => 'reset',
+			'title' => __( 'Import/Export Settings', 'testimonials-widget' ),
+			'type' => 'textarea',
+			'desc' => __( 'These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.', 'testimonials-widget' ),
+			'std' => $serialized_options,
 			'widget' => 0,
 		);
 
@@ -839,6 +852,14 @@ EOD;
 
 				unset( $input['reset_defaults'] );
 			}
+
+			if ( ! empty( $input['importexport'] ) && $_SESSION['importexport'] != $input['importexport'] ) {
+				$importexport = $input['importexport'];
+				$unserialized = unserialize( $importexport );
+				foreach ( $unserialized as $id => $std ) {
+					$input[$id] = $std;
+				}
+			}
 		}
 
 		foreach ( $options as $id => $parts ) {
@@ -883,8 +904,8 @@ EOD;
 		}
 
 		$input['version'] = self::$version;
-
-		$input = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		$input            = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		unset( $input['importexport'] );
 
 		if ( empty( $do_errors ) ) {
 			$validated = $input;

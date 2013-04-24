@@ -1031,14 +1031,11 @@ EOF;
 		$func_strlen = function_exists( 'mb_strlen' ) ? 'mb_strlen' : 'strlen';
 
 		// loop through, splitting at HTML entities or tags
-		while ( $output_length < $max_length
-			&& preg_match( '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position ) ) {
+		while ( $output_length < $max_length && preg_match( '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position ) ) {
 			list( $tag, $tag_position ) = $match[0];
 
 			// get text leading up to the tag, and store it – up to max_length
-
 			$text = $func_strcut( $html, $position, $tag_position - $position );
-
 			if ( $output_length + $func_strlen( $text ) > $max_length ) {
 				$output       .= $func_strcut( $text, 0, $max_length - $output_length );
 				$truncated     = true;
