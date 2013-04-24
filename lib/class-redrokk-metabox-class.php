@@ -144,6 +144,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		add_filter( 'wp_redirect', array( &$this, '_redirectIntervention' ), 40, 1 );
 	}
 
+
 	/**
 	 * Method properly inturprets the given parameter and sets it accordingly
 	 *
@@ -167,6 +168,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return $this;
 	}
 
+
 	/**
 	 * Method is designed to return the currently visible post type
 	 */
@@ -185,6 +187,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 
 		return $post_type;
 	}
+
 
 	/**
 	 * Method properly prepares the metabox type by binding the necessary hooks
@@ -282,6 +285,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		}
 	}
 
+
 	/**
 	 * Returns the category to use
 	 */
@@ -290,6 +294,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 			? $this->_category_name
 			: '_videocat';
 	}
+
 
 	/**
 	 * Method will save the posted content as an image attachment
@@ -346,6 +351,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 
 		return $source;
 	}
+
 
 	/**
 	 * Method saves the data provided as post meta values
@@ -420,6 +426,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return true;
 	}
 
+
 	/**
 	 * Do something with the data entered
 	 *
@@ -462,6 +469,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return true;
 	}
 
+
 	/**
 	 * Method returns the post meta
 	 *
@@ -490,6 +498,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return apply_filters( 'metabox-requests-'.$this->_id, $requests );
 	}
 
+
 	/**
 	 * Display the inner contents of the metabox
 	 *
@@ -500,6 +509,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		wp_nonce_field( plugin_basename( __FILE__ ), get_class().$this->_id );
 		do_action( 'metabox-show-'.$this->_id, $this->_fields, $this );
 	}
+
 
 	/**
 	 * Method displays a list of attached images
@@ -565,6 +575,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return;
 	}
 
+
 	/**
 	 * Return a clean list of meta listings created by this system
 	 *
@@ -592,6 +603,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		return $return;
 	}
 
+
 	/**
 	 * Function removes a specific category meta
 	 *
@@ -615,6 +627,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		}
 		return true;
 	}
+
 
 	/**
 	 * Method displays a list of meta attachments
@@ -709,6 +722,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 
 	}
 
+
 	/**
 	 * Method displays a list of attached videos
 	 *
@@ -764,6 +778,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		<?php
 		}
 	}
+
 
 	/**
 	 * Method renders the form from any source
@@ -1103,6 +1118,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return $this;
 	}
 
+
 	/**
 	 * Returns an options list of menus
 	 */
@@ -1117,6 +1133,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 
 		return $options;
 	}
+
 
 	/**
 	 * Returns an options list of menus
@@ -1135,6 +1152,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return $options;
 	}
 
+
 	/**
 	 * Returns an options list of users
 	 */
@@ -1152,6 +1170,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 
 		return $options;
 	}
+
 
 	/**
 	 * Returns an options list of capabilities
@@ -1173,6 +1192,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return $options;
 	}
 
+
 	/**
 	 * Returns an options list of roles
 	 */
@@ -1191,6 +1211,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 
 		return $options;
 	}
+
 
 	/**
 	 * Adds a box to the main column on the Post and Page edit screens
@@ -1222,6 +1243,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		);
 	}
 
+
 	/**
 	 * Method set's the hooks for the options creted by this metabox
 	 *
@@ -1239,6 +1261,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		}
 	}
 
+
 	/**
 	 * Method redirects the user if we have added a request redirect
 	 * in the url
@@ -1251,6 +1274,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		}
 		return $location;
 	}
+
 
 	/**
 	 * Get the current page url
@@ -1266,6 +1290,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		}
 		return $pageURL;
 	}
+
 
 	/**
 	 * Method to bind an associative array or object to the JTable instance.This
@@ -1310,6 +1335,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return true;
 	}
 
+
 	/**
 	 * Set the object properties based on a named array/hash.
 	 *
@@ -1333,6 +1359,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return false;
 	}
 
+
 	/**
 	 * Modifies a property of the object, creating it if it does not already exist.
 	 *
@@ -1353,6 +1380,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		$this->$property = $value;
 		return $previous;
 	}
+
 
 	/**
 	 * Returns an associative array of object properties.
@@ -1376,6 +1404,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		return $vars;
 	}
 
+
 	/**
 	 * contains the current instance of this class
 	 *
@@ -1396,5 +1425,9 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		}
 		return self::$_instances[$_id];
 	}
+
+
 }
+
+
 endif;

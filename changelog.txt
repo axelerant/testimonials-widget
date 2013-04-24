@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Add file headers to lib/class*
 * Correct static validators call
 * Remove $blank from testimonials_truncate()
 * Rename metabox.class.php class-redrokk-metabox-class.php

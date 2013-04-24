@@ -1457,6 +1457,7 @@ EOF;
 		return $m;
 	}
 
+
 }
 
 
@@ -1475,5 +1476,6 @@ function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
 
 	return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
 }
+
 
 ?>
