@@ -376,6 +376,7 @@ Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widge
 14. Testimonials Widget Settings > Selection tab
 15. Testimonials Widget Settings > Post Type tab
 16. Testimonials Widget Settings > Widget tab
+17. Testimonials Widget Settings > Compatibility & Reset tab
 
 
 == Changelog ==
