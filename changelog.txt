@@ -4,6 +4,7 @@
 
 = trunk =
 * Add file headers to lib/class*
+* Correct static get_testimonials_html and get_testimonials_htmls function declaration
 * Correct static validators call
 * Remove $blank from testimonials_truncate()
 * Rename metabox.class.php class-redrokk-metabox-class.php

@@ -670,7 +670,7 @@ EOF;
 	}
 
 
-	public function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
+	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
 		$hide_not_found   = $atts['hide_not_found'];
 		$paging           = Testimonials_Widget_Settings::is_true( $atts['paging'] );
@@ -726,7 +726,7 @@ EOF;
 	}
 
 
-	public function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
+	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
 		// display attributes
 		$char_limit      = $atts['char_limit'];
 		$content_more    = apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
