@@ -189,12 +189,13 @@ class Testimonials_Widget {
 
 		global $wpdb;
 
-		delete_option( Testimonials_Widget_Settings::ID );
-		self::delete_testimonials();
+		$delete_data = tw_get_option( 'delete_data', false );
+		if ( $delete_data ) {
+			delete_option( Testimonials_Widget_Settings::ID );
+			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
-		$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
-		$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->postmeta . '`' );
-		$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->posts . '`' );
+			self::delete_testimonials();
+		}
 	}
 
 
@@ -212,6 +213,9 @@ class Testimonials_Widget {
 			// true is force delete
 			wp_delete_post( $post_id, true );
 		}
+
+		$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->postmeta . '`' );
+		$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->posts . '`' );
 	}
 
 
@@ -728,22 +732,11 @@ EOF;
 
 	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
 		// display attributes
-		$char_limit      = $atts['char_limit'];
-		$content_more    = apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
-		$content_more   .= self::$tag_close_quote;
 		$disable_quotes  = $atts['disable_quotes'];
-		$do_company      = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
-		$do_content      = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
-		$do_email        = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image        = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
 		$do_image_single = ! $atts['hide_image_single'];
-		$do_location     = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
-		$do_source       = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
-		$do_title        = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
-		$do_url          = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
-		$use_quote_tag   = $atts['use_quote_tag'];
 
 		$class = 'testimonialswidget_testimonial';
 
@@ -783,6 +776,53 @@ EOF;
 			$image = '';
 		}
 
+		$quote = self::get_quote( $testimonial, $atts, $widget_number );
+		$cite  = self::get_cite( $testimonial, $atts );
+
+		$extra = '';
+		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
+			$extra .= '<div class="extra">';
+			$extra .= $testimonial['testimonial_extra'];
+			$extra .= '</div>';
+		}
+
+		$bottom_text = '';
+
+		if ( ! empty( $atts['bottom_text'] ) ) {
+			$bottom_text  = '<div class="bottom_text">';
+			$bottom_text .= $atts['bottom_text'];
+			$bottom_text .= '</div>';
+		}
+
+		$div_close = '</div>';
+
+		$html = $div_open
+			. $image
+			. $quote
+			. $cite
+			. $extra
+			. $bottom_text
+			. $div_close;
+
+		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $bottom_text, $div_close );
+
+		// not done sooner as tag_close_quote is used for Premium
+		if ( $disable_quotes ) {
+			$html = str_replace( self::$tag_open_quote, '', $html );
+			$html = str_replace( self::$tag_close_quote, '', $html );
+		}
+
+		return $html;
+	}
+
+
+	public static function get_quote( $testimonial, $atts, $widget_number ) {
+		$char_limit    = $atts['char_limit'];
+		$content_more  = apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
+		$content_more .= self::$tag_close_quote;
+		$do_content    = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
+		$use_quote_tag = $atts['use_quote_tag'];
+
 		$quote = '';
 		if ( $do_content ) {
 			$content = $testimonial['testimonial_content'];
@@ -807,6 +847,19 @@ EOF;
 			}
 		}
 
+		return $quote;
+	}
+
+
+	public static function get_cite( $testimonial, $atts ) {
+		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
+		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
+		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
+		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
+		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+		$use_quote_tag = $atts['use_quote_tag'];
+
 		$cite     = '';
 		$done_url = false;
 		if ( $do_source && $do_email ) {
@@ -816,13 +869,13 @@ EOF;
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_source && ! $do_company && $do_url ) {
+			$done_url = true;
+
 			$cite .= '<span class="author">';
 			$cite .= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
 			$cite .= $testimonial['testimonial_source'];
 			$cite .= '</a>';
 			$cite .= '</span>';
-
-			$done_url = true;
 		} elseif ( $do_source ) {
 			$cite .= '<span class="author">';
 			$cite .= $testimonial['testimonial_source'];
@@ -835,6 +888,7 @@ EOF;
 
 		if ( $do_title && $cite )
 			$cite .= '<span class="join_title"></span>';
+
 
 		if ( $do_title ) {
 			$cite .= '<span class="title">';
@@ -882,39 +936,7 @@ EOF;
 			}
 		}
 
-		$extra = '';
-		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
-			$extra .= '<div class="extra">';
-			$extra .= $testimonial['testimonial_extra'];
-			$extra .= '</div>';
-		}
-
-		$bottom_text = '';
-		if ( ! empty( $atts['bottom_text'] ) ) {
-			$bottom_text  = '<div class="bottom_text">';
-			$bottom_text .= $atts['bottom_text'];
-			$bottom_text .= '</div>';
-		}
-
-		$div_close = '</div>';
-
-		$html = $div_open
-			. $image
-			. $quote
-			. $cite
-			. $extra
-			. $bottom_text
-			. $div_close;
-
-		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $bottom_text, $div_close );
-
-		// not done sooner as tag_close_quote is used for Premium
-		if ( $disable_quotes ) {
-			$html = str_replace( self::$tag_open_quote, '', $html );
-			$html = str_replace( self::$tag_close_quote, '', $html );
-		}
-
-		return $html;
+		return $cite;
 	}
 
 
@@ -994,8 +1016,10 @@ EOF;
 			&& preg_match( '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position ) ) {
 			list( $tag, $tag_position ) = $match[0];
 
-			// get text leading up to the tag, and store it (up to max_length)
+			// get text leading up to the tag, and store it – up to max_length
+
 			$text = $func_strcut( $html, $position, $tag_position - $position );
+
 			if ( $output_length + $func_strlen( $text ) > $max_length ) {
 				$output       .= $func_strcut( $text, 0, $max_length - $output_length );
 				$truncated     = true;
@@ -1007,31 +1031,28 @@ EOF;
 			$output        .= $text;
 			$output_length += $func_strlen( $text );
 
-			if ( $tag[0] == '&' ) // Handle HTML entity by copying straight through
-				{
+			if ( $tag[0] == '&' ) {
+				// Handle HTML entity by copying straight through
 				$output .= $tag;
 				$output_length++; // only counted as one character
-			}
-			else // Handle HTML tag
-				{
+			} else {
+				// Handle HTML tag
 				$tag_inner = $match[1][0];
-				if ( $tag[1] == '/' ) // This is a closing tag.
-					{
+				if ( $tag[1] == '/' ) {
+					// This is a closing tag.
 					$output .= $tag;
 					// If input tags aren't balanced, we leave the popped tag
 					// on the stack so hopefully we're not introducing more
 					// problems.
+
 					if ( end( $tag_stack ) == $tag_inner ) {
 						array_pop( $tag_stack );
 					}
-				}
-				else if ( $tag[$func_strlen( $tag ) - 2] == '/'
-						|| in_array( strtolower( $tag_inner ), $unpaired_tags ) ) {
-						// Self-closing or unpaired tag
-						$output .= $tag;
-					}
-				else // Opening tag.
-					{
+				} elseif ( $tag[$func_strlen( $tag ) - 2] == '/' || in_array( strtolower( $tag_inner ), $unpaired_tags ) ) {
+					// Self-closing or unpaired tag
+					$output .= $tag;
+				} else {
+					// Opening tag.
 					$output     .= $tag;
 					$tag_stack[] = $tag_inner; // push tag onto the stack
 				}
@@ -1225,6 +1246,7 @@ EOF;
 				add_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ), 10, 2 );
 			}
 		}
+
 
 		if ( $exclude ) {
 			$exclude = explode( ',', $exclude );

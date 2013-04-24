@@ -437,6 +437,15 @@ class Testimonials_Widget_Settings {
 			),
 		);
 
+		self::$settings['delete_data'] = array(
+			'section' => 'reset',
+			'title' => __( 'Remove Plugin Data on Deletion?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'class' => 'warning', // Custom class for CSS
+			'desc' => __( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
+			'widget' => 0,
+		);
+
 		self::$settings['reset_defaults'] = array(
 			'section' => 'reset',
 			'title' => __( 'Reset to Defaults?', 'testimonials-widget' ),

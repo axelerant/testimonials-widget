@@ -113,6 +113,10 @@ In using Testimonials Widget Premium, you'll not be sorry.
 
 = Shortcode and Widget Options =
 
+Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
+
+Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
+
 **General**
 
 * Character Limit - Number of characters to limit testimonial views to
@@ -212,6 +216,7 @@ In using Testimonials Widget Premium, you'll not be sorry.
 	* `remove_hentry` - default none; remove_hentry=true
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
+* Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
 
 = Shortcode Examples =
@@ -427,11 +432,7 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* Add admin notice about deleting data and settings on uninstall after activation
-* Add http protocol to URLs on validation
-* BUG Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically on line 546 in file /Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/testimonials-widget.php
 * CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
-* Explain options inheritance
 * Settings export/import
 * Show changelog on update
 * Update CSS and JavaScript to WordPress Coding standards
