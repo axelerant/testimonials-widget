@@ -932,7 +932,6 @@ EOD;
 		case 'required':
 			if ( empty( $input[ $id ] ) ) {
 				$errors[ $id ] = __( 'Required', 'testimonials-widget' );
-				break 2;
 			}
 			break;
 
