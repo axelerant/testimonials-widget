@@ -331,7 +331,25 @@ Thank you for your understanding.
 
 == Frequently Asked Questions ==
 
-See [FAQ](http://aihr.us/testimonials-widget/faq/)
+= Latest Major Changes =
+
+* CSS and JavaScript renaming
+	* `bottom_text` renamed to `bottom-text`
+	* `close_quote` renamed to `close-quote`
+	* `display_none` renamed to `display-none`
+	* `join_location` renamed to `join-location`
+	* `join_title` renamed to `join-title`
+	* `open_quote` renamed to `open-quote`
+	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
+	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
+* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
+* CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
+	* Ex: `.testimonialswidget_join` becomes `.join`
+	* Ex: `.testimonialswidget_author` becomes `.author`
+* Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
+	* `cite` is now `div.credit`
+
+Read the [FAQ](http://aihr.us/testimonials-widget/faq/) for further help.
 
 = I'm still stuck, how can I get help? =
 
@@ -364,6 +382,18 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 
 == Upgrade Notice ==
+
+= TBD =
+
+* CSS and JavaScript renaming
+	* `bottom_text` renamed to `bottom-text`
+	* `close_quote` renamed to `close-quote`
+	* `display_none` renamed to `display-none`
+	* `join_location` renamed to `join-location`
+	* `join_title` renamed to `join-title`
+	* `open_quote` renamed to `open-quote`
+	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
+	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
 
 = 2.11.3 =
 
@@ -432,7 +462,6 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
 * Settings export/import
-* Show changelog on update
-* Update CSS and JavaScript to WordPress Coding standards
+* Show latest updates notice on activation
+* Update JavaScript to WordPress Coding standards

@@ -27,7 +27,7 @@ require_once 'lib/class-settings-testimonials-widget.php';
 
 
 class Testimonials_Widget {
-	const ID       = 'testimonialswidget_testimonials';
+	const ID       = 'testimonials-widget-testimonials';
 	const OLD_NAME = 'testimonialswidget';
 	const PT       = 'testimonials-widget';
 	const VERSION  = '2.11.3';
@@ -43,8 +43,8 @@ class Testimonials_Widget {
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
-	public static $tag_close_quote = '<span class="close_quote"></span>';
-	public static $tag_open_quote  = '<span class="open_quote"></span>';
+	public static $tag_close_quote = '<span class="close-quote"></span>';
+	public static $tag_open_quote  = '<span class="open-quote"></span>';
 	public static $widget_number   = 100000;
 
 
@@ -644,11 +644,11 @@ EOF;
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
 		var active = jQuery('.{$id_base} .active');
-		var next = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonialswidget_testimonial:first');
+		var next = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first');
 		active.fadeOut(1250, function(){
 			active.removeClass('active');
 			next.fadeIn(500);
-			next.removeClass('display_none');
+			next.removeClass('display-none');
 			next.addClass('active');
 		});
 	}
@@ -738,7 +738,7 @@ EOF;
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
 
-		$class = 'testimonialswidget_testimonial';
+		$class = 'testimonials-widget-testimonial';
 
 		if ( is_single() && empty( $widget_number ) ) {
 			$class .= ' single';
@@ -747,7 +747,7 @@ EOF;
 		} elseif ( $is_first ) {
 			$class .= ' active';
 		} elseif ( ! $is_first ) {
-			$class .= ' display_none';
+			$class .= ' display-none';
 		}
 
 		if ( $keep_whitespace )
@@ -887,7 +887,7 @@ EOF;
 		}
 
 		if ( $do_title && $cite )
-			$cite .= '<span class="join_title"></span>';
+			$cite .= '<span class="join-title"></span>';
 
 
 		if ( $do_title ) {
@@ -897,7 +897,7 @@ EOF;
 		}
 
 		if ( $do_location && $cite )
-			$cite .= '<span class="join_location"></span>';
+			$cite .= '<span class="join-location"></span>';
 
 		if ( $do_location ) {
 			$cite .= '<span class="location">';
@@ -1038,6 +1038,7 @@ EOF;
 			} else {
 				// Handle HTML tag
 				$tag_inner = $match[1][0];
+
 				if ( $tag[1] == '/' ) {
 					// This is a closing tag.
 					$output .= $tag;

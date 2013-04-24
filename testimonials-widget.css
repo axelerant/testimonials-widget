@@ -1,119 +1,119 @@
-.testimonialswidget_testimonials {
+.testimonials-widget-testimonials {
 	/* testimonials wrapper */
 }
 
-.testimonialswidget_testimonial {
+.testimonials-widget-testimonial {
 	clear: left;
 	display: none;
 	margin: 0 0 1.4em;
 }
 
-.testimonialswidget_testimonials .active {
+.testimonials-widget-testimonials .active {
 	/* active testimonials */
 	display: block;
 }
 
-.testimonialswidget_testimonials .display_none {
+.testimonials-widget-testimonials .display-none {
 	/* staged testimonials */
 	display: none;
 }
 
-.testimonialswidget_testimonials .paging {
+.testimonials-widget-testimonials .paging {
 	clear: both;
 	font-weight: 700;
 	height: 1.4em;
 }
 
-.testimonialswidget_testimonial.list,
-.testimonialswidget_testimonial.single {
+.testimonials-widget-testimonial.list,
+.testimonials-widget-testimonial.single {
 	display: block;
 }
 
-.testimonialswidget_testimonial .image {
+.testimonials-widget-testimonial .image {
 	float: left;
 	margin-bottom: .4em;
 	margin-right: .2em;
 }
 
-.widget .testimonialswidget_testimonial .image {
+.widget .testimonials-widget-testimonial .image {
 	display: block;
 	float: initial;
 }
 
-.testimonialswidget_testimonial q,
-.testimonialswidget_testimonial blockquote {
+.testimonials-widget-testimonial q,
+.testimonials-widget-testimonial blockquote {
 	/* the testimonial itself */
 	quotes: none;
 }
 
-.testimonialswidget_testimonial .open_quote {
+.testimonials-widget-testimonial .open-quote {
 	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '“' );
 }
 
-.testimonialswidget_testimonial .open_quote:before {
+.testimonials-widget-testimonial .open-quote:before {
 	content: '\201C';
 }
 
-.testimonialswidget_testimonial .close_quote {
+.testimonials-widget-testimonial .close-quote {
 	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '”' );
 }
 
-.testimonialswidget_testimonial .close_quote:after {
+.testimonials-widget-testimonial .close-quote:after {
 	content: '\201D';
 }
 
-.testimonialswidget_testimonial cite,
-.testimonialswidget_testimonial div.credit {
+.testimonials-widget-testimonial cite,
+.testimonials-widget-testimonial div.credit {
 	/* outer wrapper for source & company */
 	display: block; /* To display source and company on a new line */
 	margin-top: .2em;
 	text-align: right;
 }
 
-.widget .testimonialswidget_testimonial cite,
-.widget .testimonialswidget_testimonial div.credit {
+.widget .testimonials-widget-testimonial cite,
+.widget .testimonials-widget-testimonial div.credit {
 	margin-top: .8em;
 }
 
-.widget .testimonialswidget_testimonial .whitespace cite,
+.widget .testimonials-widget-testimonial .whitespace cite,
 .widget .whitespace cite,
-.widget .testimonialswidget_testimonial .whitespace div.credit,
+.widget .testimonials-widget-testimonial .whitespace div.credit,
 .widget .whitespace div.credit {
 	margin-top: .2em;
 }
 
-.testimonialswidget_testimonial cite:before,
-.testimonialswidget_testimonial div.credit:before {
+.testimonials-widget-testimonial cite:before,
+.testimonials-widget-testimonial div.credit:before {
 	content: "– "
 }
 
-.testimonialswidget_testimonial .join_title,
-.testimonialswidget_testimonial .join_location,
-.testimonialswidget_testimonial .join {
+.testimonials-widget-testimonial .join-title,
+.testimonials-widget-testimonial .join-location,
+.testimonials-widget-testimonial .join {
 	/* section between source and company information */
 	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = ', ' );
 }
 
-.testimonialswidget_testimonial .join_title:before,
-.testimonialswidget_testimonial .join_location:before,
-.testimonialswidget_testimonial .join:before {
+.testimonials-widget-testimonial .join-title:before,
+.testimonials-widget-testimonial .join-location:before,
+.testimonials-widget-testimonial .join:before {
 	/* join text */
 	content: ", "
 }
 
-.testimonialswidget_testimonial .author,
-.testimonialswidget_testimonial .email,
-.testimonialswidget_testimonial .title,
-.testimonialswidget_testimonial .location,
-.testimonialswidget_testimonial .company,
-.testimonialswidget_testimonial .url {
+.testimonials-widget-testimonial .author,
+.testimonials-widget-testimonial .email,
+.testimonials-widget-testimonial .title,
+.testimonials-widget-testimonial .location,
+.testimonials-widget-testimonial .company,
+.testimonials-widget-testimonial .url {
 	/* testimonial title, company and url informaiton */
 }
 
-.testimonialswidget_testimonial .extra {
+.testimonials-widget-testimonial .extra {
 	margin-top: .8em;
 }
 
-.testimonialswidget_testimonial .bottom_text {
+.testimonials-widget-testimonial .bottom_text {
 	margin-top: 1.4em;
 }
