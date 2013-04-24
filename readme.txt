@@ -333,6 +333,10 @@ Thank you for your understanding.
 
 = Latest Major Changes =
 
+* CSS class names are simplified and now WordPress coding standards compliant
+	* For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
+	* Ex: `.testimonialswidget_join` becomes `.join`
+	* Ex: `.testimonialswidget_author` becomes `.author`
 * CSS and JavaScript renaming
 	* `bottom_text` renamed to `bottom-text`
 	* `close_quote` renamed to `close-quote`
@@ -342,10 +346,7 @@ Thank you for your understanding.
 	* `open_quote` renamed to `open-quote`
 	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
 	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
-* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
-* CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
-	* Ex: `.testimonialswidget_join` becomes `.join`
-	* Ex: `.testimonialswidget_author` becomes `.author`
+* Rename filter `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
 * Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
 	* `cite` is now `div.credit`
 
@@ -463,5 +464,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
 * Settings export/import
-* Show latest updates notice on activation
-* Update JavaScript to WordPress Coding standards

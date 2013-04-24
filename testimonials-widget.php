@@ -249,13 +249,32 @@ class Testimonials_Widget {
 	}
 
 
+	public function admin_notices() {
+		$content  = '';
+		$content .= '<div class="error"><p>';
+		$content .= sprintf( __( 'Testimonials Widget has updated CSS naming and HTML5 layout options. Please <a href="%s">read the FAQ</a> to make fixes if your testimonials display is funky', 'testimonials-widget-premium', 'testimonials-widget' ), 'http://wordpress.org/extend/plugins/testimonials-widget/faq/' );
+		$content .= '</p></div>';
+
+		echo $content;
+	}
+
+
 	public function update() {
+		$admin_notices = tw_get_option( 'admin_notices' );
+		if ( $admin_notices ) {
+			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+			tw_set_option( 'admin_notices' );
+		}
+
 		$options = get_option( self::OLD_NAME );
 
 		// testimonials already migrated?
-		if ( true === $options['migrated'] )
-			return;
+		if ( true !== $options['migrated'] )
+			$this->migrate();
+	}
 
+
+	public function migrate() {
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . self::OLD_NAME;
@@ -644,7 +663,7 @@ EOF;
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
 		var active = jQuery('.{$id_base} .active');
-		var next = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first');
+		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first');
 		active.fadeOut(1250, function(){
 			active.removeClass('active');
 			next.fadeIn(500);

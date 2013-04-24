@@ -5,9 +5,9 @@
 = trunk =
 * Add file headers to lib/class*
 * BUGFIX Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically on line 546 in file /Users/michael/Sites/wp/wp-content/plugins/testimonials-widget/testimonials-widget.php
+* CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
 * Correct static get_testimonials_html and get_testimonials_htmls function declaration
 * Correct static validators call
-* CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
 * Explain options inheritance
 * FEATURE Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * Refactor out get_quote and get_cite from get_testimonial_html
@@ -15,7 +15,10 @@
 * Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
 * Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
+* Show latest updates notice on activation
 * Update CSS for WordPress Coding standards
+* Update FAQ
+* Update JavaScript for WordPress Coding standards
 * Update PHP for WordPress Coding Standards
 * Update POT
 * Update TODOs

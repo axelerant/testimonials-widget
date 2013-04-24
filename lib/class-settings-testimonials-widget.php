@@ -787,10 +787,11 @@ EOD;
 
 
 	public function initialize_settings() {
-		$defaults           = self::get_defaults( 'backwards' );
-		$current            = get_option( self::ID );
-		$current            = wp_parse_args( $current, $defaults );
-		$current['version'] = self::$version;
+		$defaults                 = self::get_defaults( 'backwards' );
+		$current                  = get_option( self::ID );
+		$current                  = wp_parse_args( $current, $defaults );
+		$current['admin_notices'] = true;
+		$current['version']       = self::$version;
 
 		update_option( self::ID, $current );
 	}
