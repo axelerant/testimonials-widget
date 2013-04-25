@@ -4,6 +4,7 @@
 
 = trunk =
 * Add file headers to lib/class*
+* Add filter testimonials_widget_widget_options to alter displayed widget options
 * BUGFIX Correct settings required validation `break 2`
 * BUGFIX Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically
 * CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
@@ -13,6 +14,7 @@
 * FEATURE Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * FEATURE Settings export/import
 * Refactor out get_quote and get_cite from get_testimonial_html
+* Refactor excess settings grab in widget_options
 * Remove $blank from testimonials_truncate()
 * Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php

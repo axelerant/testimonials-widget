@@ -153,10 +153,10 @@ class Testimonials_Widget_Widget extends WP_Widget {
 				'title' => __( 'CSS Class', 'testimonials-widget' ),
 				'desc' => __( 'This widget\'s unique CSS class for styling', 'testimonials-widget' ),
 				'std' => $std,
+				'widget' => 1,
 			);
 		}
 
-		// remove non-widget parts
 		$form_parts = self::widget_options( $form_parts );
 
 		foreach ( $form_parts as $key => $part ) {
@@ -167,11 +167,13 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 
 	public function widget_options( $options ) {
-		$settings = Testimonials_Widget_Settings::get_settings();
-		foreach ( $settings as $id => $parts ) {
+		foreach ( $options as $id => $parts ) {
+			// remove non-widget parts
 			if ( empty( $parts['widget'] ) )
 				unset( $options[ $id ] );
 		}
+
+		$options = apply_filters( 'testimonials_widget_widget_options', $options );
 
 		return $options;
 	}

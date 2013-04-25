@@ -271,6 +271,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * `testimonials_widget_testimonials_js` - Alter dynamically generated JavaScript
 * `testimonials_widget_validate_settings` - Validate settings helper
 * `testimonials_widget_version` - Version tracking for settings
+* `testimonials_widget_widget_options` – Alters displayed widget options
 * `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
 
 = Notes =

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.11.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-04-24 23:09:43+00:00\n"
+"POT-Creation-Date: 2013-04-25 01:44:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -486,7 +486,7 @@ msgstr ""
 msgid "This widget's unique CSS class for styling"
 msgstr ""
 
-#: lib/class-testimonials-widget-widget.php:196
+#: lib/class-testimonials-widget-widget.php:198
 msgid "Expand/Collapse"
 msgstr ""
 
