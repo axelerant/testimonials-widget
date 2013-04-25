@@ -39,9 +39,7 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form.
-
-In using Testimonials Widget Premium, you'll not be sorry.
+Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/testimonials-widget-premium/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
 * Alternate destinations for "Read more" links
@@ -63,10 +61,11 @@ In using Testimonials Widget Premium, you'll not be sorry.
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations
 * Settings and URL based cache clearing
-* Shortcodes and theme functions for testimonials count, testimonial link list, and user testimonial submission form
+* Shortcodes and theme functions for testimonials count and testimonial link list
 * Show excerpts with list and single views
 * Show unique testimonials on page with multiple testimonial instances
 * Testimonial links listing with image, source, title, location, company, and URL fields
+* Shortcodes, theme functions, and widget user testimonial submission form
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/testimonials-widget-premium/) plugin for WordPress.
