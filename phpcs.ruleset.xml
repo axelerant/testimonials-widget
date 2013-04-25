@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <ruleset name="Aihrus">
-	<description>A custom set of rules to check for Aihrus' WordPress projects</description>
+	<description>
+		Custom phpcs rules to check for Aihrus' WordPress projects
+	</description>
+
 	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
 
-	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
-
-	<!--
-	<rule ref="Squiz.PHP.CommentedOutCode"/>
-	-->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
 
 	<rule ref="Generic">
 		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed" />
