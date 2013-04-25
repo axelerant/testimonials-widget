@@ -19,6 +19,7 @@
 * Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
 * Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
+* Revise FAQ
 * SCREENSHOT 17. Testimonials Widget Settings > Compatibility & Reset tab
 * Show latest updates notice on activation
 * Spellcheck readme.txt
