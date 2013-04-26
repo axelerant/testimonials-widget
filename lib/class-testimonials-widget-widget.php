@@ -17,6 +17,8 @@
  */
 
 class Testimonials_Widget_Widget extends WP_Widget {
+	const ID = 'testimonials_widget';
+
 	public function __construct() {
 		// Widget settings
 		$widget_ops = array(
@@ -26,12 +28,12 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		// Widget control settings
 		$control_ops = array(
-			'id_base' => 'testimonials_widget',
+			'id_base' => self::ID,
 		);
 
 		// Create the widget
 		$this->WP_Widget(
-			'testimonials_widget',
+			self::ID,
 			__( 'Testimonials Widget', 'testimonials-widget' ),
 			$widget_ops,
 			$control_ops
@@ -117,6 +119,11 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = Testimonials_Widget_Settings::validate_settings( $new_instance );
 
@@ -166,7 +173,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	}
 
 
-	public function widget_options( $options ) {
+	public static function widget_options( $options ) {
 		foreach ( $options as $id => $parts ) {
 			// remove non-widget parts
 			if ( empty( $parts['widget'] ) )

@@ -144,6 +144,11 @@ class Testimonials_Widget {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public function activation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
@@ -157,6 +162,11 @@ class Testimonials_Widget {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public function deactivation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
@@ -695,12 +705,11 @@ EOF;
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
-		$hide_not_found   = $atts['hide_not_found'];
-		$paging           = Testimonials_Widget_Settings::is_true( $atts['paging'] );
-		$paging_before    = ( 'before' === strtolower( $atts['paging'] ) );
-		$paging_after     = ( 'after' === strtolower( $atts['paging'] ) );
-		$refresh_interval = $atts['refresh_interval'];
-		$target           = $atts['target'];
+		$hide_not_found = $atts['hide_not_found'];
+		$paging         = Testimonials_Widget_Settings::is_true( $atts['paging'] );
+		$paging_before  = ( 'before' === strtolower( $atts['paging'] ) );
+		$paging_after   = ( 'after' === strtolower( $atts['paging'] ) );
+		$target         = $atts['target'];
 
 		$html = '';
 		$id   = self::ID;
@@ -1194,7 +1203,7 @@ EOF;
 
 	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
-			foreach ( self::$css as $key => $css ) {
+			foreach ( self::$css as $css ) {
 				echo $css;
 			}
 
@@ -1205,7 +1214,7 @@ EOF;
 
 	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
-			foreach ( self::$scripts as $key => $script ) {
+			foreach ( self::$scripts as $script ) {
 				echo $script;
 			}
 
@@ -1214,6 +1223,11 @@ EOF;
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public static function get_query_args( $atts ) {
 		extract( $atts );
 
@@ -1389,6 +1403,11 @@ EOF;
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public function add_meta_box_testimonials_widget() {
 		require_once 'lib/class-redrokk-metabox-class.php';
 
@@ -1472,6 +1491,7 @@ EOF;
 	 *
 	 * Original author: Travis Ballard http://www.travisballard.com
 	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
 	 * @param mixed   $m
 	 * @return mixed $m
 	 */

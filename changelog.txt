@@ -8,7 +8,7 @@
 * BUGFIX Correct settings required validation `break 2`
 * BUGFIX Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically
 * CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
-* Correct static get_testimonials_html and get_testimonials_htmls function declaration
+* Correct static get_testimonials_html, get_testimonials_htmls, widget_options function declaration
 * Correct static validators call
 * Explain options inheritance
 * FEATURE Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
@@ -16,6 +16,7 @@
 * Refactor out get_quote and get_cite from get_testimonial_html
 * Refactor excess settings grab in widget_options
 * Remove $blank from testimonials_truncate()
+* Remove unused code
 * Rename metabox.class.php class-redrokk-metabox-class.php
 * Rename settings.testimonials-widget.php class-settings-testimonials-widget.php
 * Rename testimonials-widget-widget.php class-testimonials-widget-widget.php
@@ -31,6 +32,7 @@
 * Update TODOs
 * Update premium features
 * Update rulesets
+* Use ID for widget
 
 = 2.11.3 =
 * BUGFIX [Can't set featured image](http://wordpress.org/support/topic/cant-set-featured-image-3)

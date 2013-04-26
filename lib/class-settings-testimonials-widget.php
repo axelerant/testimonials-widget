@@ -74,6 +74,11 @@ class Testimonials_Widget_Settings {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public static function settings() {
 		// Widget
 		self::$settings['title'] = array(
@@ -537,6 +542,11 @@ class Testimonials_Widget_Settings {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public function create_setting( $args = array() ) {
 		extract( $args );
 
@@ -838,6 +848,11 @@ EOD;
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
 		$errors = array();
 
