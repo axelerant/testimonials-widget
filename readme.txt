@@ -391,7 +391,7 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 == Upgrade Notice ==
 
-= TBD =
+= 2.12.0 =
 
 * CSS and JavaScript renaming
 	* `bottom_text` renamed to `bottom-text`
