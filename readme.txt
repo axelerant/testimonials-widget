@@ -308,9 +308,20 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-So that others can share in the answer, please submit your support requests through the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget).
+**WordPress support forums disallow commercial support**
 
-If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) at least $ 65 USD to cover my time. Then send your [support request](http://aihr.us/contact-aihrus/).
+Before requesting support, please…
+
+1. Read the [free FAQ](http://aihr.us/testimonials-widget/faq/)
+1. Read the [premium FAQ](http://aihr.us/testimonials-widget-premium/faq/)
+1. Check that your question hasn't already been answered in the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget)
+
+Next, the hard part…
+
+* If your question is specifically about the premium version, then send me your [support request](http://aihr.us/contact-aihrus/)
+* Otherwise, use the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget)
+
+If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) to aid in covering my time before sending me your [support request](http://aihr.us/contact-aihrus/)
 
 Thank you for your understanding.
 

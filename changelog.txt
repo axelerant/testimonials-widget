@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Update support method
 
 = 2.12.0 =
 * Add file headers to lib/class*
