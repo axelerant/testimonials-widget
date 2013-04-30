@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Update FAQ link
 * Update support method
 
 = 2.12.0 =

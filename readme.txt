@@ -308,22 +308,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-**WordPress support forums disallow commercial support**
-
-Before requesting support, please…
-
-1. Read the [free FAQ](http://aihr.us/testimonials-widget/faq/)
-1. Read the [premium FAQ](http://aihr.us/testimonials-widget-premium/faq/)
-1. Check that your question hasn't already been answered in the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget)
-
-Next, the hard part…
-
-* If your question is specifically about the premium version, then send me your [support request](http://aihr.us/contact-aihrus/)
-* Otherwise, use the [WordPress forums for Testimonials Widget](http://wordpress.org/support/plugin/testimonials-widget)
-
-If you want private or priority support, [please donate](http://aihr.us/about-aihrus/donate/) to aid in covering my time before sending me your [support request](http://aihr.us/contact-aihrus/)
-
-Thank you for your understanding.
+For support please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget)
 
 
 == Installation ==
@@ -367,7 +352,7 @@ Thank you for your understanding.
 * Filters
 	* Rename `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
 
-Read the [FAQ](http://aihr.us/testimonials-widget/faq/) for further help.
+[Testimonials Widget FAQ](https://aihrus.zendesk.com/forums/22048292-Frequently-Asked-Questions)
 
 = I'm still stuck, how can I get help? =
 
