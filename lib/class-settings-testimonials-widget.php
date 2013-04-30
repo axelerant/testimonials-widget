@@ -871,8 +871,9 @@ EOD;
 			if ( ! empty( $input['importexport'] ) && $_SESSION['importexport'] != $input['importexport'] ) {
 				$importexport = $input['importexport'];
 				$unserialized = unserialize( $importexport );
-				foreach ( $unserialized as $id => $std ) {
-					$input[$id] = $std;
+				if ( is_array( $unserialized ) ) {
+					foreach ( $unserialized as $id => $std )
+						$input[$id] = $std;
 				}
 			}
 		}

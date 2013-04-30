@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+* BUGFIX [importexport settings failure](http://wordpress.org/support/topic/errors-after-updating)
+* Change update  warning verbiage
 * Update FAQ link
 * Update support method
 

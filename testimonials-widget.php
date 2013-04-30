@@ -262,7 +262,7 @@ class Testimonials_Widget {
 	public function admin_notices() {
 		$content  = '';
 		$content .= '<div class="error"><p>';
-		$content .= sprintf( __( 'Testimonials Widget has updated CSS naming and HTML5 layout options. Please <a href="%s">read the FAQ</a> to make fixes if your testimonials display is funky', 'testimonials-widget-premium', 'testimonials-widget' ), 'http://wordpress.org/extend/plugins/testimonials-widget/faq/' );
+		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget-premium', 'testimonials-widget' ), 'http://wordpress.org/extend/plugins/testimonials-widget/faq/' );
 		$content .= '</p></div>';
 
 		echo $content;
