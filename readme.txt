@@ -308,7 +308,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-For support please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget)
+For support, please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget).
 
 
 == Installation ==
