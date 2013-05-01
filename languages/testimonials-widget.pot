@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-04-27 22:14:53+00:00\n"
+"POT-Creation-Date: 2013-05-01 18:24:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -418,53 +418,53 @@ msgstr ""
 msgid "Pre 2.11.0. Not HTML5 compliant"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:447
-msgid "Remove Plugin Data on Deletion?"
-msgstr ""
-
-#: lib/class-settings-testimonials-widget.php:450
-msgid ""
-"Delete all Testimonials Widget data and options from database on plugin "
-"deletion"
-msgstr ""
-
-#: lib/class-settings-testimonials-widget.php:460
+#: lib/class-settings-testimonials-widget.php:452
 msgid "Import/Export Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:462
+#: lib/class-settings-testimonials-widget.php:454
 msgid ""
 "These are your current settings in a text format. Copy the textarea contents "
 "to make a backup of your settings. You can paste new settings here to "
 "overwrite your current configuration."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:469
+#: lib/class-settings-testimonials-widget.php:462
+msgid "Remove Plugin Data on Deletion?"
+msgstr ""
+
+#: lib/class-settings-testimonials-widget.php:465
+msgid ""
+"Delete all Testimonials Widget data and options from database on plugin "
+"deletion"
+msgstr ""
+
+#: lib/class-settings-testimonials-widget.php:471
 msgid "Reset to Defaults?"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:472
+#: lib/class-settings-testimonials-widget.php:474
 msgid "Check this box to reset options to their defaults"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:538
-#: lib/class-settings-testimonials-widget.php:575
+#: lib/class-settings-testimonials-widget.php:540
+#: lib/class-settings-testimonials-widget.php:577
 msgid "Testimonials Widget Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:538 testimonials-widget.php:65
+#: lib/class-settings-testimonials-widget.php:540 testimonials-widget.php:65
 msgid "Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:594
+#: lib/class-settings-testimonials-widget.php:596
 msgid "Save Changes"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:605
+#: lib/class-settings-testimonials-widget.php:607
 msgid "Copyright &copy;%1$s %2$s."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:970
+#: lib/class-settings-testimonials-widget.php:973
 msgid "Required"
 msgstr ""
 
@@ -496,9 +496,8 @@ msgstr ""
 
 #: testimonials-widget.php:265
 msgid ""
-"Testimonials Widget has updated CSS naming and HTML5 layout options. Please "
-"<a href=\"%s\">read the FAQ</a> to make fixes if your testimonials display "
-"is funky"
+"If your Testimonials Widget display has gone to funky town, please <a href="
+"\"%s\">read the FAQ</a> about possible CSS fixes."
 msgstr ""
 
 #: testimonials-widget.php:439
