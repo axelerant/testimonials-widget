@@ -308,7 +308,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-For support, please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget).
+Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, offering ideas, or getting support.
 
 
 == Installation ==
@@ -327,6 +327,8 @@ For support, please visit the [Testimonials Widget Knowledge Base](https://aihru
 
 
 == Frequently Asked Questions ==
+
+Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, offering ideas, or getting support.
 
 = Latest Major Changes =
 
@@ -351,12 +353,6 @@ For support, please visit the [Testimonials Widget Knowledge Base](https://aihru
 	* `cite` is now `div.credit`
 * Filters
 	* Rename `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
-
-[Testimonials Widget FAQ](https://aihrus.zendesk.com/forums/22048292-Frequently-Asked-Questions)
-
-= I'm still stuck, how can I get help? =
-
-Visit the [support forum](http://wordpress.org/support/plugin/testimonials-widget) and ask your question. Don't forget to include the URL of where to see the problem.
 
 
 == Screenshots ==
