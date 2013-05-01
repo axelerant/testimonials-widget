@@ -80,21 +80,6 @@ class Testimonials_Widget_Settings {
 	 * @SuppressWarnings(PHPMD.Superglobals)
 	 */
 	public static function settings() {
-		if ( ! empty( self::$settings ) ) {
-			$options                  = tw_get_options();
-			$serialized_options       = serialize( $options );
-			$_SESSION['importexport'] = $serialized_options;
-
-			self::$settings['importexport'] = array(
-				'section' => 'reset',
-				'title' => __( 'Import/Export Settings', 'testimonials-widget' ),
-				'type' => 'textarea',
-				'desc' => __( 'These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.', 'testimonials-widget' ),
-				'std' => $serialized_options,
-				'widget' => 0,
-			);
-		}
-
 		// Widget
 		self::$settings['title'] = array(
 			'section' => 'widget',
@@ -456,6 +441,21 @@ class Testimonials_Widget_Settings {
 				'std' => 1,
 			),
 		);
+
+		$options = get_option( self::ID );
+		if ( ! empty( $options ) ) {
+			$serialized_options       = serialize( $options );
+			$_SESSION['importexport'] = $serialized_options;
+
+			self::$settings['importexport'] = array(
+				'section' => 'reset',
+				'title' => __( 'Import/Export Settings', 'testimonials-widget' ),
+				'type' => 'textarea',
+				'desc' => __( 'These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.', 'testimonials-widget' ),
+				'std' => $serialized_options,
+				'widget' => 0,
+			);
+		}
 
 		self::$settings['delete_data'] = array(
 			'section' => 'reset',

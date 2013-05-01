@@ -3,7 +3,7 @@
 == Changelog ==
 
 = trunk =
-* BUGFIX Memory leak [Sites hosed after update 2.12.0](http://wordpress.org/support/topic/premium-sites-hosed-after-update-2120)
+* BUGFIX Settings memory leak [Sites hosed after update 2.12.0](http://wordpress.org/support/topic/premium-sites-hosed-after-update-2120)
 * BUGFIX [importexport settings failure](http://wordpress.org/support/topic/errors-after-updating)
 * Change update warning verbiage
 * Update FAQ & support links to knowledge base
