@@ -7,9 +7,11 @@
 * Auto flush URLs if archive or testimonial slugs change
 * BUGFIX Respect attribute settings by preventing reset_defaults and importexport activating on front-end
 * Convert slug, slugs, and term setting items to lowercase on save
+* Correctly delete all testimonials options on delete
 * Don't create class instance unless plugin is activated
 * Prevent same has_archive and rewrite_slug which causes URL problems
 * Remove excess FAQ text
+* Remove unused settings and methods
 * Remove unused testing settings
 * Set version for which admin notice to display
 

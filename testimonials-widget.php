@@ -179,16 +179,6 @@ class Testimonials_Widget {
 	}
 
 
-	function notice_uninstall() {
-		$content  = '';
-		$content .= '<div class="error"><p>';
-		$content .= __( 'Deleting Testimonials Widget plugin will remove all data and settings.', 'testimonials-widget' );
-		$content .= '</p></div>';
-
-		echo $content;
-	}
-
-
 	public function uninstall() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
@@ -203,6 +193,7 @@ class Testimonials_Widget {
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
 			delete_option( Testimonials_Widget_Settings::ID );
+			delete_option( self::OLD_NAME );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
 			self::delete_testimonials();
