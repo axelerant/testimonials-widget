@@ -388,26 +388,25 @@ class Testimonials_Widget_Settings {
 			'widget' => 0,
 		);
 
-		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page. After changing, you must click "Save Changes" on <a href="%2s">Permalink Settings</a> to update them.', 'testimonials-widget' );
+		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
 		$has_archive = tw_get_option( 'has_archive', '' );
 		$site_url    = site_url( '/' . $has_archive );
-		$url         = admin_url( 'options-permalink.php' );
 
 		self::$settings['has_archive'] = array(
 			'section' => 'post_type',
 			'title' => __( 'Archive Page URL', 'testimonials-widget' ),
-			'desc' => sprintf( $desc, $site_url, $url ),
+			'desc' => sprintf( $desc, $site_url ),
 			'std' => 'testimonials-archive',
 			'validate' => 'sanitize_title',
 			'widget' => 0,
 		);
 
-		$desc = __( 'URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on <a href="%1s">Permalink Settings</a> to update them.', 'testimonials-widget' );
+		$desc = __( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as Archive Page URL.', 'testimonials-widget' );
 
 		self::$settings['rewrite_slug'] = array(
 			'section' => 'post_type',
 			'title' => __( 'Testimonial Page URL', 'testimonials-widget' ),
-			'desc' => sprintf( $desc, $url ),
+			'desc' => $desc,
 			'std' => 'testimonial',
 			'validate' => 'sanitize_title',
 			'widget' => 0,
@@ -921,6 +920,18 @@ EOD;
 			}
 		}
 
+		// same has_archive and rewrite_slug causes problems
+		if ( $input['has_archive'] == $input['rewrite_slug'] ) {
+			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+		}
+
+		// did URL slugs change?
+		$has_archive  = tw_get_option( 'has_archive' );
+		$rewrite_slug = tw_get_option( 'rewrite_slug' );
+		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] ) {
+			flush_rewrite_rules();
+		}
+
 		$input['version'] = self::$version;
 		$input            = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
 		unset( $input['importexport'] );
@@ -976,14 +987,17 @@ EOD;
 
 		case 'slug':
 			$input[ $id ] = self::validate_slug( $input[ $id ], $default );
+			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
 		case 'slugs':
 			$input[ $id ] = self::validate_slugs( $input[ $id ], $default );
+			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
 		case 'term':
 			$input[ $id ] = self::validate_term( $input[ $id ], $default );
+			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
 		default:

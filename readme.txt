@@ -44,6 +44,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * "Read more" link column on testimonial posts admin page
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
+* Auto flush URLs cache if archive or testimonial slugs change
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
@@ -57,6 +58,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Plugin version tracking to ensure compatibility
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
+* Prevents same has_archive and rewrite_slug which causes URL problems
 * Read more links for testimonials exceeding the character limit
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations
@@ -350,7 +352,7 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
 	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
 * Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
-	* `cite` is now `div.credit`
+	* `cite` tag is now `div.credit`
 * Filters
 	* Rename `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
 
@@ -461,3 +463,6 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
+
+* $1 donation link on installation or update
+* Set version for which admin notice to display

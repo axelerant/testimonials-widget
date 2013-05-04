@@ -3,6 +3,10 @@
 == Changelog ==
 
 = trunk =
+* Add forum responses cheat sheet
+* Auto flush URLs if archive or testimonial slugs change
+* Convert slug, slugs, and term setting items to lowercase on save
+* Prevent same has_archive and rewrite_slug which causes URL problems
 
 = 2.12.1 =
 * BUGFIX Settings memory leak [Sites hosed after update 2.12.0](http://wordpress.org/support/topic/premium-sites-hosed-after-update-2120)

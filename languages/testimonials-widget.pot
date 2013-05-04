@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-05-01 18:34:11+00:00\n"
+"POT-Creation-Date: 2013-05-04 00:39:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -376,95 +376,92 @@ msgid ""
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:391
-msgid ""
-"URL slug-name for <a href=\"%1s\">testimonials archive</a> page. After "
-"changing, you must click \"Save Changes\" on <a href=\"%2s\">Permalink "
-"Settings</a> to update them."
+msgid "URL slug-name for <a href=\"%1s\">testimonials archive</a> page."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:398
+#: lib/class-settings-testimonials-widget.php:397
 msgid "Archive Page URL"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:405
+#: lib/class-settings-testimonials-widget.php:404
 msgid ""
-"URL slug-name for testimonial view pages. After changing, you must click "
-"\"Save Changes\" on <a href=\"%1s\">Permalink Settings</a> to update them."
+"URL slug-name for testimonial view pages. Shouldn't be the same as Archive "
+"Page URL."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:409
+#: lib/class-settings-testimonials-widget.php:408
 msgid "Testimonial Page URL"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:419
+#: lib/class-settings-testimonials-widget.php:418
 msgid "Compatiblity Options"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:425
+#: lib/class-settings-testimonials-widget.php:424
 msgid "Remove `.hentry` CSS?"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:426
+#: lib/class-settings-testimonials-widget.php:425
 msgid ""
 "Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks "
 "Testimonials Widgets CSS"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:436
+#: lib/class-settings-testimonials-widget.php:435
 msgid "Use `&lt;q&gt;` tag?"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:437
+#: lib/class-settings-testimonials-widget.php:436
 msgid "Pre 2.11.0. Not HTML5 compliant"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:452
+#: lib/class-settings-testimonials-widget.php:451
 msgid "Import/Export Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:454
+#: lib/class-settings-testimonials-widget.php:453
 msgid ""
 "These are your current settings in a text format. Copy the textarea contents "
 "to make a backup of your settings. You can paste new settings here to "
 "overwrite your current configuration."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:462
+#: lib/class-settings-testimonials-widget.php:461
 msgid "Remove Plugin Data on Deletion?"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:465
+#: lib/class-settings-testimonials-widget.php:464
 msgid ""
 "Delete all Testimonials Widget data and options from database on plugin "
 "deletion"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:471
+#: lib/class-settings-testimonials-widget.php:470
 msgid "Reset to Defaults?"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:474
+#: lib/class-settings-testimonials-widget.php:473
 msgid "Check this box to reset options to their defaults"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:540
-#: lib/class-settings-testimonials-widget.php:577
+#: lib/class-settings-testimonials-widget.php:539
+#: lib/class-settings-testimonials-widget.php:576
 msgid "Testimonials Widget Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:540 testimonials-widget.php:65
+#: lib/class-settings-testimonials-widget.php:539 testimonials-widget.php:65
 msgid "Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:596
+#: lib/class-settings-testimonials-widget.php:595
 msgid "Save Changes"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:607
+#: lib/class-settings-testimonials-widget.php:606
 msgid "Copyright &copy;%1$s %2$s."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:973
+#: lib/class-settings-testimonials-widget.php:984
 msgid "Required"
 msgstr ""
 
