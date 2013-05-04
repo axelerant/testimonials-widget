@@ -65,7 +65,6 @@ class Testimonials_Widget_Settings {
 		self::$sections['selection'] = __( 'Selection', 'testimonials-widget' );
 		self::$sections['ordering']  = __( 'Ordering', 'testimonials-widget' );
 		self::$sections['widget']    = __( 'Widget', 'testimonials-widget' );
-		// self::$sections['testing'] = __( 'Testing', 'testimonials-widget' );
 		self::$sections['post_type'] = __( 'Post Type', 'testimonials-widget' );
 		self::$sections['reset']     = __( 'Compatibility & Reset', 'testimonials-widget' );
 		self::$sections['about']     = __( 'About Testimonials Widget', 'testimonials-widget' );
@@ -368,15 +367,6 @@ class Testimonials_Widget_Settings {
 		self::$settings['ordering_expand_end'] = array(
 			'section' => 'ordering',
 			'type' => 'expand_end',
-		);
-
-		// Debug
-		self::$settings['debug_mode'] = array(
-			'section' => 'testing',
-			'title' => __( 'Debug Mode?', 'testimonials-widget' ),
-			'desc' => __( 'Not implemented yet', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'widget' => 0,
 		);
 
 		// Post Type
@@ -814,7 +804,7 @@ EOD;
 		$defaults                 = self::get_defaults( 'backwards' );
 		$current                  = get_option( self::ID );
 		$current                  = wp_parse_args( $current, $defaults );
-		$current['admin_notices'] = true;
+		$current['admin_notices'] = tw_get_option( 'version', self::$version );
 		$current['version']       = self::$version;
 
 		update_option( self::ID, $current );
@@ -861,20 +851,22 @@ EOD;
 			$options  = self::get_settings();
 			$defaults = self::get_defaults();
 
-			if ( ! empty( $input['reset_defaults'] ) ) {
-				foreach ( $defaults as $id => $std ) {
-					$input[$id] = $std;
+			if ( is_admin() ) {
+				if ( ! empty( $input['reset_defaults'] ) ) {
+					foreach ( $defaults as $id => $std ) {
+						$input[$id] = $std;
+					}
+
+					unset( $input['reset_defaults'] );
 				}
 
-				unset( $input['reset_defaults'] );
-			}
-
-			if ( ! empty( $input['importexport'] ) && $_SESSION['importexport'] != $input['importexport'] ) {
-				$importexport = $input['importexport'];
-				$unserialized = unserialize( $importexport );
-				if ( is_array( $unserialized ) ) {
-					foreach ( $unserialized as $id => $std )
-						$input[$id] = $std;
+				if ( ! empty( $input['importexport'] ) && $_SESSION['importexport'] != $input['importexport'] ) {
+					$importexport = $input['importexport'];
+					$unserialized = unserialize( $importexport );
+					if ( is_array( $unserialized ) ) {
+						foreach ( $unserialized as $id => $std )
+							$input[$id] = $std;
+					}
 				}
 			}
 		}
@@ -1066,9 +1058,6 @@ EOD;
 
 
 }
-
-
-$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
 
 
 function tw_get_options() {

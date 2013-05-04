@@ -5,8 +5,13 @@
 = trunk =
 * Add forum responses cheat sheet
 * Auto flush URLs if archive or testimonial slugs change
+* BUGFIX Respect attribute settings by preventing reset_defaults and importexport activating on front-end
 * Convert slug, slugs, and term setting items to lowercase on save
+* Don't create class instance unless plugin is activated
 * Prevent same has_archive and rewrite_slug which causes URL problems
+* Remove excess FAQ text
+* Remove unused testing settings
+* Set version for which admin notice to display
 
 = 2.12.1 =
 * BUGFIX Settings memory leak [Sites hosed after update 2.12.0](http://wordpress.org/support/topic/premium-sites-hosed-after-update-2120)

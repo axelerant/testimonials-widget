@@ -332,30 +332,6 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 
 Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, offering ideas, or getting support.
 
-= Latest Major Changes =
-
-* New Features
-	* Options
-		* Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
-		* Settings export/import
-* CSS class names are simplified and now WordPress coding standards compliant
-	* For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
-	* Ex: `.testimonialswidget_join` becomes `.join`
-	* Ex: `.testimonialswidget_author` becomes `.author`
-* CSS and JavaScript renaming
-	* `bottom_text` renamed to `bottom-text`
-	* `close_quote` renamed to `close-quote`
-	* `display_none` renamed to `display-none`
-	* `join_location` renamed to `join-location`
-	* `join_title` renamed to `join-title`
-	* `open_quote` renamed to `open-quote`
-	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
-	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
-* Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
-	* `cite` tag is now `div.credit`
-* Filters
-	* Rename `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
-
 
 == Screenshots ==
 
@@ -465,4 +441,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
 * $1 donation link on installation or update
-* Set version for which admin notice to display

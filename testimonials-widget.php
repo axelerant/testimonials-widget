@@ -27,10 +27,11 @@ require_once 'lib/class-settings-testimonials-widget.php';
 
 
 class Testimonials_Widget {
-	const ID       = 'testimonials-widget-testimonials';
-	const OLD_NAME = 'testimonialswidget';
-	const PT       = 'testimonials-widget';
-	const VERSION  = '2.12.1';
+	const ID          = 'testimonials-widget-testimonials';
+	const OLD_NAME    = 'testimonialswidget';
+	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
+	const PT          = 'testimonials-widget';
+	const VERSION     = '2.12.1';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -259,10 +260,9 @@ class Testimonials_Widget {
 	}
 
 
-	public function admin_notices() {
-		$content  = '';
-		$content .= '<div class="updated"><p>';
-		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget-premium', 'testimonials-widget' ), 'http://wordpress.org/extend/plugins/testimonials-widget/faq/' );
+	public function admin_notices_2_12_0() {
+		$content  = '<div class="updated"><p>';
+		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget-premium', 'testimonials-widget' ), 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -270,9 +270,12 @@ class Testimonials_Widget {
 
 
 	public function update() {
-		$admin_notices = tw_get_option( 'admin_notices' );
-		if ( $admin_notices ) {
-			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		$prior_version = tw_get_option( 'admin_notices' );
+		if ( $prior_version ) {
+			if ( $prior_version < '2.12.0' ) {
+				add_action( 'admin_notices', array( $this, 'admin_notices_2_12_0' ) );
+			}
+
 			tw_set_option( 'admin_notices' );
 		}
 
@@ -1520,7 +1523,12 @@ EOF;
 }
 
 
-$Testimonials_Widget = new Testimonials_Widget();
+include_once ABSPATH . 'wp-admin/includes/plugin.php';
+if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
+	$Testimonials_Widget          = new Testimonials_Widget();
+	$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+}
+
 
 
 function testimonialswidget_list( $atts = array() ) {
