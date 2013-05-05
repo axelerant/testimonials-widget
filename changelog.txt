@@ -4,6 +4,7 @@
 
 = trunk =
 * Add forum responses cheat sheet
+* Allow for custom post type categories and tags [Idea via crdunst](http://wordpress.org/support/topic/feedback-tagscategories?replies=3#post-4160839)
 * Auto flush URLs if archive or testimonial slugs change
 * BUGFIX Respect attribute settings by preventing reset_defaults and importexport activating on front-end
 * Convert slug, slugs, and term setting items to lowercase on save

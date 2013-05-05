@@ -31,11 +31,12 @@ The single testimonial view supports image, source, title, location, email, comp
 * Fields for source, testimonial, image, title, location, email, company and URL details
 * Filters to manipulate testimonials output
 * Multiple paging options for testimonials listings
-* Settings screen for site-wide option defaults
 * Settings export/import
+* Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, location, email, company and URL details
 * Testimonials archive view
+* Use custom taxonomy or WordPress's own for categories and tags
 
 = Testimonials Widget Premium Plugin Features =
 
@@ -440,4 +441,4 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
-* $1 donation link on installation or update
+* $1 donation link requet on installation or major update update

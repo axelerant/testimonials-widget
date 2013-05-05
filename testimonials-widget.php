@@ -38,6 +38,8 @@ class Testimonials_Widget {
 	private static $post_count    = 0;
 	private static $wp_query      = null;
 
+	public static $cpt_category    = '';
+	public static $cpt_tags        = '';
 	public static $css             = array();
 	public static $css_called      = false;
 	public static $instance_number = 0;
@@ -79,6 +81,9 @@ class Testimonials_Widget {
 
 
 	public function init() {
+		self::$cpt_category = self::PT . '-category';
+		self::$cpt_tags     = self::PT . '-post_tag';
+
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base = plugin_basename( __FILE__ );
 		self::init_post_type();
@@ -475,12 +480,29 @@ class Testimonials_Widget {
 		if ( $allow_comments )
 			$supports[] = 'comments';
 
-		$has_archive  = tw_get_option( 'has_archive', true );
-		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
+		$has_archive      = tw_get_option( 'has_archive', true );
+		$rewrite_slug     = tw_get_option( 'rewrite_slug', 'testimonial' );
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 
 		// editor's and up
 		if ( current_user_can( 'edit_others_posts' ) )
 			$supports[] = 'author';
+
+		if ( ! $use_cpt_taxonomy ) {
+			$do_register_taxonomy = false;
+			$taxonomies           = array(
+				'category',
+				'post_tag',
+			);
+		} else {
+			self::register_taxonomies();
+
+			$do_register_taxonomy = true;
+			$taxonomies           = array(
+				self::$cpt_category,
+				self::$cpt_tags,
+			);
+		}
 
 		$args = array(
 			'label' => __( 'Testimonials', 'testimonials-widget' ),
@@ -498,13 +520,28 @@ class Testimonials_Widget {
 			'show_in_menu' => true,
 			'show_ui' => true,
 			'supports' => $supports,
-			'taxonomies' => array(
-				'category',
-				'post_tag',
-			)
+			'taxonomies' => $taxonomies,
 		);
 
-		register_post_type( Testimonials_Widget::PT, $args );
+		register_post_type( self::PT, $args );
+
+		if ( $do_register_taxonomy ) {
+			register_taxonomy_for_object_type( self::$cpt_category, self::PT );
+			register_taxonomy_for_object_type( self::$cpt_tags, self::PT );
+		}
+	}
+
+
+	public static function register_taxonomies() {
+		$args = array(
+			'hierarchical'          => true,
+		);
+		register_taxonomy( self::$cpt_category, self::PT, $args );
+
+		$args = array(
+			'update_count_callback' => '_update_post_term_count',
+		);
+		register_taxonomy( self::$cpt_tags, self::PT, $args );
 	}
 
 
@@ -1279,17 +1316,43 @@ EOF;
 			$args['post__not_in'] = $exclude;
 		}
 
-		if ( $category ) {
-			$args['category_name'] = $category;
-		}
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
+		if ( ! $use_cpt_taxonomy ) {
+			if ( $category ) {
+				$args['category_name'] = $category;
+			}
 
-		if ( $tags ) {
-			$tags = explode( ',', $tags );
+			if ( $tags ) {
+				$tags = explode( ',', $tags );
 
-			if ( $tags_all ) {
-				$args['tag_slug__and'] = $tags;
-			} else {
-				$args['tag_slug__in'] = $tags;
+				if ( $tags_all ) {
+					$args['tag_slug__and'] = $tags;
+				} else {
+					$args['tag_slug__in'] = $tags;
+				}
+			}
+		} else {
+			if ( $category ) {
+				$args[ self::$cpt_category ] = $category;
+			}
+
+			if ( $tags ) {
+				if ( $tags_all ) {
+					$args[ 'tax_query' ] = array(
+						'relation' => 'AND',
+					);
+
+					$tags = explode( ',', $tags );
+					foreach ( $tags as $term ) {
+						$args[ 'tax_query' ][] = array(
+							'taxonomy' => self::$cpt_tags,
+							'terms' => array( $term ),
+							'field' => 'slug',
+						);
+					}
+				} else {
+					$args[ self::$cpt_tags ] = $tags;
+				}
 			}
 		}
 

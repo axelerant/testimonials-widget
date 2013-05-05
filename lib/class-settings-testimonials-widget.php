@@ -431,6 +431,14 @@ class Testimonials_Widget_Settings {
 			),
 		);
 
+		self::$settings['use_cpt_taxonomy'] = array(
+			'section' => 'reset',
+			'title' => __( 'Don\'t Use Built-in Taxonomies?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'desc' => __( 'If checked, use Testimonials Widget\'s own category and tag taxonomies', 'testimonials-widget' ),
+			'widget' => 0,
+		);
+
 		$options = get_option( self::ID );
 		if ( ! empty( $options ) ) {
 			$serialized_options       = serialize( $options );
