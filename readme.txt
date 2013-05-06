@@ -219,6 +219,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `remove_hentry` - default none; remove_hentry=true
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
+* Don't Use Default Taxonomies? – If checked, use Testimonials Widget's own category and tag taxonomies instead
+* Import/Export Settings – These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
 
@@ -440,5 +442,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
-
-* $1 donation link requet on installation or major update update

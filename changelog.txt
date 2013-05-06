@@ -3,13 +3,16 @@
 == Changelog ==
 
 = trunk =
+
+= 2.12.2 =
+* $1 donation link admin_notice on installation or major/minor update
 * Add forum responses cheat sheet
-* Allow for custom post type categories and tags [Idea via crdunst](http://wordpress.org/support/topic/feedback-tagscategories?replies=3#post-4160839)
 * Auto flush URLs if archive or testimonial slugs change
 * BUGFIX Respect attribute settings by preventing reset_defaults and importexport activating on front-end
 * Convert slug, slugs, and term setting items to lowercase on save
 * Correctly delete all testimonials options on delete
 * Don't create class instance unless plugin is activated
+* FEATURE Allow for custom post type categories and tags [Idea via crdunst](http://wordpress.org/support/topic/feedback-tagscategories?replies=3#post-4160839)
 * Prevent same has_archive and rewrite_slug which causes URL problems
 * Remove excess FAQ text
 * Remove unused settings and methods

@@ -433,9 +433,9 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['use_cpt_taxonomy'] = array(
 			'section' => 'reset',
-			'title' => __( 'Don\'t Use Built-in Taxonomies?', 'testimonials-widget' ),
+			'title' => __( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
 			'type' => 'checkbox',
-			'desc' => __( 'If checked, use Testimonials Widget\'s own category and tag taxonomies', 'testimonials-widget' ),
+			'desc' => __( 'If checked, use Testimonials Widget\'s own category and tag taxonomies instead', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 

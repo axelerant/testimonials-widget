@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.12.1
+ * Version: 2.12.2
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -31,7 +31,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.12.1';
+	const VERSION     = '2.12.2';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -42,6 +42,7 @@ class Testimonials_Widget {
 	public static $cpt_tags        = '';
 	public static $css             = array();
 	public static $css_called      = false;
+	public static $donate_button   = '';
 	public static $instance_number = 0;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
@@ -81,8 +82,16 @@ class Testimonials_Widget {
 
 
 	public function init() {
-		self::$cpt_category = self::PT . '-category';
-		self::$cpt_tags     = self::PT . '-post_tag';
+		self::$cpt_category  = self::PT . '-category';
+		self::$cpt_tags      = self::PT . '-post_tag';
+		self::$donate_button = <<<EOD
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="WM4F995W9LHXE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+EOD;
 
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		self::$base = plugin_basename( __FILE__ );
@@ -258,7 +267,16 @@ class Testimonials_Widget {
 
 	public function admin_notices_2_12_0() {
 		$content  = '<div class="updated"><p>';
-		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget-premium', 'testimonials-widget' ), 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' );
+		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' );
+		$content .= '</p></div>';
+
+		echo $content;
+	}
+
+
+	public function admin_notices_donate() {
+		$content  = '<div class="updated"><p>';
+		$content .= sprintf( __( 'Please donate $1 towards keeping Testimonials Widget plugin supported and maintained %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -273,6 +291,12 @@ class Testimonials_Widget {
 			}
 
 			tw_set_option( 'admin_notices' );
+		}
+
+		$donate_version = tw_get_option( 'donate_version', false );
+		if ( ! $donate_version || ( $donate_version != self::VERSION && preg_match( '#\.0$#', self::VERSION ) ) ) {
+			add_action( 'admin_notices', array( $this, 'admin_notices_donate' ) );
+			tw_set_option( 'donate_version', self::VERSION );
 		}
 
 		$options = get_option( self::OLD_NAME );
