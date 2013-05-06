@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.12.2
+ * Version: 2.12.3
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -31,7 +31,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.12.2';
+	const VERSION     = '2.12.3';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -310,79 +310,83 @@ EOD;
 	public function migrate() {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . self::OLD_NAME;
-		$meta_key   = '_' . self::PT . ':testimonial_id';
+		$table_name       = $wpdb->prefix . self::OLD_NAME;
+		$meta_key         = '_' . self::PT . ':testimonial_id';
+		$has_table_query  = "SELECT table_name FROM information_schema.tables WHERE table_schema='{$wpdb->dbname}' AND table_name='{$table_name}'";
+		$has_table_result = $wpdb->get_col( $has_table_query );
 
-		// check that db table exists and has entries
-		$query = 'SELECT `testimonial_id`, `testimonial`, `author`, `source`, `tags`, `public`, `time_added`, `time_updated` FROM `' . $table_name . '`';
+		if ( ! empty( $has_table_result ) ) {
+			// check that db table exists and has entries
+			$query = 'SELECT `testimonial_id`, `testimonial`, `author`, `source`, `tags`, `public`, `time_added`, `time_updated` FROM `' . $table_name . '`';
 
-		// ignore already imported
-		$done_import_query = 'SELECT meta_value FROM ' . $wpdb->postmeta . ' WHERE meta_key = "' . $meta_key . '"';
-		$done_import       = $wpdb->get_col( $done_import_query );
+			// ignore already imported
+			$done_import_query = 'SELECT meta_value FROM ' . $wpdb->postmeta . ' WHERE meta_key = "' . $meta_key . '"';
+			$done_import       = $wpdb->get_col( $done_import_query );
 
-		if ( ! empty( $done_import ) ) {
-			$done_import = array_unique( $done_import );
-			$query      .= ' WHERE testimonial_id NOT IN ( ' . implode( ',', $done_import ) . ' )';
-		}
+			if ( ! empty( $done_import ) ) {
+				$done_import = array_unique( $done_import );
+				$query      .= ' WHERE testimonial_id NOT IN ( ' . implode( ',', $done_import ) . ' )';
+			}
 
-		$results = $wpdb->get_results( $query );
-		if ( ! empty( $results ) ) {
-			foreach ( $results as $result ) {
-				// author can contain title and company details
-				$author  = $result->author;
-				$company = false;
+			$results = $wpdb->get_results( $query );
+			if ( ! empty( $results ) ) {
+				foreach ( $results as $result ) {
+					// author can contain title and company details
+					$author  = $result->author;
+					$company = false;
 
-				// ex: First Last of Company!
-				$author = str_replace( ' of ', ', ', $author );
-				// now ex: First Last, Company!
+					// ex: First Last of Company!
+					$author = str_replace( ' of ', ', ', $author );
+					// now ex: First Last, Company!
 
-				// ex: First Last, Company
-				// ex: First Last, Web Development Manager, Topcon Positioning Systems, Inc.
-				// ex: First Last, Owner, Company, LLC
-				$author     = str_replace( ' of ', ', ', $author );
-				$temp_comma = '^^^';
-				$author     = str_replace( ', LLC', $temp_comma . ' LLC', $author );
+					// ex: First Last, Company
+					// ex: First Last, Web Development Manager, Topcon Positioning Systems, Inc.
+					// ex: First Last, Owner, Company, LLC
+					$author     = str_replace( ' of ', ', ', $author );
+					$temp_comma = '^^^';
+					$author     = str_replace( ', LLC', $temp_comma . ' LLC', $author );
 
-				// now ex: First Last, Owner, Company^^^ LLC
-				$author = str_replace( ', Inc', $temp_comma . ' Inc', $author );
+					// now ex: First Last, Owner, Company^^^ LLC
+					$author = str_replace( ', Inc', $temp_comma . ' Inc', $author );
 
-				// ex: First Last, Web Development Manager, Company^^^ Inc.
-				// it's possible to have "Michael Cannon, Senior Developer" and "Senior Developer" become the company. Okay for now
-				$author = explode( ', ', $author );
+					// ex: First Last, Web Development Manager, Company^^^ Inc.
+					// it's possible to have "Michael Cannon, Senior Developer" and "Senior Developer" become the company. Okay for now
+					$author = explode( ', ', $author );
 
-				if ( 1 < count( $author ) ) {
-					$company = array_pop( $author );
-					$company = str_replace( $temp_comma, ',', $company );
-				}
+					if ( 1 < count( $author ) ) {
+						$company = array_pop( $author );
+						$company = str_replace( $temp_comma, ',', $company );
+					}
 
-				$author = implode( ', ', $author );
-				$author = str_replace( $temp_comma, ',', $author );
+					$author = implode( ', ', $author );
+					$author = str_replace( $temp_comma, ',', $author );
 
-				$post_data = array(
-					'post_type' => self::PT,
-					'post_status' => ( 'yes' == $result->public ) ? 'publish' : 'private',
-					'post_date' => $result->time_added,
-					'post_modified' => $result->time_updated,
-					'post_title' => $author,
-					'post_content' => $result->testimonial,
-					'tags_input' => $result->tags,
-				);
+					$post_data = array(
+						'post_type' => self::PT,
+						'post_status' => ( 'yes' == $result->public ) ? 'publish' : 'private',
+						'post_date' => $result->time_added,
+						'post_modified' => $result->time_updated,
+						'post_title' => $author,
+						'post_content' => $result->testimonial,
+						'tags_input' => $result->tags,
+					);
 
-				$post_id = wp_insert_post( $post_data, true );
+					$post_id = wp_insert_post( $post_data, true );
 
-				// track/link testimonial import to new post
-				add_post_meta( $post_id, $meta_key, $result->testimonial_id );
+					// track/link testimonial import to new post
+					add_post_meta( $post_id, $meta_key, $result->testimonial_id );
 
-				if ( ! empty( $company ) ) {
-					add_post_meta( $post_id, 'testimonials-widget-company', $company );
-				}
+					if ( ! empty( $company ) ) {
+						add_post_meta( $post_id, 'testimonials-widget-company', $company );
+					}
 
-				$source = $result->source;
-				if ( ! empty( $source ) ) {
-					if ( is_email( $source ) ) {
-						add_post_meta( $post_id, 'testimonials-widget-email', $source );
-					} else {
-						add_post_meta( $post_id, 'testimonials-widget-url', $source );
+					$source = $result->source;
+					if ( ! empty( $source ) ) {
+						if ( is_email( $source ) ) {
+							add_post_meta( $post_id, 'testimonials-widget-email', $source );
+						} else {
+							add_post_meta( $post_id, 'testimonials-widget-url', $source );
+						}
 					}
 				}
 			}
@@ -390,7 +394,7 @@ EOD;
 
 		$options['migrated'] = true;
 		delete_option( self::OLD_NAME );
-		add_option( self::OLD_NAME, $options, null, 'no' );
+		add_option( self::OLD_NAME, $options );
 	}
 
 

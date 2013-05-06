@@ -4,6 +4,10 @@
 
 = trunk =
 
+= 2.12.3 =
+* BUGFIX Import option constantly overrides settings 
+* BUGFIX [Error When Database Does Not Exist Yet](http://wordpress.org/support/topic/error-when-database-does-not-exist-yet)
+
 = 2.12.2 =
 * $1 donation link admin_notice on installation or major/minor update
 * Add forum responses cheat sheet

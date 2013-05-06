@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
 Requires at least: 3.4
 Tested up to: 3.6.0
-Stable tag: 2.12.2
+Stable tag: 2.12.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -220,7 +220,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
 * Don't Use Default Taxonomies? – If checked, use Testimonials Widget's own category and tag taxonomies instead
-* Import/Export Settings – These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.
+* Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
+* Import Settings – Paste new serialized settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
 

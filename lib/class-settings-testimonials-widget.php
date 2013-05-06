@@ -441,18 +441,26 @@ class Testimonials_Widget_Settings {
 
 		$options = get_option( self::ID );
 		if ( ! empty( $options ) ) {
-			$serialized_options       = serialize( $options );
-			$_SESSION['importexport'] = $serialized_options;
+			$serialized_options = serialize( $options );
+			$_SESSION['export'] = $serialized_options;
 
-			self::$settings['importexport'] = array(
+			self::$settings['export'] = array(
 				'section' => 'reset',
-				'title' => __( 'Import/Export Settings', 'testimonials-widget' ),
-				'type' => 'textarea',
-				'desc' => __( 'These are your current settings in a text format. Copy the textarea contents to make a backup of your settings. You can paste new settings here to overwrite your current configuration.', 'testimonials-widget' ),
+				'title' => __( 'Export Settings', 'testimonials-widget' ),
+				'type' => 'readonly',
+				'desc' => __( 'These are your current settings in a serialized format. Copy the contents to make a backup of your settings.', 'testimonials-widget' ),
 				'std' => $serialized_options,
 				'widget' => 0,
 			);
 		}
+
+		self::$settings['import'] = array(
+			'section' => 'reset',
+			'title' => __( 'Import Settings', 'testimonials-widget' ),
+			'type' => 'textarea',
+			'desc' => __( 'Paste new serialized settings here to overwrite your current configuration.', 'testimonials-widget' ),
+			'widget' => 0,
+		);
 
 		self::$settings['delete_data'] = array(
 			'section' => 'reset',
@@ -868,9 +876,9 @@ EOD;
 					unset( $input['reset_defaults'] );
 				}
 
-				if ( ! empty( $input['importexport'] ) && $_SESSION['importexport'] != $input['importexport'] ) {
-					$importexport = $input['importexport'];
-					$unserialized = unserialize( $importexport );
+				if ( ! empty( $input['import'] ) && $_SESSION['export'] != $input['import'] ) {
+					$import       = $input['import'];
+					$unserialized = unserialize( $import );
 					if ( is_array( $unserialized ) ) {
 						foreach ( $unserialized as $id => $std )
 							$input[$id] = $std;
@@ -932,9 +940,12 @@ EOD;
 			flush_rewrite_rules();
 		}
 
-		$input['version'] = self::$version;
-		$input            = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
-		unset( $input['importexport'] );
+		$input['version']        = self::$version;
+		$input['donate_version'] = Testimonials_Widget::VERSION;
+		$input                   = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+
+		unset( $input['export'] );
+		unset( $input['import'] );
 
 		if ( empty( $do_errors ) ) {
 			$validated = $input;
