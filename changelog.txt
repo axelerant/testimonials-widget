@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+* TODOs update
+* Use PayPal donate image in settings
 
 = 2.12.3 =
 * BUGFIX Import option constantly overrides settings 
