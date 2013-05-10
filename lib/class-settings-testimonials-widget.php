@@ -585,22 +585,21 @@ class Testimonials_Widget_Settings {
 
 		settings_fields( self::ID );
 
-		echo '<div class="ui-tabs">
-			<ul class="ui-tabs-nav">';
+		echo '<div id="' . self::ID . '">
+			<ul>';
 
 		foreach ( self::$sections as $section_slug => $section )
 			echo '<li><a href="#' . $section_slug . '">' . $section . '</a></li>';
 
 		echo '</ul>';
 
-		do_settings_sections( self::ID );
-
-		echo '</div>';
+		self::do_settings_sections( self::ID );
 
 		echo '
 			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes', 'testimonials-widget' ) . '" /></p>
 			</form>
-			';
+		</div>
+		';
 
 		echo '
 			<p>When ready, <a href="'.get_admin_url().'edit.php?post_type=testimonials-widget">view</a>
@@ -611,7 +610,7 @@ class Testimonials_Widget_Settings {
 
 		$text      = __( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
 		$link      = '<a href="http://aihr.us">Aihrus</a>';
-		$copyright = '<div class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</div>';
+		$copyright = '<p class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</p>';
 		echo $copyright;
 
 		self::section_scripts();
@@ -621,60 +620,39 @@ class Testimonials_Widget_Settings {
 
 
 	public static function section_scripts() {
-		echo '<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				var sections = [];';
-
-		foreach ( self::$sections as $section_slug => $section )
-			echo "sections['$section'] = '$section_slug';";
-
-		echo 'var wrapped = $(".wrap h3").wrap("<div class=\"ui-tabs-panel\">");
-				wrapped.each(function() {
-					$(this).parent().append($(this).parent().nextUntil("div.ui-tabs-panel"));
+		echo '
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$( "#' . self::ID . '" ).tabs();
+		// This will make the "warning" checkbox class really stand out when checked.
+		$(".warning").change(function() {
+			if ($(this).is(":checked"))
+				$(this).parent().css("background", "#c00").css("color", "#fff").css("fontWeight", "bold");
+			else
+				$(this).parent().css("background", "inherit").css("color", "inherit").css("fontWeight", "inherit");
+		});
 	});
-	$(".ui-tabs-panel").each(function(index) {
-		$(this).attr("id", sections[$(this).children("h3").text()]);
-		if (index > 0)
-			$(this).addClass("ui-tabs-hide");
-	});
-	$(".ui-tabs").tabs({
-		fx: { opacity: "toggle", duration: "fast" }
-	});
-
-	$("input[type=text], textarea").each(function() {
-		if ($(this).val() == $(this).attr("placeholder") || $(this).val() == "")
-			$(this).css("color", "#999");
-	});
-
-	$("input[type=text], textarea").focus(function() {
-		if ($(this).val() == $(this).attr("placeholder") || $(this).val() == "") {
-			$(this).val("");
-			$(this).css("color", "#000");
+</script>
+';
 	}
-	}).blur(function() {
-		if ($(this).val() == "" || $(this).val() == $(this).attr("placeholder")) {
-			$(this).val($(this).attr("placeholder"));
-			$(this).css("color", "#999");
+public static function do_settings_sections( $page ) {
+	global $wp_settings_sections, $wp_settings_fields;
+
+	if ( ! isset( $wp_settings_sections ) || !isset( $wp_settings_sections[$page] ) )
+		return;
+
+	foreach ( (array) $wp_settings_sections[$page] as $section ) {
+		if ( $section['callback'] )
+			call_user_func( $section['callback'], $section );
+
+		if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
+			continue;
+
+		echo '<table id=' . $section['id'] . ' class="form-table">';
+		do_settings_fields( $page, $section['id'] );
+		echo '</table>';
 	}
-	});
-
-	$(".wrap h3, .wrap table").show();
-
-	// This will make the "warning" checkbox class really stand out when checked.
-	// I use it here for the Reset checkbox.
-	$(".warning").change(function() {
-		if ($(this).is(":checked"))
-			$(this).parent().css("background", "#c00").css("color", "#fff").css("fontWeight", "bold");
-		else
-			$(this).parent().css("background", "none").css("color", "inherit").css("fontWeight", "normal");
-	});
-
-	// Browser compatibility
-	if ($.browser.mozilla)
-		$("form").attr("autocomplete", "off");
-	});
-	</script>';
-	}
+}
 
 
 	public function display_section() {
@@ -685,7 +663,7 @@ class Testimonials_Widget_Settings {
 	public function display_about_section() {
 
 		echo     <<<EOD
-			<div style="width: 70%;">
+			<div id="about" style="width: 70%;">
 				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He's <a title="Lot's of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">chief technology officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Michael's poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
 			</div>
 EOD;
@@ -845,13 +823,12 @@ EOD;
 
 
 	public function scripts() {
-		wp_print_scripts( 'jquery-ui-tabs' );
+		wp_enqueue_script( 'jquery-ui-tabs' );
 	}
 
 
 	public function styles() {
-		wp_register_style( __CLASS__ . '-admin', plugins_url( 'settings.css', __FILE__ ) );
-		wp_enqueue_style( __CLASS__ . '-admin' );
+		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css'); 
 	}
 
 

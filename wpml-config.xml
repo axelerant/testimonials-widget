@@ -13,5 +13,7 @@
     <taxonomies>
         <taxonomy translate="1">category</taxonomy>
         <taxonomy translate="1">post_tag</taxonomy>
+        <taxonomy translate="1">testimonials-widget-category</taxonomy>
+        <taxonomy translate="1">testimonials-widget-post_tag</taxonomy>
     </taxonomies>    
 </wpml-config>

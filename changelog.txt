@@ -3,7 +3,10 @@
 == Changelog ==
 
 = trunk =
+* BUGFIX Settings jQuery UI Tabs conflict
+* Remove settings.css
 * TODOs update
+* Update WPML configuration
 * Use PayPal donate image in settings
 
 = 2.12.3 =
