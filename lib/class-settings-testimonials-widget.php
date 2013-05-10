@@ -635,24 +635,26 @@ class Testimonials_Widget_Settings {
 </script>
 ';
 	}
-public static function do_settings_sections( $page ) {
-	global $wp_settings_sections, $wp_settings_fields;
 
-	if ( ! isset( $wp_settings_sections ) || !isset( $wp_settings_sections[$page] ) )
-		return;
 
-	foreach ( (array) $wp_settings_sections[$page] as $section ) {
-		if ( $section['callback'] )
-			call_user_func( $section['callback'], $section );
+	public static function do_settings_sections( $page ) {
+		global $wp_settings_sections, $wp_settings_fields;
 
-		if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
-			continue;
+		if ( ! isset( $wp_settings_sections ) || !isset( $wp_settings_sections[$page] ) )
+			return;
 
-		echo '<table id=' . $section['id'] . ' class="form-table">';
-		do_settings_fields( $page, $section['id'] );
-		echo '</table>';
+		foreach ( (array) $wp_settings_sections[$page] as $section ) {
+			if ( $section['callback'] )
+				call_user_func( $section['callback'], $section );
+
+			if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
+				continue;
+
+			echo '<table id=' . $section['id'] . ' class="form-table">';
+			do_settings_fields( $page, $section['id'] );
+			echo '</table>';
+		}
 	}
-}
 
 
 	public function display_section() {
@@ -828,7 +830,7 @@ EOD;
 
 
 	public function styles() {
-		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css'); 
+		wp_enqueue_style( 'jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
 	}
 
 
