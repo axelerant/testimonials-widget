@@ -4,7 +4,9 @@
 
 = trunk =
 * BUGFIX Settings jQuery UI Tabs conflict
+* NOT BUG [WPML bug](http://wordpress.org/support/topic/wpml-bug?replies=1)
 * Remove settings.css
+* Settings about section height fix
 * TODOs update
 * Update WPML configuration
 * Use PayPal donate image in settings
