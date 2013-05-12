@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.12.4
+ * Version: 2.12.5
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -31,7 +31,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.12.4';
+	const VERSION     = '2.12.5';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -1298,6 +1298,9 @@ EOF;
 			$orderby = 'rand';
 			$order   = false;
 		}
+
+		if ( empty( $refresh_interval ) )
+			$limit = 1;
 
 		$args = array(
 			'orderby' => $orderby,

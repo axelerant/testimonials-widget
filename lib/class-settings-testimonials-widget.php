@@ -943,7 +943,7 @@ EOD;
 		switch ( $validate ) {
 		case 'absint':
 		case 'intval':
-			if ( '' != $input[ $id ] )
+			if ( '' !== $input[ $id ] )
 				$input[ $id ] = $validate( $input[ $id ] );
 			else
 				$input[ $id ] = $default;
