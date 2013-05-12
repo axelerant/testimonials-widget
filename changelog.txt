@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+
+= 2.12.4 =
 * BUGFIX Settings jQuery UI Tabs conflict
 * NOT BUG [WPML bug](http://wordpress.org/support/topic/wpml-bug?replies=1)
 * Remove settings.css
