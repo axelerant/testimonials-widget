@@ -8,6 +8,7 @@
 * Remove settings.css
 * Settings about section height fix
 * TODOs update
+* Update Premium product page URL
 * Update WPML configuration
 * Use PayPal donate image in settings
 
@@ -650,7 +651,7 @@
 * TODO Updates
 
 = 2.2.5 =
-* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/testimonials-widget-premium/)
+* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 * Add support text
 * Correct verbiage spacing
 * Explain `limit`
