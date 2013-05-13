@@ -581,7 +581,7 @@ class Testimonials_Widget_Settings {
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . __( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
-		echo '<div class="updated"><p>' . __( 'Shortcodes, theme functions, and widget instances inherit these Testimonials Widget Settings. Widget instances, once created no longer inherit from them. Therefore, you\'ll need to update each instance to the new settings. It might be easier to delete the widget instance and then recreate it.', 'testimonials-widget' ) . '</p></div>';
+		echo '<div class="updated"><p>' . __( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p></div>';
 
 		echo '<form action="options.php" method="post">';
 
