@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Settings page inheritance note
 
 = 2.12.5 =
 * BUGFIX Correct loose vs strict comparison for intval and absint

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-05-12 20:50:09+00:00\n"
+"POT-Creation-Date: 2013-05-13 01:54:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -462,15 +462,23 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:599
+#: lib/class-settings-testimonials-widget.php:584
+msgid ""
+"Shortcodes, theme functions, and widget instances inherit these Testimonials "
+"Widget Settings. Widget instances, once created no longer inherit from them. "
+"Therefore, you'll need to update each instance to the new settings. It might "
+"be easier to delete the widget instance and then recreate it."
+msgstr ""
+
+#: lib/class-settings-testimonials-widget.php:601
 msgid "Save Changes"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:611
+#: lib/class-settings-testimonials-widget.php:613
 msgid "Copyright &copy;%1$s %2$s."
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:974
+#: lib/class-settings-testimonials-widget.php:976
 msgid "Required"
 msgstr ""
 
