@@ -1299,7 +1299,7 @@ EOF;
 			$order   = false;
 		}
 
-		if ( empty( $refresh_interval ) )
+		if ( ! empty( $type ) && 'testimonialswidget_widget' == $type && empty( $refresh_interval ) )
 			$limit = 1;
 
 		$args = array(

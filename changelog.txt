@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* BUGFIX If no refresh_interval, then LIMIT 1
 * Settings page inheritance note
 
 = 2.12.5 =
