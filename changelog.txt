@@ -6,6 +6,7 @@
 * BUGFIX If no refresh_interval, then LIMIT 1
 * Change donate from $1 to $2 due to fees
 * Settings page inheritance note
+* Use donate button than text
 
 = 2.12.5 =
 * BUGFIX Correct loose vs strict comparison for intval and absint
