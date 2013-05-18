@@ -1593,10 +1593,16 @@ EOF;
 				<td class="t %1$s">%4$s%3$s%5$s</td>
 			</tr>';
 		$posts   = wp_count_posts( Testimonials_Widget::PT );
-		$name    = __( 'Testimonials', 'testimonials-widget' );
+		$count   = $posts->publish;
+		$name    = _n( 'Testimonial', 'Testimonials', $count, 'testimonials-widget' );
+		$count_f = number_format_i18n( $count );
 		$a_open  = '<a href="edit.php?post_type=' . Testimonials_Widget::PT . '">';
 		$a_close = '</a>';
-		echo sprintf( $content, Testimonials_Widget::PT, $posts->publish, $name, $a_open, $a_close );
+
+		if ( current_user_can( 'edit_others_posts' ) )
+			echo sprintf( $content, Testimonials_Widget::PT, $count_f, $name, $a_open, $a_close );
+		else
+			echo sprintf( $content, Testimonials_Widget::PT, $count_f, $name, '', '' );
 	}
 
 

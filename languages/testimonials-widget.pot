@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-05-18 22:39:06+00:00\n"
+"POT-Creation-Date: 2013-05-18 23:17:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgid "Widget Title"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:86 testimonials-widget.php:493
-#: testimonials-widget.php:538 testimonials-widget.php:1596
+#: testimonials-widget.php:538
 msgid "Testimonials"
 msgstr ""
 
@@ -561,7 +561,7 @@ msgstr ""
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:499
+#: testimonials-widget.php:499 testimonials-widget.php:1597
 msgid "Testimonial"
 msgstr ""
 
