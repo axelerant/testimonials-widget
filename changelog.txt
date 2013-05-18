@@ -5,6 +5,7 @@
 = trunk =
 * BUGFIX If no refresh_interval, then LIMIT 1
 * Change donate from $1 to $2 due to fees
+* Dashboard testimonials count statistics
 * Display donate on major/minor version release or if it's been a month
 * Remove braces from simple if/else structures
 * Settings page inheritance note

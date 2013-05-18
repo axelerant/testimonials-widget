@@ -5,6 +5,7 @@
 	</description>
 
 	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
+	<exclude-pattern>lib/Akismet.class.php</exclude-pattern>
 
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
 

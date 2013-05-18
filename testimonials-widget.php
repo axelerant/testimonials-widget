@@ -72,6 +72,7 @@ class Testimonials_Widget {
 		$this->update();
 		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
 		add_action( 'manage_' . self::PT . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
+		add_action( 'right_now_content_table_end', array( &$this, 'right_now_content_table_end' ) );
 		add_filter( 'manage_' . self::PT . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
 		add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta' ), 10, 2 );
@@ -1582,6 +1583,20 @@ EOF;
 		);
 
 		return $m;
+	}
+
+
+	public function right_now_content_table_end() {
+		$content = '
+			<tr>
+				<td class="first b b-%1$s">%4$s%2$s%5$s</td>
+				<td class="t %1$s">%4$s%3$s%5$s</td>
+			</tr>';
+		$posts   = wp_count_posts( Testimonials_Widget::PT );
+		$name    = __( 'Testimonials', 'testimonials-widget' );
+		$a_open  = '<a href="edit.php?post_type=' . Testimonials_Widget::PT . '">';
+		$a_close = '</a>';
+		echo sprintf( $content, Testimonials_Widget::PT, $posts->publish, $name, $a_open, $a_close );
 	}
 
 

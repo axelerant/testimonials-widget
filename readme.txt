@@ -356,6 +356,7 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 15. Testimonials Widget Settings > Post Type tab
 16. Testimonials Widget Settings > Widget tab
 17. Testimonials Widget Settings > Compatibility & Reset tab
+18. Dashboard > Right Now "Testimonials" count
 
 
 == Changelog ==
