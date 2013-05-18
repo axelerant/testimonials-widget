@@ -9,6 +9,7 @@
 * Display donate on major/minor version release or if it's been a month
 * Remove braces from simple if/else structures
 * Settings page inheritance note
+* Update premium features listing
 * Use donate button than text
 
 = 2.12.5 =

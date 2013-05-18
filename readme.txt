@@ -43,9 +43,9 @@ The single testimonial view supports image, source, title, location, email, comp
 Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
+* Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
-* Auto flush URLs cache if archive or testimonial slugs change
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
@@ -56,19 +56,20 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
+* Multiple anti-spam traps
 * Plugin version tracking to ensure compatibility
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
-* Prevents same has_archive and rewrite_slug which causes URL problems
 * Read more links for testimonials exceeding the character limit
+* Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations
 * Settings and URL based cache clearing
 * Shortcodes and theme functions for testimonials count and testimonial link list
+* Shortcodes, theme functions, and widget user testimonial submission form
 * Show excerpts with list and single views
 * Show unique testimonials on page with multiple testimonial instances
 * Testimonial links listing with image, source, title, location, company, and URL fields
-* Shortcodes, theme functions, and widget user testimonial submission form
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
