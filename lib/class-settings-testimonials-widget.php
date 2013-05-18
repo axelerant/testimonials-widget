@@ -608,7 +608,7 @@ class Testimonials_Widget_Settings {
 			or <a href="'.get_admin_url().'post-new.php?post_type=testimonials-widget">add</a> testimonials.</p>
 
 			<p>If you like this plugin, please <a href="http://aihr.us/about-aihrus/donate/" title="Donate for Good Karma"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="Donate for Good Karma" /></a> or <a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="http://wordpress.org/support/plugin/testimonials-widget" title="Support forums">support</a>.</p>
-			';
+		';
 
 		$text      = __( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
 		$link      = '<a href="http://aihr.us">Aihrus</a>';
@@ -659,14 +659,11 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public function display_section() {
-		// code
-	}
+	public function display_section() {}
 
 
 	public function display_about_section() {
-
-		echo     <<<EOD
+		echo <<<EOD
 			<div id="about" style="width: 70%; min-height: 225px;">
 				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He's <a title="Lot's of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">chief technology officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Michael's poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
 			</div>
@@ -694,9 +691,8 @@ EOD;
 		}
 
 		$field_class = '';
-		if ( ! empty( $class ) ) {
+		if ( ! empty( $class ) )
 			$field_class = ' ' . $class;
-		}
 
 		switch ( $type ) {
 		case 'checkbox':
@@ -790,11 +786,10 @@ EOD;
 			break;
 		}
 
-		if ( $do_echo ) {
+		if ( $do_echo )
 			echo $content;
-		} else {
+		else
 			return $content;
-		}
 	}
 
 
@@ -876,11 +871,10 @@ EOD;
 				$validations = explode( ',', $validations );
 
 			if ( ! isset( $input[ $id ] ) ) {
-				if ( 'checkbox' != $type ) {
+				if ( 'checkbox' != $type )
 					$input[ $id ] = $default;
-				} else {
+				else
 					$input[ $id ] = 0;
-				}
 			}
 
 			if ( $default == $input[ $id ] && ! in_array( 'required', $validations ) )
@@ -910,20 +904,19 @@ EOD;
 		}
 
 		// same has_archive and rewrite_slug causes problems
-		if ( $input['has_archive'] == $input['rewrite_slug'] ) {
+		if ( $input['has_archive'] == $input['rewrite_slug'] )
 			$input['rewrite_slug'] = $defaults['rewrite_slug'];
-		}
 
 		// did URL slugs change?
 		$has_archive  = tw_get_option( 'has_archive' );
 		$rewrite_slug = tw_get_option( 'rewrite_slug' );
-		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] ) {
+		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
 			flush_rewrite_rules();
-		}
 
-		$input['version']        = self::$version;
-		$input['donate_version'] = Testimonials_Widget::VERSION;
-		$input                   = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		$input['version']             = self::$version;
+		$input['donate_version']      = Testimonials_Widget::VERSION;
+		$input['donate_date_display'] = tw_get_option( 'donate_date_display', 0 );
+		$input                        = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
 
 		unset( $input['export'] );
 		unset( $input['import'] );
@@ -972,9 +965,8 @@ EOD;
 			break;
 
 		case 'required':
-			if ( empty( $input[ $id ] ) ) {
+			if ( empty( $input[ $id ] ) )
 				$errors[ $id ] = __( 'Required', 'testimonials-widget' );
-			}
 			break;
 
 		case 'slug':
@@ -1085,9 +1077,8 @@ function tw_get_option( $option, $default = null ) {
 function tw_set_option( $option, $value = null ) {
 	$options = get_option( Testimonials_Widget_Settings::ID );
 
-	if ( ! is_array( $options ) ) {
+	if ( ! is_array( $options ) )
 		$options = array();
-	}
 
 	$options[$option] = $value;
 	update_option( Testimonials_Widget_Settings::ID, $options );
