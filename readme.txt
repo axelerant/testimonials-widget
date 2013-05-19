@@ -57,6 +57,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
 * Multiple anti-spam traps
+* Multiple user-entry forms on same page are allowed
 * Plugin version tracking to ensure compatibility
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
