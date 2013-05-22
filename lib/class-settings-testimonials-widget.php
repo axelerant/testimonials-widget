@@ -913,10 +913,9 @@ EOD;
 		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
 			flush_rewrite_rules();
 
-		$input['version']             = self::$version;
-		$input['donate_version']      = Testimonials_Widget::VERSION;
-		$input['donate_date_display'] = tw_get_option( 'donate_date_display', 0 );
-		$input                        = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		$input['version']        = self::$version;
+		$input['donate_version'] = Testimonials_Widget::VERSION;
+		$input                   = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
 
 		unset( $input['export'] );
 		unset( $input['import'] );

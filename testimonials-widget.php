@@ -294,14 +294,9 @@ EOD;
 		}
 
 		// display donate on major/minor version release or if it's been a month
-		$now                 = time();
-		$donate_date_display = tw_get_option( 'donate_date_display', 0 );
-		$month_in_seconds    = 4.33 * WEEK_IN_SECONDS;
-		$donate_month        = $donate_date_display + $month_in_seconds;
-		$donate_version      = tw_get_option( 'donate_version', false );
-		if ( ! $donate_date_display || $donate_month < $now || ! $donate_version || ( $donate_version != self::VERSION && preg_match( '#\.0$#', self::VERSION ) ) ) {
+		$donate_version = tw_get_option( 'donate_version', false );
+		if ( ! $donate_version || ( $donate_version != self::VERSION && preg_match( '#\.0$#', self::VERSION ) ) ) {
 			add_action( 'admin_notices', array( $this, 'admin_notices_donate' ) );
-			tw_set_option( 'donate_date_display', $now );
 			tw_set_option( 'donate_version', self::VERSION );
 		}
 

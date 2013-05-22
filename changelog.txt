@@ -4,6 +4,7 @@
 
 = trunk =
 * BUGFIX Link targets affected page navigation
+* Removed donate monthly show code
 
 = 2.12.6 =
 * BUGFIX If no refresh_interval, then LIMIT 1
