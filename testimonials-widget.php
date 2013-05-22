@@ -799,7 +799,9 @@ EOF;
 		$is_first = true;
 
 		foreach ( $testimonials as $testimonial ) {
-			$content  = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
+			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
+			if ( $target )
+				$content = links_add_target( $content, $target );
 			$content  = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
 			$html    .= $content;
 			$is_first = false;
@@ -809,9 +811,6 @@ EOF;
 			$html .= self::get_testimonials_paging( $atts, false );
 
 		$html .= '</div>';
-
-		if ( $target )
-			$html = links_add_target( $html, $target );
 
 		return $html;
 	}
