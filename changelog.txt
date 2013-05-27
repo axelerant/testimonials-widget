@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+
+= 2.12.7 =
 * BUGFIX Link targets affected page navigation
 * Removed donate monthly show code
 
