@@ -3,7 +3,6 @@
 == Changelog ==
 
 = trunk =
-* Move TW getter and setter options to main TW class file
 
 = 2.12.7 =
 * BUGFIX Link targets affected page navigation

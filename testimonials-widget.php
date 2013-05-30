@@ -1609,40 +1609,6 @@ if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
 }
 
 
-function tw_get_options() {
-	$options = get_option( Testimonials_Widget_Settings::ID );
-
-	if ( false === $options ) {
-		$options = Testimonials_Widget_Settings::get_defaults();
-		update_option( Testimonials_Widget_Settings::ID, $options );
-	}
-
-	return $options;
-}
-
-
-function tw_get_option( $option, $default = null ) {
-	$options = get_option( Testimonials_Widget_Settings::ID, null );
-
-	if ( isset( $options[$option] ) )
-		return $options[$option];
-	else
-		return $default;
-}
-
-
-function tw_set_option( $option, $value = null ) {
-	$options = get_option( Testimonials_Widget_Settings::ID );
-
-	if ( ! is_array( $options ) )
-		$options = array();
-
-	$options[$option] = $value;
-	update_option( Testimonials_Widget_Settings::ID, $options );
-}
-
-
-
 function testimonialswidget_list( $atts = array() ) {
 	global $Testimonials_Widget;
 
