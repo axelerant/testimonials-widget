@@ -1111,7 +1111,6 @@ EOF;
 			} else {
 				// Handle HTML tag
 				$tag_inner = $match[1][0];
-
 				if ( $tag[1] == '/' ) {
 					// This is a closing tag.
 					$output .= $tag;
@@ -1607,6 +1606,39 @@ include_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
 	$Testimonials_Widget          = new Testimonials_Widget();
 	$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+}
+
+
+function tw_get_options() {
+	$options = get_option( Testimonials_Widget_Settings::ID );
+
+	if ( false === $options ) {
+		$options = Testimonials_Widget_Settings::get_defaults();
+		update_option( Testimonials_Widget_Settings::ID, $options );
+	}
+
+	return $options;
+}
+
+
+function tw_get_option( $option, $default = null ) {
+	$options = get_option( Testimonials_Widget_Settings::ID, null );
+
+	if ( isset( $options[$option] ) )
+		return $options[$option];
+	else
+		return $default;
+}
+
+
+function tw_set_option( $option, $value = null ) {
+	$options = get_option( Testimonials_Widget_Settings::ID );
+
+	if ( ! is_array( $options ) )
+		$options = array();
+
+	$options[$option] = $value;
+	update_option( Testimonials_Widget_Settings::ID, $options );
 }
 
 
