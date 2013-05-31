@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.7\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-05-30 15:59:10+00:00\n"
+"POT-Creation-Date: 2013-05-31 15:19:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -321,27 +321,27 @@ msgid "None"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:346 testimonials-widget.php:466
-#: testimonials-widget.php:1478
+#: testimonials-widget.php:1480
 msgid "Title"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:347 testimonials-widget.php:468
-#: testimonials-widget.php:1490
+#: testimonials-widget.php:1492
 msgid "Email"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:348 testimonials-widget.php:467
-#: testimonials-widget.php:1484
+#: testimonials-widget.php:1486
 msgid "Location"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:349 testimonials-widget.php:469
-#: testimonials-widget.php:1496
+#: testimonials-widget.php:1498
 msgid "Company"
 msgstr ""
 
 #: lib/class-settings-testimonials-widget.php:350 testimonials-widget.php:470
-#: testimonials-widget.php:1502
+#: testimonials-widget.php:1504
 msgid "URL"
 msgstr ""
 
@@ -561,7 +561,7 @@ msgstr ""
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:494 testimonials-widget.php:1590
+#: testimonials-widget.php:494 testimonials-widget.php:1592
 msgid "Testimonial"
 msgstr ""
 
@@ -573,68 +573,68 @@ msgstr ""
 msgid "…"
 msgstr ""
 
-#: testimonials-widget.php:1216
+#: testimonials-widget.php:1218
 msgid "&laquo;"
 msgstr ""
 
-#: testimonials-widget.php:1225
+#: testimonials-widget.php:1227
 msgid "&raquo;"
 msgstr ""
 
-#: testimonials-widget.php:1514
+#: testimonials-widget.php:1516
 msgid "Testimonial Data"
 msgstr ""
 
-#: testimonials-widget.php:1539
+#: testimonials-widget.php:1541
 msgid "Enter title here"
 msgstr ""
 
-#: testimonials-widget.php:1540
+#: testimonials-widget.php:1542
 msgid "Enter testimonial source here"
 msgstr ""
 
-#: testimonials-widget.php:1565
+#: testimonials-widget.php:1567
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1566
+#: testimonials-widget.php:1568
 msgid "Custom field updated."
 msgstr ""
 
-#: testimonials-widget.php:1567
+#: testimonials-widget.php:1569
 msgid "Custom field deleted."
 msgstr ""
 
-#: testimonials-widget.php:1568
+#: testimonials-widget.php:1570
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
-#: testimonials-widget.php:1570
+#: testimonials-widget.php:1572
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: testimonials-widget.php:1571
+#: testimonials-widget.php:1573
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1572
+#: testimonials-widget.php:1574
 msgid "Testimonial saved."
 msgstr ""
 
-#: testimonials-widget.php:1573
+#: testimonials-widget.php:1575
 msgid ""
 "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
 "a>"
 msgstr ""
 
-#: testimonials-widget.php:1574
+#: testimonials-widget.php:1576
 msgid ""
 "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
 "\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1575
+#: testimonials-widget.php:1577
 msgid ""
 "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
 "testimonial</a>"
