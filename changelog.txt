@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
 
 = 2.12.7 =
 * BUGFIX Link targets affected page navigation

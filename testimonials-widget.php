@@ -1001,6 +1001,8 @@ EOF;
 			$cite .= '</span>';
 		}
 
+		$cite = apply_filters( 'testimonials_widget_cite_html', $cite, $testimonial, $atts );
+
 		if ( ! empty( $cite ) ) {
 			if ( empty( $use_quote_tag ) ) {
 				$temp  = '<div class="credit">';

@@ -255,6 +255,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * `testimonials_widget_cache_get` - Caching grabber
 * `testimonials_widget_cache_set` - Caching setter
+* `testimonials_widget_cite_html` - Adjust cite contents
 * `testimonials_widget_columns` - Customize testimonial posts column headers
 * `testimonials_widget_content_more` - More content ellipsis
 * `testimonials_widget_content` - Testimonial content parser helper
