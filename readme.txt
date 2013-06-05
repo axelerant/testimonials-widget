@@ -56,6 +56,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
+* Math-based CAPTCHA
 * Multiple anti-spam traps
 * Multiple user-entry forms on same page are allowed
 * Plugin version tracking to ensure compatibility
@@ -64,7 +65,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Read more links for testimonials exceeding the character limit
 * Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
-* Select post, page and other custom post types for content rotations
+* Select post, page and other custom post types for content rotations slider
 * Settings and URL based cache clearing
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Shortcodes, theme functions, and widget user testimonial submission form
