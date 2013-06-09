@@ -4,6 +4,8 @@
 
 = trunk =
 * Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
+* BUGFIX Warning: Illegal string offset 'exclude'
+* Replace __ with esc_html__
 * Update Premium features
 
 = 2.12.7 =

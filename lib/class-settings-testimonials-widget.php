@@ -61,13 +61,13 @@ class Testimonials_Widget_Settings {
 
 
 	public static function sections() {
-		self::$sections['general']   = __( 'General', 'testimonials-widget' );
-		self::$sections['selection'] = __( 'Selection', 'testimonials-widget' );
-		self::$sections['ordering']  = __( 'Ordering', 'testimonials-widget' );
-		self::$sections['widget']    = __( 'Widget', 'testimonials-widget' );
-		self::$sections['post_type'] = __( 'Post Type', 'testimonials-widget' );
-		self::$sections['reset']     = __( 'Compatibility & Reset', 'testimonials-widget' );
-		self::$sections['about']     = __( 'About Testimonials Widget', 'testimonials-widget' );
+		self::$sections['general']   = esc_html__( 'General', 'testimonials-widget' );
+		self::$sections['selection'] = esc_html__( 'Selection', 'testimonials-widget' );
+		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
+		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
+		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
+		self::$sections['reset']     = esc_html__( 'Compatibility & Reset', 'testimonials-widget' );
+		self::$sections['about']     = esc_html__( 'About Testimonials Widget', 'testimonials-widget' );
 
 		self::$sections = apply_filters( 'testimonials_widget_sections', self::$sections );
 	}
@@ -82,71 +82,71 @@ class Testimonials_Widget_Settings {
 		// Widget
 		self::$settings['title'] = array(
 			'section' => 'widget',
-			'title' => __( 'Widget Title', 'testimonials-widget' ),
-			'std' => __( 'Testimonials', 'testimonials-widget' ),
+			'title' => esc_html__( 'Widget Title', 'testimonials-widget' ),
+			'std' => esc_html__( 'Testimonials', 'testimonials-widget' ),
 			'validate' => 'wp_kses_post',
 		);
 
 		self::$settings['title_link'] = array(
 			'section' => 'widget',
-			'title' => __( 'Title Link', 'testimonials-widget' ),
-			'desc' => __( 'URL or Post ID to link widget title to. Ex: 123 or http://example.com', 'testimonials-widget' ),
+			'title' => esc_html__( 'Title Link', 'testimonials-widget' ),
+			'desc' => esc_html__( 'URL or Post ID to link widget title to. Ex: 123 or http://example.com', 'testimonials-widget' ),
 			'validate' => 'wp_kses_data',
 		);
 
 		self::$settings['char_limit'] = array(
 			'section' => 'widget',
-			'title' => __( 'Character Limit', 'testimonials-widget' ),
-			'desc' => __( 'Number of characters to limit non-single testimonial views to', 'testimonials-widget' ),
+			'title' => esc_html__( 'Character Limit', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Number of characters to limit non-single testimonial views to', 'testimonials-widget' ),
 			'validate' => 'absint',
 		);
 
 		self::$settings['height'] = array(
 			'section' => 'widget',
-			'title' => __( 'Height', 'testimonials-widget' ),
-			'desc' => __( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
+			'title' => esc_html__( 'Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
 			'validate' => 'min1',
 		);
 
 		self::$settings['refresh_interval'] = array(
 			'section' => 'widget',
-			'title' => __( 'Rotation Speed', 'testimonials-widget' ),
-			'desc' => __( 'Number of seconds between testimonial rotations or 0 for no rotation at all refresh', 'testimonials-widget' ),
+			'title' => esc_html__( 'Rotation Speed', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Number of seconds between testimonial rotations or 0 for no rotation at all refresh', 'testimonials-widget' ),
 			'std' => 5,
 			'validate' => 'absint',
 		);
 
 		self::$settings['widget_expand_begin'] = array(
 			'section' => 'widget',
-			'desc' => __( 'Additional Widget Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Additional Widget Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
 		self::$settings['keep_whitespace'] = array(
 			'section' => 'widget',
-			'title' => __( 'Keep Whitespace?', 'testimonials-widget' ),
-			'desc' => __( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
+			'title' => esc_html__( 'Keep Whitespace?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['min_height'] = array(
 			'section' => 'widget',
-			'title' => __( 'Minimum Height', 'testimonials-widget' ),
-			'desc' => __( 'Set for minimum display height, in pixels', 'testimonials-widget' ),
+			'title' => esc_html__( 'Minimum Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Set for minimum display height, in pixels', 'testimonials-widget' ),
 			'validate' => 'min1',
 		);
 
 		self::$settings['max_height'] = array(
 			'section' => 'widget',
-			'title' => __( 'Maximum Height', 'testimonials-widget' ),
-			'desc' => __( 'Set for maximum display height, in pixels', 'testimonials-widget' ),
+			'title' => esc_html__( 'Maximum Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Set for maximum display height, in pixels', 'testimonials-widget' ),
 			'validate' => 'min1',
 		);
 
 		self::$settings['bottom_text'] = array(
 			'section' => 'widget',
-			'title' => __( 'Testimonial Bottom Text', 'testimonials-widget' ),
-			'desc' => __( 'Custom text or HTML for bottom of testimonials', 'testimonials-widget' ),
+			'title' => esc_html__( 'Testimonial Bottom Text', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Custom text or HTML for bottom of testimonials', 'testimonials-widget' ),
 			'type' => 'textarea',
 			'validate' => 'wp_kses_post',
 		);
@@ -158,89 +158,89 @@ class Testimonials_Widget_Settings {
 
 		// General
 		self::$settings['general_expand_begin'] = array(
-			'desc' => __( 'General Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'General Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
 		self::$settings['disable_quotes'] = array(
-			'title' => __( 'Hide built-in quotes?', 'testimonials-widget' ),
-			'desc' => __( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide built-in quotes?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_not_found'] = array(
-			'title' => __( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_gravatar'] = array(
-			'title' => __( 'Hide Gravatar Image?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Gravatar Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_image'] = array(
-			'title' => __( 'Hide Image?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_image_single'] = array(
-			'title' => __( 'Hide Image in Single View?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Image in Single View?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'widget' => 0,
 		);
 
 		self::$settings['hide_content'] = array(
-			'title' => __( 'Hide Testimonial Content?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Testimonial Content?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_source'] = array(
-			'title' => __( 'Hide Author/Source?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Author/Source?', 'testimonials-widget' ),
 			'type' => 'checkbox',
-			'desc' => __( 'Don\'t display "Post Title" in cite', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Don\'t display "Post Title" in cite', 'testimonials-widget' ),
 		);
 
 		self::$settings['hide_email'] = array(
-			'title' => __( 'Hide Email?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'std' => 1,
 		);
 
 		self::$settings['hide_title'] = array(
-			'title' => __( 'Hide Title?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Title?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_location'] = array(
-			'title' => __( 'Hide Location?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Location?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_company'] = array(
-			'title' => __( 'Hide Company?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['hide_url'] = array(
-			'title' => __( 'Hide URL?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide URL?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['target'] = array(
-			'title' => __( 'URL Target', 'testimonials-widget' ),
-			'desc' => __( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
+			'title' => esc_html__( 'URL Target', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
 			'validate' => 'term',
 		);
 
 		self::$settings['paging'] = array(
-			'title' => __( 'Enable Paging?', 'testimonials-widget' ),
-			'desc' => __( 'For `[testimonialswidget_list]`', 'testimonials-widget' ),
+			'title' => esc_html__( 'Enable Paging?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'For `[testimonialswidget_list]`', 'testimonials-widget' ),
 			'type' => 'select',
 			'choices' => array(
-				'' => __( 'Disable', 'testimonials-widget' ),
-				1 => __( 'Enable', 'testimonials-widget' ),
-				'before' => __( 'Before testimonials', 'testimonials-widget' ),
-				'after' => __( 'After testimonials', 'testimonials-widget' ),
+				'' => esc_html__( 'Disable', 'testimonials-widget' ),
+				1 => esc_html__( 'Enable', 'testimonials-widget' ),
+				'before' => esc_html__( 'Before testimonials', 'testimonials-widget' ),
+				'after' => esc_html__( 'After testimonials', 'testimonials-widget' ),
 			),
 			'std' => 1,
 			'widget' => 0,
@@ -253,49 +253,49 @@ class Testimonials_Widget_Settings {
 		// Selection
 		self::$settings['selection_expand_begin'] = array(
 			'section' => 'selection',
-			'desc' => __( 'Selection Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Selection Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
 		self::$settings['category'] = array(
 			'section' => 'selection',
-			'title' => __( 'Category Filter', 'testimonials-widget' ),
-			'desc' => __( 'Comma separated category slug-names. Ex: category-a, another-category', 'testimonials-widget' ),
+			'title' => esc_html__( 'Category Filter', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated category slug-names. Ex: category-a, another-category', 'testimonials-widget' ),
 			'validate' => 'slugs',
 		);
 
 		self::$settings['tags'] = array(
 			'section' => 'selection',
-			'title' => __( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => __( 'Comma separated tag slug-names. Ex: tag-a, another-tag', 'testimonials-widget' ),
+			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated tag slug-names. Ex: tag-a, another-tag', 'testimonials-widget' ),
 			'validate' => 'slugs',
 		);
 
 		self::$settings['tags_all'] = array(
 			'section' => 'selection',
-			'title' => __( 'Require All Tags?', 'testimonials-widget' ),
-			'desc' => __( 'Select only testimonials with all of the given tags', 'testimonials-widget' ),
+			'title' => esc_html__( 'Require All Tags?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Select only testimonials with all of the given tags', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['ids'] = array(
 			'section' => 'selection',
-			'title' => __( 'Include IDs Filter', 'testimonials-widget' ),
-			'desc' => __( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'title' => esc_html__( 'Include IDs Filter', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
 			'validate' => 'ids',
 		);
 
 		self::$settings['exclude'] = array(
 			'section' => 'selection',
-			'title' => __( 'Exclude IDs Filter', 'testimonials-widget' ),
-			'desc' => __( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'title' => esc_html__( 'Exclude IDs Filter', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
 			'validate' => 'ids',
 		);
 
 		self::$settings['limit'] = array(
 			'section' => 'selection',
-			'title' => __( 'Limit', 'testimonials-widget' ),
-			'desc' => __( 'Number of testimonials to select per instance', 'testimonials-widget' ),
+			'title' => esc_html__( 'Limit', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Number of testimonials to select per instance', 'testimonials-widget' ),
 			'std' => 10,
 			'validate' => 'nozero',
 		);
@@ -308,29 +308,29 @@ class Testimonials_Widget_Settings {
 		// Ordering
 		self::$settings['ordering_expand_begin'] = array(
 			'section' => 'ordering',
-			'desc' => __( 'Ordering Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Ordering Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
 		self::$settings['random'] = array(
 			'section' => 'ordering',
-			'title' => __( 'Random Order?', 'testimonials-widget' ),
-			'desc' => __( 'If checked, ignores ORDER BY, ORDER BY meta_key, and ORDER BY Order. Widgets are random by default automatically', 'testimonials-widget' ),
+			'title' => esc_html__( 'Random Order?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'If checked, ignores ORDER BY, ORDER BY meta_key, and ORDER BY Order. Widgets are random by default automatically', 'testimonials-widget' ),
 			'type' => 'checkbox',
 		);
 
 		self::$settings['orderby'] = array(
 			'section' => 'ordering',
-			'title' => __( 'ORDER BY', 'testimonials-widget' ),
-			'desc' => __( 'Used when "Random Order" is disabled', 'testimonials-widget' ),
+			'title' => esc_html__( 'ORDER BY', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Used when "Random Order" is disabled', 'testimonials-widget' ),
 			'type' => 'select',
 			'choices' => array(
-				'ID' => __( 'Testimonial ID', 'testimonials-widget' ),
-				'author' => __( 'Author', 'testimonials-widget' ),
-				'date' => __( 'Date', 'testimonials-widget' ),
-				'menu_order' => __( 'Menu Order', 'testimonials-widget' ),
-				'title' => __( 'Source', 'testimonials-widget' ),
-				'none' => __( 'No order', 'testimonials-widget' ),
+				'ID' => esc_html__( 'Testimonial ID', 'testimonials-widget' ),
+				'author' => esc_html__( 'Author', 'testimonials-widget' ),
+				'date' => esc_html__( 'Date', 'testimonials-widget' ),
+				'menu_order' => esc_html__( 'Menu Order', 'testimonials-widget' ),
+				'title' => esc_html__( 'Source', 'testimonials-widget' ),
+				'none' => esc_html__( 'No order', 'testimonials-widget' ),
 			),
 			'std' => 'ID',
 			'validate' => 'term',
@@ -338,27 +338,27 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['meta_key'] = array(
 			'section' => 'ordering',
-			'title' => __( 'ORDER BY meta_key', 'testimonials-widget' ),
-			'desc' => __( 'Used when "Random Order" is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY', 'testimonials-widget' ),
+			'title' => esc_html__( 'ORDER BY meta_key', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Used when "Random Order" is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY', 'testimonials-widget' ),
 			'type' => 'select',
 			'choices' => array(
-				'' => __( 'None', 'testimonials-widget' ),
-				'testimonials-widget-title' => __( 'Title', 'testimonials-widget' ),
-				'testimonials-widget-email' => __( 'Email', 'testimonials-widget' ),
-				'testimonials-widget-location' => __( 'Location', 'testimonials-widget' ),
-				'testimonials-widget-company' => __( 'Company', 'testimonials-widget' ),
-				'testimonials-widget-url' => __( 'URL', 'testimonials-widget' ),
+				'' => esc_html__( 'None', 'testimonials-widget' ),
+				'testimonials-widget-title' => esc_html__( 'Title', 'testimonials-widget' ),
+				'testimonials-widget-email' => esc_html__( 'Email', 'testimonials-widget' ),
+				'testimonials-widget-location' => esc_html__( 'Location', 'testimonials-widget' ),
+				'testimonials-widget-company' => esc_html__( 'Company', 'testimonials-widget' ),
+				'testimonials-widget-url' => esc_html__( 'URL', 'testimonials-widget' ),
 			),
 			'validate' => 'slug',
 		);
 
 		self::$settings['order'] = array(
 			'section' => 'ordering',
-			'title' => __( 'ORDER BY Order', 'testimonials-widget' ),
+			'title' => esc_html__( 'ORDER BY Order', 'testimonials-widget' ),
 			'type' => 'select',
 			'choices' => array(
-				'DESC' => __( 'Descending', 'testimonials-widget' ),
-				'ASC' => __( 'Ascending', 'testimonials-widget' ),
+				'DESC' => esc_html__( 'Descending', 'testimonials-widget' ),
+				'ASC' => esc_html__( 'Ascending', 'testimonials-widget' ),
 			),
 			'std' => 'DESC',
 			'validate' => 'order',
@@ -372,30 +372,30 @@ class Testimonials_Widget_Settings {
 		// Post Type
 		self::$settings['allow_comments'] = array(
 			'section' => 'post_type',
-			'title' => __( 'Allow Comments?', 'testimonials-widget' ),
-			'desc' => __( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
+			'title' => esc_html__( 'Allow Comments?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'widget' => 0,
 		);
 
-		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
+		$desc        = esc_html__( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
 		$has_archive = tw_get_option( 'has_archive', '' );
 		$site_url    = site_url( '/' . $has_archive );
 
 		self::$settings['has_archive'] = array(
 			'section' => 'post_type',
-			'title' => __( 'Archive Page URL', 'testimonials-widget' ),
+			'title' => esc_html__( 'Archive Page URL', 'testimonials-widget' ),
 			'desc' => sprintf( $desc, $site_url ),
 			'std' => 'testimonials-archive',
 			'validate' => 'sanitize_title',
 			'widget' => 0,
 		);
 
-		$desc = __( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as Archive Page URL.', 'testimonials-widget' );
+		$desc = esc_html__( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as Archive Page URL.', 'testimonials-widget' );
 
 		self::$settings['rewrite_slug'] = array(
 			'section' => 'post_type',
-			'title' => __( 'Testimonial Page URL', 'testimonials-widget' ),
+			'title' => esc_html__( 'Testimonial Page URL', 'testimonials-widget' ),
 			'desc' => $desc,
 			'std' => 'testimonial',
 			'validate' => 'sanitize_title',
@@ -405,14 +405,14 @@ class Testimonials_Widget_Settings {
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
-			'desc' => __( 'Compatiblity Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Compatiblity Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
 		self::$settings['remove_hentry'] = array(
 			'section' => 'reset',
-			'title' => __( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
-			'desc' => __( 'Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
+			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'backwards' => array(
 				'version' => '2.6.4',
@@ -422,8 +422,8 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['use_quote_tag'] = array(
 			'section' => 'reset',
-			'title' => __( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
-			'desc' => __( 'Pre 2.11.0. Not HTML5 compliant', 'testimonials-widget' ),
+			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.11.0. Not HTML5 compliant', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'backwards' => array(
 				'version' => '2.11.0',
@@ -433,9 +433,9 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['use_cpt_taxonomy'] = array(
 			'section' => 'reset',
-			'title' => __( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
 			'type' => 'checkbox',
-			'desc' => __( 'If checked, use Testimonials Widget\'s own category and tag taxonomies instead', 'testimonials-widget' ),
+			'desc' => esc_html__( 'If checked, use Testimonials Widget\'s own category and tag taxonomies instead', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
@@ -446,9 +446,9 @@ class Testimonials_Widget_Settings {
 
 			self::$settings['export'] = array(
 				'section' => 'reset',
-				'title' => __( 'Export Settings', 'testimonials-widget' ),
+				'title' => esc_html__( 'Export Settings', 'testimonials-widget' ),
 				'type' => 'readonly',
-				'desc' => __( 'These are your current settings in a serialized format. Copy the contents to make a backup of your settings.', 'testimonials-widget' ),
+				'desc' => esc_html__( 'These are your current settings in a serialized format. Copy the contents to make a backup of your settings.', 'testimonials-widget' ),
 				'std' => $serialized_options,
 				'widget' => 0,
 			);
@@ -456,27 +456,27 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['import'] = array(
 			'section' => 'reset',
-			'title' => __( 'Import Settings', 'testimonials-widget' ),
+			'title' => esc_html__( 'Import Settings', 'testimonials-widget' ),
 			'type' => 'textarea',
-			'desc' => __( 'Paste new serialized settings here to overwrite your current configuration.', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Paste new serialized settings here to overwrite your current configuration.', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
 		self::$settings['delete_data'] = array(
 			'section' => 'reset',
-			'title' => __( 'Remove Plugin Data on Deletion?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Remove Plugin Data on Deletion?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'class' => 'warning', // Custom class for CSS
-			'desc' => __( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
 		self::$settings['reset_defaults'] = array(
 			'section' => 'reset',
-			'title' => __( 'Reset to Defaults?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Reset to Defaults?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'class' => 'warning', // Custom class for CSS
-			'desc' => __( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
@@ -542,7 +542,7 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_menu() {
-		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, __( 'Testimonials Widget Settings', 'testimonials-widget' ), __( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
 
 		add_action( 'admin_print_scripts-' . $admin_page, array( &$this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . $admin_page, array( &$this, 'styles' ) );
@@ -579,9 +579,9 @@ class Testimonials_Widget_Settings {
 	public static function display_page() {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
-			<h2>' . __( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
+			<h2>' . esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
-		echo '<div class="updated"><p>' . __( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p></div>';
+		echo '<div class="updated"><p>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p></div>';
 
 		echo '<form action="options.php" method="post">';
 
@@ -598,7 +598,7 @@ class Testimonials_Widget_Settings {
 		self::do_settings_sections( self::ID );
 
 		echo '
-			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . __( 'Save Changes', 'testimonials-widget' ) . '" /></p>
+			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . esc_html__( 'Save Changes', 'testimonials-widget' ) . '" /></p>
 			</form>
 		</div>
 		';
@@ -610,10 +610,9 @@ class Testimonials_Widget_Settings {
 			<p>If you like this plugin, please <a href="http://aihr.us/about-aihrus/donate/" title="Donate for Good Karma"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="Donate for Good Karma" /></a> or <a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="http://wordpress.org/support/plugin/testimonials-widget" title="Support forums">support</a>.</p>
 		';
 
-		$text      = __( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
-		$link      = '<a href="http://aihr.us">Aihrus</a>';
-		$copyright = '<p class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</p>';
-		echo $copyright;
+		$text = esc_html__( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
+		$link = '<a href="http://aihr.us">Aihrus</a>';
+		echo '<p class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</p>';
 
 		self::section_scripts();
 
@@ -663,12 +662,11 @@ class Testimonials_Widget_Settings {
 
 
 	public function display_about_section() {
-		echo <<<EOD
+		echo '
 			<div id="about" style="width: 70%; min-height: 225px;">
-				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He's <a title="Lot's of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">chief technology officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Michael's poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
+				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="/wp-content/plugins/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He\'s <a title="Lot\'s of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">chief technology officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Michael\'s poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
 			</div>
-EOD;
-
+		';
 	}
 
 
@@ -786,10 +784,10 @@ EOD;
 			break;
 		}
 
-		if ( $do_echo )
-			echo $content;
-		else
+		if ( ! $do_echo )
 			return $content;
+
+		echo $content;
 	}
 
 
@@ -965,7 +963,7 @@ EOD;
 
 		case 'required':
 			if ( empty( $input[ $id ] ) )
-				$errors[ $id ] = __( 'Required', 'testimonials-widget' );
+				$errors[ $id ] = esc_html__( 'Required', 'testimonials-widget' );
 			break;
 
 		case 'slug':
@@ -991,7 +989,7 @@ EOD;
 
 
 	public static function validate_ids( $input, $default ) {
-		if ( preg_match( '#^\d+(,\s?\d+)*$#', $input['exclude'] ) )
+		if ( preg_match( '#^\d+(,\s?\d+)*$#', $input ) )
 			return preg_replace( '#\s#', '', $input );
 
 		return $default;
