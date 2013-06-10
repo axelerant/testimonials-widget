@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+
+= 2.12.8 =
 * Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
 * BUGFIX Warning: Illegal string offset 'exclude'
 * Replace __ with esc_html__
