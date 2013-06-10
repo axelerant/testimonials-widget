@@ -1,0 +1,16 @@
+Are you still having trouble?
+
+Has looking through the <a href="https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget">knowledge base</a> helped?
+--
+Got a URL to share with me so that I can help further?
+--
+Are you okay now?
+--
+Did you guys give the Testimonials Widget 2.12.1 release a try yet?
+
+That's correctly the recent memory leak.
+--
+Did the 2.12.1 update work for you?
+--
+Please send me an admin login via http://aihr.us/contact-aihrus/.
+--

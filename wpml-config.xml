@@ -1,0 +1,19 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="copy">testimonials-widget-url</custom-field>
+        <custom-field action="copy">testimonials-widget-email</custom-field>
+        <custom-field action="translate">testimonials-widget-company</custom-field>
+        <custom-field action="translate">testimonials-widget-location</custom-field>
+        <custom-field action="translate">testimonials-widget-title</custom-field>
+        <custom-field action="ignore">_testimonials-widget:testimonial_id</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="1">testimonials-widget</custom-type>
+    </custom-types>    
+    <taxonomies>
+        <taxonomy translate="1">category</taxonomy>
+        <taxonomy translate="1">post_tag</taxonomy>
+        <taxonomy translate="1">testimonials-widget-category</taxonomy>
+        <taxonomy translate="1">testimonials-widget-post_tag</taxonomy>
+    </taxonomies>    
+</wpml-config>
