@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* BUGFIX DOM Element error on last testimonial rotation
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
 
 = 2.12.8 =
