@@ -447,6 +447,19 @@ EOD;
 				$result = false;
 			}
 			break;
+
+		case self::$cpt_category:
+		case self::$cpt_tags:
+			$terms  = get_the_terms( $post_id, $column );
+			$result = '';
+			if ( ! empty( $terms ) ) {
+				$out = array();
+				foreach ( $terms as $term )
+					$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
+
+				$result = join( ', ', $out );
+			}
+			break;
 		}
 
 		$result = apply_filters( 'testimonials_widget_posts_custom_column', $result, $column, $post_id );
@@ -469,10 +482,17 @@ EOD;
 			'testimonials-widget-company' => __( 'Company', 'testimonials-widget' ),
 			'testimonials-widget-url' => __( 'URL', 'testimonials-widget' ),
 			'author' => __( 'Published by', 'testimonials-widget' ),
-			'categories' => __( 'Category', 'testimonials-widget' ),
-			'tags' => __( 'Tags', 'testimonials-widget' ),
 			'date' => __( 'Date', 'testimonials-widget' ),
 		);
+
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
+		if ( ! $use_cpt_taxonomy ) {
+			$columns[ 'categories' ] = __( 'Category', 'testimonials-widget' );
+			$columns[ 'tags' ]       = __( 'Tags', 'testimonials-widget' );
+		} else {
+			$columns[ self::$cpt_category ] = __( 'Category', 'testimonials-widget' );
+			$columns[ self::$cpt_tags ]     = __( 'Tags', 'testimonials-widget' );
+		}
 
 		$columns = apply_filters( 'testimonials_widget_columns', $columns );
 
@@ -520,13 +540,13 @@ EOD;
 				'post_tag',
 			);
 		} else {
-			self::register_taxonomies();
-
 			$do_register_taxonomy = true;
 			$taxonomies           = array(
 				self::$cpt_category,
 				self::$cpt_tags,
 			);
+
+			self::register_taxonomies();
 		}
 
 		$args = array(
@@ -559,7 +579,7 @@ EOD;
 
 	public static function register_taxonomies() {
 		$args = array(
-			'hierarchical'          => true,
+			'hierarchical' => true,
 		);
 		register_taxonomy( self::$cpt_category, self::PT, $args );
 

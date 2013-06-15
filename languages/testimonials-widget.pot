@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 2.12.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-06-10 16:38:54+00:00\n"
+"POT-Creation-Date: 2013-06-15 19:13:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,8 +44,8 @@ msgstr ""
 msgid "Widget Title"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:86 testimonials-widget.php:488
-#: testimonials-widget.php:533
+#: lib/class-settings-testimonials-widget.php:86 testimonials-widget.php:508
+#: testimonials-widget.php:553
 msgid "Testimonials"
 msgstr ""
 
@@ -290,7 +290,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:330 testimonials-widget.php:474
+#: lib/class-settings-testimonials-widget.php:330 testimonials-widget.php:485
 msgid "Date"
 msgstr ""
 
@@ -298,7 +298,7 @@ msgstr ""
 msgid "Menu Order"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:332 testimonials-widget.php:464
+#: lib/class-settings-testimonials-widget.php:332 testimonials-widget.php:477
 msgid "Source"
 msgstr ""
 
@@ -320,28 +320,28 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:346 testimonials-widget.php:466
-#: testimonials-widget.php:1480
+#: lib/class-settings-testimonials-widget.php:346 testimonials-widget.php:479
+#: testimonials-widget.php:1500
 msgid "Title"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:347 testimonials-widget.php:468
-#: testimonials-widget.php:1492
+#: lib/class-settings-testimonials-widget.php:347 testimonials-widget.php:481
+#: testimonials-widget.php:1512
 msgid "Email"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:348 testimonials-widget.php:467
-#: testimonials-widget.php:1486
+#: lib/class-settings-testimonials-widget.php:348 testimonials-widget.php:480
+#: testimonials-widget.php:1506
 msgid "Location"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:349 testimonials-widget.php:469
-#: testimonials-widget.php:1498
+#: lib/class-settings-testimonials-widget.php:349 testimonials-widget.php:482
+#: testimonials-widget.php:1518
 msgid "Company"
 msgstr ""
 
-#: lib/class-settings-testimonials-widget.php:350 testimonials-widget.php:470
-#: testimonials-widget.php:1504
+#: lib/class-settings-testimonials-widget.php:350 testimonials-widget.php:483
+#: testimonials-widget.php:1524
 msgid "URL"
 msgstr ""
 
@@ -517,124 +517,124 @@ msgid ""
 "maintained %s"
 msgstr ""
 
-#: testimonials-widget.php:463
+#: testimonials-widget.php:476
 msgid "Image"
 msgstr ""
 
-#: testimonials-widget.php:465
+#: testimonials-widget.php:478
 msgid "Shortcodes"
 msgstr ""
 
-#: testimonials-widget.php:471
+#: testimonials-widget.php:484
 msgid "Published by"
 msgstr ""
 
-#: testimonials-widget.php:472
+#: testimonials-widget.php:490 testimonials-widget.php:493
 msgid "Category"
 msgstr ""
 
-#: testimonials-widget.php:473
+#: testimonials-widget.php:491 testimonials-widget.php:494
 msgid "Tags"
 msgstr ""
 
-#: testimonials-widget.php:485
+#: testimonials-widget.php:505
 msgid "Add New"
 msgstr ""
 
-#: testimonials-widget.php:486 testimonials-widget.php:489
+#: testimonials-widget.php:506 testimonials-widget.php:509
 msgid "Add New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:487
+#: testimonials-widget.php:507
 msgid "Edit Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:490 testimonials-widget.php:787
+#: testimonials-widget.php:510 testimonials-widget.php:807
 msgid "No testimonials found"
 msgstr ""
 
-#: testimonials-widget.php:491
+#: testimonials-widget.php:511
 msgid "No testimonials found in Trash"
 msgstr ""
 
-#: testimonials-widget.php:493
+#: testimonials-widget.php:513
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:494 testimonials-widget.php:1592
+#: testimonials-widget.php:514 testimonials-widget.php:1612
 msgid "Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:495
+#: testimonials-widget.php:515
 msgid "View Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:898
+#: testimonials-widget.php:918
 msgid "…"
 msgstr ""
 
-#: testimonials-widget.php:1218
+#: testimonials-widget.php:1238
 msgid "&laquo;"
 msgstr ""
 
-#: testimonials-widget.php:1227
+#: testimonials-widget.php:1247
 msgid "&raquo;"
 msgstr ""
 
-#: testimonials-widget.php:1516
+#: testimonials-widget.php:1536
 msgid "Testimonial Data"
 msgstr ""
 
-#: testimonials-widget.php:1541
+#: testimonials-widget.php:1561
 msgid "Enter title here"
 msgstr ""
 
-#: testimonials-widget.php:1542
+#: testimonials-widget.php:1562
 msgid "Enter testimonial source here"
 msgstr ""
 
-#: testimonials-widget.php:1567
+#: testimonials-widget.php:1587
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1568
+#: testimonials-widget.php:1588
 msgid "Custom field updated."
 msgstr ""
 
-#: testimonials-widget.php:1569
+#: testimonials-widget.php:1589
 msgid "Custom field deleted."
 msgstr ""
 
-#: testimonials-widget.php:1570
+#: testimonials-widget.php:1590
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
-#: testimonials-widget.php:1572
+#: testimonials-widget.php:1592
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: testimonials-widget.php:1573
+#: testimonials-widget.php:1593
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1574
+#: testimonials-widget.php:1594
 msgid "Testimonial saved."
 msgstr ""
 
-#: testimonials-widget.php:1575
+#: testimonials-widget.php:1595
 msgid ""
 "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</"
 "a>"
 msgstr ""
 
-#: testimonials-widget.php:1576
+#: testimonials-widget.php:1596
 msgid ""
 "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
 "\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1577
+#: testimonials-widget.php:1597
 msgid ""
 "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
 "testimonial</a>"
