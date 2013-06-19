@@ -740,21 +740,26 @@ EOF;
 		// display attributes
 		$refresh_interval = $atts['refresh_interval'];
 
-		$id_base = self::ID . $widget_number;
-		$scripts = array();
+		$id_base    = self::ID . $widget_number;
+		$scripts    = array();
+		$tw_wrapper = 'tw_wrapper' . $widget_number;
 
 		if ( $refresh_interval && 1 < count( $testimonials ) ) {
 			$javascript = <<<EOF
 <script type="text/javascript">
+var {$tw_wrapper} = jQuery('.{$id_base}');
+
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
 		var active = jQuery('.{$id_base} .active');
 		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
+
 		active.fadeOut(1250, function(){
 			active.removeClass('active');
 			next.fadeIn(500);
 			next.removeClass('display-none');
-			next.addClass('active');
+			next.addClass('active'); 						
+			{$tw_wrapper}.animate({ height: next.height() });
 		});
 	}
 }
