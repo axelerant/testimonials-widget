@@ -46,6 +46,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
+* Animated widget rotation for smoother transitions. Disable by setting a height property. [Thank you DSafari](http://wordpress.org/support/topic/animate-jumpy-widget)
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
@@ -450,4 +451,3 @@ Beta testers benefit directly with latest versions, free access to Testimonials 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
 * BUG [IE8 + Google Font Issue](http://wordpress.org/support/topic/ie8-google-font-issue)
-* [Animate jumpy widget](http://wordpress.org/support/topic/animate-jumpy-widget?replies=6#post-4323167)

@@ -742,12 +742,27 @@ EOF;
 
 		$id_base    = self::ID . $widget_number;
 		$scripts    = array();
+		$tw_padding = 'tw_padding' . $widget_number;
 		$tw_wrapper = 'tw_wrapper' . $widget_number;
+
+		$height     = $atts['height'];
+		$max_height = $atts['max_height'];
+		$min_height = $atts['min_height'];
+
+		$enable_animation = 1;
+		if ( $height || $max_height || $min_height )
+			$enable_animation = 0;
 
 		if ( $refresh_interval && 1 < count( $testimonials ) ) {
 			$javascript = <<<EOF
 <script type="text/javascript">
-var {$tw_wrapper} = jQuery('.{$id_base}');
+if ( {$enable_animation} ) {
+	var {$tw_wrapper} = jQuery('.{$id_base}');
+	// tw_padding is the difference in height to take into account all styling options
+	var {$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget').height();
+	// fixes first animation by defining height to adjust to
+	{$tw_wrapper}.height( jQuery('.{$id_base} .active').height() );
+}
 
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
@@ -758,8 +773,12 @@ function nextTestimonial{$widget_number}() {
 			active.removeClass('active');
 			next.fadeIn(500);
 			next.removeClass('display-none');
-			next.addClass('active'); 						
-			{$tw_wrapper}.animate({ height: next.height() });
+			next.addClass('active');
+
+			if ( {$enable_animation} ) {
+				// added padding
+				{$tw_wrapper}.animate({ height: next.height() + {$tw_padding} });
+			}
 		});
 	}
 }
