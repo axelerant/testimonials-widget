@@ -761,7 +761,7 @@ if ( {$enable_animation} ) {
 	// tw_padding is the difference in height to take into account all styling options
 	var {$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget').height();
 	// fixes first animation by defining height to adjust to
-	{$tw_wrapper}.height( jQuery('.{$id_base} .active').height() );
+	{$tw_wrapper}.height( jQuery('.{$tw_wrapper}').height() );
 }
 
 function nextTestimonial{$widget_number}() {

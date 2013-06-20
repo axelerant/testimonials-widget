@@ -7,7 +7,11 @@
 	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
 	<exclude-pattern>lib/Akismet.class.php</exclude-pattern>
 
-	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<xexclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
+	</rule>
+
+	<rule ref="Squiz.PHP.CommentedOutCode"/>
 
 	<rule ref="Generic">
 		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed" />
@@ -21,7 +25,6 @@
 		<exclude name="Generic.PHP.UpperCaseConstant.Found" />
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
-		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
 	</rule>
 
 	<rule ref="WordPress">
