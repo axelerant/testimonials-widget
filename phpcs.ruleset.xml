@@ -7,15 +7,8 @@
 	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
 	<exclude-pattern>lib/Akismet.class.php</exclude-pattern>
 
-	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
-		<xexclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
-	</rule>
-
-	<rule ref="Squiz.PHP.CommentedOutCode"/>
-
 	<rule ref="Generic">
 		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed" />
-		<exclude name="Generic.Files.EndFileNewline.NotFound" />
 		<exclude name="Generic.Files.EndFileNoNewline.Found" />
 		<exclude name="Generic.Files.LineLength.MaxExceeded" />
 		<exclude name="Generic.Formatting.NoSpaceAfterCast.SpaceFound" />
@@ -27,7 +20,10 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 	</rule>
 
+	<rule ref="Squiz.PHP.CommentedOutCode"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+
 	<rule ref="WordPress">
-		<xexclude name="WordPress.XSS.EscapeOutput" />
+		<exclude name="WordPress.XSS.EscapeOutput" />
 	</rule>
 </ruleset>

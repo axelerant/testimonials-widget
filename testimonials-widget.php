@@ -1010,7 +1010,6 @@ EOF;
 		if ( $do_title && $cite )
 			$cite .= '<span class="join-title"></span>';
 
-
 		if ( $do_title ) {
 			$cite .= '<span class="title">';
 			$cite .= $testimonial['testimonial_title'];
@@ -1291,9 +1290,8 @@ EOF;
 
 	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
-			foreach ( self::$css as $css ) {
+			foreach ( self::$css as $css )
 				echo $css;
-			}
 
 			self::$css_called = true;
 		}
@@ -1302,9 +1300,8 @@ EOF;
 
 	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
-			foreach ( self::$scripts as $script ) {
+			foreach ( self::$scripts as $script )
 				echo $script;
-			}
 
 			self::$scripts_called = true;
 		}
@@ -1364,7 +1361,6 @@ EOF;
 			if ( 'none' == $args['orderby'] )
 				add_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ), 10, 2 );
 		}
-
 
 		if ( $exclude ) {
 			$exclude = explode( ',', $exclude );
@@ -1639,9 +1635,11 @@ EOF;
 		$a_close = '</a>';
 
 		if ( current_user_can( 'edit_others_posts' ) )
-			echo sprintf( $content, Testimonials_Widget::PT, $count_f, $name, $a_open, $a_close );
+			$result = sprintf( $content, Testimonials_Widget::PT, $count_f, $name, $a_open, $a_close );
 		else
-			echo sprintf( $content, Testimonials_Widget::PT, $count_f, $name, '', '' );
+			$result = sprintf( $content, Testimonials_Widget::PT, $count_f, $name, '', '' );
+
+		echo $result;
 	}
 
 

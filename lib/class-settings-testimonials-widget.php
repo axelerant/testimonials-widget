@@ -692,6 +692,13 @@ class Testimonials_Widget_Settings {
 		if ( ! empty( $class ) )
 			$field_class = ' ' . $class;
 
+		$choices      = array_map( 'esc_attr', $choices );
+		$desc         = esc_attr( $desc );
+		$field_class  = esc_attr( $field_class );
+		$id           = esc_attr( $id );
+		$options[$id] = esc_attr( $options[$id] );
+		$std          = esc_attr( $std );
+
 		switch ( $type ) {
 		case 'checkbox':
 			$content .= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
@@ -714,12 +721,12 @@ class Testimonials_Widget_Settings {
 			break;
 
 		case 'hidden':
-			$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+			$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
 			break;
 
 		case 'password':
-			$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
+			$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -730,7 +737,7 @@ class Testimonials_Widget_Settings {
 			$i             = 1;
 			$count_choices = count( $choices );
 			foreach ( $choices as $value => $label ) {
-				$content .= '<input class="radio' . $field_class . '" type="radio" name="' . self::ID . '[' . $id . ']" id="' . $id . $i . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
+				$content .= '<input class="radio' . $field_class . '" type="radio" name="' . self::ID . '[' . $id . ']" id="' . $id . $i . '" value="' . $value . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
 
 				if ( $i < $count_choices )
 					$content .= '<br />';
@@ -744,7 +751,7 @@ class Testimonials_Widget_Settings {
 			break;
 
 		case 'readonly':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
+			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" readonly="readonly" />';
 
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -755,7 +762,7 @@ class Testimonials_Widget_Settings {
 			$content .= '<select class="select' . $field_class . '" name="' . self::ID . '[' . $id . ']">';
 
 			foreach ( $choices as $value => $label )
-				$content .= '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+				$content .= '<option value="' . $value . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
 
 			$content .= '</select>';
 
@@ -765,7 +772,7 @@ class Testimonials_Widget_Settings {
 			break;
 
 		case 'text':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
 
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -1029,7 +1036,7 @@ class Testimonials_Widget_Settings {
 
 
 	/**
-	 * allows for true, 'true', 1, 'yes' to be true
+	 * Let values like "true, 'true', 1, and 'yes'" to be true. Else, false
 	 */
 	public static function is_true( $value = null, $return_boolean = true ) {
 		if ( true === $value || 'true' == strtolower( $value ) || 1 == $value || 'yes' == strtolower( $value ) ) {

@@ -5,6 +5,7 @@
 = trunk =
 * BUGFIX DOM Element error on last testimonial rotation
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
+* Coding standards updates
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
 
 = 2.12.8 =
