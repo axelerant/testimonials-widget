@@ -90,7 +90,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['title_link'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Title Link', 'testimonials-widget' ),
-			'desc' => esc_html__( 'URL or Post ID to link widget title to. Ex: 123 or http://example.com', 'testimonials-widget' ),
+			'desc' => esc_html__( 'URL, path, or post ID to link widget title to. Ex: http://example.com/stuff, /testimonials, 123 or ', 'testimonials-widget' ),
 			'validate' => 'wp_kses_data',
 		);
 
