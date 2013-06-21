@@ -36,6 +36,7 @@ Code Documentation
 
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 
+
 Additional Resources
 ====================
 * [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)

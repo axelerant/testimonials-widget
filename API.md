@@ -1,7 +1,7 @@
 Testimonials Widget API Documentation
 =====================================
 
-The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, described below, first [actions](#actions), second [filters](#filters), and lastly [more](#more).
+The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 
 Actions
 -------
@@ -128,7 +128,8 @@ Filters
 
 	Alters displayed widget options. [example](https://gist.github.com/michael-cannon/5833782)
 
-More?
------
 
-Further examples and more can be found by reading and searching the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget).
+Need More?
+==========
+
+Further examples and more can be found by reading and searching the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).
