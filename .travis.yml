@@ -1,15 +1,17 @@
 language: php
 
+#    - 5.4
 php:
     - 5.3
-#    - 5.4
 
-env:
 #    - WP_VERSION=master WP_MULTISITE=0
-    - WP_VERSION=master WP_MULTISITE=1
 #    - WP_VERSION=3.5.2 WP_MULTISITE=0
 #    - WP_VERSION=3.5.2 WP_MULTISITE=1
+env:
+    - WP_VERSION=master WP_MULTISITE=1
 
+#    - export WP_TESTS_DIR=/tmp/wordpress-tests/
+#    - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
 before_script:
     - pear config-set auto_discover 1
     - pear install pear.phpqatools.org/phpqatools
@@ -18,9 +20,7 @@ before_script:
     - pwd
     - echo $WP_MULTISITE 
     - echo $WP_VERSION 
-#    - export WP_TESTS_DIR=/tmp/wordpress-tests/
-#    - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
 
+#    - phpunit
 script:
     - phpcs --standard=phpcs.ruleset.xml .
-#    - phpunit
