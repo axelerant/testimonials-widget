@@ -19,9 +19,8 @@ before_script:
     - export PWD=`pwd`
 
 script:
-#    - phpcs --standard=${PWD}/phpcs.ruleset.xml .
-    - phpcs --standard=WordPress .
-#    - phpunit
+    - phpunit
+    - phpcs --standard=${PWD}/phpcs.ruleset.xml .
 
 notifications:
     email:

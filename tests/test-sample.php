@@ -8,7 +8,7 @@ class SampleTest extends WP_UnitTestCase {
 	}
 
 
-	function testSample() {
+	function XtestSample() {
 		// replace this with some actual testing code
 		$this->assertTrue( true );
 	}
