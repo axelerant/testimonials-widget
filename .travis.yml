@@ -18,5 +18,5 @@ before_script:
     - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
 
 script:
-    - phpcs --standard=phpcs.ruleset.xml
+    - phpcs --standard=./phpcs.ruleset.xml ./
     - phpunit
