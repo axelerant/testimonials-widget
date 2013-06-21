@@ -4,6 +4,8 @@
 
 = trunk =
 * Add Travis CI with PHP Code Sniffer
+* Add PHP Mess Detector
+* Add PHP Copy and Paste Detector
 * BUGFIX DOM Element error on last testimonial rotation
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
 * Coding standards updates
