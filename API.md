@@ -1,111 +1,134 @@
-Testimonials Widget API Docs
-======================
+Testimonials Widget API Documentation
+=====================================
 
-The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, described below, first the [actions](#actions), then the [filters](#filters), then some [example use cases](#examples).
+The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, described below, first [actions](#actions), second [filters](#filters), and lastly [more](#more).
 
 Actions
 -------
 
-*   **Frontend**
-
-    *   `wpseo_head`
-
-        Runs at the end of the output of _all_ SEO meta tags by the plugin, before the closing debug comment.
-    *   `wpseo_opengraph`
-
-        Runs at the end of the output of OpenGraph meta tags by the plugin, before the closing debug comment.
-    *   `wpseo_do_sitemap_&lt;$type&gt;`
-
-        Runs in the creation of XML sitemaps, $type can **not** be a valid post type or taxonomy, when they are this action will not trigger.
-
-*   **Backend**
-
-    *   `wpseo_dashboard`
-
-        Runs on the SEO admin dashboard page.
-    *   `wpseo_xmlsitemaps_config`
-
-        Runs on the SEO Admin page for XML Sitemaps.
+None at this time.
 
 Filters
 -------
 
-*   **Frontend**
+**Frontend**
 
-    *   `wpseo_canonical` (string)
+* `testimonials_widget_cite_html`
 
-        Allows changing of the canonical URL. Returning false will disable the canonical.
-    *   `wpseo_title` (string)
+	Adjust cite contents [example](https://aihrus.zendesk.com/entries/24012926-How-do-I-add-the-date-to-the-cite-)
 
-        Allows changing the title being output.
-    *   `wpseo_metadesc` (string)
+* `testimonials_widget_content_more`
 
-        Allows changing of the meta description. Returning false will disable the meta description.
-    *   `wpseo_author_link`
+	More content ellipsis [example](https://aihrus.zendesk.com/entries/23691577-How-do-I-change-the-more-content-ellipsis-)
 
-        Change the author link added in the `&lt;head&gt;` or return false to disable it.
-    *   `wpseo_metakey` (string)
+* `testimonials_widget_get_testimonial_html`
 
-        Allows changing of the meta keywords. Returning false will disable the meta keywords.
-    *   `wpseo_locale` (string)
+	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://aihrus.zendesk.com/entries/23693433-How-do-I-use-filter-testimonials-widget-get-testimonial-html-)
 
-        Allows changing the locale used in the opengraph set (and possibly in other locations later on).
-    *   `wpseo_opengraph_type` (string)
+* `testimonials_widget_gravatar_size`
 
-        Allows changing the content type for the current page being output in the opengraph set.
-    *   `wpseo_opengraph_image` (string)
+	Change the Gravatar size [example](https://aihrus.zendesk.com/entries/23679271-How-do-I-change-the-Gravatar-size-)
 
-        Allows changing the image(s) being output in the opengraph set.
-    *   `wpseo_opengraph_image_size` (int)
+* `testimonials_widget_image_size`
 
-        Allows changing the image size used for the output of the featured image in the opengraph set.
-    *   `wp_seo_get_bc_title` (string)
+	Change the image size [example](https://aihrus.zendesk.com/entries/23677122-How-do-I-change-the-image-size-)
 
-        Allows changing the title used for the current page in the breadcrumb.
-    *   `wp_seo_get_bc_ancestors` (array)
+* `testimonials_widget_next_posts_link_text`
 
-        Allows changing the ancestors for the current page in the breadcrumb.
-    *   `wpseo_whitelist_permalink_vars` (array)
+	Configure Next page indicator [example](https://aihrus.zendesk.com/entries/23691587-How-do-I-configure-Next-and-Previous-page-indicators-)
 
-        Allows changing the array of whitelisted permalink variables, useful for plugin authors who get complaints from users who are using the plugins permalink redirect function.
-    *   `wpseo_prev_rel_link` and `wpseo_next_rel_link` (string)
+* `testimonials_widget_previous_posts_link_text`
 
-        Filter to change the `rel="next"` and `rel="prev"` links output by Testimonials Widget, by returning false they won’t show.
-    *   `wpseo_xml_sitemap_img_src` (string)
+	Configure Previous page indicator [example](https://aihrus.zendesk.com/entries/23691587-How-do-I-configure-Next-and-Previous-page-indicators-)
 
-        Allows you to change the URL for images embedded in the XML sitemap. Most common usecase is to make sure the CDN URL is embedded.
+* `testimonials_widget_testimonial_html_single_content`
 
-*   **Backend**
+	Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results [example]()
 
-    *   `wpseo_options` (array)
+* `testimonials_widget_testimonial_html_single`
 
-        Allows you to filter the array of options used by the WP SEO plugin, mostly so you can add your own if needed.
-    *   `wpseo_use_page_analysis` (boolean)
+	Customize testimonials single view output post `get_testimonial_html` [example](https://aihrus.zendesk.com/entries/23679391-How-do-I-customize-my-testimonial-single-output-)
 
-        Returning false on this will disable the page analysis score from showing up in publish box and edit posts pages.
-    *   `wpseo_show_date_in_snippet_preview`&nbsp;(boolean)
+* `testimonials_widget_testimonial_html`
 
-        Returning false on this will prevent the date from showing up in the snippet preview.
+	Customize testimonials list and widget output post `get_testimonial_html` [example](https://aihrus.zendesk.com/entries/23693413-How-do-I-customize-my-testimonial-list-and-widget-output-)
 
-Examples
---------
+* `testimonials_widget_testimonials_css`
 
-*   **Disable canonical URLs**
+	Alter dynamically generated CSS [example]()
 
-    To disable the canonical entirely, you could do the following:
+* `testimonials_widget_testimonials_js`
 
-*   **Disable rel=”next” on home**
+	Alter dynamically generated JavaScript [example]()
 
-    To disable the rel=”next” link on your homepage if you have a static homepage but are not using the corresponding WordPress settings:
+* `testimonials_widget_wp_pagenavi`
 
-*   **Change meta keywords**
+	Configure WP-PageNavi specifically for Testimonial Widgets [example](https://aihrus.zendesk.com/entries/23679361-How-do-I-get-page-numbers-for-pagination-)
 
-    To always add ‘yoast’ to your meta keywords (which is a bad idea):
 
-*   **Change the OpenGraph type of a page**
+**Backend**
 
-    To change the OpenGraph type of page X, do the following:
+* `testimonials_widget_cache_get`
+	
+	Caching grabber [example]()
 
-*   **Switch XML Sitemap image URLs to CDN**
+* `testimonials_widget_cache_set`
+	
+	Caching setter [example]()
 
-    The following, when replaced with your domain name and CDN url, would make the sitemap contain your CDN image URLs:
+* `testimonials_widget_columns`
+
+	Customize testimonial posts column headers [example]()
+
+* `testimonials_widget_content`
+
+	Testimonial content parser helper [example]()
+
+* `testimonials_widget_data`
+
+	Process testimonials data before display processing [example](https://aihrus.zendesk.com/entries/23692056-How-do-I-filter-the-testimonials-data-before-display-processing-)
+
+* `testimonials_widget_defaults_single`
+
+	Create a global or central Testimonials Widget configuration for single view [example](https://aihrus.zendesk.com/entries/23679071-How-do-I-add-testimonial-excerpt-to-single-view-) [example](https://aihrus.zendesk.com/entries/23679111-How-do-I-show-the-expert-and-hide-the-image-in-the-testimonial-single-view-)
+
+* `testimonials_widget_defaults`
+
+	Create a global or central Testimonials Widget configuration [example](https://aihrus.zendesk.com/entries/23691607-How-do-I-use-filter-testimonials-widget-defaults-)
+
+* `testimonials_widget_meta_box`
+
+	Modify Testimonial Data fields [example]()
+
+* `testimonials_widget_posts_custom_column`
+
+	Customize testimonial posts column contents [example]()
+
+* `testimonials_widget_query_args`
+
+	Alter WP_Query arguments for testimonial selection [example]()
+
+* `testimonials_widget_sections`
+
+	Alter section options [example]()
+
+* `testimonials_widget_settings`
+
+	Alter setting options [example]()
+
+* `testimonials_widget_validate_settings`
+
+	Validate settings helper [example]()
+
+* `testimonials_widget_version`
+
+	Version tracking for settings [example]()
+
+* `testimonials_widget_widget_options`
+
+	Alters displayed widget options [example]()
+
+More?
+-----
+
+Further examples and more can be found by reading and searching the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget).

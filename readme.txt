@@ -255,34 +255,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Filters =
 
-* `testimonials_widget_cache_get` - Caching grabber
-* `testimonials_widget_cache_set` - Caching setter
-* `testimonials_widget_cite_html` - Adjust cite contents
-* `testimonials_widget_columns` - Customize testimonial posts column headers
-* `testimonials_widget_content_more` - More content ellipsis
-* `testimonials_widget_content` - Testimonial content parser helper
-* `testimonials_widget_data` - Process testimonials data before display processing
-* `testimonials_widget_defaults_single` - Create a global or central Testimonials Widget configuration for single view
-* `testimonials_widget_defaults` - Create a global or central Testimonials Widget configuration
-* `testimonials_widget_get_testimonial_html` - Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.
-* `testimonials_widget_gravatar_size` - Change the Gravatar size
-* `testimonials_widget_image_size` - Change the image size
-* `testimonials_widget_meta_box` - Modify Testimonial Data fields
-* `testimonials_widget_next_posts_link_text` - Configure Next page indicator
-* `testimonials_widget_posts_custom_column` - Customize testimonial posts column contents
-* `testimonials_widget_previous_posts_link_text` - Configure Previous page indicator
-* `testimonials_widget_query_args` - Alter WP_Query arguments for testimonial selection
-* `testimonials_widget_sections` – Alter section options
-* `testimonials_widget_settings` – Alter setting options
-* `testimonials_widget_testimonial_html_single_content` - Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results
-* `testimonials_widget_testimonial_html_single` - Customize testimonials single view output post `get_testimonial_html`
-* `testimonials_widget_testimonial_html` - Customize testimonials list and widget output post `get_testimonial_html`
-* `testimonials_widget_testimonials_css` - Alter dynamically generated CSS
-* `testimonials_widget_testimonials_js` - Alter dynamically generated JavaScript
-* `testimonials_widget_validate_settings` - Validate settings helper
-* `testimonials_widget_version` - Version tracking for settings
-* `testimonials_widget_widget_options` – Alters displayed widget options
-* `testimonials_widget_wp_pagenavi` - Configure WP-PageNavi specifically for Testimonial Widgets
+* See the [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
 
 = Notes =
 
