@@ -15,9 +15,12 @@ before_script:
     - pear install pear.phpqatools.org/phpqatools
     - phpenv rehash
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
+    - pwd
+    - echo $WP_MULTISITE 
+    - echo $WP_VERSION 
 #    - export WP_TESTS_DIR=/tmp/wordpress-tests/
 #    - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
 
 script:
-    - phpcs --standard=./phpcs.ruleset.xml ./
+    - phpcs --standard=phpcs.ruleset.xml .
 #    - phpunit
