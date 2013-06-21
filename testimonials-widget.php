@@ -411,55 +411,55 @@ EOD;
 		$result = false;
 
 		switch ( $column ) {
-		case 'shortcode':
-			$result  = '[testimonialswidget_list ids="';
-			$result .= $post_id;
-			$result .= '"]';
-			$result .= '<br />';
-			$result .= '[testimonialswidget_widget ids="';
-			$result .= $post_id;
-			$result .= '"]';
-			break;
+			case 'shortcode':
+				$result  = '[testimonialswidget_list ids="';
+				$result .= $post_id;
+				$result .= '"]';
+				$result .= '<br />';
+				$result .= '[testimonialswidget_widget ids="';
+				$result .= $post_id;
+				$result .= '"]';
+				break;
 
-		case 'testimonials-widget-company':
-		case 'testimonials-widget-location':
-		case 'testimonials-widget-title':
-			$result = get_post_meta( $post_id, $column, true );
-			break;
+			case 'testimonials-widget-company':
+			case 'testimonials-widget-location':
+			case 'testimonials-widget-title':
+				$result = get_post_meta( $post_id, $column, true );
+				break;
 
-		case 'testimonials-widget-email':
-		case 'testimonials-widget-url':
-			$url = get_post_meta( $post_id, $column, true );
-			if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
-				$url = 'http://' . $url;
+			case 'testimonials-widget-email':
+			case 'testimonials-widget-url':
+				$url = get_post_meta( $post_id, $column, true );
+				if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
+					$url = 'http://' . $url;
 
-			$result = make_clickable( $url );
-			break;
+				$result = make_clickable( $url );
+				break;
 
-		case 'thumbnail':
-			$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
+			case 'thumbnail':
+				$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-			if ( has_post_thumbnail( $post_id ) ) {
-				$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
-			} elseif ( is_email( $email ) ) {
-				$result = get_avatar( $email );
-			} else {
-				$result = false;
-			}
-			break;
+				if ( has_post_thumbnail( $post_id ) ) {
+					$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
+				} elseif ( is_email( $email ) ) {
+					$result = get_avatar( $email );
+				} else {
+					$result = false;
+				}
+				break;
 
-		case self::$cpt_category:
-		case self::$cpt_tags:
-			$terms  = get_the_terms( $post_id, $column );
-			$result = '';
-			if ( ! empty( $terms ) ) {
-				$out = array();
-				foreach ( $terms as $term )
-					$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
+			case self::$cpt_category:
+			case self::$cpt_tags:
+				$terms  = get_the_terms( $post_id, $column );
+				$result = '';
+				if ( ! empty( $terms ) ) {
+					$out = array();
+					foreach ( $terms as $term )
+						$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
 
-				$result = join( ', ', $out );
-			}
-			break;
+					$result = join( ', ', $out );
+				}
+				break;
 		}
 
 		$result = apply_filters( 'testimonials_widget_posts_custom_column', $result, $column, $post_id );
@@ -1578,9 +1578,9 @@ EOF;
 
 		if ( is_object( $post ) && self::PT == $post->post_type ) {
 			switch ( $translation ) {
-			case __( 'Enter title here', 'testimonials-widget' ):
-				return __( 'Enter testimonial source here', 'testimonials-widget' );
-				break;
+				case __( 'Enter title here', 'testimonials-widget' ):
+					return __( 'Enter testimonial source here', 'testimonials-widget' );
+					break;
 			}
 		}
 

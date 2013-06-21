@@ -700,95 +700,95 @@ class Testimonials_Widget_Settings {
 		$std          = esc_attr( $std );
 
 		switch ( $type ) {
-		case 'checkbox':
-			$content .= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
+			case 'checkbox':
+				$content .= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
-			if ( ! empty( $desc ) )
-				$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
+				if ( ! empty( $desc ) )
+					$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
 
-			break;
+				break;
 
-		case 'file':
-			$content .= '<input class="regular-text' . $field_class . '" type="file" id="' . $id . '" name="' . self::ID . '[' . $id . ']" />';
+			case 'file':
+				$content .= '<input class="regular-text' . $field_class . '" type="file" id="' . $id . '" name="' . self::ID . '[' . $id . ']" />';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'heading':
-			$content .= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
-			break;
+			case 'heading':
+				$content .= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
+				break;
 
-		case 'hidden':
-			$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
+			case 'hidden':
+				$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
-			break;
+				break;
 
-		case 'password':
-			$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
+			case 'password':
+				$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'radio':
-			$i             = 1;
-			$count_choices = count( $choices );
-			foreach ( $choices as $value => $label ) {
-				$content .= '<input class="radio' . $field_class . '" type="radio" name="' . self::ID . '[' . $id . ']" id="' . $id . $i . '" value="' . $value . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
+			case 'radio':
+				$i             = 1;
+				$count_choices = count( $choices );
+				foreach ( $choices as $value => $label ) {
+					$content .= '<input class="radio' . $field_class . '" type="radio" name="' . self::ID . '[' . $id . ']" id="' . $id . $i . '" value="' . $value . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
 
-				if ( $i < $count_choices )
-					$content .= '<br />';
+					if ( $i < $count_choices )
+						$content .= '<br />';
 
-				$i++;
-			}
+					$i++;
+				}
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'readonly':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" readonly="readonly" />';
+			case 'readonly':
+				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" readonly="readonly" />';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'select':
-			$content .= '<select class="select' . $field_class . '" name="' . self::ID . '[' . $id . ']">';
+			case 'select':
+				$content .= '<select class="select' . $field_class . '" name="' . self::ID . '[' . $id . ']">';
 
-			foreach ( $choices as $value => $label )
-				$content .= '<option value="' . $value . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+				foreach ( $choices as $value => $label )
+					$content .= '<option value="' . $value . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
 
-			$content .= '</select>';
+				$content .= '</select>';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'text':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
+			case 'text':
+				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		case 'textarea':
-			$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+			case 'textarea':
+				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			break;
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 		if ( ! $do_echo )
@@ -940,57 +940,57 @@ class Testimonials_Widget_Settings {
 
 	public static function validators( $validate, $id, &$input, $default, &$errors ) {
 		switch ( $validate ) {
-		case 'absint':
-		case 'intval':
-			if ( '' !== $input[ $id ] )
+			case 'absint':
+			case 'intval':
+				if ( '' !== $input[ $id ] )
+					$input[ $id ] = $validate( $input[ $id ] );
+				else
+					$input[ $id ] = $default;
+				break;
+
+			case 'ids':
+				$input[ $id ] = self::validate_ids( $input[ $id ], $default );
+				break;
+
+			case 'min1':
+				$input[ $id ] = intval( $input[ $id ] );
+				if ( 0 >= $input[ $id ] )
+					$input[ $id ] = $default;
+				break;
+
+			case 'nozero':
+				$input[ $id ] = intval( $input[ $id ] );
+				if ( 0 === $input[ $id ] )
+					$input[ $id ] = $default;
+				break;
+
+			case 'order':
+				$input[ $id ] = self::validate_order( $input[ $id ], $default );
+				break;
+
+			case 'required':
+				if ( empty( $input[ $id ] ) )
+					$errors[ $id ] = esc_html__( 'Required', 'testimonials-widget' );
+				break;
+
+			case 'slug':
+				$input[ $id ] = self::validate_slug( $input[ $id ], $default );
+				$input[ $id ] = strtolower( $input[ $id ] );
+				break;
+
+			case 'slugs':
+				$input[ $id ] = self::validate_slugs( $input[ $id ], $default );
+				$input[ $id ] = strtolower( $input[ $id ] );
+				break;
+
+			case 'term':
+				$input[ $id ] = self::validate_term( $input[ $id ], $default );
+				$input[ $id ] = strtolower( $input[ $id ] );
+				break;
+
+			default:
 				$input[ $id ] = $validate( $input[ $id ] );
-			else
-				$input[ $id ] = $default;
-			break;
-
-		case 'ids':
-			$input[ $id ] = self::validate_ids( $input[ $id ], $default );
-			break;
-
-		case 'min1':
-			$input[ $id ] = intval( $input[ $id ] );
-			if ( 0 >= $input[ $id ] )
-				$input[ $id ] = $default;
-			break;
-
-		case 'nozero':
-			$input[ $id ] = intval( $input[ $id ] );
-			if ( 0 === $input[ $id ] )
-				$input[ $id ] = $default;
-			break;
-
-		case 'order':
-			$input[ $id ] = self::validate_order( $input[ $id ], $default );
-			break;
-
-		case 'required':
-			if ( empty( $input[ $id ] ) )
-				$errors[ $id ] = esc_html__( 'Required', 'testimonials-widget' );
-			break;
-
-		case 'slug':
-			$input[ $id ] = self::validate_slug( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
-			break;
-
-		case 'slugs':
-			$input[ $id ] = self::validate_slugs( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
-			break;
-
-		case 'term':
-			$input[ $id ] = self::validate_term( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
-			break;
-
-		default:
-			$input[ $id ] = $validate( $input[ $id ] );
-			break;
+				break;
 		}
 	}
 

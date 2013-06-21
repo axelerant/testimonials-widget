@@ -191,31 +191,31 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$do_return = false;
 		switch ( $type ) {
-		case 'heading':
-			if ( ! empty( $desc ) )
-				echo '<h3>' . $desc . '</h3>';
+			case 'heading':
+				if ( ! empty( $desc ) )
+					echo '<h3>' . $desc . '</h3>';
 
-			$do_return = true;
-			break;
+				$do_return = true;
+				break;
 
-		case 'expand_begin':
-			if ( ! empty( $desc ) )
-				echo '<h3>' . $desc . '</h3>';
+			case 'expand_begin':
+				if ( ! empty( $desc ) )
+					echo '<h3>' . $desc . '</h3>';
 
-			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();">' . __( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
-			echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none">';
+				echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();">' . __( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
+				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none">';
 
-			$do_return = true;
-			break;
+				$do_return = true;
+				break;
 
-		case 'expand_end':
-			echo '</div>';
+			case 'expand_end':
+				echo '</div>';
 
-			$do_return = true;
-			break;
+				$do_return = true;
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 		if ( $do_return )
@@ -233,62 +233,62 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		echo '<p>';
 
 		switch ( $type ) {
-		case 'checkbox':
-			echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
+			case 'checkbox':
+				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			break;
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+				break;
 
-		case 'select':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			echo '<select id="' . $this->get_field_id( $id ) . '"class="select' . $field_class . '" name="' . $this->get_field_name( $id ) . '">';
+			case 'select':
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+				echo '<select id="' . $this->get_field_id( $id ) . '"class="select' . $field_class . '" name="' . $this->get_field_name( $id ) . '">';
 
-			foreach ( $choices as $value => $label )
-				echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+				foreach ( $choices as $value => $label )
+					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
 
-			echo '</select>';
-			break;
+				echo '</select>';
+				break;
 
-		case 'radio':
-			$i             = 0;
-			$count_options = count( $options ) - 1;
+			case 'radio':
+				$i             = 0;
+				$count_options = count( $options ) - 1;
 
-			foreach ( $choices as $value => $label ) {
-				echo '<input class="radio' . $field_class . '" type="radio" name="' . $this->get_field_name( $id ) . '" id="' . $this->get_field_name( $id . $i ) . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $this->get_field_name( $id . $i ) . '">' . $label . '</label>';
-				if ( $i < $count_options )
-					echo '<br />';
-				$i++;
-			}
+				foreach ( $choices as $value => $label ) {
+					echo '<input class="radio' . $field_class . '" type="radio" name="' . $this->get_field_name( $id ) . '" id="' . $this->get_field_name( $id . $i ) . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $this->get_field_name( $id . $i ) . '">' . $label . '</label>';
+					if ( $i < $count_options )
+						echo '<br />';
+					$i++;
+				}
 
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			break;
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+				break;
 
-		case 'textarea':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+			case 'textarea':
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-			echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
-			break;
+				echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				break;
 
-		case 'password':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+			case 'password':
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-			echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" />';
-			break;
+				echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" />';
+				break;
 
-		case 'readonly':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+			case 'readonly':
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
-			break;
+				echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
+				break;
 
-		case 'text':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
+			case 'text':
+				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
-			break;
+				echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 		if ( ! empty( $desc ) )
