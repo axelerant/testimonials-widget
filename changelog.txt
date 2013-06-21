@@ -3,12 +3,14 @@
 == Changelog ==
 
 = trunk =
-* Add Travis CI with PHP Code Sniffer
-* Disabled PHP Mess Detector
 * Add PHP Copy and Paste Detector
+* Add PHP run-time checks
+* Add Travis CI with PHP Code Sniffer
+* Add developer README and CONTRIBUTING docs
 * BUGFIX DOM Element error on last testimonial rotation
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
 * Coding standards updates
+* Disabled PHP Mess Detector
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
 
 = 2.12.8 =

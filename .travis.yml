@@ -32,6 +32,7 @@ before_script:
     - export DIR_CI="${PWD}/ci"
 
 script:
+    - find . -name '*.php' -exec php -l {} \;
     - phpcs -s -n --standard=${DIR_CI}/phpcs.travis.ruleset.xml .
     - phpcpd .
 #    - phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml
