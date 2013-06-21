@@ -700,7 +700,7 @@ class Testimonials_Widget_Settings {
 		$std          = esc_attr( $std );
 
 		switch ( $type ) {
-			case 'checkbox':
+		case 'checkbox':
 			$content .= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
 			if ( ! empty( $desc ) )
@@ -708,7 +708,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'file':
+		case 'file':
 			$content .= '<input class="regular-text' . $field_class . '" type="file" id="' . $id . '" name="' . self::ID . '[' . $id . ']" />';
 
 			if ( ! empty( $desc ) )
@@ -716,16 +716,16 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'heading':
+		case 'heading':
 			$content .= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
 			break;
 
-			case 'hidden':
+		case 'hidden':
 			$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
 			break;
 
-			case 'password':
+		case 'password':
 			$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
 
 			if ( ! empty( $desc ) )
@@ -733,7 +733,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'radio':
+		case 'radio':
 			$i             = 1;
 			$count_choices = count( $choices );
 			foreach ( $choices as $value => $label ) {
@@ -750,7 +750,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'readonly':
+		case 'readonly':
 			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" readonly="readonly" />';
 
 			if ( ! empty( $desc ) )
@@ -758,7 +758,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'select':
+		case 'select':
 			$content .= '<select class="select' . $field_class . '" name="' . self::ID . '[' . $id . ']">';
 
 			foreach ( $choices as $value => $label )
@@ -771,7 +771,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'text':
+		case 'text':
 			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
 
 			if ( ! empty( $desc ) )
@@ -779,7 +779,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			case 'textarea':
+		case 'textarea':
 			$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 
 			if ( ! empty( $desc ) )
@@ -787,7 +787,7 @@ class Testimonials_Widget_Settings {
 
 			break;
 
-			default:
+		default:
 			break;
 		}
 
@@ -940,55 +940,55 @@ class Testimonials_Widget_Settings {
 
 	public static function validators( $validate, $id, &$input, $default, &$errors ) {
 		switch ( $validate ) {
-			case 'absint':
-			case 'intval':
+		case 'absint':
+		case 'intval':
 			if ( '' !== $input[ $id ] )
 				$input[ $id ] = $validate( $input[ $id ] );
 			else
 				$input[ $id ] = $default;
 			break;
 
-			case 'ids':
+		case 'ids':
 			$input[ $id ] = self::validate_ids( $input[ $id ], $default );
 			break;
 
-			case 'min1':
+		case 'min1':
 			$input[ $id ] = intval( $input[ $id ] );
 			if ( 0 >= $input[ $id ] )
 				$input[ $id ] = $default;
 			break;
 
-			case 'nozero':
+		case 'nozero':
 			$input[ $id ] = intval( $input[ $id ] );
 			if ( 0 === $input[ $id ] )
 				$input[ $id ] = $default;
 			break;
 
-			case 'order':
+		case 'order':
 			$input[ $id ] = self::validate_order( $input[ $id ], $default );
 			break;
 
-			case 'required':
+		case 'required':
 			if ( empty( $input[ $id ] ) )
 				$errors[ $id ] = esc_html__( 'Required', 'testimonials-widget' );
 			break;
 
-			case 'slug':
+		case 'slug':
 			$input[ $id ] = self::validate_slug( $input[ $id ], $default );
 			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
-			case 'slugs':
+		case 'slugs':
 			$input[ $id ] = self::validate_slugs( $input[ $id ], $default );
 			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
-			case 'term':
+		case 'term':
 			$input[ $id ] = self::validate_term( $input[ $id ], $default );
 			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
-			default:
+		default:
 			$input[ $id ] = $validate( $input[ $id ] );
 			break;
 		}

@@ -198,13 +198,13 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		$this->_type = $value;
 
 		switch ( $this->_type ) {
-			default:
-			case 'default':
+		default:
+		case 'default':
 			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderForm' ), 20, 1 );
 			add_action( 'metabox-save-'.$this->_id, array( &$this, 'saveAsPostMeta' ), 10, 2 );
 			break;
-			case 'image':
-			case 'images':
+		case 'image':
+		case 'images':
 			$this->_fields = array(
 				array(
 					'name' => 'New Image',
@@ -234,8 +234,8 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderForm' ), 20, 1 );
 			add_action( 'metabox-save-'.$this->_id, array( &$this, 'saveAsAttachment' ), 1, 2 );
 			break;
-			case 'video':
-			case 'videos':
+		case 'video':
+		case 'videos':
 			$this->_fields = array(
 				array(
 					'name' => 'New Video',

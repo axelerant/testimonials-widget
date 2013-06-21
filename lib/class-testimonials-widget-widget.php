@@ -191,14 +191,14 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$do_return = false;
 		switch ( $type ) {
-			case 'heading':
+		case 'heading':
 			if ( ! empty( $desc ) )
 				echo '<h3>' . $desc . '</h3>';
 
 			$do_return = true;
 			break;
 
-			case 'expand_begin':
+		case 'expand_begin':
 			if ( ! empty( $desc ) )
 				echo '<h3>' . $desc . '</h3>';
 
@@ -208,13 +208,13 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$do_return = true;
 			break;
 
-			case 'expand_end':
+		case 'expand_end':
 			echo '</div>';
 
 			$do_return = true;
 			break;
 
-			default:
+		default:
 			break;
 		}
 
@@ -233,13 +233,13 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		echo '<p>';
 
 		switch ( $type ) {
-			case 'checkbox':
+		case 'checkbox':
 			echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
 
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 			break;
 
-			case 'select':
+		case 'select':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 			echo '<select id="' . $this->get_field_id( $id ) . '"class="select' . $field_class . '" name="' . $this->get_field_name( $id ) . '">';
 
@@ -249,7 +249,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			echo '</select>';
 			break;
 
-			case 'radio':
+		case 'radio':
 			$i             = 0;
 			$count_options = count( $options ) - 1;
 
@@ -263,31 +263,31 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 			break;
 
-			case 'textarea':
+		case 'textarea':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
 			echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
 			break;
 
-			case 'password':
+		case 'password':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
 			echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" />';
 			break;
 
-			case 'readonly':
+		case 'readonly':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
 			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
 			break;
 
-			case 'text':
+		case 'text':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
 			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
 			break;
 
-			default:
+		default:
 			break;
 		}
 

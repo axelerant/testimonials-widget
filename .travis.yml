@@ -20,7 +20,7 @@ before_script:
 
 script:
     - phpunit
-    - phpcs --standard=${PWD}/phpcs.ruleset.xml .
+    - phpcs -s --standard=${PWD}/phpcs.ruleset.xml .
 
 notifications:
     email:

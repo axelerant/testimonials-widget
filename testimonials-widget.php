@@ -411,7 +411,7 @@ EOD;
 		$result = false;
 
 		switch ( $column ) {
-			case 'shortcode':
+		case 'shortcode':
 			$result  = '[testimonialswidget_list ids="';
 			$result .= $post_id;
 			$result .= '"]';
@@ -421,14 +421,14 @@ EOD;
 			$result .= '"]';
 			break;
 
-			case 'testimonials-widget-company':
-			case 'testimonials-widget-location':
-			case 'testimonials-widget-title':
+		case 'testimonials-widget-company':
+		case 'testimonials-widget-location':
+		case 'testimonials-widget-title':
 			$result = get_post_meta( $post_id, $column, true );
 			break;
 
-			case 'testimonials-widget-email':
-			case 'testimonials-widget-url':
+		case 'testimonials-widget-email':
+		case 'testimonials-widget-url':
 			$url = get_post_meta( $post_id, $column, true );
 			if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
 				$url = 'http://' . $url;
@@ -436,7 +436,7 @@ EOD;
 			$result = make_clickable( $url );
 			break;
 
-			case 'thumbnail':
+		case 'thumbnail':
 			$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
 			if ( has_post_thumbnail( $post_id ) ) {
@@ -448,8 +448,8 @@ EOD;
 			}
 			break;
 
-			case self::$cpt_category:
-			case self::$cpt_tags:
+		case self::$cpt_category:
+		case self::$cpt_tags:
 			$terms  = get_the_terms( $post_id, $column );
 			$result = '';
 			if ( ! empty( $terms ) ) {
@@ -1578,7 +1578,7 @@ EOF;
 
 		if ( is_object( $post ) && self::PT == $post->post_type ) {
 			switch ( $translation ) {
-				case __( 'Enter title here', 'testimonials-widget' ):
+			case __( 'Enter title here', 'testimonials-widget' ):
 				return __( 'Enter testimonial source here', 'testimonials-widget' );
 				break;
 			}
