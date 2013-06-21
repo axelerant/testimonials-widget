@@ -7,11 +7,16 @@ php:
 env:
     - WP_VERSION=master WP_MULTISITE=0
     - WP_VERSION=master WP_MULTISITE=1
-    - WP_VERSION=3.5.1 WP_MULTISITE=0
-    - WP_VERSION=3.5.1 WP_MULTISITE=1
+    - WP_VERSION=3.5.2 WP_MULTISITE=0
+    - WP_VERSION=3.5.2 WP_MULTISITE=1
 
 before_script:
+    - pear install --alldeps PHP_CodeSniffer
+    - phpenv rehash
+    - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
     - export WP_TESTS_DIR=/tmp/wordpress-tests/
     - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
 
-script: phpunit
+script:
+    - phpcs --standard=phpcs.ruleset.xml
+    - phpunit
