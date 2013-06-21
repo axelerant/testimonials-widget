@@ -10,11 +10,14 @@ env:
 
 before_script:
     - pear config-set auto_discover 1
-    - pear channel-discover pear.phpmd.org
-    - pear channel-discover pear.pdepend.org
-    - pear install --alldeps phpmd/PHP_PMD
-    - pear install --alldeps PHP_CodeSniffer
 #    - pear install --alldeps pear.phpqatools.org/phpqatools
+    - pear install PHP_CodeSniffer
+#    - pear install --alldeps PHP_CodeSniffer
+    - pear install phpunit/phpcpd
+#    - pear channel-discover pear.phpmd.org
+#    - pear channel-discover pear.pdepend.org
+#    - pear install phpmd/PHP_PMD
+#    - pear install --alldeps phpmd/PHP_PMD
     - phpenv rehash
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
 #    - export WP_TESTS_DIR=/tmp/wordpress-tests/
@@ -25,7 +28,7 @@ before_script:
 script:
     - phpcs -s -n --standard=${DIR_CI}/phpcs.travis.ruleset.xml .
     - phpcpd .
-    - phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml
+#    - phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml
 #    - phpunit
 
 notifications:
