@@ -12,6 +12,7 @@
 * Coding standards updates
 * Disabled PHP Mess Detector
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
+* Update Filters listing to API document
 
 = 2.12.8 =
 * Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion

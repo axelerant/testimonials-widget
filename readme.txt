@@ -26,10 +26,10 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Primary Features =
 
+* API to manipulate testimonials output and selection
 * Admin interface to add, edit and manage testimonials
 * Capable of handling multiple widgets per page or post
 * Fields for source, testimonial, image, title, location, email, company and URL details
-* Filters to manipulate testimonials output
 * Multiple paging options for testimonials listings
 * Settings export/import
 * Settings screen for site-wide option defaults
@@ -43,6 +43,7 @@ The single testimonial view supports image, source, title, location, email, comp
 Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
+* API for caching and more link control, text replacement, and more
 * Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
@@ -55,7 +56,6 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Disable caching for widget, shortcode or theme functions
 * Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
-* Filters for caching and more link control, text replacement, and more
 * Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
 * Math-based CAPTCHA
 * Multiple anti-spam traps
@@ -253,9 +253,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * `testimonialswidget_list()` - Testimonials listing with paging 
 * `testimonialswidget_widget()` - Rotating testimonials
 
-= Filters =
+= API =
 
-* See the [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
+* Read the [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
 = Notes =
 
