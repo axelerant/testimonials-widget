@@ -6,13 +6,21 @@ class SampleTest extends WP_UnitTestCase {
 	}
 
 
-	// Put convenience methods here
-	// Here are two I use for faking things for save_post hooks, et al
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	function set_post( $key, $value ) {
 		$_POST[$key] = $_REQUEST[$key] = addslashes( $value );
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	function unset_post( $key ) {
 		unset( $_POST[$key], $_REQUEST[$key] );
 	}
