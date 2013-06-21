@@ -3,7 +3,7 @@
 require_once getenv( 'WP_TESTS_DIR' ) . '/includes/functions.php';
 
 function _manually_load_plugin() {
-	require dirname( __FILE__ ) . '/../testimonials-widget.php';
+	require dirname( __FILE__ ) . '/../../testimonials-widget.php';
 }
 
 

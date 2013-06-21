@@ -15,13 +15,14 @@ before_script:
     - phpenv rehash
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
     - export WP_TESTS_DIR=/tmp/wordpress-tests/
-    - bash bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
+    - bash ci/bin/install-wp-tests.sh wordpress_test root '' $WP_VERSION 
     - export PWD=`pwd`
+    - export DIR_CI="${PWD}/ci"
 
 script:
-    - phpcs -s --standard=${PWD}/phpcs.travis.ruleset.xml .
+    - phpcs -s --standard=${DIR_CI}/phpcs.travis.ruleset.xml .
 #	- phpcpd .
-#	- phpmd . --exclude class-redrokk-metabox-class.php text ${PWD}/phpmd.ruleset.xml
+#	- phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml
     - phpunit
 
 notifications:
