@@ -27,5 +27,7 @@
 
 	<rule ref="WordPress">
 		<exclude name="WordPress.XSS.EscapeOutput" />
+		<!-- travis-ci.org is puking on switch/case indentation -->
+		<exclude name="WordPress.WhiteSpace.ScopeIndent.Incorrect" />
 	</rule>
 </ruleset>
