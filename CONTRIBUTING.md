@@ -29,8 +29,8 @@ Making Changes
 Code Documentation
 ------------------
 
-* We ensure that every Testimonials Widget function is documented well and follows the standards set by phpDoc.
-* An example function can be found [here](https://gist.github.com/jdevalk/5574677)
+* Try to ensure that every Testimonials Widget function is documented well and follows the standards set by phpDoc.
+* An example function, by Yoast, can be found [here](https://gist.github.com/jdevalk/5574677)
 * Please make sure that every function is documented so that when we update our API Documentation things don't go awry!
 * Finally, please use tabs and not spaces. The tab indent size should be 4 for all Testimonials Widget code.
 
@@ -38,6 +38,6 @@ At this point you're waiting on us to merge your pull request. We'll review all 
 
 Additional Resources
 ====================
-* [Testimonials Widget readme](http://wordpress.org/plugins/testimonials-widget/)
+* [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
 * [General GitHub Documentation](http://help.github.com/)
 * [GitHub Pull Request documentation](http://help.github.com/send-pull-requests/)
