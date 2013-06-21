@@ -43,7 +43,7 @@ Filters
 
 * `testimonials_widget_testimonial_html_single_content`
 
-	Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results [example]()
+	Customize single view content before appending filter `testimonials_widget_testimonial_html_single` results [example](https://gist.github.com/michael-cannon/5833657)
 
 * `testimonials_widget_testimonial_html_single`
 
@@ -55,11 +55,11 @@ Filters
 
 * `testimonials_widget_testimonials_css`
 
-	Alter dynamically generated CSS [example]()
+	Alter dynamically generated CSS
 
 * `testimonials_widget_testimonials_js`
 
-	Alter dynamically generated JavaScript [example]()
+	Alter dynamically generated JavaScript [example](https://gist.github.com/michael-cannon/5833678)
 
 * `testimonials_widget_wp_pagenavi`
 
@@ -70,19 +70,19 @@ Filters
 
 * `testimonials_widget_cache_get`
 	
-	Caching grabber [example]()
+	Caching grabber [example](https://gist.github.com/michael-cannon/5833685)
 
 * `testimonials_widget_cache_set`
 	
-	Caching setter [example]()
+	Caching setter [example](https://gist.github.com/michael-cannon/5833685)
 
 * `testimonials_widget_columns`
 
-	Customize testimonial posts column headers [example]()
+	Customize testimonial posts column headers [example](https://gist.github.com/michael-cannon/5833693)
 
 * `testimonials_widget_content`
 
-	Testimonial content parser helper [example]()
+	Testimonial content parser helper [example](https://gist.github.com/michael-cannon/5833700)
 
 * `testimonials_widget_data`
 
@@ -98,35 +98,35 @@ Filters
 
 * `testimonials_widget_meta_box`
 
-	Modify Testimonial Data fields [example]()
+	Modify Testimonial Data fields [example](https://gist.github.com/michael-cannon/5833704)
 
 * `testimonials_widget_posts_custom_column`
 
-	Customize testimonial posts column contents [example]()
+	Customize testimonial posts column contents [example](https://gist.github.com/michael-cannon/5833716)
 
 * `testimonials_widget_query_args`
 
-	Alter WP_Query arguments for testimonial selection [example]()
+	Alter WP_Query arguments for testimonial selection [example](https://gist.github.com/michael-cannon/5833740)
 
 * `testimonials_widget_sections`
 
-	Alter section options [example]()
+	Alter section options [example](https://gist.github.com/michael-cannon/5833757)
 
 * `testimonials_widget_settings`
 
-	Alter setting options [example]()
+	Alter setting options [example](https://gist.github.com/michael-cannon/5833757)
 
 * `testimonials_widget_validate_settings`
 
-	Validate settings helper [example]()
+	Validate settings helper [example](https://gist.github.com/michael-cannon/5833768)
 
 * `testimonials_widget_version`
 
-	Version tracking for settings [example]()
+	Version tracking for settings [example](https://gist.github.com/michael-cannon/5833774)
 
 * `testimonials_widget_widget_options`
 
-	Alters displayed widget options [example]()
+	Alters displayed widget options [example](https://gist.github.com/michael-cannon/5833782)
 
 More?
 -----
