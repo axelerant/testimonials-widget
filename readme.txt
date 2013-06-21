@@ -294,6 +294,8 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, offering ideas, or getting support.
 
+If you want to contribute and I hope you do, visit the [Testimonials Widget Github repository](https://github.com/michael-cannon/testimonials-widget).
+
 
 == Installation ==
 
@@ -417,7 +419,7 @@ I need beta testers to help with ensuring pending releases of Testimonials Widge
 
 [Please contact me directly](http://aihr.us/contact-aihrus/).
 
-Beta testers benefit directly with latest versions, free access to Testimonials Widget Premium, and personal support assistance by me.
+Beta testers benefit directly with latest versions, free access to Testimonials Widget Premium, and personalized support assistance.
 
 == TODO ==
 

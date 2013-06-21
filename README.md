@@ -28,7 +28,7 @@ If you find an issue, [let us know here](https://github.com/michael-cannon/testi
 Support
 -------
 
-This is a developer's portal for Testimonials Widget by Michael Cannon and should not be used for support. Please visit the [support forums](http://wordpress.org/support/plugin/testimonials-widget).
+This is a developer's portal for Testimonials Widget by Michael Cannon and should not be used for support. Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, offering ideas, or getting support.
 
 Contributions
 -------------
@@ -44,4 +44,4 @@ There are various ways you can contribute:
 
 Thank You
 ---------
-* Thank you [WordPress SEO by Yoast](https://github.com/jdevalk/wordpress-seo/blob/master/README.md) for this README.md inspiration.
+* Thank you [WordPress SEO by Yoast](https://github.com/jdevalk/wordpress-seo/blob/master/README.md) for this README.md and like inspirations.
