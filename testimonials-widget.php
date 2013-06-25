@@ -185,9 +185,6 @@ EOD;
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
-			return;
-
 		global $wpdb;
 
 		require_once 'lib/class-testimonials-widget-settings.php';
