@@ -7,18 +7,24 @@
 * Add PHP run-time checks
 * Add Travis CI with PHP Code Sniffer
 * Add developer README and CONTRIBUTING docs
-* Beta test update text
 * BUGFIX DOM Element error on last testimonial rotation
+* BUGFIX Data delete on uninstall not firing
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
+* Beta test update text
 * Coding standards updates
 * Create TODO doc
 * Disabled PHP Mess Detector
 * Don't escape already escaped text
 * Don't load plugin till all are loaded
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
+* OPTION Add Disable animation?
+* Relocate activation, deactivation, and uninstall hooks
 * Remove class from settings page link
+* Rename class-settings-testimonials-widget.php to class-testimonials-widget-settings.php
 * Revise API doc headings
+* Revise instance creators to only fire when ready
 * Update Filters listing to API document
+* Update POT
 
 = 2.12.8 =
 * Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion

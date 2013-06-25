@@ -202,6 +202,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
 * Height - Testimonials height, in pixels. Overrides minimum and maximum height
 	* `height` - default none; height=300
+* Disable animation? - Disable animation between testimonial transitions. Useful when stacking.
+	* `disable_animation` - default false; disable_animation=true
 * Minimum Height - Set for minimum display height, in pixels
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels

@@ -129,6 +129,13 @@ class Testimonials_Widget_Settings {
 			'type' => 'checkbox',
 		);
 
+		self::$settings['disable_animation'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Disable animation?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+		);
+
 		self::$settings['min_height'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Minimum Height', 'testimonials-widget' ),

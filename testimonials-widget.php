@@ -56,9 +56,6 @@ class Testimonials_Widget {
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
-		register_activation_hook( __FILE__, array( &$this, 'activation' ) );
-		register_deactivation_hook( __FILE__, array( &$this, 'deactivation' ) );
-		register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 	}
 
 
@@ -165,12 +162,7 @@ EOD;
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : false;
-		if ( $plugin )
-			check_admin_referer( "activate-plugin_{$plugin}" );
-
 		self::init();
-
 		flush_rewrite_rules();
 	}
 
@@ -184,10 +176,6 @@ EOD;
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : false;
-		if ( $plugin )
-			check_admin_referer( "deactivate-plugin_{$plugin}" );
-
 		flush_rewrite_rules();
 	}
 
@@ -199,8 +187,6 @@ EOD;
 		if ( __FILE__ != WP_UNINSTALL_PLUGIN )
 			return;
 
-		check_admin_referer( 'bulk-plugins' );
-
 		global $wpdb;
 
 		$delete_data = tw_get_option( 'delete_data', false );
@@ -209,7 +195,7 @@ EOD;
 			delete_option( self::OLD_NAME );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
-			self::delete_testimonials();
+			Testimonials_Widget::delete_testimonials();
 		}
 	}
 
@@ -222,7 +208,7 @@ EOD;
 
 		foreach ( $posts as $post ) {
 			$post_id = $post->ID;
-			self::delete_attachments( $post_id );
+			Testimonials_Widget::delete_attachments( $post_id );
 
 			// dels post, meta & comments
 			// true is force delete
@@ -742,12 +728,13 @@ EOF;
 		$tw_padding = 'tw_padding' . $widget_number;
 		$tw_wrapper = 'tw_wrapper' . $widget_number;
 
-		$height     = $atts['height'];
-		$max_height = $atts['max_height'];
-		$min_height = $atts['min_height'];
+		$disable_animation = $atts['disable_animation'];
+		$height            = $atts['height'];
+		$max_height        = $atts['max_height'];
+		$min_height        = $atts['min_height'];
 
 		$enable_animation = 1;
-		if ( $height || $max_height || $min_height )
+		if ( $disable_animation || $height || $max_height || $min_height )
 			$enable_animation = 0;
 
 		if ( $refresh_interval && 1 < count( $testimonials ) ) {
@@ -1646,18 +1633,23 @@ EOF;
 add_action( 'plugins_loaded', 'testimonialswidget_init' );
 function testimonialswidget_init() {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 	if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
-		require_once 'lib/class-settings-testimonials-widget.php';
-
-		static $Testimonials_Widget;
-		if ( is_null( $Testimonials_Widget ) )
-			$Testimonials_Widget = new Testimonials_Widget();
-
-		static $Testimonials_Widget_Settings;
+		require_once 'lib/class-testimonials-widget-settings.php';
+		global $Testimonials_Widget_Settings;
 		if ( is_null( $Testimonials_Widget_Settings ) )
 			$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+
+		global $Testimonials_Widget;
+		if ( is_null( $Testimonials_Widget ) )
+			$Testimonials_Widget = new Testimonials_Widget();
 	}
 }
+
+
+register_activation_hook( __FILE__, array( 'Testimonials_Widget', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 
 
 function testimonialswidget_list( $atts = array() ) {
