@@ -23,9 +23,6 @@
  */
 
 
-require_once 'lib/class-settings-testimonials-widget.php';
-
-
 class Testimonials_Widget {
 	const ID          = 'testimonials-widget-testimonials';
 	const OLD_NAME    = 'testimonialswidget';
@@ -1646,10 +1643,20 @@ EOF;
 }
 
 
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
-if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
-	$Testimonials_Widget          = new Testimonials_Widget();
-	$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+add_action( 'plugins_loaded', 'testimonialswidget_init' );
+function testimonialswidget_init() {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	if ( is_plugin_active( Testimonials_Widget::PLUGIN_FILE ) ) {
+		require_once 'lib/class-settings-testimonials-widget.php';
+
+		static $Testimonials_Widget;
+		if ( is_null( $Testimonials_Widget ) )
+			$Testimonials_Widget = new Testimonials_Widget();
+
+		static $Testimonials_Widget_Settings;
+		if ( is_null( $Testimonials_Widget_Settings ) )
+			$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+	}
 }
 
 

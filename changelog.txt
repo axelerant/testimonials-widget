@@ -7,11 +7,17 @@
 * Add PHP run-time checks
 * Add Travis CI with PHP Code Sniffer
 * Add developer README and CONTRIBUTING docs
+* Beta test update text
 * BUGFIX DOM Element error on last testimonial rotation
 * BUGFIX Testimonials Widget edit page doesn't display custom taxonomies
 * Coding standards updates
+* Create TODO doc
 * Disabled PHP Mess Detector
+* Don't escape already escaped text
+* Don't load plugin till all are loaded
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
+* Remove class from settings page link
+* Revise API doc headings
 * Update Filters listing to API document
 
 = 2.12.8 =

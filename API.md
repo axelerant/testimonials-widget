@@ -1,17 +1,14 @@
-Testimonials Widget API Documentation
-=====================================
+# Testimonials Widget API
 
 The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 
-Actions
--------
+## Actions
 
 None at this time.
 
-Filters
--------
+## Filters
 
-**Frontend**
+### Frontend
 
 * `testimonials_widget_cite_html`
 
@@ -66,7 +63,7 @@ Filters
 	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361-How-do-I-get-page-numbers-for-pagination-)
 
 
-**Backend**
+### Backend
 
 * `testimonials_widget_cache_get`
 	
@@ -129,7 +126,6 @@ Filters
 	Alters displayed widget options. [example](https://gist.github.com/michael-cannon/5833782)
 
 
-Need More?
-==========
+## Need More?
 
 Further examples and more can be found by reading and searching the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).

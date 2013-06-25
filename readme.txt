@@ -413,16 +413,14 @@ See [Changelog](http://aihr.us/testimonials-widget/changelog/)
 
 == Beta Testers Needed ==
 
-I really want Testimonials Widget and Testimonials Widget Premium to be the best WordPress plugins of their type. However, it's getting beyond me to do it alone.
+I really want Testimonials Widget and Testimonials Widget Premium to be the best WordPress plugins of their type. However, it's beyond me to do it alone.
 
 I need beta testers to help with ensuring pending releases of Testimonials Widget and Testimonials Widget Premium are solid. This would benefit us all by helping reduce the number of releases and raise code quality.
 
 [Please contact me directly](http://aihr.us/contact-aihrus/).
 
-Beta testers benefit directly with latest versions, free access to Testimonials Widget Premium, and personalized support assistance.
+Beta testers benefit directly with latest versions, a free 1-site license for Testimonials Widget Premium, and personalized support assistance.
 
 == TODO ==
 
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
-
-* BUG [IE8 + Google Font Issue](http://wordpress.org/support/topic/ie8-google-font-issue)

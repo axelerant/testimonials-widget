@@ -378,7 +378,7 @@ class Testimonials_Widget_Settings {
 			'widget' => 0,
 		);
 
-		$desc        = esc_html__( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
+		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
 		$has_archive = tw_get_option( 'has_archive', '' );
 		$site_url    = site_url( '/' . $has_archive );
 
@@ -542,7 +542,7 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_menu() {
-		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, '', esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
 
 		add_action( 'admin_print_scripts-' . $admin_page, array( &$this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . $admin_page, array( &$this, 'styles' ) );
@@ -692,8 +692,8 @@ class Testimonials_Widget_Settings {
 		if ( ! empty( $class ) )
 			$field_class = ' ' . $class;
 
+		// desc isn't escaped because it's might contain allowed html
 		$choices      = array_map( 'esc_attr', $choices );
-		$desc         = esc_attr( $desc );
 		$field_class  = esc_attr( $field_class );
 		$id           = esc_attr( $id );
 		$options[$id] = esc_attr( $options[$id] );
