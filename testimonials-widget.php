@@ -162,6 +162,7 @@ EOD;
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
+		require_once 'lib/class-testimonials-widget-settings.php';
 		self::init();
 		flush_rewrite_rules();
 	}
@@ -189,6 +190,7 @@ EOD;
 
 		global $wpdb;
 
+		require_once 'lib/class-testimonials-widget-settings.php';
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
 			delete_option( Testimonials_Widget_Settings::ID );
