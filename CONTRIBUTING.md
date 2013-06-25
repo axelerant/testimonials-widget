@@ -1,4 +1,4 @@
-# CONTRIBUTE - Testimonials Widget
+# CONTRIBUTE Testimonials Widget
 
 Community made patches, localisation, bug reports and contributions are very welcome and help make Testimonials Widget the #1 testimonials plugin for WordPress.
 

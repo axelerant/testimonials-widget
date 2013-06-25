@@ -1,4 +1,4 @@
-# README - Testimonials Widget WordPress Plugin
+# README Testimonials Widget WordPress Plugin
 
 [![Build Status](https://travis-ci.org/michael-cannon/testimonials-widget.png?branch=master)](https://travis-ci.org/michael-cannon/testimonials-widget)
 
