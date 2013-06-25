@@ -19,6 +19,7 @@
 * FEATURE [Animated widget rotation](http://wordpress.org/support/topic/animate-jumpy-widget)
 * OPTION Add Disable animation?
 * Relocate activation, deactivation, and uninstall hooks
+* Remove WP_UNINSTALL_PLUGIN reference
 * Remove class from settings page link
 * Rename class-settings-testimonials-widget.php to class-testimonials-widget-settings.php
 * Revise API doc headings
