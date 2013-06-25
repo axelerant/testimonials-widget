@@ -182,15 +182,12 @@ EOD;
 
 
 	public function uninstall() {
-		exit( __LINE__ . ':' . basename( __FILE__ ) . " ERROR<br />\n" );
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		exit( __LINE__ . ':' . basename( __FILE__ ) . " ERROR<br />\n" );
-		if ( __FILE__ != WP_UNINSTALL_PLUGIN )
+		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
 			return;
 
-		exit( __LINE__ . ':' . basename( __FILE__ ) . " ERROR<br />\n" );
 		global $wpdb;
 
 		require_once 'lib/class-testimonials-widget-settings.php';
