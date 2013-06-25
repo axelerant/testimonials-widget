@@ -1,4 +1,4 @@
-# Testimonials Widget API
+# API - Testimonials Widget
 
 The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 

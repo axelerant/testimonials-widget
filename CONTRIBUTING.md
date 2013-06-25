@@ -1,5 +1,4 @@
-Contribute To Testimonials Widget
-=================================
+# CONTRIBUTE - Testimonials Widget
 
 Community made patches, localisation, bug reports and contributions are very welcome and help make Testimonials Widget the #1 testimonials plugin for WordPress.
 
@@ -9,16 +8,14 @@ __Please Note:__ GitHub is for bug reports and contributions only - if you have 
 
 For localization, please refer to [How do I change Testimonials Widget text labels?](https://aihrus.zendesk.com/entries/23691557-How-do-I-change-Testimonials-Widget-text-labels-), though bugs with strings that can't be translated are welcome here.
 
-Getting Started
----------------
+## Getting Started
 
 * Submit a ticket for your issue, assuming one does not already exist.
   * Raise it on our [Issue Tracker](https://github.com/michael-cannon/testimonials-widget/issues)
   * Clearly describe the issue including steps to reproduce the bug.
   * Make sure you fill in the earliest version that you know has the issue as well as the version of WordPress you're using.
 
-Making Changes
---------------
+## Making Changes
 
 * Fork the repository on GitHub
 * Make the changes to your forked repository
@@ -26,8 +23,7 @@ Making Changes
 * When committing, reference your issue (if present) and include a note about the fix.
 * Push the changes to your fork and submit a pull request to the 'master' branch of the Testimonials Widget repository.
 
-Code Documentation
-------------------
+## Code Documentation
 
 * Try to ensure that every Testimonials Widget function is documented well and follows the standards set by phpDoc.
 * An example function, by Yoast, can be found [here](https://gist.github.com/jdevalk/5574677)
@@ -37,8 +33,7 @@ Code Documentation
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 
 
-Additional Resources
-====================
+## Additional Resources
 * [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
 * [General GitHub Documentation](http://help.github.com/)
 * [GitHub Pull Request documentation](http://help.github.com/send-pull-requests/)
