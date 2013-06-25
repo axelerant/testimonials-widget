@@ -3,6 +3,8 @@
 == Changelog ==
 
 = trunk =
+
+= 2.13.0 =
 * Add PHP Copy and Paste Detector
 * Add PHP run-time checks
 * Add Travis CI with PHP Code Sniffer
