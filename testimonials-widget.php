@@ -1630,6 +1630,12 @@ EOF;
 
 
 add_action( 'plugins_loaded', 'testimonialswidget_init' );
+/**
+ *
+ *
+ * @SuppressWarnings(PHPMD.LongVariable)
+ * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+ */
 function testimonialswidget_init() {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
