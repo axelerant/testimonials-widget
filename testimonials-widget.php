@@ -55,7 +55,6 @@ class Testimonials_Widget {
 		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
 		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
 		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
-		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 	}
 
 
@@ -65,9 +64,9 @@ class Testimonials_Widget {
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
 		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
-		add_action( 'manage_' . self::PT . '_posts_custom_column', array( &$this, 'manage_testimonialswidget_posts_custom_column' ), 10, 2 );
+		add_action( 'manage_' . self::PT . '_posts_custom_column', array( &$this, 'manage_posts_custom_column' ), 10, 2 );
 		add_action( 'right_now_content_table_end', array( &$this, 'right_now_content_table_end' ) );
-		add_filter( 'manage_' . self::PT . '_posts_columns', array( &$this, 'manage_edit_testimonialswidget_columns' ) );
+		add_filter( 'manage_' . self::PT . '_posts_columns', array( &$this, 'manage_posts_columns' ) );
 		add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
@@ -77,6 +76,9 @@ class Testimonials_Widget {
 
 
 	public function init() {
+		add_filter( 'the_content', array( &$this, 'get_single' ) );
+		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
+		self::$base = plugin_basename( __FILE__ );
 		self::$cpt_category  = self::PT . '-category';
 		self::$cpt_tags      = self::PT . '-post_tag';
 		self::$donate_button = <<<EOD
@@ -88,8 +90,6 @@ class Testimonials_Widget {
 </form>
 EOD;
 
-		add_filter( 'the_content', array( &$this, 'get_single' ) );
-		self::$base = plugin_basename( __FILE__ );
 		self::init_post_type();
 		self::styles();
 	}
@@ -379,7 +379,7 @@ EOD;
 	}
 
 
-	public function manage_testimonialswidget_posts_custom_column( $column, $post_id ) {
+	public function manage_posts_custom_column( $column, $post_id ) {
 		$result = false;
 
 		switch ( $column ) {
@@ -441,7 +441,7 @@ EOD;
 	}
 
 
-	public function manage_edit_testimonialswidget_columns( $columns ) {
+	public function manage_posts_columns( $columns ) {
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',

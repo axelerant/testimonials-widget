@@ -3,6 +3,7 @@
 == Changelog ==
 
 = trunk =
+* Move localization load to init()
 
 = 2.13.0 =
 * Add PHP Copy and Paste Detector
