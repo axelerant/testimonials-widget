@@ -265,7 +265,7 @@ EOD;
 			tw_set_option( 'admin_notices' );
 		}
 
-		// display donate on major/minor version release or if it's been a month
+		// display donate on major/minor version release
 		$donate_version = tw_get_option( 'donate_version', false );
 		if ( ! $donate_version || ( $donate_version != self::VERSION && preg_match( '#\.0$#', self::VERSION ) ) ) {
 			add_action( 'admin_notices', array( $this, 'admin_notices_donate' ) );
