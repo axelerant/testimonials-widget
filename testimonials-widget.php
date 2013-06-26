@@ -153,11 +153,6 @@ EOD;
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.Superglobals)
-	 */
 	public function activation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
@@ -168,11 +163,6 @@ EOD;
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.Superglobals)
-	 */
 	public function deactivation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
