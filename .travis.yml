@@ -32,8 +32,8 @@ before_script:
     - export DIR_CI="${PWD}/ci"
 
 script:
-    - find . -name '*.php' -exec php -l {} \;
-    - clamscan --infected --detect-pua=yes --phishing-cloak=yes --phishing-ssl=yes --detect-structured=no --exclude='(pasteword|jquery)\.js' --recursive .
+    - find . \( -name '*.php' -o -name '*.inc' \) -exec php -l {} \;
+    - clamscan --algorithmic-detection=yes --detect-pua=yes --detect-structured=yes --exclude='(pasteword|jquery)\.js' --infected --phishing-cloak=yes --phishing-sigs=yes --phishing-ssl=yes --recursive --scan-archive=yes --scan-elf=yes --scan-html=yes --scan-ole2=yes --scan-pdf=yes --scan-pe=yes .
     - phpcs -s -n --standard=${DIR_CI}/phpcs.travis.ruleset.xml .
     - phpcpd .
     - phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml
