@@ -10,6 +10,7 @@
  * @version 2.0
  */
 
+
 //security
 defined( 'ABSPATH' ) or die( 'You\'re not supposed to be here.' );
 
@@ -22,6 +23,7 @@ defined( 'ABSPATH' ) or die( 'You\'re not supposed to be here.' );
  */
 if ( !class_exists( 'redrokk_metabox_class' ) ):
 	class redrokk_metabox_class {
+
 	/**
 	 * HTML 'id' attribute of the edit screen section
 	 *
@@ -117,6 +119,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 	 * @var bool
 	 */
 	var $_isAdminPage = false;
+
 
 	/**
 	 * Constructor.

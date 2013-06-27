@@ -25,11 +25,15 @@ before_script:
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
 #    - export WP_TESTS_DIR=/tmp/wordpress-tests/
 #    - bash ci/bin/install-wp-tests.sh wordpress_test root '' ${WP_VERSION} 
+    - apt-get update -qq
+    - apt-get install clamav clamav-freshclam clamav-unofficial-sigs -qq
+    - freshclam --quiet
     - export PWD=`pwd`
     - export DIR_CI="${PWD}/ci"
 
 script:
     - find . -name '*.php' -exec php -l {} \;
+    - clamscan --infected --detect-pua=yes --phishing-cloak=yes --phishing-ssl=yes --detect-structured=no --exclude='(pasteword|jquery)\.js' --recursive .
     - phpcs -s -n --standard=${DIR_CI}/phpcs.travis.ruleset.xml .
     - phpcpd .
     - phpmd . --exclude class-redrokk-metabox-class.php text ${DIR_CI}/phpmd.ruleset.xml

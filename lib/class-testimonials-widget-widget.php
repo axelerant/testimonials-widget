@@ -124,6 +124,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
+
+
 	public function update( $new_instance, $old_instance ) {
 		$instance = Testimonials_Widget_Settings::validate_settings( $new_instance );
 

@@ -8,6 +8,8 @@
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
  */
+
+
 /**
  * Copyright 2013 Michael Cannon (email: mc@aihr.us)
  * This program is free software; you can redistribute it and/or modify
@@ -21,8 +23,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
-
-
 class Testimonials_Widget {
 	const ID          = 'testimonials-widget-testimonials';
 	const OLD_NAME    = 'testimonialswidget';
@@ -78,7 +78,7 @@ class Testimonials_Widget {
 	public function init() {
 		add_filter( 'the_content', array( &$this, 'get_single' ) );
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
-		self::$base = plugin_basename( __FILE__ );
+		self::$base          = plugin_basename( __FILE__ );
 		self::$cpt_category  = self::PT . '-category';
 		self::$cpt_tags      = self::PT . '-post_tag';
 		self::$donate_button = <<<EOD
@@ -1620,6 +1620,8 @@ EOF;
 
 
 add_action( 'plugins_loaded', 'testimonialswidget_init' );
+
+
 /**
  *
  *

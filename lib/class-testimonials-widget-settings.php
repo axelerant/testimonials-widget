@@ -21,6 +21,8 @@
  *
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
+
+
 class Testimonials_Widget_Settings {
 	const ID = 'testimonialswidget_settings';
 
