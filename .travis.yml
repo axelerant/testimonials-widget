@@ -25,9 +25,9 @@ before_script:
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
 #    - export WP_TESTS_DIR=/tmp/wordpress-tests/
 #    - bash ci/bin/install-wp-tests.sh wordpress_test root '' ${WP_VERSION} 
-    - apt-get update -qq
-    - apt-get install clamav clamav-freshclam clamav-unofficial-sigs -qq
-    - freshclam --quiet
+    - sudo apt-get update -qq
+    - sudo apt-get install clamav clamav-freshclam clamav-unofficial-sigs -qq
+    - sudo freshclam --quiet
     - export PWD=`pwd`
     - export DIR_CI="${PWD}/ci"
 
