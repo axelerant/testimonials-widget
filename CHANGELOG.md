@@ -1,11 +1,9 @@
-=== Testimonials Widget ===
+# CHANGELOG Testimonials Widget
 
-== Changelog ==
-
-= trunk =
+# trunk
 * Move localization load to init()
 
-= 2.13.0 =
+## 2.13.0
 * Add PHP Copy and Paste Detector
 * Add PHP run-time checks
 * Add Travis CI with PHP Code Sniffer
@@ -30,17 +28,17 @@
 * Update Filters listing to API document
 * Update POT
 
-= 2.12.8 =
+## 2.12.8
 * Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
 * BUGFIX Warning: Illegal string offset 'exclude'
 * Replace __ with esc_html__
 * Update Premium features
 
-= 2.12.7 =
+## 2.12.7
 * BUGFIX Link targets affected page navigation
 * Removed donate monthly show code
 
-= 2.12.6 =
+## 2.12.6
 * BUGFIX If no refresh_interval, then LIMIT 1
 * Change donate from $1 to $2 due to fees
 * Dashboard testimonials count statistics
@@ -50,11 +48,11 @@
 * Update premium features listing
 * Use donate button than text
 
-= 2.12.5 =
+## 2.12.5
 * BUGFIX Correct loose vs strict comparison for intval and absint
 * If no refresh_interval, then LIMIT 1
 
-= 2.12.4 =
+## 2.12.4
 * BUGFIX Settings jQuery UI Tabs conflict
 * NOT BUG [WPML bug](http://wordpress.org/support/topic/wpml-bug?replies=1)
 * Remove settings.css
@@ -64,11 +62,11 @@
 * Update WPML configuration
 * Use PayPal donate image in settings
 
-= 2.12.3 =
+## 2.12.3
 * BUGFIX Import option constantly overrides settings 
 * BUGFIX [Error When Database Does Not Exist Yet](http://wordpress.org/support/topic/error-when-database-does-not-exist-yet)
 
-= 2.12.2 =
+## 2.12.2
 * $1 donation link admin_notice on installation or major/minor update
 * Add forum responses cheat sheet
 * Auto flush URLs if archive or testimonial slugs change
@@ -83,13 +81,13 @@
 * Remove unused testing settings
 * Set version for which admin notice to display
 
-= 2.12.1 =
+## 2.12.1
 * BUGFIX Settings memory leak [Sites hosed after update 2.12.0](http://wordpress.org/support/topic/premium-sites-hosed-after-update-2120)
 * BUGFIX [importexport settings failure](http://wordpress.org/support/topic/errors-after-updating)
 * Change update warning verbiage
 * Update FAQ & support links to knowledge base
 
-= 2.12.0 =
+## 2.12.0
 * Add file headers to lib/class*
 * Add filter testimonials_widget_widget_options to alter displayed widget options
 * BUGFIX Correct settings required validation `break 2`
@@ -121,7 +119,7 @@
 * Update rulesets
 * Use ID for widget
 
-= 2.11.3 =
+## 2.11.3
 * BUGFIX [Can't set featured image](http://wordpress.org/support/topic/cant-set-featured-image-3)
 * Begin WordPress coding standard cleanup
 * Bold option headers
@@ -133,7 +131,7 @@
 * Update POT
 * Update profile
 
-= 2.11.2 =
+## 2.11.2
 * Add `min1` and `nozero` validation
 * Always include settings class
 * BUGFIX Don't prepend http to email addresses
@@ -145,10 +143,10 @@
 * Update text domain for localization and POT
 * Use `links_add_target` for widget title link
 
-= 2.11.1 =
+## 2.11.1
 * BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-testimonials_widget_settings)
 
-= 2.11.0 =
+## 2.11.0
 * Add Option "Hide Image in Single View?" `hide_image_single`
 * Add `.author` and `.email` to CSS
 * Add `.single` to single view testimonials
@@ -170,7 +168,7 @@
 * Update premium features
 * Update readme formatting
 
-= 2.10.3 =
+## 2.10.3
 * Add "Menu Order" to Order By options
 * Add Height option to automatically set min and max height
 * BUGFIX [Only one testimonial displaying](http://wordpress.org/support/topic/only-one-testimonial-displaying)
@@ -184,10 +182,10 @@
 * Update Premium link
 * Update TODOs
 
-= 2.10.2 =
+## 2.10.2
 * BUGFIX Settings initialization overwrote previous settings
 
-= 2.10.1 =
+## 2.10.1
 * Moved [FAQ](http://aihr.us/testimonials-widget/faq/)
 * Removed premium screenshots
 * Rename screenshot-3.png screenshot-2.png
@@ -218,7 +216,7 @@
 * Screenshot 27 removed
 * Screenshot 28 removed
 
-= 2.10.0 =
+## 2.10.0
 * Add `hide_content` option verbiage
 * Add screenshot 27 `[[testimonialswidgetpremium_form]]` – Add a Testimonial
 * Add screenshot 28 Testimonials Widget Settings > Entry Form tab
@@ -244,39 +242,39 @@
 * Update Premium description
 * Update WPML configuration
 
-= 2.9.1 =
+## 2.9.1
 * BUGFIX Assigning the return value of new by reference is deprecated in metabox.class.php
 
-= 2.9.0 =
+## 2.9.0
 * Add location meta field after title
 * Add location related options
 * FAQ 18, 34, 35 update
 * Screenshot 2, 4, 5 updated
 * Update POT
 
-= 2.8.4 =
+## 2.8.4
 * BUGFIX [Title link does not allow a relative link](http://wordpress.org/support/topic/title-link-does-not-allow-a-relative-link)
 
-= 2.8.3 =
+## 2.8.3
 * BUGFIX [Selection > Category Filter doesn't remember >1 category](http://wordpress.org/support/topic/selection-category-filter-doesnt-remember-1-category)
 * FAQ 67 testimonials paging doesn't work
 * FAQ 68 feature XYZ
 
-= 2.8.2 =
+## 2.8.2
 * Add filter `testimonials_widget_version`
 * Screenshot 11/16 updated
 * Update POT
 * Update Premium features
 * Version tracking for default settings 
 
-= 2.8.1 =
+## 2.8.1
 * Customizable archive and testimonial URLs
 * FAQ 66 Change the testimonials archive or single view URL
 * Optional commenting on testimonial single-view pages
 * Screenshot 26 Testimonials Widget Settings > Post Type tab
 * Update POT
 
-= 2.8.0 =
+## 2.8.0
 * Merge in settings branch
 * Add `tw_get_options`
 * Add filter `testimonials_widget_sections` – Alter section options
@@ -309,7 +307,7 @@
 * Validate shortcode and widget options via Testimonials_Widget_Settings::validate_settings
 * Verbiage updates
 
-= 2.7.17 =
+## 2.7.17
 * Add purchase Testimonials Widget Premium plugin meta link
 * Begin settings screen work
 * FAQ 20 Update
@@ -320,11 +318,11 @@
 * TODO class removal
 * Update localization verbiage
 
-= 2.7.16 =
+## 2.7.16
 * Add comments panel to edit screen - [Thank you BarrieSpence](http://wordpress.org/support/topic/disable-comments-10?replies=1)
 * TODO Admin panel
 
-= 2.7.15 =
+## 2.7.15
 * Add "CSS class" to widget options window
 * FAQ 31/34/35/50/53/55 updates
 * FAQ 61 Determine .testimonialswidget_testimonialsNNN
@@ -333,24 +331,24 @@
 * Localization, Hebrew
 * Screenshot 3 updated
 
-= 2.7.14 =
+## 2.7.14
 * BUGFIX [Testimonials archive view URL conflicts with Page slug](http://wordpress.org/support/topic/testimonials-archive-view-url-conflicts-with-page-slug)
 * FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
 * FAQ 60 Download older versions of Testimonials Widget
 * Premium feature update
 * Screenshot 20 added
 
-= 2.7.13 =
+## 2.7.13
 * Adapt for `mb_strcut` and `mb_strlen` alternatives
 * BUGFIX [Widget doesn't appear](http://wordpress.org/support/topic/widget-doesnt-appear-1)
 * Update POT
 
-= 2.7.12 =
+## 2.7.12
 * Change Aihrus support email to contact form
 * FAQ 1 Update - Thank you [aaaronscat](http://wordpress.org/support/topic/writing-php-to-display-rotating-widget-in-a-template) for the inspiration
 * Update Testimonials Widget Premium URL
 
-= 2.7.11 =
+## 2.7.11
 * Citation styling note
 * Removed sub-category shortcode example
 * Thanks to Joe Weber for asset header
@@ -358,17 +356,17 @@
 * Update premium features
 * Update premium purchase URL
 
-= 2.7.10 =
+## 2.7.10
 * BUGFIX extra excerpt in single view
 * Screenshot 11 updated
 * Update premium features
 
-= 2.7.9 =
+## 2.7.9
 * Revise content truncation to respect HTML tags
 * Update premium description
 * Update premium features
 
-= 2.7.8 =
+## 2.7.8
 * Add `before` and `after` options to `paging`
 * FAQ 58 Specify testimonials per page or section
 * FAQ 59 Rotating widget show all testimonials than only one at a time
@@ -378,12 +376,12 @@
 * Update premium URL
 * Update premium features
 
-= 2.7.7 =
+## 2.7.7
 * FAQ 13 Update
 * FAQ 31 Update
 * Shortcode examples "[[" to "["
 
-= 2.7.6 =
+## 2.7.6
 * Add `[[testimonialswidget_widget]]` to Shortcodes column
 * CSS cite `margin-top` adjustment
 * Enable testimonials archive view
@@ -397,7 +395,7 @@
 * Screenshot 19 `[[testimonialswidget_widget unique=true]]` Show multiple testimonials in rotation
 * Set arg defaults via `defaults`
 
-= 2.7.5 =
+## 2.7.5
 * BUGFIX PHP Warning for new fields in widget when widget already exists
 * Exclude IDs option
 * Implement instance tracking
@@ -405,7 +403,7 @@
 * Update asset header size
 * Update premium features
 
-= 2.7.4 =
+## 2.7.4
 * Asset header help request
 * Premium feature updates
 * Screenshot 9 updated
@@ -415,7 +413,7 @@
 * Screenshot 17 Single `[[testimonialswidget_list]]` entry with and without 'Read more' link
 * Screenshot 18 `[[testimonialswidgetpremium_count]]` Examples
 
-= 2.7.3 =
+## 2.7.3
 * Apply quotes only around testimonial content
 * FAQ 13 update
 * FAQ 34 update
@@ -424,12 +422,12 @@
 * Simplified quotes handling
 * Upgrade notification
 
-= 2.7.2 =
+## 2.7.2
 * FAQ 54 update
 * Screenshot 12 update
 * Screenshot 16 Edit testimonial with "Excerpt" and "Read More Link" fields - Testimonials Widget Premium plugin
 
-= 2.7.1 =
+## 2.7.1
 * Description update
 * FAQ 1 update
 * FAQ 2 update
@@ -469,21 +467,21 @@
 * Screenshot 17 removed
 * Screenshot 18 removed
 
-= 2.7.0 =
+## 2.7.0
 * FAQ 13 Update
 * FAQ 54 Release early. Release often.
 * Redo content opening and closing quotes display
 * Upgrade notification for 2.7.0
 
-= 2.6.6 =
+## 2.6.6
 * Remove CSS `overflow: auto` - too many complaints
 * FAQ 53 Scroll widget based testimonial content
 
-= 2.6.5 =
+## 2.6.5
 * BUGFIX: overflow auto than scroll
 * Correct screenshot 11 & 18
 
-= 2.6.4 =
+## 2.6.4
 * Add filters `testimonials_widget_posts_custom_column`, `testimonials_widget_columns`, `testimonials_widget_meta_box`
 * BUGFIX Testimonial posts page column URL now correctly clickable
 * Code spacing cleanup
@@ -493,7 +491,7 @@
 * Testimonials have `get_post_class` applied 
 * Update premium features
 
-= 2.6.3 =
+## 2.6.3
 * Add filter `testimonials_widget_query_args`
 * Add filters `testimonials_widget_testimonials_css`, `testimonials_widget_testimonials_js`
 * Allow `limit=-1`
@@ -508,36 +506,36 @@
 * Update premium features
 * Update premium screenshots
 
-= 2.6.2 =
+## 2.6.2
 * Compatible with WordPress 3.6
 * Fix single view PHP warning
 
-= 2.6.1 =
+## 2.6.1
 * Add filter `testimonials_widget_testimonial_html_single_content`
 * Add `force_pad` option to `testimonials_truncate`
 * Copyright year update
 * Update Premium features
 
-= 2.6.0 =
+## 2.6.0
 * Add FAQ 51 filter `testimonials_widget_get_testimonial_html` usage
 * FAQ 50 Revise
 * Reorganize `get_testimonial_html`
 
-= 2.5.6 =
+## 2.5.6
 * Add FAQ 50 Example to set widget gradient background color
 * FAQ 13 Update
 * FAQ 20 Add PHP tags
 * FAQ 48 Code correction
 * FAQ 49 Code correction
 
-= 2.5.5 =
+## 2.5.5
 * Enable widget caching
 * Refactor `get_testimonials_html` to break out CSS/JS generation
 * Respect [meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * Revise TODO text
 * TODO remove Template engine - see `testimonials_widget_testimonial_html*` filters
 
-= 2.5.4 =
+## 2.5.4
 * Add filter `testimonials_widget_testimonial_html_single`
 * Add filter `testimonials_widget_testimonial_html`
 * Aihrus testimonial URL correction
@@ -545,35 +543,35 @@
 * FAQ 48 Customize testimonial list/widget output
 * FAQ 49 Customize testimonial single output
 
-= 2.5.3 =
+## 2.5.3
 * Add donate link in plugin section
 * Donate links
 
-= 2.5.2 =
+## 2.5.2
 * Aihrus branding
 
-= 2.5.1 =
+## 2.5.1
 * Update POT file
 
-= 2.5.0 =
+## 2.5.0
 * Add option Keep whitespace? - Thank you [kangchenjunga](http://wordpress.org/support/topic/optional-wpautop-functionality-for-better-formatting?replies=2) for the suggestion
 * Revise FAQ 47
 * Screenshot 16 - Widget whitespace kept
 * Update Author URL
 
-= 2.4.8 =
+## 2.4.8
 * Donate to purchase verbiage change - One bad experience ruins it for all
 * FAQ 47 testimonials list in a widget
 * TODO Add location field
 * TODO Add plugin donate link
 * [CleanCSS](http://cleancss.com/) the CSS
 
-= 2.4.7 =
+## 2.4.7
 * Add filter `testimonials_widget_defaults_single`
 * TODO clean up for premium version
 * TODO Optional wpautop functionality for better formatting
 
-= 2.4.6 =
+## 2.4.6
 * Add 'No order' as an Order By widget option
 * Add FAQ 45 testimonial character limit
 * Add Recommendation heading
@@ -582,11 +580,11 @@
 * Update filters listing
 * Use `posts_results` filter to put posts in same orders as post__in when orderby=none
 
-= 2.4.5 =
+## 2.4.5
 * BUGFIX Missing CSS for testimonialswidget_join_title
 * FAQ 44 Refresh interval - Thank you [biztips](http://wordpress.org/support/topic/fatal-error-558?replies=6#post-3475595)
 
-= 2.4.4 =
+## 2.4.4
 * Add screenshot 15
 * FAQ 34 Update CSS
 * FAQ 35 Update CSS
@@ -594,24 +592,24 @@
 * FAQ 43 Exclude testimonial categories from my sitemap
 * Update premium features
 
-= 2.4.3 =
+## 2.4.3
 * Adjust default `limit` to 10 from 25
 * Add CSS `margin-top` to `cite`, `.testimonialswidget_extra` and `.testimonialswidget_text`
 * BUGFIX [Keep `widget_text` with each testimonial](http://wordpress.org/support/topic/images-not-showin?replies=10)
 * Donate link update
 * FAQ 41 Widget height consistency
 
-= 2.4.2 =
+## 2.4.2
 * BUGFIX [No image](http://wordpress.org/support/topic/update-17?replies=4) in [widget](http://wordpress.org/support/topic/plugin-testimonials-widget-short-rotating-testimonial-link-to-the-full-testimonial?replies=16)
 * TODO Add refactor `get_testimonials_html`
 
-= 2.4.1 =
+## 2.4.1
 * BUGFIX `testimonialswidget_widget` always random
 * Comment and verbiage cleanups
 * Minor refactor of `get_testimonial_html`
 * TODO Added Template engine
 
-= 2.4.0 =
+## 2.4.0
 * FAQ 39 Style the custom widget text
 * FAQ 40 Page number pagination
 * FEATURE Custom widget text
@@ -628,18 +626,18 @@
 * TODO Remove Page numbers - added
 * TODO Remove fields to show - done via theme
 
-= 2.3.4 =
+## 2.3.4
 * BUGFIX [Testimonial plugin means Set Feature Image Not Displaying](http://wordpress.org/support/topic/testimonial-plugin-means-set-feature-image-not-displaying)
 * Test with WordPress 3.5.0 RC1
 * TODO remove Publish & New - just click 'New Testimonial' after Publishing
 * Update donate link
 
-= 2.3.3 =
+## 2.3.3
 * FEATURE Improved single page view
 * SCREENSHOT Single testimonial view
 * TODO Meta capabilities
 
-= 2.3.2 =
+## 2.3.2
 * Add filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
 * BUGFIX ["featured image" module disappeared](http://wordpress.org/support/topic/no-image-upload?replies=12#post-3423001)
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
@@ -654,11 +652,11 @@
 * Simplify read more ellipsis
 * Trim content after formatting
 
-= 2.3.1 =
+## 2.3.1
 * BUGFIX [No image upload](http://wordpress.org/support/topic/no-image-upload)
 * FAQ 36 Why donate?
 
-= 2.3.0 =
+## 2.3.0
 * BUGFIX No paging when cached
 * FAQ 3 Check for empty $data
 * FAQ 33 Change more content ellipsis
@@ -678,10 +676,10 @@
 * TODO Updates
 * Update POT file
 
-= 2.2.9 =
+## 2.2.9
 * BUGFIX [Testimonial List Loading 2nd Blank Box](http://wordpress.org/support/topic/testimonial-list-loading-2nd-blank-box)
 
-= 2.2.8 =
+## 2.2.8
 * Begin "Read more…" preparations
 * Correct content display processing
 * FAQ 32 Min-height usage
@@ -689,7 +687,7 @@
 * TODO Updates
 * Widgets display content sans `wpautop` formatting
 
-= 2.2.7 =
+## 2.2.7
 * Catch widget number in cache
 * FAQ Custom query code. Thank you [tcwebguru](http://wordpress.org/support/topic/display-on-page-without-widget)
 * FAQ Change Testimonials Widget text labels
@@ -697,26 +695,26 @@
 * PHP notice fix - esc_attr
 * Remove premium code include
 
-= 2.2.6 =
+## 2.2.6
 * BUGFIX Widget config not saving correctly
 * FAQ Export/import
 * TODO Updates
 
-= 2.2.5 =
+## 2.2.5
 * Adapt for [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
 * Add support text
 * Correct verbiage spacing
 * Explain `limit`
 * TODO revisions
 
-= 2.2.4 =
+## 2.2.4
 * BUGFIX [Tags - no more than 2?](http://wordpress.org/support/topic/tags-no-more-than-2)
 * Clean up PHP notices
 * Fix Changelog link
 * PREMIUM Implement testimonials query and content caching
 * TODO update
 
-= 2.2.3 =
+## 2.2.3
 * Begin premium plugin adaptions
 * BUGFIX [Tags - no more than 2?](http://wordpress.org/support/topic/tags-no-more-than-2)
 * BUGFIX [Updated - Now getting fatal error when using testimonialswidget_list()](http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list)
@@ -726,23 +724,23 @@
 * Don't rotate testimonial if only 1 
 * TODO updates
 
-= 2.2.2 =
+## 2.2.2
 * BUGFIX [Now getting fatal error when using testimonialswidget_list()](http://wordpress.org/support/topic/updated-now-getting-fatal-error-when-using-testimonialswidget_list)
 * Theme function defaults
 * TODO updates
 * URL pointing update
 
-= 2.2.1 =
+## 2.2.1
 * Number FAQ Entries
 * Revise Installation Usage text
 * Revise Shortcode and Widget Options text
 
-= 2.2.0 =
+## 2.2.0
 * FAQ `testimonialswidget_widget()` example
 * Multisite compatible
 * Reversion as 2.1.10 was a minor release than only bug fixes
 
-= 2.1.10 =
+## 2.1.10
 * [Add title field ](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions)
 * Consolidate defaults to simplify code maintenance
 * Correct CSS testimonial list spacing
@@ -756,21 +754,21 @@
 * Update WPML
 * Widget options dropdown for ORDER BY entries
 
-= 2.1.9 =
+## 2.1.9
 * Allow min_height 0
 * FAQ - How do I use the theme function `testimonialswidget_list()`?
 * Move CSS include to header
 
-= 2.1.8 =
+## 2.1.8
 * Remove testimonialswidget_widget char_limit default
 * TODO - debug true
 
-= 2.1.7 =
+## 2.1.7
 * [0 disables char_limit](http://wordpress.org/support/topic/plugin-testimonials-widget-more-than-one-testimonial-appears-overlaps-content-below-the-widget)
 * [Set link target](http://wordpress.org/support/topic/plugin-testimonials-widget-just-tried-216-thoughts-suggestions)
 * Update widget option top screenshot
 
-= 2.1.6 =
+## 2.1.6
 * FAQ: `ORDER BY` explanation
 * FAQ: `testimonial_extra` explanation
 * [Moved CSS to footer](http://wordpress.org/support/topic/plugin-testimonials-widget-html-validation)
@@ -783,16 +781,16 @@
 * Verbiage: Refresh Interval to Rotation Speed
 * Widget option explanations
 
-= 2.1.5 =
+## 2.1.5
 * Always apply min-height
 
-= 2.1.4 =
+## 2.1.4
 * Enable WPML
 * Idea - Maximum height setting
 * Revise description
 * Revise TODO
 
-= 2.1.3 =
+## 2.1.3
 * Allow commas in meta_key
 * FAQ on page not found
 * Fix widget Random order always true condition
@@ -800,7 +798,7 @@
 * TODO vote casting note
 * Update localization pot file
 
-= 2.1.2 =
+## 2.1.2
 * Add `hide_gravatar` option
 * Add apply_filters( 'testimonials_widget_data', $testimonial_data ) to process data before display
 * Add right margin to gravatar image
@@ -811,32 +809,32 @@
 * Update widget options screenshots
 * Working full testimonial URLs
 
-= 2.1.1 =
+## 2.1.1
 * Add [[testimonialswidget_list]] paging screenshot
 
-= 2.1.0 =
+## 2.1.0
 * Enable paging for [[testimonialswidget_list]] shortcode
 * Flush rewrite rules on activation
 * Disallow paging in widget and [[testimonialswidget_widget]] shortcode
 
-= 2.0.6 =
+## 2.0.6
 * Update shortcode option directions
 
-= 2.0.5 =
+## 2.0.5
 * Ignore already imported
 * Mark `testimonialswidget_widget() $number` argument as optional
 
-= 2.0.4 =
+## 2.0.4
 * Allow for 0 refresh_interval in get_testimonials_html
 
-= 2.0.3 =
+## 2.0.3
 * Allow for 0 refresh_interval in widget
 
-= 2.0.2 =
+## 2.0.2
 * BUGFIX [Warning: call_user_func_array() ??](http://wordpress.org/support/topic/plugin-testimonials-widget-warning-call_user_func_array)
 * Added Testimonials_Widget_Widget::get_testimonials_scripts for use with add_filter for wp_footer
 
-= 2.0.1 =
+## 2.0.1
 * Verbiage updates
 * Readme.txt validation
 * widget q p tag display inline
@@ -846,7 +844,7 @@
 * Apply 'the_content' filters directly to prevent plugin baggage
 * Update screenshot-7.png
 
-= 2.0.0 =
+## 2.0.0
 * Major rewrite
 * Add filters for image & gravatar sizes
 * Admin bar New > Testimonial
@@ -916,55 +914,55 @@
 * Update screenshots
 * Readd Minimum Height - need help getting around this
 
-= 0.2.13 =
+## 0.2.13
 * Clean up CSS
 * Remove q & cite p wrapper
 
-= 0.2.12 =
+## 0.2.12
 * the_title filter fix
 
-= 0.2.11 =
+## 0.2.11
 * Enable character limit for shortcode
 
-= 0.2.10 =
+## 0.2.10
 * Character limit nows forces text truncation than preventing of testimonial to show
 * Add option - Limit number of testimonials to pull at a time
 * Sanitize widget variables
 * Fix random_order issue on testimonials widget
 
-= 0.2.9 =
+## 0.2.9
 * Require Editor role for managing Testimonials
 
-= 0.2.8 =
+## 0.2.8
 * CSS testimonialswidget_testimonial_list fix #2
 
-= 0.2.7 =
+## 0.2.7
 * CSS testimonialswidget_testimonial_list fix
 
-= 0.2.6 =
+## 0.2.6
 * CSS updates for widgets and lists
 
-= 0.2.5 =
+## 0.2.5
 * Add span.testimonialswidget_join for author , join text
 * Add nl2br for testimonials display on a page
 
-= 0.2.4 =
+## 0.2.4
 * Shortcode added - Thank you Hal Gatewood
 
-= 0.2.3 =
+## 0.2.3
 * Allow testimonials to have multiple tags
 * Show only quotes with all tags
 
-= 0.2.2 =
+## 0.2.2
 * Show newest testimonials first in admin list by default
 * Quick locallization
 * Quotes Collection recommendation
 
-= 2011-10-03: Version 0.2 =
+## 2011-10-03: Version 0.2
 * Multi-widget enabled
 * Testimonial, author & source text are clickable automatically
 * Allow 0 refresh to make widget static
 * Allow pressing return when editing testimonial to save record
 
-= 2011-08-12: Version 0.1 =
+## 2011-08-12: Version 0.1
 * initial release

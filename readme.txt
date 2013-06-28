@@ -343,7 +343,7 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 
 == Changelog ==
 
-See [Changelog](http://aihr.us/testimonials-widget/changelog/)
+See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
 
 
 == Upgrade Notice ==
