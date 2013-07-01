@@ -1,7 +1,13 @@
 # CHANGELOG Testimonials Widget
 
-# trunk
+# master
+* Add demo link
+* Add shortcode example explanations
+* Add video introduction
+* Disable animation by default
 * Move localization load to init()
+* Update donation request text
+* Update premium features
 
 ## 2.13.0
 * Add PHP Copy and Paste Detector

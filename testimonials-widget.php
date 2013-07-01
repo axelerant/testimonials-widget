@@ -249,7 +249,7 @@ EOD;
 
 	public function admin_notices_donate() {
 		$content  = '<div class="updated"><p>';
-		$content .= sprintf( __( 'Please donate $2 towards keeping Testimonials Widget plugin supported and maintained %s', 'testimonials-widget' ), self::$donate_button );
+		$content .= sprintf( __( 'Please donate $2 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
 		echo $content;

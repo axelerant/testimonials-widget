@@ -16,6 +16,10 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
+**[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
+
+**View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
+
 More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
@@ -43,11 +47,9 @@ The single testimonial view supports image, source, title, location, email, comp
 Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
-* API for caching and more link control, text replacement, and more
 * Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
-* Animated widget rotation for smoother transitions. Disable by setting a height property. [Thank you DSafari](http://wordpress.org/support/topic/animate-jumpy-widget)
 * Built-in update notification
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
@@ -56,7 +58,9 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Disable caching for widget, shortcode or theme functions
 * Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
-* Front-end entry form for user supplied testimonials. [Live demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)
+* Filters for caching and more link control, text replacement, and more
+* Form "Testimonial" header text is customizable to "Specials" or other terms
+* Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
 * Math-based CAPTCHA
 * Multiple anti-spam traps
 * Multiple user-entry forms on same page are allowed
@@ -77,7 +81,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 
 [Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
 
-= Additional Features =
+= Additional Testimonials Widget Features =
 
 * Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
 * Automatic linking of email and URL fields via source or company fields
@@ -233,22 +237,32 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Shortcode Examples =
 
-[testimonialswidget_list]
+**[testimonialswidget_list]**
 
-* [testimonialswidget_list category=product hide_not_found=true]
-* [testimonialswidget_list category=product tags=widget limit=5]
-* [testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]
-* [testimonialswidget_list hide_source=true hide_url=true] 
-* [testimonialswidget_list ids="1,11,111" paging=false]
-* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
-* [testimonialswidget_list order=ASC orderby=title]
-* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
+* Testimonial list by category or tag
+	* [testimonialswidget_list category=product hide_not_found=true]
+	* [testimonialswidget_list category=product tags=widget limit=5]
+* Show 3 full-length testimonials, with opening and closing quote marks removed
+	* [testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]
+* Show testimonial list with source and urls hidden
+	* [testimonialswidget_list hide_source=true hide_url=true] 
+* Show only these 3 testimonials
+	* [testimonialswidget_list ids="1,11,111" paging=false]
+* Show 15 testimonials, in company order
+	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+* List testimonials by post title
+	* [testimonialswidget_list order=ASC orderby=title]
+* Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
+	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
 
-[testimonialswidget_widget]
+**[testimonialswidget_widget]**
 
-* [testimonialswidget_widget category=product order=asc height=300]
-* [testimonialswidget_widget min_height=250 max_height=500]
-* [testimonialswidget_widget tags=sometag random=true]
+* Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
+	* [testimonialswidget_widget category=product order=asc height=300]
+* Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
+	* [testimonialswidget_widget min_height=250 max_height=500]
+* Show rotating, random testimonials having tag "sometag"
+	* [testimonialswidget_widget tags=sometag random=true]
 
 = Theme Functions =
 
