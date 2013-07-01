@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 # master
+
+## 2.13.1
 * Add demo link
 * Add shortcode example explanations
 * Add video introduction
