@@ -15,7 +15,7 @@ before_install:
     - git submodule update --init --recursive
 
 before_script:
-    - pear config-set auto_discover 1
+#    - pear config-set auto_discover 1
     - pear install PHP_CodeSniffer
     - pear install phpunit/phpcpd
     - pear channel-discover pear.phpmd.org
@@ -25,9 +25,10 @@ before_script:
     - git clone git://github.com/mrchrisadams/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
 #    - export WP_TESTS_DIR=/tmp/wordpress-tests/
 #    - bash ci/bin/install-wp-tests.sh wordpress_test root '' ${WP_VERSION} 
-    - sudo apt-get update -qq
-    - sudo apt-get install clamav clamav-freshclam clamav-unofficial-sigs -qq
-    - sudo freshclam --quiet
+    - sudo apt-get install clamav -qq
+#    - sudo apt-get install clamav-freshclam -qq
+    - sudo apt-get install clamav-unofficial-sigs -qq
+#    - sudo freshclam --quiet
     - export PWD=`pwd`
     - export DIR_CI="${PWD}/ci"
 
