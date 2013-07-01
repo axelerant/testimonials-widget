@@ -1619,7 +1619,7 @@ EOF;
 }
 
 
-add_action( 'plugins_loaded', 'testimonialswidget_init' );
+add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
 
 
 /**

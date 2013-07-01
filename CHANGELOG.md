@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
-# master
+## master
+* BUGFIX Extra meta box fields are no show
 
 ## 2.13.1
 * Add demo link
