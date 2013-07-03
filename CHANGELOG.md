@@ -2,6 +2,7 @@
 
 ## master
 * BUGFIX Extra meta box fields are no show
+* Disengaged from hard coded wp-content path
 
 ## 2.13.1
 * Add demo link
