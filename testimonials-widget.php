@@ -59,7 +59,7 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
-		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . __( 'Settings', 'testimonials-widget' ) . '</a>';
+		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
 
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
@@ -249,7 +249,7 @@ EOD;
 
 	public function admin_notices_donate() {
 		$content  = '<div class="updated"><p>';
-		$content .= sprintf( __( 'Please donate $2 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
+		$content .= sprintf( esc_html__( 'Please donate $2 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -445,25 +445,25 @@ EOD;
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'thumbnail' => __( 'Image', 'testimonials-widget' ),
-			'title' => __( 'Source', 'testimonials-widget' ),
-			'shortcode' => __( 'Shortcodes', 'testimonials-widget' ),
-			'testimonials-widget-title' => __( 'Title', 'testimonials-widget' ),
-			'testimonials-widget-location' => __( 'Location', 'testimonials-widget' ),
-			'testimonials-widget-email' => __( 'Email', 'testimonials-widget' ),
-			'testimonials-widget-company' => __( 'Company', 'testimonials-widget' ),
-			'testimonials-widget-url' => __( 'URL', 'testimonials-widget' ),
-			'author' => __( 'Published by', 'testimonials-widget' ),
-			'date' => __( 'Date', 'testimonials-widget' ),
+			'thumbnail' => esc_html__( 'Image', 'testimonials-widget' ),
+			'title' => esc_html__( 'Source', 'testimonials-widget' ),
+			'shortcode' => esc_html__( 'Shortcodes', 'testimonials-widget' ),
+			'testimonials-widget-title' => esc_html__( 'Title', 'testimonials-widget' ),
+			'testimonials-widget-location' => esc_html__( 'Location', 'testimonials-widget' ),
+			'testimonials-widget-email' => esc_html__( 'Email', 'testimonials-widget' ),
+			'testimonials-widget-company' => esc_html__( 'Company', 'testimonials-widget' ),
+			'testimonials-widget-url' => esc_html__( 'URL', 'testimonials-widget' ),
+			'author' => esc_html__( 'Published by', 'testimonials-widget' ),
+			'date' => esc_html__( 'Date', 'testimonials-widget' ),
 		);
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
-			$columns[ 'categories' ] = __( 'Category', 'testimonials-widget' );
-			$columns[ 'tags' ]       = __( 'Tags', 'testimonials-widget' );
+			$columns[ 'categories' ] = esc_html__( 'Category', 'testimonials-widget' );
+			$columns[ 'tags' ]       = esc_html__( 'Tags', 'testimonials-widget' );
 		} else {
-			$columns[ self::$cpt_category ] = __( 'Category', 'testimonials-widget' );
-			$columns[ self::$cpt_tags ]     = __( 'Tags', 'testimonials-widget' );
+			$columns[ self::$cpt_category ] = esc_html__( 'Category', 'testimonials-widget' );
+			$columns[ self::$cpt_tags ]     = esc_html__( 'Tags', 'testimonials-widget' );
 		}
 
 		$columns = apply_filters( 'testimonials_widget_columns', $columns );
@@ -474,17 +474,17 @@ EOD;
 
 	public function init_post_type() {
 		$labels = array(
-			'add_new' => __( 'Add New', 'testimonials-widget' ),
-			'add_new_item' => __( 'Add New Testimonial', 'testimonials-widget' ),
-			'edit_item' => __( 'Edit Testimonial', 'testimonials-widget' ),
-			'name' => __( 'Testimonials', 'testimonials-widget' ),
-			'new_item' => __( 'Add New Testimonial', 'testimonials-widget' ),
-			'not_found' => __( 'No testimonials found', 'testimonials-widget' ),
-			'not_found_in_trash' => __( 'No testimonials found in Trash', 'testimonials-widget' ),
+			'add_new' => esc_html__( 'Add New', 'testimonials-widget' ),
+			'add_new_item' => esc_html__( 'Add New Testimonial', 'testimonials-widget' ),
+			'edit_item' => esc_html__( 'Edit Testimonial', 'testimonials-widget' ),
+			'name' => esc_html__( 'Testimonials', 'testimonials-widget' ),
+			'new_item' => esc_html__( 'Add New Testimonial', 'testimonials-widget' ),
+			'not_found' => esc_html__( 'No testimonials found', 'testimonials-widget' ),
+			'not_found_in_trash' => esc_html__( 'No testimonials found in Trash', 'testimonials-widget' ),
 			'parent_item_colon' => null,
-			'search_items' => __( 'Search Testimonials', 'testimonials-widget' ),
-			'singular_name' => __( 'Testimonial', 'testimonials-widget' ),
-			'view_item' => __( 'View Testimonial', 'testimonials-widget' ),
+			'search_items' => esc_html__( 'Search Testimonials', 'testimonials-widget' ),
+			'singular_name' => esc_html__( 'Testimonial', 'testimonials-widget' ),
+			'view_item' => esc_html__( 'View Testimonial', 'testimonials-widget' ),
 		);
 
 		$supports = array(
@@ -522,7 +522,7 @@ EOD;
 		}
 
 		$args = array(
-			'label' => __( 'Testimonials', 'testimonials-widget' ),
+			'label' => esc_html__( 'Testimonials', 'testimonials-widget' ),
 			'capability_type' => 'post',
 			'has_archive' => $has_archive,
 			'hierarchical' => false,
@@ -801,7 +801,7 @@ EOF;
 
 		if ( empty( $testimonials ) && ! $hide_not_found ) {
 			$testimonials = array(
-				array( 'testimonial_content' => __( 'No testimonials found', 'testimonials-widget' ) ),
+				array( 'testimonial_content' => esc_html__( 'No testimonials found', 'testimonials-widget' ) ),
 			);
 		}
 
@@ -912,7 +912,7 @@ EOF;
 
 	public static function get_quote( $testimonial, $atts, $widget_number ) {
 		$char_limit    = $atts['char_limit'];
-		$content_more  = apply_filters( 'testimonials_widget_content_more', __( '…', 'testimonials-widget' ) );
+		$content_more  = apply_filters( 'testimonials_widget_content_more', esc_html__( '…', 'testimonials-widget' ) );
 		$content_more .= self::$tag_close_quote;
 		$do_content    = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
 		$use_quote_tag = $atts['use_quote_tag'];
@@ -1231,7 +1231,7 @@ EOF;
 			$html .= '	<div class="alignleft">';
 
 			if ( 1 < $paged ) {
-				$laquo = apply_filters( 'testimonials_widget_previous_posts_link_text', __( '&laquo;', 'testimonials-widget' ) );
+				$laquo = apply_filters( 'testimonials_widget_previous_posts_link_text', esc_html__( '&laquo;', 'testimonials-widget' ) );
 				$html .= get_previous_posts_link( $laquo, $paged );
 			}
 
@@ -1240,7 +1240,7 @@ EOF;
 			$html .= '	<div class="alignright">';
 
 			if ( $paged != self::$max_num_pages ) {
-				$raquo = apply_filters( 'testimonials_widget_next_posts_link_text', __( '&raquo;', 'testimonials-widget' ) );
+				$raquo = apply_filters( 'testimonials_widget_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
 				$html .= get_next_posts_link( $raquo, self::$max_num_pages );
 			}
 
@@ -1490,31 +1490,31 @@ EOF;
 
 		$fields = array(
 			array(
-				'name' => __( 'Title', 'testimonials-widget' ),
+				'name' => esc_html__( 'Title', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-title',
 				'type' => 'text',
 				'desc' => '',
 			),
 			array(
-				'name' => __( 'Location', 'testimonials-widget' ),
+				'name' => esc_html__( 'Location', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-location',
 				'type' => 'text',
 				'desc' => '',
 			),
 			array(
-				'name' => __( 'Email', 'testimonials-widget' ),
+				'name' => esc_html__( 'Email', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-email',
 				'type' => 'text',
 				'desc' => '',
 			),
 			array(
-				'name' => __( 'Company', 'testimonials-widget' ),
+				'name' => esc_html__( 'Company', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-company',
 				'type' => 'text',
 				'desc' => '',
 			),
 			array(
-				'name' => __( 'URL', 'testimonials-widget' ),
+				'name' => esc_html__( 'URL', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-url',
 				'type' => 'text',
 				'desc' => '',
@@ -1526,7 +1526,7 @@ EOF;
 		$meta_box = redrokk_metabox_class::getInstance(
 			self::OLD_NAME,
 			array(
-				'title' => __( 'Testimonial Data', 'testimonials-widget' ),
+				'title' => esc_html__( 'Testimonial Data', 'testimonials-widget' ),
 				'description' => '',
 				'_object_types' => 'testimonials-widget',
 				'priority' => 'high',
@@ -1551,8 +1551,8 @@ EOF;
 
 		if ( is_object( $post ) && self::PT == $post->post_type ) {
 			switch ( $translation ) {
-			case __( 'Enter title here', 'testimonials-widget' ):
-				return __( 'Enter testimonial source here', 'testimonials-widget' );
+			case esc_html__( 'Enter title here', 'testimonials-widget' ):
+				return esc_html__( 'Enter testimonial source here', 'testimonials-widget' );
 				break;
 			}
 		}
@@ -1578,13 +1578,13 @@ EOF;
 		$m[ self::PT ] = array(
 			0 => '', // Unused. Messages start at index 1.
 			1 => sprintf( __( 'Testimonial updated. <a href="%s">View testimonial</a>', 'testimonials-widget' ), esc_url( get_permalink( $post->ID ) ) ),
-			2 => __( 'Custom field updated.', 'testimonials-widget' ),
-			3 => __( 'Custom field deleted.', 'testimonials-widget' ),
-			4 => __( 'Testimonial updated.', 'testimonials-widget' ),
+			2 => esc_html__( 'Custom field updated.', 'testimonials-widget' ),
+			3 => esc_html__( 'Custom field deleted.', 'testimonials-widget' ),
+			4 => esc_html__( 'Testimonial updated.', 'testimonials-widget' ),
 			/* translators: %s: date and time of the revision */
-			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Testimonial restored to revision from %s', 'testimonials-widget' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			5 => isset( $_GET['revision'] ) ? sprintf( esc_html__( 'Testimonial restored to revision from %s', 'testimonials-widget' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
 			6 => sprintf( __( 'Testimonial published. <a href="%s">View testimonial</a>', 'testimonials-widget' ), esc_url( get_permalink( $post->ID ) ) ),
-			7 => __( 'Testimonial saved.', 'testimonials-widget' ),
+			7 => esc_html__( 'Testimonial saved.', 'testimonials-widget' ),
 			8 => sprintf( __( 'Testimonial submitted. <a target="_blank" href="%s">Preview testimonial</a>', 'testimonials-widget' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
 			9 => sprintf( __( 'Testimonial scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview testimonial</a>', 'testimonials-widget' ), date_i18n( 'M j, Y @ G:i', strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
 			10 => sprintf( __( 'Testimonial draft updated. <a target="_blank" href="%s">Preview testimonial</a>', 'testimonials-widget' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) )

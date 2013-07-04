@@ -23,7 +23,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		// Widget settings
 		$widget_ops = array(
 			'classname' => 'Testimonials_Widget_Widget',
-			'description' => __( 'Display testimonials with multiple selection and display options', 'testimonials-widget' )
+			'description' => esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' )
 		);
 
 		// Widget control settings
@@ -34,7 +34,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		// Create the widget
 		$this->WP_Widget(
 			self::ID,
-			__( 'Testimonials Widget', 'testimonials-widget' ),
+			esc_html__( 'Testimonials Widget', 'testimonials-widget' ),
 			$widget_ops,
 			$control_ops
 		);
@@ -159,8 +159,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$form_parts['css_class'] = array(
 				'section' => 'widget',
 				'type' => 'readonly',
-				'title' => __( 'CSS Class', 'testimonials-widget' ),
-				'desc' => __( 'This widget\'s unique CSS class for styling', 'testimonials-widget' ),
+				'title' => esc_html__( 'CSS Class', 'testimonials-widget' ),
+				'desc' => esc_html__( 'This widget\'s unique CSS class for styling', 'testimonials-widget' ),
 				'std' => $std,
 				'widget' => 1,
 			);
@@ -204,7 +204,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			if ( ! empty( $desc ) )
 				echo '<h3>' . $desc . '</h3>';
 
-			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();">' . __( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
+			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
 			echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none">';
 
 			$do_return = true;
