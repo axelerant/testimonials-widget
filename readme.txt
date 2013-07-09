@@ -16,7 +16,7 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
-[youtube http://youtu.be/bhUhuQ-2m8s]
+[youtube=http://youtu.be/bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
 
 **View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
