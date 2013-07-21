@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* BUGFIX keep shortcodes inside of widgets, let theme function handle to do them or not
 
 ## 2.13.2
 * Add StillMaintained.com notice

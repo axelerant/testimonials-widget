@@ -1196,8 +1196,6 @@ EOF;
 			$content = shortcode_unautop( $content );
 		} elseif ( $keep_whitespace ) {
 			$content = wpautop( $content );
-		} else {
-			$content = strip_shortcodes( $content );
 		}
 
 		$content = str_replace( ']]>', ']]&gt;', $content );
