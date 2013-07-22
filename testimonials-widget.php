@@ -1176,6 +1176,7 @@ EOF;
 			return $content;
 
 		$keep_whitespace = $atts['keep_whitespace'];
+		$do_shortcode    = $atts['do_shortcode'];
 
 		// wrap our own quote class around the content before any formatting
 		// happens
@@ -1194,7 +1195,12 @@ EOF;
 			$content = wpautop( $content );
 
 		$content = shortcode_unautop( $content );
-		$content = do_shortcode( $content );
+
+		if ( $do_shortcode )
+			$content = do_shortcode( $content );
+		else
+			$content = strip_shortcodes( $content );
+
 		$content = str_replace( ']]>', ']]&gt;', $content );
 		$content = trim( $content );
 

@@ -1,8 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add do shortcodes option inside of testimonials content
 * BUGFIX keep shortcodes inside of widgets, let theme function handle to do them or not
-* Enable shortcodes inside of testimonials content
 
 ## 2.13.2
 * Add StillMaintained.com notice

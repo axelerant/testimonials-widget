@@ -256,6 +256,12 @@ class Testimonials_Widget_Settings {
 			'widget' => 0,
 		);
 
+		self::$settings['do_shortcode'] = array(
+			'title' => esc_html__( 'Do [shortcodes]?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'If unchecked, shortcodes are stripped.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+		);
+
 		self::$settings['general_expand_end'] = array(
 			'type' => 'expand_end',
 		);

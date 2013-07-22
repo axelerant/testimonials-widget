@@ -169,6 +169,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 		* `before` – display paging only before testimonial entries
 		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
+* Do [shortcodes] - If unchecked, shortcodes are stripped.
+	* `do_shortcode` - default false; do_shortcode=true
 
 **Selection**
 
