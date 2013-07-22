@@ -1185,19 +1185,16 @@ EOF;
 		$temp_content .= self::$tag_close_quote;
 
 		$content = $temp_content;
-
 		$content = trim( $content );
 		$content = wptexturize( $content );
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );
 
-		if ( is_null( $widget_number ) ) {
+		if ( is_null( $widget_number ) || $keep_whitespace )
 			$content = wpautop( $content );
-			$content = shortcode_unautop( $content );
-		} elseif ( $keep_whitespace ) {
-			$content = wpautop( $content );
-		}
 
+		$content = shortcode_unautop( $content );
+		$content = do_shortcode( $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
 		$content = trim( $content );
 

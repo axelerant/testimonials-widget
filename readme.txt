@@ -108,6 +108,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Optional commenting on testimonial single-view pages
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
+* Shortcodes allowed inside of testimonials content
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
