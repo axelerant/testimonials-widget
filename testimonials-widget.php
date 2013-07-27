@@ -239,7 +239,7 @@ EOD;
 
 
 	public function admin_notices_2_12_0() {
-		$content  = '<div class="updated"><p>';
+		$content  = '<div class="updated fade"><p>';
 		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' );
 		$content .= '</p></div>';
 
@@ -248,7 +248,7 @@ EOD;
 
 
 	public function admin_notices_donate() {
-		$content  = '<div class="updated"><p>';
+		$content  = '<div class="updated fade"><p>';
 		$content .= sprintf( esc_html__( 'Please donate $2 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
