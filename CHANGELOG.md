@@ -3,6 +3,8 @@
 ## master
 * Add do shortcodes option inside of testimonials content
 * BUGFIX keep shortcodes inside of widgets, let theme function handle to do them or not
+* Rename Title to Job Title as appropriate
+* Update TODO
 
 ## 2.13.2
 * Add StillMaintained.com notice

@@ -151,7 +151,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_source` - default show; hide_source=true
 * Hide Email?
 	* `hide_email` - default show; hide_email=true
-* Hide Title?
+* Hide Job Title?
 	* `hide_title` - default show; hide_title=true
 * Hide Location?
 	* `hide_location` - default show; hide_location=true

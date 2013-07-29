@@ -448,7 +448,7 @@ EOD;
 			'thumbnail' => esc_html__( 'Image', 'testimonials-widget' ),
 			'title' => esc_html__( 'Source', 'testimonials-widget' ),
 			'shortcode' => esc_html__( 'Shortcodes', 'testimonials-widget' ),
-			'testimonials-widget-title' => esc_html__( 'Title', 'testimonials-widget' ),
+			'testimonials-widget-title' => esc_html__( 'Job Title', 'testimonials-widget' ),
 			'testimonials-widget-location' => esc_html__( 'Location', 'testimonials-widget' ),
 			'testimonials-widget-email' => esc_html__( 'Email', 'testimonials-widget' ),
 			'testimonials-widget-company' => esc_html__( 'Company', 'testimonials-widget' ),
@@ -1491,7 +1491,7 @@ EOF;
 
 		$fields = array(
 			array(
-				'name' => esc_html__( 'Title', 'testimonials-widget' ),
+				'name' => esc_html__( 'Job Title', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-title',
 				'type' => 'text',
 				'desc' => '',
