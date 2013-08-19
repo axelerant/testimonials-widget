@@ -6,4 +6,5 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * BUG bottom_text after update show up encoded
 * [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)
 * BUG [IE8 + Google Font Issue](http://wordpress.org/support/topic/ie8-google-font-issue)
+* Pass YSlow and Google PageSpeed testing
 * Prevent page slug naming conflicts

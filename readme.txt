@@ -244,6 +244,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 **[testimonialswidget_list]**
 
 * Testimonial list by category or tag
+	* [testimonialswidget_list category="category-name"]
 	* [testimonialswidget_list category=product hide_not_found=true]
 	* [testimonialswidget_list category=product tags=widget limit=5]
 * Show 3 full-length testimonials, with opening and closing quote marks removed
