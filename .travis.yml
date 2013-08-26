@@ -13,7 +13,6 @@ env:
 
 before_install:
     - git submodule update --init --recursive
-    - composer.phar self-update
 
 before_script:
 #    - pear config-set auto_discover 1
