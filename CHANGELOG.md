@@ -1,9 +1,12 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.13.3
 * [Add shortcode category example](http://wordpress.org/support/topic/category-shortcode-1?replies=2#post-4550244) - Thank you ashleynlinares
 * Add do shortcodes option inside of testimonials content
 * BUGFIX keep shortcodes inside of widgets, let theme function handle to do them or not
+* Expand FAQ section
 * Rename Title to Job Title as appropriate
 * Update POT
 * Update TODO
