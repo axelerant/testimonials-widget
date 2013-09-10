@@ -396,7 +396,7 @@ class Testimonials_Widget_Settings {
 
 		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
 		$has_archive = tw_get_option( 'has_archive', '' );
-		$site_url    = site_url( '/' . $has_archive );
+		$site_url    = site_url( '/' . $has_archive . '/' );
 
 		self::$settings['has_archive'] = array(
 			'section' => 'post_type',

@@ -5,7 +5,6 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * Add helper tip windows
 * Adjust [fadeIn speed](http://wordpress.org/support/topic/animation-not-disabling)
 * BUG [IE8 + Google Font Issue](http://wordpress.org/support/topic/ie8-google-font-issue)
-* BUG bottom_text after update show up encoded
 * Offer slideUp option
 * Pass YSlow and Google PageSpeed testing
 * Prevent page slug naming conflicts
