@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Tie-in premium disable_donate option
 
 ## 2.13.3
 * [Add shortcode category example](http://wordpress.org/support/topic/category-shortcode-1?replies=2#post-4550244) - Thank you ashleynlinares
