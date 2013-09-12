@@ -604,7 +604,6 @@ EOD;
 
 	public static function testimonialswidget_widget( $atts, $widget_number = null ) {
 		self::add_instance();
-		self::scripts();
 
 		if ( empty( $widget_number ) ) {
 			$widget_number = self::$widget_number++;
@@ -619,6 +618,8 @@ EOD;
 		$atts['paging']        = false;
 		$atts['type']          = 'testimonialswidget_widget';
 		$atts['widget_number'] = $widget_number;
+
+		self::scripts( $atts );
 
 		$testimonials = self::get_testimonials( $atts );
 
@@ -661,8 +662,10 @@ EOD;
 	}
 
 
-	public static function scripts() {
+	public static function scripts( $atts ) {
 		wp_enqueue_script( 'jquery' );
+
+		do_action( 'testimonials_widget_scripts', $atts );
 	}
 
 
@@ -861,13 +864,13 @@ EOF;
 		if ( $keep_whitespace )
 			$class .= ' whitespace';
 
-		$div_open = '<div class="';
 		if ( ! empty( $testimonial['post_id'] ) )
-			$div_open .= join( ' ', get_post_class( $class, $testimonial['post_id'] ) );
+			$class = join( ' ', get_post_class( $class, $testimonial['post_id'] ) );
 		else
-			$div_open .= 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
+			$class = 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
 
-		$div_open .= '">';
+		$class    = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
+		$div_open = '<div class="' . $class . '">';
 
 		if ( $remove_hentry )
 			$div_open = str_replace( ' hentry', '', $div_open );

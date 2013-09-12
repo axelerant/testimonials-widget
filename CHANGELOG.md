@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add action `testimonials_widget_scripts`
+* Add filter `testimonials_widget_get_testimonial_html_class`
 * Add filter `testimonials_widget_testimonials_js_internal`
 * Enabling sorting of scripts for precedence
 * Remove unused first parameter from `testimonials_widget_cache_get` filter call
