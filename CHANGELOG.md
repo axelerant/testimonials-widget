@@ -1,6 +1,9 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add filter `testimonials_widget_testimonials_js_internal`
+* Enabling sorting of scripts for precedence
+* Remove unused first parameter from `testimonials_widget_cache_get` filter call
 * Tie-in premium disable_donate option
 
 ## 2.13.3

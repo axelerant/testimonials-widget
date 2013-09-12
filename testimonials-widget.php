@@ -590,7 +590,7 @@ EOD;
 
 		$atts['type'] = 'testimonialswidget_list';
 
-		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$content = apply_filters( 'testimonials_widget_cache_get', $atts );
 
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
@@ -622,7 +622,7 @@ EOD;
 
 		$testimonials = self::get_testimonials( $atts );
 
-		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$content = apply_filters( 'testimonials_widget_cache_get', $atts );
 
 		if ( false === $content ) {
 			$content = self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -631,7 +631,7 @@ EOD;
 
 		// Generate CSS
 		$atts['type'] = 'testimonialswidget_widget_css';
-		$css          = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$css          = apply_filters( 'testimonials_widget_cache_get', $atts );
 
 		if ( false === $css ) {
 			$css = self::get_testimonials_html_css( $atts, $widget_number );
@@ -645,7 +645,7 @@ EOD;
 
 		// Generate JS
 		$atts['type'] = 'testimonialswidget_widget_js';
-		$js           = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$js           = apply_filters( 'testimonials_widget_cache_get', $atts );
 
 		if ( false === $js ) {
 			$js = self::get_testimonials_html_js( $testimonials, $atts, $widget_number );
@@ -752,6 +752,8 @@ function nextTestimonial{$widget_number}() {
 			next.removeClass('display-none');
 			next.addClass('active');
 
+			{INTERNAL_SCRIPTS}
+
 			if ( {$enable_animation} ) {
 				// added padding
 				{$tw_wrapper}.animate({ height: next.height() + {$tw_padding} });
@@ -774,7 +776,12 @@ EOF;
 			$scripts[ $id_base ] = $javascript;
 		}
 
-		$scripts = apply_filters( 'testimonials_widget_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
+		$scripts          = apply_filters( 'testimonials_widget_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
+		$scripts_internal = apply_filters( 'testimonials_widget_testimonials_js_internal', array(), $testimonials, $atts, $widget_number );
+		$internal_scripts = implode( "\n", $scripts_internal );
+		$scripts          = str_replace( '{INTERNAL_SCRIPTS}', $internal_scripts, $scripts );
+
+		ksort( $scripts );
 
 		return $scripts;
 	}
@@ -1395,7 +1402,7 @@ EOF;
 		$args          = self::get_query_args( $atts );
 		$args['query'] = true;
 
-		$testimonials = apply_filters( 'testimonials_widget_cache_get', false, $args );
+		$testimonials = apply_filters( 'testimonials_widget_cache_get', $args );
 
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );

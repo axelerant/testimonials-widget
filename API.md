@@ -58,6 +58,10 @@ None at this time.
 
 	Alter dynamically generated JavaScript. [example](https://gist.github.com/michael-cannon/5833678)
 
+* `testimonials_widget_testimonials_js_internal`
+
+	Inject dynamically generated JavaScript to `active/next` functional area..
+
 * `testimonials_widget_wp_pagenavi`
 
 	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361-How-do-I-get-page-numbers-for-pagination-)
