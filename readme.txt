@@ -51,12 +51,16 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
+* Automatically change to the next testimonial, per the sort order, whenever a user navigates to another page.
 * Built-in update notification
+* Cache per page when you use custom testimonials instance per page
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Clear cache when WP Super Cache, FlexiCache, Hyper Cache, DB Cache Reloaded Fix does
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
 * Default post author, category, and status options for user testimonial submissions
 * Deletes old and related testimonial cache entries automatically
 * Disable caching for widget, shortcode or theme functions
+* Disable donate and purchase related text and links
 * Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
 * Filters for caching and more link control, text replacement, and more
@@ -78,6 +82,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Show excerpts with list and single views
 * Show unique testimonials on page with multiple testimonial instances
 * Testimonial links listing with image, source, title, location, company, and URL fields
+* WP Admin > Testmonials > Clear Cache menu link
 * WPML compatible
 
 [Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
