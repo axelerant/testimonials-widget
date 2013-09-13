@@ -1,9 +1,13 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add $atts paramter to filter `testimonials_widget_data`
 * Add action `testimonials_widget_scripts`
 * Add filter `testimonials_widget_get_testimonial_html_class`
 * Add filter `testimonials_widget_testimonials_js_internal`
+* BUGFIX instance numbers breaking caching
+* BUGFIX settings page missing page title
+* Change &$this variable calls to $this
 * Enabling sorting of scripts for precedence
 * Remove unused first parameter from `testimonials_widget_cache_get` filter call
 * Tie-in premium disable_donate option

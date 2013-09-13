@@ -49,9 +49,9 @@ class Testimonials_Widget_Settings {
 
 
 	public function __construct() {
-		add_action( 'admin_init', array( &$this, 'admin_init' ) );
-		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
-		add_action( 'init', array( &$this, 'init' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'init', array( $this, 'init' ) );
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 	}
 
@@ -558,10 +558,10 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_menu() {
-		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, '', esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
 
-		add_action( 'admin_print_scripts-' . $admin_page, array( &$this, 'scripts' ) );
-		add_action( 'admin_print_styles-' . $admin_page, array( &$this, 'styles' ) );
+		add_action( 'admin_print_scripts-' . $admin_page, array( $this, 'scripts' ) );
+		add_action( 'admin_print_styles-' . $admin_page, array( $this, 'styles' ) );
 	}
 
 
@@ -588,7 +588,7 @@ class Testimonials_Widget_Settings {
 
 		self::$defaults[$id] = $std;
 
-		add_settings_field( $id, $title, array( &$this, 'display_setting' ), self::ID, $section, $field_args );
+		add_settings_field( $id, $title, array( $this, 'display_setting' ), self::ID, $section, $field_args );
 	}
 
 
@@ -597,7 +597,7 @@ class Testimonials_Widget_Settings {
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
-		echo '<div class="updated"><p>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p></div>';
+		echo '<div class="notice"><p><b>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</b></p></div>';
 
 		echo '<form action="options.php" method="post">';
 
@@ -831,13 +831,13 @@ class Testimonials_Widget_Settings {
 
 
 	public function register_settings() {
-		register_setting( self::ID, self::ID, array( &$this, 'validate_settings' ) );
+		register_setting( self::ID, self::ID, array( $this, 'validate_settings' ) );
 
 		foreach ( self::$sections as $slug => $title ) {
 			if ( $slug == 'about' )
-				add_settings_section( $slug, $title, array( &$this, 'display_about_section' ), self::ID );
+				add_settings_section( $slug, $title, array( $this, 'display_about_section' ), self::ID );
 			else
-				add_settings_section( $slug, $title, array( &$this, 'display_section' ), self::ID );
+				add_settings_section( $slug, $title, array( $this, 'display_section' ), self::ID );
 		}
 
 		foreach ( self::$settings as $id => $setting ) {

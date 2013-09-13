@@ -41,20 +41,22 @@ class Testimonials_Widget {
 	public static $css_called      = false;
 	public static $donate_button   = '';
 	public static $instance_number = 0;
+	public static $instance_widget = 0;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
 	public static $tag_close_quote = '<span class="close-quote"></span>';
 	public static $tag_open_quote  = '<span class="open-quote"></span>';
+	public static $use_instance    = false;
 	public static $widget_number   = 100000;
 
 
 	public function __construct() {
-		add_action( 'admin_init', array( &$this, 'admin_init' ) );
-		add_action( 'init', array( &$this, 'init' ) );
-		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
-		add_shortcode( 'testimonialswidget_list', array( &$this, 'testimonialswidget_list' ) );
-		add_shortcode( 'testimonialswidget_widget', array( &$this, 'testimonialswidget_widget' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_shortcode( 'testimonialswidget_list', array( $this, 'testimonialswidget_list' ) );
+		add_shortcode( 'testimonialswidget_widget', array( $this, 'testimonialswidget_widget' ) );
 	}
 
 
@@ -63,20 +65,20 @@ class Testimonials_Widget {
 
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
-		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
-		add_action( 'manage_' . self::PT . '_posts_custom_column', array( &$this, 'manage_posts_custom_column' ), 10, 2 );
-		add_action( 'right_now_content_table_end', array( &$this, 'right_now_content_table_end' ) );
-		add_filter( 'manage_' . self::PT . '_posts_columns', array( &$this, 'manage_posts_columns' ) );
-		add_filter( 'plugin_action_links', array( &$this, 'plugin_action_links' ), 10, 2 );
-		add_filter( 'plugin_row_meta', array( &$this, 'plugin_row_meta' ), 10, 2 );
-		add_filter( 'post_updated_messages', array( &$this, 'post_updated_messages' ) );
-		add_filter( 'pre_get_posts', array( &$this, 'pre_get_posts_author' ) );
+		add_action( 'gettext', array( $this, 'gettext_testimonials' ) );
+		add_action( 'manage_' . self::PT . '_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
+		add_action( 'right_now_content_table_end', array( $this, 'right_now_content_table_end' ) );
+		add_filter( 'manage_' . self::PT . '_posts_columns', array( $this, 'manage_posts_columns' ) );
+		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts_author' ) );
 		self::support_thumbnails();
 	}
 
 
 	public function init() {
-		add_filter( 'the_content', array( &$this, 'get_single' ) );
+		add_filter( 'the_content', array( $this, 'get_single' ) );
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 		self::$base          = plugin_basename( __FILE__ );
 		self::$cpt_category  = self::PT . '-category';
@@ -103,13 +105,20 @@ EOD;
 	}
 
 
-	public static function get_instance() {
-		return self::$instance_number;
+	public static function add_instance() {
+		self::$use_instance = false;
+		self::$instance_number++;
 	}
 
 
-	public static function add_instance() {
-		self::$instance_number++;
+	public static function get_instance() {
+		return self::$use_instance ? self::$instance_number : self::$instance_widget;
+	}
+
+
+	public static function set_instance( $widget_number ) {
+		self::$use_instance    = true;
+		self::$instance_widget = $widget_number;
 	}
 
 
@@ -603,14 +612,14 @@ EOD;
 
 
 	public static function testimonialswidget_widget( $atts, $widget_number = null ) {
-		self::add_instance();
-
 		if ( empty( $widget_number ) ) {
 			$widget_number = self::$widget_number++;
 
-			if ( empty( $atts['random'] ) )
+			if ( ! isset( $atts['random'] ) )
 				$atts['random'] = 1;
 		}
+
+		self::set_instance( $widget_number );
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
@@ -1462,7 +1471,7 @@ EOF;
 			$testimonial_data[] = $data;
 		}
 
-		$testimonial_data = apply_filters( 'testimonials_widget_data', $testimonial_data );
+		$testimonial_data = apply_filters( 'testimonials_widget_data', $testimonial_data, $atts );
 
 		return $testimonial_data;
 	}
@@ -1560,7 +1569,7 @@ EOF;
 	 * @return string $translation
 	 */
 	public function gettext_testimonials( $translation ) {
-		remove_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
+		remove_action( 'gettext', array( $this, 'gettext_testimonials' ) );
 
 		global $post;
 
@@ -1572,7 +1581,7 @@ EOF;
 			}
 		}
 
-		add_action( 'gettext', array( &$this, 'gettext_testimonials' ) );
+		add_action( 'gettext', array( $this, 'gettext_testimonials' ) );
 
 		return $translation;
 	}
