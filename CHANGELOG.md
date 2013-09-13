@@ -1,7 +1,9 @@
 # CHANGELOG Testimonials Widget
 
 ## master
-* Add $atts paramter to filter `testimonials_widget_data`
+
+## 2.13.4
+* Add $atts parameter to filter `testimonials_widget_data`
 * Add action `testimonials_widget_scripts`
 * Add filter `testimonials_widget_get_testimonial_html_class`
 * Add filter `testimonials_widget_testimonials_js_internal`
