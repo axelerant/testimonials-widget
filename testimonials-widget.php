@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.13.4
+ * Version: 2.13.5
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -28,7 +28,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.13.4';
+	const VERSION     = '2.13.5';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -599,7 +599,7 @@ EOD;
 
 		$atts['type'] = 'testimonialswidget_list';
 
-		$content = apply_filters( 'testimonials_widget_cache_get', $atts );
+		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
@@ -632,7 +632,7 @@ EOD;
 
 		$testimonials = self::get_testimonials( $atts );
 
-		$content = apply_filters( 'testimonials_widget_cache_get', $atts );
+		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
 		if ( false === $content ) {
 			$content = self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -641,7 +641,7 @@ EOD;
 
 		// Generate CSS
 		$atts['type'] = 'testimonialswidget_widget_css';
-		$css          = apply_filters( 'testimonials_widget_cache_get', $atts );
+		$css          = apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
 		if ( false === $css ) {
 			$css = self::get_testimonials_html_css( $atts, $widget_number );
@@ -655,7 +655,7 @@ EOD;
 
 		// Generate JS
 		$atts['type'] = 'testimonialswidget_widget_js';
-		$js           = apply_filters( 'testimonials_widget_cache_get', $atts );
+		$js           = apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
 		if ( false === $js ) {
 			$js = self::get_testimonials_html_js( $testimonials, $atts, $widget_number );
@@ -1414,7 +1414,7 @@ EOF;
 		$args          = self::get_query_args( $atts );
 		$args['query'] = true;
 
-		$testimonials = apply_filters( 'testimonials_widget_cache_get', $args );
+		$testimonials = apply_filters( 'testimonials_widget_cache_get', false, $args );
 
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );

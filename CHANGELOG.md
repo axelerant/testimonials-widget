@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.13.5
+* BUGFIX Caching defaults not correct
+
 ## 2.13.4
 * Add $atts parameter to filter `testimonials_widget_data`
 * Add action `testimonials_widget_scripts`
