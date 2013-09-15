@@ -61,6 +61,15 @@ class Testimonials_Widget {
 
 
 	public function admin_init() {
+		self::$donate_button = <<<EOD
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="WM4F995W9LHXE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+EOD;
+
 		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
 
 		$this->add_meta_box_testimonials_widget();
@@ -80,18 +89,9 @@ class Testimonials_Widget {
 	public function init() {
 		add_filter( 'the_content', array( $this, 'get_single' ) );
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
-		self::$base          = plugin_basename( __FILE__ );
-		self::$cpt_category  = self::PT . '-category';
-		self::$cpt_tags      = self::PT . '-post_tag';
-		self::$donate_button = <<<EOD
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="WM4F995W9LHXE">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-EOD;
-
+		self::$base         = plugin_basename( __FILE__ );
+		self::$cpt_category = self::PT . '-category';
+		self::$cpt_tags     = self::PT . '-post_tag';
 		self::init_post_type();
 		self::styles();
 	}
@@ -672,6 +672,9 @@ EOD;
 
 
 	public static function scripts( $atts ) {
+		if ( is_admin() )
+			return;
+
 		wp_enqueue_script( 'jquery' );
 
 		do_action( 'testimonials_widget_scripts', $atts );
@@ -679,6 +682,9 @@ EOD;
 
 
 	public static function styles() {
+		if ( is_admin() )
+			return;
+
 		wp_register_style( 'testimonials-widget', plugins_url( 'testimonials-widget.css', __FILE__ ) );
 		wp_enqueue_style( 'testimonials-widget' );
 	}
@@ -734,6 +740,8 @@ EOF;
 		$tw_wrapper = 'tw_wrapper' . $widget_number;
 
 		$disable_animation = $atts['disable_animation'];
+		$fade_in_speed     = $atts['fade_in_speed'];
+		$fade_out_speed    = $atts['fade_out_speed'];
 		$height            = $atts['height'];
 		$max_height        = $atts['max_height'];
 		$min_height        = $atts['min_height'];
@@ -758,9 +766,9 @@ function nextTestimonial{$widget_number}() {
 		var active = jQuery('.{$id_base} .active');
 		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
 
-		active.fadeOut(1250, function(){
+		active.fadeOut({$fade_out_speed}, function(){
 			active.removeClass('active');
-			next.fadeIn(500);
+			next.fadeIn({$fade_in_speed});
 			next.removeClass('display-none');
 			next.addClass('active');
 
@@ -1360,8 +1368,7 @@ EOF;
 		}
 
 		if ( $exclude ) {
-			$exclude = explode( ',', $exclude );
-
+			$exclude              = explode( ',', $exclude );
 			$args['post__not_in'] = $exclude;
 		}
 

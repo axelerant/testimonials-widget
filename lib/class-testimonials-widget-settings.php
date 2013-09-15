@@ -53,14 +53,55 @@ class Testimonials_Widget_Settings {
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'init', array( $this, 'init' ) );
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 	}
 
 
-	public function init() {
+	public function admin_init() {
+		$version       = tw_get_option( 'version' );
+		self::$version = Testimonials_Widget::VERSION;
+		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
+
+		if ( $version != self::$version )
+			$this->initialize_settings();
+
+		if ( ! self::do_load() )
+			return;
+
 		self::sections();
 		self::settings();
+
+		$this->register_settings();
+	}
+
+
+	public function admin_menu() {
+		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+
+		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
+		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
+		add_action( 'load-' . self::$admin_page, array( $this, 'settings_add_help_tabs' ) );
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
+	public static function do_load() {
+		$do_load = false;
+		if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'options.php' ) ) ) {
+			$do_load = true;
+		} elseif ( ! empty( $_REQUEST['post_type'] ) && Testimonials_Widget::PT == $_REQUEST['post_type'] ) {
+			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php' ) ) ) {
+				$do_load = true;
+			} elseif ( ! empty( $_REQUEST['page'] ) && self::ID == $_REQUEST['page'] ) {
+				$do_load = true;
+			}
+		}
+
+		return $do_load;
 	}
 
 
@@ -139,6 +180,22 @@ class Testimonials_Widget_Settings {
 			'desc' => esc_html__( 'Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'std' => 1,
+		);
+
+		self::$settings['fade_out_speed'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Fade Out Speed', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
+			'std' => 1250,
+			'validate' => 'absint',
+		);
+
+		self::$settings['fade_in_speed'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Fade In Speed', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
+			'std' => 500,
+			'validate' => 'absint',
 		);
 
 		self::$settings['min_height'] = array(
@@ -547,27 +604,6 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public function admin_init() {
-		$version       = tw_get_option( 'version' );
-		self::$version = Testimonials_Widget::VERSION;
-		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
-
-		if ( $version != self::$version )
-			$this->initialize_settings();
-
-		$this->register_settings();
-	}
-
-
-	public function admin_menu() {
-		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
-
-		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
-		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
-		add_action( 'load-' . self::$admin_page, array( $this, 'settings_add_help_tabs' ) );
-	}
-
-
 	/**
 	 *
 	 *
@@ -622,31 +658,31 @@ class Testimonials_Widget_Settings {
 
 		echo '<p>' .
 			sprintf(
-				__( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
-				esc_url( get_admin_url() . 'edit.php?post_type=testimonials-widget' ),
-				esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' )
-			) .
+			__( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
+			esc_url( get_admin_url() . 'edit.php?post_type=testimonials-widget' ),
+			esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' )
+		) .
 			'</p>';
 
 		$disable_donate = tw_get_option( 'disable_donate' );
 		if ( ! $disable_donate ) {
 			echo '<p>' .
 				sprintf(
-					__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
-					esc_url( 'http://aihr.us/about-aihrus/donate/' ),
-					esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
-					esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
-					esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' )
-				) .
+				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
+				esc_url( 'http://aihr.us/about-aihrus/donate/' ),
+				esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
+				esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
+				esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' )
+			) .
 				'</p>';
 		}
 
 		echo '<p class="copyright">' .
 			sprintf(
-				__( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
-				date( 'Y' ),
-				esc_url( 'http://aihr.us' )
-			) .
+			__( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
+			date( 'Y' ),
+			esc_url( 'http://aihr.us' )
+		) .
 			'</p>';
 
 		self::section_scripts();

@@ -2,8 +2,11 @@
 
 ## master
 * Add filter `testimonials_widget_settings_add_help_tabs`
+* Add option Fade Out Speed
+* Add option Fade In Speed
 * Add settings page help tab
 * Localize text
+* Performance optimizations
 
 ## 2.13.5
 * BUGFIX Caching defaults not correct

@@ -89,6 +89,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 
 = Additional Testimonials Widget Features =
 
+* Adjustable animation speed
 * Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
@@ -111,8 +112,10 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Internal version tracking for compatibility checks and automatic settings update
 * Localizable via `languages/testimonials-widget.pot`
 * Optional commenting on testimonial single-view pages
+* Performance optimizations
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
+* Settings page contextual help
 * Shortcodes allowed inside of testimonials content
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
@@ -217,6 +220,10 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `height` - default none; height=300
 * Disable animation? - Disable animation between testimonial transitions. Useful when stacking.
 	* `disable_animation` - default false; disable_animation=true
+* Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
+	* `fade_out_speed` - default 1250; fade_out_speed=400
+* Fade In Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
+	* `fade_in_speed` - default 500; fade_in_speed=800
 * Minimum Height - Set for minimum display height, in pixels
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
