@@ -8,6 +8,7 @@
 	<exclude-pattern>lib/Akismet.class.php</exclude-pattern>
 
 	<rule ref="Generic">
+		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.Found" />
 		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed" />
 		<exclude name="Generic.Files.EndFileNoNewline.Found" />
 		<exclude name="Generic.Files.LineLength.MaxExceeded" />

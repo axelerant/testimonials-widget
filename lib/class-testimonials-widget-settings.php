@@ -58,6 +58,9 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_init() {
+		add_filter( 'wp_unique_post_slug_is_bad_hierarchical_slug', array( $this, 'is_bad_hierarchical_slug' ), 10, 4 );
+		add_filter( 'wp_unique_post_slug_is_bad_flat_slug', array( $this, 'is_bad_flat_slug' ), 10, 3 );
+
 		$version       = tw_get_option( 'version' );
 		self::$version = Testimonials_Widget::VERSION;
 		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
@@ -1018,6 +1021,42 @@ class Testimonials_Widget_Settings {
 		}
 
 		return $validated;
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.LongVariable)
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public function is_bad_hierarchical_slug( $is_bad_hierarchical_slug, $slug, $post_type, $post_parent ) {
+		// This post has no parent and is a "base" post
+		if ( ! $post_parent && self::is_cpt_slug( $slug ) )
+			return true;
+
+		return $is_bad_hierarchical_slug;
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public function is_bad_flat_slug( $is_bad_flat_slug, $slug, $post_type ) {
+		if ( self::is_cpt_slug( $slug ) )
+			return true;
+
+		return $is_bad_flat_slug;
+	}
+
+
+	public static function is_cpt_slug( $slug ) {
+		$has_archive  = tw_get_option( 'has_archive' );
+		$rewrite_slug = tw_get_option( 'rewrite_slug' );
+
+		return in_array( $slug, array( $has_archive, $rewrite_slug ) );
 	}
 
 

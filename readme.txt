@@ -52,6 +52,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
 * Automatically change to the next testimonial, per the sort order, whenever a user navigates to another page.
+* Automatically prevent Testimonials Widget custom post type URL slug naming conflicts
 * Built-in update notification
 * Cache per page when you use custom testimonials instance per page
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second

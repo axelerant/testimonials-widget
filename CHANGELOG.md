@@ -7,7 +7,9 @@
 * Add settings page help tab
 * IE7 CSS moved to separate file. Include via Testimonials > Settings if needed
 * Localize text
+* Pass YSlow and Google PageSpeed testing
 * Performance optimizations
+* Prevent Testimonials Widget custom post type URL slug naming conflicts
 * [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)
 
 ## 2.13.5
