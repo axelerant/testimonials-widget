@@ -43,6 +43,7 @@ class Testimonials_Widget_Settings {
 		'validate' => '', // required, term, slug, slugs, ids, order, single paramater PHP functions
 		'widget' => 1, // show in widget options, 0 off
 	);
+
 	public static $defaults = array();
 	public static $sections = array();
 	public static $settings = array();
@@ -563,7 +564,7 @@ class Testimonials_Widget_Settings {
 
 		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
-		add_action( 'load-' . self::$admin_page, array( $this, 'add_help_tabs' ) );
+		add_action( 'load-' . self::$admin_page, array( $this, 'settings_add_help_tabs' ) );
 	}
 
 
@@ -620,26 +621,32 @@ class Testimonials_Widget_Settings {
 			';
 
 		echo '<p>' .
-			sprintf( __( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
+			sprintf(
+				__( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
 				esc_url( get_admin_url() . 'edit.php?post_type=testimonials-widget' ),
-				esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' ) ) .
+				esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' )
+			) .
 			'</p>';
 
 		$disable_donate = tw_get_option( 'disable_donate' );
 		if ( ! $disable_donate ) {
 			echo '<p>' .
-				sprintf( __('If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
+				sprintf(
+					__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
 					esc_url( 'http://aihr.us/about-aihrus/donate/' ),
 					esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
 					esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
-					esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' ) ) .
+					esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' )
+				) .
 				'</p>';
 		}
 
 		echo '<p class="copyright">' .
-			sprintf( __( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
+			sprintf(
+				__( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
 				date( 'Y' ),
-				esc_url( 'http://aihr.us' ) ) .
+				esc_url( 'http://aihr.us' )
+			) .
 			'</p>';
 
 		self::section_scripts();
@@ -1081,53 +1088,70 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public function add_help_tabs() {
+	public function settings_add_help_tabs() {
 		$screen = get_current_screen();
 		if ( self::$admin_page != $screen->id )
 			return;
 
 		$screen->set_help_sidebar(
-			'<p><strong>' . sprintf( esc_html__( 'For more information:', 'testimonials-widget' ) . '</strong></p>' .
-			'<p>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p>' .
-			'<p>' . sprintf( __( 'View the <a href="%s">Testimonials Widget documentation</a>.', 'testimonials-widget' ), esc_url( 'http://wordpress.org/plugins/testimonials-widget/' ) ) ) . '</p>'
+			'<p><strong>' . esc_html__( 'For more information:', 'testimonials-widget' ) . '</strong></p><p>' .
+			esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) .
+			'</p><p>' .
+			sprintf(
+				__( 'View the <a href="%s">Testimonials Widget documentation</a>.', 'testimonials-widget' ),
+				esc_url( 'http://wordpress.org/plugins/testimonials-widget/' )
+			) .
+			'</p>'
 		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-general',
-			'title'	    => esc_html__( 'General', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Show or hide optional fields.', 'testimonials-widget' ) . '</p>'
-		) );
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-general',
+				'title'     => esc_html__( 'General', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Show or hide optional fields.', 'testimonials-widget' ) . '</p>'
+			)
+		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-selection',
-			'title'	    => esc_html__( 'Selection', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Options used to select testimonials.', 'testimonials-widget' ) . '</p>'
-		) );
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-selection',
+				'title'     => esc_html__( 'Selection', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Options used to select testimonials.', 'testimonials-widget' ) . '</p>'
+			)
+		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-ordering',
-			'title'	    => esc_html__( 'Ordering', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Options used to determine displayed testimonials ordering.', 'testimonials-widget' ) . '</p>'
-		) );
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-ordering',
+				'title'     => esc_html__( 'Ordering', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Options used to determine displayed testimonials ordering.', 'testimonials-widget' ) . '</p>'
+			)
+		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-widget',
-			'title'	    => esc_html__( 'Widget', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Options related to showing testimonials in widgets.', 'testimonials-widget' ) . '</p>'
-		) );
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-widget',
+				'title'     => esc_html__( 'Widget', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Options related to showing testimonials in widgets.', 'testimonials-widget' ) . '</p>'
+			)
+		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-post_type',
-			'title'	    => esc_html__( 'Post Type', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>'
-		) );
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-post_type',
+				'title'     => esc_html__( 'Post Type', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>'
+			)
+		);
 
-		$screen->add_help_tab( array(
-			'id'	    => 'tw-reset',
-			'title'	    => esc_html__( 'Compatibility & Reset', 'testimonials-widget' ),
-			'content'	=> '<p>' . esc_html__( 'Backwards compatibility, import/export options, and reset options.', 'testimonials-widget' ) . '</p>'
-		) );
-		
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-reset',
+				'title'     => esc_html__( 'Compatibility & Reset', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Backwards compatibility, import/export options, and reset options.', 'testimonials-widget' ) . '</p>'
+			)
+		);
+
 		do_action( 'testimonials_widget_settings_add_help_tabs', $screen );
 	}
 
