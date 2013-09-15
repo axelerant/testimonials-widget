@@ -1,6 +1,9 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add filter `testimonials_widget_settings_add_help_tabs`
+* Add settings page help tab
+* Localize text
 
 ## 2.13.5
 * BUGFIX Caching defaults not correct

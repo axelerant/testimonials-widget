@@ -26,7 +26,8 @@
 class Testimonials_Widget_Settings {
 	const ID = 'testimonialswidget_settings';
 
-	public static $default  = array(
+	public static $admin_page = '';
+	public static $default    = array(
 		'backwards' => array(
 			'version' => '', // below this version number, use std
 			'std' => '',
@@ -558,10 +559,11 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_menu() {
-		$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
 
-		add_action( 'admin_print_scripts-' . $admin_page, array( $this, 'scripts' ) );
-		add_action( 'admin_print_styles-' . $admin_page, array( $this, 'styles' ) );
+		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
+		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
+		add_action( 'load-' . self::$admin_page, array( $this, 'add_help_tabs' ) );
 	}
 
 
@@ -597,8 +599,6 @@ class Testimonials_Widget_Settings {
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
-		echo '<div class="notice"><p><b>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</b></p></div>';
-
 		echo '<form action="options.php" method="post">';
 
 		settings_fields( self::ID );
@@ -616,24 +616,31 @@ class Testimonials_Widget_Settings {
 		echo '
 			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . esc_html__( 'Save Changes', 'testimonials-widget' ) . '" /></p>
 			</form>
-		</div>
-		';
+			</div>
+			';
 
-		echo '
-			<p>When ready, <a href="'.get_admin_url().'edit.php?post_type=testimonials-widget">view</a>
-			or <a href="'.get_admin_url().'post-new.php?post_type=testimonials-widget">add</a> testimonials.</p>
-		';
+		echo '<p>' .
+			sprintf( __( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
+				esc_url( get_admin_url() . 'edit.php?post_type=testimonials-widget' ),
+				esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' ) ) .
+			'</p>';
 
 		$disable_donate = tw_get_option( 'disable_donate' );
 		if ( ! $disable_donate ) {
-			echo '
-				<p>If you like this plugin, please <a href="http://aihr.us/about-aihrus/donate/" title="Donate for Good Karma"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="Donate for Good Karma" /></a> or <a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="http://wordpress.org/support/plugin/testimonials-widget" title="Support forums">support</a>.</p>
-			';
+			echo '<p>' .
+				sprintf( __('If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
+					esc_url( 'http://aihr.us/about-aihrus/donate/' ),
+					esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
+					esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
+					esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' ) ) .
+				'</p>';
 		}
 
-		$text = esc_html__( 'Copyright &copy;%1$s %2$s.', 'testimonials-widget' );
-		$link = '<a href="http://aihr.us">Aihrus</a>';
-		echo '<p class="copyright">' . sprintf( $text, date( 'Y' ), $link ) . '</p>';
+		echo '<p class="copyright">' .
+			sprintf( __( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
+				date( 'Y' ),
+				esc_url( 'http://aihr.us' ) ) .
+			'</p>';
 
 		self::section_scripts();
 
@@ -1071,6 +1078,57 @@ class Testimonials_Widget_Settings {
 			else
 				return 0;
 		}
+	}
+
+
+	public function add_help_tabs() {
+		$screen = get_current_screen();
+		if ( self::$admin_page != $screen->id )
+			return;
+
+		$screen->set_help_sidebar(
+			'<p><strong>' . sprintf( esc_html__( 'For more information:', 'testimonials-widget' ) . '</strong></p>' .
+			'<p>' . esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) . '</p>' .
+			'<p>' . sprintf( __( 'View the <a href="%s">Testimonials Widget documentation</a>.', 'testimonials-widget' ), esc_url( 'http://wordpress.org/plugins/testimonials-widget/' ) ) ) . '</p>'
+		);
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-general',
+			'title'	    => esc_html__( 'General', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Show or hide optional fields.', 'testimonials-widget' ) . '</p>'
+		) );
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-selection',
+			'title'	    => esc_html__( 'Selection', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Options used to select testimonials.', 'testimonials-widget' ) . '</p>'
+		) );
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-ordering',
+			'title'	    => esc_html__( 'Ordering', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Options used to determine displayed testimonials ordering.', 'testimonials-widget' ) . '</p>'
+		) );
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-widget',
+			'title'	    => esc_html__( 'Widget', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Options related to showing testimonials in widgets.', 'testimonials-widget' ) . '</p>'
+		) );
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-post_type',
+			'title'	    => esc_html__( 'Post Type', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>'
+		) );
+
+		$screen->add_help_tab( array(
+			'id'	    => 'tw-reset',
+			'title'	    => esc_html__( 'Compatibility & Reset', 'testimonials-widget' ),
+			'content'	=> '<p>' . esc_html__( 'Backwards compatibility, import/export options, and reset options.', 'testimonials-widget' ) . '</p>'
+		) );
+		
+		do_action( 'testimonials_widget_settings_add_help_tabs', $screen );
 	}
 
 

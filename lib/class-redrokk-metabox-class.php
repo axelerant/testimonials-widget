@@ -131,20 +131,20 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		$this->setOptionHooks();
 
 		if ( !$this->callback ) {
-			$this->callback = array( &$this, 'show' );
+			$this->callback = array( $this, 'show' );
 		}
 		if ( !$this->title ) {
 			$this->title = ucfirst( $this->_id );
 		}
 
 		//registering this metabox
-		add_action( 'add_meta_boxes', array( &$this, '_register' ) );
+		add_action( 'add_meta_boxes', array( $this, '_register' ) );
 
 		// backwards compatible (before WP 3.0)
 		// add_action( 'admin_init', array($this, '_register'), 1 );
 
-		add_action( 'save_post', array( &$this, '_save' ) );
-		add_filter( 'wp_redirect', array( &$this, '_redirectIntervention' ), 40, 1 );
+		add_action( 'save_post', array( $this, '_save' ) );
+		add_filter( 'wp_redirect', array( $this, '_redirectIntervention' ), 40, 1 );
 	}
 
 
@@ -203,8 +203,8 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 		switch ( $this->_type ) {
 		default:
 		case 'default':
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderForm' ), 20, 1 );
-			add_action( 'metabox-save-'.$this->_id, array( &$this, 'saveAsPostMeta' ), 10, 2 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderForm' ), 20, 1 );
+			add_action( 'metabox-save-'.$this->_id, array( $this, 'saveAsPostMeta' ), 10, 2 );
 			break;
 		case 'image':
 		case 'images':
@@ -233,9 +233,9 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 					'type' => 'submit',
 				),
 			);
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderListImageAttachments' ), 20, 1 );
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderForm' ), 20, 1 );
-			add_action( 'metabox-save-'.$this->_id, array( &$this, 'saveAsAttachment' ), 1, 2 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderListImageAttachments' ), 20, 1 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderForm' ), 20, 1 );
+			add_action( 'metabox-save-'.$this->_id, array( $this, 'saveAsAttachment' ), 1, 2 );
 			break;
 		case 'video':
 		case 'videos':
@@ -280,10 +280,10 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 					'type' => 'submit',
 				),
 			);
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderListAttachments' ), 20, 1 );
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderListVideoAttachments' ), 20, 1 );
-			add_action( 'metabox-show-'.$this->_id, array( &$this, '_renderForm' ), 20, 1 );
-			add_action( 'metabox-save-'.$this->_id, array( &$this, 'saveAsPostMeta' ), 1, 2 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderListAttachments' ), 20, 1 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderListVideoAttachments' ), 20, 1 );
+			add_action( 'metabox-show-'.$this->_id, array( $this, '_renderForm' ), 20, 1 );
+			add_action( 'metabox-save-'.$this->_id, array( $this, 'saveAsPostMeta' ), 1, 2 );
 			break;
 		}
 	}

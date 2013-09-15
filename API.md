@@ -4,6 +4,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 ## Actions
 
+* `testimonials_widget_settings_add_help_tabs`
+
+	Modify the settings page help tabs.
+
 * `testimonials_widget_scripts`
 
 	Made additional `wp_register_script` and `wp_enqueue_script` calls as needed.
