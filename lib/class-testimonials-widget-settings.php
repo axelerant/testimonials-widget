@@ -484,6 +484,18 @@ class Testimonials_Widget_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['include_ie7_css'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.' ),
+			'type' => 'checkbox',
+			'backwards' => array(
+				'version' => '2.13.6',
+				'std' => 1,
+			),
+			'widget' => 1,
+		);
+
 		self::$settings['remove_hentry'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),

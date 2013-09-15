@@ -4,4 +4,3 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * Pass YSlow and Google PageSpeed testing
 * Prevent page slug naming conflicts
-* [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)

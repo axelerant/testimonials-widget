@@ -241,6 +241,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Compatibility & Reset**
 
+* Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
 	* `remove_hentry` - default none; remove_hentry=true
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
@@ -386,6 +387,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.13.6 =
+
+* IE 7 CSS moved to separate file. Include via Testimonials > Settings if needed
 
 = 2.12.0 =
 

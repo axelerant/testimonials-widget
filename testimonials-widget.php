@@ -687,6 +687,12 @@ EOD;
 
 		wp_register_style( 'testimonials-widget', plugins_url( 'testimonials-widget.css', __FILE__ ) );
 		wp_enqueue_style( 'testimonials-widget' );
+
+		$include_ie7_css = tw_get_option( 'include_ie7_css' );
+		if ( $include_ie7_css ) {
+			wp_register_style( 'testimonials-widget-ie7', plugins_url( 'testimonials-widget-ie7.css', __FILE__ ) );
+			wp_enqueue_style( 'testimonials-widget-ie7' );
+		}
 	}
 
 

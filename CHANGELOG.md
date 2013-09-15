@@ -2,11 +2,13 @@
 
 ## master
 * Add filter `testimonials_widget_settings_add_help_tabs`
-* Add option Fade Out Speed
 * Add option Fade In Speed
+* Add option Fade Out Speed
 * Add settings page help tab
+* IE 7 CSS moved to separate file. Include via Testimonials > Settings if needed
 * Localize text
 * Performance optimizations
+* [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)
 
 ## 2.13.5
 * BUGFIX Caching defaults not correct

@@ -37,7 +37,7 @@
 
 .widget .testimonials-widget-testimonial .image {
 	display: block;
-	float: initial;
+	float: none;
 }
 
 .testimonials-widget-testimonial q,
@@ -46,16 +46,8 @@
 	quotes: none;
 }
 
-.testimonials-widget-testimonial .open-quote {
-	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '“' );
-}
-
 .testimonials-widget-testimonial .open-quote:before {
 	content: '\201C';
-}
-
-.testimonials-widget-testimonial .close-quote {
-	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '”' );
 }
 
 .testimonials-widget-testimonial .close-quote:after {
@@ -85,13 +77,6 @@
 .testimonials-widget-testimonial cite:before,
 .testimonials-widget-testimonial div.credit:before {
 	content: "– "
-}
-
-.testimonials-widget-testimonial .join-title,
-.testimonials-widget-testimonial .join-location,
-.testimonials-widget-testimonial .join {
-	/* section between source and company information */
-	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = ', ' );
 }
 
 .testimonials-widget-testimonial .join-title:before,
