@@ -48,15 +48,16 @@ The single testimonial view supports image, source, title, location, email, comp
 Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
+* Admin mode only anti-spam debug help text
 * Akismet anti-spam checking
 * Alternate destinations for "Read more" links
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
 * Automatically change to the next testimonial, per the sort order, whenever a user navigates to another page.
-* Automatically prevent Testimonials Widget custom post type URL slug naming conflicts
 * Built-in update notification
 * Cache per page when you use custom testimonials instance per page
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Clear cache when WP Super Cache, FlexiCache, Hyper Cache, DB Cache Reloaded Fix does
+* CSS or HTML table based testimonials submissions form layout
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
 * Default post author, category, and status options for user testimonial submissions
 * Deletes old and related testimonial cache entries automatically
@@ -83,6 +84,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Show excerpts with list and single views
 * Show unique testimonials on page with multiple testimonial instances
 * Testimonial links listing with image, source, title, location, company, and URL fields
+* Upload images by browsing or URL
 * WP Admin > Testmonials > Clear Cache menu link
 * WPML compatible
 
