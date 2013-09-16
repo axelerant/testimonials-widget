@@ -994,15 +994,17 @@ class Testimonials_Widget_Settings {
 			}
 		}
 
-		// same has_archive and rewrite_slug causes problems
-		if ( $input['has_archive'] == $input['rewrite_slug'] )
-			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+		if ( isset( $input['has_archive'] ) && isset( $input['rewrite_slug'] ) ){
+			// same has_archive and rewrite_slug causes problems
+			if ( $input['has_archive'] == $input['rewrite_slug'] )
+				$input['rewrite_slug'] = $defaults['rewrite_slug'];
 
-		// did URL slugs change?
-		$has_archive  = tw_get_option( 'has_archive' );
-		$rewrite_slug = tw_get_option( 'rewrite_slug' );
-		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
-			flush_rewrite_rules();
+			// did URL slugs change?
+			$has_archive  = tw_get_option( 'has_archive' );
+			$rewrite_slug = tw_get_option( 'rewrite_slug' );
+			if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
+				flush_rewrite_rules();
+		}
 
 		$input['version']        = self::$version;
 		$input['donate_version'] = Testimonials_Widget::VERSION;

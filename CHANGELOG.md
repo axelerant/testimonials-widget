@@ -5,6 +5,7 @@
 * Add option Fade In Speed
 * Add option Fade Out Speed
 * Add settings page help tab
+* BUGFIX index has_archive and rewrite_slug not set
 * IE7 CSS moved to separate file. Include via Testimonials > Settings if needed
 * Localize text
 * Pass YSlow and Google PageSpeed testing
