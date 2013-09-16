@@ -6,6 +6,7 @@
 * Add option Fade Out Speed
 * Add settings page help tab
 * BUGFIX index has_archive and rewrite_slug not set
+* BUGFIX plugin_row_meta not returning default state
 * IE7 CSS moved to separate file. Include via Testimonials > Settings if needed
 * Localize text
 * Pass YSlow and Google PageSpeed testing
