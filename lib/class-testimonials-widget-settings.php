@@ -490,7 +490,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['include_ie7_css'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.' ),
+			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'backwards' => array(
 				'version' => '2.13.6',
@@ -994,7 +994,7 @@ class Testimonials_Widget_Settings {
 			}
 		}
 
-		if ( isset( $input['has_archive'] ) && isset( $input['rewrite_slug'] ) ){
+		if ( isset( $input['has_archive'] ) && isset( $input['rewrite_slug'] ) ) {
 			// same has_archive and rewrite_slug causes problems
 			if ( $input['has_archive'] == $input['rewrite_slug'] )
 				$input['rewrite_slug'] = $defaults['rewrite_slug'];
@@ -1112,6 +1112,10 @@ class Testimonials_Widget_Settings {
 			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
+		case 'url':
+			$input[ $id ] = self::validate_url( $input[ $id ], $default );
+			break;
+
 		default:
 			$input[ $id ] = $validate( $input[ $id ] );
 			break;
@@ -1153,6 +1157,14 @@ class Testimonials_Widget_Settings {
 
 	public static function validate_term( $input, $default ) {
 		if ( preg_match( '#^\w+$#', $input ) )
+			return $input;
+
+		return $default;
+	}
+
+
+	public static function validate_url( $input, $default ) {
+		if ( filter_var( $input, FILTER_VALIDATE_URL ) )
 			return $input;
 
 		return $default;

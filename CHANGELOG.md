@@ -11,6 +11,7 @@
 * Pass YSlow and Google PageSpeed testing
 * Performance optimizations
 * Prevent Testimonials Widget custom post type URL slug naming conflicts
+* Validate URL submissions
 * [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)
 
 ## 2.13.5
