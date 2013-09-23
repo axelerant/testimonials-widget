@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.13.6
 * Add IDs column to edit testimonials listing page
 * Add filter `testimonials_widget_settings_add_help_tabs`
 * Add option Fade In Speed
@@ -13,6 +15,7 @@
 * Pass YSlow and Google PageSpeed testing
 * Performance optimizations
 * Prevent Testimonials Widget custom post type URL slug naming conflicts
+* Update premium shortcodes
 * Validate URL submissions
 * [Begin CSS testing](http://www.netmagazine.com/tutorials/4-tools-automatic-css-testing)
 
