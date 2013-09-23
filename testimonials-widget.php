@@ -396,6 +396,10 @@ EOD;
 		$result = false;
 
 		switch ( $column ) {
+		case 'id':
+			$result = $post_id;
+			break;
+
 		case 'shortcode':
 			$result  = '[testimonialswidget_list ids="';
 			$result .= $post_id;
@@ -458,6 +462,7 @@ EOD;
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
+			'id' => esc_html__( 'ID', 'testimonials-widget' ),
 			'thumbnail' => esc_html__( 'Image', 'testimonials-widget' ),
 			'title' => esc_html__( 'Source', 'testimonials-widget' ),
 			'shortcode' => esc_html__( 'Shortcodes', 'testimonials-widget' ),

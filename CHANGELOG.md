@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add IDs column to edit testimonials listing page
 * Add filter `testimonials_widget_settings_add_help_tabs`
 * Add option Fade In Speed
 * Add option Fade Out Speed
