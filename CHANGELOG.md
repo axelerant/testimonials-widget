@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* BUGFIX paging arrows not positioned correctly
+* Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 
 ## 2.13.6
 * Add IDs column to edit testimonials listing page

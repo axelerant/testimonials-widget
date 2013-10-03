@@ -24,6 +24,22 @@
 	height: 1.4em;
 }
 
+.testimonials-widget-testimonials .paging.prepend {
+	margin-bottom: 1em;
+}
+
+.testimonials-widget-testimonials .paging.append {
+	margin-top: 1em;
+}
+
+.testimonials-widget-testimonials .alignleft {
+	float: left;
+}
+
+.testimonials-widget-testimonials .alignright {
+	float: right;
+}
+
 .testimonials-widget-testimonial.list,
 .testimonials-widget-testimonial.single {
 	display: block;
