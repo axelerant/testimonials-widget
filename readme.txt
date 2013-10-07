@@ -282,6 +282,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* [testimonialswidget_list order=ASC orderby=title]
 * Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
+* Show all testimonials on one page
+	* [testimonialswidget_list char_limit=0 limit=-1]
 
 **[testimonialswidget_widget]**
 
