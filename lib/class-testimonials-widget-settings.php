@@ -469,7 +469,7 @@ class Testimonials_Widget_Settings {
 			'widget' => 0,
 		);
 
-		$desc = esc_html__( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as Archive Page URL.', 'testimonials-widget' );
+		$desc = esc_html__( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as the Archive Page URL nor should it match a page URL slug.', 'testimonials-widget' );
 
 		self::$settings['rewrite_slug'] = array(
 			'section' => 'post_type',
