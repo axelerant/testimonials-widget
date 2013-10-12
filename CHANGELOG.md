@@ -2,6 +2,7 @@
 
 ## master
 * BUGFIX paging arrows not positioned correctly
+* https jQuery transport
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update examples
 * Update verbiage
