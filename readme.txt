@@ -2,7 +2,7 @@
 
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
-Tags: client, customer, quotations, quote, quotes, random, review, quote, recommendation, reference, testimonial, testimonials, testimony, widget, wpml
+Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.4
 Tested up to: 3.6.1
 Stable tag: 2.13.6
