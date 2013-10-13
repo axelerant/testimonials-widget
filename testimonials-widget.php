@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.13.6
+ * Version: 2.14.0
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -28,7 +28,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.13.6';
+	const VERSION     = '2.14.0';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
@@ -900,6 +900,12 @@ EOF;
 		$class    = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 		$div_open = '<div class="' . $class . '">';
 
+		$do_schema = tw_get_option( 'enable_schema' );
+		if ( $do_schema ) {
+			$item_scope = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
+			$div_open  .= '<div ' . $item_scope . '>';
+		}
+
 		if ( $remove_hentry )
 			$div_open = str_replace( ' hentry', '', $div_open );
 
@@ -931,6 +937,8 @@ EOF;
 		}
 
 		$div_close = '</div>';
+		if ( $do_schema )
+			$div_close .= '</div>';
 
 		$html = $div_open
 			. $image
@@ -972,6 +980,12 @@ EOF;
 			$content = apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 			$content = make_clickable( $content );
 
+			$do_schema = tw_get_option( 'enable_schema' );
+			if ( $do_schema ) {
+				$item_prop_desc = 'itemprop="reviewBody"';
+				$content        = '<span ' . $item_prop_desc . '>' . $content . '</span>';
+			}
+
 			if ( empty( $use_quote_tag ) ) {
 				$quote  = '<blockquote>';
 				$quote .= $content;
@@ -996,12 +1010,25 @@ EOF;
 		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
 		$use_quote_tag = $atts['use_quote_tag'];
 
-		$cite     = '';
+		$cite               = '';
+		$testimonial_source = $testimonial['testimonial_source'];
+
+		$do_schema = tw_get_option( 'enable_schema' );
+		if ( $do_schema ) {
+			$item_prop_author   = 'itemprop="author"';
+			$testimonial_source = '<span ' . $item_prop_author . '>' . $testimonial_source . '</span>';
+
+			$item_prop_date = '<meta itemprop="datePublished" content="%s">';
+			$post           = get_post( $testimonial['post_id'] );
+			$the_date       = mysql2date( 'Y-m-d', $post->post_date );
+			$cite          .= sprintf( $item_prop_date, $the_date );
+		}
+
 		$done_url = false;
 		if ( $do_source && $do_email ) {
 			$cite .= '<span class="author">';
 			$cite .= '<a href="mailto:' . $testimonial['testimonial_email'] . '">';
-			$cite .= $testimonial['testimonial_source'];
+			$cite .= $testimonial_source;
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_source && ! $do_company && $do_url ) {
@@ -1009,12 +1036,12 @@ EOF;
 
 			$cite .= '<span class="author">';
 			$cite .= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
-			$cite .= $testimonial['testimonial_source'];
+			$cite .= $testimonial_source;
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_source ) {
 			$cite .= '<span class="author">';
-			$cite .= $testimonial['testimonial_source'];
+			$cite .= $testimonial_source;
 			$cite .= '</span>';
 		} elseif ( $do_email ) {
 			$cite .= '<span class="email">';

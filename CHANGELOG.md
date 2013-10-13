@@ -1,9 +1,13 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.14.0
 * BUGFIX paging arrows not positioned correctly
+* Enable [rich snippets/structured data](http://wordpress.org/support/topic/lots-of-options-4?replies=3#post-4754108) per [review schema](http://schema.org/Review)
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update examples
+* Update readme option ordering
 * Update verbiage
 * https jQuery transport
 

@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.4
 Tested up to: 3.6.1
-Stable tag: 2.13.6
+Stable tag: 2.14.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 **View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
 
-More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
+More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling. Further, structured data per the [Review schema](http://schema.org/Review) to improve search engine results can be enabled.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
@@ -36,6 +36,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Capable of handling multiple widgets per page or post
 * Fields for source, testimonial, image, title, location, email, company and URL details
 * Multiple paging options for testimonials listings
+* Review microdata format per schema.org
 * Settings export/import
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
@@ -54,10 +55,10 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
 * Automatically change to the next testimonial, per the sort order, whenever a user navigates to another page.
 * Built-in update notification
+* CSS or HTML table based testimonials submissions form layout
 * Cache per page when you use custom testimonials instance per page
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
 * Clear cache when WP Super Cache, FlexiCache, Hyper Cache, DB Cache Reloaded Fix does
-* CSS or HTML table based testimonials submissions form layout
 * Deactivates self if no active or incorrect version of Testimonials Widget plugin
 * Default post author, category, and status options for user testimonial submissions
 * Deletes old and related testimonial cache entries automatically
@@ -75,6 +76,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
+* Review microdata format per schema.org
 * Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations slider
@@ -150,9 +152,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **General**
 
-* Character Limit - Number of characters to limit testimonial views to
-	* `char_limit` - default none; char_limit=200
-	* Widget - default 500
+* Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
+	* `enable_schema` - default true; enable_schema=false
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true
 * Hide "Testimonials Not Found"?
@@ -163,7 +164,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_image` - default show; hide_image=true
 * Hide Image in Single View?
 	* `hide_image_single` - default show; hide_image_single=true
-* Hide Content?
+* Hide Testimonial Content?
 	* `hide_content` - default show; hide_content=true
 * Hide Author/Source? - Don't display "Post Title" in cite
 	* `hide_source` - default show; hide_source=true
@@ -179,8 +180,6 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_url` - default show; hide_url=true
 * URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
-* Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
-	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
 * Enable Paging - for [testimonialswidget_list]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
@@ -194,10 +193,10 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Category Filter - Comma separated category slug-names
 	* `category` - default none; category=product or category="category-a, another-category"
-* Require All Tags - Select only testimonials with all of the given tags
-	* `tags_all` - default OR; tags_all=true
 * Tags Filter - Comma separated tag slug-names
 	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
+* Require All Tags - Select only testimonials with all of the given tags
+	* `tags_all` - default OR; tags_all=true
 * Include IDs Filter - Comma separated IDs
 	* `ids` - default none; ids=2 or ids="2,4,6"
 * Exclude IDs Filter - Comma separated IDs
@@ -223,12 +222,17 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `title` - default "Testimonials"
 * Title Link - URL or Post ID to link widget title to
 	* `title_link` - default none; title_link=123, title_link=http://example.com
+* Character Limit - Number of characters to limit testimonial views to
+	* `char_limit` - default none; char_limit=200
+	* Widget - default 500
+* Height - Testimonials height, in pixels. Overrides minimum and maximum height
+	* `height` - default none; height=300
+* Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
+	* `refresh_interval` - default 5; refresh_interval=0
 * Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
 	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
-* Height - Testimonials height, in pixels. Overrides minimum and maximum height
-	* `height` - default none; height=300
-* Disable animation? - Disable animation between testimonial transitions. Useful when stacking.
+* Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
 	* `disable_animation` - default false; disable_animation=true
 * Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
 	* `fade_out_speed` - default 1250; fade_out_speed=400
@@ -238,8 +242,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
 	* `max_height` - default none; max_height=250
-* Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
-	* `refresh_interval` - default 5; refresh_interval=0
+* Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
+	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
 
 = Other Options =
 
@@ -399,6 +403,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.14.0 =
+
+* Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 
 = 2.13.6 =
 

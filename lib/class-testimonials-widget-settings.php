@@ -179,7 +179,7 @@ class Testimonials_Widget_Settings {
 
 		self::$settings['disable_animation'] = array(
 			'section' => 'widget',
-			'title' => esc_html__( 'Disable animation?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Disable Animation?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'std' => 1,
@@ -232,6 +232,15 @@ class Testimonials_Widget_Settings {
 		self::$settings['general_expand_begin'] = array(
 			'desc' => esc_html__( 'General Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
+		);
+
+		$desc = __( 'Adds HTML tag markup per the <a href="%s">Review schema</a> to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.', 'testimonials-widget' );
+
+		self::$settings['enable_schema'] = array(
+			'title' => esc_html__( 'Enable Review Schema?', 'testimonials-widget' ),
+			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
+			'type' => 'checkbox',
+			'std' => 1,
 		);
 
 		self::$settings['disable_quotes'] = array(
