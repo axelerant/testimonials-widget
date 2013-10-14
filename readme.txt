@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.4
 Tested up to: 3.6.1
-Stable tag: 2.14.0
+Stable tag: 2.14.0-beta
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,7 +36,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Capable of handling multiple widgets per page or post
 * Fields for source, testimonial, image, title, location, email, company and URL details
 * Multiple paging options for testimonials listings
-* Review microdata format per schema.org
+* Review schema.org microdata format for improved search engine results
 * Settings export/import
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
@@ -115,6 +115,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Customizable testimonial data field `testimonial_extra`
 * Deletes testimonials-widget custom post type entries and settings on uninstall 
 * Disable self-generated quotation marks
+* Easily label and link to reviewed item for Review schema
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Flush URLs on deactivation 
@@ -154,6 +155,10 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
 	* `enable_schema` - default true; enable_schema=false
+* Reviewed Item? - Name of thing being referenced in testimonials
+	* `item_reviewed` - default "Site Title"
+* Reviewed Item URL? - URL of thing being referenced in testimonials
+	* `item_reviewed_url` - default `network_site_url();`
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true
 * Hide "Testimonials Not Found"?
@@ -404,7 +409,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
-= 2.14.0 =
+= 2.14.0-beta =
 
 * Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 

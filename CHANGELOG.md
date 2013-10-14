@@ -2,8 +2,11 @@
 
 ## master
 
-## 2.14.0
+## 2.14.0-beta
+* Add item reviewed name and url to Review schema 
+* BUGFIX missing space after itemprop="image"
 * BUGFIX paging arrows not positioned correctly
+* BUGFIX single content not wrapped with review schema
 * Enable [rich snippets/structured data](http://wordpress.org/support/topic/lots-of-options-4?replies=3#post-4754108) per [review schema](http://schema.org/Review)
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update examples

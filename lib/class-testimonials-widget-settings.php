@@ -243,6 +243,18 @@ class Testimonials_Widget_Settings {
 			'std' => 1,
 		);
 
+		self::$settings['item_reviewed'] = array(
+			'title' => esc_html__( 'Reviewed Item?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Name of thing being referenced in testimonials', 'testimonials-widget' ),
+			'std' => get_option( 'blogname' ),
+		);
+
+		self::$settings['item_reviewed_url'] = array(
+			'title' => esc_html__( 'Reviewed Item URL?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'URL of thing being referenced in testimonials', 'testimonials-widget' ),
+			'std' => network_site_url(),
+		);
+
 		self::$settings['disable_quotes'] = array(
 			'title' => esc_html__( 'Hide built-in quotes?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),

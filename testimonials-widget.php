@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.14.0
+ * Version: 2.14.0-beta
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -28,27 +28,34 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.14.0';
+	const VERSION     = '2.14.0-beta';
 
 	private static $base          = null;
 	private static $max_num_pages = 0;
 	private static $post_count    = 0;
 	private static $wp_query      = null;
 
-	public static $cpt_category    = '';
-	public static $cpt_tags        = '';
-	public static $css             = array();
-	public static $css_called      = false;
-	public static $donate_button   = '';
-	public static $instance_number = 0;
-	public static $instance_widget = 0;
-	public static $scripts         = array();
-	public static $scripts_called  = false;
-	public static $settings_link   = '';
-	public static $tag_close_quote = '<span class="close-quote"></span>';
-	public static $tag_open_quote  = '<span class="open-quote"></span>';
-	public static $use_instance    = false;
-	public static $widget_number   = 100000;
+	public static $cpt_category     = '';
+	public static $cpt_tags         = '';
+	public static $css              = array();
+	public static $css_called       = false;
+	public static $donate_button    = '';
+	public static $instance_number  = 0;
+	public static $instance_widget  = 0;
+	public static $item_prop_author = 'itemprop="author"';
+	public static $item_prop_date   = '<meta itemprop="datePublished" content="%s" />';
+	public static $item_prop_desc   = 'itemprop="reviewBody"';
+	public static $item_prop_image  = 'itemprop="image"';
+	public static $item_prop_item   = '<meta itemprop="itemReviewed" content="%s" />';
+	public static $item_prop_url    = '<meta itemprop="url" content="%s" />';
+	public static $item_scope       = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
+	public static $scripts          = array();
+	public static $scripts_called   = false;
+	public static $settings_link    = '';
+	public static $tag_close_quote  = '<span class="close-quote"></span>';
+	public static $tag_open_quote   = '<span class="open-quote"></span>';
+	public static $use_instance     = false;
+	public static $widget_number    = 100000;
 
 
 	public function __construct() {
@@ -156,9 +163,17 @@ EOD;
 
 		$details = self::get_testimonial_html( $testimonial, $atts );
 		$details = apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
-		$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
 
-		return $content . $details;
+		$do_schema = $atts['enable_schema'];
+		if ( $do_schema )
+			$content = '<span ' . self::$item_prop_desc . '>' . $content . '</span>';
+
+		$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
+		$text    = $content . $details;
+		if ( $do_schema )
+			$text = '<div ' . self::$item_scope . '>' . $text . '</div>';
+
+		return $text;
 	}
 
 
@@ -875,6 +890,8 @@ EOF;
 		$disable_quotes  = $atts['disable_quotes'];
 		$do_image        = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
 		$do_image_single = ! $atts['hide_image_single'];
+		$do_content      = ! $atts['hide_content'];
+		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
 
@@ -900,19 +917,20 @@ EOF;
 		$class    = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 		$div_open = '<div class="' . $class . '">';
 
-		$do_schema = tw_get_option( 'enable_schema' );
-		if ( $do_schema ) {
-			$item_scope = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
-			$div_open  .= '<div ' . $item_scope . '>';
-		}
+		if ( $do_schema && $do_content )
+			$div_open .= '<div ' . self::$item_scope . '>';
 
 		if ( $remove_hentry )
 			$div_open = str_replace( ' hentry', '', $div_open );
 
 		$image = '';
 		if ( $do_image ) {
+			$pic = $testimonial['testimonial_image'];
+			if ( $do_schema )
+				$pic = str_replace( '<img ', '<img ' . self::$item_prop_image . ' ', $pic );
+
 			$image .= '<span class="image">';
-			$image .= $testimonial['testimonial_image'];
+			$image .= $pic;
 			$image .= '</span>';
 		}
 
@@ -937,7 +955,7 @@ EOF;
 		}
 
 		$div_close = '</div>';
-		if ( $do_schema )
+		if ( $do_schema && $do_content )
 			$div_close .= '</div>';
 
 		$html = $div_open
@@ -965,11 +983,15 @@ EOF;
 		$content_more  = apply_filters( 'testimonials_widget_content_more', esc_html__( '…', 'testimonials-widget' ) );
 		$content_more .= self::$tag_close_quote;
 		$do_content    = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
+		$do_schema     = $atts['enable_schema'];
 		$use_quote_tag = $atts['use_quote_tag'];
 
 		$quote = '';
 		if ( $do_content ) {
 			$content = $testimonial['testimonial_content'];
+			if ( $do_schema )
+				$content = '<span ' . self::$item_prop_desc . '>' . $content . '</span>';
+
 			$content = self::format_content( $content, $widget_number, $atts );
 
 			if ( $char_limit ) {
@@ -979,12 +1001,6 @@ EOF;
 
 			$content = apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 			$content = make_clickable( $content );
-
-			$do_schema = tw_get_option( 'enable_schema' );
-			if ( $do_schema ) {
-				$item_prop_desc = 'itemprop="reviewBody"';
-				$content        = '<span ' . $item_prop_desc . '>' . $content . '</span>';
-			}
 
 			if ( empty( $use_quote_tag ) ) {
 				$quote  = '<blockquote>';
@@ -1002,26 +1018,29 @@ EOF;
 
 
 	public static function get_cite( $testimonial, $atts ) {
-		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
-		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
-		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
-		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
-		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
-		$use_quote_tag = $atts['use_quote_tag'];
+		$do_company        = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
+		$do_email          = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_location       = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
+		$do_schema         = $atts['enable_schema'];
+		$do_source         = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
+		$do_title          = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
+		$do_url            = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+		$item_reviewed     = $atts['item_reviewed'];
+		$item_reviewed_url = $atts['item_reviewed_url'];
+		$use_quote_tag     = $atts['use_quote_tag'];
 
 		$cite               = '';
 		$testimonial_source = $testimonial['testimonial_source'];
 
-		$do_schema = tw_get_option( 'enable_schema' );
 		if ( $do_schema ) {
-			$item_prop_author   = 'itemprop="author"';
-			$testimonial_source = '<span ' . $item_prop_author . '>' . $testimonial_source . '</span>';
+			$testimonial_source = '<span ' . self::$item_prop_author . '>' . $testimonial_source . '</span>';
 
-			$item_prop_date = '<meta itemprop="datePublished" content="%s">';
-			$post           = get_post( $testimonial['post_id'] );
-			$the_date       = mysql2date( 'Y-m-d', $post->post_date );
-			$cite          .= sprintf( $item_prop_date, $the_date );
+			$cite .= sprintf( self::$item_prop_item, $item_reviewed );
+			$cite .= sprintf( self::$item_prop_url, $item_reviewed_url );
+
+			$post     = get_post( $testimonial['post_id'] );
+			$the_date = mysql2date( 'Y-m-d', $post->post_date );
+			$cite    .= sprintf( self::$item_prop_date, $the_date );
 		}
 
 		$done_url = false;
