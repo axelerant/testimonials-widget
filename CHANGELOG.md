@@ -13,7 +13,9 @@
 * BUGFIX paging arrows not positioned correctly
 * BUGFIX single content not wrapped with review schema
 * Correct Review schema name usage
+* Default enable custom taxonomy 'show_admin_column'
 * Enable [rich snippets/structured data](http://wordpress.org/support/topic/lots-of-options-4?replies=3#post-4754108) per [review schema](http://schema.org/Review)
+* Remove default overrides for custom post type
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update examples
 * Update readme option ordering

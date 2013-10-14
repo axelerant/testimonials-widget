@@ -574,8 +574,6 @@ EOD;
 				'slug' => $rewrite_slug,
 				'with_front' => false,
 			),
-			'show_in_menu' => true,
-			'show_ui' => true,
 			'supports' => $supports,
 			'taxonomies' => $taxonomies,
 		);
@@ -592,10 +590,12 @@ EOD;
 	public static function register_taxonomies() {
 		$args = array(
 			'hierarchical' => true,
+			'show_admin_column' => true,
 		);
 		register_taxonomy( self::$cpt_category, self::PT, $args );
 
 		$args = array(
+			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
 		);
 		register_taxonomy( self::$cpt_tags, self::PT, $args );
