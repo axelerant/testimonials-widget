@@ -6,6 +6,7 @@
 * Add Review schema date modified
 * Add aggregate review data
 * Add item reviewed name and url to Review schema 
+* Add screenshot 19. Using Review and AggregateRating schema data structures
 * BUGFIX correct aggregrate total
 * BUGFIX missing space after itemprop="image"
 * BUGFIX paging arrows not positioned correctly
@@ -15,6 +16,7 @@
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update examples
 * Update readme option ordering
+* Update screenshots
 * Update verbiage
 * https jQuery transport
 
