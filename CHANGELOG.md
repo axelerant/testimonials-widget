@@ -8,6 +8,7 @@
 * Add item reviewed name and url to Review schema 
 * Add screenshot 19. Using Review and AggregateRating schema data structures
 * BUGFIX correct aggregate total
+* BUGFIX has_archive option network_site_url
 * BUGFIX missing space after itemprop="image"
 * BUGFIX paging arrows not positioned correctly
 * BUGFIX single content not wrapped with review schema
@@ -18,6 +19,7 @@
 * Update readme option ordering
 * Update screenshots
 * Update verbiage
+* Validate reviewed_item_url as url
 * https jQuery transport
 
 ## 2.13.6

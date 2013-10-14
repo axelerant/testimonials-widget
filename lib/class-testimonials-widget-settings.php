@@ -253,6 +253,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Reviewed Item URL?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'URL of thing being referenced in testimonials', 'testimonials-widget' ),
 			'std' => network_site_url(),
+			'validate' => 'url',
 		);
 
 		self::$settings['disable_quotes'] = array(
@@ -479,7 +480,7 @@ class Testimonials_Widget_Settings {
 
 		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
 		$has_archive = tw_get_option( 'has_archive', '' );
-		$site_url    = site_url( '/' . $has_archive . '/' );
+		$site_url    = network_site_url( '/' . $has_archive . '/' );
 
 		self::$settings['has_archive'] = array(
 			'section' => 'post_type',
