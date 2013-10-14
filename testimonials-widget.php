@@ -31,31 +31,38 @@ class Testimonials_Widget {
 	const VERSION     = '2.14.0-beta';
 
 	private static $base          = null;
+	private static $found_posts   = 0;
 	private static $max_num_pages = 0;
 	private static $post_count    = 0;
 	private static $wp_query      = null;
 
-	public static $cpt_category     = '';
-	public static $cpt_tags         = '';
-	public static $css              = array();
-	public static $css_called       = false;
-	public static $donate_button    = '';
-	public static $instance_number  = 0;
-	public static $instance_widget  = 0;
-	public static $item_prop_author = 'itemprop="author"';
-	public static $item_prop_date   = '<meta itemprop="datePublished" content="%s" />';
-	public static $item_prop_desc   = 'itemprop="reviewBody"';
-	public static $item_prop_image  = 'itemprop="image"';
-	public static $item_prop_item   = '<meta itemprop="itemReviewed" content="%s" />';
-	public static $item_prop_url    = '<meta itemprop="url" content="%s" />';
-	public static $item_scope       = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
-	public static $scripts          = array();
-	public static $scripts_called   = false;
-	public static $settings_link    = '';
-	public static $tag_close_quote  = '<span class="close-quote"></span>';
-	public static $tag_open_quote   = '<span class="open-quote"></span>';
-	public static $use_instance     = false;
-	public static $widget_number    = 100000;
+	public static $cpt_category    = '';
+	public static $cpt_tags        = '';
+	public static $css             = array();
+	public static $css_called      = false;
+	public static $donate_button   = '';
+	public static $instance_number = 0;
+	public static $instance_widget = 0;
+	public static $scripts         = array();
+	public static $scripts_called  = false;
+	public static $settings_link   = '';
+	public static $tag_close_quote = '<span class="close-quote"></span>';
+	public static $tag_open_quote  = '<span class="open-quote"></span>';
+	public static $use_instance    = false;
+	public static $widget_number   = 100000;
+
+	public static $agg_prop_count = '<meta itemprop="reviewCount" content="%s" />';
+	public static $agg_scope      = 'itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"';
+
+	public static $item_prop_author   = 'itemprop="author"';
+	public static $item_prop_date     = '<meta itemprop="datePublished" content="%s" />';
+	public static $item_prop_date_mod = '<meta itemprop="dateModified" content="%s" />';
+	public static $item_prop_desc     = 'itemprop="reviewBody"';
+	public static $item_prop_image    = 'itemprop="image"';
+	public static $item_prop_item     = '<meta itemprop="itemReviewed" content="%s" />';
+	public static $item_prop_name     = '<meta itemprop="name" content="%s" />';
+	public static $item_prop_url      = '<meta itemprop="url" content="%s" />';
+	public static $item_scope         = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
 
 
 	public function __construct() {
@@ -835,6 +842,7 @@ EOF;
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
+		$do_schema      = $atts['enable_schema'];
 		$hide_not_found = $atts['hide_not_found'];
 		$paging         = Testimonials_Widget_Settings::is_true( $atts['paging'] );
 		$paging_before  = ( 'before' === strtolower( $atts['paging'] ) );
@@ -864,6 +872,12 @@ EOF;
 
 		if ( $paging || $paging_before )
 			$html .= self::get_testimonials_paging( $atts );
+
+		if ( $do_schema ) {
+			$agg_count = sprintf( self::$agg_prop_count, self::$found_posts );
+			$agg_text  = '<div ' . self::$agg_scope . '>' . $agg_count . '</div>';
+			$html     .= $agg_text;
+		}
 
 		$is_first = true;
 
@@ -1035,12 +1049,19 @@ EOF;
 		if ( $do_schema ) {
 			$testimonial_source = '<span ' . self::$item_prop_author . '>' . $testimonial_source . '</span>';
 
+			$post_id        = $testimonial['post_id'];
+			$post_permalink = post_permalink( $post_id );
+
 			$cite .= sprintf( self::$item_prop_item, $item_reviewed );
+			$cite .= sprintf( self::$item_prop_name, $post_permalink );
 			$cite .= sprintf( self::$item_prop_url, $item_reviewed_url );
 
 			$post     = get_post( $testimonial['post_id'] );
 			$the_date = mysql2date( 'Y-m-d', $post->post_date );
 			$cite    .= sprintf( self::$item_prop_date, $the_date );
+
+			$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
+			$cite        .= sprintf( self::$item_prop_date_mod, $the_date_mod );
 		}
 
 		$done_url = false;
@@ -1489,6 +1510,7 @@ EOF;
 			remove_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) );
 
 		self::$max_num_pages = $testimonials->max_num_pages;
+		self::$found_posts   = $testimonials->found_posts;
 		self::$post_count    = $testimonials->post_count;
 		self::$wp_query      = $testimonials;
 
