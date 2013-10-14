@@ -7,7 +7,7 @@
 * Add aggregate review data
 * Add item reviewed name and url to Review schema 
 * Add screenshot 19. Using Review and AggregateRating schema data structures
-* BUGFIX correct aggregrate total
+* BUGFIX correct aggregate total
 * BUGFIX missing space after itemprop="image"
 * BUGFIX paging arrows not positioned correctly
 * BUGFIX single content not wrapped with review schema
