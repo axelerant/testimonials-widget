@@ -36,7 +36,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Capable of handling multiple widgets per page or post
 * Fields for source, testimonial, image, title, location, email, company and URL details
 * Multiple paging options for testimonials listings
-* Review schema.org microdata format for improved search engine results
+* Schema.org microdata format for improved search engine results
 * Settings export/import
 * Settings screen for site-wide option defaults
 * Shortcodes and theme functions for listings and rotation
@@ -69,6 +69,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Filters for caching and more link control, text replacement, and more
 * Form "Testimonial" header text is customizable to "Specials" or other terms
 * Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
+* Implements AggregateRating, Organization, Person, Place, Review, and Thing structured data 
 * Math-based CAPTCHA
 * Multiple anti-spam traps
 * Multiple user-entry forms on same page are allowed
@@ -76,7 +77,6 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
-* Review microdata format per schema.org
 * Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations slider
@@ -314,6 +314,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Notes =
 
+* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
 * Auto-migration from pre-2.0.0 custom table to new custom post type
 	* Company, URL and email details are attempted to be identified and placed properly
 	* Public testimonials are saved as Published. Non-public, are marked as Private.

@@ -1,6 +1,12 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Abstact schema generation
+* Add API filter testimonials_widget_schema
+* Add API filter testimonials_widget_schema_author
+* Add API filter testimonials_widget_schema_item
+* Add API filter testimonials_widget_schema_review
+* Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
 
 ## 2.14.0-beta
 * Add Review schema date modified

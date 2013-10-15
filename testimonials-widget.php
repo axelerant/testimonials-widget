@@ -51,18 +51,43 @@ class Testimonials_Widget {
 	public static $use_instance    = false;
 	public static $widget_number   = 100000;
 
-	public static $agg_prop_count = '<meta itemprop="reviewCount" content="%s" />';
-	public static $agg_scope      = 'itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"';
+	public static $agg_count  = 'reviewCount';
+	public static $agg_schema = 'http://schema.org/AggregateRating';
 
-	public static $item_prop_author   = 'itemprop="author"';
-	public static $item_prop_date     = '<meta itemprop="datePublished" content="%s" />';
-	public static $item_prop_date_mod = '<meta itemprop="dateModified" content="%s" />';
-	public static $item_prop_desc     = 'itemprop="reviewBody"';
-	public static $item_prop_image    = 'itemprop="image"';
-	public static $item_prop_item     = '<meta itemprop="itemReviewed" content="%s" />';
-	public static $item_prop_name     = '<meta itemprop="name" content="%s" />';
-	public static $item_prop_url      = '<meta itemprop="url" content="%s" />';
-	public static $item_scope         = 'itemprop="review" itemscope itemtype="http://schema.org/Review"';
+	public static $cw_author     = 'author';
+	public static $cw_date       = 'datePublished';
+	public static $cw_date_mod   = 'dateModified';
+	public static $cw_rating     = 'aggregateRating';
+	public static $cw_review     = 'review';
+	public static $cw_source_org = 'sourceOrganization';
+
+	public static $org_location = 'location';
+	public static $org_schema   = 'http://schema.org/Organization';
+
+	public static $person_email     = 'email';
+	public static $person_home      = 'homeLocation';
+	public static $person_job_title = 'jobTitle';
+	public static $person_schema    = 'http://schema.org/Person';
+	public static $person_member    = 'memberOf';
+
+	public static $place_schema = 'http://schema.org/Place';
+
+	public static $review_body   = 'reviewBody';
+	public static $review_item   = 'itemReviewed';
+	public static $review_schema = 'http://schema.org/Review';
+
+	public static $schema_div       = '<div itemscope itemtype="%1$s">%2$s</div>';
+	public static $schema_div_open  = '<div itemscope itemtype="%1$s">';
+	public static $schema_div_prop  = '<div itemprop="%1$s" itemscope itemtype="%2$s">%3$s</div>';
+	public static $schema_item_prop = 'itemprop="%1$s"';
+	public static $schema_meta      = '<meta itemprop="%1$s" content="%2$s" />';
+	public static $schema_span      = '<span itemprop="%1$s">%2$s</span>';
+	public static $schema_span_open = '<span itemprop="%1$s">';
+
+	public static $thing_image  = 'image';
+	public static $thing_name   = 'name';
+	public static $thing_schema = 'http://schema.org/Thing';
+	public static $thing_url    = 'url';
 
 
 	public function __construct() {
@@ -173,12 +198,12 @@ EOD;
 
 		$do_schema = $atts['enable_schema'];
 		if ( $do_schema )
-			$content = '<span ' . self::$item_prop_desc . '>' . $content . '</span>';
+			$content = sprintf( self::$schema_span, self::$review_body, $content );
 
 		$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
 		$text    = $content . $details;
 		if ( $do_schema )
-			$text = '<div ' . self::$item_scope . '>' . $text . '</div>';
+			$text = sprintf( self::$schema_div_prop, self::$cw_review, self::$review_schema, $text );
 
 		return $text;
 	}
@@ -874,8 +899,8 @@ EOF;
 			$html .= self::get_testimonials_paging( $atts );
 
 		if ( $do_schema ) {
-			$agg_count = sprintf( self::$agg_prop_count, self::$found_posts );
-			$agg_text  = '<div ' . self::$agg_scope . '>' . $agg_count . '</div>';
+			$agg_count = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
+			$agg_text  = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_count );
 			$html     .= $agg_text;
 		}
 
@@ -932,7 +957,7 @@ EOF;
 		$div_open = '<div class="' . $class . '">';
 
 		if ( $do_schema && $do_content )
-			$div_open .= '<div ' . self::$item_scope . '>';
+			$div_open .= sprintf( self::$schema_div_open, self::$review_schema );
 
 		if ( $remove_hentry )
 			$div_open = str_replace( ' hentry', '', $div_open );
@@ -941,7 +966,7 @@ EOF;
 		if ( $do_image ) {
 			$pic = $testimonial['testimonial_image'];
 			if ( $do_schema )
-				$pic = str_replace( '<img ', '<img ' . self::$item_prop_image . ' ', $pic );
+				$pic = str_replace( '<img ', '<img ' . sprintf( self::$schema_item_prop, self::$thing_image ) . ' ', $pic );
 
 			$image .= '<span class="image">';
 			$image .= $pic;
@@ -953,6 +978,12 @@ EOF;
 
 		$quote = self::get_quote( $testimonial, $atts, $widget_number );
 		$cite  = self::get_cite( $testimonial, $atts );
+
+		$schema = '';
+		if ( $do_schema ) {
+			$schema = self::get_schema( $testimonial, $atts );
+			$cite  .= $schema;
+		}
 
 		$extra = '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
@@ -1004,7 +1035,7 @@ EOF;
 		if ( $do_content ) {
 			$content = $testimonial['testimonial_content'];
 			if ( $do_schema )
-				$content = '<span ' . self::$item_prop_desc . '>' . $content . '</span>';
+				$content = sprintf( self::$schema_span, self::$review_body, $content );
 
 			$content = self::format_content( $content, $widget_number, $atts );
 
@@ -1032,42 +1063,27 @@ EOF;
 
 
 	public static function get_cite( $testimonial, $atts ) {
-		$do_company        = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
-		$do_email          = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-		$do_location       = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
-		$do_schema         = $atts['enable_schema'];
-		$do_source         = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
-		$do_title          = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
-		$do_url            = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
-		$item_reviewed     = $atts['item_reviewed'];
-		$item_reviewed_url = $atts['item_reviewed_url'];
-		$use_quote_tag     = $atts['use_quote_tag'];
+		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
+		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
+		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
+		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
+		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+		$use_quote_tag = $atts['use_quote_tag'];
 
-		$cite               = '';
-		$testimonial_source = $testimonial['testimonial_source'];
+		$testimonial_company  = $testimonial['testimonial_company'];
+		$testimonial_email    = $testimonial['testimonial_email'];
+		$testimonial_location = $testimonial['testimonial_location'];
+		$testimonial_source   = $testimonial['testimonial_source'];
+		$testimonial_title    = $testimonial['testimonial_title'];
+		$testimonial_url      = $testimonial['testimonial_url'];
 
-		if ( $do_schema ) {
-			$testimonial_source = '<span ' . self::$item_prop_author . '>' . $testimonial_source . '</span>';
-
-			$post_id        = $testimonial['post_id'];
-			$post_permalink = post_permalink( $post_id );
-
-			$cite .= sprintf( self::$item_prop_item, $item_reviewed );
-			$cite .= sprintf( self::$item_prop_name, $post_permalink );
-			$cite .= sprintf( self::$item_prop_url, $item_reviewed_url );
-
-			$post     = get_post( $testimonial['post_id'] );
-			$the_date = mysql2date( 'Y-m-d', $post->post_date );
-			$cite    .= sprintf( self::$item_prop_date, $the_date );
-
-			$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
-			$cite        .= sprintf( self::$item_prop_date_mod, $the_date_mod );
-		}
+		$cite = '';
 
 		$done_url = false;
 		if ( $do_source && $do_email ) {
 			$cite .= '<span class="author">';
-			$cite .= '<a href="mailto:' . $testimonial['testimonial_email'] . '">';
+			$cite .= '<a href="mailto:' . $testimonial_email . '">';
 			$cite .= $testimonial_source;
 			$cite .= '</a>';
 			$cite .= '</span>';
@@ -1075,7 +1091,7 @@ EOF;
 			$done_url = true;
 
 			$cite .= '<span class="author">';
-			$cite .= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
+			$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
 			$cite .= $testimonial_source;
 			$cite .= '</a>';
 			$cite .= '</span>';
@@ -1085,7 +1101,7 @@ EOF;
 			$cite .= '</span>';
 		} elseif ( $do_email ) {
 			$cite .= '<span class="email">';
-			$cite .= make_clickable( $testimonial['testimonial_email'] );
+			$cite .= make_clickable( $testimonial_email );
 			$cite .= '</span>';
 		}
 
@@ -1094,7 +1110,7 @@ EOF;
 
 		if ( $do_title ) {
 			$cite .= '<span class="title">';
-			$cite .= $testimonial['testimonial_title'];
+			$cite .= $testimonial_title;
 			$cite .= '</span>';
 		}
 
@@ -1103,7 +1119,7 @@ EOF;
 
 		if ( $do_location ) {
 			$cite .= '<span class="location">';
-			$cite .= $testimonial['testimonial_location'];
+			$cite .= $testimonial_location;
 			$cite .= '</span>';
 		}
 
@@ -1112,17 +1128,17 @@ EOF;
 
 		if ( $do_company && $do_url ) {
 			$cite .= '<span class="company">';
-			$cite .= '<a href="' . $testimonial['testimonial_url'] . '" rel="nofollow">';
-			$cite .= $testimonial['testimonial_company'];
+			$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
+			$cite .= $testimonial_company;
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_company ) {
 			$cite .= '<span class="company">';
-			$cite .= $testimonial['testimonial_company'];
+			$cite .= $testimonial_company;
 			$cite .= '</span>';
 		} elseif ( $do_url && ! $done_url ) {
 			$cite .= '<span class="url">';
-			$cite .= make_clickable( $testimonial['testimonial_url'] );
+			$cite .= make_clickable( $testimonial_url );
 			$cite .= '</span>';
 		}
 
@@ -1723,6 +1739,94 @@ EOF;
 			$result = sprintf( $content, Testimonials_Widget::PT, $count_f, $name, '', '' );
 
 		echo $result;
+	}
+
+
+	public static function get_schema( $testimonial, $atts ) {
+		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
+		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_location = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
+		$do_source   = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
+		$do_title    = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
+		$do_url      = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+
+		$testimonial_company  = $testimonial['testimonial_company'];
+		$testimonial_email    = $testimonial['testimonial_email'];
+		$testimonial_location = $testimonial['testimonial_location'];
+		$testimonial_source   = $testimonial['testimonial_source'];
+		$testimonial_title    = $testimonial['testimonial_title'];
+		$testimonial_url      = $testimonial['testimonial_url'];
+
+		$item_reviewed     = $atts['item_reviewed'];
+		$item_reviewed_url = $atts['item_reviewed_url'];
+
+		$author = '';
+		$item   = '';
+		$org    = '';
+		$review = '';
+		$schema = '';
+
+		if ( $do_source )
+			$author .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_source );
+
+		if ( $do_title )
+			$author .= sprintf( self::$schema_meta, self::$person_job_title, $testimonial_title );
+
+		if ( $do_email )
+			$author .= sprintf( self::$schema_meta, self::$person_email, $testimonial_email );
+
+		if ( ! $do_company ) {
+			if ( $do_url )
+				$author .= sprintf( self::$schema_meta, self::$thing_url, $testimonial_url );
+		} else {
+			if ( $do_url )
+				$org .= sprintf( self::$schema_meta, self::$thing_url, $testimonial_url );
+
+			$org .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_company );
+		}
+
+		if ( $do_location ) {
+			$location = sprintf( self::$schema_meta, self::$thing_name, $testimonial_location );
+
+			if ( ! $do_company )
+				$author .= sprintf( self::$schema_div_prop, self::$person_home, self::$place_schema, $location );
+			else
+				$org .= sprintf( self::$schema_div_prop, self::$org_location, self::$place_schema, $location );
+		}
+
+		if ( $author && $org )
+			$org = sprintf( self::$schema_div_prop, self::$person_member, self::$org_schema, $org );
+		elseif ( $org )
+			$org = sprintf( self::$schema_div_prop, self::$cw_source_org, self::$org_schema, $org );
+
+		$author = sprintf( self::$schema_div_prop, self::$cw_author, self::$person_schema, $author . $org );
+		$author = apply_filters( 'testimonials_widget_schema_author', $author, $testimonial, $atts );
+
+		$schema .= $author;
+
+		$post     = get_post( $testimonial['post_id'] );
+		$the_date = mysql2date( 'Y-m-d', $post->post_date );
+		$review  .= sprintf( self::$schema_meta, self::$cw_date, $the_date );
+
+		$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
+		$review      .= sprintf( self::$schema_meta, self::$cw_date_mod, $the_date_mod );
+
+		$review .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_source );
+		$review .= sprintf( self::$schema_meta, self::$thing_url, post_permalink( $post->ID ) );
+		$review  = apply_filters( 'testimonials_widget_schema_review', $review, $testimonial, $atts );
+
+		$schema .= $review;
+
+		$item .= sprintf( self::$schema_meta, self::$thing_name, $item_reviewed );
+		$item .= sprintf( self::$schema_meta, self::$thing_url, $item_reviewed_url );
+		$item  = sprintf( self::$schema_div_prop, self::$review_item, self::$thing_schema, $item );
+		$item  = apply_filters( 'testimonials_widget_schema_item', $item, $testimonial, $atts );
+
+		$schema .= $item;
+
+		$schema = apply_filters( 'testimonials_widget_schema', $schema, $testimonial, $atts );
+
+		return $schema;
 	}
 
 
