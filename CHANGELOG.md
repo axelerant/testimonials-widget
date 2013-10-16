@@ -6,7 +6,11 @@
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
+* BUGFIX animation transitions aren't smooth
+* Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
+* Remove `refresh_interval=0`'s automatic setting of `limit=1`
+* Update FAQ
 
 ## 2.14.0-beta
 * Add Review schema date modified

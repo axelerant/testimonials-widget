@@ -808,21 +808,16 @@ EOF;
 		if ( $disable_animation || $height || $max_height || $min_height )
 			$enable_animation = 0;
 
-		if ( $refresh_interval && 1 < count( $testimonials ) ) {
-			$javascript = <<<EOF
-<script type="text/javascript">
-if ( {$enable_animation} ) {
-	var {$tw_wrapper} = jQuery('.{$id_base}');
-	// tw_padding is the difference in height to take into account all styling options
-	var {$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget').height();
-	// fixes first animation by defining height to adjust to
-	{$tw_wrapper}.height( {$tw_wrapper}.height() );
-}
+		$javascript = '';
+		if ( 1 < count( $testimonials ) ) {
+			$javascript .= '<script type="text/javascript">';
 
+			if ( $refresh_interval ) {
+				$javascript .= <<<EOF
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
-		var active = jQuery('.{$id_base} .active');
-		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
+		active = jQuery('.{$id_base} .active');
+		next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
 
 		active.fadeOut({$fade_out_speed}, function(){
 			active.removeClass('active');
@@ -832,10 +827,9 @@ function nextTestimonial{$widget_number}() {
 
 			{INTERNAL_SCRIPTS}
 
-			if ( {$enable_animation} ) {
-				// added padding
+			// added padding
+			if ( {$enable_animation} )
 				{$tw_wrapper}.animate({ height: next.height() + {$tw_padding} });
-			}
 		});
 	}
 }
@@ -846,8 +840,25 @@ jQuery(document).ready(function(){
 	}, function() {
 		jQuery(this).removeClass('hovered')
 	});
+
 	nextTestimonial{$widget_number}interval = setInterval('nextTestimonial{$widget_number}()', {$refresh_interval} * 1000);
 });
+EOF;
+			}
+
+			$javascript .= <<<EOF
+if ( {$enable_animation} ) {
+	var {$tw_wrapper} = jQuery('.{$id_base}');
+	var {$tw_padding} = 0;
+
+	jQuery(document).ready(function(){
+		// tw_padding is the difference in height to take into account all styling options
+		{$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget-testimonial').height();
+
+		// fixes first animation by defining height to adjust to
+		{$tw_wrapper}.height( {$tw_wrapper}.height() );
+	});
+}
 </script>
 EOF;
 
@@ -1422,9 +1433,6 @@ EOF;
 			$orderby = 'rand';
 			$order   = false;
 		}
-
-		if ( ! empty( $type ) && 'testimonialswidget_widget' == $type && empty( $refresh_interval ) )
-			$limit = 1;
 
 		$args = array(
 			'orderby' => $orderby,
