@@ -1541,8 +1541,15 @@ EOF;
 
 		wp_reset_postdata();
 
-		$image_size    = apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
-		$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', 96 );
+		$image_size = apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
+
+		global $_wp_additional_image_sizes;
+		if ( ! empty( $_wp_additional_image_sizes[ $image_size ] ) )
+			$gravatar_size = $_wp_additional_image_sizes[ $image_size ]['width'];
+		else
+			$gravatar_size = get_option( $image_size . '_size_w' );
+	
+		$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $gravatar_size );
 
 		$testimonial_data = array();
 

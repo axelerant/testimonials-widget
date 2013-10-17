@@ -319,8 +319,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* Company, URL and email details are attempted to be identified and placed properly
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
-* Default image size is based upon Thumbnail size in Media Settings 
-* Gravatar image is configured in the Avatar section of Discussion Settings
+* Default and Gravatar image size is based upon Thumbnail size in Media Settings
 * When plugin is uninstalled, all data and settings are deleted
 
 = Languages =
@@ -414,6 +413,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 2.14.0-beta =
 
+* Gravatar image size now based upon Thumbnail size in Media Settings
 * Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 
 = 2.13.6 =
