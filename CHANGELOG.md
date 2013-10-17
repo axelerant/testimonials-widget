@@ -23,6 +23,7 @@
 * Refactor Review schema handling with easier API use
 * Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
 * Update FAQ
+* Update TODO
 * [Load scripts and stylesheets only on Testimonials Page](http://wordpress.org/support/topic/load-scripts-and-stylesheets-only-on-testimonials-page)
 
 ## 2.14.0-beta
