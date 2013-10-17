@@ -1558,16 +1558,14 @@ EOF;
 
 		foreach ( $testimonials->posts as $row ) {
 			$post_id = $row->ID;
+			$email   = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-			$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
-
-			if ( has_post_thumbnail( $post_id ) ) {
+			if ( has_post_thumbnail( $post_id ) )
 				$image = get_the_post_thumbnail( $post_id, $image_size );
-			} elseif ( ! $hide_gravatar && is_email( $email ) ) {
+			elseif ( ! $hide_gravatar && is_email( $email ) )
 				$image = get_avatar( $email, $gravatar_size );
-			} else {
+			else
 				$image = false;
-			}
 
 			$url = get_post_meta( $post_id, 'testimonials-widget-url', true );
 			if ( ! empty( $url ) && 0 === preg_match( '#https?://#', $url ) )
