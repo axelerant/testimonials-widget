@@ -923,12 +923,6 @@ EOF;
 		if ( $paging || $paging_after )
 			$html .= self::get_testimonials_paging( $atts, false );
 
-		if ( $do_schema ) {
-			$agg_count = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
-			$agg_text  = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_count );
-			$html     .= $agg_text;
-		}
-
 		$html .= '</div>';
 
 		return $html;
@@ -1768,11 +1762,12 @@ EOF;
 		$item_reviewed     = $atts['item_reviewed'];
 		$item_reviewed_url = $atts['item_reviewed_url'];
 
-		$author = '';
-		$item   = '';
-		$org    = '';
-		$review = '';
-		$schema = '';
+		$author     = '';
+		$agg_rating = '';
+		$item       = '';
+		$org        = '';
+		$review     = '';
+		$schema     = '';
 
 		if ( $do_source )
 			$author .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_source );
@@ -1824,6 +1819,12 @@ EOF;
 		$review  = apply_filters( 'testimonials_widget_schema_review', $review, $testimonial, $atts );
 
 		$schema .= $review;
+
+		$agg_rating = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
+		$agg_rating = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_rating );
+		$agg_rating = apply_filters( 'testimonials_widget_schema_agg_rating', $agg_rating, $testimonial, $atts );
+
+		$schema .= $agg_rating;
 
 		$item .= sprintf( self::$schema_meta, self::$thing_name, $item_reviewed );
 		$item .= sprintf( self::$schema_meta, self::$thing_url, $item_reviewed_url );

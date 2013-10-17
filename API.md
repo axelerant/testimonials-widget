@@ -84,6 +84,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Customize schema review meta contents.
 
+* `testimonials_widget_schema_agg_rating`
+
+	Customize schema aggregate rating for item.
+
 * `testimonials_widget_schema_author`
 
 	Customize schema author contents.

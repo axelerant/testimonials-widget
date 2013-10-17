@@ -3,6 +3,7 @@
 ## master
 * Abstact schema generation
 * Add API filter testimonials_widget_schema
+* Add API filter testimonials_widget_schema_agg_rating
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
