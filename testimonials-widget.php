@@ -182,6 +182,8 @@ EOD;
 		if ( ! is_single() || self::PT != $post->post_type )
 			return $content;
 
+		self::styles();
+
 		$atts                 = self::get_defaults( true );
 		$atts['hide_content'] = 1;
 		$atts['ids']          = $post->ID;
@@ -1877,8 +1879,12 @@ EOF;
 		if ( empty( $meta_data ) )
 			return $meta;
 
-		foreach ( $meta_data as $key => $value )
-			$meta .= sprintf( self::$schema_meta, $key, $value );
+		foreach ( $meta_data as $key => $value ) {
+			if ( is_array( $value ) )
+				$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
+			else
+				$meta .= sprintf( self::$schema_meta, $key, $value );
+		}
 
 		return $meta;
 	}

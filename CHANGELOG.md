@@ -14,7 +14,9 @@
 * BUGFIX aggregate data prevents testimonials from recycling
 * BUGFIX animation transitions aren't smooth
 * BUGFIX gravatar size not based upon image size
+* BUGFIX schema meta method doesn't handle schema property wrapping
 * BUGFIX single view doesn't support caching
+* BUGFIX styles not included for `get_single`
 * CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
