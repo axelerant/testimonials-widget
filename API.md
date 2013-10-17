@@ -10,7 +10,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `testimonials_widget_scripts`
 
-	Made additional `wp_register_script` and `wp_enqueue_script` calls as needed.
+	Make additional `wp_register_script` and `wp_enqueue_script` calls as needed.
+
+* `testimonials_widget_styles`
+
+	Make additional `wp_register_style` and `wp_enqueue_style` calls as needed.
 
 ## Filters
 

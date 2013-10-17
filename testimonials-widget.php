@@ -130,7 +130,6 @@ EOD;
 		self::$cpt_category = self::PT . '-category';
 		self::$cpt_tags     = self::PT . '-post_tag';
 		self::init_post_type();
-		self::styles();
 	}
 
 
@@ -642,6 +641,7 @@ EOD;
 
 	public function testimonialswidget_list( $atts ) {
 		self::add_instance();
+		self::styles();
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
@@ -677,6 +677,7 @@ EOD;
 		}
 
 		self::set_instance( $widget_number );
+		self::styles();
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
@@ -742,14 +743,16 @@ EOD;
 		if ( is_admin() )
 			return;
 
-		wp_register_style( 'testimonials-widget', plugins_url( 'testimonials-widget.css', __FILE__ ) );
-		wp_enqueue_style( 'testimonials-widget' );
+		wp_register_style( __CLASS__, plugins_url( 'testimonials-widget.css', __FILE__ ) );
+		wp_enqueue_style( __CLASS__ );
 
 		$include_ie7_css = tw_get_option( 'include_ie7_css' );
 		if ( $include_ie7_css ) {
-			wp_register_style( 'testimonials-widget-ie7', plugins_url( 'testimonials-widget-ie7.css', __FILE__ ) );
-			wp_enqueue_style( 'testimonials-widget-ie7' );
+			wp_register_style( __CLASS__ . '-ie7', plugins_url( 'testimonials-widget-ie7.css', __FILE__ ) );
+			wp_enqueue_style( __CLASS__ . '-ie7' );
 		}
+
+		do_action( 'testimonials_widget_styles' );
 	}
 
 

@@ -414,6 +414,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 2.14.0-beta =
 
+* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Gravatar image size now based upon Thumbnail size in Media Settings
 * Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 
