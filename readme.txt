@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.4
 Tested up to: 3.6.1
-Stable tag: 2.14.0-beta
+Stable tag: 2.14.0-charlie
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -412,7 +412,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
-= 2.14.0-beta =
+= 2.14.0-charlie =
 
 * CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Gravatar image size now based upon Thumbnail size in Media Settings

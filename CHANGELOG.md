@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.14.0-charlie
 * Abstact schema generation
 * Add API action testimonials_widget_styles
 * Add API action testimonials_widget_update
