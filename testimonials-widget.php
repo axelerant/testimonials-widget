@@ -810,7 +810,7 @@ EOF;
 
 		$javascript = '';
 		if ( 1 < count( $testimonials ) ) {
-			$javascript .= '<script type="text/javascript">';
+			$javascript .= '<script type="text/javascript">' . "\n";
 
 			if ( $refresh_interval ) {
 				$javascript .= <<<EOF
@@ -819,7 +819,7 @@ function nextTestimonial{$widget_number}() {
 		active = jQuery('.{$id_base} .active');
 		next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
 
-		active.fadeOut({$fade_out_speed}, function(){
+		active.fadeOut({$fade_out_speed}, function() {
 			active.removeClass('active');
 			next.fadeIn({$fade_in_speed});
 			next.removeClass('display-none');
@@ -834,7 +834,7 @@ function nextTestimonial{$widget_number}() {
 	}
 }
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function() {
 	jQuery('.{$id_base}').hover(function() {
 		jQuery(this).addClass('hovered')
 	}, function() {
@@ -851,7 +851,7 @@ if ( {$enable_animation} ) {
 	var {$tw_wrapper} = jQuery('.{$id_base}');
 	var {$tw_padding} = 0;
 
-	jQuery(document).ready(function(){
+	jQuery(document).ready(function() {
 		// tw_padding is the difference in height to take into account all styling options
 		{$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget-testimonial').height();
 
@@ -909,12 +909,6 @@ EOF;
 		if ( $paging || $paging_before )
 			$html .= self::get_testimonials_paging( $atts );
 
-		if ( $do_schema ) {
-			$agg_count = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
-			$agg_text  = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_count );
-			$html     .= $agg_text;
-		}
-
 		$is_first = true;
 
 		foreach ( $testimonials as $testimonial ) {
@@ -928,6 +922,12 @@ EOF;
 
 		if ( $paging || $paging_after )
 			$html .= self::get_testimonials_paging( $atts, false );
+
+		if ( $do_schema ) {
+			$agg_count = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
+			$agg_text  = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_count );
+			$html     .= $agg_text;
+		}
 
 		$html .= '</div>';
 

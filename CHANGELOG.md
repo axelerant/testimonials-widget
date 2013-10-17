@@ -6,6 +6,7 @@
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
+* BUGFIX aggregate data prevents testimonails from recycling
 * BUGFIX animation transitions aren't smooth
 * Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
