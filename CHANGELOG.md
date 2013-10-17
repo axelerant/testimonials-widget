@@ -7,6 +7,7 @@
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
+* BUGFIX Single view doesn't support caching
 * BUGFIX aggregate data prevents testimonials from recycling
 * BUGFIX animation transitions aren't smooth
 * Clean up JavaScript

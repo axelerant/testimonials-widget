@@ -190,20 +190,27 @@ EOD;
 		$atts['ids']          = $post->ID;
 		$atts['type']         = 'get_single';
 
-		$testimonials = self::get_testimonials( $atts );
-		$testimonial  = $testimonials[0];
+		$text = apply_filters( 'testimonials_widget_cache_get', false, $atts );
 
-		$details = self::get_testimonial_html( $testimonial, $atts );
-		$details = apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
+		if ( false === $text ) {
+			$testimonials = self::get_testimonials( $atts );
+			$testimonial  = $testimonials[0];
 
-		$do_schema = $atts['enable_schema'];
-		if ( $do_schema )
-			$content = sprintf( self::$schema_span, self::$review_body, $content );
+			$details = self::get_testimonial_html( $testimonial, $atts );
+			$details = apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
 
-		$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
-		$text    = $content . $details;
-		if ( $do_schema )
-			$text = sprintf( self::$schema_div_prop, self::$cw_review, self::$review_schema, $text );
+			$do_schema = $atts['enable_schema'];
+			if ( $do_schema )
+				$content = sprintf( self::$schema_span, self::$review_body, $content );
+
+			$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
+
+			$text = $content . $details;
+			if ( $do_schema )
+				$text = sprintf( self::$schema_div_prop, self::$cw_review, self::$review_schema, $text );
+
+			$text = apply_filters( 'testimonials_widget_cache_set', $text, $atts );
+		}
 
 		return $text;
 	}
