@@ -57,7 +57,7 @@ class Testimonials_Widget {
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
 	public static $cw_date_mod   = 'dateModified';
-	public static $cw_rating     = 'aggregateRating';
+	public static $cw_aggregate  = 'aggregateRating';
 	public static $cw_review     = 'review';
 	public static $cw_source_org = 'sourceOrganization';
 
@@ -76,13 +76,11 @@ class Testimonials_Widget {
 	public static $review_item   = 'itemReviewed';
 	public static $review_schema = 'http://schema.org/Review';
 
-	public static $schema_div       = '<div itemscope itemtype="%1$s">%2$s</div>';
 	public static $schema_div_open  = '<div itemscope itemtype="%1$s">';
 	public static $schema_div_prop  = '<div itemprop="%1$s" itemscope itemtype="%2$s">%3$s</div>';
 	public static $schema_item_prop = 'itemprop="%1$s"';
 	public static $schema_meta      = '<meta itemprop="%1$s" content="%2$s" />';
 	public static $schema_span      = '<span itemprop="%1$s">%2$s</span>';
-	public static $schema_span_open = '<span itemprop="%1$s">';
 
 	public static $thing_image  = 'image';
 	public static $thing_name   = 'name';
@@ -201,13 +199,13 @@ EOD;
 
 			$do_schema = $atts['enable_schema'];
 			if ( $do_schema )
-				$content = sprintf( self::$schema_span, self::$review_body, $content );
+				$content = self::create_schema_span( self::$review_body, $content );
 
 			$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
 
 			$text = $content . $details;
 			if ( $do_schema )
-				$text = sprintf( self::$schema_div_prop, self::$cw_review, self::$review_schema, $text );
+				$text = self::create_schema_div_prop( self::$cw_review, self::$review_schema, $text );
 
 			$text = apply_filters( 'testimonials_widget_cache_set', $text, $atts );
 		}
@@ -885,7 +883,6 @@ EOF;
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
 		// display attributes
-		$do_schema      = $atts['enable_schema'];
 		$hide_not_found = $atts['hide_not_found'];
 		$paging         = Testimonials_Widget_Settings::is_true( $atts['paging'] );
 		$paging_before  = ( 'before' === strtolower( $atts['paging'] ) );
@@ -1047,7 +1044,7 @@ EOF;
 		if ( $do_content ) {
 			$content = $testimonial['testimonial_content'];
 			if ( $do_schema )
-				$content = sprintf( self::$schema_span, self::$review_body, $content );
+				$content = self::create_schema_span( self::$review_body, $content );
 
 			$content = self::format_content( $content, $widget_number, $atts );
 
@@ -1518,6 +1515,9 @@ EOF;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.LongVariable)
+	 */
 	public static function get_testimonials( $atts ) {
 		$hide_gravatar = $atts['hide_gravatar'];
 
@@ -1548,7 +1548,7 @@ EOF;
 			$gravatar_size = $_wp_additional_image_sizes[ $image_size ]['width'];
 		else
 			$gravatar_size = get_option( $image_size . '_size_w' );
-	
+
 		$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $gravatar_size );
 
 		$testimonial_data = array();
@@ -1765,6 +1765,7 @@ EOF;
 		$do_url      = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
 
 		$testimonial_company  = $testimonial['testimonial_company'];
+		$testimonial_content  = $testimonial['testimonial_content'];
 		$testimonial_email    = $testimonial['testimonial_email'];
 		$testimonial_location = $testimonial['testimonial_location'];
 		$testimonial_source   = $testimonial['testimonial_source'];
@@ -1774,78 +1775,127 @@ EOF;
 		$item_reviewed     = $atts['item_reviewed'];
 		$item_reviewed_url = $atts['item_reviewed_url'];
 
-		$author     = '';
-		$agg_rating = '';
-		$item       = '';
-		$org        = '';
-		$review     = '';
-		$schema     = '';
+		$schema = '';
+
+		$agg_meta      = array();
+		$author_meta   = array();
+		$item_meta     = array();
+		$location_meta = array();
+		$org_meta      = array();
+		$review_meta   = array();
 
 		if ( $do_source )
-			$author .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_source );
+			$author_meta[ self::$thing_name ] = $testimonial_source;
 
 		if ( $do_title )
-			$author .= sprintf( self::$schema_meta, self::$person_job_title, $testimonial_title );
+			$author_meta[ self::$person_job_title ] = $testimonial_title;
 
 		if ( $do_email )
-			$author .= sprintf( self::$schema_meta, self::$person_email, $testimonial_email );
+			$author_meta[ self::$person_email ] = $testimonial_email;
 
 		if ( ! $do_company ) {
 			if ( $do_url )
-				$author .= sprintf( self::$schema_meta, self::$thing_url, $testimonial_url );
+				$author_meta[ self::$thing_url ] = $testimonial_url;
 		} else {
 			if ( $do_url )
-				$org .= sprintf( self::$schema_meta, self::$thing_url, $testimonial_url );
+				$org_meta[ self::$thing_url ] = $testimonial_url;
 
-			$org .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_company );
+			$org_meta[ self::$thing_name ] = $testimonial_company;
 		}
 
 		if ( $do_location ) {
-			$location = sprintf( self::$schema_meta, self::$thing_name, $testimonial_location );
+			$location_meta[ self::$thing_name ] = $testimonial_location;
 
 			if ( ! $do_company )
-				$author .= sprintf( self::$schema_div_prop, self::$person_home, self::$place_schema, $location );
+				$author_meta[ self::$person_home ] = array( self::$place_schema, $location_meta );
 			else
-				$org .= sprintf( self::$schema_div_prop, self::$org_location, self::$place_schema, $location );
+				$org_meta[ self::$org_location ] = array( self::$place_schema, $location_meta );
 		}
 
-		if ( $author && $org )
-			$org = sprintf( self::$schema_div_prop, self::$person_member, self::$org_schema, $org );
-		elseif ( $org )
-			$org = sprintf( self::$schema_div_prop, self::$cw_source_org, self::$org_schema, $org );
+		if ( ! empty( $author_meta ) && ! empty( $org_meta ) )
+			$author_meta[ self::$person_member ] = array( self::$org_schema, $org_meta );
+		elseif ( ! empty( $org_meta ) )
+			$author_meta[ self::$cw_source_org ] = array( self::$org_schema, $org_meta );
 
-		$author = sprintf( self::$schema_div_prop, self::$cw_author, self::$person_schema, $author . $org );
-		$author = apply_filters( 'testimonials_widget_schema_author', $author, $testimonial, $atts );
+		$author_meta = apply_filters( 'testimonials_widget_schema_author', $author_meta, $testimonial, $atts );
+		$author      = self::create_schema_div_prop( self::$cw_author, self::$person_schema, $author_meta );
+		$schema     .= $author;
 
-		$schema .= $author;
-
-		$post     = get_post( $testimonial['post_id'] );
-		$the_date = mysql2date( 'Y-m-d', $post->post_date );
-		$review  .= sprintf( self::$schema_meta, self::$cw_date, $the_date );
-
+		$post         = get_post( $testimonial['post_id'] );
+		$the_date     = mysql2date( 'Y-m-d', $post->post_date );
 		$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
-		$review      .= sprintf( self::$schema_meta, self::$cw_date_mod, $the_date_mod );
 
-		$review .= sprintf( self::$schema_meta, self::$thing_name, $testimonial_source );
-		$review .= sprintf( self::$schema_meta, self::$thing_url, post_permalink( $post->ID ) );
-		$review  = apply_filters( 'testimonials_widget_schema_review', $review, $testimonial, $atts );
+		$review_meta[ self::$cw_date ]     = $the_date;
+		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
+		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, 70 );
+		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
 
-		$schema .= $review;
+		$review_meta = apply_filters( 'testimonials_widget_schema_review', $review_meta, $testimonial, $atts );
+		$review      = self::create_schema_meta( $review_meta );
+		$schema     .= $review;
 
-		$agg_rating = sprintf( self::$schema_meta, self::$agg_count, self::$found_posts );
-		$agg_rating = sprintf( self::$schema_div_prop, self::$cw_rating, self::$agg_schema, $agg_rating );
-		$agg_rating = apply_filters( 'testimonials_widget_schema_agg_rating', $agg_rating, $testimonial, $atts );
+		$agg_meta[ self::$agg_count ] = self::$found_posts;
 
-		$schema .= $agg_rating;
+		$agg_meta  = apply_filters( 'testimonials_widget_schema_aggregate', $agg_meta, $testimonial, $atts );
+		$aggregate = self::create_schema_div_prop( self::$cw_aggregate, self::$agg_schema, $agg_meta );
+		$schema   .= $aggregate;
 
-		$item .= sprintf( self::$schema_meta, self::$thing_name, $item_reviewed );
-		$item .= sprintf( self::$schema_meta, self::$thing_url, $item_reviewed_url );
-		$item  = sprintf( self::$schema_div_prop, self::$review_item, self::$thing_schema, $item );
-		$item  = apply_filters( 'testimonials_widget_schema_item', $item, $testimonial, $atts );
+		$item_meta[ self::$thing_name ] = $item_reviewed;
+		$item_meta[ self::$thing_url ]  = $item_reviewed_url;
 
-		$schema .= $item;
+		$item_meta = apply_filters( 'testimonials_widget_schema_item', $item_meta, $testimonial, $atts );
+		$item      = self::create_schema_div_prop( self::$review_item, self::$thing_schema, $item_meta );
+		$schema   .= $item;
 
 		$schema = apply_filters( 'testimonials_widget_schema', $schema, $testimonial, $atts );
+
+		return $schema;
+	}
+
+
+	public static function create_schema_meta( $meta_data ) {
+		$meta = '';
+
+		if ( empty( $meta_data ) )
+			return $meta;
+
+		foreach ( $meta_data as $key => $value )
+			$meta .= sprintf( self::$schema_meta, $key, $value );
+
+		return $meta;
+	}
+
+
+	public static function create_schema_span( $property_name, $span_data ) {
+		$span = '';
+
+		if ( empty( $span_data ) )
+			return $span;
+
+		$span = sprintf( self::$schema_span, $property_name, $span_data );
+
+		return $span;
+	}
+
+
+	public static function create_schema_div_prop( $property_name, $schema_name, $meta_data ) {
+		$meta   = '';
+		$schema = '';
+
+		if ( empty( $meta_data ) )
+			return $schema;
+
+		if ( is_array( $meta_data ) ) {
+			foreach ( $meta_data as $key => $value ) {
+				if ( is_array( $value ) )
+					$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
+				else
+					$meta .= sprintf( self::$schema_meta, $key, $value );
+			}
+
+			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta );
+		} else
+			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta_data );
 
 		return $schema;
 	}

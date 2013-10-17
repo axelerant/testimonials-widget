@@ -13,6 +13,7 @@
 * BUGFIX animation transitions aren't smooth
 * Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
+* Refactor Review schema handling with easier API use
 * Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
 * Update FAQ
 
