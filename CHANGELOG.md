@@ -18,6 +18,7 @@
 * CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
+* Move Review schema image to `get_schema`
 * Prevent `has_archive` and `rewrite_slug` matching existing slugs and same
 * Refactor Review schema handling with easier API use
 * Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp

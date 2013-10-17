@@ -980,8 +980,6 @@ EOF;
 		$image = '';
 		if ( $do_image ) {
 			$pic = $testimonial['testimonial_image'];
-			if ( $do_schema )
-				$pic = str_replace( '<img ', '<img ' . sprintf( self::$schema_item_prop, self::$thing_image ) . ' ', $pic );
 
 			$image .= '<span class="image">';
 			$image .= $pic;
@@ -994,7 +992,6 @@ EOF;
 		$quote = self::get_quote( $testimonial, $atts, $widget_number );
 		$cite  = self::get_cite( $testimonial, $atts );
 
-		$schema = '';
 		if ( $do_schema ) {
 			$schema = self::get_schema( $testimonial, $atts );
 			$cite  .= $schema;
@@ -1767,6 +1764,7 @@ EOF;
 	public static function get_schema( $testimonial, $atts ) {
 		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
 		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+		$do_image    = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
 		$do_location = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
 		$do_source   = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
 		$do_title    = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
@@ -1775,6 +1773,7 @@ EOF;
 		$testimonial_company  = $testimonial['testimonial_company'];
 		$testimonial_content  = $testimonial['testimonial_content'];
 		$testimonial_email    = $testimonial['testimonial_email'];
+		$testimonial_image    = $testimonial['testimonial_image'];
 		$testimonial_location = $testimonial['testimonial_location'];
 		$testimonial_source   = $testimonial['testimonial_source'];
 		$testimonial_title    = $testimonial['testimonial_title'];
@@ -1839,6 +1838,15 @@ EOF;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
 		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, $review_name_length );
 		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
+
+		if ( $do_image ) {
+			$doc = new DOMDocument();
+			$doc->loadHTML( $testimonial_image );
+			$xpath = new DOMXPath( $doc );
+			$src   = $xpath->evaluate( 'string(//img/@src)' );
+
+			$review_meta[ self::$thing_image ] = $src;
+		}
 
 		$review_meta = apply_filters( 'testimonials_widget_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
