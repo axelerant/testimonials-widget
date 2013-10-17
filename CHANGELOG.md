@@ -2,13 +2,14 @@
 
 ## master
 * Abstact schema generation
+* Add API action testimonials_widget_styles
+* Add API action testimonials_widget_update
 * Add API filter testimonials_widget_review_name_length
 * Add API filter testimonials_widget_schema
 * Add API filter testimonials_widget_schema_agg_rating
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
-* Add API filter testimonials_widget_styles
 * Auto create Review schema name from post content - like excerpt
 * BUGFIX aggregate data prevents testimonials from recycling
 * BUGFIX animation transitions aren't smooth

@@ -326,6 +326,9 @@ EOD;
 			if ( $prior_version < '2.12.0' )
 				add_action( 'admin_notices', array( $this, 'admin_notices_2_12_0' ) );
 
+			if ( $prior_version < self::VERSION )
+				do_action( 'testimonials_widget_update' );
+
 			tw_set_option( 'admin_notices' );
 		}
 

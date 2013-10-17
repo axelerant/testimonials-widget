@@ -16,6 +16,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Make additional `wp_register_style` and `wp_enqueue_style` calls as needed.
 
+* `testimonials_widget_update`
+
+	Make additional update related calls as needed.
+
 ## Filters
 
 ### Frontend
