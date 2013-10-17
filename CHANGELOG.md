@@ -6,13 +6,16 @@
 * Add API filter testimonials_widget_schema_agg_rating
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
+* Add API filter testimonials_widget_review_name_length
 * Add API filter testimonials_widget_schema_review
-* BUGFIX single view doesn't support caching
-* BUGFIX gravatar size not based upon image size
+* Auto create Review schema name from post content - like excerpt
 * BUGFIX aggregate data prevents testimonials from recycling
 * BUGFIX animation transitions aren't smooth
+* BUGFIX gravatar size not based upon image size
+* BUGFIX single view doesn't support caching
 * Clean up JavaScript
 * Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
+* Prevent `has_archive` and `rewrite_slug` matching existing slugs and same
 * Refactor Review schema handling with easier API use
 * Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
 * Update FAQ

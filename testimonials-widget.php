@@ -1516,6 +1516,8 @@ EOF;
 
 
 	/**
+	 *
+	 *
 	 * @SuppressWarnings(PHPMD.LongVariable)
 	 */
 	public static function get_testimonials( $atts ) {
@@ -1825,9 +1827,11 @@ EOF;
 		$the_date     = mysql2date( 'Y-m-d', $post->post_date );
 		$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
 
+		$review_name_length = apply_filters( 'testimonials_widget_review_name_length', 156 );
+
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
-		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, 70 );
+		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, $review_name_length );
 		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
 
 		$review_meta = apply_filters( 'testimonials_widget_schema_review', $review_meta, $testimonial, $atts );

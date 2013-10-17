@@ -1019,17 +1019,33 @@ class Testimonials_Widget_Settings {
 			}
 		}
 
-		if ( isset( $input['has_archive'] ) && isset( $input['rewrite_slug'] ) ) {
-			// same has_archive and rewrite_slug causes problems
-			if ( $input['has_archive'] == $input['rewrite_slug'] )
-				$input['rewrite_slug'] = $defaults['rewrite_slug'];
+		if ( ! empty( $input['has_archive'] ) )
+			$input['has_archive'] = self::prevent_slug_conflict( $input['has_archive'] );
+		else
+			$input['has_archive'] = $defaults['has_archive'];
 
-			// did URL slugs change?
-			$has_archive  = tw_get_option( 'has_archive' );
-			$rewrite_slug = tw_get_option( 'rewrite_slug' );
-			if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
-				flush_rewrite_rules();
+		if ( ! empty( $input['rewrite_slug'] ) )
+			$input['rewrite_slug'] = self::prevent_slug_conflict( $input['rewrite_slug'] );
+		else
+			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+
+		$flush_rewrite_rules = false;
+		// same has_archive and rewrite_slug causes problems
+		if ( $input['has_archive'] == $input['rewrite_slug'] ) {
+			$input['has_archive']  = $defaults['has_archive'];
+			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+
+			$flush_rewrite_rules = true;
 		}
+
+		// did URL slugs change?
+		$has_archive  = tw_get_option( 'has_archive' );
+		$rewrite_slug = tw_get_option( 'rewrite_slug' );
+		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
+			$flush_rewrite_rules = true;
+
+		if ( $flush_rewrite_rules )
+			flush_rewrite_rules();
 
 		$input['version']        = self::$version;
 		$input['donate_version'] = Testimonials_Widget::VERSION;
@@ -1048,6 +1064,28 @@ class Testimonials_Widget_Settings {
 		}
 
 		return $validated;
+	}
+
+
+	public static function prevent_slug_conflict( $slug ) {
+		global $wpdb;
+
+		// slugs must be unique within their own trees
+		$check_sql  = "SELECT post_name FROM $wpdb->posts WHERE post_name = %s AND post_parent = 0 LIMIT 1";
+		$slug_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug ) );
+
+		if ( $slug_check ) {
+			$suffix = 2;
+			do {
+				$alt_slug   = _truncate_post_slug( $slug, 200 - ( strlen( $suffix ) + 1 ) ) . "-$suffix";
+				$slug_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_slug ) );
+				$suffix++;
+			} while ( $slug_check );
+
+			$slug = $alt_slug;
+		}
+
+		return $slug;
 	}
 
 

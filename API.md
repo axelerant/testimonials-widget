@@ -76,6 +76,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361-How-do-I-get-page-numbers-for-pagination-)
 
+* `testimonials_widget_review_name_length`
+
+	Maximium length of review schema's name. Default is 156 characters.
+
 * `testimonials_widget_schema`
 
 	Customize schema contents.

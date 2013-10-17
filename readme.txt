@@ -101,6 +101,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 = Additional Testimonials Widget Features =
 
 * Adjustable animation speed
+* Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
 * Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
@@ -113,7 +114,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Custom widget bottom text
 * Customizable archive and testimonial URLs
 * Customizable testimonial data field `testimonial_extra`
-* Deletes testimonials-widget custom post type entries and settings on uninstall 
+* Deletes testimonials-widget custom post type entries and settings on uninstall
 * Disable self-generated quotation marks
 * Easily label and link to reviewed item for Review schema
 * Easy to configure Next and Previous page indicators
