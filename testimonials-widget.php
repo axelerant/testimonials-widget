@@ -1767,7 +1767,20 @@ EOF;
 	}
 
 
+	public static function clean_string( $string ) {
+		if ( ! is_string( $string ) )
+			return $string;
+
+		return trim( strip_tags( $string ) );
+	}
+
+
 	public static function get_schema( $testimonial, $atts ) {
+		foreach ( $testimonial as $key => $value ) {
+			if ( 'testimonial_image' != $key )
+				$testimonial[ $key ] = self::clean_string( $value );
+		}
+
 		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
 		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
 		$do_image    = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
@@ -1785,8 +1798,8 @@ EOF;
 		$testimonial_title    = $testimonial['testimonial_title'];
 		$testimonial_url      = $testimonial['testimonial_url'];
 
-		$item_reviewed     = $atts['item_reviewed'];
-		$item_reviewed_url = $atts['item_reviewed_url'];
+		$item_reviewed     = self::clean_string( $atts['item_reviewed'] );
+		$item_reviewed_url = self::clean_string( $atts['item_reviewed_url'] );
 
 		$schema = '';
 
