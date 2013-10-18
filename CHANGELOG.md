@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* BUGFIX Errors show when no testimonials
+* BUGFIX Testimonials go blank during rotations (javacript var)
 
 ## 2.14.0-charlie
 * Abstact schema generation

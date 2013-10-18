@@ -829,8 +829,8 @@ EOF;
 				$javascript .= <<<EOF
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
-		active = jQuery('.{$id_base} .active');
-		next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
+		var active = jQuery('.{$id_base} .active');
+		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
 
 		active.fadeOut({$fade_out_speed}, function() {
 			active.removeClass('active');
@@ -992,11 +992,15 @@ EOF;
 			$image = '';
 
 		$quote = self::get_quote( $testimonial, $atts, $widget_number );
-		$cite  = self::get_cite( $testimonial, $atts );
 
-		if ( $do_schema ) {
-			$schema = self::get_schema( $testimonial, $atts );
-			$cite  .= $schema;
+		$cite = '';
+		if ( 1 < count( $testimonial ) ) {
+			$cite = self::get_cite( $testimonial, $atts );
+
+			if ( $do_schema ) {
+				$schema = self::get_schema( $testimonial, $atts );
+				$cite  .= $schema;
+			}
 		}
 
 		$extra = '';
