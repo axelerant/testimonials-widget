@@ -171,6 +171,9 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Alters displayed widget options. [example](https://gist.github.com/michael-cannon/5833782)
 
+* `testimonials_widget_display_setting`
+
+	Alows for display of custom input types.
 
 ## Need More?
 

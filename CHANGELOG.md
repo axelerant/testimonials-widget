@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add API filter testimonials_widget_display_setting
 * BUGFIX Errors show when no testimonials
 * BUGFIX Schema properties contain HTML and entities
 * BUGFIX Testimonials go blank during rotations (javacript var)

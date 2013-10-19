@@ -896,6 +896,7 @@ class Testimonials_Widget_Settings {
 			break;
 
 		default:
+			$content = apply_filters( 'testimonials_widget_display_setting', '', $args, $input );
 			break;
 		}
 
