@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.14.0-delta
 * Add API filter testimonials_widget_display_setting
 * BUGFIX Errors show when no testimonials
 * BUGFIX Schema properties contain HTML and entities
