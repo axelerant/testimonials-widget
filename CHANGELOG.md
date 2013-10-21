@@ -7,6 +7,7 @@
 * Added validate case is_true
 * BUGFIX Javascript and CSS not carried through when testimonials are cached
 * Default `do_shortcode` on
+* Gravatars saved as featured images to testimonials when no featured image exists
 * Refactored CSS/JS generation and inclusion
 * Refactored scripts and styles handling
 * Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.

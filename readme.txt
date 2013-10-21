@@ -121,6 +121,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Flush URLs on deactivation 
+* Gravatars saved as featured images
 * IDs column shown in testimonials edit page
 * IE7 CSS hacks for quotes and join parts
 * Image, email based Gravatar, category and tag enabled

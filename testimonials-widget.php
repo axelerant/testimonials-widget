@@ -1564,9 +1564,11 @@ EOF;
 
 			if ( has_post_thumbnail( $post_id ) )
 				$image = get_the_post_thumbnail( $post_id, $image_size );
-			elseif ( ! $hide_gravatar && is_email( $email ) )
+			elseif ( ! $hide_gravatar && is_email( $email ) ) {
 				$image = get_avatar( $email, $gravatar_size );
-			else
+
+				self::make_gravatar_featured( $post_id, $email );
+			} else
 				$image = false;
 
 			$url = get_post_meta( $post_id, 'testimonials-widget-url', true );
@@ -1850,10 +1852,7 @@ EOF;
 		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
 
 		if ( $do_image ) {
-			$doc = new DOMDocument();
-			$doc->loadHTML( $testimonial_image );
-			$xpath = new DOMXPath( $doc );
-			$src   = $xpath->evaluate( 'string(//img/@src)' );
+			$src = self::get_image_src( $testimonial_image );
 
 			$review_meta[ self::$thing_image ] = $src;
 		}
@@ -1974,6 +1973,65 @@ EOF;
 
 		self::generate_css( $atts );
 		self::generate_js( $testimonials, $atts, $widget_number );
+	}
+
+
+	public static function make_gravatar_featured( $post_id, $email ) {
+		$size  = get_option( 'large_size_w' );
+		$image = get_avatar( $email, $size );
+		$src   = self::get_image_src( $image );
+		$file  = sanitize_title( $email ) . '.jpeg';
+
+		$file_move = wp_upload_bits( $file, null, self::file_get_contents_curl( $src ) );
+		$filename  = $file_move['file'];
+
+		$wp_filetype = wp_check_filetype( $file, null );
+		$attachment  = array(
+			'post_mime_type' => $wp_filetype['type'],
+			'post_status' => 'inherit',
+			'post_title' => $file,
+		);
+
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		
+		$image_id = wp_insert_attachment( $attachment, $filename, $post_id );
+		$metadata = wp_generate_attachment_metadata( $image_id, $filename );
+
+		wp_update_attachment_metadata( $image_id, $metadata );
+		update_post_meta( $post_id, '_thumbnail_id', $image_id );
+	}
+
+
+	public static function get_image_src( $image ) {
+		$doc = new DOMDocument();
+		$doc->loadHTML( $image );
+		$xpath = new DOMXPath( $doc );
+		$src   = $xpath->evaluate( 'string(//img/@src)' );
+
+		return $src;
+	}
+
+
+	/**
+	 * Thank you Tobylewis
+	 *
+	 * file_get_contents support on some shared systems is turned off
+	 *
+	 * @ref http://wordpress.org/support/topic/plugin-flickr-shortcode-importer-file_get_contents-with-url-isp-does-not-support?replies=2#post-2878241
+	 */
+	public static function file_get_contents_curl( $url ) {
+		$ch = curl_init();
+
+		curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
+		curl_setopt( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $ch, CURLOPT_URL, $url );
+		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
+
+		$data = curl_exec( $ch );
+		curl_close( $ch );
+
+		return $data;
 	}
 
 

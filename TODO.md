@@ -4,9 +4,6 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * BUG saving settings doesn't show update notice
 * Consolidate schema by testimonial item 
-* Create Review schema meta entries for singular page headers
-* Detect if schema already generated and disable for rest of page
-* Gravatars not saved as featured images to testimonials when no featured image exists
 * Show settings save errors as error notices
 * [Auto-suggest category and tag options](http://wordpress.org/support/topic/feature-request-menus-in-the-widget)
 * [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories
