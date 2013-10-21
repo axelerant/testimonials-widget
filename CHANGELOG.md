@@ -2,71 +2,66 @@
 
 ## master
 
-## 2.14.0-echo
-* Added shortcode option variable names on Settings screen
-* Added validate case is_true
-* BUGFIX Javascript and CSS not carried through when testimonials are cached
-* BUGFIX PHP Notice `no_code`
-* Default `do_shortcode` on
-* Gravatars saved as featured images to testimonials when no featured image exists
-* Refactored CSS/JS generation and inclusion
-* Refactored scripts and styles handling
-* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
-
-## 2.14.0-delta
-* Add API filter testimonials_widget_display_setting
-* BUGFIX Errors show when no testimonials
-* BUGFIX Schema properties contain HTML and entities
-* BUGFIX Testimonials go blank during rotations (javacript var)
-
-## 2.14.0-charlie
+## 2.14.0
 * Abstact schema generation
 * Add API action testimonials_widget_styles
 * Add API action testimonials_widget_update
+* Add API filter testimonials_widget_display_setting
 * Add API filter testimonials_widget_review_name_length
 * Add API filter testimonials_widget_schema
 * Add API filter testimonials_widget_schema_agg_rating
 * Add API filter testimonials_widget_schema_author
 * Add API filter testimonials_widget_schema_item
 * Add API filter testimonials_widget_schema_review
-* Auto create Review schema name from post content - like excerpt
-* BUGFIX aggregate data prevents testimonials from recycling
-* BUGFIX animation transitions aren't smooth
-* BUGFIX gravatar size not based upon image size
-* BUGFIX schema meta method doesn't handle schema property wrapping
-* BUGFIX single view doesn't support caching
-* BUGFIX styles not included for `get_single`
-* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
-* Clean up JavaScript
-* Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
-* Move Review schema image to `get_schema`
-* Prevent `has_archive` and `rewrite_slug` matching existing slugs and same
-* Refactor Review schema handling with easier API use
-* Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
-* Update FAQ
-* Update TODO
-* [Load scripts and stylesheets only on Testimonials Page](http://wordpress.org/support/topic/load-scripts-and-stylesheets-only-on-testimonials-page)
-
-## 2.14.0-beta
 * Add Review schema date modified
 * Add aggregate review data
 * Add item reviewed name and url to Review schema 
 * Add screenshot 19. Using Review and AggregateRating schema data structures
+* Added shortcode option variable names on Settings screen
+* Added validate case is_true
+* Auto create Review schema name from post content - like excerpt
+* BUGFIX Errors show when no testimonials
+* BUGFIX Javascript and CSS not carried through when testimonials are cached
+* BUGFIX PHP Notice `no_code`
+* BUGFIX Schema properties contain HTML and entities
+* BUGFIX Testimonials go blank during rotations (javacript var)
+* BUGFIX aggregate data prevents testimonials from recycling
+* BUGFIX animation transitions aren't smooth
 * BUGFIX correct aggregate total
+* BUGFIX gravatar size not based upon image size
 * BUGFIX has_archive option network_site_url
 * BUGFIX missing space after itemprop="image"
 * BUGFIX paging arrows not positioned correctly
+* BUGFIX schema meta method doesn't handle schema property wrapping
 * BUGFIX single content not wrapped with review schema
+* BUGFIX single view doesn't support caching
+* BUGFIX styles not included for `get_single`
+* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
+* Clean up JavaScript
 * Correct Review schema name usage
+* Default `do_shortcode` on
 * Default enable custom taxonomy 'show_admin_column'
 * Enable [rich snippets/structured data](http://wordpress.org/support/topic/lots-of-options-4?replies=3#post-4754108) per [review schema](http://schema.org/Review)
+* Gravatars saved as featured images to testimonials when no featured image exists
+* Implement AggregateRating, Organization, Person, Place, Review, and Thing structured data 
+* Move Review schema image to `get_schema`
+* Prevent `has_archive` and `rewrite_slug` matching existing slugs and same
+* Refactor Review schema handling with easier API use
+* Refactored CSS/JS generation and inclusion
+* Refactored scripts and styles handling
+* Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
 * Remove default overrides for custom post type
+* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
+* Update FAQ
+* Update TODO
 * Update examples
 * Update readme option ordering
 * Update screenshots
+* Update screenshots
 * Update verbiage
 * Validate reviewed_item_url as url
+* [Load scripts and stylesheets only on Testimonials Page](http://wordpress.org/support/topic/load-scripts-and-stylesheets-only-on-testimonials-page)
 * https jQuery transport
 
 ## 2.13.6
