@@ -46,7 +46,7 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Widget Premium Plugin Features =
 
-Testimonials Widget Premium plugin extends the best [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/) plugin for WordPress with [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like selecting posts, pages and other custom post types as testimonials. Additionally, users can add testimonials via a front-end form shortcode or widget.
+Testimonials Widget Premium adds onto the best WordPress testimonials plugin there is, [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Widget Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials can be rated and users can submit their own testimonials via a front-end form shortcode or widget.
 
 * "Read more" link column on testimonial posts admin page
 * Admin mode only anti-spam debug help text
@@ -64,28 +64,32 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Deletes old and related testimonial cache entries automatically
 * Disable caching for widget, shortcode or theme functions
 * Disable donate and purchase related text and links
+* Displays ratings to grant testimonials more power!
 * Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
+* Fields for rating, item reviewed, and item URL per testimonial
 * Filters for caching and more link control, text replacement, and more
 * Form "Testimonial" header text is customizable to "Specials" or other terms
 * Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
-* Implements AggregateRating, Organization, Person, Place, Review, and Thing structured data 
 * Math-based CAPTCHA
 * Multiple anti-spam traps
 * Multiple user-entry forms on same page are allowed
+* Override Review schema author name
 * Plugin version tracking to ensure compatibility
 * Premium tab on settings screen for site-wide option defaults
 * Prevent duplicate testimonials when using multiple testimonial instances
 * Read more links for testimonials exceeding the character limit
+* Require minimumal testimonial rating for display
+* Review microdata format per schema.org
 * Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations slider
 * Settings and URL based cache clearing
-* Shortcode option names are listed below each Settings entry
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Shortcodes, theme functions, and widget user testimonial submission form
 * Show excerpts with list and single views
 * Show unique testimonials on page with multiple testimonial instances
+* Simple, single rating per testimonials (more capabilities to come in future releases)
 * Testimonial links listing with image, source, title, location, company, and URL fields
 * Upload images by browsing or URL
 * WP Admin > Testmonials > Clear Cache menu link
