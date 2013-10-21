@@ -1,6 +1,13 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Added shortcode option variable names on Settings screen
+* Added validate case is_true
+* BUGFIX Javascript and CSS not carried through when testimonials are cached
+* Default `do_shortcode` on
+* Refactored CSS/JS generation and inclusion
+* Refactored scripts and styles handling
+* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
 
 ## 2.14.0-delta
 * Add API filter testimonials_widget_display_setting

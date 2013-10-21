@@ -81,6 +81,7 @@ Testimonials Widget Premium plugin extends the best [Testimonials Widget](http:/
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
 * Select post, page and other custom post types for content rotations slider
 * Settings and URL based cache clearing
+* Shortcode option names are listed below each Settings entry
 * Shortcodes and theme functions for testimonials count and testimonial link list
 * Shortcodes, theme functions, and widget user testimonial submission form
 * Show excerpts with list and single views
@@ -416,6 +417,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 * CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Gravatar image size now based upon Thumbnail size in Media Settings
+* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
 * Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 
 = 2.13.6 =

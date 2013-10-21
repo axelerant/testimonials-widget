@@ -175,6 +175,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Keep Whitespace?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['disable_animation'] = array(
@@ -182,6 +183,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Disable Animation?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'std' => 1,
 		);
 
@@ -240,6 +242,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Enable Review Schema?', 'testimonials-widget' ),
 			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'std' => 1,
 		);
 
@@ -260,64 +263,76 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Hide built-in quotes?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_not_found'] = array(
 			'title' => esc_html__( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_gravatar'] = array(
 			'title' => esc_html__( 'Hide Gravatar Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_image'] = array(
 			'title' => esc_html__( 'Hide Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_image_single'] = array(
 			'title' => esc_html__( 'Hide Image in Single View?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'widget' => 0,
 		);
 
 		self::$settings['hide_content'] = array(
 			'title' => esc_html__( 'Hide Testimonial Content?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_source'] = array(
 			'title' => esc_html__( 'Hide Author/Source?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'desc' => esc_html__( 'Don\'t display "Post Title" in cite', 'testimonials-widget' ),
 		);
 
 		self::$settings['hide_email'] = array(
 			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'std' => 1,
 		);
 
 		self::$settings['hide_title'] = array(
 			'title' => esc_html__( 'Hide Job Title?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_location'] = array(
 			'title' => esc_html__( 'Hide Location?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_company'] = array(
 			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['hide_url'] = array(
 			'title' => esc_html__( 'Hide URL?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['target'] = array(
@@ -344,6 +359,8 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Do [shortcodes]?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'If unchecked, shortcodes are stripped.', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
 		);
 
 		self::$settings['general_expand_end'] = array(
@@ -376,6 +393,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Require All Tags?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Select only testimonials with all of the given tags', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['ids'] = array(
@@ -417,6 +435,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Random Order?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'If checked, ignores ORDER BY, ORDER BY meta_key, and ORDER BY Order. Widgets are random by default automatically', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['orderby'] = array(
@@ -475,6 +494,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Allow Comments?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'widget' => 0,
 		);
 
@@ -514,6 +534,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'backwards' => array(
 				'version' => '2.13.6',
 				'std' => 1,
@@ -526,6 +547,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'backwards' => array(
 				'version' => '2.6.4',
 				'std' => 1,
@@ -537,6 +559,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Pre 2.11.0. Not HTML5 compliant', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'backwards' => array(
 				'version' => '2.11.0',
 				'std' => 1,
@@ -547,6 +570,7 @@ class Testimonials_Widget_Settings {
 			'section' => 'reset',
 			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'desc' => esc_html__( 'If checked, use Testimonials Widget\'s own category and tag taxonomies instead', 'testimonials-widget' ),
 			'widget' => 0,
 		);
@@ -578,6 +602,7 @@ class Testimonials_Widget_Settings {
 			'section' => 'reset',
 			'title' => esc_html__( 'Remove Plugin Data on Deletion?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'class' => 'warning', // Custom class for CSS
 			'desc' => esc_html__( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
 			'widget' => 0,
@@ -587,6 +612,7 @@ class Testimonials_Widget_Settings {
 			'section' => 'reset',
 			'title' => esc_html__( 'Reset to Defaults?', 'testimonials-widget' ),
 			'type' => 'checkbox',
+			'validate' => 'is_true',
 			'class' => 'warning', // Custom class for CSS
 			'desc' => esc_html__( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
 			'widget' => 0,
@@ -790,11 +816,10 @@ class Testimonials_Widget_Settings {
 			$options[$id] = $input;
 		}
 
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' ) {
+		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
 			$options[$id] = $std;
-		} elseif ( ! isset( $options[$id] ) ) {
+		elseif ( ! isset( $options[$id] ) )
 			$options[$id] = 0;
-		}
 
 		$field_class = '';
 		if ( ! empty( $class ) )
@@ -814,6 +839,8 @@ class Testimonials_Widget_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'file':
@@ -856,6 +883,8 @@ class Testimonials_Widget_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'readonly':
@@ -877,6 +906,8 @@ class Testimonials_Widget_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'text':
@@ -885,6 +916,8 @@ class Testimonials_Widget_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'textarea':
@@ -893,6 +926,8 @@ class Testimonials_Widget_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		default:
@@ -1180,6 +1215,10 @@ class Testimonials_Widget_Settings {
 			$input[ $id ] = self::validate_url( $input[ $id ], $default );
 			break;
 
+		case 'is_true':
+			$input[ $id ] = self::is_true( $input[ $id ] );
+			break;
+
 		default:
 			$input[ $id ] = $validate( $input[ $id ] );
 			break;
@@ -1259,8 +1298,10 @@ class Testimonials_Widget_Settings {
 			return;
 
 		$screen->set_help_sidebar(
-			'<p><strong>' . esc_html__( 'For more information:', 'testimonials-widget' ) . '</strong></p><p>' .
+			'<p>' .
 			esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) .
+			'</p><p>' .
+			esc_html__( 'Shortcode option names are listed below each entry.', 'testimonials-widget' ) .
 			'</p><p>' .
 			sprintf(
 				__( 'View the <a href="%s">Testimonials Widget documentation</a>.', 'testimonials-widget' ),
