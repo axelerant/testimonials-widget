@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.14.0-echo
 * Added shortcode option variable names on Settings screen
 * Added validate case is_true
 * BUGFIX Javascript and CSS not carried through when testimonials are cached
