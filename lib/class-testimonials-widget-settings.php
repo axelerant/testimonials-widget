@@ -809,6 +809,9 @@ class Testimonials_Widget_Settings {
 
 		extract( $args );
 
+		if ( ! isset( $no_code ) )
+			$no_code = false;
+
 		if ( is_null( $input ) ) {
 			$options = get_option( self::ID );
 		} else {

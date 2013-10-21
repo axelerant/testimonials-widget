@@ -6,6 +6,7 @@
 * Added shortcode option variable names on Settings screen
 * Added validate case is_true
 * BUGFIX Javascript and CSS not carried through when testimonials are cached
+* BUGFIX PHP Notice `no_code`
 * Default `do_shortcode` on
 * Gravatars saved as featured images to testimonials when no featured image exists
 * Refactored CSS/JS generation and inclusion
