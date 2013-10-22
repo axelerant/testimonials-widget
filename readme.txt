@@ -267,6 +267,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Compatibility & Reset**
 
+* Always Load CSS? - Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not
 * Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
 	* `remove_hentry` - default none; remove_hentry=true

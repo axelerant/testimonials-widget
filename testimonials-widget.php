@@ -130,6 +130,10 @@ EOD;
 		self::$cpt_category = self::PT . '-category';
 		self::$cpt_tags     = self::PT . '-post_tag';
 		self::init_post_type();
+
+		$force_css_loading = tw_get_option( 'force_css_loading' );
+		if ( $force_css_loading )
+			self::styles();
 	}
 
 
@@ -321,7 +325,7 @@ EOD;
 
 	public function admin_notices_donate() {
 		$content  = '<div class="updated fade"><p>';
-		$content .= sprintf( esc_html__( 'Please donate $2 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
+		$content .= sprintf( esc_html__( 'Please donate $5 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -1993,7 +1997,7 @@ EOF;
 		);
 
 		require_once ABSPATH . 'wp-admin/includes/image.php';
-		
+
 		$image_id = wp_insert_attachment( $attachment, $filename, $post_id );
 		$metadata = wp_generate_attachment_metadata( $image_id, $filename );
 

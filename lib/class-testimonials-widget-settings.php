@@ -529,6 +529,18 @@ class Testimonials_Widget_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['force_css_loading'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Always Load CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.14.0',
+				'std' => 1,
+			),
+		);
+
 		self::$settings['include_ie7_css'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
