@@ -3,6 +3,8 @@
 ## master
 * Add option Always Load CSS?
 * Bump $2 donation request to $5
+* Simplify `wp_enqueue_style` handling
+* Update FAQ
 
 ## 2.14.0
 * Abstact schema generation
