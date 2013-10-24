@@ -9,3 +9,6 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories
 * [Responsively set height](http://wordpress.org/support/topic/better-set-height?replies=3#post-4788316)
 * [Use bxSlider JavaScript slider](http://bxslider.com/examples/auto-show-start-stop-controls) to make the transitions and navigation more slider like with a [pause button on testimonials](http://wordpress.org/support/topic/play-pause-icon-on-testimonial)
+
+* 3.0.0
+	* Remove prior version options

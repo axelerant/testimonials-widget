@@ -724,6 +724,12 @@ EOD;
 
 		wp_enqueue_script( 'jquery' );
 
+		$use_bxslider = tw_get_option( 'use_bxslider' );
+		if ( $use_bxslider ) {
+			wp_register_script( 'jquery.bxslider', plugins_url( 'js/jquery.bxslider.js', __FILE__ ), array( 'jquery' ), '4.1.1' );
+			wp_enqueue_script( 'jquery.bxslider' );
+		}
+
 		do_action( 'testimonials_widget_scripts', $atts );
 	}
 
@@ -732,55 +738,64 @@ EOD;
 		if ( is_admin() )
 			return;
 
-		wp_register_style( __CLASS__, plugins_url( 'testimonials-widget.css', __FILE__ ) );
-		wp_enqueue_style( __CLASS__ );
+		$use_bxslider = tw_get_option( 'use_bxslider' );
+		if ( $use_bxslider ) {
+			wp_register_style( 'jquery.bxslider', plugins_url( 'css/jquery.bxslider.css', __FILE__ ) );
+			wp_enqueue_style( 'jquery.bxslider' );
 
-		$include_ie7_css = tw_get_option( 'include_ie7_css' );
-		if ( $include_ie7_css ) {
-			wp_register_style( __CLASS__ . '-ie7', plugins_url( 'testimonials-widget-ie7.css', __FILE__ ) );
-			wp_enqueue_style( __CLASS__ . '-ie7' );
+			wp_register_style( __CLASS__, plugins_url( 'testimonials-widget.css', __FILE__ ) );
+		} else {
+			wp_register_style( __CLASS__, plugins_url( 'testimonials-widget-2.14.0.css', __FILE__ ) );
+
+			$include_ie7_css = tw_get_option( 'include_ie7_css' );
+			if ( $include_ie7_css ) {
+				wp_register_style( __CLASS__ . '-ie7', plugins_url( 'testimonials-widget-ie7.css', __FILE__ ) );
+				wp_enqueue_style( __CLASS__ . '-ie7' );
+			}
 		}
+
+		wp_enqueue_style( __CLASS__ );
 
 		do_action( 'testimonials_widget_styles' );
 	}
 
 
 	public static function get_testimonials_html_css( $atts, $widget_number = null ) {
-		$css = array();
+		$css     = array();
+		$id_base = self::ID . $widget_number;
 
 		switch ( $atts['type'] ) {
 		case 'testimonialswidget_widget':
-			// display attributes
-			$height     = $atts['height'];
-			$max_height = $atts['max_height'];
-			$min_height = $atts['min_height'];
+			$use_bxslider = $atts['use_bxslider'];
+			if ( ! $use_bxslider ) {
+				$height     = $atts['height'];
+				$max_height = $atts['max_height'];
+				$min_height = $atts['min_height'];
 
-			if ( $height ) {
-				$max_height = $height;
-				$min_height = $height;
-			}
+				if ( $height ) {
+					$max_height = $height;
+					$min_height = $height;
+				}
 
-			$css     = array();
-			$id_base = self::ID . $widget_number;
-
-			if ( $min_height ) {
-				$css[] = <<<EOF
+				if ( $min_height ) {
+					$css[] = <<<EOF
 <style>
 .$id_base {
 min-height: {$min_height}px;
 }
 </style>
 EOF;
-			}
+				}
 
-			if ( $max_height ) {
-				$css[] = <<<EOF
+				if ( $max_height ) {
+					$css[] = <<<EOF
 <style>
 .$id_base {
 	max-height: {$max_height}px;
 }
 </style>
 EOF;
+				}
 			}
 			break;
 		}
@@ -795,33 +810,47 @@ EOF;
 		$scripts          = array();
 		$scripts_internal = array();
 
+		$id_base = self::ID . $widget_number;
+
 		switch ( $atts['type'] ) {
 		case 'testimonialswidget_widget':
-			// display attributes
 			$refresh_interval = $atts['refresh_interval'];
-
-			$id_base    = self::ID . $widget_number;
-			$scripts    = array();
-			$tw_padding = 'tw_padding' . $widget_number;
-			$tw_wrapper = 'tw_wrapper' . $widget_number;
-
-			$disable_animation = $atts['disable_animation'];
-			$fade_in_speed     = $atts['fade_in_speed'];
-			$fade_out_speed    = $atts['fade_out_speed'];
-			$height            = $atts['height'];
-			$max_height        = $atts['max_height'];
-			$min_height        = $atts['min_height'];
-
-			$enable_animation = 1;
-			if ( $disable_animation || $height || $max_height || $min_height )
-				$enable_animation = 0;
+			$use_bxslider     = $atts['use_bxslider'];
 
 			$javascript = '';
 			if ( 1 < count( $testimonials ) ) {
 				$javascript .= '<script type="text/javascript">' . "\n";
 
-				if ( $refresh_interval ) {
+				if ( $use_bxslider ) {
 					$javascript .= <<<EOF
+jQuery(document).ready(function() {
+	jQuery('.{$id_base}').bxSlider({
+		auto: true,
+		controls: false,
+		pause: {$refresh_interval} * 1000,
+		slideMargin: 2
+	});
+});
+
+EOF;
+				} else {
+					// delete me
+					$tw_padding = 'tw_padding' . $widget_number;
+					$tw_wrapper = 'tw_wrapper' . $widget_number;
+
+					$disable_animation = $atts['disable_animation'];
+					$fade_in_speed     = $atts['fade_in_speed'];
+					$fade_out_speed    = $atts['fade_out_speed'];
+					$height            = $atts['height'];
+					$max_height        = $atts['max_height'];
+					$min_height        = $atts['min_height'];
+
+					$enable_animation = 1;
+					if ( $disable_animation || $height || $max_height || $min_height )
+						$enable_animation = 0;
+
+					if ( $refresh_interval ) {
+						$javascript .= <<<EOF
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
 		var active = jQuery('.{$id_base} .active');
@@ -853,9 +882,9 @@ jQuery(document).ready(function() {
 });
 
 EOF;
-				}
+					}
 
-				$javascript .= <<<EOF
+					$javascript .= <<<EOF
 if ( {$enable_animation} ) {
 	var {$tw_wrapper} = jQuery('.{$id_base}');
 	var {$tw_padding} = 0;
@@ -868,9 +897,10 @@ if ( {$enable_animation} ) {
 		{$tw_wrapper}.height( {$tw_wrapper}.height() );
 	});
 }
-</script>
 EOF;
+				}
 
+				$javascript         .= "\n" . '</script>';
 				$scripts[ $id_base ] = $javascript;
 			}
 			break;
@@ -946,16 +976,18 @@ EOF;
 		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
+		$use_bxslider    = $atts['use_bxslider'];
 
 		$class = 'testimonials-widget-testimonial';
-		if ( is_single() && empty( $widget_number ) ) {
+		if ( is_single() && empty( $widget_number ) )
 			$class .= ' single';
-		} elseif ( $is_list ) {
+		elseif ( $is_list )
 			$class .= ' list';
-		} elseif ( $is_first ) {
-			$class .= ' active';
-		} elseif ( ! $is_first ) {
-			$class .= ' display-none';
+		else {
+			if ( $is_first )
+				$class .= ' active';
+			elseif ( ! $is_first )
+				$class .= ' display-none';
 		}
 
 		if ( $keep_whitespace )
@@ -1013,9 +1045,11 @@ EOF;
 			$bottom_text .= '</div>';
 		}
 
-		$div_close = '</div>';
+		$div_close = '';
 		if ( $do_schema && $do_content )
 			$div_close .= '</div>';
+
+		$div_close .= '</div>';
 
 		$html = $div_open
 			. $image

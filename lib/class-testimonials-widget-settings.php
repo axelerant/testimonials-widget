@@ -149,13 +149,6 @@ class Testimonials_Widget_Settings {
 			'validate' => 'absint',
 		);
 
-		self::$settings['height'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Height', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
-			'validate' => 'min1',
-		);
-
 		self::$settings['refresh_interval'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Rotation Speed', 'testimonials-widget' ),
@@ -176,45 +169,6 @@ class Testimonials_Widget_Settings {
 			'desc' => esc_html__( 'Keeps testimonials looking as entered than sans auto-formatting', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-		);
-
-		self::$settings['disable_animation'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Disable Animation?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'std' => 1,
-		);
-
-		self::$settings['fade_out_speed'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Fade Out Speed', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
-			'std' => 1250,
-			'validate' => 'absint',
-		);
-
-		self::$settings['fade_in_speed'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Fade In Speed', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
-			'std' => 500,
-			'validate' => 'absint',
-		);
-
-		self::$settings['min_height'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Minimum Height', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Set for minimum display height, in pixels', 'testimonials-widget' ),
-			'validate' => 'min1',
-		);
-
-		self::$settings['max_height'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Maximum Height', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Set for maximum display height, in pixels', 'testimonials-widget' ),
-			'validate' => 'min1',
 		);
 
 		self::$settings['bottom_text'] = array(
@@ -529,55 +483,6 @@ class Testimonials_Widget_Settings {
 			'type' => 'expand_begin',
 		);
 
-		self::$settings['force_css_loading'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Always Load CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.14.0',
-				'std' => 1,
-			),
-		);
-
-		self::$settings['include_ie7_css'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.13.6',
-				'std' => 1,
-			),
-			'widget' => 1,
-		);
-
-		self::$settings['remove_hentry'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.6.4. Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.6.4',
-				'std' => 1,
-			),
-		);
-
-		self::$settings['use_quote_tag'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.11.0. Not HTML5 compliant', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.11.0',
-				'std' => 1,
-			),
-		);
-
 		self::$settings['use_cpt_taxonomy'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
@@ -628,6 +533,120 @@ class Testimonials_Widget_Settings {
 			'class' => 'warning', // Custom class for CSS
 			'desc' => esc_html__( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
 			'widget' => 0,
+		);
+
+		self::$settings['version_options_heading'] = array(
+			'section' => 'reset',
+			'desc' => esc_html__( 'Version Based Options', 'testimonials-widget' ),
+			'type' => 'heading',
+		);
+
+		self::$settings['use_bxslider'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Use bxSlider?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Testimonials Widgets used custom JavaScript for transitions.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.15.0',
+				'std' => 0,
+			),
+			'std' => 1,
+		);
+
+		self::$settings['disable_animation'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Disable Animation?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+		);
+
+		self::$settings['fade_out_speed'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Fade Out Speed', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
+			'std' => 1250,
+			'validate' => 'absint',
+		);
+
+		self::$settings['fade_in_speed'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Fade In Speed', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
+			'std' => 500,
+			'validate' => 'absint',
+		);
+
+		self::$settings['height'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Testimonials height, in pixels. Overrides minimum and maximum height', 'testimonials-widget' ),
+			'validate' => 'min1',
+		);
+
+		self::$settings['min_height'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Minimum Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Set for minimum display height, in pixels', 'testimonials-widget' ),
+			'validate' => 'min1',
+		);
+
+		self::$settings['max_height'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Maximum Height', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Set for maximum display height, in pixels', 'testimonials-widget' ),
+			'validate' => 'min1',
+		);
+
+		self::$settings['force_css_loading'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Always Load CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.14.0, Testimonials Widgets CSS was always loaded, whether needed or not', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.14.0',
+				'std' => 1,
+			),
+		);
+
+		self::$settings['include_ie7_css'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.13.6',
+				'std' => 1,
+			),
+			'widget' => 1,
+		);
+
+		self::$settings['use_quote_tag'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.11.0, not HTML5 compliant', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.11.0',
+				'std' => 1,
+			),
+		);
+
+		self::$settings['remove_hentry'] = array(
+			'section' => 'reset',
+			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.6.4, some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'backwards' => array(
+				'version' => '2.6.4',
+				'std' => 1,
+			),
 		);
 
 		self::$settings['reset_expand_end'] = array(
