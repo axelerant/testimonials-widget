@@ -9,7 +9,6 @@
 * Move height options to Compatibility tab
 * Simplify `wp_enqueue_style` handling
 * Update FAQ
-* Use ul/li than div for Testimonials Widget layout wrappers
 * [Use bxSlider JavaScript slider](http://bxslider.com/examples/auto-show-start-stop-controls) 4.1.1
 
 ## 2.14.0
