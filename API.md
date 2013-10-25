@@ -32,6 +32,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	More content ellipsis. [example](https://aihrus.zendesk.com/entries/23691577-How-do-I-change-the-more-content-ellipsis-)
 
+* `testimonials_widget_get_testimonials_html`
+
+	Customize the contents and layout within `get_testimonials_html`.
+
 * `testimonials_widget_get_testimonial_html`
 
 	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.. [example](https://aihrus.zendesk.com/entries/23693433-How-do-I-use-filter-testimonials-widget-get-testimonial-html-)

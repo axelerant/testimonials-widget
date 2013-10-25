@@ -810,33 +810,38 @@ EOF;
 		$scripts          = array();
 		$scripts_internal = array();
 
-		$id_base = self::ID . $widget_number;
+		$id      = self::ID;
+		$id_base = $id . $widget_number;
 
 		switch ( $atts['type'] ) {
 		case 'testimonialswidget_widget':
-			$refresh_interval = $atts['refresh_interval'];
-			$show_start_stop  = $atts['show_start_stop'] ? 'true' : 'false';
-			$transition_mode  = $atts['transition_mode'];
-			$use_bxslider     = $atts['use_bxslider'];
-
-			$auto  = ! empty( $refresh_interval ) ? 'true' : 'false';
-			$pager = empty( $refresh_interval ) ? 'true' : 'false';
-			$pause = $refresh_interval * 1000;
-
 			$javascript = '';
 			if ( 1 < count( $testimonials ) ) {
+				$refresh_interval = $atts['refresh_interval'];
+
 				$javascript .= '<script type="text/javascript">' . "\n";
 
+				$use_bxslider     = $atts['use_bxslider'];
 				if ( $use_bxslider ) {
+					$show_start_stop  = $atts['show_start_stop'];
+					$transition_mode  = $atts['transition_mode'];
+
+					$auto  = $refresh_interval ? 'true' : 'false';
+					$pager = ! $refresh_interval ? "pager: true" : 'pager: false';
+					$pause = $refresh_interval * 1000;
+
+					$autoControls = $show_start_stop ? "autoControls: true," : '';
+
+					$slider_var  = 'tw_slider' . $widget_number;
 					$javascript .= <<<EOF
 jQuery(document).ready(function() {
-	jQuery('.{$id_base}').bxSlider({
+	var {$slider_var} = jQuery('.{$id_base}').bxSlider({
 		auto: {$auto},
-		autoControls: {$show_start_stop},
+		{$autoControls}
 		autoHover: true,
 		controls: false,
 		mode: '{$transition_mode}',
-		pager: {$pager},
+		{$pager},
 		pause: {$pause},
 		slideMargin: 2
 	});
@@ -844,7 +849,6 @@ jQuery(document).ready(function() {
 
 EOF;
 				} else {
-					// delete me
 					$tw_padding = 'tw_padding' . $widget_number;
 					$tw_wrapper = 'tw_wrapper' . $widget_number;
 
@@ -933,19 +937,18 @@ EOF;
 		$paging_after   = ( 'after' === strtolower( $atts['paging'] ) );
 		$target         = $atts['target'];
 
-		$html = '';
-		$id   = self::ID;
+		$id = self::ID;
 
 		if ( is_null( $widget_number ) ) {
-			$html .= '<div class="' . $id;
+			$div_open = '<div class="' . $id;
 
 			if ( $is_list )
-				$html .= ' listing';
+				$div_open .= ' listing';
 
-			$html .= '">';
+			$div_open .= '">';
 		} else {
-			$id_base = $id . $widget_number;
-			$html   .= '<div class="' . $id . ' ' . $id_base . '">';
+			$id_base  = $id . $widget_number;
+			$div_open = '<div class="' . $id . ' ' . $id_base . '">';
 		}
 
 		if ( empty( $testimonials ) && ! $hide_not_found ) {
@@ -954,24 +957,36 @@ EOF;
 			);
 		}
 
+		$pre_paging = '';
 		if ( $paging || $paging_before )
-			$html .= self::get_testimonials_paging( $atts );
+			$pre_paging = self::get_testimonials_paging( $atts );
 
 		$is_first = true;
 
+		$testimonial_content = '';
 		foreach ( $testimonials as $testimonial ) {
 			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
 			if ( $target )
 				$content = links_add_target( $content, $target );
 			$content  = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
-			$html    .= $content;
 			$is_first = false;
+
+			$testimonial_content .= $content;
 		}
 
+		$post_paging = '';
 		if ( $paging || $paging_after )
-			$html .= self::get_testimonials_paging( $atts, false );
+			$post_paging = self::get_testimonials_paging( $atts, false );
 
-		$html .= '</div>';
+		$div_close = '</div>';
+
+		$html = $div_open
+			. $pre_paging
+			. $testimonial_content
+			. $post_paging
+			. $div_close;
+
+		$html = apply_filters( 'testimonials_widget_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
 
 		return $html;
 	}
@@ -1105,7 +1120,7 @@ EOF;
 			$content = apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
 			$content = make_clickable( $content );
 
-			if ( empty( $use_quote_tag ) ) {
+			if ( ! $use_quote_tag ) {
 				$quote  = '<blockquote>';
 				$quote .= $content;
 				$quote .= '</blockquote>';
@@ -1203,7 +1218,7 @@ EOF;
 		$cite = apply_filters( 'testimonials_widget_cite_html', $cite, $testimonial, $atts );
 
 		if ( ! empty( $cite ) ) {
-			if ( empty( $use_quote_tag ) ) {
+			if ( ! $use_quote_tag ) {
 				$temp  = '<div class="credit">';
 				$temp .= $cite;
 				$temp .= '</div>';
@@ -1221,7 +1236,7 @@ EOF;
 	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
 	public static function testimonials_truncate( $string, $char_limit = false, $pad = '…', $force_pad = false ) {
 		if ( empty( $force_pad ) ) {
-			if ( empty( $char_limit ) )
+			if ( ! $char_limit )
 				return $string;
 
 			// return with no change if string is shorter than $char_limit
@@ -1229,7 +1244,7 @@ EOF;
 				return $string;
 		}
 
-		if ( ! empty( $char_limit ) )
+		if ( $char_limit )
 			return self::truncate( $string, $char_limit, $pad, $force_pad );
 
 		return $string . $pad;
@@ -1347,7 +1362,7 @@ EOF;
 			$output .= $indicator;
 
 		// Close any open tags
-		while ( !empty( $tag_stack ) )
+		while ( ! empty( $tag_stack ) )
 			$output .= '</'.array_pop( $tag_stack ).'>';
 
 		return $output;
@@ -1406,7 +1421,7 @@ EOF;
 
 		$html .= '">';
 
-		if ( ! empty( $atts['paged'] ) )
+		if ( $atts['paged'] )
 			$paged = $atts['paged'];
 		else
 			$paged = 1;
@@ -1496,7 +1511,7 @@ EOF;
 			$args['post_status'][] = 'draft';
 		}
 
-		if ( $paging && ! empty( $atts['paged'] ) && is_singular() )
+		if ( $paging && $atts['paged'] && is_singular() )
 			$args['paged'] = $atts['paged'];
 
 		if ( ! $random && $meta_key ) {

@@ -1,8 +1,10 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add filter `testimonials_widget_get_testimonials_html`
 * Moved testimonials-widget-2.14.0.css -> css/testimonials-widget-2.14.0.css
 * Moved testimonials-widget-ie7.css -> css/testimonials-widget-ie7.css
+* Reduce `empty` usage
 
 ## 2.15.0-alpha
 * Add option Always Load CSS?
