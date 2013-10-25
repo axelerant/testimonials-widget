@@ -338,6 +338,9 @@ EOD;
 			if ( $prior_version < '2.12.0' )
 				add_action( 'admin_notices', array( $this, 'admin_notices_2_12_0' ) );
 
+			if ( $prior_version < '2.15.0' )
+				add_action( 'admin_notices', array( $this, 'admin_notices_2_15_0' ) );
+
 			if ( $prior_version < self::VERSION )
 				do_action( 'testimonials_widget_update' );
 
@@ -724,8 +727,14 @@ EOD;
 
 		wp_enqueue_script( 'jquery' );
 
-		$use_bxslider = tw_get_option( 'use_bxslider' );
+		$use_bxslider = $atts['use_bxslider'];
 		if ( $use_bxslider ) {
+			$enable_video = $atts['enable_video'];
+			if ( $enable_video ) {
+				wp_register_script( 'jquery.fitvids', plugins_url( 'js/jquery.fitvids.js', __FILE__ ), array( 'jquery' ), '1.0' );
+				wp_enqueue_script( 'jquery.fitvids' );
+			}
+
 			wp_register_script( 'jquery.bxslider', plugins_url( 'js/jquery.bxslider.js', __FILE__ ), array( 'jquery' ), '4.1.1' );
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
@@ -823,12 +832,14 @@ EOF;
 
 				$use_bxslider     = $atts['use_bxslider'];
 				if ( $use_bxslider ) {
-					$show_start_stop  = $atts['show_start_stop'];
-					$transition_mode  = $atts['transition_mode'];
+					$enable_video    = $atts['enable_video'];
+					$show_start_stop = $atts['show_start_stop'];
+					$transition_mode = $atts['transition_mode'];
 
 					$auto  = $refresh_interval ? 'true' : 'false';
 					$pager = ! $refresh_interval ? "pager: true" : 'pager: false';
 					$pause = $refresh_interval * 1000;
+					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
 					$autoControls = $show_start_stop ? "autoControls: true," : '';
 
@@ -843,6 +854,7 @@ jQuery(document).ready(function() {
 		mode: '{$transition_mode}',
 		{$pager},
 		pause: {$pause},
+		{$video},
 		slideMargin: 2
 	});
 });
@@ -2095,6 +2107,15 @@ EOF;
 		curl_close( $ch );
 
 		return $data;
+	}
+
+
+	public function admin_notices_2_15_0() {
+		$content  = '<div class="updated fade"><p>';
+		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0' ) );
+		$content .= '</p></div>';
+
+		echo $content;
 	}
 
 

@@ -4,6 +4,7 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * BUG saving settings doesn't show update notice
 * Consolidate schema by testimonial item 
+* Option easing - http://bxslider.com/examples/easing, http://gsgd.co.uk/sandbox/jquery/easing/
 * Show settings save errors as error notices
 * [Auto-suggest category and tag options](http://wordpress.org/support/topic/feature-request-menus-in-the-widget)
 * [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories

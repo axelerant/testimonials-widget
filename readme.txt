@@ -244,6 +244,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
 * Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
 	* `show_start_stop` - default true; show_start_stop=false
+* Enable Video? - Only enable when displaying video content.
+	* `enable_video` - default false; enable_video=true
 * Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
 	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
@@ -393,6 +395,8 @@ If you want to contribute and I hope you do, visit the [Testimonials Widget Gith
 1. [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733-How-to-Correct-Testimonials-Widget-CSS-Issues) AKA "What's up with these quotes?"
 1. [Pagination is broken](https://aihrus.zendesk.com/entries/23693513-My-testimonials-list-paging-doesn-t-work)
 1. [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
+
+* [Major Change for 2.15.0](https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0)
 
 = Still Stuck? =
 
