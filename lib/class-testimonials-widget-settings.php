@@ -163,6 +163,28 @@ class Testimonials_Widget_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['transition_mode'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Transition Mode?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Type of transition between slides', 'testimonials-widget' ),
+			'type' => 'select',
+			'choices' => array(
+				'fade' => esc_html__( 'Fade', 'testimonials-widget' ),
+				'horizontal' => esc_html__( 'Horizontal', 'testimonials-widget' ),
+				'vertical' => esc_html__( 'Vertical', 'testimonials-widget' ),
+			),
+			'std' => 'fade',
+		);
+
+		self::$settings['show_start_stop'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Show Play/Pause?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Display start and stop buttons underneath the testimonial slider.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+		);
+
 		self::$settings['keep_whitespace'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Keep Whitespace?', 'testimonials-widget' ),

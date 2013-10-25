@@ -3,9 +3,9 @@
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
-Requires at least: 3.4
-Tested up to: 3.6.1
-Stable tag: 2.14.0
+Requires at least: 3.6
+Tested up to: 3.8.0
+Stable tag: 2.15.0-alpha
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Single testimonial view includes image, source, title, location, email, company and URL details
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
+* Use's [bxSlider](http://bxslider.com) for transitions
 
 = Testimonials Widget Premium Plugin Features =
 
@@ -237,23 +238,15 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * Character Limit - Number of characters to limit testimonial views to
 	* `char_limit` - default none; char_limit=200
 	* Widget - default 500
-* Height - Testimonials height, in pixels. Overrides minimum and maximum height
-	* `height` - default none; height=300
 * Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
 	* `refresh_interval` - default 5; refresh_interval=0
+* Transition Mode? - Type of transition between slides
+	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
+* Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
+	* `show_start_stop` - default true; show_start_stop=false
 * Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
 	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
-* Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
-	* `disable_animation` - default false; disable_animation=true
-* Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_out_speed` - default 1250; fade_out_speed=400
-* Fade In Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_in_speed` - default 500; fade_in_speed=800
-* Minimum Height - Set for minimum display height, in pixels
-	* `min_height` - default none; min_height=100
-* Maximum Height - Set for maximum display height, in pixels
-	* `max_height` - default none; max_height=250
 * Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
 	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
 
@@ -267,17 +260,33 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Compatibility & Reset**
 
-* Always Load CSS? - Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not
-* Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
-	* `remove_hentry` - default none; remove_hentry=true
-* Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
-	* `use_quote_tag` - default none; use_quote_tag=true
 * Don't Use Default Taxonomies? – If checked, use Testimonials Widget's own category and tag taxonomies instead
 * Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
 * Import Settings – Paste new serialized settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
+
+**Version Based Options**
+
+* Use bxSlider? - Pre 2.15.0, Testimonials Widgets used custom JavaScript for transitions.
+* Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
+	* `disable_animation` - default false; disable_animation=true
+* Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
+	* `fade_out_speed` - default 1250; fade_out_speed=400
+* Fade In Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
+	* `fade_in_speed` - default 500; fade_in_speed=800
+* Height - Testimonials height, in pixels. Overrides minimum and maximum height
+	* `height` - default none; height=300
+* Minimum Height - Set for minimum display height, in pixels
+	* `min_height` - default none; min_height=100
+* Maximum Height - Set for maximum display height, in pixels
+	* `max_height` - default none; max_height=250
+* Always Load CSS? - Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not
+* Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
+* Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
+	* `use_quote_tag` - default none; use_quote_tag=true
+* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
+	* `remove_hentry` - default none; remove_hentry=true
 
 = Shortcode Examples =
 
@@ -419,6 +428,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.15.0-alpha =
+
+* If upgrading, bxSlider will not be enabled by default. You must enable it in your widget and global settings. CSS customizations must be reviewed to have the `.active` and `.display-none` classes removed. The main `.testimonials-widget-testimonial` class also need the `display: none;` and `clear: left;` removed.
 
 = 2.14.0 =
 

@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials Widget
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.14.0
+ * Version: 2.15.0-alpha
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -28,7 +28,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.14.0';
+	const VERSION     = '2.15.0-alpha';
 
 	private static $base          = null;
 	private static $found_posts   = 0;
@@ -815,7 +815,13 @@ EOF;
 		switch ( $atts['type'] ) {
 		case 'testimonialswidget_widget':
 			$refresh_interval = $atts['refresh_interval'];
+			$show_start_stop  = $atts['show_start_stop'] ? 'true' : 'false';
+			$transition_mode  = $atts['transition_mode'];
 			$use_bxslider     = $atts['use_bxslider'];
+
+			$auto  = ! empty( $refresh_interval ) ? 'true' : 'false';
+			$pager = empty( $refresh_interval ) ? 'true' : 'false';
+			$pause = $refresh_interval * 1000;
 
 			$javascript = '';
 			if ( 1 < count( $testimonials ) ) {
@@ -825,9 +831,13 @@ EOF;
 					$javascript .= <<<EOF
 jQuery(document).ready(function() {
 	jQuery('.{$id_base}').bxSlider({
-		auto: true,
+		auto: {$auto},
+		autoControls: {$show_start_stop},
+		autoHover: true,
 		controls: false,
-		pause: {$refresh_interval} * 1000,
+		mode: '{$transition_mode}',
+		pager: {$pager},
+		pause: {$pause},
 		slideMargin: 2
 	});
 });

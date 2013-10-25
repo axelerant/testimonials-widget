@@ -4,12 +4,18 @@
 
 ## 2.15.0-alpha
 * Add option Always Load CSS?
+* Add option Start/Stop
+* Add option Transition Mode
 * Bump $2 donation request to $5
+* If upgrading, bxSlider will not be enabled by default. You must enable it in your widget and global settings. CSS customizations must be reviewed to have the `.active` and `.display-none` classes removed. The main `.testimonials-widget-testimonial` class also need the `display: none;` and `clear: left;` removed.
+* Match transition defaults to those of current testimonials widget
 * Move 2.14.0 transition options to Compatibility tab
 * Move height options to Compatibility tab
+* Require at least WordPress 3.6
 * Simplify `wp_enqueue_style` handling
 * Update FAQ
-* [Use bxSlider JavaScript slider](http://bxslider.com/examples/auto-show-start-stop-controls) 4.1.1
+* [Responsively set height](http://wordpress.org/support/topic/better-set-height?replies=3#post-4788316)
+* [Use bxSlider JavaScript slider](http://bxslider.com/examples/auto-show-start-stop-controls) to make the transitions and navigation more slider like with a [pause button on testimonials](http://wordpress.org/support/topic/play-pause-icon-on-testimonial)
 
 ## 2.14.0
 * Abstact schema generation
