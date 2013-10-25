@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+
+## 2.15.0-beta
 * Add 2.15.0 upgrade notice
 * Add filter `testimonials_widget_get_testimonials_html`
 * Add option Enable Video?

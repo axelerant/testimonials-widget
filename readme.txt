@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.8.0
-Stable tag: 2.15.0-alpha
+Stable tag: 2.15.0-beta
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -395,6 +395,7 @@ If you want to contribute and I hope you do, visit the [Testimonials Widget Gith
 1. [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733-How-to-Correct-Testimonials-Widget-CSS-Issues) AKA "What's up with these quotes?"
 1. [Pagination is broken](https://aihrus.zendesk.com/entries/23693513-My-testimonials-list-paging-doesn-t-work)
 1. [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
+1. [Customize bxSlider](http://bxslider.com/examples)
 
 * [Major Change for 2.15.0](https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0)
 
@@ -433,7 +434,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
-= 2.15.0-alpha =
+= 2.15.0-beta =
 
 * If upgrading, bxSlider will not be enabled by default. You must enable it in your widget and global settings. CSS customizations must be reviewed to have the `.active` and `.display-none` classes removed. The main `.testimonials-widget-testimonial` class also need the `display: none;` and `clear: left;` removed.
 
