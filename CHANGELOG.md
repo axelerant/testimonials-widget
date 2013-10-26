@@ -3,6 +3,7 @@
 ## master
 * [Auto-suggest category and tag options](http://wordpress.org/support/topic/feature-request-menus-in-the-widget)
 * BUGFIX active and display-none classes still included though using bxSlider
+* BUGFIX JS slider_var not global 
 
 ## 2.15.0-beta
 * Add 2.15.0 upgrade notice

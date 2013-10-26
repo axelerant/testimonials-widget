@@ -845,8 +845,10 @@ EOF;
 
 					$slider_var  = 'tw_slider' . $widget_number;
 					$javascript .= <<<EOF
+var {$slider_var} = null;
+
 jQuery(document).ready(function() {
-	var {$slider_var} = jQuery('.{$id_base}').bxSlider({
+	{$slider_var} = jQuery('.{$id_base}').bxSlider({
 		auto: {$auto},
 		{$autoControls}
 		autoHover: true,
