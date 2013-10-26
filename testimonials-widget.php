@@ -1020,7 +1020,7 @@ EOF;
 			$class .= ' single';
 		elseif ( $is_list )
 			$class .= ' list';
-		else {
+		elseif ( ! $use_bxslider ) {
 			if ( $is_first )
 				$class .= ' active';
 			elseif ( ! $is_first )
