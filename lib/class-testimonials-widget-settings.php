@@ -38,16 +38,18 @@ class Testimonials_Widget_Settings {
 		'id' => 'default_field',
 		'section' => 'general',
 		'std' => '', // default key or value
+		'suggest' => false, // attempt for auto-suggest on inputs
 		'title' => '',
 		'type' => 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
 		'validate' => '', // required, term, slug, slugs, ids, order, single paramater PHP functions
 		'widget' => 1, // show in widget options, 0 off
 	);
 
-	public static $defaults = array();
-	public static $sections = array();
-	public static $settings = array();
-	public static $version  = null;
+	public static $defaults   = array();
+	public static $sections   = array();
+	public static $settings   = array();
+	public static $suggest_id = 0;
+	public static $version    = null;
 
 
 	public function __construct() {
@@ -361,15 +363,17 @@ class Testimonials_Widget_Settings {
 		self::$settings['category'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Category Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated category slug-names. Ex: category-a, another-category', 'testimonials-widget' ),
-			'validate' => 'slugs',
+			'desc' => esc_html__( 'Comma separated category names. Ex: Category A, Another category', 'testimonials-widget' ),
+			'validate' => 'terms',
+			'suggest' => true,
 		);
 
 		self::$settings['tags'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated tag slug-names. Ex: tag-a, another-tag', 'testimonials-widget' ),
-			'validate' => 'slugs',
+			'desc' => esc_html__( 'Comma separated tag names. Ex: Tag A, Another tag', 'testimonials-widget' ),
+			'validate' => 'terms',
+			'suggest' => true,
 		);
 
 		self::$settings['tags_all'] = array(
@@ -740,13 +744,14 @@ class Testimonials_Widget_Settings {
 			return;
 
 		$field_args = array(
-			'type' => $type,
-			'id' => $id,
-			'desc' => $desc,
-			'std' => $std,
 			'choices' => $choices,
-			'label_for' => $id,
 			'class' => $class,
+			'desc' => $desc,
+			'id' => $id,
+			'label_for' => $id,
+			'std' => $std,
+			'suggest' => $suggest,
+			'type' => $type,
 		);
 
 		self::$defaults[$id] = $std;
@@ -975,7 +980,12 @@ class Testimonials_Widget_Settings {
 			break;
 
 		case 'text':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
+			$suggest_id = 'suggest_' . self::$suggest_id++;
+
+			$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
+
+			if ( $suggest )
+				$content .= self::get_suggest( $id, $suggest_id );
 
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -1269,7 +1279,10 @@ class Testimonials_Widget_Settings {
 
 		case 'term':
 			$input[ $id ] = self::validate_term( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
+			break;
+
+		case 'terms':
+			$input[ $id ] = self::validate_terms( $input[ $id ], $default );
 			break;
 
 		case 'url':
@@ -1322,6 +1335,14 @@ class Testimonials_Widget_Settings {
 	public static function validate_term( $input, $default ) {
 		if ( preg_match( '#^\w+$#', $input ) )
 			return $input;
+
+		return $default;
+	}
+
+
+	public static function validate_terms( $input, $default ) {
+		if ( preg_match( '#^(([\w- ]+)(,\s?)?)+$#', $input ) )
+			return preg_replace( '#,\s*$#', '', $input );
 
 		return $default;
 	}
@@ -1420,6 +1441,44 @@ class Testimonials_Widget_Settings {
 		);
 
 		do_action( 'testimonials_widget_settings_add_help_tabs', $screen );
+	}
+
+
+	public static function get_suggest( $id, $suggest_id ) {
+		wp_enqueue_script( 'suggest' );
+
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
+
+		switch ( $id ) {
+		case 'category':
+			if ( ! $use_cpt_taxonomy )
+				$taxonomy = 'category';
+			else
+				$taxonomy = self::$cpt_category;
+
+			break;
+
+		case 'tags':
+			if ( ! $use_cpt_taxonomy )
+				$taxonomy = 'post_tag';
+			else
+				$taxonomy = self::$cpt_tags;
+
+			break;
+		}
+
+		$ajax_url   = site_url() . '/wp-admin/admin-ajax.php';
+		$suggest_js = "suggest( '{$ajax_url}?action=ajax-tag-search&tax={$taxonomy}', { delay: 500, minchars: 2, multiple: true, multipleSep: ', ' } )";
+
+		$scripts  = <<<EOD
+<script type="text/javascript">
+jQuery(document).ready( function() {
+	jQuery( '.{$suggest_id}' ).{$suggest_js};
+});
+</script>
+EOD;
+
+		return $scripts;
 	}
 
 

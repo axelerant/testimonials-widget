@@ -109,6 +109,7 @@ Testimonials Widget Premium adds onto the best WordPress testimonials plugin the
 * Adjustable animation speed
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
 * Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
+* Auto-suggest for category and tag options
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
 * Commenting on testimonial single-view pages
@@ -204,9 +205,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Selection**
 
-* Category Filter - Comma separated category slug-names
+* Category Filter - Comma separated category names
 	* `category` - default none; category=product or category="category-a, another-category"
-* Tags Filter - Comma separated tag slug-names
+* Tags Filter - Comma separated tag names
 	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
 * Require All Tags - Select only testimonials with all of the given tags
 	* `tags_all` - default OR; tags_all=true

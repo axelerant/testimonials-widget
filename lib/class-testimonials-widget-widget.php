@@ -286,7 +286,11 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		case 'text':
 			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+			$suggest_id = 'suggest_' . Testimonials_Widget_Settings::$suggest_id++;
+			echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+
+			if ( $suggest )
+				echo Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
 			break;
 
 		default:
