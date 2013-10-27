@@ -870,6 +870,11 @@ class Testimonials_Widget_Settings {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content = '';
 
@@ -1470,7 +1475,7 @@ class Testimonials_Widget_Settings {
 		$ajax_url   = site_url() . '/wp-admin/admin-ajax.php';
 		$suggest_js = "suggest( '{$ajax_url}?action=ajax-tag-search&tax={$taxonomy}', { delay: 500, minchars: 2, multiple: true, multipleSep: ', ' } )";
 
-		$scripts  = <<<EOD
+		$scripts = <<<EOD
 <script type="text/javascript">
 jQuery(document).ready( function() {
 	jQuery( '.{$suggest_id}' ).{$suggest_js};

@@ -188,6 +188,11 @@ class Testimonials_Widget_Widget extends WP_Widget {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public function display_setting( $args = array(), $options ) {
 		extract( $args );
 

@@ -25,6 +25,7 @@
  */
 class Testimonials_Widget {
 	const ID          = 'testimonials-widget-testimonials';
+	const JS_KEY      = 'tw_slider_';
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
@@ -830,20 +831,20 @@ EOF;
 
 				$javascript .= '<script type="text/javascript">' . "\n";
 
-				$use_bxslider     = $atts['use_bxslider'];
+				$use_bxslider = $atts['use_bxslider'];
 				if ( $use_bxslider ) {
 					$enable_video    = $atts['enable_video'];
 					$show_start_stop = $atts['show_start_stop'];
 					$transition_mode = $atts['transition_mode'];
 
 					$auto  = $refresh_interval ? 'true' : 'false';
-					$pager = ! $refresh_interval ? "pager: true" : 'pager: false';
+					$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
 					$pause = $refresh_interval * 1000;
 					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
-					$autoControls = $show_start_stop ? "autoControls: true," : '';
+					$autoControls = $show_start_stop ? 'autoControls: true,' : '';
 
-					$slider_var  = 'tw_slider' . $widget_number;
+					$slider_var  = self::JS_KEY . $widget_number;
 					$javascript .= <<<EOF
 var {$slider_var} = null;
 

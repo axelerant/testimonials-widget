@@ -4,8 +4,11 @@
 		Custom phpcs rules to check for Aihrus' WordPress projects
 	</description>
 
-	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
+	<exclude-pattern>js/jquery.bxslider.js</exclude-pattern>
+	<exclude-pattern>js/jquery.easing.1.3.js</exclude-pattern>
+	<exclude-pattern>js/jquery.fitvids.js</exclude-pattern>
 	<exclude-pattern>lib/Akismet.class.php</exclude-pattern>
+	<exclude-pattern>lib/class-redrokk-metabox-class.php</exclude-pattern>
 
 	<rule ref="Generic">
 		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.Found" />
@@ -29,6 +32,6 @@
 	</rule>
 
 	<rule ref="WordPress">
-		<xexclude name="WordPress.XSS.EscapeOutput" />
+		<exclude name="WordPress.XSS.EscapeOutput" />
 	</rule>
 </ruleset>
