@@ -236,6 +236,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Reviewed Item?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Name of thing being referenced in testimonials', 'testimonials-widget' ),
 			'std' => get_option( 'blogname' ),
+			'widget' => 0,
 		);
 
 		self::$settings['item_reviewed_url'] = array(
@@ -243,6 +244,7 @@ class Testimonials_Widget_Settings {
 			'desc' => esc_html__( 'URL of thing being referenced in testimonials', 'testimonials-widget' ),
 			'std' => network_site_url(),
 			'validate' => 'url',
+			'widget' => 0,
 		);
 
 		self::$settings['disable_quotes'] = array(
