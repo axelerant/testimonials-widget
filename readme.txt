@@ -21,6 +21,19 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 **View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
 
+= Awesome Content Slider Capabilities! =
+
+* Slide Images - responsive image slideshow
+* Slide Videos - video slideshow
+* Slide Text - useful for rotating testimonials
+* Slide Mixed Content: slideshow having video slides, images slides, and text slides. Each individual slide can also have mixed content.
+* Shortcode compatible - slide content that is rendered using shortcodes. i.e. stock Worpdress Galleries and Gravity Forms
+* Widget ready
+* Shortcode ready 
+* Random display
+* Fade and slide transitions
+* Filter slideshow content by WordPress' built in categories, tags, or post-ID
+
 More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
@@ -45,56 +58,23 @@ The single testimonial view supports image, source, title, location, email, comp
 * Use custom taxonomy or WordPress's own for categories and tags
 * Use's [bxSlider](http://bxslider.com) for transitions
 
-= Testimonials Widget Premium Plugin Features =
+= Testimonials Widget Premium =
 
-Testimonials Widget Premium adds onto the best WordPress testimonials plugin there is, [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Widget Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials can be rated and users can submit their own testimonials via a front-end form shortcode or widget.
+Testimonials Widget Premium adds onto the best WordPress testimonials plugin there is, [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Widget Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
-* "Read more" link column on testimonial posts admin page
-* Admin mode only anti-spam debug help text
-* Akismet anti-spam checking
+= Primary Premium Features =
+
+* Akismet, math-based CAPTCHA, and more anti-spam traps
 * Alternate destinations for "Read more" links
-* Alternating `.even` and `.odd` CSS classes for styling testimonial list entries
-* Automatically change to the next testimonial, per the sort order, whenever a user navigates to another page.
-* Built-in update notification
+* Auto rotate testimonials by page
 * CSS or HTML table based testimonials submissions form layout
-* Cache per page when you use custom testimonials instance per page
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
-* Clear cache when WP Super Cache, FlexiCache, Hyper Cache, DB Cache Reloaded Fix does
-* Deactivates self if no active or incorrect version of Testimonials Widget plugin
-* Default post author, category, and status options for user testimonial submissions
-* Deletes old and related testimonial cache entries automatically
-* Disable caching for widget, shortcode or theme functions
-* Disable donate and purchase related text and links
+* Carousel mode for rotating multiple testimonials at the same time
 * Displays ratings to grant testimonials more power!
-* Email notification for user submitted testimonials
 * Excerpts for widget view, with read more link to complete testimonial
-* Fields for rating, item reviewed, and item URL per testimonial
-* Filters for caching and more link control, text replacement, and more
-* Form "Testimonial" header text is customizable to "Specials" or other terms
 * Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
-* Math-based CAPTCHA
-* Multiple anti-spam traps
-* Multiple user-entry forms on same page are allowed
-* Override Review schema author name
-* Plugin version tracking to ensure compatibility
-* Premium tab on settings screen for site-wide option defaults
-* Prevent duplicate testimonials when using multiple testimonial instances
-* Read more links for testimonials exceeding the character limit
-* Require minimumal testimonial rating for display
-* Review microdata format per schema.org
-* Right Now Dashboard widget displays "Pending Testimonials" counts
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
-* Select post, page and other custom post types for content rotations slider
-* Settings and URL based cache clearing
-* Shortcodes and theme functions for testimonials count and testimonial link list
-* Shortcodes, theme functions, and widget user testimonial submission form
-* Show excerpts with list and single views
-* Show unique testimonials on page with multiple testimonial instances
-* Simple, single rating per testimonials (more capabilities to come in future releases)
-* Testimonial links listing with image, source, title, location, company, and URL fields
-* Upload images by browsing or URL
-* WP Admin > Testmonials > Clear Cache menu link
-* WPML compatible
+* Show unique testimonials when displaying multiple testimonial instances
 
 = Premium Shortcodes =
 
@@ -104,7 +84,7 @@ Testimonials Widget Premium adds onto the best WordPress testimonials plugin the
 
 [Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
 
-= Additional Testimonials Widget Features =
+= Additional Features =
 
 * Adjustable animation speed
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
