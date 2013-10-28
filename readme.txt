@@ -131,8 +131,8 @@ Testimonials Widget Premium adds onto the best WordPress testimonials plugin the
 
 = Shortcodes =
 
-* `[testimonialswidget_list]` - Listings with paging 
-* `[testimonialswidget_widget]` - Rotating
+* `[[testimonialswidget_list]]` - Listings with paging 
+* `[[testimonialswidget_widget]]` - Rotating
 
 = Shortcode and Widget Options =
 
@@ -174,7 +174,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_url` - default show; hide_url=true
 * URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
-* Enable Paging - for [testimonialswidget_list]
+* Enable Paging - for [[testimonialswidget_list]]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
 		* `before` – display paging only before testimonial entries
@@ -273,35 +273,35 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Shortcode Examples =
 
-**[testimonialswidget_list]**
+**[[testimonialswidget_list]]**
 
 * Testimonial list by category or tag
-	* [testimonialswidget_list category="category-name"]
-	* [testimonialswidget_list category=product hide_not_found=true]
-	* [testimonialswidget_list category=product tags=widget limit=5]
+	* [[testimonialswidget_list category="category-name"]]
+	* [[testimonialswidget_list category=product hide_not_found=true]]
+	* [[testimonialswidget_list category=product tags=widget limit=5]]
 * Show 3 full-length testimonials, with opening and closing quote marks removed
-	* [testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]
+	* [[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]
 * Show testimonial list with source and urls hidden
-	* [testimonialswidget_list hide_source=true hide_url=true] 
+	* [[testimonialswidget_list hide_source=true hide_url=true]] 
 * Show only these 3 testimonials
-	* [testimonialswidget_list ids="1,11,111" paging=false]
+	* [[testimonialswidget_list ids="1,11,111" paging=false]]
 * Show 15 testimonials, in company order
-	* [testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]
+	* [[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]
 * List testimonials by post title
-	* [testimonialswidget_list order=ASC orderby=title]
+	* [[testimonialswidget_list order=ASC orderby=title]]
 * Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
-	* [testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]
+	* [[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]
 * Show all testimonials on one page
-	* [testimonialswidget_list char_limit=0 limit=-1]
+	* [[testimonialswidget_list char_limit=0 limit=-1]]
 
-**[testimonialswidget_widget]**
+**[[testimonialswidget_widget]]**
 
 * Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
-	* [testimonialswidget_widget category=product order=asc height=300]
+	* [[testimonialswidget_widget category=product order=asc height=300]]
 * Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
-	* [testimonialswidget_widget min_height=250 max_height=500]
+	* [[testimonialswidget_widget min_height=250 max_height=500]]
 * Show rotating, random testimonials having tag "sometag"
-	* [testimonialswidget_widget tags=sometag random=true]
+	* [[testimonialswidget_widget tags=sometag random=true]]
 
 = Theme Functions =
 
@@ -363,7 +363,7 @@ If you want to contribute and I hope you do, visit the [Testimonials Widget Gith
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials Widget' into the desired widget area
 1. Configure the 'Testimonials Widget' to select quotes and display as needed
-1. Use the `[testimonialswidget_list]` or `[testimonialswidget_widget]` shortcodes to display testimonials on a page or in a post
+1. Use the `[[testimonialswidget_list]]` or `[[testimonialswidget_widget]]` shortcodes to display testimonials on a page or in a post
 1. Read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
 
 
@@ -391,8 +391,8 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 2. Collapsed Testimonials Widget options
 3. Expanded 'General Options' in Testimonials Widget options
 4. Testimonial widget in the sidebar 
-5. [testimonialswidget_list] in post
-6. [testimonialswidget_list] results with paging
+5. [[testimonialswidget_list]] in post
+6. [[testimonialswidget_list]] results with paging
 7. Widget whitespace kept
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows

@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Encapsulate shortcodes
 
 ## 2.15.0
 * Add 2.15.0 upgrade notice
