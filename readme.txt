@@ -21,7 +21,7 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 
 **View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
 
-= Awesome Content Slider Capabilities! =
+= More Than Just Testimonials Slider Capabilities! =
 
 * Slide Images - responsive image slideshow
 * Slide Videos - video slideshow
