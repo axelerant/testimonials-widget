@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.8.0
-Stable tag: 2.15.0-beta
+Stable tag: 2.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -415,7 +415,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
-= 2.15.0-beta =
+= 2.15.0 =
 
 * If upgrading, bxSlider will not be enabled by default. You must enable it in your widget and global settings. CSS customizations must be reviewed to have the `.active` and `.display-none` classes removed. The main `.testimonials-widget-testimonial` class also need the `display: none;` and `clear: left;` removed.
 
