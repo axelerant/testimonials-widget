@@ -1461,7 +1461,7 @@ class Testimonials_Widget_Settings {
 			if ( ! $use_cpt_taxonomy )
 				$taxonomy = 'category';
 			else
-				$taxonomy = self::$cpt_category;
+				$taxonomy = Testimonials_Widget::$cpt_category;
 
 			break;
 
@@ -1469,7 +1469,7 @@ class Testimonials_Widget_Settings {
 			if ( ! $use_cpt_taxonomy )
 				$taxonomy = 'post_tag';
 			else
-				$taxonomy = self::$cpt_tags;
+				$taxonomy = Testimonials_Widget::$cpt_tags;
 
 			break;
 		}
