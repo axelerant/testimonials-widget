@@ -5,6 +5,7 @@
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category
 * Encapsulate shortcodes
+* [BUGFIX](http://wordpress.org/support/topic/2151-warning-illegal-offset-type-in-isset-or-empty?replies=3) Warning: Illegal offset type in isset or empty
 
 ## 2.15.0
 * Add 2.15.0 upgrade notice
