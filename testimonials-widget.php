@@ -112,6 +112,7 @@ EOD;
 
 		$this->add_meta_box_testimonials_widget();
 		$this->update();
+
 		add_action( 'gettext', array( $this, 'gettext_testimonials' ) );
 		add_action( 'manage_' . self::PT . '_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
 		add_action( 'right_now_content_table_end', array( $this, 'right_now_content_table_end' ) );
