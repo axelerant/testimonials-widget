@@ -326,6 +326,10 @@ EOD;
 
 
 	public function admin_notices_donate() {
+		$disable_donate = tw_get_option( 'disable_donate' );
+		if ( $disable_donate )
+			return;
+
 		$content  = '<div class="updated fade"><p>';
 		$content .= sprintf( esc_html__( 'Please donate $5 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
