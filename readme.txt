@@ -319,6 +319,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* Company, URL and email details are attempted to be identified and placed properly
 	* Public testimonials are saved as Published. Non-public, are marked as Private.
 	* Ignores already imported
+	* Widgets have schemas disabled by default to prevent overriding search engine findings for the page
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
 * When plugin is uninstalled, all data and settings are deleted
 
