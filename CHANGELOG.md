@@ -2,6 +2,7 @@
 
 ## master
 * BUGFIX Donate notice shows despite `disable_donate` set
+* Disable schemas by default for widgets
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category

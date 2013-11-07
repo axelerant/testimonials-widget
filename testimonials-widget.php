@@ -701,6 +701,9 @@ EOD;
 
 			if ( ! isset( $atts['random'] ) )
 				$atts['random'] = 1;
+
+			if ( ! isset( $atts['enable_schema'] ) )
+				$atts['enable_schema'] = 0;
 		}
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
