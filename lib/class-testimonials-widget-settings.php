@@ -159,6 +159,11 @@ class Testimonials_Widget_Settings {
 			'validate' => 'absint',
 		);
 
+		self::$settings['widget_expand_all'] = array(
+			'section' => 'widget',
+			'type' => 'expand_all',
+		);
+
 		self::$settings['widget_expand_begin'] = array(
 			'section' => 'widget',
 			'desc' => esc_html__( 'Additional Widget Options', 'testimonials-widget' ),

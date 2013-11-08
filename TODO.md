@@ -4,11 +4,9 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * 3.X Remove prior version options
 * Add easing options - http://bxslider.com/examples/easing, http://gsgd.co.uk/sandbox/jquery/easing/
-* Add shortcode helper page
 * BUG JavaScript generated even when no testimonials
 * BUG Saving settings doesn't show update notice
 * BUG? Testimonials content not strip_tag'd before review schema usage
 * Consolidate schema by testimonial item 
-* Expand All of widget options
 * Show settings save errors in error notices
 * [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories

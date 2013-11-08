@@ -31,11 +31,11 @@ class Testimonials_Widget {
 	const PT          = 'testimonials-widget';
 	const VERSION     = '2.15.1';
 
-	private static $base          = null;
+	private static $base;
 	private static $found_posts   = 0;
 	private static $max_num_pages = 0;
 	private static $post_count    = 0;
-	private static $wp_query      = null;
+	private static $wp_query;
 
 	public static $cpt_category    = '';
 	public static $cpt_tags        = '';
@@ -44,6 +44,7 @@ class Testimonials_Widget {
 	public static $donate_button   = '';
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
+	public static $menu_shortcodes;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
@@ -91,6 +92,7 @@ class Testimonials_Widget {
 
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		add_shortcode( 'testimonialswidget_list', array( $this, 'testimonialswidget_list' ) );
@@ -122,6 +124,11 @@ EOD;
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts_author' ) );
 		self::support_thumbnails();
+	}
+
+
+	public function admin_menu() {
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Widget Shortcode Examples' ), esc_html__( 'Shortcodes' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
 	}
 
 
@@ -2129,6 +2136,43 @@ EOF;
 		$content .= '</p></div>';
 
 		echo $content;
+	}
+
+
+	public static function show_shortcodes() {
+		echo '<div class="wrap">';
+		echo '<div class="icon32" id="icon-options-general"></div>';
+		echo '<h2>' . esc_html__( 'Testimonials Widget Shortcode Examples' ) . '</h2>';
+
+		$shortcodes = <<<EOD
+<h3>[[testimonialswidget_list]]</h3>
+
+<ul>
+<li><code>[[testimonialswidget_list category="category-name"]]</code> - Testimonial list by category</li>
+<li><code>[[testimonialswidget_list category=product hide_not_found=true]]</code> - Testimonial list by category and hide "No testimonials found" message</li>
+<li><code>[[testimonialswidget_list category=product tags=widget limit=5]]</code> - Testimonial list by tag, showing 5 at most</li>
+<li><code>[[testimonialswidget_list char_limit=0 limit=-1]]</code> - Show all testimonials on one page</li>
+<li><code>[[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]</code> - Show 3 full-length testimonials, with opening and closing quote marks removed</li>
+<li><code>[[testimonialswidget_list hide_source=true hide_url=true]]</code> - Show testimonial list with source and urls hidden</li>
+<li><code>[[testimonialswidget_list ids="1,11,111" paging=false]]</code> - Show only these 3 testimonials</li>
+<li><code>[[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]</code> - Show 15 testimonials, in company order</li>
+<li><code>[[testimonialswidget_list order=ASC orderby=title]]</code> - List testimonials by post title</li>
+<li><code>[[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]</code> - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids</li>
+</ul>
+
+<h3>[[testimonialswidget_widget]]</h3>
+
+<ul>
+<li><code>[[testimonialswidget_widget category=product order=asc height=300]]</code> - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first</li>
+<li><code>[[testimonialswidget_widget min_height=250 max_height=500]]</code> - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height</li>
+<li><code>[[testimonialswidget_widget tags=sometag random=true]]</code> - Show rotating, random testimonials having tag "sometag"</li>
+</ul>
+EOD;
+
+		$shortcodes = apply_filters( 'testimonials_widget_shortcodes', $shortcodes );
+
+		echo $shortcodes;
+		echo '</div>';
 	}
 
 

@@ -1,8 +1,11 @@
 # CHANGELOG Testimonials Widget
 
 ## master
+* Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
+* Add Shortcodes helper page - Thank you Scott Hendison
 * BUGFIX Donate notice shows despite `disable_donate` set
 * Disable schemas by default for widgets
+* Revise Shortcode Examples formatting
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category

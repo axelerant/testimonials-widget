@@ -205,12 +205,21 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$do_return = true;
 			break;
 
+		case 'expand_all':
+			if ( ! empty( $desc ) )
+				echo '<h3>' . $desc . '</h3>';
+
+			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ) . slideToggle(); jQuery( \'.tw-collapsible\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse All Options', 'testimonials-widget' ) . ' &raquo;</a>';
+
+			$do_return = true;
+			break;
+
 		case 'expand_begin':
 			if ( ! empty( $desc ) )
 				echo '<h3>' . $desc . '</h3>';
 
-			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
-			echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none">';
+			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();" class="tw-collapsible-control">' . esc_html__( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
+			echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="tw-collapsible">';
 
 			$do_return = true;
 			break;

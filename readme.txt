@@ -275,33 +275,22 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **[[testimonialswidget_list]]**
 
-* Testimonial list by category or tag
-	* [[testimonialswidget_list category="category-name"]]
-	* [[testimonialswidget_list category=product hide_not_found=true]]
-	* [[testimonialswidget_list category=product tags=widget limit=5]]
-* Show 3 full-length testimonials, with opening and closing quote marks removed
-	* [[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]
-* Show testimonial list with source and urls hidden
-	* [[testimonialswidget_list hide_source=true hide_url=true]] 
-* Show only these 3 testimonials
-	* [[testimonialswidget_list ids="1,11,111" paging=false]]
-* Show 15 testimonials, in company order
-	* [[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]
-* List testimonials by post title
-	* [[testimonialswidget_list order=ASC orderby=title]]
-* Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
-	* [[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]
-* Show all testimonials on one page
-	* [[testimonialswidget_list char_limit=0 limit=-1]]
+* `[[testimonialswidget_list category="category-name"]]` - Testimonial list by category
+* `[[testimonialswidget_list category=product hide_not_found=true]]` - Testimonial list by category and hide "No testimonials found" message
+* `[[testimonialswidget_list category=product tags=widget limit=5]]` - Testimonial list by tag, showing 5 at most
+* `[[testimonialswidget_list char_limit=0 limit=-1]]` - Show all testimonials on one page
+* `[[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]` - Show 3 full-length testimonials, with opening and closing quote marks removed
+* `[[testimonialswidget_list hide_source=true hide_url=true]]` - Show testimonial list with source and urls hidden
+* `[[testimonialswidget_list ids="1,11,111" paging=false]]` - Show only these 3 testimonials
+* `[[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]` - Show 15 testimonials, in company order
+* `[[testimonialswidget_list order=ASC orderby=title]]` - List testimonials by post title
+* `[[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 
 **[[testimonialswidget_widget]]**
 
-* Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
-	* [[testimonialswidget_widget category=product order=asc height=300]]
-* Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
-	* [[testimonialswidget_widget min_height=250 max_height=500]]
-* Show rotating, random testimonials having tag "sometag"
-	* [[testimonialswidget_widget tags=sometag random=true]]
+* `[[testimonialswidget_widget category=product order=asc height=300]]` - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
+* `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
+* `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
 
 = Theme Functions =
 
