@@ -4,6 +4,7 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * 3.X Remove prior version options
 * Add easing options - http://bxslider.com/examples/easing, http://gsgd.co.uk/sandbox/jquery/easing/
+* Add shortcode helper page
 * BUG Saving settings doesn't show update notice
 * Consolidate schema by testimonial item 
 * Show settings save errors in error notices
