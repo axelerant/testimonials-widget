@@ -45,6 +45,7 @@ class Testimonials_Widget {
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
 	public static $menu_shortcodes;
+	public static $not_found       = false;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
@@ -832,6 +833,10 @@ EOF;
 
 
 	public static function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
+		$not_found = self::get_not_found();
+		if ( $not_found )
+			return;
+
 		$scripts          = array();
 		$scripts_internal = array();
 
@@ -985,7 +990,10 @@ EOF;
 			$testimonials = array(
 				array( 'testimonial_content' => esc_html__( 'No testimonials found', 'testimonials-widget' ) ),
 			);
-		}
+
+			self::set_not_found( true );
+		} else
+			self::set_not_found();
 
 		$pre_paging = '';
 		if ( $paging || $paging_before )
@@ -2176,6 +2184,14 @@ EOD;
 	}
 
 
+	public static function set_not_found( $not_found = false ) {
+		self::$not_found = $not_found;
+	}
+
+
+	public static function get_not_found() {
+		return self::$not_found;
+	}
 }
 
 

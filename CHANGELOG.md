@@ -5,6 +5,7 @@
 * Add Shortcodes helper page - Thank you Scott Hendison
 * Add screenshot 20. Testimonials Widget Shortcode Examples page
 * BUGFIX Donate notice shows despite `disable_donate` set
+* BUGFIX JavaScript generated even when no testimonials
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets
 * Revise Shortcode Examples formatting
