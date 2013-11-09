@@ -146,6 +146,8 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			if ( empty( $defaults['random'] ) )
 				$defaults['random'] = 1;
 
+			$defaults['enable_schema'] = 0;
+
 			$instance = array();
 		}
 
