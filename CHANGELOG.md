@@ -1,7 +1,6 @@
 # CHANGELOG Testimonials
 
 ## master
-# Rebrand Testimonials Widget as Testimonials
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
 * Add Shortcodes helper page - Thank you Scott Hendison
 * Add screenshot 20. Testimonials Shortcode Examples page
@@ -9,7 +8,9 @@
 * BUGFIX JavaScript generated even when no testimonials
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets
+* Rebrand Testimonials Widget as Testimonials
 * Revise Shortcode Examples formatting
+* Update readme verbiage
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category

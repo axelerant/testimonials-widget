@@ -48,6 +48,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Admin interface to add, edit and manage testimonials
 * Capable of handling multiple widgets per page or post
 * Fields for source, testimonial, image, title, location, email, company and URL details
+* Minimalist CSS styling for easier theming
 * Multiple paging options for testimonials listings
 * Schema.org microdata format for improved search engine results
 * Settings export/import
