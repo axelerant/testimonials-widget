@@ -34,7 +34,7 @@ class Testimonials_Widget_Widget extends WP_Widget {
 		// Create the widget
 		$this->WP_Widget(
 			self::ID,
-			esc_html__( 'Testimonials Widget', 'testimonials-widget' ),
+			esc_html__( 'Testimonials', 'testimonials-widget' ),
 			$widget_ops,
 			$control_ops
 		);

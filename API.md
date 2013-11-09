@@ -1,6 +1,6 @@
-# API Testimonials Widget
+# API Testimonials
 
-The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
+The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 
 ## Actions
 
@@ -137,11 +137,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `testimonials_widget_defaults_single`
 
-	Create a global or central Testimonials Widget configuration for single view. [example](https://aihrus.zendesk.com/entries/23679071-How-do-I-add-testimonial-excerpt-to-single-view-). [example](https://aihrus.zendesk.com/entries/23679111-How-do-I-show-the-expert-and-hide-the-image-in-the-testimonial-single-view-)
+	Create a global or central Testimonials configuration for single view. [example](https://aihrus.zendesk.com/entries/23679071-How-do-I-add-testimonial-excerpt-to-single-view-). [example](https://aihrus.zendesk.com/entries/23679111-How-do-I-show-the-expert-and-hide-the-image-in-the-testimonial-single-view-)
 
 * `testimonials_widget_defaults`
 
-	Create a global or central Testimonials Widget configuration. [example](https://aihrus.zendesk.com/entries/23691607-How-do-I-use-filter-testimonials-widget-defaults-)
+	Create a global or central Testimonials configuration. [example](https://aihrus.zendesk.com/entries/23691607-How-do-I-use-filter-testimonials-widget-defaults-)
 
 * `testimonials_widget_meta_box`
 
@@ -181,4 +181,4 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 ## Need More?
 
-Further examples and more can be found by reading and searching the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).
+Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).

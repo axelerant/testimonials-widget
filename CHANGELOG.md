@@ -1,9 +1,10 @@
-# CHANGELOG Testimonials Widget
+# CHANGELOG Testimonials
 
 ## master
+# Rebrand Testimonials Widget as Testimonials
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
 * Add Shortcodes helper page - Thank you Scott Hendison
-* Add screenshot 20. Testimonials Widget Shortcode Examples page
+* Add screenshot 20. Testimonials Shortcode Examples page
 * BUGFIX Donate notice shows despite `disable_donate` set
 * BUGFIX JavaScript generated even when no testimonials
 * BUGFIX Saving settings doesn't show update notice

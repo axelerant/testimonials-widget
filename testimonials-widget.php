@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Testimonials Widget
+ * Plugin Name: Testimonials
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
- * Description: Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+ * Description: Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
  * Version: 2.15.1
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
@@ -129,7 +129,7 @@ EOD;
 
 
 	public function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Widget Shortcode Examples' ), esc_html__( 'Shortcodes e.g.' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples' ), esc_html__( 'Shortcodes e.g.' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
 	}
 
 
@@ -315,7 +315,7 @@ EOD;
 
 		$links = array(
 			'<a href="http://aihr.us/about-aihrus/donate/"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="PayPal - The safer, easier way to pay online!" /></a>',
-			'<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Widget Premium</a>',
+			'<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>',
 		);
 
 		$input = array_merge( $input, $links );
@@ -326,7 +326,7 @@ EOD;
 
 	public function admin_notices_2_12_0() {
 		$content  = '<div class="updated fade"><p>';
-		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' ) );
+		$content .= sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' ) );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -339,7 +339,7 @@ EOD;
 			return;
 
 		$content  = '<div class="updated fade"><p>';
-		$content .= sprintf( esc_html__( 'Please donate $5 towards development and support of this Testimonials Widget plugin. %s', 'testimonials-widget' ), self::$donate_button );
+		$content .= sprintf( esc_html__( 'Please donate $5 towards development and support of this Testimonials plugin. %s', 'testimonials-widget' ), self::$donate_button );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -2140,7 +2140,7 @@ EOF;
 
 	public function admin_notices_2_15_0() {
 		$content  = '<div class="updated fade"><p>';
-		$content .= sprintf( __( 'If your Testimonials Widget display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0' ) );
+		$content .= sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0' ) );
 		$content .= '</p></div>';
 
 		echo $content;
@@ -2150,7 +2150,7 @@ EOF;
 	public static function show_shortcodes() {
 		echo '<div class="wrap">';
 		echo '<div class="icon32" id="icon-options-general"></div>';
-		echo '<h2>' . esc_html__( 'Testimonials Widget Shortcode Examples' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples' ) . '</h2>';
 
 		$shortcodes = <<<EOD
 <h3>[testimonialswidget_list]</h3>

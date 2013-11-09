@@ -17,7 +17,7 @@
  */
 
 /**
- * Testimonials Widget settings class
+ * Testimonials settings class
  *
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
@@ -81,7 +81,7 @@ class Testimonials_Widget_Settings {
 
 
 	public function admin_menu() {
-		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
 
 		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
@@ -117,7 +117,7 @@ class Testimonials_Widget_Settings {
 		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
 		self::$sections['reset']     = esc_html__( 'Compatibility & Reset', 'testimonials-widget' );
-		self::$sections['about']     = esc_html__( 'About Testimonials Widget', 'testimonials-widget' );
+		self::$sections['about']     = esc_html__( 'About', 'testimonials-widget' );
 
 		self::$sections = apply_filters( 'testimonials_widget_sections', self::$sections );
 	}
@@ -487,7 +487,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['allow_comments'] = array(
 			'section' => 'post_type',
 			'title' => esc_html__( 'Allow Comments?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Only affects the Testimonials post edit page. Your theme controls the front-end view.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'widget' => 0,
@@ -529,7 +529,7 @@ class Testimonials_Widget_Settings {
 			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-			'desc' => esc_html__( 'If checked, use Testimonials Widget\'s own category and tag taxonomies instead', 'testimonials-widget' ),
+			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
@@ -562,7 +562,7 @@ class Testimonials_Widget_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'class' => 'warning', // Custom class for CSS
-			'desc' => esc_html__( 'Delete all Testimonials Widget data and options from database on plugin deletion', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Delete all Testimonials data and options from database on plugin deletion', 'testimonials-widget' ),
 			'widget' => 0,
 		);
 
@@ -585,7 +585,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['use_bxslider'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Use bxSlider?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.15.0, Testimonials Widgets used custom JavaScript for transitions.', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.15.0, Testimonials\' used custom JavaScript for transitions.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'backwards' => array(
@@ -644,7 +644,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['force_css_loading'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Always Load CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.14.0, Testimonials Widgets CSS was always loaded, whether needed or not', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.14.0, Testimonials\' CSS was always loaded, whether needed or not', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'backwards' => array(
@@ -681,7 +681,7 @@ class Testimonials_Widget_Settings {
 		self::$settings['remove_hentry'] = array(
 			'section' => 'reset',
 			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.6.4, some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Pre 2.6.4, some themes use class `.hentry` in a manner that breaks Testimonials\' CSS', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'backwards' => array(
@@ -770,7 +770,7 @@ class Testimonials_Widget_Settings {
 	public static function display_page() {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
-			<h2>' . esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
+			<h2>' . esc_html__( 'Testimonials Settings', 'testimonials-widget' ) . '</h2>';
 
 		settings_errors();
 
@@ -806,7 +806,7 @@ class Testimonials_Widget_Settings {
 		if ( ! $disable_donate ) {
 			echo '<p>' .
 				sprintf(
-				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Widget Premium">purchase Testimonials Widget Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
+				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Premium">purchase Testimonials Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
 				esc_url( 'http://aihr.us/about-aihrus/donate/' ),
 				esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
 				esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
@@ -873,7 +873,7 @@ class Testimonials_Widget_Settings {
 	public function display_about_section() {
 		echo '
 			<div id="about" style="width: 70%; min-height: 225px;">
-				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="' . WP_PLUGIN_URL . '/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials Widget</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He\'s <a title="Lot\'s of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">full stack developer</a>, <a title="Michael\'s poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
+				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="' . WP_PLUGIN_URL . '/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He\'s <a title="Lot\'s of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">full stack developer</a>, <a title="Michael\'s poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
 			</div>
 		';
 	}
@@ -1395,12 +1395,12 @@ class Testimonials_Widget_Settings {
 
 		$screen->set_help_sidebar(
 			'<p>' .
-			esc_html__( 'These Testimonials Widget Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) .
+			esc_html__( 'These Testimonials Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you\'ll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it.', 'testimonials-widget' ) .
 			'</p><p>' .
 			esc_html__( 'Shortcode option names are listed below each entry.', 'testimonials-widget' ) .
 			'</p><p>' .
 			sprintf(
-				__( 'View the <a href="%s">Testimonials Widget documentation</a>.', 'testimonials-widget' ),
+				__( 'View the <a href="%s">Testimonials documentation</a>.', 'testimonials-widget' ),
 				esc_url( 'http://wordpress.org/plugins/testimonials-widget/' )
 			) .
 			'</p>'

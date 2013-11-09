@@ -1,4 +1,4 @@
-=== Testimonials Widget ===
+=== Testimonials ===
 
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
@@ -9,17 +9,17 @@ Stable tag: 2.15.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
 
 
 == Description ==
 
-Testimonials Widget plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials Widget content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, the [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, the [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
 [youtube http://www.youtube.com/watch?v=bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
 
-**View a [Live Testimonials Widget Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
+**View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
 
 = More Than Just Testimonials Slider Capabilities! =
 
@@ -34,7 +34,7 @@ Testimonials Widget plugin allows you to display random or selected portfolio, q
 * Fade and slide transitions
 * Filter slideshow content by WordPress' built in categories, tags, or post-ID
 
-More than one Testimonials Widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
+More than one Testimonials shortcode or widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
@@ -58,9 +58,9 @@ The single testimonial view supports image, source, title, location, email, comp
 * Use custom taxonomy or WordPress's own for categories and tags
 * Use's [bxSlider](http://bxslider.com) for transitions
 
-= Testimonials Widget Premium =
+= Testimonials Premium =
 
-Testimonials Widget Premium adds onto the best WordPress testimonials plugin there is, [Testimonials Widget](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Widget Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
 = Primary Premium Features =
 
@@ -82,13 +82,13 @@ Testimonials Widget Premium adds onto the best WordPress testimonials plugin the
 * List of testimonial source and title linking to full entry `[[testimonialswidgetpremium_link_list]]` 
 * Testimonials entry form `[[testimonialswidgetpremium_form]]`
 
-[Buy Testimonials Widget Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
+[Buy Testimonials Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
 
 = Additional Features =
 
 * Adjustable animation speed
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
-* Auto-migration from pre-2.0.0 custom table to new Testimonials Widget custom post type
+* Auto-migration from pre-2.0.0 custom table to new Testimonials custom post type
 * Auto-suggest for category and tag options
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
@@ -122,7 +122,7 @@ Testimonials Widget Premium adds onto the best WordPress testimonials plugin the
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Testimonials Widget widget displays static and rotating testimonials 
+* Testimonials widget displays static and rotating testimonials 
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * URLs can be opened in new windows
@@ -237,21 +237,21 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Post Type**
 
-* Allow Comments? – Only affects the Testimonials Widget post edit page. Your theme controls the front-end view.
+* Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
 **Compatibility & Reset**
 
-* Don't Use Default Taxonomies? – If checked, use Testimonials Widget's own category and tag taxonomies instead
+* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead
 * Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
 * Import Settings – Paste new serialized settings here to overwrite your current configuration.
-* Remove Plugin Data on Deletion? - Delete all Testimonials Widget data and options from database on plugin deletion
+* Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
 
 **Version Based Options**
 
-* Use bxSlider? - Pre 2.15.0, Testimonials Widgets used custom JavaScript for transitions.
+* Use bxSlider? - Pre 2.15.0, Testimonials' used custom JavaScript for transitions.
 * Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
 	* `disable_animation` - default false; disable_animation=true
 * Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
@@ -264,11 +264,11 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
 	* `max_height` - default none; max_height=250
-* Always Load CSS? - Pre 2.14.0. Testimonials Widgets CSS was always loaded, whether needed or not
+* Always Load CSS? - Pre 2.14.0. Testimonials' CSS was always loaded, whether needed or not
 * Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials Widgets CSS
+* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS
 	* `remove_hentry` - default none; remove_hentry=true
 
 = Shortcode Examples =
@@ -299,7 +299,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = API =
 
-* Read the [Testimonials Widget API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
+* Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
 = Notes =
 
@@ -327,9 +327,9 @@ See the FAQ for further localization tips.
 
 = Background & Thanks =
 
-A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials Widget banner. It's fantastic.
+A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
 
-Version 2.0.0 of Testimonials Widget is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
+Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
@@ -337,22 +337,22 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Support =
 
-Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, sending ideas, or getting support.
+Please visit the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, sending ideas, or getting support.
 
-If you want to contribute and I hope you do, visit the [Testimonials Widget Github repository](https://github.com/michael-cannon/testimonials-widget).
+If you want to contribute and I hope you do, visit the [Testimonials Github repository](https://github.com/michael-cannon/testimonials-widget).
 
 
 == Installation ==
 
 1. Via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
 1. Alternately, via FTP, upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
-1. Activate the 'Testimonials Widget' plugin after uploading or through WordPress Admin > Plugins
+1. Activate the 'Testimonials' plugin after uploading or through WordPress Admin > Plugins
 
 = Usage =
 
 1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
-1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials Widget' into the desired widget area
-1. Configure the 'Testimonials Widget' to select quotes and display as needed
+1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' into the desired widget area
+1. Configure the 'Testimonials' to select quotes and display as needed
 1. Use the `[[testimonialswidget_list]]` or `[[testimonialswidget_widget]]` shortcodes to display testimonials on a page or in a post
 1. Read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
 
@@ -372,14 +372,14 @@ If you want to contribute and I hope you do, visit the [Testimonials Widget Gith
 
 = Still Stuck? =
 
-Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for more frequently asked questions, sending ideas, or getting support.
+Please visit the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for more frequently asked questions, sending ideas, or getting support.
 
 
 == Screenshots ==
 
 1. Testimonials admin interface
-2. Collapsed Testimonials Widget options
-3. Expanded 'General Options' in Testimonials Widget options
+2. Collapsed Testimonials options
+3. Expanded 'General Options' in Testimonials options
 4. Testimonial widget in the sidebar 
 5. [[testimonialswidget_list]] in post
 6. [[testimonialswidget_list]] results with paging
@@ -387,16 +387,16 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 10. Poedit Catalog properties
-11. Testimonials Widget Settings > General tab
-12. Expanded 'Selection Options' in Testimonials Widget options
-13. Expanded 'Ordering Options' in Testimonials Widget options
-14. Testimonials Widget Settings > Selection tab
-15. Testimonials Widget Settings > Post Type tab
-16. Testimonials Widget Settings > Widget tab
-17. Testimonials Widget Settings > Compatibility & Reset tab
+11. Testimonials Settings > General tab
+12. Expanded 'Selection Options' in Testimonials options
+13. Expanded 'Ordering Options' in Testimonials options
+14. Testimonials Settings > Selection tab
+15. Testimonials Settings > Post Type tab
+16. Testimonials Settings > Widget tab
+17. Testimonials Settings > Compatibility & Reset tab
 18. Dashboard > Right Now "Testimonials" count
 19. Using Review and AggregateRating schema data structures
-20. Testimonials Widget Shortcode Examples page
+20. Testimonials Shortcode Examples page
 
 
 == Changelog ==
@@ -489,13 +489,13 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Beta Testers Needed ==
 
-I really want Testimonials Widget and Testimonials Widget Premium to be the best WordPress plugins of their type. However, it's beyond me to do it alone.
+I really want Testimonials and Testimonials Premium to be the best WordPress plugins of their type. However, it's beyond me to do it alone.
 
-I need beta testers to help with ensuring pending releases of Testimonials Widget and Testimonials Widget Premium are solid. This would benefit us all by helping reduce the number of releases and raise code quality.
+I need beta testers to help with ensuring pending releases of Testimonials and Testimonials Premium are solid. This would benefit us all by helping reduce the number of releases and raise code quality.
 
 [Please contact me directly](http://aihr.us/contact-aihrus/).
 
-Beta testers benefit directly with latest versions, a free 1-site license for Testimonials Widget Premium, and personalized support assistance.
+Beta testers benefit directly with latest versions, a free 1-site license for Testimonials Premium, and personalized support assistance.
 
 == TODO ==
 
