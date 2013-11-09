@@ -3,6 +3,7 @@
 ## master
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
 * Add Shortcodes helper page - Thank you Scott Hendison
+* Add screenshot 20. Testimonials Widget Shortcode Examples page
 * BUGFIX Donate notice shows despite `disable_donate` set
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets

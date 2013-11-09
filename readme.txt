@@ -396,6 +396,7 @@ Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com
 17. Testimonials Widget Settings > Compatibility & Reset tab
 18. Dashboard > Right Now "Testimonials" count
 19. Using Review and AggregateRating schema data structures
+20. Testimonials Widget Shortcode Examples page
 
 
 == Changelog ==
