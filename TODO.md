@@ -5,8 +5,8 @@ Is there something you want done? Write it up on the [support forums](http://wor
 * 3.X Remove prior version options
 * Add easing options - http://bxslider.com/examples/easing, http://gsgd.co.uk/sandbox/jquery/easing/
 * BUG JavaScript generated even when no testimonials
-* BUG Saving settings doesn't show update notice
 * BUG? Testimonials content not strip_tag'd before review schema usage
 * Consolidate schema by testimonial item 
 * Show settings save errors in error notices
+* [CONFLICT](http://wordpress.org/support/topic/page-display-of-testimonial-duplicating-text?replies=11) Page Display of Testimonial duplicating Text - Elegant Themes' Trim theme
 * [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories

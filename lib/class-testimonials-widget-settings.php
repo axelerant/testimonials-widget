@@ -772,6 +772,8 @@ class Testimonials_Widget_Settings {
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . esc_html__( 'Testimonials Widget Settings', 'testimonials-widget' ) . '</h2>';
 
+		settings_errors();
+
 		echo '<form action="options.php" method="post">';
 
 		settings_fields( self::ID );
