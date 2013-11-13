@@ -1549,7 +1549,7 @@ EOF;
 			$args['post_status'][] = 'draft';
 		}
 
-		if ( $paging && $atts['paged'] && is_singular() )
+		if ( $paging && ! empty( $atts['paged'] ) && is_singular() )
 			$args['paged'] = $atts['paged'];
 
 		if ( ! $random && $meta_key ) {

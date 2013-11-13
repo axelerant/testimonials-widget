@@ -8,6 +8,7 @@
 * BUGFIX JavaScript generated even when no testimonials
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets
+* Enabled resetting widget options
 * Rebrand Testimonials Widget as Testimonials
 * Revise Shortcode Examples formatting
 * Update readme verbiage

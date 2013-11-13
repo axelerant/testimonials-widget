@@ -520,7 +520,7 @@ class Testimonials_Widget_Settings {
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
-			'desc' => esc_html__( 'Compatiblity Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Reset & Compatiblity Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
@@ -573,7 +573,7 @@ class Testimonials_Widget_Settings {
 			'validate' => 'is_true',
 			'class' => 'warning', // Custom class for CSS
 			'desc' => esc_html__( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
-			'widget' => 0,
+			'widget' => 1,
 		);
 
 		self::$settings['version_options_heading'] = array(
@@ -1087,6 +1087,8 @@ class Testimonials_Widget_Settings {
 					}
 
 					unset( $input['reset_defaults'] );
+
+					$input['resetted'] = true;
 				}
 
 				if ( ! empty( $input['import'] ) && $_SESSION['export'] != $input['import'] ) {

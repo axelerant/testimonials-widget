@@ -149,6 +149,14 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$defaults['enable_schema'] = 0;
 
 			$instance = array();
+		} elseif ( ! empty( $instance['resetted'] ) ) {
+			if ( empty( $instance['char_limit'] ) )
+				$instance['char_limit'] = 500;
+
+			if ( empty( $instance['random'] ) )
+				$instance['random'] = 1;
+
+			$instance['enable_schema'] = 0;
 		}
 
 		$instance   = wp_parse_args( $instance, $defaults );
