@@ -1174,20 +1174,15 @@ EOF;
 
 
 	public static function get_cite( $testimonial, $atts ) {
-		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
-		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
-		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
-		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
-		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
-		$use_quote_tag = $atts['use_quote_tag'];
+		extract( $testimonial );
 
-		$testimonial_company  = $testimonial['testimonial_company'];
-		$testimonial_email    = $testimonial['testimonial_email'];
-		$testimonial_location = $testimonial['testimonial_location'];
-		$testimonial_source   = $testimonial['testimonial_source'];
-		$testimonial_title    = $testimonial['testimonial_title'];
-		$testimonial_url      = $testimonial['testimonial_url'];
+		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial_company );
+		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial_email ) && is_email( $testimonial_email );
+		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial_location );
+		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial_source );
+		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial_title );
+		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial_url );
+		$use_quote_tag = $atts['use_quote_tag'];
 
 		$cite = '';
 
@@ -1867,7 +1862,7 @@ EOF;
 		if ( ! is_string( $string ) )
 			return $string;
 
-		return trim( strip_tags( $string ) );
+		return trim( strip_shortcodes( strip_tags( $string ) ) );
 	}
 
 
@@ -1877,22 +1872,15 @@ EOF;
 				$testimonial[ $key ] = self::clean_string( $value );
 		}
 
-		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
-		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
-		$do_image    = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
-		$do_location = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
-		$do_source   = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
-		$do_title    = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
-		$do_url      = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+		extract( $testimonial );
 
-		$testimonial_company  = $testimonial['testimonial_company'];
-		$testimonial_content  = $testimonial['testimonial_content'];
-		$testimonial_email    = $testimonial['testimonial_email'];
-		$testimonial_image    = $testimonial['testimonial_image'];
-		$testimonial_location = $testimonial['testimonial_location'];
-		$testimonial_source   = $testimonial['testimonial_source'];
-		$testimonial_title    = $testimonial['testimonial_title'];
-		$testimonial_url      = $testimonial['testimonial_url'];
+		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial_company );
+		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial_email ) && is_email( $testimonial_email );
+		$do_image    = ! $atts['hide_image'] && ! empty( $testimonial_image );
+		$do_location = ! $atts['hide_location'] && ! empty( $testimonial_location );
+		$do_source   = ! $atts['hide_source'] && ! empty( $testimonial_source );
+		$do_title    = ! $atts['hide_title'] && ! empty( $testimonial_title );
+		$do_url      = ! $atts['hide_url'] && ! empty( $testimonial_url );
 
 		$item_reviewed     = self::clean_string( $atts['item_reviewed'] );
 		$item_reviewed_url = self::clean_string( $atts['item_reviewed_url'] );

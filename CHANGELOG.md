@@ -6,6 +6,7 @@
 * Add screenshot 20. Testimonials Shortcode Examples page
 * BUGFIX Donate notice shows despite `disable_donate` set
 * BUGFIX JavaScript generated even when no testimonials
+* BUGFIX Page Display of Testimonial duplicating Text - Elegant Themes' Trim theme
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets
 * Enabled resetting widget options
