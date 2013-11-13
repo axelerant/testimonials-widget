@@ -3,4 +3,3 @@
 Is there something you want done? Write it up on the [support forums](http://wordpress.org/support/plugin/testimonials-widget) and then [donate](http://aihr.us/about-aihrus/donate/) or [write an awesome testimonial](http://aihr.us/about-aihrus/testimonials/add-testimonial/).
 
 * Consolidate schema by testimonial item 
-* [CONFLICT](https://aihrus.zendesk.com/agent/#/tickets/562) Widgets Reloaded plugin - no longer allow me to exclude categories

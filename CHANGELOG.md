@@ -13,6 +13,7 @@
 * Rebrand Testimonials Widget as Testimonials
 * Revise Shortcode Examples formatting
 * Update readme verbiage
+* Update TODO
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category
