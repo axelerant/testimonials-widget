@@ -129,7 +129,7 @@ EOD;
 
 
 	public function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples' ), esc_html__( 'Shortcodes e.g.' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'Shortcodes e.g.', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
 	}
 
 
@@ -2143,7 +2143,7 @@ EOF;
 	public static function show_shortcodes() {
 		echo '<div class="wrap">';
 		echo '<div class="icon32" id="icon-options-general"></div>';
-		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ) . '</h2>';
 
 		$shortcodes = <<<EOD
 <h3>[testimonialswidget_list]</h3>
