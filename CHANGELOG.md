@@ -10,6 +10,7 @@
 * BUGFIX Saving settings doesn't show update notice
 * Disable schemas by default for widgets
 * Enabled resetting widget options
+* Mark cacheables with similar key for easier cleanup
 * Rebrand Testimonials Widget as Testimonials
 * Revise Shortcode Examples formatting
 * Update readme verbiage

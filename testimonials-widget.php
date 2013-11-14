@@ -965,7 +965,6 @@ EOF;
 
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
-		// display attributes
 		$hide_not_found = $atts['hide_not_found'];
 		$paging         = Testimonials_Widget_Settings::is_true( $atts['paging'] );
 		$paging_before  = ( 'before' === strtolower( $atts['paging'] ) );
@@ -1031,7 +1030,6 @@ EOF;
 
 
 	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
-		// display attributes
 		$disable_quotes  = $atts['disable_quotes'];
 		$do_image        = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
 		$do_image_single = ! $atts['hide_image_single'];
@@ -1056,13 +1054,15 @@ EOF;
 		if ( $keep_whitespace )
 			$class .= ' whitespace';
 
-		if ( ! empty( $testimonial['post_id'] ) )
-			$class = join( ' ', get_post_class( $class, $testimonial['post_id'] ) );
+		$post_id = $testimonial['post_id'];
+		if ( ! empty( $post_id ) )
+			$class = join( ' ', get_post_class( $class, $post_id ) );
 		else
 			$class = 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
 
 		$class    = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
-		$div_open = '<div class="' . $class . '">';
+		$div_open  = '<!-- ' . self::ID . ":{$post_id}: -->";
+		$div_open .= '<div class="' . $class . '">';
 
 		if ( $do_schema && $do_content )
 			$div_open .= sprintf( self::$schema_div_open, self::$review_schema );

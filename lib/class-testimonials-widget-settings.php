@@ -49,7 +49,7 @@ class Testimonials_Widget_Settings {
 	public static $sections   = array();
 	public static $settings   = array();
 	public static $suggest_id = 0;
-	public static $version    = null;
+	public static $version;
 
 
 	public function __construct() {
