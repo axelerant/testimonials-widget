@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
  * Description: Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
- * Version: 2.15.1
+ * Version: 2.15.2-alpha
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
  * License: GPLv2 or later
@@ -29,7 +29,7 @@ class Testimonials_Widget {
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
-	const VERSION     = '2.15.1';
+	const VERSION     = '2.15.2-alpha';
 
 	private static $base;
 	private static $found_posts   = 0;
@@ -1060,7 +1060,7 @@ EOF;
 		else
 			$class = 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
 
-		$class    = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
+		$class     = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 		$div_open  = '<!-- ' . self::ID . ":{$post_id}: -->";
 		$div_open .= '<div class="' . $class . '">';
 
@@ -1866,6 +1866,11 @@ EOF;
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public static function get_schema( $testimonial, $atts ) {
 		foreach ( $testimonial as $key => $value ) {
 			if ( 'testimonial_image' != $key )
@@ -2180,6 +2185,8 @@ EOD;
 	public static function get_not_found() {
 		return self::$not_found;
 	}
+
+
 }
 
 

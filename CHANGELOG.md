@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.15.2-alpha
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
 * Add Shortcodes helper page - Thank you Scott Hendison
 * Add screenshot 20. Testimonials Shortcode Examples page
@@ -13,8 +15,8 @@
 * Mark cacheables with similar key for easier cleanup
 * Rebrand Testimonials Widget as Testimonials
 * Revise Shortcode Examples formatting
-* Update readme verbiage
 * Update TODO
+* Update readme verbiage
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category
