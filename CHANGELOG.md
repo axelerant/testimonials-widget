@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Revise short description
 
 ## 2.15.2-alpha
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison

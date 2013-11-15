@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Testimonials
  * Plugin URI: http://wordpress.org/extend/plugins/testimonials-widget/
- * Description: Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+ * Description: Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 2.15.2-alpha
  * Author: Michael Cannon
  * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
@@ -25,6 +25,7 @@
  */
 class Testimonials_Widget {
 	const ID          = 'testimonials-widget-testimonials';
+	const ITEM_NAME   = 'Testimonials';
 	const JS_KEY      = 'tw_slider_';
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_FILE = 'testimonials-widget/testimonials-widget.php';
@@ -129,7 +130,7 @@ EOD;
 
 
 	public function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'Shortcodes e.g.', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'E.g. Shortcodes', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
 	}
 
 

@@ -4,6 +4,4 @@ Is there something you want done? Write it up on the [support forums](http://wor
 
 * Add in notification framework
 * Consolidate schema by testimonial item 
-* Simplify branding
-* Simplify shortcodes 
 * Validate HTML

@@ -9,19 +9,19 @@ Stable tag: 2.15.2-alpha
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog.
+Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
 
 
 == Description ==
 
-Testimonials plugin allows you to display random or selected portfolio, quotes, reviews, showcases, or text with images on your WordPress blog. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, the [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, the [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
 [youtube http://www.youtube.com/watch?v=bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
 
 **View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
 
-= More Than Just Testimonials Slider Capabilities! =
+= It's Beyond Just Testimonials Slider Capabilities! =
 
 * Slide Images - responsive image slideshow
 * Slide Videos - video slideshow
@@ -34,13 +34,13 @@ Testimonials plugin allows you to display random or selected portfolio, quotes, 
 * Fade and slide transitions
 * Filter slideshow content by WordPress' built in categories, tags, or post-ID
 
-More than one Testimonials shortcode or widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial Widget has its own CSS identifier for custom styling.
+More than one Testimonials shortcode or widget instance can be displayed at a time pulls from the `testimonials-widget` custom post type. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials. Each Testimonial widget has its own CSS identifier for custom styling.
 
 Widgets display content sans `wpautop` formatting. This means no forced paragraph breaks unless the content specifically contains them. You can enable `wpautop` via the "Keep whitespace?" option.
 
-Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classification. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial Widget to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial Widget, you can also select only Portfolio testimonials, but then allow web and media tags.
+Through categories and tagging, you can create organizational structures based upon products, projects and services via categories and then apply tagging for further classification. As an example, you might create a Portfolio category and then use tags to identify web, magazine, media, public, enterprise niches. You can then configure the Testimonial instance to show only Portfolio testimonials with the public and enterprise tags. In another Testimonial instance, you can also select only Portfolio testimonials, but then allow web and media tags.
 
-The single testimonial view supports image, source, title, location, email, company and URL details.
+The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
 
 = Primary Features =
 
