@@ -1,8 +1,13 @@
 # CHANGELOG Testimonials
 
 ## master
-* Begin working with aihrus framework
+
+## 2.15.2-beta
+* Removed Testimonials Widget pre-2.0.0 migration code
+* Replace JS_KEY with SLUG
 * Revise short description
+* Update to use `TW_PLUGIN_DIR_LIB`
+* Use aihrus framework
 
 ## 2.15.2-alpha
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison

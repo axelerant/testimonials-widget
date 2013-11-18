@@ -134,8 +134,7 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 				$license = $this->get_license();
 
 				return $license;
-			} else
-				static::set_notice( 'notice_license' );
+			}
 
 			return $license_data->license;
 		}

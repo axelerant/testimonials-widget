@@ -21,7 +21,6 @@ if ( class_exists( 'Aihrus_Common_Interface' ) )
 
 
 interface Aihrus_Common_Interface {
-	public static function set_base();
 }
 
 

@@ -23,24 +23,26 @@ require_once 'interface-aihrus-common.php';
 
 
 abstract class Aihrus_Common implements Aihrus_Common_Interface {
-
-	public static $base;
-	public static $notice_key;
+	public static $donate_button;
+	public static $donate_link;
 
 
 	public function __construct() {
-		static::set_base();
+		self::set_class();
 		self::set_notice_key();
 
-		add_action( 'admin_init', array( $this, 'check_notices' ), 9999 );
-	}
+		self::$donate_button = <<<EOD
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="WM4F995W9LHXE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+EOD;
 
-
-	public static function get_base() {
-		if ( is_null( self::$base ) )
-			static::set_base();
-
-		return self::$base;
+		self::$donate_link = '<a href="http://aihr.us/about-aihrus/donate/"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="PayPal - The safer, easier way to pay online!" /></a>';
+ 
+		add_action( 'admin_init', array( self::get_class(), 'check_notices' ), 9999 );
 	}
 
 
@@ -85,10 +87,9 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 			return;
 
 		$notices = array_unique( $notices );
-		$class   = get_called_class();
 		foreach ( $notices as $notice ) {
 			if ( ! is_array( $notice ) )
-				add_action( 'admin_notices', array( $class, $notice ) );
+				add_action( 'admin_notices', array( self::get_class(), $notice ) );
 			else
 				add_action( 'admin_notices', $notice );
 		}
@@ -98,19 +99,19 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 
 
 	public static function get_notice_key() {
-		if ( is_null( self::$notice_key ) )
+		if ( is_null( static::$notice_key ) )
 			self::set_notice_key();
 		
-		return self::$notice_key;
+		return static::$notice_key;
 	}
 
 
 	public static function set_notice_key() {
-		self::$notice_key = static::SLUG . 'notices';
+		static::$notice_key = static::SLUG . 'notices';
 	}
 
 
-	public function notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name ) {
+	public static function notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name ) {
 		$is_active = is_plugin_active( $free_base );
 		if ( $is_active ) {
 			$link = sprintf( __( '<a href="%1$s">update to</a>' ), self_admin_url( 'update-core.php' ) );
@@ -125,11 +126,9 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 			}
 		}
 
-		$content  = '<div class="error"><p>';
-		$content .= sprintf( __( 'Plugin %3$s has been deactivated. Please %1$s %4$s version %2$s or newer before activating %3$s.' ), $link, $free_version, $item_name, $free_name );
-		$content .= '</p></div>';
+		$text = sprintf( __( 'Plugin %3$s has been deactivated. Please %1$s %4$s version %2$s or newer before activating %3$s.' ), $link, $free_version, $item_name, $free_name );
 
-		echo $content;
+		self::notice_error( $text );
 	}
 
 
@@ -149,11 +148,9 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 
 		$buy_link = sprintf( $text, $link, $item_name );
 
-		$content  = '<div class="error"><p>';
-		$content .= sprintf( __( 'Plugin %1$s requires license activation before updating will work. Please activate the license key via %2$s. No license key? See %3$s or purchase %4$s.' ), $item_name, $settings_link, $faq_link, $buy_link );
-		$content .= '</p></div>';
+		$text = sprintf( __( 'Plugin %1$s requires license activation before updating will work. Please activate the license key via %2$s. No license key? See %3$s or purchase %4$s.' ), $item_name, $settings_link, $faq_link, $buy_link );
 
-		echo $content;
+		self::notice_error( $text );
 	}
 
 
@@ -188,6 +185,47 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 		}
 
 		return $lst;
+	}
+
+
+	public static function get_class() {
+		if ( is_null( static::$class ) )
+			self::set_class();
+		
+		return static::$class;
+	}
+
+
+	public static function set_class() {
+		static::$class = get_called_class();
+	}
+
+
+	public static function notice_donate( $disable_donate = null, $item_name = null ) {
+		if ( $disable_donate )
+			return;
+
+		$text = sprintf( esc_html__( 'Please donate $5 towards ongoing support and development of this %1$s plugin. %2$s' ), $item_name, self::$donate_button );
+
+		self::notice_updated( $text );
+	}
+
+
+	public static function notice_error( $text ) {
+		self::notice_updated( $text, 'error' );
+	}
+
+
+	public static function notice_updated( $text, $class = 'updated' ) {
+		if ( 'updated' == $class )
+			$class .= ' fade';
+
+		$content  = '';
+		$content .= '<div class="' . $class . '"><p>';
+		$content .= $text;
+		$content .= '</p></div>';
+
+		echo $content;
 	}
 
 

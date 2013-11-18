@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.8.0
-Stable tag: 2.15.2-alpha
+Stable tag: 2.15.2-beta
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,7 +89,6 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 * Adjustable animation speed
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
-* Auto-migration from pre-2.0.0 custom table to new Testimonials custom post type
 * Auto-suggest for category and tag options
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
@@ -305,11 +304,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Notes =
 
 * Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
-* Auto-migration from pre-2.0.0 custom table to new custom post type
-	* Company, URL and email details are attempted to be identified and placed properly
-	* Public testimonials are saved as Published. Non-public, are marked as Private.
-	* Ignores already imported
-	* Widgets have schemas disabled by default to prevent overriding search engine findings for the page
+* If migration from from pre-2.0.0 custom table to new custom post type is needed, then install Testimonials Widget 2.15.1 for that capability before updating to the latest Testimonials Widget plugin.
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
 * When plugin is uninstalled, all data and settings are deleted
 
