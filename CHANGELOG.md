@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Begin working with aihrus framework
 * Revise short description
 
 ## 2.15.2-alpha
