@@ -21,7 +21,7 @@
 1. Link plugin to libary
 	```
 	require_once WPSP_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
-	``` 1. Extend plugin class to library
+1. Extend plugin class to library
 	```
 	class Wordpress_Starter extends Aihrus_Common {
 	```
