@@ -256,6 +256,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			return;
 
 		flush_rewrite_rules();
+		Testimonials_Widget::delete_notices();
 	}
 
 
