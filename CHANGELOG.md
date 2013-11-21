@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Delete notices on deactivation
 
 ## 2.15.2-beta
 * Removed Testimonials Widget pre-2.0.0 migration code
