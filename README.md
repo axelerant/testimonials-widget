@@ -1,4 +1,6 @@
-# Aihrus Framework helper for WordPress plugins
+# Aihrus Framework
+
+A helper library for WordPress plugins by Aihrus.
 
 ## Features
 
