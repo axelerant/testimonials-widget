@@ -106,7 +106,6 @@ abstract class Aihrus_Settings {
 			'type' => 'checkbox',
 			'class' => 'warning',
 			'desc' => esc_html__( 'Check this box to reset options to their defaults' ),
-			'widget' => 0,
 		);
 	}
 
@@ -309,18 +308,17 @@ abstract class Aihrus_Settings {
 		if ( ! isset( $no_code ) )
 			$no_code = false;
 
-		if ( is_null( $input ) ) {
+		if ( is_null( $input ) )
 			$options = get_option( static::ID );
-		} else {
+		else {
 			$options      = array();
 			$options[$id] = $input;
 		}
 
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' ) {
+		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
 			$options[$id] = $std;
-		} elseif ( ! isset( $options[$id] ) ) {
+		elseif ( ! isset( $options[$id] ) )
 			$options[$id] = 0;
-		}
 
 		$field_class = '';
 		if ( ! empty( $class ) )
