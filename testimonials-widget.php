@@ -2100,6 +2100,27 @@ EOD;
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
+	public static function do_load() {
+		$do_load = false;
+		if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'options.php' ) ) ) {
+			$do_load = true;
+		} elseif ( ! empty( $_REQUEST['post_type'] ) && self::PT == $_REQUEST['post_type'] ) {
+			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php' ) ) ) {
+				$do_load = true;
+			} elseif ( ! empty( $_REQUEST['page'] ) && Testimonials_Widget_Settings::ID == $_REQUEST['page'] ) {
+				$do_load = true;
+			}
+		}
+
+		return $do_load;
+	}
+
+
 }
 
 

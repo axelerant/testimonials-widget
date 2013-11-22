@@ -22,91 +22,65 @@
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
 
+require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-settings.php';
 
-class Testimonials_Widget_Settings {
-	const ID = 'testimonialswidget_settings';
 
-	public static $admin_page = '';
-	public static $default    = array(
-		'backwards' => array(
-			'version' => '', // below this version number, use std
-			'std' => '',
-		),
-		'choices' => array(), // key => value
-		'class' => '',
-		'desc' => '',
-		'id' => 'default_field',
-		'section' => 'general',
-		'std' => '', // default key or value
-		'suggest' => false, // attempt for auto-suggest on inputs
-		'title' => '',
-		'type' => 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
-		'validate' => '', // required, term, slug, slugs, ids, order, single paramater PHP functions
-		'widget' => 1, // show in widget options, 0 off
-	);
+class Testimonials_Widget_Settings extends Aihrus_Settings {
+	const ID        = 'testimonialswidget_settings';
+	const ITEM_NAME = 'Testimonials Settings';
 
-	public static $defaults   = array();
-	public static $sections   = array();
-	public static $settings   = array();
-	public static $suggest_id = 0;
+	public static $admin_page  = '';
+	public static $class       = __CLASS__;
+	public static $defaults    = array();
+	public static $plugin_path = array();
+	public static $plugin_url  = 'http://wordpress.org/plugins/testimonials-widget/';
+	public static $sections    = array();
+	public static $settings    = array();
+	public static $suggest_id  = 0;
 	public static $version;
 
 
 	public function __construct() {
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
+		self::$default['suggest'] = false; // attempt for auto-suggest on inputs
+
+		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+		add_action( 'init', array( __CLASS__, 'init' ) );
 	}
 
 
-	public function admin_init() {
-		add_filter( 'wp_unique_post_slug_is_bad_hierarchical_slug', array( $this, 'is_bad_hierarchical_slug' ), 10, 4 );
-		add_filter( 'wp_unique_post_slug_is_bad_flat_slug', array( $this, 'is_bad_flat_slug' ), 10, 3 );
+	public static function admin_init() {
+		add_filter( 'wp_unique_post_slug_is_bad_hierarchical_slug', array( __CLASS__, 'is_bad_hierarchical_slug' ), 10, 4 );
+		add_filter( 'wp_unique_post_slug_is_bad_flat_slug', array( __CLASS__, 'is_bad_flat_slug' ), 10, 3 );
 
 		$version       = tw_get_option( 'version' );
 		self::$version = Testimonials_Widget::VERSION;
 		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
 
 		if ( $version != self::$version )
-			$this->initialize_settings();
+			self::initialize_settings();
 
-		if ( ! self::do_load() )
+		if ( ! Testimonials_Widget::do_load() )
 			return;
 
-		self::sections();
-		self::settings();
-
-		$this->register_settings();
+		self::load_options();
+		self::register_settings();
 	}
 
 
-	public function admin_menu() {
-		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( 'Testimonials_Widget_Settings', 'display_page' ) );
+	public static function admin_menu() {
+		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( __CLASS__, 'display_page' ) );
 
-		add_action( 'admin_print_scripts-' . self::$admin_page, array( $this, 'scripts' ) );
-		add_action( 'admin_print_styles-' . self::$admin_page, array( $this, 'styles' ) );
-		add_action( 'load-' . self::$admin_page, array( $this, 'settings_add_help_tabs' ) );
+		add_action( 'admin_print_scripts-' . self::$admin_page, array( __CLASS__, 'scripts' ) );
+		add_action( 'admin_print_styles-' . self::$admin_page, array( __CLASS__, 'styles' ) );
+		add_action( 'load-' . self::$admin_page, array( __CLASS__, 'settings_add_help_tabs' ) );
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.Superglobals)
-	 */
-	public static function do_load() {
-		$do_load = false;
-		if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'options.php' ) ) ) {
-			$do_load = true;
-		} elseif ( ! empty( $_REQUEST['post_type'] ) && Testimonials_Widget::PT == $_REQUEST['post_type'] ) {
-			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php' ) ) ) {
-				$do_load = true;
-			} elseif ( ! empty( $_REQUEST['page'] ) && self::ID == $_REQUEST['page'] ) {
-				$do_load = true;
-			}
-		}
+	public static function init() {
+		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 
-		return $do_load;
+		self::$plugin_path = plugins_url( '', dirname( __FILE__ ) );
 	}
 
 
@@ -116,8 +90,8 @@ class Testimonials_Widget_Settings {
 		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
 		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
-		self::$sections['reset']     = esc_html__( 'Compatibility & Reset', 'testimonials-widget' );
-		self::$sections['about']     = esc_html__( 'About', 'testimonials-widget' );
+
+		parent::sections();
 
 		self::$sections = apply_filters( 'testimonials_widget_sections', self::$sections );
 	}
@@ -533,49 +507,6 @@ class Testimonials_Widget_Settings {
 			'widget' => 0,
 		);
 
-		$options = get_option( self::ID );
-		if ( ! empty( $options ) ) {
-			$serialized_options = serialize( $options );
-			$_SESSION['export'] = $serialized_options;
-
-			self::$settings['export'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Export Settings', 'testimonials-widget' ),
-				'type' => 'readonly',
-				'desc' => esc_html__( 'These are your current settings in a serialized format. Copy the contents to make a backup of your settings.', 'testimonials-widget' ),
-				'std' => $serialized_options,
-				'widget' => 0,
-			);
-		}
-
-		self::$settings['import'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Import Settings', 'testimonials-widget' ),
-			'type' => 'textarea',
-			'desc' => esc_html__( 'Paste new serialized settings here to overwrite your current configuration.', 'testimonials-widget' ),
-			'widget' => 0,
-		);
-
-		self::$settings['delete_data'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Remove Plugin Data on Deletion?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'class' => 'warning', // Custom class for CSS
-			'desc' => esc_html__( 'Delete all Testimonials data and options from database on plugin deletion', 'testimonials-widget' ),
-			'widget' => 0,
-		);
-
-		self::$settings['reset_defaults'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Reset to Defaults?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'class' => 'warning', // Custom class for CSS
-			'desc' => esc_html__( 'Check this box to reset options to their defaults', 'testimonials-widget' ),
-			'widget' => 1,
-		);
-
 		self::$settings['version_options_heading'] = array(
 			'section' => 'reset',
 			'desc' => esc_html__( 'Version Based Options', 'testimonials-widget' ),
@@ -690,6 +621,8 @@ class Testimonials_Widget_Settings {
 			),
 		);
 
+		parent::settings();
+
 		self::$settings['reset_expand_end'] = array(
 			'section' => 'reset',
 			'type' => 'expand_end',
@@ -697,185 +630,22 @@ class Testimonials_Widget_Settings {
 
 		self::$settings = apply_filters( 'testimonials_widget_settings', self::$settings );
 
-		foreach ( self::$settings as $id => $parts ) {
+		foreach ( self::$settings as $id => $parts )
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
-		}
 	}
 
 
-	public static function get_defaults( $mode = null ) {
-		if ( empty( self::$defaults ) )
-			self::settings();
+	public static function get_defaults( $mode = null, $old_version = null ) {
+		$old_version = tw_get_option( 'version' );
 
-		$do_backwards = false;
-		if ( 'backwards' == $mode ) {
-			$old_version = tw_get_option( 'version' );
-			if ( ! empty( $old_version ) )
-				$do_backwards = true;
-		}
-
-		foreach ( self::$settings as $id => $parts ) {
-			$std = isset( $parts['std'] ) ? $parts['std'] : '';
-			if ( $do_backwards ) {
-				$version = ! empty( $parts['backwards']['version'] ) ? $parts['backwards']['version'] : false;
-				if ( ! empty( $version ) ) {
-					if ( $old_version < $version )
-						$std = $parts['backwards']['std'];
-				}
-			}
-
-			self::$defaults[ $id ] = $std;
-		}
-
-		return self::$defaults;
+		return parent::get_defaults( $mode, $old_version );
 	}
 
 
-	public static function get_settings() {
-		if ( empty( self::$settings ) )
-			self::settings();
-
-		return self::$settings;
-	}
-
-
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
-	 */
-	public function create_setting( $args = array() ) {
-		extract( $args );
-
-		if ( preg_match( '#(_expand_begin|_expand_end)#', $id ) )
-			return;
-
-		$field_args = array(
-			'choices' => $choices,
-			'class' => $class,
-			'desc' => $desc,
-			'id' => $id,
-			'label_for' => $id,
-			'std' => $std,
-			'suggest' => $suggest,
-			'type' => $type,
-		);
-
-		self::$defaults[$id] = $std;
-
-		add_settings_field( $id, $title, array( $this, 'display_setting' ), self::ID, $section, $field_args );
-	}
-
-
-	public static function display_page() {
-		echo '<div class="wrap">
-			<div class="icon32" id="icon-options-general"></div>
-			<h2>' . esc_html__( 'Testimonials Settings', 'testimonials-widget' ) . '</h2>';
-
-		settings_errors();
-
-		echo '<form action="options.php" method="post">';
-
-		settings_fields( self::ID );
-
-		echo '<div id="' . self::ID . '">
-			<ul>';
-
-		foreach ( self::$sections as $section_slug => $section )
-			echo '<li><a href="#' . $section_slug . '">' . $section . '</a></li>';
-
-		echo '</ul>';
-
-		self::do_settings_sections( self::ID );
-
-		echo '
-			<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . esc_html__( 'Save Changes', 'testimonials-widget' ) . '" /></p>
-			</form>
-			</div>
-			';
-
-		echo '<p>' .
-			sprintf(
-			__( 'When ready, <a href="%1$s">view</a> or <a href="%2$s">add</a> testimonials.', 'testimonials-widget' ),
-			esc_url( get_admin_url() . 'edit.php?post_type=testimonials-widget' ),
-			esc_url( get_admin_url() . 'post-new.php?post_type=testimonials-widget' )
-		) .
-			'</p>';
-
+	public static function display_page( $disable_donate = false ) {
 		$disable_donate = tw_get_option( 'disable_donate' );
-		if ( ! $disable_donate ) {
-			echo '<p>' .
-				sprintf(
-				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase Testimonials Premium">purchase Testimonials Premium</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.', 'testimonials-widget' ),
-				esc_url( 'http://aihr.us/about-aihrus/donate/' ),
-				esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
-				esc_url( 'http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/' ),
-				esc_url( 'https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget' )
-			) .
-				'</p>';
-		}
 
-		echo '<p class="copyright">' .
-			sprintf(
-			__( 'Copyright &copy;%1$s <a href="%2$s">Aihrus</a>.', 'testimonials-widget' ),
-			date( 'Y' ),
-			esc_url( 'http://aihr.us' )
-		) .
-			'</p>';
-
-		self::section_scripts();
-
-		echo '</div>';
-	}
-
-
-	public static function section_scripts() {
-		echo '
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$( "#' . self::ID . '" ).tabs();
-		// This will make the "warning" checkbox class really stand out when checked.
-		$(".warning").change(function() {
-			if ($(this).is(":checked"))
-				$(this).parent().css("background", "#c00").css("color", "#fff").css("fontWeight", "bold");
-			else
-				$(this).parent().css("background", "inherit").css("color", "inherit").css("fontWeight", "inherit");
-		});
-	});
-</script>
-';
-	}
-
-
-	public static function do_settings_sections( $page ) {
-		global $wp_settings_sections, $wp_settings_fields;
-
-		if ( ! isset( $wp_settings_sections ) || !isset( $wp_settings_sections[$page] ) )
-			return;
-
-		foreach ( (array) $wp_settings_sections[$page] as $section ) {
-			if ( $section['callback'] )
-				call_user_func( $section['callback'], $section );
-
-			if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
-				continue;
-
-			echo '<table id=' . $section['id'] . ' class="form-table">';
-			do_settings_fields( $page, $section['id'] );
-			echo '</table>';
-		}
-	}
-
-
-	public function display_section() {}
-
-
-	public function display_about_section() {
-		echo '
-			<div id="about" style="width: 70%; min-height: 225px;">
-				<p><img class="alignright size-medium" title="Michael in Red Square, Moscow, Russia" src="' . WP_PLUGIN_URL . '/testimonials-widget/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="http://wordpress.org/extend/plugins/testimonials-widget/">Testimonials</a> is by <a href="http://aihr.us/about-aihrus/michael-cannon-resume/">Michael Cannon</a>. He\'s <a title="Lot\'s of stuff about Peichi Liu…" href="http://peimic.com/t/peichi-liu/">Peichi’s</a> smiling man, an adventurous <a title="Water rat" href="http://www.chinesehoroscope.org/chinese_zodiac/rat/" target="_blank">water-rat</a>, <a title="Axelerant – Open Source. Engineered." href="http://axelerant.com/who-we-are">chief people officer</a>, <a title="Road biker, cyclist, biking; whatever you call, I love to ride" href="http://peimic.com/c/biking/">cyclist</a>, <a title="Aihrus – website support made easy since 1999" href="http://aihr.us/about-aihrus/">full stack developer</a>, <a title="Michael\'s poetic like literary ramblings" href="http://peimic.com/t/poetry/">poet</a>, <a title="World Wide Opportunities on Organic Farms" href="http://peimic.com/t/WWOOF/">WWOOF’er</a> and <a title="My traveled to country list, is more than my age." href="http://peimic.com/c/travel/">world traveler</a>.</p>
-			</div>
-		';
+		parent::display_page( $disable_donate );
 	}
 
 
@@ -1030,41 +800,10 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public function initialize_settings() {
-		$defaults                 = self::get_defaults( 'backwards' );
-		$current                  = get_option( self::ID );
-		$current                  = wp_parse_args( $current, $defaults );
-		$current['admin_notices'] = tw_get_option( 'version', self::$version );
-		$current['version']       = self::$version;
+	public static function initialize_settings( $version = null ) {
+		$version = tw_get_option( 'version', self::$version );
 
-		update_option( self::ID, $current );
-	}
-
-
-	public function register_settings() {
-		register_setting( self::ID, self::ID, array( $this, 'validate_settings' ) );
-
-		foreach ( self::$sections as $slug => $title ) {
-			if ( $slug == 'about' )
-				add_settings_section( $slug, $title, array( $this, 'display_about_section' ), self::ID );
-			else
-				add_settings_section( $slug, $title, array( $this, 'display_section' ), self::ID );
-		}
-
-		foreach ( self::$settings as $id => $setting ) {
-			$setting['id'] = $id;
-			$this->create_setting( $setting );
-		}
-	}
-
-
-	public function scripts() {
-		wp_enqueue_script( 'jquery-ui-tabs' );
-	}
-
-
-	public function styles() {
-		wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+		parent::initialize_settings( $version );
 	}
 
 
@@ -1074,72 +813,13 @@ class Testimonials_Widget_Settings {
 	 * @SuppressWarnings(PHPMD.Superglobals)
 	 */
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
-		$errors = array();
+		$validated = parent::validate_settings( $input, $options, $do_errors );
 
-		if ( is_null( $options ) ) {
-			$options  = self::get_settings();
-			$defaults = self::get_defaults();
-
-			if ( is_admin() ) {
-				if ( ! empty( $input['reset_defaults'] ) ) {
-					foreach ( $defaults as $id => $std ) {
-						$input[$id] = $std;
-					}
-
-					unset( $input['reset_defaults'] );
-
-					$input['resetted'] = true;
-				}
-
-				if ( ! empty( $input['import'] ) && $_SESSION['export'] != $input['import'] ) {
-					$import       = $input['import'];
-					$unserialized = unserialize( $import );
-					if ( is_array( $unserialized ) ) {
-						foreach ( $unserialized as $id => $std )
-							$input[$id] = $std;
-					}
-				}
-			}
-		}
-
-		foreach ( $options as $id => $parts ) {
-			$default     = $parts['std'];
-			$type        = $parts['type'];
-			$validations = ! empty( $parts['validate'] ) ? $parts['validate'] : array();
-			if ( ! empty( $validations ) )
-				$validations = explode( ',', $validations );
-
-			if ( ! isset( $input[ $id ] ) ) {
-				if ( 'checkbox' != $type )
-					$input[ $id ] = $default;
-				else
-					$input[ $id ] = 0;
-			}
-
-			if ( $default == $input[ $id ] && ! in_array( 'required', $validations ) )
-				continue;
-
-			if ( 'checkbox' == $type ) {
-				if ( self::is_true( $input[ $id ] ) )
-					$input[ $id ] = 1;
-				else
-					$input[ $id ] = 0;
-			} elseif ( in_array( $type, array( 'radio', 'select' ) ) ) {
-				// single choices only
-				$keys = array_keys( $parts['choices'] );
-
-				if ( ! in_array( $input[ $id ], $keys ) ) {
-					if ( self::is_true( $input[ $id ] ) )
-						$input[ $id ] = 1;
-					else
-						$input[ $id ] = 0;
-				}
-			}
-
-			if ( ! empty( $validations ) ) {
-				foreach ( $validations as $validate )
-					self::validators( $validate, $id, $input, $default, $errors );
-			}
+		if ( empty( $do_errors ) )
+			$input = $validated;
+		else {
+			$input  = $validated['input'];
+			$errors = $validated['errors'];
 		}
 
 		if ( ! empty( $input['has_archive'] ) )
@@ -1172,14 +852,11 @@ class Testimonials_Widget_Settings {
 
 		$input['version']        = self::$version;
 		$input['donate_version'] = Testimonials_Widget::VERSION;
-		$input                   = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
 
-		unset( $input['export'] );
-		unset( $input['import'] );
-
-		if ( empty( $do_errors ) ) {
+		$input = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		if ( empty( $do_errors ) )
 			$validated = $input;
-		} else {
+		else {
 			$validated = array(
 				'input' => $input,
 				'errors' => $errors,
@@ -1218,7 +895,7 @@ class Testimonials_Widget_Settings {
 	 * @SuppressWarnings(PHPMD.LongVariable)
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-	public function is_bad_hierarchical_slug( $is_bad_hierarchical_slug, $slug, $post_type, $post_parent ) {
+	public static function is_bad_hierarchical_slug( $is_bad_hierarchical_slug, $slug, $post_type, $post_parent ) {
 		// This post has no parent and is a "base" post
 		if ( ! $post_parent && self::is_cpt_slug( $slug ) )
 			return true;
@@ -1232,7 +909,7 @@ class Testimonials_Widget_Settings {
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-	public function is_bad_flat_slug( $is_bad_flat_slug, $slug, $post_type ) {
+	public static function is_bad_flat_slug( $is_bad_flat_slug, $slug, $post_type ) {
 		if ( self::is_cpt_slug( $slug ) )
 			return true;
 
@@ -1248,149 +925,7 @@ class Testimonials_Widget_Settings {
 	}
 
 
-	public static function validators( $validate, $id, &$input, $default, &$errors ) {
-		switch ( $validate ) {
-		case 'absint':
-		case 'intval':
-			if ( '' !== $input[ $id ] )
-				$input[ $id ] = $validate( $input[ $id ] );
-			else
-				$input[ $id ] = $default;
-			break;
-
-		case 'ids':
-			$input[ $id ] = self::validate_ids( $input[ $id ], $default );
-			break;
-
-		case 'min1':
-			$input[ $id ] = intval( $input[ $id ] );
-			if ( 0 >= $input[ $id ] )
-				$input[ $id ] = $default;
-			break;
-
-		case 'nozero':
-			$input[ $id ] = intval( $input[ $id ] );
-			if ( 0 === $input[ $id ] )
-				$input[ $id ] = $default;
-			break;
-
-		case 'order':
-			$input[ $id ] = self::validate_order( $input[ $id ], $default );
-			break;
-
-		case 'required':
-			if ( empty( $input[ $id ] ) )
-				$errors[ $id ] = esc_html__( 'Required', 'testimonials-widget' );
-			break;
-
-		case 'slug':
-			$input[ $id ] = self::validate_slug( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
-			break;
-
-		case 'slugs':
-			$input[ $id ] = self::validate_slugs( $input[ $id ], $default );
-			$input[ $id ] = strtolower( $input[ $id ] );
-			break;
-
-		case 'term':
-			$input[ $id ] = self::validate_term( $input[ $id ], $default );
-			break;
-
-		case 'terms':
-			$input[ $id ] = self::validate_terms( $input[ $id ], $default );
-			break;
-
-		case 'url':
-			$input[ $id ] = self::validate_url( $input[ $id ], $default );
-			break;
-
-		case 'is_true':
-			$input[ $id ] = self::is_true( $input[ $id ] );
-			break;
-
-		default:
-			$input[ $id ] = $validate( $input[ $id ] );
-			break;
-		}
-	}
-
-
-	public static function validate_ids( $input, $default ) {
-		if ( preg_match( '#^\d+(,\s?\d+)*$#', $input ) )
-			return preg_replace( '#\s#', '', $input );
-
-		return $default;
-	}
-
-
-	public static function validate_order( $input, $default ) {
-		if ( preg_match( '#^desc|asc$#i', $input ) )
-			return $input;
-
-		return $default;
-	}
-
-
-	public static function validate_slugs( $input, $default ) {
-		if ( preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input ) )
-			return preg_replace( '#\s#', '', $input );
-
-		return $default;
-	}
-
-
-	public static function validate_slug( $input, $default ) {
-		if ( preg_match( '#^[\w-]+$#', $input ) )
-			return $input;
-
-		return $default;
-	}
-
-
-	public static function validate_term( $input, $default ) {
-		if ( preg_match( '#^\w+$#', $input ) )
-			return $input;
-
-		return $default;
-	}
-
-
-	public static function validate_terms( $input, $default ) {
-		if ( preg_match( '#^(([\w- ]+)(,\s?)?)+$#', $input ) )
-			return preg_replace( '#,\s*$#', '', $input );
-
-		return $default;
-	}
-
-
-	public static function validate_url( $input, $default ) {
-		if ( filter_var( $input, FILTER_VALIDATE_URL ) )
-			return $input;
-
-		return $default;
-	}
-
-
-	/**
-	 * Let values like "true, 'true', 1, and 'yes'" to be true. Else, false
-	 */
-	public static function is_true( $value = null, $return_boolean = true ) {
-		if ( true === $value || 'true' == strtolower( $value ) || 1 == $value || 'yes' == strtolower( $value ) ) {
-			if ( $return_boolean )
-				return true;
-			else
-				return 1;
-		} else {
-			if ( $return_boolean )
-				return false;
-			else
-				return 0;
-		}
-	}
-
-
-	public function settings_add_help_tabs() {
+	public static function settings_add_help_tabs() {
 		$screen = get_current_screen();
 		if ( self::$admin_page != $screen->id )
 			return;

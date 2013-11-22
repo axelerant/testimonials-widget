@@ -3,6 +3,7 @@
 ## master
 * Add version_check
 * Delete notices on deactivation
+* Use abstract class Aihrus_Settings
 
 ## 2.15.2-beta
 * Removed Testimonials Widget pre-2.0.0 migration code
