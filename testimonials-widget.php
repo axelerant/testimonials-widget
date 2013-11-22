@@ -2089,6 +2089,17 @@ EOD;
 	}
 
 
+	public static function version_check() {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		$good_version = true;
+		if ( ! is_plugin_active( self::PLUGIN_BASE ) )
+			$good_version = false;
+
+		return $good_version;
+	}
+
+
 }
 
 
@@ -2102,9 +2113,7 @@ add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
  * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
 function testimonialswidget_init() {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-	if ( is_plugin_active( Testimonials_Widget::PLUGIN_BASE ) ) {
+	if ( Testimonials_Widget::version_check() ) {
 		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-settings.php';
 
 		global $Testimonials_Widget_Settings;

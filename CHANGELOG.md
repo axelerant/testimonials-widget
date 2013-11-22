@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Add version_check
 * Delete notices on deactivation
 
 ## 2.15.2-beta
