@@ -36,6 +36,7 @@ abstract class Aihrus_Settings {
 		'class' => null, // warning, etc.
 		'desc' => null,
 		'id' => null,
+		'no_code' => true,
 		'section' => 'general',
 		'std' => null, // default key or value
 		'title' => null,
@@ -305,6 +306,9 @@ abstract class Aihrus_Settings {
 
 		extract( $args );
 
+		if ( ! isset( $no_code ) )
+			$no_code = false;
+
 		if ( is_null( $input ) ) {
 			$options = get_option( static::ID );
 		} else {
@@ -336,6 +340,8 @@ abstract class Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'file':
@@ -378,6 +384,8 @@ abstract class Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'readonly':
@@ -399,6 +407,8 @@ abstract class Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'text':
@@ -407,6 +417,8 @@ abstract class Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		case 'textarea':
@@ -415,6 +427,8 @@ abstract class Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
+			if ( ! $no_code )
+				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		default:
@@ -473,6 +487,8 @@ abstract class Aihrus_Settings {
 						$input[$id] = $std;
 
 					unset( $input['reset_defaults'] );
+
+					$input['resetted'] = true;
 				}
 
 				if ( ! empty( $input['import'] ) && $_SESSION['export'] != $input['import'] ) {
@@ -556,6 +572,10 @@ abstract class Aihrus_Settings {
 			$input[ $id ] = self::validate_ids( $input[ $id ], $default );
 			break;
 
+		case 'is_true':
+			$input[ $id ] = self::is_true( $input[ $id ] );
+			break;
+
 		case 'min1':
 			$input[ $id ] = intval( $input[ $id ] );
 			if ( 0 >= $input[ $id ] )
@@ -592,12 +612,20 @@ abstract class Aihrus_Settings {
 			$input[ $id ] = strtolower( $input[ $id ] );
 			break;
 
+		case 'terms':
+			$input[ $id ] = self::validate_terms( $input[ $id ], $default );
+			break;
+
 		case 'trim':
 			$options = explode( "\n", $input[ $id ] );
 			foreach ( $options as $key => $value )
 				$options[ $key ] = trim( $value );
 
 			$input[ $id ] = implode( "\n", $options );
+			break;
+
+		case 'url':
+			$input[ $id ] = self::validate_url( $input[ $id ], $default );
 			break;
 
 		default:
@@ -662,6 +690,22 @@ abstract class Aihrus_Settings {
 			else
 				return 0;
 		}
+	}
+
+
+	public static function validate_terms( $input, $default ) {
+		if ( preg_match( '#^(([\w- ]+)(,\s?)?)+$#', $input ) )
+			return preg_replace( '#,\s*$#', '', $input );
+
+		return $default;
+	}
+
+
+	public static function validate_url( $input, $default ) {
+		if ( filter_var( $input, FILTER_VALIDATE_URL ) )
+			return $input;
+
+		return $default;
 	}
 
 
