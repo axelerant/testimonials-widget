@@ -507,6 +507,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
+		parent::settings();
+
 		self::$settings['version_options_heading'] = array(
 			'section' => 'reset',
 			'desc' => esc_html__( 'Version Based Options', 'testimonials-widget' ),
@@ -621,8 +623,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			),
 		);
 
-		parent::settings();
-
 		self::$settings['reset_expand_end'] = array(
 			'section' => 'reset',
 			'type' => 'expand_end',
@@ -656,142 +656,47 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 */
 	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content = '';
+		switch ( $args['type'] ) {
+		case 'text':
+			extract( $args );
 
-		extract( $args );
-
-		if ( ! isset( $no_code ) )
-			$no_code = false;
-
-		if ( is_null( $input ) ) {
-			$options = get_option( self::ID );
-		} else {
-			$options      = array();
-			$options[$id] = $input;
-		}
-
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
-			$options[$id] = $std;
-		elseif ( ! isset( $options[$id] ) )
-			$options[$id] = 0;
-
-		$field_class = '';
-		if ( ! empty( $class ) )
-			$field_class = ' ' . $class;
-
-		// desc isn't escaped because it's might contain allowed html
-		$choices      = array_map( 'esc_attr', $choices );
-		$field_class  = esc_attr( $field_class );
-		$id           = esc_attr( $id );
-		$options[$id] = esc_attr( $options[$id] );
-		$std          = esc_attr( $std );
-
-		switch ( $type ) {
-		case 'checkbox':
-			$content .= '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
-
-			if ( ! empty( $desc ) )
-				$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
-
-			if ( ! $no_code )
-				$content .= '<br /><code>' . $id . '</code>';
-			break;
-
-		case 'file':
-			$content .= '<input class="regular-text' . $field_class . '" type="file" id="' . $id . '" name="' . self::ID . '[' . $id . ']" />';
-
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
-
-			break;
-
-		case 'heading':
-			$content .= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
-			break;
-
-		case 'hidden':
-			$content .= '<input type="hidden" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
-
-			break;
-
-		case 'password':
-			$content .= '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" />';
-
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
-
-			break;
-
-		case 'radio':
-			$i             = 1;
-			$count_choices = count( $choices );
-			foreach ( $choices as $value => $label ) {
-				$content .= '<input class="radio' . $field_class . '" type="radio" name="' . self::ID . '[' . $id . ']" id="' . $id . $i . '" value="' . $value . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $id . $i . '">' . $label . '</label>';
-
-				if ( $i < $count_choices )
-					$content .= '<br />';
-
-				$i++;
+			if ( is_null( $input ) )
+				$options = get_option( self::ID );
+			else {
+				$options      = array();
+				$options[$id] = $input;
 			}
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+			if ( ! isset( $options[$id] ) )
+				$options[$id] = $std;
 
-			if ( ! $no_code )
-				$content .= '<br /><code>' . $id . '</code>';
-			break;
+			$field_class = '';
+			if ( ! empty( $class ) )
+				$field_class = ' ' . $class;
 
-		case 'readonly':
-			$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" value="' . $options[$id] . '" readonly="readonly" />';
+			$field_class  = esc_attr( $field_class );
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
-
-			break;
-
-		case 'select':
-			$content .= '<select class="select' . $field_class . '" name="' . self::ID . '[' . $id . ']">';
-
-			foreach ( $choices as $value => $label )
-				$content .= '<option value="' . $value . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
-
-			$content .= '</select>';
-
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
-
-			if ( ! $no_code )
-				$content .= '<br /><code>' . $id . '</code>';
-			break;
-
-		case 'text':
 			$suggest_id = 'suggest_' . self::$suggest_id++;
 
 			$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
 
-			if ( $suggest )
+			if ( ! empty( $suggest ) )
 				$content .= self::get_suggest( $id, $suggest_id );
 
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			if ( ! $no_code )
-				$content .= '<br /><code>' . $id . '</code>';
-			break;
-
-		case 'textarea':
-			$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
-
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
-
-			if ( ! $no_code )
+			if ( ! empty( $no_code ) )
 				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
 		default:
-			$content = apply_filters( 'testimonials_widget_display_setting', '', $args, $input );
+			$content = apply_filters( 'testimonials_widget_display_setting', $content, $args, $input );
 			break;
 		}
+
+		if ( empty( $content ) )
+			$content = parent::display_setting( $args, false, $input );
 
 		if ( ! $do_echo )
 			return $content;

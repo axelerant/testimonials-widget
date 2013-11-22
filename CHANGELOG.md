@@ -3,6 +3,7 @@
 ## master
 * Add version_check
 * Delete notices on deactivation
+* Simplify display_setting
 * Use abstract class Aihrus_Settings
 
 ## 2.15.2-beta
