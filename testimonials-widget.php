@@ -5,7 +5,7 @@
  * Description: Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 2.15.2-beta
  * Author: Michael Cannon
- * Author URI: http://aihr.us/about-aihrus/michael-cannon-resume/
+ * Author URI: http://aihr.us/resume/
  * License: GPLv2 or later
  */
 
