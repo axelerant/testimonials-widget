@@ -720,9 +720,10 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
 		$validated = parent::validate_settings( $input, $options, $do_errors );
 
-		if ( empty( $do_errors ) )
-			$input = $validated;
-		else {
+		if ( empty( $do_errors ) ) {
+			$input  = $validated;
+			$errors = array();
+		} else {
 			$input  = $validated['input'];
 			$errors = $validated['errors'];
 		}
