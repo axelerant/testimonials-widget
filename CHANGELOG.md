@@ -3,6 +3,7 @@
 ## master
 * Add version_check
 * Delete notices on deactivation
+* Rename no_code to show_code
 * Simplify display_setting
 * Use abstract class Aihrus_Settings
 * Use abstract class Aihrus_Widget
