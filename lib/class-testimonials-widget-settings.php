@@ -41,7 +41,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 
 	public function __construct() {
-		self::$default['suggest'] = false; // attempt for auto-suggest on inputs
+		self::$default['no_code'] = true;
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
