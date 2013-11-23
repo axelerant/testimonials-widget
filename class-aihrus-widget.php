@@ -120,6 +120,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
+
+
 	public function update( $new_instance, $old_instance ) {
 		$instance = static::validate_settings( $new_instance );
 
