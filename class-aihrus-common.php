@@ -41,7 +41,7 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 EOD;
 
 		self::$donate_link = '<a href="http://aihr.us/about-aihrus/donate/"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="PayPal - The safer, easier way to pay online!" /></a>';
- 
+
 		add_action( 'admin_init', array( self::get_class(), 'check_notices' ), 9999 );
 	}
 
@@ -101,7 +101,7 @@ EOD;
 	public static function get_notice_key() {
 		if ( is_null( static::$notice_key ) )
 			self::set_notice_key();
-		
+
 		return static::$notice_key;
 	}
 
@@ -113,9 +113,9 @@ EOD;
 
 	public static function notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name ) {
 		$is_active = is_plugin_active( $free_base );
-		if ( $is_active ) {
+		if ( $is_active )
 			$link = sprintf( __( '<a href="%1$s">update to</a>', 'testimonials-widget' ), self_admin_url( 'update-core.php' ) );
-		} else {
+		else {
 			$plugins = get_plugins();
 			if ( empty( $plugins[ $free_base ] ) ) {
 				$install = esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $free_slug ), 'install-plugin_' . $free_slug ) );
@@ -174,6 +174,8 @@ EOD;
 	 *
 	 * @ref http://in1.php.net/manual/en/function.array-values.php#41967
 	 */
+
+
 	public function array_values_recursive( $ary ) {
 		$lst = array();
 		foreach ( array_keys( $ary ) as $k ) {
@@ -195,7 +197,7 @@ EOD;
 	public static function get_class() {
 		if ( is_null( static::$class ) )
 			self::set_class();
-		
+
 		return static::$class;
 	}
 
