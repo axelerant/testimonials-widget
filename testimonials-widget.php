@@ -46,7 +46,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	private static $post_count    = 0;
 	private static $wp_query;
 
-	public static $class;
+	public static $class           = __CLASS__;
 	public static $cpt_category    = '';
 	public static $cpt_tags        = '';
 	public static $css             = array();

@@ -5,6 +5,7 @@
 * Delete notices on deactivation
 * Simplify display_setting
 * Use abstract class Aihrus_Settings
+* Use abstract class Aihrus_Widget
 
 ## 2.15.2-beta
 * Removed Testimonials Widget pre-2.0.0 migration code

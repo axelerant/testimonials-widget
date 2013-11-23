@@ -16,127 +16,49 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-class Testimonials_Widget_Widget extends WP_Widget {
+require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-widget.php';
+
+
+class Testimonials_Widget_Widget extends Aihrus_Widget {
 	const ID = 'testimonials_widget';
 
-	public function __construct() {
-		// Widget settings
-		$widget_ops = array(
-			'classname' => 'Testimonials_Widget_Widget',
-			'description' => esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' )
-		);
+	public function __construct( $classname = null, $description = null, $id_base = null, $title = null ) {
+		$classname   = 'Testimonials_Widget_Widget';
+		$description = esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' );
+		$id_base     = self::ID;
+		$title       = esc_html__( 'Testimonials', 'testimonials-widget' );
 
-		// Widget control settings
-		$control_ops = array(
-			'id_base' => self::ID,
-		);
-
-		// Create the widget
-		$this->WP_Widget(
-			self::ID,
-			esc_html__( 'Testimonials', 'testimonials-widget' ),
-			$widget_ops,
-			$control_ops
-		);
+		parent::__construct( $classname, $description, $id_base, $title );
 	}
 
 
-	public function get_testimonials_css() {
+	public static function get_testimonials_css() {
 		Testimonials_Widget::get_testimonials_css();
 	}
 
 
-	public function get_testimonials_scripts() {
+	public static function get_testimonials_scripts() {
 		Testimonials_Widget::get_testimonials_scripts();
 	}
 
 
-	public function widget( $args, $instance ) {
-		global $before_widget, $before_title, $after_title, $after_widget;
-
-		$args = wp_parse_args( $args, Testimonials_Widget::get_defaults() );
-		extract( $args );
-
-		// Our variables from the widget settings
-		$title = apply_filters( 'widget_title', $instance['title'], null );
-
-		$testimonials = Testimonials_Widget::testimonialswidget_widget( $instance, $this->number );
-
-		// Before widget (defined by themes)
-		echo $before_widget;
-
-		// Display the widget title if one was input (before and after defined by themes)
-		if ( ! empty( $title ) ) {
-			if ( ! empty( $instance['title_link'] ) ) {
-				// revise title with title_link link creation
-				$title_link = $instance['title_link'];
-
-				if ( preg_match( '#^\d+$#', $title_link ) ) {
-					$new_title  = '<a href="';
-					$new_title .= get_permalink( $title_link );
-					$new_title .= '" title="';
-					$new_title .= get_the_title( $title_link );
-					$new_title .= '">';
-					$new_title .= $title;
-					$new_title .= '</a>';
-
-					$title = $new_title;
-				} else {
-					$do_http = true;
-
-					if ( 0 === strpos( $title_link, '/' ) )
-						$do_http = false;
-
-					if ( $do_http && 0 === preg_match( '#https?://#', $title_link ) ) {
-						$title_link = 'http://' . $title_link;
-					}
-
-					$new_title  = '<a href="';
-					$new_title .= $title_link;
-					$new_title .= '" title="';
-					$new_title .= $title;
-					$new_title .= '"';
-
-					$new_title .= '>';
-					$new_title .= $title;
-					$new_title .= '</a>';
-
-					$title = $new_title;
-
-					if ( ! empty( $instance['target'] ) )
-						$title = links_add_target( $title, $instance['target'] );
-				}
-			}
-
-			echo $before_title . $title . $after_title;
-		}
-
-		// Display Widget
-		echo $testimonials;
-
-		// After widget (defined by themes)
-		echo $after_widget;
+	public static function get_defaults() {
+		return Testimonials_Widget::get_defaults();
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-
-
-	public function update( $new_instance, $old_instance ) {
-		$instance = Testimonials_Widget_Settings::validate_settings( $new_instance );
-
-		return $instance;
+	public static function get_content( $instance, $widget_number ) {
+		return Testimonials_Widget::testimonialswidget_widget( $instance, $widget_number );
 	}
 
 
-	public function form( $instance ) {
-		$defaults  = Testimonials_Widget::get_defaults();
+	public static function validate_settings( $instance ) {
+		return Testimonials_Widget_Settings::validate_settings( $instance );
+	}
+
+
+	public static function form_instance( $instance ) {
 		$do_number = true;
-
 		if ( empty( $instance ) ) {
 			$do_number = false;
 
@@ -159,12 +81,16 @@ class Testimonials_Widget_Widget extends WP_Widget {
 			$instance['enable_schema'] = 0;
 		}
 
-		$instance   = wp_parse_args( $instance, $defaults );
+		$instance['do_number'] = $do_number;
+
+		return $instance;
+	}
+
+	public static function form_parts( $instance, $number ) {
 		$form_parts = Testimonials_Widget_Settings::get_settings();
 
-		if ( $do_number ) {
-			$number = $this->number;
-			$std    = ' .' . Testimonials_Widget::ID . $number;
+		if ( ! empty( $instance['do_number'] ) ) {
+			$std = ' .' . Testimonials_Widget::ID . $number;
 
 			$form_parts['css_class'] = array(
 				'section' => 'widget',
@@ -178,153 +104,20 @@ class Testimonials_Widget_Widget extends WP_Widget {
 
 		$form_parts = self::widget_options( $form_parts );
 
-		foreach ( $form_parts as $key => $part ) {
-			$part[ 'id' ] = $key;
-			$this->display_setting( $part, $instance );
-		}
+		return $form_parts;
 	}
 
 
 	public static function widget_options( $options ) {
-		foreach ( $options as $id => $parts ) {
-			// remove non-widget parts
-			if ( empty( $parts['widget'] ) )
-				unset( $options[ $id ] );
-		}
-
+		$options = parent::widget_options( $options );
 		$options = apply_filters( 'testimonials_widget_widget_options', $options );
 
 		return $options;
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
-	 */
-	public function display_setting( $args = array(), $options ) {
-		extract( $args );
-
-		$do_return = false;
-		switch ( $type ) {
-		case 'heading':
-			if ( ! empty( $desc ) )
-				echo '<h3>' . $desc . '</h3>';
-
-			$do_return = true;
-			break;
-
-		case 'expand_all':
-			if ( ! empty( $desc ) )
-				echo '<h3>' . $desc . '</h3>';
-
-			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ) . slideToggle(); jQuery( \'.tw-collapsible\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse All Options', 'testimonials-widget' ) . ' &raquo;</a>';
-
-			$do_return = true;
-			break;
-
-		case 'expand_begin':
-			if ( ! empty( $desc ) )
-				echo '<h3>' . $desc . '</h3>';
-
-			echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();" class="tw-collapsible-control">' . esc_html__( 'Expand/Collapse', 'testimonials-widget' ) . ' &raquo;</a>';
-			echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="tw-collapsible">';
-
-			$do_return = true;
-			break;
-
-		case 'expand_end':
-			echo '</div>';
-
-			$do_return = true;
-			break;
-
-		default:
-			break;
-		}
-
-		if ( $do_return )
-			return;
-
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
-			$options[$id] = $std;
-		elseif ( ! isset( $options[$id] ) )
-			$options[$id] = 0;
-
-		$field_class = '';
-		if ( ! empty( $class ) )
-			$field_class = ' ' . $class;
-
-		echo '<p>';
-
-		switch ( $type ) {
-		case 'checkbox':
-			echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
-
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			break;
-
-		case 'select':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			echo '<select id="' . $this->get_field_id( $id ) . '"class="select' . $field_class . '" name="' . $this->get_field_name( $id ) . '">';
-
-			foreach ( $choices as $value => $label )
-				echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
-
-			echo '</select>';
-			break;
-
-		case 'radio':
-			$i             = 0;
-			$count_options = count( $options ) - 1;
-
-			foreach ( $choices as $value => $label ) {
-				echo '<input class="radio' . $field_class . '" type="radio" name="' . $this->get_field_name( $id ) . '" id="' . $this->get_field_name( $id . $i ) . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $this->get_field_name( $id . $i ) . '">' . $label . '</label>';
-				if ( $i < $count_options )
-					echo '<br />';
-				$i++;
-			}
-
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-			break;
-
-		case 'textarea':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-
-			echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
-			break;
-
-		case 'password':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-
-			echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" />';
-			break;
-
-		case 'readonly':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-
-			echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
-			break;
-
-		case 'text':
-			echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
-
-			$suggest_id = 'suggest_' . Testimonials_Widget_Settings::$suggest_id++;
-			echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
-
-			if ( $suggest )
-				echo Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
-			break;
-
-		default:
-			break;
-		}
-
-		if ( ! empty( $desc ) )
-			echo '<br /><span class="setting-description"><small>' . $desc . '</small></span>';
-
-		echo '</p>';
+	public static function get_suggest( $id, $suggest_id ) {
+		return Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
 	}
 
 
