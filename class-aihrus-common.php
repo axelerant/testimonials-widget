@@ -28,7 +28,6 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 
 
 	public function __construct() {
-		self::set_class();
 		self::set_notice_key();
 
 		self::$donate_button = <<<EOD
@@ -42,7 +41,7 @@ EOD;
 
 		self::$donate_link = '<a href="http://aihr.us/about-aihrus/donate/"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" alt="PayPal - The safer, easier way to pay online!" /></a>';
  
-		add_action( 'admin_init', array( self::get_class(), 'check_notices' ), 9999 );
+		add_action( 'admin_init', array( static::$class, 'check_notices' ), 9999 );
 	}
 
 
@@ -89,7 +88,7 @@ EOD;
 		$notices = array_unique( $notices );
 		foreach ( $notices as $notice ) {
 			if ( ! is_array( $notice ) )
-				add_action( 'admin_notices', array( self::get_class(), $notice ) );
+				add_action( 'admin_notices', array( static::$class, $notice ) );
 			else
 				add_action( 'admin_notices', $notice );
 		}
@@ -189,19 +188,6 @@ EOD;
 		}
 
 		return $lst;
-	}
-
-
-	public static function get_class() {
-		if ( is_null( static::$class ) )
-			self::set_class();
-		
-		return static::$class;
-	}
-
-
-	public static function set_class() {
-		static::$class = get_called_class();
 	}
 
 
