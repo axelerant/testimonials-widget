@@ -39,10 +39,26 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static $suggest_id  = 0;
 	public static $version;
 
+	public static $default = array(
+		'backwards' => array(
+			'version' => null, // below this version number, use std
+			'std' => null,
+		),
+		'choices' => array(), // key => value
+		'class' => null, // warning, etc.
+		'desc' => null,
+		'id' => null,
+		'section' => 'general',
+		'show_code' => true,
+		'std' => null, // default key or value
+		'suggest' => false, // attempt for auto-suggest on inputs
+		'title' => null,
+		'type' => 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
+		'validate' => null, // required, term, slug, slugs, ids, order, single paramater PHP functions
+		'widget' => 1, // show in widget options, 0 off
+	);
 
 	public function __construct() {
-		self::$default['show_code'] = true;
-
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
 		add_action( 'init', array( __CLASS__, 'init' ) );
