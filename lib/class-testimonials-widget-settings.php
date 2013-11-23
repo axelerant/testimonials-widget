@@ -41,7 +41,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 
 	public function __construct() {
-		self::$default['no_code'] = true;
+		self::$default['no_code'] = false;
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
@@ -686,7 +686,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			if ( ! empty( $desc ) )
 				$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			if ( ! empty( $no_code ) )
+			if ( ! $no_code )
 				$content .= '<br /><code>' . $id . '</code>';
 			break;
 
