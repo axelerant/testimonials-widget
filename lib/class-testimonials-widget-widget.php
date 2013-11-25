@@ -86,6 +86,7 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 		return $instance;
 	}
 
+
 	public static function form_parts( $instance, $number ) {
 		$form_parts = Testimonials_Widget_Settings::get_settings();
 

@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.15.2-charlie
 * Add version_check
 * Delete notices on deactivation
 * Rename no_code to show_code

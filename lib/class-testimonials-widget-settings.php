@@ -22,6 +22,7 @@
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
 
+
 require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-settings.php';
 
 
@@ -690,7 +691,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			if ( ! empty( $class ) )
 				$field_class = ' ' . $class;
 
-			$field_class  = esc_attr( $field_class );
+			$field_class = esc_attr( $field_class );
 
 			$suggest_id = 'suggest_' . self::$suggest_id++;
 
