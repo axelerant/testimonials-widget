@@ -357,6 +357,7 @@ If you want to contribute and I hope you do, visit the [Testimonials Github repo
 
 = Most Common Resolutions =
 
+1. [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506-How-do-I-create-a-testimonial-record-)
 1. [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083-How-do-I-change-my-widget-s-rotation-speed-or-other-options-)
 1. [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302-How-do-you-debug-common-issues-)
 1. [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733-How-to-Correct-Testimonials-Widget-CSS-Issues) AKA "What's up with these quotes?"
