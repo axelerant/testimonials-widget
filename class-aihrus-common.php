@@ -243,6 +243,75 @@ EOD;
 	}
 
 
+	public static function create_nonce( $action ) {
+		$nonce = uniqid();
+		$uid   = get_current_user_id();
+		$check = $uid . $action;
+		set_transient( $nonce, $check, HOUR_IN_SECONDS );
+
+		return $nonce;
+	}
+
+
+	public static function verify_nonce( $nonce, $action ) {
+		$active = get_transient( $nonce );
+		$uid    = get_current_user_id();
+		$check  = $uid . $action;
+		$valid  = false;
+
+		if ( $active == $check ) {
+			delete_transient( $nonce );
+			$valid = true;
+		}
+
+		return $valid;
+	}
+
+
+	/**
+	 * If incoming link is empty, then get_site_url() is used instead.
+	 */
+	public static function create_link( $link ) {
+		if ( empty( $link ) )
+			$link = get_site_url();
+
+		if ( preg_match( '#^\d+$#', $link ) ) {
+			$permalink = get_permalink( $link );
+			$title     = get_the_title( $link );
+
+			$tag  = '<a href="';
+			$tag .= $permalink;
+			$tag .= '" title="';
+			$tag .= $title;
+			$tag .= '">';
+			$tag .= $title;
+			$tag .= '</a>';
+		} else {
+			$orig_link = $link;
+			$do_http   = true;
+
+			if ( 0 === strpos( $link, '/' ) )
+				$do_http = false;
+
+			if ( $do_http && 0 === preg_match( '#https?://#', $link ) )
+				$link = 'http://' . $link;
+
+			$permalink = $link;
+
+			$tag  = '<a href="';
+			$tag .= $permalink;
+			$tag .= '">';
+			$tag .= $orig_link;
+			$tag .= '</a>';
+		}
+
+		return array(
+			'link' => $permalink,
+			'tag' => $tag,
+		);
+	}
+
+
 }
 
 
