@@ -2,36 +2,32 @@
 
 ## master
 
-## 2.15.2-charlie
-* Add version_check
-* Delete notices on deactivation
-* Rename no_code to show_code
-* Simplify display_setting
-* Use abstract class Aihrus_Settings
-* Use abstract class Aihrus_Widget
-
-## 2.15.2-beta
-* Removed Testimonials Widget pre-2.0.0 migration code
-* Replace JS_KEY with SLUG
-* Revise short description
-* Update to use `TW_PLUGIN_DIR_LIB`
-* Use aihrus framework
-
-## 2.15.2-alpha
+## 2.16.0
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison
 * Add Shortcodes helper page - Thank you Scott Hendison
 * Add screenshot 20. Testimonials Shortcode Examples page
+* Add version_check
 * BUGFIX Donate notice shows despite `disable_donate` set
 * BUGFIX JavaScript generated even when no testimonials
 * BUGFIX Page Display of Testimonial duplicating Text - Elegant Themes' Trim theme
 * BUGFIX Saving settings doesn't show update notice
+* Delete notices on deactivation
 * Disable schemas by default for widgets
 * Enabled resetting widget options
 * Mark cacheables with similar key for easier cleanup
 * Rebrand Testimonials Widget as Testimonials
+* Removed Testimonials Widget pre-2.0.0 migration code
+* Rename no_code to show_code
+* Replace JS_KEY with SLUG
 * Revise Shortcode Examples formatting
+* Revise short description
+* Simplify display_setting
 * Update TODO
 * Update readme verbiage
+* Update to use `TW_PLUGIN_DIR_LIB`
+* Use abstract class Aihrus_Settings
+* Use abstract class Aihrus_Widget
+* Use aihrus framework
 
 ## 2.15.1
 * BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category
