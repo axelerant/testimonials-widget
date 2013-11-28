@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 2.16.1
+ * Version: 2.16.2
  * Author: Michael Cannon
  * Author URI: http://aihr.us/resume/
  * License: GPLv2 or later
@@ -38,7 +38,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	const PLUGIN_BASE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
 	const SLUG        = 'tw_';
-	const VERSION     = '2.16.1';
+	const VERSION     = '2.16.2';
 
 	private static $found_posts   = 0;
 	private static $max_num_pages = 0;

@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.16.2
+* **Version 2.16.0 requires PHP 5.3+**
+
 ## 2.16.1
 * $this to __CLASS__
 
