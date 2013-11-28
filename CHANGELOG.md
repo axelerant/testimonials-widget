@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.16.1
 * $this to __CLASS__
 
 ## 2.16.0
