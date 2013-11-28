@@ -42,6 +42,8 @@ Through categories and tagging, you can create organizational structures based u
 
 The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
 
+**Version 2.16.0 requires PHP 5.3+**
+
 = Primary Features =
 
 * API to manipulate testimonials output and selection
@@ -402,6 +404,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.16.0 =
+
+* Requires PHP 5.3+
 
 = 2.15.0 =
 
