@@ -57,7 +57,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Single testimonial view includes image, source, title, location, email, company and URL details
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
-* Use's [bxSlider](http://bxslider.com) for transitions
+* Uses [bxSlider](http://bxslider.com) for transitions
 
 = Testimonials Premium =
 
