@@ -492,7 +492,7 @@ I need beta testers to help with ensuring pending releases of Testimonials and T
 
 [Please contact me directly](http://aihr.us/contact-aihrus/).
 
-Beta testers benefit directly with latest versions, a free 1-site license for Testimonials Premium, and personalized support assistance.
+Beta testers benefit directly with latest versions, a free unlimited sites license for Testimonials Premium, and personalized support assistance.
 
 == TODO ==
 
