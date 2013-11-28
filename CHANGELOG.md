@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* $this to __CLASS__
 
 ## 2.16.0
 * Add Expand/Collapse All Options helper for widget options - Thank you Scott Hendison

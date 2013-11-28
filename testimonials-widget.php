@@ -103,41 +103,41 @@ class Testimonials_Widget extends Aihrus_Common {
 	public function __construct() {
 		parent::__construct();
 
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'init', array( $this, 'init' ) );
-		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
-		add_shortcode( 'testimonialswidget_list', array( $this, 'testimonialswidget_list' ) );
-		add_shortcode( 'testimonialswidget_widget', array( $this, 'testimonialswidget_widget' ) );
+		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+		add_action( 'init', array( __CLASS__, 'init' ) );
+		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
+		add_shortcode( 'testimonialswidget_list', array( __CLASS__, 'testimonialswidget_list' ) );
+		add_shortcode( 'testimonialswidget_widget', array( __CLASS__, 'testimonialswidget_widget' ) );
 	}
 
 
-	public function admin_init() {
+	public static function admin_init() {
 		self::support_thumbnails();
 
 		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
 
-		$this->add_meta_box_testimonials_widget();
-		$this->update();
+		self::add_meta_box_testimonials_widget();
+		self::update();
 
-		add_action( 'gettext', array( $this, 'gettext_testimonials' ) );
-		add_action( 'manage_' . self::PT . '_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
-		add_action( 'right_now_content_table_end', array( $this, 'right_now_content_table_end' ) );
-		add_filter( 'manage_' . self::PT . '_posts_columns', array( $this, 'manage_posts_columns' ) );
-		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
-		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
-		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
-		add_filter( 'pre_get_posts', array( $this, 'pre_get_posts_author' ) );
+		add_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
+		add_action( 'manage_' . self::PT . '_posts_custom_column', array( __CLASS__, 'manage_posts_custom_column' ), 10, 2 );
+		add_action( 'right_now_content_table_end', array( __CLASS__, 'right_now_content_table_end' ) );
+		add_filter( 'manage_' . self::PT . '_posts_columns', array( __CLASS__, 'manage_posts_columns' ) );
+		add_filter( 'plugin_action_links', array( __CLASS__, 'plugin_action_links' ), 10, 2 );
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_filter( 'post_updated_messages', array( __CLASS__, 'post_updated_messages' ) );
+		add_filter( 'pre_get_posts', array( __CLASS__, 'pre_get_posts_author' ) );
 	}
 
 
-	public function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'E.g. Shortcodes', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( $this, 'show_shortcodes' ) );
+	public static function admin_menu() {
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'E.g. Shortcodes', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( __CLASS__, 'show_shortcodes' ) );
 	}
 
 
-	public function init() {
-		add_filter( 'the_content', array( $this, 'get_single' ) );
+	public static function init() {
+		add_filter( 'the_content', array( __CLASS__, 'get_single' ) );
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
@@ -197,7 +197,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function get_single( $content ) {
+	public static function get_single( $content ) {
 		global $post;
 
 		if ( ! is_single() || self::PT != $post->post_type )
@@ -240,7 +240,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function activation() {
+	public static function activation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
@@ -250,7 +250,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function deactivation() {
+	public static function deactivation() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
@@ -259,7 +259,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function uninstall() {
+	public static function uninstall() {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
@@ -343,7 +343,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function update() {
+	public static function update() {
 		$prior_version = tw_get_option( 'admin_notices' );
 		if ( $prior_version ) {
 			if ( $prior_version < '2.12.0' )
@@ -367,7 +367,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function pre_get_posts_author( $query ) {
+	public static function pre_get_posts_author( $query ) {
 		global $user_ID;
 
 		// author's and below
@@ -378,7 +378,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function manage_posts_custom_column( $column, $post_id ) {
+	public static function manage_posts_custom_column( $column, $post_id ) {
 		$result = false;
 
 		switch ( $column ) {
@@ -444,7 +444,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function manage_posts_columns( $columns ) {
+	public static function manage_posts_columns( $columns ) {
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
@@ -476,7 +476,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function init_post_type() {
+	public static function init_post_type() {
 		$labels = array(
 			'add_new' => esc_html__( 'Add New', 'testimonials-widget' ),
 			'add_new_item' => esc_html__( 'Add New Testimonial', 'testimonials-widget' ),
@@ -574,7 +574,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public function testimonialswidget_list( $atts ) {
+	public static function testimonialswidget_list( $atts ) {
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
 
@@ -1598,7 +1598,7 @@ EOF;
 	}
 
 
-	public function posts_results_sort_none( $posts, $query ) {
+	public static function posts_results_sort_none( $posts, $query ) {
 		$order = $query->query_vars['post__in'];
 		if ( empty( $order ) )
 			return $posts;
@@ -1618,7 +1618,7 @@ EOF;
 	}
 
 
-	public function widgets_init() {
+	public static function widgets_init() {
 		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-widget.php';
 
 		register_widget( 'Testimonials_Widget_Widget' );
@@ -1630,7 +1630,7 @@ EOF;
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
 	 */
-	public function add_meta_box_testimonials_widget() {
+	public static function add_meta_box_testimonials_widget() {
 		require_once TW_PLUGIN_DIR_LIB . '/class-redrokk-metabox-class.php';
 
 		$fields = array(
@@ -1689,8 +1689,8 @@ EOF;
 	 * @param string  $translation
 	 * @return string $translation
 	 */
-	public function gettext_testimonials( $translation ) {
-		remove_action( 'gettext', array( $this, 'gettext_testimonials' ) );
+	public static function gettext_testimonials( $translation ) {
+		remove_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
 
 		global $post;
 
@@ -1702,7 +1702,7 @@ EOF;
 			}
 		}
 
-		add_action( 'gettext', array( $this, 'gettext_testimonials' ) );
+		add_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
 
 		return $translation;
 	}
@@ -1717,7 +1717,7 @@ EOF;
 	 * @param mixed   $m
 	 * @return mixed $m
 	 */
-	public function post_updated_messages( $m ) {
+	public static function post_updated_messages( $m ) {
 		global $post;
 
 		$m[ self::PT ] = array(
@@ -1739,7 +1739,7 @@ EOF;
 	}
 
 
-	public function right_now_content_table_end() {
+	public static function right_now_content_table_end() {
 		$content = '
 			<tr>
 				<td class="first b b-%1$s">%4$s%2$s%5$s</td>
