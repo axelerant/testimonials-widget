@@ -42,7 +42,7 @@ Through categories and tagging, you can create organizational structures based u
 
 The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
 
-**Version 2.16.0 requires PHP 5.3+**
+**Version 2.16.0 requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
 
 = Primary Features =
 
@@ -407,7 +407,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 2.16.0 =
 
-* Requires PHP 5.3+
+* [Requires PHP 5.3+](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
 
 = 2.15.0 =
 
