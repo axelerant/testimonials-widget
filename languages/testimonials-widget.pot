@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials 2.16.1\n"
+"Project-Id-Version: Testimonials 2.16.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-11-28 06:02:59+00:00\n"
+"POT-Creation-Date: 2013-11-28 07:01:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Widget Title"
 msgstr ""
 
-#. #-#-#-#-#  testimonials-widget.pot (Testimonials 2.16.1)  #-#-#-#-#
+#. #-#-#-#-#  testimonials-widget.pot (Testimonials 2.16.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: lib/class-testimonials-widget-settings.php:127
 #: lib/class-testimonials-widget-widget.php:29 testimonials-widget.php:484
