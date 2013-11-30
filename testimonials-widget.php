@@ -35,6 +35,7 @@ require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
 class Testimonials_Widget extends Aihrus_Common {
 	const ID          = 'testimonials-widget-testimonials';
 	const ITEM_NAME   = 'Testimonials';
+	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_BASE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
 	const SLUG        = 'tw_';
@@ -268,6 +269,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-settings.php';
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
+			delete_option( self::OLD_NAME );
 			delete_option( Testimonials_Widget_Settings::ID );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
