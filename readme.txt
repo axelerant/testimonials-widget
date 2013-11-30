@@ -87,6 +87,10 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 [Buy Testimonials Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
 
+= Migration Helpers =
+* Testimonials Widget pre 2.0.0 - Upgrading is automatic
+* [GC Testimonials](fixme)
+
 = Additional Features =
 
 * Adjustable animation speed
