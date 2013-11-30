@@ -197,7 +197,7 @@ EOD;
 		if ( $disable_donate )
 			return;
 
-		$text = sprintf( esc_html__( 'Please donate $5 towards ongoing support and development of the %1$s plugin. %2$s' ), $item_name, self::$donate_button );
+		$text = sprintf( esc_html__( 'Please donate $5 towards ongoing free support and development of the %1$s plugin. %2$s' ), $item_name, self::$donate_button );
 
 		self::notice_updated( $text );
 	}
