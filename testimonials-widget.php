@@ -369,11 +369,11 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$options = get_option( self::OLD_NAME );
 		if ( true !== $options['migrated'] )
-			$this->migrate();
+			self::migrate();
 	}
 
 
-	public function migrate() {
+	public static function migrate() {
 		global $wpdb;
 
 		$table_name       = $wpdb->prefix . self::OLD_NAME;
