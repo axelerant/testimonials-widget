@@ -364,7 +364,56 @@ class Testimonials_Widget extends Aihrus_Common {
 			self::set_notice( 'notice_donate' );
 			tw_set_option( 'donate_version', self::VERSION );
 		}
+
+		$options = get_option( self::OLD_NAME );
+		if ( true !== $options['migrated'] )
+			$this->migrate();
 	}
+
+
+	public function migrate() {
+		global $wpdb;
+
+		$table_name       = $wpdb->prefix . self::OLD_NAME;
+		$meta_key         = '_' . self::PT . ':testimonial_id';
+		$has_table_query  = "SELECT table_name FROM information_schema.tables WHERE table_schema='{$wpdb->dbname}' AND table_name='{$table_name}'";
+		$has_table_result = $wpdb->get_col( $has_table_query );
+
+		if ( ! empty( $has_table_result ) ) {
+			// check that db table exists and has entries
+			$query = 'SELECT `testimonial_id`, `testimonial`, `author`, `source`, `tags`, `public`, `time_added`, `time_updated` FROM `' . $table_name . '`';
+
+			// ignore already imported
+			$done_import_query = 'SELECT meta_value FROM ' . $wpdb->postmeta . ' WHERE meta_key = "' . $meta_key . '"';
+			$done_import       = $wpdb->get_col( $done_import_query );
+
+			if ( ! empty( $done_import ) ) {
+				$done_import = array_unique( $done_import );
+				$query      .= ' WHERE testimonial_id NOT IN ( ' . implode( ',', $done_import ) . ' )';
+			}
+
+			$results = $wpdb->get_results( $query );
+			if ( ! empty( $results ) ) {
+				foreach ( $results as $result ) {
+					// author can contain title and company details
+					$author  = $result->author;
+					$company = false;
+
+					// ex: First Last of Company!
+					$author = str_replace( ' of ', ', ', $author );
+					// now ex: First Last, Company!
+
+					// ex: First Last, Company
+					// ex: First Last, Web Development Manager, Topcon Positioning Systems, Inc.
+					// ex: First Last, Owner, Company, LLC
+					$author     = str_replace( ' of ', ', ', $author );
+					$temp_comma = '^^^';
+					$author     = str_replace( ', LLC', $temp_comma . ' LLC', $author );
+
+					// now ex: First Last, Owner, Company^^^ LLC
+					$author = str_replace( ', Inc', $temp_comma . ' Inc', $author );
+
+					// ex: First Last, Web Development Manager, Company^^^ Inc.
 
 
 	public static function pre_get_posts_author( $query ) {
