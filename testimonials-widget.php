@@ -416,6 +416,13 @@ class Testimonials_Widget extends Aihrus_Common {
 					$author = str_replace( ', Inc', $temp_comma . ' Inc', $author );
 
 					// ex: First Last, Web Development Manager, Company^^^ Inc.
+					// it's possible to have "Michael Cannon, Senior Developer" and "Senior Developer" become the company. Okay for now
+					$author = explode( ', ', $author );
+
+					if ( 1 < count( $author ) ) {
+						$company = array_pop( $author );
+						$company = str_replace( $temp_comma, ',', $company );
+					}
 
 
 	public static function pre_get_posts_author( $query ) {
