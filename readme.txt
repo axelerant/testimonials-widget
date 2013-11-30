@@ -89,7 +89,7 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 = Migration Helpers =
 * Testimonials Widget pre 2.0.0 - Upgrading is automatic
-* [GC Testimonials](fixme)
+* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 
 = Additional Features =
 
