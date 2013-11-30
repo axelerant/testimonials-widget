@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Restore pre-2.0.0 auto-migration
 
 ## 2.16.2
 * **Version 2.16.0 requires PHP 5.3+**

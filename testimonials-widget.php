@@ -424,6 +424,44 @@ class Testimonials_Widget extends Aihrus_Common {
 						$company = str_replace( $temp_comma, ',', $company );
 					}
 
+					$author = implode( ', ', $author );
+					$author = str_replace( $temp_comma, ',', $author );
+
+					$post_data = array(
+						'post_type' => self::PT,
+						'post_status' => ( 'yes' == $result->public ) ? 'publish' : 'private',
+						'post_date' => $result->time_added,
+						'post_modified' => $result->time_updated,
+						'post_title' => $author,
+						'post_content' => $result->testimonial,
+						'tags_input' => $result->tags,
+					);
+
+					$post_id = wp_insert_post( $post_data, true );
+
+					// track/link testimonial import to new post
+					add_post_meta( $post_id, $meta_key, $result->testimonial_id );
+
+					if ( ! empty( $company ) )
+						add_post_meta( $post_id, 'testimonials-widget-company', $company );
+
+					$source = $result->source;
+					if ( ! empty( $source ) ) {
+						if ( is_email( $source ) ) {
+							add_post_meta( $post_id, 'testimonials-widget-email', $source );
+						} else {
+							add_post_meta( $post_id, 'testimonials-widget-url', $source );
+						}
+					}
+				}
+			}
+		}
+
+		$options['migrated'] = true;
+		delete_option( self::OLD_NAME );
+		add_option( self::OLD_NAME, $options, '', 'no' );
+	}
+
 
 	public static function pre_get_posts_author( $query ) {
 		global $user_ID;
