@@ -271,7 +271,7 @@ EOD;
 	/**
 	 * If incoming link is empty, then get_site_url() is used instead.
 	 */
-	public static function create_link( $link ) {
+	public static function create_link( $link, $target = null ) {
 		if ( empty( $link ) )
 			$link = get_site_url();
 
@@ -304,6 +304,9 @@ EOD;
 			$tag .= $orig_link;
 			$tag .= '</a>';
 		}
+
+		if ( ! empty( $target ) && is_string( $target ) )
+			$tag = links_add_target( $tag, $target );
 
 		return array(
 			'link' => $permalink,

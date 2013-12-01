@@ -18,6 +18,7 @@
 * BUGFIX Method version not static
 * Rename no_code to show_code
 * Settings link with null post_type
+* Widget title uses create_link
 
 ## 0.0.0
 * Initial code release 
