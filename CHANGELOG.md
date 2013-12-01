@@ -2,6 +2,8 @@
 
 ## master
 * Restore pre-2.0.0 auto-migration
+* Use Aihrus_Common::add_media
+* Move helper methods to Aihrus_Common
 
 ## 2.16.2
 * **Version 2.16.0 requires PHP 5.3+**

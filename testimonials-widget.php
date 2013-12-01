@@ -510,13 +510,12 @@ class Testimonials_Widget extends Aihrus_Common {
 		case 'thumbnail':
 			$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-			if ( has_post_thumbnail( $post_id ) ) {
+			if ( has_post_thumbnail( $post_id ) )
 				$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
-			} elseif ( is_email( $email ) ) {
+			elseif ( is_email( $email ) )
 				$result = get_avatar( $email );
-			} else {
+			else
 				$result = false;
-			}
 			break;
 
 		case self::$cpt_category:
@@ -1283,124 +1282,6 @@ EOF;
 	}
 
 
-	/**
-	 * Truncate HTML, close opened tags. UTF-8 aware, and aware of unpaired tags
-	 * (which don't need a matching closing tag)
-	 *
-	 * @param string  $html
-	 * @param int     $max_length      Maximum length of the characters of the string
-	 * @param string  $indicator       Suffix to use if string was truncated.
-	 * @param boolean $force_indicator Suffix to use if string was truncated.
-	 * @return string
-	 *
-	 * @ref http://pastie.org/3084080
-	 */
-	public static function truncate( $html, $max_length, $indicator = '&hellip;', $force_indicator = false ) {
-		$output_length = 0; // number of counted characters stored so far in $output
-		$position      = 0;      // character offset within input string after last tag/entity
-		$tag_stack     = array(); // stack of tags we've encountered but not closed
-		$output        = '';
-		$truncated     = false;
-
-		/**
-		 * these tags don't have matching closing elements, in HTML (in XHTML they
-		 * theoretically need a closing /> )
-		 *
-		 * @see http://www.netstrider.com/tutorials/HTMLRef/a_d.html
-		 * @see http://www.w3schools.com/tags/default.asp
-		 * @see http://stackoverflow.com/questions/3741896/what-do-you-call-tags-that-need-no-ending-tag
-		 */
-		$unpaired_tags = array(
-			'doctype',
-			'!doctype',
-			'area',
-			'base',
-			'basefont',
-			'bgsound',
-			'br',
-			'col',
-			'embed',
-			'frame',
-			'hr',
-			'img',
-			'input',
-			'link',
-			'meta',
-			'param',
-			'sound',
-			'spacer',
-			'wbr',
-		);
-
-		$func_strcut = function_exists( 'mb_strcut' ) ? 'mb_strcut' : 'substr';
-		$func_strlen = function_exists( 'mb_strlen' ) ? 'mb_strlen' : 'strlen';
-
-		// loop through, splitting at HTML entities or tags
-		while ( $output_length < $max_length && preg_match( '{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position ) ) {
-			list( $tag, $tag_position ) = $match[0];
-
-			// get text leading up to the tag, and store it – up to max_length
-			$text = $func_strcut( $html, $position, $tag_position - $position );
-			if ( $output_length + $func_strlen( $text ) > $max_length ) {
-				$output       .= $func_strcut( $text, 0, $max_length - $output_length );
-				$truncated     = true;
-				$output_length = $max_length;
-				break;
-			}
-
-			// store everything, it wasn't too long
-			$output        .= $text;
-			$output_length += $func_strlen( $text );
-
-			if ( $tag[0] == '&' ) {
-				// Handle HTML entity by copying straight through
-				$output .= $tag;
-				$output_length++; // only counted as one character
-			} else {
-				// Handle HTML tag
-				$tag_inner = $match[1][0];
-				if ( $tag[1] == '/' ) {
-					// This is a closing tag.
-					$output .= $tag;
-					// If input tags aren't balanced, we leave the popped tag
-					// on the stack so hopefully we're not introducing more
-					// problems.
-
-					if ( end( $tag_stack ) == $tag_inner )
-						array_pop( $tag_stack );
-				} elseif ( $tag[$func_strlen( $tag ) - 2] == '/' || in_array( strtolower( $tag_inner ), $unpaired_tags ) ) {
-					// Self-closing or unpaired tag
-					$output .= $tag;
-				} else {
-					// Opening tag.
-					$output     .= $tag;
-					$tag_stack[] = $tag_inner; // push tag onto the stack
-				}
-			}
-
-			// Continue after the tag we just found
-			$position = $tag_position + $func_strlen( $tag );
-		}
-
-		// Print any remaining text after the last tag, if there's room
-
-		if ( $output_length < $max_length && $position < $func_strlen( $html ) )
-			$output .= $func_strcut( $html, $position, $max_length - $output_length );
-
-		$truncated = $func_strlen( $html ) - $position > $max_length - $output_length;
-
-		// add terminator if it was truncated in loop or just above here
-		if ( $truncated || $force_indicator )
-			$output .= $indicator;
-
-		// Close any open tags
-		while ( ! empty( $tag_stack ) )
-			$output .= '</'.array_pop( $tag_stack ).'>';
-
-		return $output;
-	}
-
-
 	public static function format_content( $content, $widget_number, $atts ) {
 		if ( empty ( $content ) )
 			return $content;
@@ -1857,14 +1738,6 @@ EOF;
 	}
 
 
-	public static function clean_string( $string ) {
-		if ( ! is_string( $string ) )
-			return $string;
-
-		return trim( strip_shortcodes( strip_tags( $string ) ) );
-	}
-
-
 	/**
 	 *
 	 *
@@ -2077,56 +1950,7 @@ EOF;
 		$src   = self::get_image_src( $image );
 		$file  = sanitize_title( $email ) . '.jpeg';
 
-		$file_move = wp_upload_bits( $file, null, self::file_get_contents_curl( $src ) );
-		$filename  = $file_move['file'];
-
-		$wp_filetype = wp_check_filetype( $file, null );
-		$attachment  = array(
-			'post_mime_type' => $wp_filetype['type'],
-			'post_status' => 'inherit',
-			'post_title' => $file,
-		);
-
-		require_once ABSPATH . 'wp-admin/includes/image.php';
-
-		$image_id = wp_insert_attachment( $attachment, $filename, $post_id );
-		$metadata = wp_generate_attachment_metadata( $image_id, $filename );
-
-		wp_update_attachment_metadata( $image_id, $metadata );
-		update_post_meta( $post_id, '_thumbnail_id', $image_id );
-	}
-
-
-	public static function get_image_src( $image ) {
-		$doc = new DOMDocument();
-		$doc->loadHTML( $image );
-		$xpath = new DOMXPath( $doc );
-		$src   = $xpath->evaluate( 'string(//img/@src)' );
-
-		return $src;
-	}
-
-
-	/**
-	 * Thank you Tobylewis
-	 *
-	 * file_get_contents support on some shared systems is turned off
-	 *
-	 * @ref http://wordpress.org/support/topic/plugin-flickr-shortcode-importer-file_get_contents-with-url-isp-does-not-support?replies=2#post-2878241
-	 */
-	public static function file_get_contents_curl( $url ) {
-		$ch = curl_init();
-
-		curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-		curl_setopt( $ch, CURLOPT_HEADER, 0 );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_URL, $url );
-		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
-
-		$data = curl_exec( $ch );
-		curl_close( $ch );
-
-		return $data;
+		$image_id = self::add_media( $post_id, $src, $file );
 	}
 
 
