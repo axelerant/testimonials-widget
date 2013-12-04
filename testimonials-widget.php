@@ -478,58 +478,58 @@ class Testimonials_Widget extends Aihrus_Common {
 		$result = false;
 
 		switch ( $column ) {
-		case 'id':
-			$result = $post_id;
-			break;
+			case 'id':
+				$result = $post_id;
+				break;
 
-		case 'shortcode':
-			$result  = '[testimonialswidget_list ids="';
-			$result .= $post_id;
-			$result .= '"]';
-			$result .= '<br />';
-			$result .= '[testimonialswidget_widget ids="';
-			$result .= $post_id;
-			$result .= '"]';
-			break;
+			case 'shortcode':
+				$result  = '[testimonialswidget_list ids="';
+				$result .= $post_id;
+				$result .= '"]';
+				$result .= '<br />';
+				$result .= '[testimonialswidget_widget ids="';
+				$result .= $post_id;
+				$result .= '"]';
+				break;
 
-		case 'testimonials-widget-company':
-		case 'testimonials-widget-location':
-		case 'testimonials-widget-title':
-			$result = get_post_meta( $post_id, $column, true );
-			break;
+			case 'testimonials-widget-company':
+			case 'testimonials-widget-location':
+			case 'testimonials-widget-title':
+				$result = get_post_meta( $post_id, $column, true );
+				break;
 
-		case 'testimonials-widget-email':
-		case 'testimonials-widget-url':
-			$url = get_post_meta( $post_id, $column, true );
-			if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
-				$url = 'http://' . $url;
+			case 'testimonials-widget-email':
+			case 'testimonials-widget-url':
+				$url = get_post_meta( $post_id, $column, true );
+				if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
+					$url = 'http://' . $url;
 
-			$result = make_clickable( $url );
-			break;
+				$result = make_clickable( $url );
+				break;
 
-		case 'thumbnail':
-			$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
+			case 'thumbnail':
+				$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-			if ( has_post_thumbnail( $post_id ) )
-				$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
-			elseif ( is_email( $email ) )
-				$result = get_avatar( $email );
-			else
-				$result = false;
-			break;
+				if ( has_post_thumbnail( $post_id ) )
+					$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
+				elseif ( is_email( $email ) )
+					$result = get_avatar( $email );
+				else
+					$result = false;
+				break;
 
-		case self::$cpt_category:
-		case self::$cpt_tags:
-			$terms  = get_the_terms( $post_id, $column );
-			$result = '';
-			if ( ! empty( $terms ) ) {
-				$out = array();
-				foreach ( $terms as $term )
-					$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
+			case self::$cpt_category:
+			case self::$cpt_tags:
+				$terms  = get_the_terms( $post_id, $column );
+				$result = '';
+				if ( ! empty( $terms ) ) {
+					$out = array();
+					foreach ( $terms as $term )
+						$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
 
-				$result = join( ', ', $out );
-			}
-			break;
+					$result = join( ', ', $out );
+				}
+				break;
 		}
 
 		$result = apply_filters( 'testimonials_widget_posts_custom_column', $result, $column, $post_id );
@@ -789,39 +789,39 @@ class Testimonials_Widget extends Aihrus_Common {
 		$id_base = self::ID . $widget_number;
 
 		switch ( $atts['type'] ) {
-		case 'testimonialswidget_widget':
-			$use_bxslider = $atts['use_bxslider'];
-			if ( ! $use_bxslider ) {
-				$height     = $atts['height'];
-				$max_height = $atts['max_height'];
-				$min_height = $atts['min_height'];
+			case 'testimonialswidget_widget':
+				$use_bxslider = $atts['use_bxslider'];
+				if ( ! $use_bxslider ) {
+					$height     = $atts['height'];
+					$max_height = $atts['max_height'];
+					$min_height = $atts['min_height'];
 
-				if ( $height ) {
-					$max_height = $height;
-					$min_height = $height;
-				}
+					if ( $height ) {
+						$max_height = $height;
+						$min_height = $height;
+					}
 
-				if ( $min_height ) {
-					$css[] = <<<EOF
+					if ( $min_height ) {
+						$css[] = <<<EOF
 <style>
 .$id_base {
 min-height: {$min_height}px;
 }
 </style>
 EOF;
-				}
+					}
 
-				if ( $max_height ) {
-					$css[] = <<<EOF
+					if ( $max_height ) {
+						$css[] = <<<EOF
 <style>
 .$id_base {
 	max-height: {$max_height}px;
 }
 </style>
 EOF;
+					}
 				}
-			}
-			break;
+				break;
 		}
 
 		$css = apply_filters( 'testimonials_widget_testimonials_css', $css, $atts, $widget_number );
@@ -842,28 +842,28 @@ EOF;
 		$id_base = $id . $widget_number;
 
 		switch ( $atts['type'] ) {
-		case 'testimonialswidget_widget':
-			$javascript = '';
-			if ( 1 < count( $testimonials ) ) {
-				$refresh_interval = $atts['refresh_interval'];
+			case 'testimonialswidget_widget':
+				$javascript = '';
+				if ( 1 < count( $testimonials ) ) {
+					$refresh_interval = $atts['refresh_interval'];
 
-				$javascript .= '<script type="text/javascript">' . "\n";
+					$javascript .= '<script type="text/javascript">' . "\n";
 
-				$use_bxslider = $atts['use_bxslider'];
-				if ( $use_bxslider ) {
-					$enable_video    = $atts['enable_video'];
-					$show_start_stop = $atts['show_start_stop'];
-					$transition_mode = $atts['transition_mode'];
+					$use_bxslider = $atts['use_bxslider'];
+					if ( $use_bxslider ) {
+						$enable_video    = $atts['enable_video'];
+						$show_start_stop = $atts['show_start_stop'];
+						$transition_mode = $atts['transition_mode'];
 
-					$auto  = $refresh_interval ? 'true' : 'false';
-					$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
-					$pause = $refresh_interval * 1000;
-					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
+						$auto  = $refresh_interval ? 'true' : 'false';
+						$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
+						$pause = $refresh_interval * 1000;
+						$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
-					$autoControls = $show_start_stop ? 'autoControls: true,' : '';
+						$autoControls = $show_start_stop ? 'autoControls: true,' : '';
 
-					$slider_var  = self::SLUG . $widget_number;
-					$javascript .= <<<EOF
+						$slider_var  = self::SLUG . $widget_number;
+						$javascript .= <<<EOF
 var {$slider_var} = null;
 
 jQuery(document).ready(function() {
@@ -881,23 +881,23 @@ jQuery(document).ready(function() {
 });
 
 EOF;
-				} else {
-					$tw_padding = 'tw_padding' . $widget_number;
-					$tw_wrapper = 'tw_wrapper' . $widget_number;
+					} else {
+						$tw_padding = 'tw_padding' . $widget_number;
+						$tw_wrapper = 'tw_wrapper' . $widget_number;
 
-					$disable_animation = $atts['disable_animation'];
-					$fade_in_speed     = $atts['fade_in_speed'];
-					$fade_out_speed    = $atts['fade_out_speed'];
-					$height            = $atts['height'];
-					$max_height        = $atts['max_height'];
-					$min_height        = $atts['min_height'];
+						$disable_animation = $atts['disable_animation'];
+						$fade_in_speed     = $atts['fade_in_speed'];
+						$fade_out_speed    = $atts['fade_out_speed'];
+						$height            = $atts['height'];
+						$max_height        = $atts['max_height'];
+						$min_height        = $atts['min_height'];
 
-					$enable_animation = 1;
-					if ( $disable_animation || $height || $max_height || $min_height )
-						$enable_animation = 0;
+						$enable_animation = 1;
+						if ( $disable_animation || $height || $max_height || $min_height )
+							$enable_animation = 0;
 
-					if ( $refresh_interval ) {
-						$javascript .= <<<EOF
+						if ( $refresh_interval ) {
+							$javascript .= <<<EOF
 function nextTestimonial{$widget_number}() {
 	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
 		var active = jQuery('.{$id_base} .active');
@@ -929,9 +929,9 @@ jQuery(document).ready(function() {
 });
 
 EOF;
-					}
+						}
 
-					$javascript .= <<<EOF
+						$javascript .= <<<EOF
 if ( {$enable_animation} ) {
 	var {$tw_wrapper} = jQuery('.{$id_base}');
 	var {$tw_padding} = 0;
@@ -945,12 +945,12 @@ if ( {$enable_animation} ) {
 	});
 }
 EOF;
-				}
+					}
 
-				$javascript         .= "\n" . '</script>';
-				$scripts[ $id_base ] = $javascript;
-			}
-			break;
+					$javascript         .= "\n" . '</script>';
+					$scripts[ $id_base ] = $javascript;
+				}
+				break;
 		}
 
 		$scripts          = apply_filters( 'testimonials_widget_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
@@ -1673,9 +1673,9 @@ EOF;
 
 		if ( is_object( $post ) && self::PT == $post->post_type ) {
 			switch ( $translation ) {
-			case esc_html__( 'Enter title here', 'testimonials-widget' ):
-				return esc_html__( 'Enter testimonial source here', 'testimonials-widget' );
-				break;
+				case esc_html__( 'Enter title here', 'testimonials-widget' ):
+					return esc_html__( 'Enter testimonial source here', 'testimonials-widget' );
+					break;
 			}
 		}
 
@@ -1950,7 +1950,7 @@ EOF;
 		$src   = self::get_image_src( $image );
 		$file  = sanitize_title( $email ) . '.jpeg';
 
-		$image_id = self::add_media( $post_id, $src, $file );
+		self::add_media( $post_id, $src, $file );
 	}
 
 

@@ -674,42 +674,42 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content = '';
 		switch ( $args['type'] ) {
-		case 'text':
-			extract( $args );
+			case 'text':
+				extract( $args );
 
-			if ( is_null( $input ) )
-				$options = get_option( self::ID );
-			else {
-				$options      = array();
-				$options[$id] = $input;
-			}
+				if ( is_null( $input ) )
+					$options = get_option( self::ID );
+				else {
+					$options      = array();
+					$options[$id] = $input;
+				}
 
-			if ( ! isset( $options[$id] ) )
-				$options[$id] = $std;
+				if ( ! isset( $options[$id] ) )
+					$options[$id] = $std;
 
-			$field_class = '';
-			if ( ! empty( $class ) )
-				$field_class = ' ' . $class;
+				$field_class = '';
+				if ( ! empty( $class ) )
+					$field_class = ' ' . $class;
 
-			$field_class = esc_attr( $field_class );
+				$field_class = esc_attr( $field_class );
 
-			$suggest_id = 'suggest_' . self::$suggest_id++;
+				$suggest_id = 'suggest_' . self::$suggest_id++;
 
-			$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
+				$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $options[$id] . '" />';
 
-			if ( ! empty( $suggest ) )
-				$content .= self::get_suggest( $id, $suggest_id );
+				if ( ! empty( $suggest ) )
+					$content .= self::get_suggest( $id, $suggest_id );
 
-			if ( ! empty( $desc ) )
-				$content .= '<br /><span class="description">' . $desc . '</span>';
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
 
-			if ( $show_code )
-				$content .= '<br /><code>' . $id . '</code>';
-			break;
+				if ( $show_code )
+					$content .= '<br /><code>' . $id . '</code>';
+				break;
 
-		default:
-			$content = apply_filters( 'testimonials_widget_display_setting', $content, $args, $input );
-			break;
+			default:
+				$content = apply_filters( 'testimonials_widget_display_setting', $content, $args, $input );
+				break;
 		}
 
 		if ( empty( $content ) )
@@ -924,21 +924,21 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 
 		switch ( $id ) {
-		case 'category':
-			if ( ! $use_cpt_taxonomy )
-				$taxonomy = 'category';
-			else
-				$taxonomy = Testimonials_Widget::$cpt_category;
+			case 'category':
+				if ( ! $use_cpt_taxonomy )
+					$taxonomy = 'category';
+				else
+					$taxonomy = Testimonials_Widget::$cpt_category;
 
-			break;
+				break;
 
-		case 'tags':
-			if ( ! $use_cpt_taxonomy )
-				$taxonomy = 'post_tag';
-			else
-				$taxonomy = Testimonials_Widget::$cpt_tags;
+			case 'tags':
+				if ( ! $use_cpt_taxonomy )
+					$taxonomy = 'post_tag';
+				else
+					$taxonomy = Testimonials_Widget::$cpt_tags;
 
-			break;
+				break;
 		}
 
 		$ajax_url   = site_url() . '/wp-admin/admin-ajax.php';
