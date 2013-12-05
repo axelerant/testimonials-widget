@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.16.3
 * Check for PHP 5.3
 * Move helper methods to Aihrus_Common
 * Restore pre-2.0.0 auto-migration
