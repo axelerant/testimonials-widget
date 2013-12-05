@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials 2.16.4\n"
+"Project-Id-Version: Testimonials 2.16.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-12-05 19:38:20+00:00\n"
+"POT-Creation-Date: 2013-12-05 19:54:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,27 +129,27 @@ msgid "Settings"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:105
-#: lib/class-testimonials-widget-settings.php:872
+#: lib/class-testimonials-widget-settings.php:874
 msgid "General"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:106
-#: lib/class-testimonials-widget-settings.php:880
+#: lib/class-testimonials-widget-settings.php:882
 msgid "Selection"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:107
-#: lib/class-testimonials-widget-settings.php:888
+#: lib/class-testimonials-widget-settings.php:890
 msgid "Ordering"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:108
-#: lib/class-testimonials-widget-settings.php:896
+#: lib/class-testimonials-widget-settings.php:898
 msgid "Widget"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:109
-#: lib/class-testimonials-widget-settings.php:904
+#: lib/class-testimonials-widget-settings.php:906
 msgid "Post Type"
 msgstr ""
 
@@ -634,43 +634,43 @@ msgstr ""
 msgid "Pre 2.6.4, some themes use class `.hentry` in a manner that breaks Testimonials' CSS"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:858
+#: lib/class-testimonials-widget-settings.php:860
 msgid "These Testimonials Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you'll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:860
+#: lib/class-testimonials-widget-settings.php:862
 msgid "Shortcode option names are listed below each entry."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:863
+#: lib/class-testimonials-widget-settings.php:865
 msgid "View the <a href=\"%s\">Testimonials documentation</a>."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:873
+#: lib/class-testimonials-widget-settings.php:875
 msgid "Show or hide optional fields."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:881
+#: lib/class-testimonials-widget-settings.php:883
 msgid "Options used to select testimonials."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:889
+#: lib/class-testimonials-widget-settings.php:891
 msgid "Options used to determine displayed testimonials ordering."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:897
+#: lib/class-testimonials-widget-settings.php:899
 msgid "Options related to showing testimonials in widgets."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:905
+#: lib/class-testimonials-widget-settings.php:907
 msgid "Archive and singular page URL related testimonials options."
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:912
+#: lib/class-testimonials-widget-settings.php:914
 msgid "Compatibility & Reset"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:913
+#: lib/class-testimonials-widget-settings.php:915
 msgid "Backwards compatibility, import/export options, and reset options."
 msgstr ""
 
