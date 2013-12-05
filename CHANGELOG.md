@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.16.6
 * BUGFIX Widget title is same as link
 
 ## 2.16.5
