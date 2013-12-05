@@ -745,6 +745,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			$errors = $validated['errors'];
 		}
 
+		$defaults = self::get_defaults();
+
 		if ( ! empty( $input['has_archive'] ) )
 			$input['has_archive'] = self::prevent_slug_conflict( $input['has_archive'] );
 		else
