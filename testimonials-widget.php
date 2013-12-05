@@ -23,6 +23,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
+
 if ( ! defined( 'TW_PLUGIN_DIR' ) )
 	define( 'TW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
@@ -30,6 +31,11 @@ if ( ! defined( 'TW_PLUGIN_DIR_LIB' ) )
 	define( 'TW_PLUGIN_DIR_LIB', TW_PLUGIN_DIR . '/lib' );
 
 require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
+
+if ( af_php_version_check( __FILE__ ) )
+	add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
+else
+	return;
 
 
 class Testimonials_Widget extends Aihrus_Common {
@@ -2041,9 +2047,6 @@ EOD;
 
 
 }
-
-
-add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
 
 
 /**
