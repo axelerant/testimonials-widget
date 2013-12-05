@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* BUGFIX Widget title is same as link
 
 ## 2.16.5
 * BUGFIX Setting's defaults missing during validation
