@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+
+## 2.16.4
 * BUGFIX #1 Widget title displays "array" than link
 * BUGUnreproducible Call to undefined method Testimonials_Widget::clean_string
 
