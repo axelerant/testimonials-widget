@@ -19,7 +19,7 @@ Testimonials lets you randomly slide or list selected portfolios, quotes, review
 [youtube http://www.youtube.com/watch?v=bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
 
-**View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-widget-examples/)**
+**View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-examples/)**
 
 = It's Beyond Just Testimonials Slider Capabilities! =
 
@@ -63,7 +63,7 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Premium =
 
-Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/products/testimonials-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
 = Primary Premium Features =
 
@@ -85,7 +85,7 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * List of testimonial source and title linking to full entry `[[testimonialswidgetpremium_link_list]]` 
 * Testimonials entry form `[[testimonialswidgetpremium_form]]`
 
-[Buy Testimonials Premium](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/) plugin for WordPress.
+[Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
 
 = Migration Helpers =
 * Testimonials Widget pre 2.0.0 - Upgrading is automatic
