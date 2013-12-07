@@ -14,14 +14,16 @@ Testimonials lets you randomly slide or list selected portfolios, quotes, review
 
 == Description ==
 
-Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, the [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
 [youtube http://www.youtube.com/watch?v=bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
 
 **View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-examples/)**
 
-= It's Beyond Just Testimonials Slider Capabilities! =
+**Version 2.16.0+ requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
+
+= Testimonials Is Way Beyond Being Just a Testimonials Slider! =
 
 * Slide Images - responsive image slideshow
 * Slide Videos - video slideshow
@@ -42,8 +44,6 @@ Through categories and tagging, you can create organizational structures based u
 
 The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
 
-**Version 2.16.0 requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
-
 = Primary Features =
 
 * API to manipulate testimonials output and selection
@@ -61,9 +61,15 @@ The single testimonial view supports image, source, title, location, email, comp
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
 
+= Testimonials Migration Helpers =
+* Testimonials Widget pre 2.0.0 - Upgrading is automatic
+* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
+
 = Testimonials Premium =
 
 Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/products/testimonials-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+
+[Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
 
 = Primary Premium Features =
 
@@ -87,9 +93,15 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 [Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
 
-= Migration Helpers =
-* Testimonials Widget pre 2.0.0 - Upgrading is automatic
-* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
+= Shortcodes =
+
+* `[[testimonialswidget_list]]` - Listings with paging 
+* `[[testimonialswidget_widget]]` - Rotating
+
+= Theme Functions =
+
+* `testimonialswidget_list()` - Testimonials listing with paging 
+* `testimonialswidget_widget()` - Rotating testimonials
 
 = Additional Features =
 
@@ -135,10 +147,26 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * Unique CSS class per widget
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
-= Shortcodes =
+= Shortcode Examples =
 
-* `[[testimonialswidget_list]]` - Listings with paging 
-* `[[testimonialswidget_widget]]` - Rotating
+**[[testimonialswidget_list]]**
+
+* `[[testimonialswidget_list category="category-name"]]` - Testimonial list by category
+* `[[testimonialswidget_list category=product hide_not_found=true]]` - Testimonial list by category and hide "No testimonials found" message
+* `[[testimonialswidget_list category=product tags=widget limit=5]]` - Testimonial list by tag, showing 5 at most
+* `[[testimonialswidget_list char_limit=0 limit=-1]]` - Show all testimonials on one page
+* `[[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]` - Show 3 full-length testimonials, with opening and closing quote marks removed
+* `[[testimonialswidget_list hide_source=true hide_url=true]]` - Show testimonial list with source and urls hidden
+* `[[testimonialswidget_list ids="1,11,111" paging=false]]` - Show only these 3 testimonials
+* `[[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]` - Show 15 testimonials, in company order
+* `[[testimonialswidget_list order=ASC orderby=title]]` - List testimonials by post title
+* `[[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
+
+**[[testimonialswidget_widget]]**
+
+* `[[testimonialswidget_widget category=product order=asc height=300]]` - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
+* `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
+* `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
 
 = Shortcode and Widget Options =
 
@@ -239,15 +267,13 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
 	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
 
-= Other Options =
-
 **Post Type**
 
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
-**Compatibility & Reset**
+**Reset**
 
 * Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead
 * Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
@@ -277,106 +303,66 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS
 	* `remove_hentry` - default none; remove_hentry=true
 
-= Shortcode Examples =
-
-**[[testimonialswidget_list]]**
-
-* `[[testimonialswidget_list category="category-name"]]` - Testimonial list by category
-* `[[testimonialswidget_list category=product hide_not_found=true]]` - Testimonial list by category and hide "No testimonials found" message
-* `[[testimonialswidget_list category=product tags=widget limit=5]]` - Testimonial list by tag, showing 5 at most
-* `[[testimonialswidget_list char_limit=0 limit=-1]]` - Show all testimonials on one page
-* `[[testimonialswidget_list char_limit=0 target=_new limit=3 disable_quotes=true]]` - Show 3 full-length testimonials, with opening and closing quote marks removed
-* `[[testimonialswidget_list hide_source=true hide_url=true]]` - Show testimonial list with source and urls hidden
-* `[[testimonialswidget_list ids="1,11,111" paging=false]]` - Show only these 3 testimonials
-* `[[testimonialswidget_list meta_key=testimonials-widget-company order=asc limit=15]]` - Show 15 testimonials, in company order
-* `[[testimonialswidget_list order=ASC orderby=title]]` - List testimonials by post title
-* `[[testimonialswidget_list tags="test,fun" random=true exclude="2,22,333"]]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
-
-**[[testimonialswidget_widget]]**
-
-* `[[testimonialswidget_widget category=product order=asc height=300]]` - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
-* `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
-* `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
-
-= Theme Functions =
-
-* `testimonialswidget_list()` - Testimonials listing with paging 
-* `testimonialswidget_widget()` - Rotating testimonials
-
 = API =
 
 * Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
-= Notes =
-
-* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
-* If migration from from pre-2.0.0 custom table to new custom post type is needed, then install Testimonials Widget 2.15.1 for that capability before updating to the latest Testimonials Widget plugin.
-* Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* When plugin is uninstalled, all data and settings are deleted
-
-= Languages =
-
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) to the plugin author.
-
-See the FAQ for further localization tips.
+= Localization =
 
 * Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
-= Recommendation =
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
 
-* Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
-
-= Background & Thanks =
-
-A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
-
-Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
-
-A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
-
-Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
-
-= Support =
-
-Please visit the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for frequently asked questions, sending ideas, or getting support.
-
-If you want to contribute and I hope you do, visit the [Testimonials Github repository](https://github.com/michael-cannon/testimonials-widget).
+**[How do I localize?](https://aihrus.zendesk.com/entries/23691557-How-do-I-change-Testimonials-Widget-text-labels-)**
 
 
 == Installation ==
 
-1. Via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
-1. Alternately, via FTP, upload `testimonials-widget` directory to the `/wp-content/plugins/` directory
-1. Activate the 'Testimonials' plugin after uploading or through WordPress Admin > Plugins
+* Via WordPress Admin > Plugins > Add New, Search for `testimonials widget`
+* Via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
+* Download and unzip `testimonials-widget.zip` locally and then via FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
+* Activate the 'Testimonials' plugin after uploading
+* Activate the 'Testimonials' plugin through WordPress Admin > Plugins
 
 = Usage =
 
-1. Add and manage the quotes through the 'Testimonials' menu in the WordPress admin area
-1. To display testimonials in the sidebar, go to 'Widgets' menu and drag the 'Testimonials' into the desired widget area
-1. Configure the 'Testimonials' to select quotes and display as needed
+1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506-How-do-I-create-a-testimonial-record-)
+1. Add and manage testimonials through the 'Testimonials' menu in the WordPress admin area
+1. To display testimonials in the sidebar, go to 'Widgets' menu and drag 'Testimonials' widget into the desired widget area
+1. Configure 'Testimonials' to select quotes and display as needed
 1. Use the `[[testimonialswidget_list]]` or `[[testimonialswidget_widget]]` shortcodes to display testimonials on a page or in a post
-1. Read FAQ 1 for `testimonialswidget_list()` and `testimonialswidget_widget()` theme functions usage
+1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878-How-do-I-use-the-theme-functions-testimonialswidget-list-and-testimonialswidget-widget-) for `testimonialswidget_list()` and `testimonialswidget_widget()`
+
+= Upgrading via WordPress =
+
+* Via WordPress Admin > Dashboard > Updates, click 'Check Again'
+* Select plugins for update, click 'Update Plugins'
+
+= Upgrading via FTP =
+
+* Download and unzip `testimonials-widget.zip` locally and then via FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 
 
 == Frequently Asked Questions ==
 
-= Most Common Resolutions =
+= Most Common Issues =
 
 1. Got `Parse error: syntax error, unexpected T_STATIC, expecting ')'`? Read [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006-Most-Aihrus-Plugins-Require-PHP-5-3-) for the fixes.
-1. [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506-How-do-I-create-a-testimonial-record-)
-1. [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083-How-do-I-change-my-widget-s-rotation-speed-or-other-options-)
 1. [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302-How-do-you-debug-common-issues-)
 1. [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733-How-to-Correct-Testimonials-Widget-CSS-Issues) AKA "What's up with these quotes?"
+1. [Customize bxSlider](http://bxslider.com/examples)
+1. [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083-How-do-I-change-my-widget-s-rotation-speed-or-other-options-)
 1. [Pagination is broken](https://aihrus.zendesk.com/entries/23693513-My-testimonials-list-paging-doesn-t-work)
 1. [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
-1. [Customize bxSlider](http://bxslider.com/examples)
 
-* [Major Change for 2.15.0](https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0)
+= Still Stuck or Want Something Done? Get Support! =
 
-= Still Stuck? =
-
-Please visit the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) for more frequently asked questions, sending ideas, or getting support.
+* [Open Testimonials Issues](https://github.com/michael-cannon/testimonials-widget/issues) - bug reports and enhancement requests
+* [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) - read and comment upon 125+ frequently asked questions
+* [Testimonials Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions
+* [Contribute Code to Testimonials](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
+* [Beta Testers Needed](http://aihr.us/become-beta-tester/)
 
 
 == Screenshots ==
@@ -401,6 +387,8 @@ Please visit the [Testimonials Knowledge Base](https://aihrus.zendesk.com/catego
 18. Dashboard > Right Now "Testimonials" count
 19. Using Review and AggregateRating schema data structures
 20. Testimonials Shortcode Examples page
+
+[gallery]
 
 
 == Changelog ==
@@ -495,16 +483,26 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
 	* Default `min-height` is now 250px than 150px.
 
-== Beta Testers Needed ==
 
-I really want Testimonials and Testimonials Premium to be the best WordPress plugins of their type. However, it's beyond me to do it alone.
+== Notes ==
 
-I need beta testers to help with ensuring pending releases of Testimonials and Testimonials Premium are solid. This would benefit us all by helping reduce the number of releases and raise code quality.
+* Default and Gravatar image size is based upon Thumbnail size in Media Settings
+* If migration from from pre-2.0.0 custom table to new custom post type is needed, then install Testimonials Widget 2.15.1 for that capability before updating to the latest Testimonials Widget plugin.
+* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
+* When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Testimonial Settings
 
-[Please contact me directly](http://aihr.us/contact-aihrus/).
 
-Beta testers benefit directly with latest versions, a free unlimited sites license for Testimonials Premium, and personalized support assistance.
+== Background & Thanks ==
 
-== TODO ==
+A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
 
-See [TODO](https://github.com/michael-cannon/testimonials-widget/blob/master/TODO.md)
+Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
+
+A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
+
+Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
+
+
+== Recommendation ==
+
+* Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
