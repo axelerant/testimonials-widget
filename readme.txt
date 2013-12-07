@@ -168,6 +168,15 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
 * `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
 
+= Localization =
+
+* Dutch by Bjorn Robijns
+* [Hebrew by Ahrale](http://atar4u.com/)
+
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
+
+**[How do I localize?](https://aihrus.zendesk.com/entries/23691557-How-do-I-change-Testimonials-Widget-text-labels-)**
+
 = Shortcode and Widget Options =
 
 Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
@@ -302,19 +311,6 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `use_quote_tag` - default none; use_quote_tag=true
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS
 	* `remove_hentry` - default none; remove_hentry=true
-
-= API =
-
-* Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
-
-= Localization =
-
-* Dutch by Bjorn Robijns
-* [Hebrew by Ahrale](http://atar4u.com/)
-
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
-
-**[How do I localize?](https://aihrus.zendesk.com/entries/23691557-How-do-I-change-Testimonials-Widget-text-labels-)**
 
 
 == Installation ==
@@ -490,6 +486,11 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 * If migration from from pre-2.0.0 custom table to new custom post type is needed, then install Testimonials Widget 2.15.1 for that capability before updating to the latest Testimonials Widget plugin.
 * Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
 * When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Testimonial Settings
+
+
+== API ==
+
+* Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
 
 == Background & Thanks ==
