@@ -174,15 +174,6 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
 * `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
 
-= Localization =
-
-* Dutch by Bjorn Robijns
-* [Hebrew by Ahrale](http://atar4u.com/)
-
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
-
-**[How do I localize?](https://aihrus.zendesk.com/entries/23691557)**
-
 = Shortcode and Widget Options =
 
 Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
@@ -324,14 +315,14 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Install Methods =
 
 * Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
-	* Find Testimonials, make sure it's by Aihrus or Michael Cannon per the Description
-	* Click "Install Now" of Testimonials
-* Download `testimonials-widget.zip` locally
+	* Find "Testimonials by Aihrus"
+	* Click "Install Now" of "Testimonials by Aihrus"
+* Download [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* Through WordPress Admin > Plugins > Add New
 	* Click Upload
 	* "Choose File" `testimonials-widget.zip`
 	* Click "Install Now"
-* Download and unzip `testimonials-widget.zip` locally
+* Download and unzip [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* Using FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 
 = Activatation Options =
@@ -354,7 +345,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* Via WordPress Admin > Dashboard > Updates, click "Check Again"
 	* Select plugins for update, click "Update Plugins"
 * Using FTP
-	* Download and unzip `testimonials-widget.zip` locally
+	* Download and unzip [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 	* Be sure to overwrite your existing `testimonials-widget` folder contents
 
@@ -512,17 +503,30 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 * Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
 
-== Background & Thanks ==
-
-A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
+== Background ==
 
 Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
 
-A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
-
 Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
+
+
+== Localization ==
+
+* Dutch by Bjorn Robijns
+* [Hebrew by Ahrale](http://atar4u.com/)
+
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
+
+**[How do I localize?](https://aihrus.zendesk.com/entries/23691557)**
 
 
 == Recommendation ==
 
 * Use Jonathan Lundström's [Drag & Drop Featured Image](http://wordpress.org/extend/plugins/drag-drop-featured-image/) to speed up loading of the featured image
+
+
+== Thank You ==
+
+A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
+
+A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.

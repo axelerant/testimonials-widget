@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Testimonials
+ * Plugin Name: Testimonials by Aihrus
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: Testimonials by Aihrus lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 2.16.6
