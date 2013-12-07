@@ -91,6 +91,12 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * List of testimonial source and title linking to full entry `[[testimonialswidgetpremium_link_list]]` 
 * Testimonials entry form `[[testimonialswidgetpremium_form]]`
 
+= Premium Theme Functions =
+
+* `<?php echo testimonialswidgetpremium_count( $args ); ?>`
+* `<?php echo testimonialswidgetpremium_form( $args ); ?>`
+* `<?php echo testimonialswidgetpremium_link_list( $args ); ?>`
+
 [Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
 
 = Shortcodes =
