@@ -21,7 +21,7 @@ Testimonials lets you randomly slide or list selected portfolios, quotes, review
 
 **View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-examples/)**
 
-**Version 2.16.0+ requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
+**Version 2.16.0+ requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006)
 
 = Testimonials Is Way Beyond Being Just a Testimonials Slider! =
 
@@ -175,7 +175,7 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
 
-**[How do I localize?](https://aihrus.zendesk.com/entries/23691557-How-do-I-change-Testimonials-Widget-text-labels-)**
+**[How do I localize?](https://aihrus.zendesk.com/entries/23691557)**
 
 = Shortcode and Widget Options =
 
@@ -317,51 +317,57 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Install Methods =
 
-* Via WordPress Admin > Plugins > Add New, Search for `testimonials widget`
+* Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
 	* Find Testimonials, make sure it's by Michael Cannon per the Description
-	* Click 'Install Now' of Testimonials
-* Download `testimonials-widget.zip` locally and then via WordPress Admin > Plugins > Add New, Upload the `testimonials-widget.zip` file
-* Download and unzip `testimonials-widget.zip` locally and then via FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
+	* Click "Install Now" of Testimonials
+* Download `testimonials-widget.zip` locally
+	* Through WordPress Admin > Plugins > Add New
+	* Click Upload
+	* "Choose File" `testimonials-widget.zip`
+	* Click "Install Now"
+* Download and unzip `testimonials-widget.zip` locally
+	* Using FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 
 = Activatation Options =
 
-* Activate the 'Testimonials' plugin after uploading
-* Activate the 'Testimonials' plugin through WordPress Admin > Plugins
+* Activate the "Testimonials" plugin after uploading
+* Activate the "Testimonials" plugin through WordPress Admin > Plugins
 
 = Usage =
 
-1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506-How-do-I-create-a-testimonial-record-)
-1. Add and manage testimonials through the 'Testimonials' menu in the WordPress admin area
-1. To display testimonials in the sidebar, go to 'Widgets' menu and drag 'Testimonials' widget into the desired widget area
-1. Configure 'Testimonials' to select quotes and display as needed
+1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+1. Add and manage testimonials through the "Testimonials" menu in the WordPress admin area
+1. To display testimonials in the sidebar, go to "Widgets" menu and drag "Testimonials" widget into the desired widget area
+1. Configure "Testimonials" to select quotes and display as needed
 1. Use the `[[testimonialswidget_list]]` or `[[testimonialswidget_widget]]` shortcodes to display testimonials on a page or in a post
-1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878-How-do-I-use-the-theme-functions-testimonialswidget-list-and-testimonialswidget-widget-) for `testimonialswidget_list()` and `testimonialswidget_widget()`
+1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for `testimonialswidget_list()` and `testimonialswidget_widget()`
 
-= Upgrading via WordPress =
+= Upgrading =
 
-* Via WordPress Admin > Dashboard > Updates, click 'Check Again'
-* Select plugins for update, click 'Update Plugins'
-
-= Upgrading via FTP =
-
-* Download and unzip `testimonials-widget.zip` locally and then via FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
+* Through WordPress
+	* Via WordPress Admin > Dashboard > Updates, click "Check Again"
+	* Select plugins for update, click "Update Plugins"
+* Using FTP
+	* Download and unzip `testimonials-widget.zip` locally
+	* FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
+	* Be sure to overwrite your existing `testimonials-widget` folder contents
 
 
 == Frequently Asked Questions ==
 
 = Most Common Issues =
 
-* Got `Parse error: syntax error, unexpected T_STATIC, expecting ')'`? Read [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006-Most-Aihrus-Plugins-Require-PHP-5-3-) for the fixes.
-* [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302-How-do-you-debug-common-issues-)
-* [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733-How-to-Correct-Testimonials-Widget-CSS-Issues) AKA "What's up with these quotes?"
+* Got `Parse error: syntax error, unexpected T_STATIC, expecting ')'`? Read [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006) for the fixes.
+* [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
+* [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733) AKA "What's up with these quotes?"
 * [Customize bxSlider](http://bxslider.com/examples)
-* [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083-How-do-I-change-my-widget-s-rotation-speed-or-other-options-)
-* [Pagination is broken](https://aihrus.zendesk.com/entries/23693513-My-testimonials-list-paging-doesn-t-work)
+* [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083)
+* [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
 
 = Still Stuck or Want Something Done? Get Support! =
 
-1. [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) - read and comment upon 125+ frequently asked questions
+1. [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507) - read and comment upon 125+ frequently asked questions
 1. [Open Testimonials Issues](https://github.com/michael-cannon/testimonials-widget/issues) - review and submit bug reports and enhancement requests
 1. [Testimonials Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
 1. [Contribute Code to Testimonials](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
@@ -372,7 +378,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 1. Testimonials admin interface
 2. Collapsed Testimonials options
-3. Expanded 'General Options' in Testimonials options
+3. Expanded "General Options" in Testimonials options
 4. Testimonial widget in the sidebar 
 5. [[testimonialswidget_list]] in post
 6. [[testimonialswidget_list]] results with paging
@@ -381,8 +387,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 10. Poedit Catalog properties
 11. Testimonials Settings > General tab
-12. Expanded 'Selection Options' in Testimonials options
-13. Expanded 'Ordering Options' in Testimonials options
+12. Expanded "Selection Options" in Testimonials options
+13. Expanded "Ordering Options" in Testimonials options
 14. Testimonials Settings > Selection tab
 15. Testimonials Settings > Post Type tab
 16. Testimonials Settings > Widget tab
@@ -403,7 +409,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 2.16.0 =
 
-* [Requires PHP 5.3+](https://aihrus.zendesk.com/entries/30678006-Testimonials-2-16-0-Requires-PHP-5-3-)
+* [Requires PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
 
 = 2.15.0 =
 
