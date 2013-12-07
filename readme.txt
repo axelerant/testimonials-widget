@@ -1,4 +1,4 @@
-=== Testimonials ===
+=== Testimonials by Aihrus ===
 
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
@@ -9,12 +9,12 @@ Stable tag: 2.16.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
+Testimonials by Aihrus lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
 
 
 == Description ==
 
-Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Testimonials [by Aihrus](http://aihr.us/about-aihrus/) lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
 [youtube http://www.youtube.com/watch?v=bhUhuQ-2m8s]
 **[Video introduction](http://youtu.be/bhUhuQ-2m8s)**
@@ -324,7 +324,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Install Methods =
 
 * Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
-	* Find Testimonials, make sure it's by Michael Cannon per the Description
+	* Find Testimonials, make sure it's by Aihrus or Michael Cannon per the Description
 	* Click "Install Now" of Testimonials
 * Download `testimonials-widget.zip` locally
 	* Through WordPress Admin > Plugins > Add New
@@ -502,9 +502,9 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 == Notes ==
 
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* If migration from from pre-2.0.0 custom table to new custom post type is needed, then install Testimonials Widget 2.15.1 for that capability before updating to the latest Testimonials Widget plugin.
+* Migration from from pre-2.0.0 custom table to new custom post type is automatic
 * Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
-* When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Testimonial Settings
+* When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
 
 
 == API ==
