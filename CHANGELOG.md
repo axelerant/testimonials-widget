@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials
 
 ## master
+* Convert TODO to https://github.com/michael-cannon/testimonials-widget/issues
 * Restructure readme
 
 ## 2.16.6

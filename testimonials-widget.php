@@ -40,7 +40,7 @@ else
 
 class Testimonials_Widget extends Aihrus_Common {
 	const ID          = 'testimonials-widget-testimonials';
-	const ITEM_NAME   = 'Testimonials';
+	const ITEM_NAME   = 'Testimonials by Aihrus';
 	const OLD_NAME    = 'testimonialswidget';
 	const PLUGIN_BASE = 'testimonials-widget/testimonials-widget.php';
 	const PT          = 'testimonials-widget';
