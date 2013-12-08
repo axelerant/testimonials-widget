@@ -21,8 +21,6 @@ Testimonials [by Aihrus](http://aihr.us/about-aihrus/) lets you randomly slide o
 
 **View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-examples/)**
 
-**Version 2.16.0+ requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006)
-
 = Testimonials Is Way Beyond Being Just a Testimonials Slider! =
 
 * Slide Images - responsive image slideshow
@@ -311,6 +309,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 
 == Installation ==
+
+**Version 2.16.0+ requires PHP 5.3+** [notice](https://aihrus.zendesk.com/entries/30678006)
 
 = Install Methods =
 
