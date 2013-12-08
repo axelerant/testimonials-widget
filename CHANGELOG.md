@@ -1,9 +1,6 @@
 # CHANGELOG Aihrus Framework
 
 ## master
-* BUGFIX Widget title is same as link
-* Revise create_link parameters
-* Check for PHP 5.3
 * Add TODO
 * Add `add_media` post attachment helper
 * Add `clean_string` trim, strip_shortcodes, and strip_tags a string
@@ -19,7 +16,11 @@
 * Add shortcode id helpers
 * Allow reset_defaults in widget
 * BUGFIX Method version not static
+* BUGFIX Widget title is same as link
+* Check for PHP 5.3
+* Convert TODO to https://github.com/michael-cannon/aihrus-framework/issues
 * Rename no_code to show_code
+* Revise create_link parameters
 * Settings link with null post_type
 * Widget title uses create_link
 
