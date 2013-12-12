@@ -20,7 +20,6 @@ A helper library for WordPress plugins by Aihrus.
 
 ```
 git remote add aihrus https://github.com/michael-cannon/aihrus-framework.git
-git fetch aihrus 
 git subtree add -P lib/aihrus aihrus master
 git commit -a -m "Readd aihrus framework"
 git push origin master
@@ -29,7 +28,7 @@ git push origin master
 * Link plugin to libary
 
 ```
-require_once WPSP_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require WPSP_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
 ```
 
 * Extend plugin class to library

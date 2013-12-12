@@ -16,54 +16,10 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-if ( ! function_exists( 'af_php_version_check' ) ) {
-	function af_php_version_check( $file = __FILE__, $php_min = '5.3.0' ) {
-		$check_okay = version_compare( PHP_VERSION, $php_min, '>' );
-
-		if ( ! $check_okay && __FILE__ != $file ) {
-			require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-			deactivate_plugins( $file );
-
-			if ( ! defined( 'AF_PHP_VERSION_FILE' ) )
-				define( 'AF_PHP_VERSION_FILE', $file );
-
-			if ( ! defined( 'AF_PHP_VERSION_MIN' ) )
-				define( 'AF_PHP_VERSION_MIN', $php_min );
-
-			add_action( 'admin_notices', 'af_notice_php_version' );
-		}
-
-		return $check_okay;
-	}
-
-
-	function af_notice_php_version() {
-		$base = basename( dirname( AF_PHP_VERSION_FILE ) );
-		$base = str_replace( '-', ' ', $base );
-		$base = ucwords( $base );
-
-		$help_url = esc_url( 'https://aihrus.zendesk.com/entries/30678006-Most-Aihrus-Plugins-Require-PHP-5-3-' );
-
-		$php_min = basename( AF_PHP_VERSION_MIN );
-
-		$text = sprintf( __( 'Plugin "%1$s" requires at least PHP %2$s, you\'re running PHP %4$s. See <a href="%3$s">possible solutions</a>. Once fixed, "%1$s" can be activated again.' ), $base, $php_min, $help_url, PHP_VERSION );
-
-		$content  = '<div class="error"><p>';
-		$content .= $text;
-		$content .= '</p></div>';
-
-		echo $content;
-	}
-}
-
-if ( ! af_php_version_check( __FILE__ ) )
-	return;
-
 if ( class_exists( 'Aihrus_Common' ) )
 	return;
 
-require_once 'interface-aihrus-common.php';
+require 'interface-aihrus-common.php';
 
 
 abstract class Aihrus_Common implements Aihrus_Common_Interface {
@@ -131,10 +87,13 @@ EOD;
 
 		$notices = array_unique( $notices );
 		foreach ( $notices as $notice ) {
-			if ( ! is_array( $notice ) )
-				add_action( 'admin_notices', array( static::$class, $notice ) );
-			else
+			if ( function_exists( $notice ) ) {
 				add_action( 'admin_notices', $notice );
+			} elseif ( is_array( $notice ) ) {
+				add_action( 'admin_notices', $notice );
+			} else {
+				add_action( 'admin_notices', array( static::$class, $notice ) );
+			}
 		}
 
 		self::delete_notices();
@@ -171,7 +130,7 @@ EOD;
 
 		$text = sprintf( __( 'Plugin %3$s has been deactivated. Please %1$s %4$s version %2$s or newer before activating %3$s.' ), $link, $free_version, $item_name, $free_name );
 
-		self::notice_error( $text );
+		aihr_notice_error( $text );
 	}
 
 
@@ -197,7 +156,7 @@ EOD;
 
 		$text = sprintf( __( 'Plugin %1$s requires license activation before updating will work. Please activate the license key via %2$s. No license key? See %3$s or purchase %4$s.' ), $item_name, $settings_link, $faq_link, $buy_link );
 
-		self::notice_error( $text );
+		aihr_notice_error( $text );
 	}
 
 
@@ -243,25 +202,7 @@ EOD;
 
 		$text = sprintf( esc_html__( 'Please donate $5 towards ongoing free support and development of the %1$s plugin. %2$s' ), $item_name, self::$donate_button );
 
-		self::notice_updated( $text );
-	}
-
-
-	public static function notice_error( $text ) {
-		self::notice_updated( $text, 'error' );
-	}
-
-
-	public static function notice_updated( $text, $class = 'updated' ) {
-		if ( 'updated' == $class )
-			$class .= ' fade';
-
-		$content  = '';
-		$content .= '<div class="' . $class . '"><p>';
-		$content .= $text;
-		$content .= '</p></div>';
-
-		echo $content;
+		aihr_notice_updated( $text );
 	}
 
 

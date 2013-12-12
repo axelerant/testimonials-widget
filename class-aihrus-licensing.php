@@ -19,7 +19,7 @@
 if ( class_exists( 'Aihrus_Licensing' ) )
 	return;
 
-require_once 'interface-aihrus-licensing.php';
+require 'interface-aihrus-licensing.php';
 
 
 abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
