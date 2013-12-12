@@ -21,6 +21,7 @@
 * BUGFIX Widget title is same as link
 * Check for PHP 5.3
 * Convert TODO to https://github.com/michael-cannon/aihrus-framework/issues
+* Remove unused methods
 * Rename no_code to show_code
 * Revise create_link parameters
 * Settings link with null post_type

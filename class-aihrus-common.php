@@ -113,53 +113,6 @@ EOD;
 	}
 
 
-	public static function notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name ) {
-		$is_active = is_plugin_active( $free_base );
-		if ( $is_active )
-			$link = sprintf( __( '<a href="%1$s">update to</a>' ), self_admin_url( 'update-core.php' ) );
-		else {
-			$plugins = get_plugins();
-			if ( empty( $plugins[ $free_base ] ) ) {
-				$install = esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $free_slug ), 'install-plugin_' . $free_slug ) );
-				$link    = sprintf( __( '<a href="%1$s">install</a>' ), $install );
-			} else {
-				$activate = esc_url( wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=' . $free_base ), 'activate-plugin_' . $free_base ) );
-				$link     = sprintf( __( '<a href="%1$s">activate</a>' ), $activate );
-			}
-		}
-
-		$text = sprintf( __( 'Plugin %3$s has been deactivated. Please %1$s %4$s version %2$s or newer before activating %3$s.' ), $link, $free_version, $item_name, $free_name );
-
-		aihr_notice_error( $text );
-	}
-
-
-	public static function notice_license( $post_type, $settings_id, $free_name, $purchase_url, $item_name ) {
-		if ( empty( $post_type ) )
-			$link = get_admin_url() . 'options-general.php?page=' . $settings_id;
-		else
-			$link = get_admin_url() . 'edit.php?post_type=' . $post_type . '&page=' . $settings_id;
-
-		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry' );
-
-		$settings_link = sprintf( $text, $link, $free_name );
-
-		$link = esc_url( 'https://aihrus.zendesk.com/entries/28745227-Where-s-my-license-key-' );
-		$text = __( '<a href="%s">Where\'s my license key?</a>' );
-
-		$faq_link = sprintf( $text, $link );
-
-		$link = esc_url( $purchase_url );
-		$text = __( '<a href="%1$s">%2$s</a>' );
-
-		$buy_link = sprintf( $text, $link, $item_name );
-
-		$text = sprintf( __( 'Plugin %1$s requires license activation before updating will work. Please activate the license key via %2$s. No license key? See %3$s or purchase %4$s.' ), $item_name, $settings_link, $faq_link, $buy_link );
-
-		aihr_notice_error( $text );
-	}
-
-
 	public static function version( $version ) {
 		$version .= '-' . static::ID . '-' . static::VERSION;
 
