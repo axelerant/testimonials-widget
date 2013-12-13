@@ -26,9 +26,8 @@ if ( ! function_exists( 'aihr_check_php' ) ) {
 			return false;
 		}
 
-		$file       = plugin_basename( $file );
 		$check_okay = version_compare( PHP_VERSION, $php_min, '>=' );
-
+		$file       = plugin_basename( $file );
 		if ( ! $check_okay && __FILE__ != $file ) {
 			deactivate_plugins( $file );
 
@@ -63,9 +62,64 @@ if ( ! function_exists( 'aihr_notice_php' ) ) {
 		}
 
 		$help_url = esc_url( 'https://aihrus.zendesk.com/entries/30678006' );
-		$php_min  = basename( AIHR_PHP_VERSION_MIN );
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $name, $php_min, $help_url, PHP_VERSION );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $name, AIHR_PHP_VERSION_MIN, $help_url, PHP_VERSION );
+
+		aihr_notice_error( $text );
+	}
+}
+
+
+if ( ! function_exists( 'aihr_check_wp' ) ) {
+	function aihr_check_wp( $file = null, $name = null, $wp_min = '3.6.0' ) {
+		if ( is_null( $file ) ) {
+			aihr_notice_error( __( '`aihr_check_wp` requires $file argument' ) );
+
+			return false;
+		}
+
+		global $wp_version;
+
+		$check_okay = version_compare( $wp_version, $wp_min, '>=' );
+		$file       = plugin_basename( $file );
+		if ( ! $check_okay && __FILE__ != $file ) {
+			deactivate_plugins( $file );
+
+			if ( ! defined( 'AIHR_WP_VERSION_FILE' ) ) {
+				define( 'AIHR_WP_VERSION_FILE', $file );
+			}
+
+			if ( ! is_null( $name ) && ! defined( 'AIHR_WP_VERSION_NAME' ) ) {
+				define( 'AIHR_WP_VERSION_NAME', $name );
+			}
+
+			if ( ! defined( 'AIHR_WP_VERSION_MIN' ) ) {
+				define( 'AIHR_WP_VERSION_MIN', $wp_min );
+			}
+
+			add_action( 'admin_notices', 'aihr_notice_wp' );
+		}
+
+		return $check_okay;
+	}
+}
+
+
+if ( ! function_exists( 'aihr_notice_wp' ) ) {
+	function aihr_notice_wp() {
+		global $wp_version;
+
+		if ( defined( 'AIHR_WP_VERSION_NAME' ) ) {
+			$name = AIHR_WP_VERSION_NAME;
+		} else {
+			$name = basename( dirname( AIHR_WP_VERSION_FILE ) );
+			$name = str_replace( '-', ' ', $name );
+			$name = ucwords( $name );
+		}
+
+		$help_url = network_admin_url( 'update-core.php' );
+
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires WordPress %2$s or newer. You\'re running WordPress %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">Update WordPress</a>.' ), $name, AIHR_WP_VERSION_MIN, $help_url, $wp_version );
 
 		aihr_notice_error( $text );
 	}

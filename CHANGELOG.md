@@ -1,6 +1,7 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* FEATURE #3 Add WordPress version check
 * Abstract notice helper methods as functions
 * Add TODO
 * Add `add_media` post attachment helper
