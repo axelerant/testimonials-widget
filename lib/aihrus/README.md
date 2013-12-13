@@ -20,7 +20,6 @@ A helper library for WordPress plugins by Aihrus.
 
 ```
 git remote add aihrus https://github.com/michael-cannon/aihrus-framework.git
-git fetch aihrus 
 git subtree add -P lib/aihrus aihrus master
 git commit -a -m "Readd aihrus framework"
 git push origin master
@@ -29,7 +28,7 @@ git push origin master
 * Link plugin to libary
 
 ```
-require_once WPSP_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require WPSP_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
 ```
 
 * Extend plugin class to library
@@ -45,7 +44,7 @@ public static $class;
 public static $notice_key;
 ```
 
-* Set notices…
+* Set notices… (fixme)
 
 ```
 …
@@ -57,7 +56,7 @@ public static function notice_version( $free_base = null, $free_name = null, $fr
 	$free_name    = 'Testimonials';
 	$free_slug    = 'testimonials-widget';
 	$free_version = self::FREE_VERSION;
-	$item_name    = self::ITEM_NAME;
+	$item_name    = self::NAME;
 
 	parent::notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name );
 }
