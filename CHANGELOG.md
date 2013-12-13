@@ -1,13 +1,13 @@
 # CHANGELOG Testimonials
 
-## two17
+## master
+
+## 2.17.0
+* Convert TODO to https://github.com/michael-cannon/testimonials-widget/issues
 * Implement PHP version checking
 * Implement WordPress version checking
-* Tested up to 3.9.0
-
-## master
-* Convert TODO to https://github.com/michael-cannon/testimonials-widget/issues
 * Restructure readme
+* Tested up to 3.9.0
 
 ## 2.16.6
 * BUGFIX Widget title is same as link
