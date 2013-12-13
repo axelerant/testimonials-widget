@@ -44,7 +44,7 @@ public static $class;
 public static $notice_key;
 ```
 
-* Set notices…
+* Set notices… (fixme)
 
 ```
 …
@@ -56,7 +56,7 @@ public static function notice_version( $free_base = null, $free_name = null, $fr
 	$free_name    = 'Testimonials';
 	$free_slug    = 'testimonials-widget';
 	$free_version = self::FREE_VERSION;
-	$item_name    = self::ITEM_NAME;
+	$item_name    = self::NAME;
 
 	parent::notice_version( $free_base, $free_name, $free_slug, $free_version, $item_name );
 }

@@ -19,7 +19,7 @@
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 if ( ! function_exists( 'aihr_check_php' ) ) {
-	function aihr_check_php( $file = null, $php_min = '5.3.0' ) {
+	function aihr_check_php( $file = null, $name = null, $php_min = '5.3.0' ) {
 		if ( is_null( $file ) ) {
 			aihr_notice_error( __( '`aihr_check_php` requires $file argument' ) );
 
@@ -32,11 +32,17 @@ if ( ! function_exists( 'aihr_check_php' ) ) {
 		if ( ! $check_okay && __FILE__ != $file ) {
 			deactivate_plugins( $file );
 
-			if ( ! defined( 'AF_PHP_VERSION_FILE' ) )
-				define( 'AF_PHP_VERSION_FILE', $file );
+			if ( ! defined( 'AIHR_PHP_VERSION_FILE' ) ) {
+				define( 'AIHR_PHP_VERSION_FILE', $file );
+			}
 
-			if ( ! defined( 'AF_PHP_VERSION_MIN' ) )
-				define( 'AF_PHP_VERSION_MIN', $php_min );
+			if ( ! is_null( $name ) && ! defined( 'AIHR_PHP_VERSION_NAME' ) ) {
+				define( 'AIHR_PHP_VERSION_NAME', $name );
+			}
+
+			if ( ! defined( 'AIHR_PHP_VERSION_MIN' ) ) {
+				define( 'AIHR_PHP_VERSION_MIN', $php_min );
+			}
 
 			add_action( 'admin_notices', 'aihr_notice_php' );
 		}
@@ -48,14 +54,18 @@ if ( ! function_exists( 'aihr_check_php' ) ) {
 
 if ( ! function_exists( 'aihr_notice_php' ) ) {
 	function aihr_notice_php() {
-		$base = basename( dirname( AF_PHP_VERSION_FILE ) );
-		$base = str_replace( '-', ' ', $base );
-		$base = ucwords( $base );
+		if ( defined( 'AIHR_PHP_VERSION_NAME' ) ) {
+			$name = AIHR_PHP_VERSION_NAME;
+		} else {
+			$name = basename( dirname( AIHR_PHP_VERSION_FILE ) );
+			$name = str_replace( '-', ' ', $name );
+			$name = ucwords( $name );
+		}
 
 		$help_url = esc_url( 'https://aihrus.zendesk.com/entries/30678006' );
-		$php_min  = basename( AF_PHP_VERSION_MIN );
+		$php_min  = basename( AIHR_PHP_VERSION_MIN );
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $base, $php_min, $help_url, PHP_VERSION );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $name, $php_min, $help_url, PHP_VERSION );
 
 		aihr_notice_error( $text );
 	}
@@ -99,7 +109,34 @@ if ( ! function_exists( 'aihr_notice_version' ) ) {
 			}
 		}
 
-		$text = sprintf( __( 'Plugin %3$s has been deactivated. Please %1$s %4$s version %2$s or newer before activating %3$s.' ), $link, $required_version, $item_name, $required_name );
+		$text = sprintf( __( 'Plugin "%3$s" has been deactivated. Please %1$s "%4$s" version %2$s or newer before activating "%3$s".' ), $link, $required_version, $item_name, $required_name );
+
+		aihr_notice_error( $text );
+	}
+}
+
+if ( ! function_exists( 'aihr_notice_license' ) ) {
+	function aihr_notice_license( $post_type, $settings_id, $free_name, $purchase_url, $item_name ) {
+		if ( empty( $post_type ) )
+			$link = get_admin_url() . 'options-general.php?page=' . $settings_id;
+		else
+			$link = get_admin_url() . 'edit.php?post_type=' . $post_type . '&page=' . $settings_id;
+
+		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry' );
+
+		$settings_link = sprintf( $text, $link, $free_name );
+
+		$link = esc_url( 'https://aihrus.zendesk.com/entries/28745227' );
+		$text = __( '<a href="%s">Where\'s my license key?</a>' );
+
+		$faq_link = sprintf( $text, $link );
+
+		$link = esc_url( $purchase_url );
+		$text = __( '<a href="%1$s">%2$s</a>' );
+
+		$buy_link = sprintf( $text, $link, $item_name );
+
+		$text = sprintf( __( 'Plugin "%1$s" requires license activation before updating will work. Please activate the license key through %2$s. No license key? See "%3$s" or purchase "%4$s".' ), $item_name, $settings_link, $faq_link, $buy_link );
 
 		aihr_notice_error( $text );
 	}
