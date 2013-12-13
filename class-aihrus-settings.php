@@ -100,7 +100,7 @@ abstract class Aihrus_Settings {
 			'title' => esc_html__( 'Remove Plugin Data on Deletion?' ),
 			'type' => 'checkbox',
 			'class' => 'warning',
-			'desc' => sprintf( $desc, static::ITEM_NAME ),
+			'desc' => sprintf( $desc, static::NAME ),
 			'widget' => 0,
 		);
 
@@ -232,7 +232,7 @@ abstract class Aihrus_Settings {
 
 
 	public static function display_about() {
-		$name = str_replace( ' Settings', '', static::ITEM_NAME );
+		$name = str_replace( ' Settings', '', static::NAME );
 		$text = __( '<img class="alignright size-medium" src="%1$s/media/michael-cannon-red-square-300x2251.jpg" alt="Michael in Red Square, Moscow, Russia" width="300" height="225" /><a href="%2$s">%3$s</a> is by <a href="%4$s">Michael Cannon</a>. He\'s <a href="%5$s">Peichi’s</a> smiling man, an adventurous <a href="%6$s" target="_blank">water-rat</a>, <a href="%7$s">chief people officer</a>, <a href="%8$s">cyclist</a>, <a href="%9$s">full stack developer</a>, <a href="%10$s">poet</a>, <a href="%11$s">WWOOF’er</a> and <a href="%12$s">world traveler</a>.' );
 
 		echo '<div id="about" style="width: 70%; min-height: 225px;"><p>';
@@ -258,7 +258,7 @@ abstract class Aihrus_Settings {
 	public static function display_page( $disable_donate = false ) {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
-			<h2>' . static::ITEM_NAME . '</h2>';
+			<h2>' . static::NAME . '</h2>';
 
 		echo '<form action="options.php" method="post">';
 
