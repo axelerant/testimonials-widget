@@ -273,6 +273,8 @@ class Testimonials_Widget extends Aihrus_Common {
 			return;
 
 		global $wpdb;
+		
+		require TW_DIR_LIB . '/class-testimonials-widget-settings.php';
 
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
