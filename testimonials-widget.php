@@ -37,7 +37,9 @@ if ( ! tw_requirements_check() ) {
 }
 
 require TW_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require TW_DIR_LIB . '/class-redrokk-metabox-class.php';
 require TW_DIR_LIB . '/class-testimonials-widget-settings.php';
+require TW_DIR_LIB . '/class-testimonials-widget-widget.php';
 
 
 class Testimonials_Widget extends Aihrus_Common {
@@ -263,7 +265,6 @@ class Testimonials_Widget extends Aihrus_Common {
 			return;
 
 		flush_rewrite_rules();
-		Testimonials_Widget::delete_notices();
 	}
 
 
@@ -1602,8 +1603,6 @@ EOF;
 
 
 	public static function widgets_init() {
-		require TW_DIR_LIB . '/class-testimonials-widget-widget.php';
-
 		register_widget( 'Testimonials_Widget_Widget' );
 	}
 
@@ -1614,8 +1613,6 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
 	 */
 	public static function add_meta_box_testimonials_widget() {
-		require TW_DIR_LIB . '/class-redrokk-metabox-class.php';
-
 		$fields = array(
 			array(
 				'name' => esc_html__( 'Job Title', 'testimonials-widget' ),

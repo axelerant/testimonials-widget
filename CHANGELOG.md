@@ -3,6 +3,7 @@
 ## master
 
 ## 2.17.0
+* BUGFIX No notices on deactivation
 * Convert TODO to https://github.com/michael-cannon/testimonials-widget/issues
 * Implement PHP version checking
 * Implement WordPress version checking
