@@ -1,5 +1,10 @@
 # CHANGELOG Testimonials
 
+## two17
+* Implement PHP version checking
+* Implement WordPress version checking
+* Tested up to 3.9.0
+
 ## master
 * Convert TODO to https://github.com/michael-cannon/testimonials-widget/issues
 * Restructure readme

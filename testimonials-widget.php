@@ -24,28 +24,30 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-if ( ! defined( 'TW_PLUGIN_DIR' ) )
-	define( 'TW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'TW_BASE', plugin_basename( __FILE__ ) );
+define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
+define( 'TW_DIR_LIB', TW_DIR . '/lib' );
+define( 'TW_NAME', 'Testimonials by Aihrus' );
+define( 'TW_VERSION', '2.17.0' );
 
-if ( ! defined( 'TW_PLUGIN_DIR_LIB' ) )
-	define( 'TW_PLUGIN_DIR_LIB', TW_PLUGIN_DIR . '/lib' );
+require TW_DIR_LIB . '/requirements.php';
 
-require_once TW_PLUGIN_DIR_LIB . '/aihrus/class-aihrus-common.php';
+if ( ! tw_requirements_check() ) {
+	return false;
+}
 
-if ( af_php_version_check( __FILE__ ) )
-	add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
-else
-	return;
+require TW_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require TW_DIR_LIB . '/class-custom-bulkquick-edit-settings.php';
 
 
 class Testimonials_Widget extends Aihrus_Common {
-	const ID          = 'testimonials-widget-testimonials';
-	const ITEM_NAME   = 'Testimonials by Aihrus';
-	const OLD_NAME    = 'testimonialswidget';
-	const PLUGIN_BASE = 'testimonials-widget/testimonials-widget.php';
-	const PT          = 'testimonials-widget';
-	const SLUG        = 'tw_';
-	const VERSION     = '2.16.6';
+	const BASE    = TW_BASE;
+	const ID      = 'testimonials-widget-testimonials';
+	const SLUG    = 'tw_';
+	const VERSION = TW_VERSION;
+
+	const OLD_NAME = 'testimonialswidget';
+	const PT       = 'testimonials-widget';
 
 	private static $found_posts   = 0;
 	private static $max_num_pages = 0;
@@ -160,7 +162,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function plugin_action_links( $links, $file ) {
-		if ( self::PLUGIN_BASE == $file )
+		if ( self::BASE == $file )
 			array_unshift( $links, self::$settings_link );
 
 		return $links;
@@ -251,7 +253,6 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-settings.php';
 		self::init();
 		flush_rewrite_rules();
 	}
@@ -272,7 +273,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		global $wpdb;
 
-		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-settings.php';
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
 			delete_option( self::OLD_NAME );
@@ -319,7 +319,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function plugin_row_meta( $input, $file ) {
-		if ( self::PLUGIN_BASE != $file )
+		if ( self::BASE != $file )
 			return $input;
 
 		$disable_donate = tw_get_option( 'disable_donate' );
@@ -347,7 +347,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static function notice_donate( $disable_donate = null, $item_name = null ) {
 		$disable_donate = tw_get_option( 'disable_donate' );
 
-		parent::notice_donate( $disable_donate, self::ITEM_NAME );
+		parent::notice_donate( $disable_donate, TW_NAME );
 	}
 
 
@@ -1602,7 +1602,7 @@ EOF;
 
 
 	public static function widgets_init() {
-		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-widget.php';
+		require TW_DIR_LIB . '/class-testimonials-widget-widget.php';
 
 		register_widget( 'Testimonials_Widget_Widget' );
 	}
@@ -1614,7 +1614,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
 	 */
 	public static function add_meta_box_testimonials_widget() {
-		require_once TW_PLUGIN_DIR_LIB . '/class-redrokk-metabox-class.php';
+		require TW_DIR_LIB . '/class-redrokk-metabox-class.php';
 
 		$fields = array(
 			array(
@@ -2015,11 +2015,7 @@ EOD;
 
 
 	public static function version_check() {
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
 		$good_version = true;
-		if ( ! is_plugin_active( self::PLUGIN_BASE ) )
-			$good_version = false;
 
 		return $good_version;
 	}
@@ -2049,6 +2045,14 @@ EOD;
 }
 
 
+register_activation_hook( __FILE__, array( 'Testimonials_Widget', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
+
+
+add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
+
+
 /**
  *
  *
@@ -2057,8 +2061,6 @@ EOD;
  */
 function testimonialswidget_init() {
 	if ( Testimonials_Widget::version_check() ) {
-		require_once TW_PLUGIN_DIR_LIB . '/class-testimonials-widget-settings.php';
-
 		global $Testimonials_Widget_Settings;
 		if ( is_null( $Testimonials_Widget_Settings ) )
 			$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
@@ -2068,11 +2070,6 @@ function testimonialswidget_init() {
 			$Testimonials_Widget = new Testimonials_Widget();
 	}
 }
-
-
-register_activation_hook( __FILE__, array( 'Testimonials_Widget', 'activation' ) );
-register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivation' ) );
-register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 
 
 function testimonialswidget_list( $atts = array() ) {
