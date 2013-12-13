@@ -348,7 +348,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* Select plugins for update, click "Update Plugins"
 * Using FTP
 	* Download and unzip [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
-	* FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
+	* Upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 	* Be sure to overwrite your existing `testimonials-widget` folder contents
 
 
