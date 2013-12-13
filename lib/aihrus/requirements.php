@@ -21,7 +21,7 @@ require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! function_exists( 'aihr_check_php' ) ) {
 	function aihr_check_php( $file = null, $name = null, $php_min = '5.3.0' ) {
 		if ( is_null( $file ) ) {
-			aihr_notice_error( __( '`aihr_check_php` requires $file argument' ) );
+			aihr_notice_error( __( '`aihr_check_php` requires $file argument', 'testimonials-widget' ) );
 
 			return false;
 		}
@@ -63,7 +63,7 @@ if ( ! function_exists( 'aihr_notice_php' ) ) {
 
 		$help_url = esc_url( 'https://aihrus.zendesk.com/entries/30678006' );
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $name, AIHR_PHP_VERSION_MIN, $help_url, PHP_VERSION );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.', 'testimonials-widget' ), $name, AIHR_PHP_VERSION_MIN, $help_url, PHP_VERSION );
 
 		aihr_notice_error( $text );
 	}
@@ -73,7 +73,7 @@ if ( ! function_exists( 'aihr_notice_php' ) ) {
 if ( ! function_exists( 'aihr_check_wp' ) ) {
 	function aihr_check_wp( $file = null, $name = null, $wp_min = '3.6.0' ) {
 		if ( is_null( $file ) ) {
-			aihr_notice_error( __( '`aihr_check_wp` requires $file argument' ) );
+			aihr_notice_error( __( '`aihr_check_wp` requires $file argument', 'testimonials-widget' ) );
 
 			return false;
 		}
@@ -119,7 +119,7 @@ if ( ! function_exists( 'aihr_notice_wp' ) ) {
 
 		$help_url = network_admin_url( 'update-core.php' );
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires WordPress %2$s or newer. You\'re running WordPress %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">Update WordPress</a>.' ), $name, AIHR_WP_VERSION_MIN, $help_url, $wp_version );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires WordPress %2$s or newer. You\'re running WordPress %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">Update WordPress</a>.', 'testimonials-widget' ), $name, AIHR_WP_VERSION_MIN, $help_url, $wp_version );
 
 		aihr_notice_error( $text );
 	}
@@ -151,19 +151,19 @@ if ( ! function_exists( 'aihr_notice_version' ) ) {
 	function aihr_notice_version( $required_base, $required_name, $required_slug, $required_version, $item_name ) {
 		$is_active = is_plugin_active( $required_base );
 		if ( $is_active )
-			$link = sprintf( __( '<a href="%1$s">update to</a>' ), self_admin_url( 'update-core.php' ) );
+			$link = sprintf( __( '<a href="%1$s">update to</a>', 'testimonials-widget' ), self_admin_url( 'update-core.php' ) );
 		else {
 			$plugins = get_plugins();
 			if ( empty( $plugins[ $required_base ] ) ) {
 				$install = esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $required_slug ), 'install-plugin_' . $required_slug ) );
-				$link    = sprintf( __( '<a href="%1$s">install</a>' ), $install );
+				$link    = sprintf( __( '<a href="%1$s">install</a>', 'testimonials-widget' ), $install );
 			} else {
 				$activate = esc_url( wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=' . $required_base ), 'activate-plugin_' . $required_base ) );
-				$link     = sprintf( __( '<a href="%1$s">activate</a>' ), $activate );
+				$link     = sprintf( __( '<a href="%1$s">activate</a>', 'testimonials-widget' ), $activate );
 			}
 		}
 
-		$text = sprintf( __( 'Plugin "%3$s" has been deactivated. Please %1$s "%4$s" version %2$s or newer before activating "%3$s".' ), $link, $required_version, $item_name, $required_name );
+		$text = sprintf( __( 'Plugin "%3$s" has been deactivated. Please %1$s "%4$s" version %2$s or newer before activating "%3$s".', 'testimonials-widget' ), $link, $required_version, $item_name, $required_name );
 
 		aihr_notice_error( $text );
 	}
@@ -176,21 +176,21 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 		else
 			$link = get_admin_url() . 'edit.php?post_type=' . $post_type . '&page=' . $settings_id;
 
-		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry' );
+		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry', 'testimonials-widget' );
 
 		$settings_link = sprintf( $text, $link, $free_name );
 
 		$link = esc_url( 'https://aihrus.zendesk.com/entries/28745227' );
-		$text = __( '<a href="%s">Where\'s my license key?</a>' );
+		$text = __( '<a href="%s">Where\'s my license key?</a>', 'testimonials-widget' );
 
 		$faq_link = sprintf( $text, $link );
 
 		$link = esc_url( $purchase_url );
-		$text = __( '<a href="%1$s">%2$s</a>' );
+		$text = __( '<a href="%1$s">%2$s</a>', 'testimonials-widget' );
 
 		$buy_link = sprintf( $text, $link, $item_name );
 
-		$text = sprintf( __( 'Plugin "%1$s" requires license activation before updating will work. Please activate the license key through %2$s. No license key? See "%3$s" or purchase "%4$s".' ), $item_name, $settings_link, $faq_link, $buy_link );
+		$text = sprintf( __( 'Plugin "%1$s" requires license activation before updating will work. Please activate the license key through %2$s. No license key? See "%3$s" or purchase "%4$s".', 'testimonials-widget' ), $item_name, $settings_link, $faq_link, $buy_link );
 
 		aihr_notice_error( $text );
 	}
