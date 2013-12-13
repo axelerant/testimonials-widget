@@ -25,7 +25,7 @@
 if ( class_exists( 'Testimonials_Widget_Settings' ) )
 	return;
 
-require TW_DIR_LIB . '/aihrus/class-aihrus-settings.php';
+require_once TW_DIR_LIB . '/aihrus/class-aihrus-settings.php';
 
 
 class Testimonials_Widget_Settings extends Aihrus_Settings {

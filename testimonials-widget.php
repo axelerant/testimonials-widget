@@ -30,16 +30,16 @@ define( 'TW_DIR_LIB', TW_DIR . '/lib' );
 define( 'TW_NAME', 'Testimonials by Aihrus' );
 define( 'TW_VERSION', '2.17.0' );
 
-require TW_DIR_LIB . '/requirements.php';
+require_once TW_DIR_LIB . '/requirements.php';
 
 if ( ! tw_requirements_check() ) {
 	return false;
 }
 
-require TW_DIR_LIB . '/aihrus/class-aihrus-common.php';
-require TW_DIR_LIB . '/class-redrokk-metabox-class.php';
-require TW_DIR_LIB . '/class-testimonials-widget-settings.php';
-require TW_DIR_LIB . '/class-testimonials-widget-widget.php';
+require_once TW_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require_once TW_DIR_LIB . '/class-redrokk-metabox-class.php';
+require_once TW_DIR_LIB . '/class-testimonials-widget-settings.php';
+require_once TW_DIR_LIB . '/class-testimonials-widget-widget.php';
 
 
 class Testimonials_Widget extends Aihrus_Common {
@@ -274,7 +274,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		global $wpdb;
 		
-		require TW_DIR_LIB . '/class-testimonials-widget-settings.php';
+		require_once TW_DIR_LIB . '/class-testimonials-widget-settings.php';
 
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {

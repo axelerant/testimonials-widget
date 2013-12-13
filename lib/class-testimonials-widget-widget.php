@@ -19,7 +19,7 @@
 if ( class_exists( 'Testimonials_Widget_Widget' ) )
 	return;
 
-require TW_DIR_LIB . '/aihrus/class-aihrus-widget.php';
+require_once TW_DIR_LIB . '/aihrus/class-aihrus-widget.php';
 
 
 class Testimonials_Widget_Widget extends Aihrus_Widget {
