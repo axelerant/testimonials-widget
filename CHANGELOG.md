@@ -1,7 +1,6 @@
 # CHANGELOG Aihrus Framework
 
 ## master
-* FEATURE #3 Add WordPress version check
 * Abstract notice helper methods as functions
 * Add TODO
 * Add `add_media` post attachment helper
@@ -22,10 +21,14 @@
 * Allow reset_defaults in widget
 * BUGFIX Method version not static
 * BUGFIX Widget title is same as link
+* CLOSES #2 Disable purchase premium links if premium is active
 * Check for PHP 5.3
 * Convert TODO to https://github.com/michael-cannon/aihrus-framework/issues
+* Display option values as is
 * Encase pronouns in double-quotes
 * FEATURE #1 PHP Version checking
+* RESOLVES #1 PHP Version checking
+* RESOLVES #3 Add WordPress version check
 * Remove unused methods
 * Rename no_code to show_code
 * Revise create_link parameters

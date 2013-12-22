@@ -423,7 +423,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'textarea':
-				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . $options[$id] . '</textarea>';
 
 				if ( ! empty( $desc ) )
 					$content .= '<br /><span class="description">' . $desc . '</span>';
