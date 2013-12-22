@@ -26,7 +26,6 @@
 * Convert TODO to https://github.com/michael-cannon/aihrus-framework/issues
 * Display option values as is
 * Encase pronouns in double-quotes
-* FEATURE #1 PHP Version checking
 * RESOLVES #1 PHP Version checking
 * RESOLVES #3 Add WordPress version check
 * Remove unused methods
