@@ -29,6 +29,7 @@
 * RESOLVES #1 PHP Version checking
 * RESOLVES #3 Add WordPress version check
 * Remove unused methods
+* Rename $options[$id] to $field_value
 * Rename no_code to show_code
 * Revise create_link parameters
 * Settings link with null post_type
