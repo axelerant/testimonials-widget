@@ -19,7 +19,7 @@
 if ( class_exists( 'Aihrus_Widget' ) )
 	return;
 
-require 'interface-aihrus-widget.php';
+require_once 'interface-aihrus-widget.php';
 
 
 abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interface {

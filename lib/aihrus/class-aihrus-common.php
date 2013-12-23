@@ -19,7 +19,7 @@
 if ( class_exists( 'Aihrus_Common' ) )
 	return;
 
-require 'interface-aihrus-common.php';
+require_once 'interface-aihrus-common.php';
 
 
 abstract class Aihrus_Common implements Aihrus_Common_Interface {
