@@ -29,6 +29,7 @@ define( 'TW_BASE', plugin_basename( __FILE__ ) );
 define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TW_DIR_LIB', TW_DIR . '/lib' );
 define( 'TW_NAME', 'Testimonials by Aihrus' );
+define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>' );
 define( 'TW_VERSION', '2.17.0' );
 
 require_once TW_DIR_LIB . '/requirements.php';
@@ -332,8 +333,11 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$links = array(
 			self::$donate_link,
-			'<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>',
 		);
+
+		global $TW_Premium;
+		if ( ! isset( $TW_Premium ) )
+			$links[] = TW_PREMIUM_LINK;
 
 		$input = array_merge( $input, $links );
 

@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials
 
 ## master
+* No show premium link when it's installed
+* Use aihr_check_aihrus_framework
 
 ## 2.17.0
 * BUGFIX No notices on deactivation
