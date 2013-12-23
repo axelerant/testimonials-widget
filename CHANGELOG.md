@@ -1,6 +1,6 @@
 # CHANGELOG Aihrus Framework
 
-## 1.0.0-alpha
+## 1.0.0
 * Enable aihr_check_aihrus_framework
 
 ## master

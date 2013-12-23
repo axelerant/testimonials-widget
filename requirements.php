@@ -20,7 +20,7 @@ if ( ! defined( 'AIHR_BASE' ) )
 	define( 'AIHR_BASE', __FILE__ );
 
 if ( ! defined( 'AIHR_VERSION' ) )
-	define( 'AIHR_VERSION', '1.0.0-alpha' );
+	define( 'AIHR_VERSION', '1.0.0' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -71,12 +71,8 @@ if ( ! function_exists( 'aihr_notice_aihrus_framework' ) ) {
 			$name = ucwords( $name );
 		}
 
-		$help_url = esc_url( 'https://aihrus.zendesk.com/entries/35689458' );
-
-		$help_link  = '';
-		$help_link .= sprintf( __( '<a href="%1$s">Update plugins</a>.' ), self_admin_url( 'update-core.php' ) );
-		$help_link .= ' ';
-		$help_link .= sprintf( __( '<a href="%1$s">More information</a>.' ), $help_url );
+		$help_url  = esc_url( 'https://aihrus.zendesk.com/entries/35689458' );
+		$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s">More information</a>.' ), self_admin_url( 'update-core.php' ), $help_url );
 
 		$note = '';
 		if ( defined( 'AIHR_BASE' ) ) {
@@ -87,7 +83,7 @@ if ( ! function_exists( 'aihr_notice_aihrus_framework' ) ) {
 			$plugin_name = str_replace( '-', ' ', $plugin_name );
 			$plugin_name = ucwords( $plugin_name );
 
-			$note = sprintf( esc_html__( 'It appears that plugin "%1$s" is causing the out of date issue.' ), $plugin_name );
+			$note = sprintf( esc_html__( 'Plugin "%1$s" is causing the out of date issue.' ), $plugin_name );
 		}
 
 		$aihr_version = defined( 'AIHR_VERSION' ) ? AIHR_VERSION : '0.0.0';
