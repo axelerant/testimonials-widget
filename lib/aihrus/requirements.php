@@ -32,13 +32,11 @@ if ( ! function_exists( 'aihr_check_aihrus_framework' ) ) {
 			return false;
 		}
 
-		error_log( __LINE__ . ':' . basename( __FILE__ ) );
 		if ( ! defined( 'AIHR_VERSION' ) ) {
 			$check_okay = false;
 		} else {
 			$check_okay = version_compare( AIHR_VERSION, $aihr_min, '>=' );
 		}
-		error_log( var_export( $check_okay, true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
 
 		$file = plugin_basename( $file );
 		if ( ! $check_okay && __FILE__ != $file ) {
@@ -74,17 +72,23 @@ if ( ! function_exists( 'aihr_notice_aihrus_framework' ) ) {
 		}
 
 		$help_url  = esc_url( 'https://aihrus.zendesk.com/entries/35689458' );
-		$help_link = sprintf( __( '<a href="%1$s">More information</a>.' ), $help_url );
+		$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s">More information</a>.' ), self_admin_url( 'update-core.php' ), $help_url );
 
+		$note = '';
 		if ( defined( 'AIHR_BASE' ) ) {
-			error_log( print_r( AIHR_BASE, true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
-			$update_link = 'Update.';
-			$help_link = $update_link . ' ' . $help_link;
+			$plugin = plugin_basename( AIHR_BASE );
+			$plugin = explode( '/', $plugin );
+
+			$plugin_name = $plugin[0];
+			$plugin_name = str_replace( '-', ' ', $plugin_name );
+			$plugin_name = ucwords( $plugin_name );
+
+			$note = sprintf( esc_html__( 'Plugin "%1$s" is causing the out of date issue.' ), $plugin_name );
 		}
 
 		$aihr_version = defined( 'AIHR_VERSION' ) ? AIHR_VERSION : '0.0.0';
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires Aihrus Framework %2$s or newer. You\'re running Aihrus Framework %4$s. Once corrected, "%1$s" can be activated. %3$s' ), $name, AIHR_VERSION_MIN, $help_link, $aihr_version );
+		$text = sprintf( esc_html__( 'Plugin "%1$s" has been deactivated as it requires Aihrus Framework %2$s or newer. You\'re running Aihrus Framework %4$s. Once corrected, "%1$s" can be activated. %5$s %3$s' ), $name, AIHR_VERSION_MIN, $help_link, $aihr_version, $note );
 
 		aihr_notice_error( $text );
 	}
