@@ -24,7 +24,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-define( 'TW_AIHR_VERSION', '1.0.0' );
+define( 'TW_AIHR_VERSION', '1.0.1-alpha' );
 define( 'TW_BASE', plugin_basename( __FILE__ ) );
 define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TW_DIR_LIB', TW_DIR . '/lib' );
@@ -1554,14 +1554,17 @@ EOF;
 			$post_id = $row->ID;
 			$email   = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-			if ( has_post_thumbnail( $post_id ) )
+			if ( has_post_thumbnail( $post_id ) ) {
 				$image = get_the_post_thumbnail( $post_id, $image_size );
-			elseif ( ! $hide_gravatar && is_email( $email ) ) {
+			} elseif ( ! $hide_gravatar && is_email( $email ) ) {
 				$image = get_avatar( $email, $gravatar_size );
 
 				self::make_gravatar_featured( $post_id, $email );
-			} else
+			} else {
 				$image = false;
+			}
+
+			$image = self::strip_protocol( $link );
 
 			$url = get_post_meta( $post_id, 'testimonials-widget-url', true );
 			if ( ! empty( $url ) && 0 === preg_match( '#https?://#', $url ) )
@@ -2044,8 +2047,6 @@ EOD;
 
 		return $do_load;
 	}
-
-
 }
 
 
