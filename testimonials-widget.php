@@ -1564,7 +1564,7 @@ EOF;
 				$image = false;
 			}
 
-			$image = self::strip_protocol( $link );
+			$image = self::strip_protocol( $image );
 
 			$url = get_post_meta( $post_id, 'testimonials-widget-url', true );
 			if ( ! empty( $url ) && 0 === preg_match( '#https?://#', $url ) )
