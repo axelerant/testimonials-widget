@@ -4,6 +4,7 @@
 * No show premium link when it's installed
 * RESOLVE #34 Non-SSL protocol used for image inclusion
 * Use aihr_check_aihrus_framework
+* Use strip_protocol
 
 ## 2.17.0
 * BUGFIX No notices on deactivation

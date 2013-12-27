@@ -32,14 +32,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	const ID   = 'testimonialswidget_settings';
 	const NAME = 'Testimonials Settings';
 
-	public static $admin_page  = '';
-	public static $class       = __CLASS__;
-	public static $defaults    = array();
-	public static $plugin_path = array();
-	public static $plugin_url  = 'http://wordpress.org/plugins/testimonials-widget/';
-	public static $sections    = array();
-	public static $settings    = array();
-	public static $suggest_id  = 0;
+	public static $admin_page;
+	public static $class    = __CLASS__;
+	public static $defaults = array();
+	public static $plugin_path;
+	public static $plugin_url = 'http://wordpress.org/plugins/testimonials-widget/';
+	public static $sections   = array();
+	public static $settings   = array();
+	public static $suggest_id = 0;
 	public static $version;
 
 	public static $default = array(
@@ -99,7 +99,10 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function init() {
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 
-		self::$plugin_path = plugins_url( '', dirname( __FILE__ ) );
+		$plugin_path = plugins_url( '', dirname( __FILE__ ) );
+		$plugin_path = Testimonials_Widget::strip_protocol( $plugin_path );
+
+		self::$plugin_path = $plugin_path;
 	}
 
 
