@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials by Aihrus 2.17.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2013-12-13 22:07:16+00:00\n"
+"POT-Creation-Date: 2013-12-23 17:46:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,51 +84,67 @@ msgstr ""
 msgid "Expand/Collapse"
 msgstr ""
 
-#: lib/aihrus/requirements.php:24
+#: lib/aihrus/requirements.php:30
+msgid "`aihr_check_aihrus_framework` requires $file argument"
+msgstr ""
+
+#: lib/aihrus/requirements.php:75 lib/requirements.php:49
+msgid "<a href=\"%1$s\">Update plugins</a>. <a href=\"%2$s\">More information</a>."
+msgstr ""
+
+#: lib/aihrus/requirements.php:86
+msgid "Plugin \"%1$s\" is causing the out of date issue."
+msgstr ""
+
+#: lib/aihrus/requirements.php:91
+msgid "Plugin \"%1$s\" has been deactivated as it requires Aihrus Framework %2$s or newer. You're running Aihrus Framework %4$s. Once corrected, \"%1$s\" can be activated. %5$s %3$s"
+msgstr ""
+
+#: lib/aihrus/requirements.php:100
 msgid "`aihr_check_php` requires $file argument"
 msgstr ""
 
-#: lib/aihrus/requirements.php:66
+#: lib/aihrus/requirements.php:141
 msgid "Plugin \"%1$s\" has been deactivated as it requires PHP %2$s or newer. You're running PHP %4$s. Once corrected, \"%1$s\" can be activated. <a href=\"%3$s\">More information</a>."
 msgstr ""
 
-#: lib/aihrus/requirements.php:76
+#: lib/aihrus/requirements.php:150
 msgid "`aihr_check_wp` requires $file argument"
 msgstr ""
 
-#: lib/aihrus/requirements.php:122
+#: lib/aihrus/requirements.php:195
 msgid "Plugin \"%1$s\" has been deactivated as it requires WordPress %2$s or newer. You're running WordPress %4$s. Once corrected, \"%1$s\" can be activated. <a href=\"%3$s\">Update WordPress</a>."
 msgstr ""
 
-#: lib/aihrus/requirements.php:154
+#: lib/aihrus/requirements.php:225
 msgid "<a href=\"%1$s\">update to</a>"
 msgstr ""
 
-#: lib/aihrus/requirements.php:159
+#: lib/aihrus/requirements.php:230
 msgid "<a href=\"%1$s\">install</a>"
 msgstr ""
 
-#: lib/aihrus/requirements.php:162
+#: lib/aihrus/requirements.php:233
 msgid "<a href=\"%1$s\">activate</a>"
 msgstr ""
 
-#: lib/aihrus/requirements.php:166
+#: lib/aihrus/requirements.php:237
 msgid "Plugin \"%3$s\" has been deactivated. Please %1$s \"%4$s\" version %2$s or newer before activating \"%3$s\"."
 msgstr ""
 
-#: lib/aihrus/requirements.php:179
+#: lib/aihrus/requirements.php:250
 msgid "<a href=\"%1$s\">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry"
 msgstr ""
 
-#: lib/aihrus/requirements.php:184
+#: lib/aihrus/requirements.php:255
 msgid "<a href=\"%s\">Where's my license key?</a>"
 msgstr ""
 
-#: lib/aihrus/requirements.php:189
+#: lib/aihrus/requirements.php:260
 msgid "<a href=\"%1$s\">%2$s</a>"
 msgstr ""
 
-#: lib/aihrus/requirements.php:193
+#: lib/aihrus/requirements.php:264
 msgid "Plugin \"%1$s\" requires license activation before updating will work. Please activate the license key through %2$s. No license key? See \"%3$s\" or purchase \"%4$s\"."
 msgstr ""
 
@@ -136,7 +152,7 @@ msgstr ""
 msgid "Testimonials Settings"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:91 testimonials-widget.php:129
+#: lib/class-testimonials-widget-settings.php:91 testimonials-widget.php:131
 msgid "Settings"
 msgstr ""
 
@@ -170,8 +186,8 @@ msgid "Widget Title"
 msgstr ""
 
 #: lib/class-testimonials-widget-settings.php:129
-#: lib/class-testimonials-widget-widget.php:32 testimonials-widget.php:588
-#: testimonials-widget.php:633
+#: lib/class-testimonials-widget-widget.php:32 testimonials-widget.php:593
+#: testimonials-widget.php:638
 msgid "Testimonials"
 msgstr ""
 
@@ -456,7 +472,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:437 testimonials-widget.php:565
+#: lib/class-testimonials-widget-settings.php:437 testimonials-widget.php:570
 msgid "Date"
 msgstr ""
 
@@ -464,7 +480,7 @@ msgstr ""
 msgid "Menu Order"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:439 testimonials-widget.php:557
+#: lib/class-testimonials-widget-settings.php:439 testimonials-widget.php:562
 msgid "Source"
 msgstr ""
 
@@ -484,28 +500,28 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:453 testimonials-widget.php:559
-#: testimonials-widget.php:1620
+#: lib/class-testimonials-widget-settings.php:453 testimonials-widget.php:564
+#: testimonials-widget.php:1625
 msgid "Job Title"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:454 testimonials-widget.php:561
-#: testimonials-widget.php:1632
+#: lib/class-testimonials-widget-settings.php:454 testimonials-widget.php:566
+#: testimonials-widget.php:1637
 msgid "Email"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:455 testimonials-widget.php:560
-#: testimonials-widget.php:1626
+#: lib/class-testimonials-widget-settings.php:455 testimonials-widget.php:565
+#: testimonials-widget.php:1631
 msgid "Location"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:456 testimonials-widget.php:562
-#: testimonials-widget.php:1638
+#: lib/class-testimonials-widget-settings.php:456 testimonials-widget.php:567
+#: testimonials-widget.php:1643
 msgid "Company"
 msgstr ""
 
-#: lib/class-testimonials-widget-settings.php:457 testimonials-widget.php:563
-#: testimonials-widget.php:1644
+#: lib/class-testimonials-widget-settings.php:457 testimonials-widget.php:568
+#: testimonials-widget.php:1649
 msgid "URL"
 msgstr ""
 
@@ -698,141 +714,145 @@ msgstr ""
 msgid "This widget's unique CSS class for styling"
 msgstr ""
 
-#: testimonials-widget.php:146 testimonials-widget.php:1972
+#: lib/requirements.php:51
+msgid "Plugin \"%1$s\" has been deactivated as it requires a current Aihrus Framework. Once corrected, \"%1$s\" can be activated. %2$s"
+msgstr ""
+
+#: testimonials-widget.php:148 testimonials-widget.php:1977
 msgid "Testimonials Shortcode Examples"
 msgstr ""
 
-#: testimonials-widget.php:146
+#: testimonials-widget.php:148
 msgid "E.g. Shortcodes"
 msgstr ""
 
-#: testimonials-widget.php:344
+#: testimonials-widget.php:349
 msgid "If your Testimonials display has gone to funky town, please <a href=\"%s\">read the FAQ</a> about possible CSS fixes."
 msgstr ""
 
-#: testimonials-widget.php:555
+#: testimonials-widget.php:560
 msgid "ID"
 msgstr ""
 
-#: testimonials-widget.php:556
+#: testimonials-widget.php:561
 msgid "Image"
 msgstr ""
 
-#: testimonials-widget.php:558
+#: testimonials-widget.php:563
 msgid "Shortcodes"
 msgstr ""
 
-#: testimonials-widget.php:564
+#: testimonials-widget.php:569
 msgid "Published by"
 msgstr ""
 
-#: testimonials-widget.php:570 testimonials-widget.php:573
+#: testimonials-widget.php:575 testimonials-widget.php:578
 msgid "Category"
 msgstr ""
 
-#: testimonials-widget.php:571 testimonials-widget.php:574
+#: testimonials-widget.php:576 testimonials-widget.php:579
 msgid "Tags"
 msgstr ""
 
-#: testimonials-widget.php:585
+#: testimonials-widget.php:590
 msgid "Add New"
 msgstr ""
 
-#: testimonials-widget.php:586 testimonials-widget.php:589
+#: testimonials-widget.php:591 testimonials-widget.php:594
 msgid "Add New Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:587
+#: testimonials-widget.php:592
 msgid "Edit Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:590 testimonials-widget.php:997
+#: testimonials-widget.php:595 testimonials-widget.php:1002
 msgid "No testimonials found"
 msgstr ""
 
-#: testimonials-widget.php:591
+#: testimonials-widget.php:596
 msgid "No testimonials found in Trash"
 msgstr ""
 
-#: testimonials-widget.php:593
+#: testimonials-widget.php:598
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials-widget.php:594 testimonials-widget.php:1732
+#: testimonials-widget.php:599 testimonials-widget.php:1737
 msgid "Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:595
+#: testimonials-widget.php:600
 msgid "View Testimonial"
 msgstr ""
 
-#: testimonials-widget.php:1146
+#: testimonials-widget.php:1151
 msgid "…"
 msgstr ""
 
-#: testimonials-widget.php:1355
+#: testimonials-widget.php:1360
 msgid "&laquo;"
 msgstr ""
 
-#: testimonials-widget.php:1364
+#: testimonials-widget.php:1369
 msgid "&raquo;"
 msgstr ""
 
-#: testimonials-widget.php:1656
+#: testimonials-widget.php:1661
 msgid "Testimonial Data"
 msgstr ""
 
-#: testimonials-widget.php:1681
+#: testimonials-widget.php:1686
 msgid "Enter title here"
 msgstr ""
 
-#: testimonials-widget.php:1682
+#: testimonials-widget.php:1687
 msgid "Enter testimonial source here"
 msgstr ""
 
-#: testimonials-widget.php:1707
+#: testimonials-widget.php:1712
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1708
+#: testimonials-widget.php:1713
 msgid "Custom field updated."
 msgstr ""
 
-#: testimonials-widget.php:1709
+#: testimonials-widget.php:1714
 msgid "Custom field deleted."
 msgstr ""
 
-#: testimonials-widget.php:1710
+#: testimonials-widget.php:1715
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
 
-#: testimonials-widget.php:1712
+#: testimonials-widget.php:1717
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: testimonials-widget.php:1713
+#: testimonials-widget.php:1718
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1714
+#: testimonials-widget.php:1719
 msgid "Testimonial saved."
 msgstr ""
 
-#: testimonials-widget.php:1715
+#: testimonials-widget.php:1720
 msgid "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1716
+#: testimonials-widget.php:1721
 msgid "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1717
+#: testimonials-widget.php:1722
 msgid "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: testimonials-widget.php:1963
+#: testimonials-widget.php:1968
 msgid "If your Testimonials display has gone to funky town, please <a href=\"%s\">read the FAQ</a> about possible fixes."
 msgstr ""
 #. Plugin Name of the plugin/theme

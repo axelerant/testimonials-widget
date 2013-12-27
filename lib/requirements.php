@@ -46,9 +46,9 @@ function tw_requirements_check() {
 
 function tw_notice_aihrus() {
 	$help_url  = esc_url( 'https://aihrus.zendesk.com/entries/35689458' );
-	$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s">More information</a>.' ), self_admin_url( 'update-core.php' ), $help_url );
+	$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s">More information</a>.', 'testimonials-widget' ), self_admin_url( 'update-core.php' ), $help_url );
 
-	$text = sprintf( esc_html__( 'Plugin "%1$s" has been deactivated as it requires a current Aihrus Framework. Once corrected, "%1$s" can be activated. %2$s' ), TW_NAME, $help_link );
+	$text = sprintf( esc_html__( 'Plugin "%1$s" has been deactivated as it requires a current Aihrus Framework. Once corrected, "%1$s" can be activated. %2$s', 'testimonials-widget' ), TW_NAME, $help_link );
 
 	aihr_notice_error( $text );
 }

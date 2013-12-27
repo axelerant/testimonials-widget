@@ -1,4 +1,4 @@
-# CHANGELOG Testimonials
+# CHANGELOG Testimonials by Aihrus
 
 ## master
 * No show premium link when it's installed
