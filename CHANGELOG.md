@@ -3,6 +3,7 @@
 ## master
 * No show premium link when it's installed
 * RESOLVE #34 Non-SSL protocol used for image inclusion
+* Use Aihrus Framework 1.0.1
 * Use aihr_check_aihrus_framework
 * Use strip_protocol
 
