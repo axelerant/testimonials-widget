@@ -1,6 +1,10 @@
 # CHANGELOG Aihrus Framework
 
-## 1.0.1-alpha
+## master
+* Coding standards
+* Remove Travis configuration
+
+## 1.0.1
 * Add strip_protocol
 * Add valid_hash check
 * Move relicensing to plugin level
@@ -8,7 +12,7 @@
 ## 1.0.0
 * Enable aihr_check_aihrus_framework
 
-## master
+## 0.0.0
 * Abstract notice helper methods as functions
 * Add TODO
 * Add `add_media` post attachment helper

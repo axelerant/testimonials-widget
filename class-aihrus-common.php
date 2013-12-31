@@ -446,11 +446,11 @@ EOD;
 
 
 	public static function strip_protocol( $link ) {
-			if ( ! empty( $link ) ) {
-				$link = preg_replace( '#https?:#', '', $link );
-			}
+		if ( ! empty( $link ) ) {
+			$link = preg_replace( '#https?:#', '', $link );
+		}
 
-			return $link;
+		return $link;
 	}
 
 
