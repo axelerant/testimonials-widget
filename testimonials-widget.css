@@ -110,5 +110,5 @@
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border: none;
-	background: initial;
+	background: transparent !important;
 }
