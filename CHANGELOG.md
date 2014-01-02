@@ -2,6 +2,7 @@
 
 ## master
 * Coding standards
+* Move ci to tests
 * Remove Travis configuration
 
 ## 1.0.1
