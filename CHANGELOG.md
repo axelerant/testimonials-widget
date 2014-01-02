@@ -1,6 +1,9 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Move ci to tests
+* Move files to assets
+* Move lib to includes/libraries
 * Specify a “Text Domain” and “Domain Path”
 
 ## 2.17.2

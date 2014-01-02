@@ -29,7 +29,8 @@
 define( 'TW_AIHR_VERSION', '1.0.1' );
 define( 'TW_BASE', plugin_basename( __FILE__ ) );
 define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
-define( 'TW_DIR_LIB', TW_DIR . '/lib' );
+define( 'TW_DIR_INC', TW_DIR . '/includes' );
+define( 'TW_DIR_LIB', TW_DIR_INC . '/libraries' );
 define( 'TW_NAME', 'Testimonials by Aihrus' );
 define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>' );
 define( 'TW_VERSION', '2.17.2' );
@@ -40,10 +41,10 @@ if ( ! tw_requirements_check() ) {
 	return false;
 }
 
-require_once TW_DIR_LIB . '/aihrus/class-aihrus-common.php';
+require_once TW_DIR_LIB . '/aihrus-framework/class-aihrus-common.php';
 require_once TW_DIR_LIB . '/class-redrokk-metabox-class.php';
-require_once TW_DIR_LIB . '/class-testimonials-widget-settings.php';
-require_once TW_DIR_LIB . '/class-testimonials-widget-widget.php';
+require_once TW_DIR_INC . '/class-testimonials-widget-settings.php';
+require_once TW_DIR_INC . '/class-testimonials-widget-widget.php';
 
 
 class Testimonials_Widget extends Aihrus_Common {
@@ -278,7 +279,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		global $wpdb;
 		
-		require_once TW_DIR_LIB . '/class-testimonials-widget-settings.php';
+		require_once TW_DIR_INC . '/class-testimonials-widget-settings.php';
 
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
