@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Specify a “Text Domain” and “Domain Path”
 
 ## 2.17.2
 * RESOLVE Testimonials Premium load issue
