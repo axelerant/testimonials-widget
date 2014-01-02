@@ -35,7 +35,7 @@ define( 'TW_NAME', 'Testimonials by Aihrus' );
 define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>' );
 define( 'TW_VERSION', '2.17.2' );
 
-require_once TW_DIR_LIB . '/requirements.php';
+require_once TW_DIR_INC . '/requirements.php';
 
 if ( ! tw_requirements_check() ) {
 	return false;
