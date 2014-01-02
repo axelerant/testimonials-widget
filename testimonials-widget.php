@@ -763,11 +763,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( $use_bxslider ) {
 			$enable_video = $atts['enable_video'];
 			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', plugins_url( 'js/jquery.fitvids.js', __FILE__ ), array( 'jquery' ), '1.0' );
+				wp_register_script( 'jquery.fitvids', plugins_url( 'assets/js/jquery.fitvids.js', __FILE__ ), array( 'jquery' ), '1.0' );
 				wp_enqueue_script( 'jquery.fitvids' );
 			}
 
-			wp_register_script( 'jquery.bxslider', plugins_url( 'js/jquery.bxslider.js', __FILE__ ), array( 'jquery' ), '4.1.1' );
+			wp_register_script( 'jquery.bxslider', plugins_url( 'assets/js/jquery.bxslider.js', __FILE__ ), array( 'jquery' ), '4.1.1' );
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
 
@@ -781,16 +781,16 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$use_bxslider = tw_get_option( 'use_bxslider' );
 		if ( $use_bxslider ) {
-			wp_register_style( 'jquery.bxslider', plugins_url( 'css/jquery.bxslider.css', __FILE__ ) );
+			wp_register_style( 'jquery.bxslider', plugins_url( 'assets/css/jquery.bxslider.css', __FILE__ ) );
 			wp_enqueue_style( 'jquery.bxslider' );
 
 			wp_register_style( __CLASS__, plugins_url( 'testimonials-widget.css', __FILE__ ) );
 		} else {
-			wp_register_style( __CLASS__, plugins_url( 'css/testimonials-widget-2.14.0.css', __FILE__ ) );
+			wp_register_style( __CLASS__, plugins_url( 'assets/css/testimonials-widget-2.14.0.css', __FILE__ ) );
 
 			$include_ie7_css = tw_get_option( 'include_ie7_css' );
 			if ( $include_ie7_css ) {
-				wp_register_style( __CLASS__ . '-ie7', plugins_url( 'css/testimonials-widget-ie7.css', __FILE__ ) );
+				wp_register_style( __CLASS__ . '-ie7', plugins_url( 'assets/css/testimonials-widget-ie7.css', __FILE__ ) );
 				wp_enqueue_style( __CLASS__ . '-ie7' );
 			}
 		}
