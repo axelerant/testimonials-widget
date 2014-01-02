@@ -1,6 +1,7 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Add phpunit.xml
 * Coding standards
 * Move ci to tests
 * Remove Travis configuration
