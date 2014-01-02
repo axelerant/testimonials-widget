@@ -72,6 +72,7 @@ The single testimonial view supports image, source, title, location, email, comp
 = Testimonials Migration Helpers =
 * Testimonials Widget pre 2.0.0 - Upgrading is automatic
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
+* [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
 = Testimonials Premium =
 

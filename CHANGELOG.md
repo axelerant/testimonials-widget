@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Link to Testimonials by WooThemes migrator
 * Move ci to tests
 * Move files to assets
 * Move lib to includes/libraries
