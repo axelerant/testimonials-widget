@@ -5,6 +5,7 @@
 * Coding standards
 * Move ci to tests
 * Remove Travis configuration
+* Update usage instructions
 
 ## 1.0.1
 * Add strip_protocol
