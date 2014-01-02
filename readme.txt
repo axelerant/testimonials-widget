@@ -169,8 +169,7 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 **[[testimonialswidget_widget]]**
 
-* `[[testimonialswidget_widget category=product order=asc height=300]]` - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first
-* `[[testimonialswidget_widget min_height=250 max_height=500]]` - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height
+* `[[testimonialswidget_widget category=product order=asc]]` - Show rotating testimonials, of the product category, lowest post ids first
 * `[[testimonialswidget_widget tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
 
 = Shortcode and Widget Options =

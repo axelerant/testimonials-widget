@@ -2001,8 +2001,7 @@ EOF;
 <h3>[testimonialswidget_widget]</h3>
 
 <ul>
-<li><code>[testimonialswidget_widget category=product order=asc height=300]</code> - Show rotating testimonials, in a fixed height container, of the product category, lowest post ids first</li>
-<li><code>[testimonialswidget_widget min_height=250 max_height=500]</code> - Show rotating testimonials in a box no smaller or bigger than 250 to 500 pixels in height</li>
+<li><code>[testimonialswidget_widget category=product order=asc]</code> - Show rotating testimonials, of the product category, lowest post ids first</li>
 <li><code>[testimonialswidget_widget tags=sometag random=true]</code> - Show rotating, random testimonials having tag "sometag"</li>
 </ul>
 EOD;

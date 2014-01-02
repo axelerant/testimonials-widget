@@ -6,6 +6,7 @@
 * Move files to assets
 * Move lib to includes/libraries
 * Specify a “Text Domain” and “Domain Path”
+* Update shortcode examples
 
 ## 2.17.2
 * RESOLVE Testimonials Premium load issue
