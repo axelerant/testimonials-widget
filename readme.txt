@@ -182,9 +182,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
 	* `enable_schema` - default true; enable_schema=false
-* Reviewed Item? - Name of thing being referenced in testimonials
+* Default Reviewed Item? - Name of thing being referenced in testimonials
 	* `item_reviewed` - default "Site Title"
-* Reviewed Item URL? - URL of thing being referenced in testimonials
+* Default Reviewed Item URL? - URL of thing being referenced in testimonials
 	* `item_reviewed_url` - default `network_site_url();`
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true
