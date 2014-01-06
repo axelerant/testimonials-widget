@@ -65,6 +65,11 @@ function testimonialswidget_init() {
 }
 
 
+register_activation_hook( __FILE__, array( 'Testimonials_Widget', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
+
+
 function testimonialswidget_list( $atts = array() ) {
 	global $Testimonials_Widget;
 
