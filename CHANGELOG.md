@@ -5,6 +5,7 @@
 * Move ci to tests
 * Move files to assets
 * Move lib to includes/libraries
+* Move main class to own class file
 * Specify a “Text Domain” and “Domain Path”
 * Update shortcode examples
 * Update verbiage
