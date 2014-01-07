@@ -3,12 +3,16 @@
 ## master
 * Link to Testimonials by WooThemes migrator
 * Move ci to tests
+* Move CSS to assets
 * Move files to assets
 * Move lib to includes/libraries
 * Move main class to own class file
+* RESOLVE Non-SSL protocol used for scripts and styles
+* Revise required file paths
 * Specify a “Text Domain” and “Domain Path”
 * Update shortcode examples
 * Update verbiage
+* Use $plugin_assets than $plugin_path
 
 ## 2.17.3-alpha
 * RESOLVE #44 Blank testimonial between each rotating testimonial

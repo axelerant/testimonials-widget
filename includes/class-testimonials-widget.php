@@ -13,10 +13,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-require_once TW_DIR_LIB . '/aihrus-framework/class-aihrus-common.php';
-require_once TW_DIR_LIB . '/class-redrokk-metabox-class.php';
-require_once TW_DIR_INC . '/class-testimonials-widget-settings.php';
-require_once TW_DIR_INC . '/class-testimonials-widget-widget.php';
+require_once TW_DIR_LIB . 'aihrus-framework/class-aihrus-common.php';
+require_once TW_DIR_LIB . 'class-redrokk-metabox-class.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
 	return;
@@ -46,6 +46,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $menu_shortcodes;
 	public static $not_found = false;
 	public static $notice_key;
+	public static $plugin_assets;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
@@ -93,6 +94,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 	public function __construct() {
 		parent::__construct();
+
+		self::$plugin_assets = plugins_url( '/assets/', dirname( __FILE__ ) );
+		self::$plugin_assets = self::strip_protocol( self::$plugin_assets );
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
@@ -254,7 +258,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		global $wpdb;
 		
-		require_once TW_DIR_INC . '/class-testimonials-widget-settings.php';
+		require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
 
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
@@ -738,11 +742,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( $use_bxslider ) {
 			$enable_video = $atts['enable_video'];
 			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', plugins_url( 'assets/js/jquery.fitvids.js', dirname( __FILE__ ) ), array( 'jquery' ), '1.0' );
+				wp_register_script( 'jquery.fitvids', self::$plugin_assets . 'js/jquery.fitvids.js', array( 'jquery' ), '1.0' );
 				wp_enqueue_script( 'jquery.fitvids' );
 			}
 
-			wp_register_script( 'jquery.bxslider', plugins_url( 'assets/js/jquery.bxslider.js', dirname( __FILE__ ) ), array( 'jquery' ), '4.1.1' );
+			wp_register_script( 'jquery.bxslider', self::$plugin_assets . 'js/jquery.bxslider.js', array( 'jquery' ), '4.1.1' );
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
 
@@ -756,16 +760,16 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$use_bxslider = tw_get_option( 'use_bxslider' );
 		if ( $use_bxslider ) {
-			wp_register_style( 'jquery.bxslider', plugins_url( 'assets/css/jquery.bxslider.css', dirname( __FILE__ ) ) );
+			wp_register_style( 'jquery.bxslider', self::$plugin_assets . 'css/jquery.bxslider.css' );
 			wp_enqueue_style( 'jquery.bxslider' );
 
-			wp_register_style( __CLASS__, plugins_url( 'testimonials-widget.css', dirname( __FILE__ ) ) );
+			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
 		} else {
-			wp_register_style( __CLASS__, plugins_url( 'assets/css/testimonials-widget-2.14.0.css', dirname( __FILE__ ) ) );
+			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget-2.14.0.css' );
 
 			$include_ie7_css = tw_get_option( 'include_ie7_css' );
 			if ( $include_ie7_css ) {
-				wp_register_style( __CLASS__ . '-ie7', plugins_url( 'assets/css/testimonials-widget-ie7.css', dirname( __FILE__ ) ) );
+				wp_register_style( __CLASS__ . '-ie7', self::$plugin_assets . 'css/testimonials-widget-ie7.css' );
 				wp_enqueue_style( __CLASS__ . '-ie7' );
 			}
 		}

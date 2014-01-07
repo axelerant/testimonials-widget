@@ -22,7 +22,7 @@
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
 
-require_once TW_DIR_LIB . '/aihrus-framework/class-aihrus-settings.php';
+require_once TW_DIR_LIB . 'aihrus-framework/class-aihrus-settings.php';
 
 if ( class_exists( 'Testimonials_Widget_Settings' ) )
 	return;
@@ -35,7 +35,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static $admin_page;
 	public static $class    = __CLASS__;
 	public static $defaults = array();
-	public static $plugin_path;
+	public static $plugin_assets;
 	public static $plugin_url = 'http://wordpress.org/plugins/testimonials-widget/';
 	public static $sections   = array();
 	public static $settings   = array();
@@ -99,10 +99,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function init() {
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 
-		$plugin_path = plugins_url( '', dirname( __FILE__ ) );
-		$plugin_path = Testimonials_Widget::strip_protocol( $plugin_path );
-
-		self::$plugin_path = $plugin_path;
+		self::$plugin_assets = Testimonials_Widget::$plugin_assets;
 	}
 
 
