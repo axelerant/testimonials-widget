@@ -1,9 +1,12 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Add phpunit.xml
 * Coding standards
 * Move ci to tests
 * Remove Travis configuration
+* Update usage instructions
+* Use $plugin_assets than $plugin_path
 
 ## 1.0.1
 * Add strip_protocol
