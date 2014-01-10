@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+
+## 2.18.0-alpha
 * Link to Testimonials by WooThemes migrator
 * Move ci to tests
 * Move CSS to assets
