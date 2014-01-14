@@ -3,12 +3,14 @@
 ## master
 
 ## 2.18.0-alpha
+* Add Codeship.io status
 * Link to Testimonials by WooThemes migrator
 * Move ci to tests
 * Move CSS to assets
 * Move files to assets
 * Move lib to includes/libraries
 * Move main class to own class file
+* Remove Travis CI status
 * RESOLVE Non-SSL protocol used for scripts and styles
 * Revise required file paths
 * Specify a “Text Domain” and “Domain Path”
