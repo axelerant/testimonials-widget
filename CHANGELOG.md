@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* RESOLVE #45 Plugin Disables Itself
 
 ## 2.18.0-alpha
 * Add Codeship.io status
