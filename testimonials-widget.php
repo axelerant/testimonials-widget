@@ -52,15 +52,17 @@ add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
  * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
-function testimonialswidget_init() {
-	if ( Testimonials_Widget::version_check() ) {
-		global $Testimonials_Widget_Settings;
-		if ( is_null( $Testimonials_Widget_Settings ) )
-			$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+if ( ! function_exists( 'testimonialswidget_init' ) ) {
+	function testimonialswidget_init() {
+		if ( Testimonials_Widget::version_check() ) {
+			global $Testimonials_Widget_Settings;
+			if ( is_null( $Testimonials_Widget_Settings ) )
+				$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
 
-		global $Testimonials_Widget;
-		if ( is_null( $Testimonials_Widget ) )
-			$Testimonials_Widget = new Testimonials_Widget();
+			global $Testimonials_Widget;
+			if ( is_null( $Testimonials_Widget ) )
+				$Testimonials_Widget = new Testimonials_Widget();
+		}
 	}
 }
 
@@ -70,18 +72,21 @@ register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivatio
 register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 
 
-function testimonialswidget_list( $atts = array() ) {
-	global $Testimonials_Widget;
+if ( ! function_exists( 'testimonialswidget_list' ) ) {
+	function testimonialswidget_list( $atts = array() ) {
+		global $Testimonials_Widget;
 
-	return $Testimonials_Widget->testimonialswidget_list( $atts );
+		return $Testimonials_Widget->testimonialswidget_list( $atts );
+	}
 }
 
 
-function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
-	global $Testimonials_Widget;
+if ( ! function_exists( 'testimonialswidget_widget' ) ) {
+	function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
+		global $Testimonials_Widget;
 
-	return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
+		return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
+	}
 }
-
 
 ?>

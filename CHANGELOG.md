@@ -4,6 +4,7 @@
 
 ## 2.18.0-alpha
 * Add Codeship.io status
+* Check for init and theme functions to exist
 * Link to Testimonials by WooThemes migrator
 * Move ci to tests
 * Move CSS to assets
