@@ -640,6 +640,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				'version' => '2.6.4',
 				'std' => 1,
 			),
+			'std' => 1,
 		);
 
 		self::$settings['reset_expand_end'] = array(

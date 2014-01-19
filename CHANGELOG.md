@@ -1,7 +1,6 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
-* RESOLVE #45 Plugin Disables Itself
 
 ## 2.18.0-alpha
 * Add Codeship.io status
@@ -13,6 +12,8 @@
 * Move lib to includes/libraries
 * Move main class to own class file
 * Remove Travis CI status
+* RESOLVE #43 hatom feed errors
+* RESOLVE #45 Plugin Disables Itself
 * RESOLVE Non-SSL protocol used for scripts and styles
 * Revise required file paths
 * Specify a “Text Domain” and “Domain Path”
