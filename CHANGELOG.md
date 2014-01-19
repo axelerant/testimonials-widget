@@ -1,6 +1,7 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Add `slash_sanitize_title` verification helper
 * Add phpunit.xml
 * Coding standards
 * Move ci to tests
