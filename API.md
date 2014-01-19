@@ -179,6 +179,10 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 	Alows for display of custom input types.
 
+* `testimonials_widget_settings_defaults`
+
+	Override settings defaults with your own.
+
 ## Need More?
 
 Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).

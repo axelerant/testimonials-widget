@@ -12,6 +12,7 @@
 * Move lib to includes/libraries
 * Move main class to own class file
 * Remove Travis CI status
+* RESOLVE #7 Support subdirectory testimonial landing page
 * RESOLVE #43 hatom feed errors
 * RESOLVE #45 Plugin Disables Itself
 * RESOLVE Non-SSL protocol used for scripts and styles

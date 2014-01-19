@@ -495,7 +495,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Archive Page URL', 'testimonials-widget' ),
 			'desc' => sprintf( $desc, $site_url ),
 			'std' => 'testimonials-archive',
-			'validate' => 'sanitize_title',
+			'validate' => 'slash_sanitize_title',
 			'widget' => 0,
 		);
 
@@ -506,7 +506,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Testimonial Page URL', 'testimonials-widget' ),
 			'desc' => $desc,
 			'std' => 'testimonial',
-			'validate' => 'sanitize_title',
+			'validate' => 'slash_sanitize_title',
 			'widget' => 0,
 		);
 
@@ -658,7 +658,10 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function get_defaults( $mode = null, $old_version = null ) {
 		$old_version = tw_get_option( 'version' );
 
-		return parent::get_defaults( $mode, $old_version );
+		$defaults = parent::get_defaults( $mode, $old_version );
+		$defaults = apply_filters( 'testimonials_widget_settings_defaults', $defaults );
+
+		return $defaults;
 	}
 
 
