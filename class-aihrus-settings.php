@@ -598,6 +598,14 @@ abstract class Aihrus_Settings {
 					$errors[ $id ] = esc_html__( 'Required' );
 				break;
 
+			case 'slash_sanitize_title':
+				$temp = explode( '/', $input[ $id ] );
+				$temp = array_map( 'sanitize_title', $temp );
+				$temp = implode( '/', $temp );
+
+				$input[ $id ] = $temp;
+				break;
+
 			case 'slug':
 				$input[ $id ] = self::validate_slug( $input[ $id ], $default );
 				$input[ $id ] = strtolower( $input[ $id ] );

@@ -1,10 +1,12 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Add `slash_sanitize_title` verification helper
 * Add phpunit.xml
 * Coding standards
 * Move ci to tests
 * Remove Travis configuration
+* RESOLVE michael-cannon/testimonials-widget#48 Activation on WP 3.6 not working
 * Update usage instructions
 * Use $plugin_assets than $plugin_path
 

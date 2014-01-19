@@ -145,7 +145,7 @@ if ( ! function_exists( 'aihr_notice_php' ) ) {
 }
 
 if ( ! function_exists( 'aihr_check_wp' ) ) {
-	function aihr_check_wp( $file = null, $name = null, $wp_min = '3.6.0' ) {
+	function aihr_check_wp( $file = null, $name = null, $wp_min = '3.6' ) {
 		if ( is_null( $file ) ) {
 			aihr_notice_error( __( '`aihr_check_wp` requires $file argument' ) );
 
