@@ -5,6 +5,7 @@
 ## 2.18.0-alpha
 * Add Codeship.io status
 * Check for init and theme functions to exist
+* CLOSE #11 Conflicts with "Re-order posts within Categories"
 * Link to Testimonials by WooThemes migrator
 * Move ci to tests
 * Move CSS to assets
@@ -12,9 +13,9 @@
 * Move lib to includes/libraries
 * Move main class to own class file
 * Remove Travis CI status
-* RESOLVE #7 Support subdirectory testimonial landing page
 * RESOLVE #43 hatom feed errors
 * RESOLVE #45 Plugin Disables Itself
+* RESOLVE #7 Support subdirectory testimonial landing page
 * RESOLVE Non-SSL protocol used for scripts and styles
 * Revise required file paths
 * Specify a “Text Domain” and “Domain Path”

@@ -516,6 +516,11 @@ Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of id
 Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
 
 
+== Conflicts ==
+
+* [ReOrder Post Within Categories](http://wordpress.org/plugins/reorder-post-within-categories/) – Uses custom ordering table
+
+
 == Localization ==
 
 * Dutch by Bjorn Robijns
