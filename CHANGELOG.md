@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.0-alpha
+## 2.18.0
 * Add Codeship.io status
 * Check for init and theme functions to exist
 * CLOSE #11 Conflicts with "Re-order posts within Categories"
