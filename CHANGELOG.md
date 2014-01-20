@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* jQuery 1.10+ note
 
 ## 2.18.0
 * Add Codeship.io status
