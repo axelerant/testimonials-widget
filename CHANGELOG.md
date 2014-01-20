@@ -2,6 +2,7 @@
 
 ## master
 * jQuery 1.10+ note
+* Widgets don't rotate notice
 
 ## 2.18.0
 * Add Codeship.io status

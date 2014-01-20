@@ -312,7 +312,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Requirements =
 
-* jQuery 1.10+
+* [jQuery 1.10+](https://aihrus.zendesk.com/entries/23693363)
 * PHP 5.3+ [Read notice](https://aihrus.zendesk.com/entries/30678006) – Since 2.16.0
 
 = Install Methods =
@@ -358,12 +358,13 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Most Common Issues =
 
 * Got `Parse error: syntax error, unexpected T_STATIC, expecting ')'`? Read [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006) for the fixes.
-* [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
 * [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733) AKA "What's up with these quotes?"
 * [Customize bxSlider](http://bxslider.com/examples)
+* [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
 * [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
+* [Widgets don't rotate](https://aihrus.zendesk.com/entries/23693363)
 
 = Still Stuck or Want Something Done? Get Support! =
 
