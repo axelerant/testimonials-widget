@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Add FAQ How do I create a testimonial record?
 * jQuery 1.10+ note
 * Widgets don't rotate notice
 
