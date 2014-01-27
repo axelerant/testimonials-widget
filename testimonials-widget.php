@@ -26,7 +26,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-define( 'TW_AIHR_VERSION', '1.0.1' );
+define( 'TW_AIHR_VERSION', '1.0.2' );
 define( 'TW_BASE', plugin_basename( __FILE__ ) );
 define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TW_DIR_INC', TW_DIR . 'includes/' );
