@@ -255,12 +255,27 @@ abstract class Aihrus_Settings {
 	}
 
 
+	public static function display_settings_updated() {
+		$text = __( 'Settings saved.' );
+
+		aihr_notice_updated( $text );
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public static function display_page( $disable_donate = false ) {
 		echo '<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>' . static::NAME . '</h2>';
 
 		echo '<form action="options.php" method="post">';
+
+		if ( ! empty( $_GET['settings-updated'] ) )
+			self::display_settings_updated();
 
 		settings_fields( static::ID );
 
