@@ -1,8 +1,9 @@
 # CHANGELOG Aihrus Framework
 
 ## master
-* Add `slash_sanitize_title` verification helper
 * Add phpunit.xml
+* Add `display_settings_updated` for settings saved notice
+* Add `slash_sanitize_title` verification helper
 * Coding standards
 * Move ci to tests
 * Remove Travis configuration
