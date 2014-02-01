@@ -1,6 +1,7 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Revise data deletion description - Thank you Mark
 
 ## 1.0.2
 * Add phpunit.xml

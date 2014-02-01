@@ -93,7 +93,7 @@ abstract class Aihrus_Settings {
 			'widget' => 0,
 		);
 
-		$desc = esc_html__( 'Delete all %s data and options from database on plugin deletion' );
+		$desc = esc_html__( 'Delete all %s data and options from database on plugin deletion. Even if this option isn\'t checked, WordPress will still give a data deletion warning.' );
 
 		static::$settings['delete_data'] = array(
 			'section' => 'reset',
