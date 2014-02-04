@@ -22,6 +22,7 @@
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
 
+require_once ABSPATH . 'wp-admin/includes/template.php';
 
 if ( class_exists( 'Aihrus_Settings' ) )
 	return;
