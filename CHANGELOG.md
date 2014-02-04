@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+
+## 2.18.1-alpha
 * Add FAQ How do I create a testimonial record?
 * jQuery 1.10+ note
 * Require Aihrus Framework 1.0.2
