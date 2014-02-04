@@ -4,6 +4,7 @@
 * Add FAQ How do I create a testimonial record?
 * jQuery 1.10+ note
 * Require Aihrus Framework 1.0.2
+* Support JetPack's Publicize module
 * Widgets don't rotate notice
 
 ## 2.18.0

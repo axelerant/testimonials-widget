@@ -586,6 +586,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			'title',
 			'editor',
 			'thumbnail',
+			'publicize',
 		);
 
 		$allow_comments = tw_get_option( 'allow_comments', false );
