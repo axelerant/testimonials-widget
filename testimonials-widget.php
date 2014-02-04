@@ -26,14 +26,29 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-define( 'TW_AIHR_VERSION', '1.0.2' );
-define( 'TW_BASE', plugin_basename( __FILE__ ) );
-define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
-define( 'TW_DIR_INC', TW_DIR . 'includes/' );
-define( 'TW_DIR_LIB', TW_DIR_INC . 'libraries/' );
-define( 'TW_NAME', 'Testimonials by Aihrus' );
-define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>' );
-define( 'TW_VERSION', '2.18.0' );
+if ( ! defined( 'TW_AIHR_VERSION' ) )
+	define( 'TW_AIHR_VERSION', '1.0.2' );
+
+if ( ! defined( 'TW_BASE' ) )
+	define( 'TW_BASE', plugin_basename( __FILE__ ) );
+
+if ( ! defined( 'TW_DIR' ) )
+	define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
+
+if ( ! defined( 'TW_DIR_INC' ) )
+	define( 'TW_DIR_INC', TW_DIR . 'includes/' );
+
+if ( ! defined( 'TW_DIR_LIB' ) )
+	define( 'TW_DIR_LIB', TW_DIR_INC . 'libraries/' );
+
+if ( ! defined( 'TW_NAME' ) )
+	define( 'TW_NAME', 'Testimonials by Aihrus' );
+
+if ( ! defined( 'TW_PREMIUM_LINK' ) )
+	define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Purchase Testimonials Premium</a>' );
+
+if ( ! defined( 'TW_VERSION' ) )
+	define( 'TW_VERSION', '2.18.0' );
 
 require_once TW_DIR_INC . 'requirements.php';
 
