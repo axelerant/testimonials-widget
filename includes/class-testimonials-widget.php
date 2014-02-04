@@ -743,11 +743,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( $use_bxslider ) {
 			$enable_video = $atts['enable_video'];
 			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', self::$plugin_assets . 'js/jquery.fitvids.js', array( 'jquery' ), '1.0' );
+				wp_register_script( 'jquery.fitvids', self::$plugin_assets . 'js/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
 				wp_enqueue_script( 'jquery.fitvids' );
 			}
 
-			wp_register_script( 'jquery.bxslider', self::$plugin_assets . 'js/jquery.bxslider.js', array( 'jquery' ), '4.1.1' );
+			wp_register_script( 'jquery.bxslider', self::$plugin_assets . 'js/jquery.bxslider.js', array( 'jquery' ), '4.1.1', true );
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
 

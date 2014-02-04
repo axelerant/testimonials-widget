@@ -5,6 +5,7 @@
 * jQuery 1.10+ note
 * Require Aihrus Framework 1.0.2
 * RESOLVE #54 Notice: Constant TW_AIHR_VERSION already defined
+* RESOLVE Scripts not loading in footer
 * Support JetPack's Publicize module
 * Widgets don't rotate notice
 
