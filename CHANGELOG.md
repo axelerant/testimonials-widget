@@ -1,6 +1,8 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Correct Codeship image include
+* Remove Travis CI configuration. Using Codeship.io instead
 * RESOLVE Not passing requirements failure to premium plugin
 
 ## 2.18.1-alpha

@@ -1,6 +1,6 @@
 # README Testimonials WordPress Plugin
 
-[Codeship status](https://www.codeship.io/projects/b5524630-43f6-0131-3b4d-76a8e32a74d4/status)
+![Codeship status](https://www.codeship.io/projects/b5524630-43f6-0131-3b4d-76a8e32a74d4/status)
 [![ProjectStatus](http://stillmaintained.com/michael-cannon/testimonials-widget.png)](http://stillmaintained.com/michael-cannon/testimonials-widget)
 
 ## Welcome to the Testimonials Github repository

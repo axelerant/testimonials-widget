@@ -57,6 +57,7 @@ global $tw_activated;
 $tw_activated = true;
 if ( ! tw_requirements_check() ) {
 	$tw_activated = false;
+
 	return false;
 }
 
