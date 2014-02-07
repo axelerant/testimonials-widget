@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* RESOLVE Not passing requirements failure to premium plugin
 
 ## 2.18.1-alpha
 * Add FAQ How do I create a testimonial record?

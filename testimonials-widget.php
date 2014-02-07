@@ -52,7 +52,11 @@ if ( ! defined( 'TW_VERSION' ) )
 
 require_once TW_DIR_INC . 'requirements.php';
 
+global $tw_activated;
+
+$tw_activated = true;
 if ( ! tw_requirements_check() ) {
+	$tw_activated = false;
 	return false;
 }
 
