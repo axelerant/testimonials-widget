@@ -1,15 +1,15 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
-* Correct Codeship image include
-* Remove Travis CI configuration. Using Codeship.io instead
-* RESOLVE Not passing requirements failure to premium plugin
 
-## 2.18.1-alpha
+## 2.18.1-beta
 * Add FAQ How do I create a testimonial record?
+* Correct Codeship image include
 * jQuery 1.10+ note
+* Remove Travis CI configuration. Using Codeship.io instead
 * Require Aihrus Framework 1.0.2
 * RESOLVE #54 Notice: Constant TW_AIHR_VERSION already defined
+* RESOLVE Not passing requirements failure to premium plugin
 * RESOLVE Scripts not loading in footer
 * Support JetPack's Publicize module
 * Widgets don't rotate notice
