@@ -123,6 +123,17 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'post_updated_messages', array( __CLASS__, 'post_updated_messages' ) );
 		add_filter( 'pre_get_posts', array( __CLASS__, 'pre_get_posts_author' ) );
+
+		if ( self::do_load() ) {
+			add_filter( 'manage_category_custom_column', array( __CLASS__, 'category_column' ), 10, 3 );
+			add_filter( 'manage_edit-category_columns', array( __CLASS__, 'category_columns' ) );
+			add_filter( 'manage_edit-post_tag_columns', array( __CLASS__, 'category_columns' ) );
+			add_filter( 'manage_edit-testimonials-widget-category_columns', array( __CLASS__, 'category_columns' ) );
+			add_filter( 'manage_edit-testimonials-widget-post_tag_columns', array( __CLASS__, 'category_columns' ) );
+			add_filter( 'manage_post_tag_custom_column', array( __CLASS__, 'post_tag_column' ), 10, 3 );
+			add_filter( 'manage_testimonials-widget-category_custom_column', array( __CLASS__, 'category_column' ), 10, 3 );
+			add_filter( 'manage_testimonials-widget-post_tag_custom_column', array( __CLASS__, 'post_tag_column' ), 10, 3 );
+		}
 	}
 
 
@@ -1020,7 +1031,6 @@ EOF;
 		$disable_quotes  = $atts['disable_quotes'];
 		$do_image        = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
 		$do_image_single = ! $atts['hide_image_single'];
-		$do_content      = ! $atts['hide_content'];
 		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
@@ -1133,7 +1143,6 @@ EOF;
 		$content_more  = apply_filters( 'testimonials_widget_content_more', esc_html__( '…', 'testimonials-widget' ) );
 		$content_more .= self::$tag_close_quote;
 		$do_content    = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
-		$do_schema     = $atts['enable_schema'];
 		$use_quote_tag = $atts['use_quote_tag'];
 
 		$quote = '';
@@ -2031,7 +2040,7 @@ EOD;
 		if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'options.php' ) ) ) {
 			$do_load = true;
 		} elseif ( ! empty( $_REQUEST['post_type'] ) && self::PT == $_REQUEST['post_type'] ) {
-			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php' ) ) ) {
+			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php', 'edit-tags.php' ) ) ) {
 				$do_load = true;
 			} elseif ( ! empty( $_REQUEST['page'] ) && Testimonials_Widget_Settings::ID == $_REQUEST['page'] ) {
 				$do_load = true;
@@ -2040,6 +2049,47 @@ EOD;
 
 		return $do_load;
 	}
+
+
+	public static function category_columns( $columns ) {
+		$columns['shortcode'] = esc_html__( 'Shortcode' );
+
+		return $columns;
+	}
+
+
+	public static function category_column( $result, $column_name, $term_id, $category = true ) {
+		$attribute = $category ? 'category' : 'tags';
+
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
+		if ( ! $use_cpt_taxonomy ) {
+			if ( $category )
+				$term = get_term( $term_id, 'category' );
+			else
+				$term = get_term( $term_id, 'post_tag' );
+		} else {
+			if ( $category )
+				$term = get_term( $term_id, self::$cpt_category );
+			else
+				$term = get_term( $term_id, self::$cpt_tags );
+		}
+
+		switch ( $column_name ) {
+			case 'shortcode':	
+				$result  = '[testimonialswidget_list ' . $attribute . '="' .$term->slug . '"]';
+				$result .= '<br />';
+				$result .= '[testimonialswidget_widget ' . $attribute . '="' .$term->slug . '"]';
+				break;
+		}
+
+		return $result;	
+	}
+
+
+	public static function post_tag_column( $result, $column_name, $term_id ) {
+		return self::category_column( $result, $column_name, $term_id, false );
+	}
 }
+
 
 ?>

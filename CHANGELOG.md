@@ -4,6 +4,7 @@
 
 ## 2.18.1RC1
 * Add FAQ How do I create a testimonial record?
+* Add screenshot 21. Shortcode helpers on category and tag admin screens
 * Aihrus Framework 1.0.3RC1
 * Correct Codeship image include
 * jQuery 1.10+ note
@@ -11,6 +12,8 @@
 * Remove option "Always Load CSS?" `force_css_loading`
 * Remove Travis CI configuration. Using Codeship.io instead
 * Require Aihrus Framework 1.0.2
+* RESOLVE #2 Add shortcode column to categories page
+* RESOLVE #3 Add shortcode column to tags page
 * RESOLVE #54 Notice: Constant TW_AIHR_VERSION already defined
 * RESOLVE #8 Validate HTML
 * RESOLVE Not passing requirements failure to premium plugin

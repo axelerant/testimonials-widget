@@ -141,15 +141,16 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
 * Settings page contextual help
+* Shortcode helpers on category and tag admin screens
 * Shortcodes allowed inside of testimonials content
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Testimonials widget displays static and rotating testimonials 
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
-* URLs can be opened in new windows
+* Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
+* URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Shortcode Examples =
@@ -397,6 +398,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 18. Dashboard > Right Now "Testimonials" count
 19. Using Review and AggregateRating schema data structures
 20. Testimonials Shortcode Examples page
+21. Shortcode helpers on category and tag admin screens
 
 [gallery]
 
