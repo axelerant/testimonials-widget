@@ -7,9 +7,12 @@
 * Aihrus Framework 1.0.3RC1
 * Correct Codeship image include
 * jQuery 1.10+ note
+* Remove "Use bxSlider?" and "Include IE7 CSS" from widget options
+* Remove option "Always Load CSS?" `force_css_loading`
 * Remove Travis CI configuration. Using Codeship.io instead
 * Require Aihrus Framework 1.0.2
 * RESOLVE #54 Notice: Constant TW_AIHR_VERSION already defined
+* RESOLVE #8 Validate HTML
 * RESOLVE Not passing requirements failure to premium plugin
 * RESOLVE Scripts not loading in footer
 * Support JetPack's Publicize module

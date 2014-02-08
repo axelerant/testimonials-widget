@@ -300,7 +300,6 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `min_height` - default none; min_height=100
 * Maximum Height - Set for maximum display height, in pixels
 	* `max_height` - default none; max_height=250
-* Always Load CSS? - Pre 2.14.0. Testimonials' CSS was always loaded, whether needed or not
 * Include IE7 CSS? - IE7 specific CSS moved to separate CSS file in version 2.13.6.
 * Use `<q>` tag? – Pre 2.11.0. Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
@@ -408,6 +407,11 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.18.1 =
+
+* CSS is back to being always loaded in the header
+* Removed "Use bxSlider?" and "Include IE7 CSS" from widget options
 
 = 2.18.0 =
 
