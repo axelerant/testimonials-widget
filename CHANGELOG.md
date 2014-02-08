@@ -2,8 +2,9 @@
 
 ## master
 
-## 2.18.1-beta
+## 2.18.1RC1
 * Add FAQ How do I create a testimonial record?
+* Aihrus Framework 1.0.3RC1
 * Correct Codeship image include
 * jQuery 1.10+ note
 * Remove Travis CI configuration. Using Codeship.io instead
@@ -35,7 +36,7 @@
 * Update verbiage
 * Use $plugin_assets than $plugin_path
 
-## 2.17.3-alpha
+## 2.17.3
 * RESOLVE #44 Blank testimonial between each rotating testimonial
 
 ## 2.17.2

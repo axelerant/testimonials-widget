@@ -330,7 +330,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static function notice_2_12_0() {
 		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' ) );
 
-		self::notice_updated( $text );
+		aihr_notice_updated( $text );
 	}
 
 
@@ -1953,7 +1953,7 @@ EOF;
 	public static function notice_2_15_0() {
 		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0' ) );
 
-		self::notice_updated( $text );
+		aihr_notice_updated( $text );
 	}
 
 
