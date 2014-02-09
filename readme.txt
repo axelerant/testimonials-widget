@@ -363,6 +363,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
 * [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083)
 * [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+* [My options don't work, no matter what I do.](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
 * [Widgets don't rotate](https://aihrus.zendesk.com/entries/23693363)
