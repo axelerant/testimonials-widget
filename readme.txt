@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.9.0
-Stable tag: 2.18.1RC1
+Stable tag: 2.18.1RC2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -213,13 +213,13 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_url` - default show; hide_url=true
 * URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
-* Enable Paging - for [[testimonialswidget_list]]
+* Enable Paging? - for [[testimonialswidget_list]]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
 		* `before` – display paging only before testimonial entries
 		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
-* Do [shortcodes] - If unchecked, shortcodes are stripped.
+* Enable [shortcodes]? - If unchecked, shortcodes are stripped.
 	* `do_shortcode` - default false; do_shortcode=true
 
 **Selection**

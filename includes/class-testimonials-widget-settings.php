@@ -342,7 +342,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['do_shortcode'] = array(
-			'title' => esc_html__( 'Do [shortcodes]?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Enable [shortcodes]?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'If unchecked, shortcodes are stripped.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',

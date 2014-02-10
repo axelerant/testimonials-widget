@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.1RC1
+## 2.18.1RC2
 * Add FAQ How do I create a testimonial record?
 * Add screenshot 21. Shortcode helpers on category and tag admin screens
 * Aihrus Framework 1.0.3RC1
@@ -19,6 +19,7 @@
 * RESOLVE Not passing requirements failure to premium plugin
 * RESOLVE Scripts not loading in footer
 * Support JetPack's Publicize module
+* Verbiage updates
 * Widgets don't rotate notice
 
 ## 2.18.0
