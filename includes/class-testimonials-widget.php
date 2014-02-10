@@ -1963,7 +1963,7 @@ EOF;
 	public static function make_gravatar_featured( $post_id, $email ) {
 		$size  = get_option( 'large_size_w' );
 		$image = get_avatar( $email, $size );
-		$src   = self::get_image_src( $image );
+		$src   = self::get_image_src( $image, false );
 		$file  = sanitize_title( $email ) . '.jpeg';
 
 		self::add_media( $post_id, $src, $file );
