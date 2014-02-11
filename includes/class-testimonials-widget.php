@@ -143,7 +143,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function init() {
-		add_filter( 'the_content', array( __CLASS__, 'get_single' ) );
+		add_filter( 'the_content', array( __CLASS__, 'get_single' ), -1 );
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
@@ -1768,7 +1768,8 @@ EOF;
 		$item_reviewed     = self::clean_string( $atts['item_reviewed'] );
 		$item_reviewed_url = self::clean_string( $atts['item_reviewed_url'] );
 
-		$schema = '';
+		$schema  = '<div style="display: none;">';
+		$schema .= "\n";
 
 		$agg_meta      = array();
 		$author_meta   = array();
@@ -1776,9 +1777,6 @@ EOF;
 		$location_meta = array();
 		$org_meta      = array();
 		$review_meta   = array();
-
-		if ( $do_content )
-			$review_meta[ self::$review_body ] = $testimonial['testimonial_content'];
 
 		if ( $do_source )
 			$author_meta[ self::$thing_name ] = $testimonial_source;
@@ -1824,6 +1822,9 @@ EOF;
 
 		$review_name_length = apply_filters( 'testimonials_widget_review_name_length', 156 );
 
+		if ( $do_content )
+			$review_meta[ self::$review_body ] = $testimonial['testimonial_content'];
+
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
 		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, $review_name_length );
@@ -1853,6 +1854,9 @@ EOF;
 		$item_meta = apply_filters( 'testimonials_widget_schema_item', $item_meta, $testimonial, $atts );
 		$item      = self::create_schema_div_prop( self::$review_item, self::$thing_schema, $item_meta );
 		$schema   .= $item;
+		$schema   .= "\n";
+
+		$schema   .= '</div>';
 		$schema   .= "\n";
 
 		$schema = apply_filters( 'testimonials_widget_schema', $schema, $testimonial, $atts );
