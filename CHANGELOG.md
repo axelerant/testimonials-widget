@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.1RC4
+## 2.18.1
 * Add FAQ How do I create a testimonial record?
 * Add screenshot 21. Shortcode helpers on category and tag admin screens
 * Correct Codeship image include
