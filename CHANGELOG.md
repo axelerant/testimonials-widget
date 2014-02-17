@@ -10,7 +10,7 @@
 * Remove "Use bxSlider?" and "Include IE7 CSS" from widget options
 * Remove option "Always Load CSS?" `force_css_loading`
 * Remove Travis CI configuration. Using Codeship.io instead
-* Require Aihrus Framework 1.0.3RC2
+* Require Aihrus Framework 1.0.3
 * RESOLVE #2 Add shortcode column to categories page
 * RESOLVE #3 Add shortcode column to tags page
 * RESOLVE #54 Notice: Constant TW_AIHR_VERSION already defined
