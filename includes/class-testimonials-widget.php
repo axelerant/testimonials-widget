@@ -2056,7 +2056,7 @@ EOD;
 
 
 	public static function category_columns( $columns ) {
-		$columns['shortcode'] = esc_html__( 'Shortcode' );
+		$columns['shortcode'] = esc_html__( 'Shortcode', 'testimonials-widget' );
 
 		return $columns;
 	}
