@@ -1856,8 +1856,8 @@ EOF;
 		$schema   .= $item;
 		$schema   .= "\n";
 
-		$schema   .= '</div>';
-		$schema   .= "\n";
+		$schema .= '</div>';
+		$schema .= "\n";
 
 		$schema = apply_filters( 'testimonials_widget_schema', $schema, $testimonial, $atts );
 
