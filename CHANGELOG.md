@@ -2,6 +2,9 @@
 
 ## master
 
+## 1.0.4RC1
+* Register `jquery-style`
+
 ## 1.0.3
 * RESOLVE Fatal error: Call to undefined function add_settings_error() in class-aihrus-settings.php on line 559
 * RESOLVE Featured image via Gravatar not saving correctly
