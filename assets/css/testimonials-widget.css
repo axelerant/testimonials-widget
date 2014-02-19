@@ -4,6 +4,16 @@
 .testimonials-widget-testimonial {
 }
 
+.testimonials-widget-testimonials .active {
+	/* active testimonials */
+	display: block;
+}
+
+.testimonials-widget-testimonials .hide {
+	/* staged testimonials */
+	display: none;
+}
+
 .testimonials-widget-testimonials .paging {
 	clear: both;
 	font-weight: 700;

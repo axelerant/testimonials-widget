@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.18.2RC1
+* RESOLVE #57 Testimonials Stacking on first load
+
 ## 2.18.1
 * Add FAQ How do I create a testimonial record?
 * Add screenshot 21. Shortcode helpers on category and tag admin screens

@@ -904,7 +904,7 @@ function nextTestimonial{$widget_number}() {
 		active.fadeOut({$fade_out_speed}, function() {
 			active.removeClass('active');
 			next.fadeIn({$fade_in_speed});
-			next.removeClass('display-none');
+			next.removeClass('hide');
 			next.addClass('active');
 
 			{INTERNAL_SCRIPTS}
@@ -1041,11 +1041,11 @@ EOF;
 			$class .= ' single';
 		elseif ( $is_list )
 			$class .= ' list';
-		elseif ( ! $use_bxslider ) {
+		else {
 			if ( $is_first )
 				$class .= ' active';
 			elseif ( ! $is_first )
-				$class .= ' display-none';
+				$class .= ' hide';
 		}
 
 		if ( $keep_whitespace )
