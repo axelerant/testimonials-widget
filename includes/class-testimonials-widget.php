@@ -1034,7 +1034,6 @@ EOF;
 		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
-		$use_bxslider    = $atts['use_bxslider'];
 
 		$class = 'testimonials-widget-testimonial';
 		if ( is_single() && empty( $widget_number ) )
