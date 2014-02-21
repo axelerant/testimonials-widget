@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.2RC1
+## 2.18.2
 * RESOLVE #57 Testimonials Stacking on first load
 
 ## 2.18.1
