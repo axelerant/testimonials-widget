@@ -9,7 +9,7 @@
 	display: block;
 }
 
-.testimonials-widget-testimonials .hide {
+.testimonials-widget-testimonials .display-none {
 	/* staged testimonials */
 	display: none;
 }

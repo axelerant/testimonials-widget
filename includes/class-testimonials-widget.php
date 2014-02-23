@@ -904,7 +904,7 @@ function nextTestimonial{$widget_number}() {
 		active.fadeOut({$fade_out_speed}, function() {
 			active.removeClass('active');
 			next.fadeIn({$fade_in_speed});
-			next.removeClass('hide');
+			next.removeClass('display-none');
 			next.addClass('active');
 
 			{INTERNAL_SCRIPTS}
@@ -1044,7 +1044,7 @@ EOF;
 			if ( $is_first )
 				$class .= ' active';
 			elseif ( ! $is_first )
-				$class .= ' hide';
+				$class .= ' display-none';
 		}
 
 		if ( $keep_whitespace )
