@@ -3,6 +3,7 @@
 ## master
 
 ## 2.18.3RC1
+* RESOLVE 62 Bootstrap class name hide conflict
 
 ## 2.18.2
 * RESOLVE #57 Testimonials Stacking on first load
