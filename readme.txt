@@ -212,6 +212,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_company` - default show; hide_company=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
+* Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
+	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
 * URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
 * Enable Paging? - for [[testimonialswidget_list]]

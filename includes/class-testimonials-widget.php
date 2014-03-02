@@ -762,8 +762,11 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$use_bxslider = tw_get_option( 'use_bxslider' );
 		if ( $use_bxslider ) {
-			wp_register_style( 'jquery.bxslider', self::$plugin_assets . 'css/jquery.bxslider.css' );
-			wp_enqueue_style( 'jquery.bxslider' );
+			$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
+			if ( empty( $exclude_bxslider_css ) ) {
+				wp_register_style( 'jquery.bxslider', self::$plugin_assets . 'css/jquery.bxslider.css' );
+				wp_enqueue_style( 'jquery.bxslider' );
+			}
 
 			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
 		} else {

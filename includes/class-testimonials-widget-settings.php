@@ -321,6 +321,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'validate' => 'is_true',
 		);
 
+		self::$settings['exclude_bxslider_css'] = array(
+			'title' => esc_html__( 'Exclude bxSlider CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'For a bare-bones, unthemed slider.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
+		);
+
 		self::$settings['target'] = array(
 			'title' => esc_html__( 'URL Target', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
