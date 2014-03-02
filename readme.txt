@@ -418,6 +418,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 = 2.18.3 =
 
 * CSS class `.hide` renamed `.display-none`
+* This is the last version supporting pre-bxSlider options
 
 = 2.18.2 =
 
