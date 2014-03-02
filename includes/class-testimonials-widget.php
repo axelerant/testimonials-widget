@@ -1037,17 +1037,23 @@ EOF;
 		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
+		$use_bxslider    = $atts['use_bxslider'];
 
 		$class = 'testimonials-widget-testimonial';
-		if ( is_single() && empty( $widget_number ) )
+		if ( is_single() && empty( $widget_number ) ) {
 			$class .= ' single';
-		elseif ( $is_list )
+		} elseif ( $is_list ) {
 			$class .= ' list';
-		else {
-			if ( $is_first )
-				$class .= ' active';
-			elseif ( ! $is_first )
+		} else {
+			// widget display
+			if ( $use_bxslider ) {
+				// bxSlider handles showing or not on element directly no show to prevent showing all while waiting for bxSlider to activate
 				$class .= ' display-none';
+			} elseif ( $is_first ) {
+				$class .= ' active';
+			} else {
+				$class .= ' display-none';
+			}
 		}
 
 		if ( $keep_whitespace )

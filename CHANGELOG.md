@@ -5,6 +5,7 @@
 ## 2.18.3RC1
 * Add option "Exclude bxSlider CSS?"
 * Exit if accessed directly
+* Initially no show bxSlider widget testimonials entries
 * RESOLVE #62 Bootstrap class name hide conflict
 
 ## 2.18.2
