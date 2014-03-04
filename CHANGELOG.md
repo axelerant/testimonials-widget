@@ -7,6 +7,7 @@
 * Exit if accessed directly
 * Initially no show bxSlider widget testimonials entries
 * RESOLVE #62 Bootstrap class name hide conflict
+* Update copyright year
 
 ## 2.18.2
 * RESOLVE #57 Testimonials Stacking on first load
