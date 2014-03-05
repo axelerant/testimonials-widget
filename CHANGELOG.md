@@ -4,6 +4,7 @@
 
 ## 1.0.4RC1
 * Register `jquery-style`
+* RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * Update copyright year
 
 ## 1.0.3

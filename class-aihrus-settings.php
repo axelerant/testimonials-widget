@@ -485,8 +485,9 @@ abstract class Aihrus_Settings {
 		if ( is_null( $options ) ) {
 			$null_options = true;
 
-			$options  = self::get_settings();
 			$defaults = static::get_defaults();
+			$input    = wp_parse_args( $input, $defaults );
+			$options  = self::get_settings();
 
 			if ( is_admin() ) {
 				if ( ! empty( $input['reset_defaults'] ) ) {
