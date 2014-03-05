@@ -1037,6 +1037,7 @@ EOF;
 		$do_schema       = $atts['enable_schema'];
 		$keep_whitespace = $atts['keep_whitespace'];
 		$remove_hentry   = $atts['remove_hentry'];
+		$transition_mode = $atts['transition_mode'];
 		$use_bxslider    = $atts['use_bxslider'];
 
 		$class = 'testimonials-widget-testimonial';
@@ -1047,12 +1048,15 @@ EOF;
 		} else {
 			// widget display
 			if ( $use_bxslider ) {
-				// bxSlider handles showing or not on element directly no show to prevent showing all while waiting for bxSlider to activate
-				$class .= ' display-none';
-			} elseif ( $is_first ) {
-				$class .= ' active';
+				if ( ! in_array( $transition_mode, array( 'horizontal', 'vertical' ) ) ) {
+					$class .= ' display-none';
+				}
 			} else {
-				$class .= ' display-none';
+				if ( $is_first ) {
+					$class .= ' active';
+				} else {
+					$class .= ' display-none';
+				}
 			}
 		}
 

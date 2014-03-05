@@ -65,15 +65,9 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 		if ( empty( $instance ) ) {
 			$do_number = false;
 
-			if ( empty( $defaults['char_limit'] ) )
-				$defaults['char_limit'] = 500;
-
-			if ( empty( $defaults['random'] ) )
-				$defaults['random'] = 1;
-
-			$defaults['enable_schema'] = 0;
-
-			$instance = array();
+			$instance['char_limit']    = 500;
+			$instance['random']        = 1;
+			$instance['enable_schema'] = 0;
 		} elseif ( ! empty( $instance['resetted'] ) ) {
 			if ( empty( $instance['char_limit'] ) )
 				$instance['char_limit'] = 500;
