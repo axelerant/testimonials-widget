@@ -1,6 +1,6 @@
 <?php
 /*
-	Copyright 2013 Michael Cannon (email: mc@aihr.us)
+	Copyright 2014 Michael Cannon (email: mc@aihr.us)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -468,7 +468,8 @@ abstract class Aihrus_Settings {
 
 
 	public static function styles() {
-		wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+		wp_register_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+		wp_enqueue_style( 'jquery-style' );
 	}
 
 
@@ -484,8 +485,9 @@ abstract class Aihrus_Settings {
 		if ( is_null( $options ) ) {
 			$null_options = true;
 
-			$options  = self::get_settings();
 			$defaults = static::get_defaults();
+			$input    = wp_parse_args( $input, $defaults );
+			$options  = self::get_settings();
 
 			if ( is_admin() ) {
 				if ( ! empty( $input['reset_defaults'] ) ) {

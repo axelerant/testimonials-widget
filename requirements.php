@@ -1,6 +1,6 @@
 <?php
 /*
-	Copyright 2013 Michael Cannon (email: mc@aihr.us)
+	Copyright 2014 Michael Cannon (email: mc@aihr.us)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -20,7 +20,7 @@ if ( ! defined( 'AIHR_BASE' ) )
 	define( 'AIHR_BASE', __FILE__ );
 
 if ( ! defined( 'AIHR_VERSION' ) )
-	define( 'AIHR_VERSION', '1.0.3RC2' );
+	define( 'AIHR_VERSION', '1.0.4RC1' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
