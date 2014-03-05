@@ -468,7 +468,8 @@ abstract class Aihrus_Settings {
 
 
 	public static function styles() {
-		wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+		wp_register_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+		wp_enqueue_style( 'jquery-style' );
 	}
 
 
