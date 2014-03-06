@@ -590,6 +590,10 @@ abstract class Aihrus_Settings {
 					$input[ $id ] = $default;
 				break;
 
+			case 'email':
+				$input[ $id ] = self::validate_email( $input[ $id ], $default );
+				break;
+
 			case 'ids':
 				$input[ $id ] = self::validate_ids( $input[ $id ], $default );
 				break;
@@ -720,6 +724,14 @@ abstract class Aihrus_Settings {
 			else
 				return 0;
 		}
+	}
+
+
+	public static function validate_email( $input, $default ) {
+		if ( filter_var( $input, FILTER_VALIDATE_EMAIL ) )
+			return $input;
+
+		return $default;
 	}
 
 

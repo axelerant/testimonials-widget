@@ -2,7 +2,8 @@
 
 ## master
 
-## 1.0.4RC2
+## 1.0.4RC3
+* Add validate_email
 * Register `jquery-style`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * Update copyright year
