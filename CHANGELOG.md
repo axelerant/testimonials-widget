@@ -2,8 +2,9 @@
 
 ## master
 
-## 1.1.0RC1
+## 1.1.0RC2
 * Add class redrokk_metabox_class
+* Add class wp_custom_post_status
 * Add rich_editor type
 * Add validate_email
 * Don't esc_attr rich editor value
