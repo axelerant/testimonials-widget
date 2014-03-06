@@ -517,10 +517,15 @@ abstract class Aihrus_Settings {
 				$validations = explode( ',', $validations );
 
 			if ( ! isset( $input[ $id ] ) ) {
-				if ( 'checkbox' != $type )
+				if ( 'checkbox' != $type ) {
 					$input[ $id ] = $default;
-				else
-					$input[ $id ] = 0;
+				} else {
+					if ( empty( $parts['widget'] ) ) {
+						continue;
+					} else {
+						$input[ $id ] = 0;
+					}
+				}
 			}
 
 			if ( $default == $input[ $id ] && ! in_array( 'required', $validations ) )

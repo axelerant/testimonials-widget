@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.0.4RC1
+## 1.0.4RC2
 * Register `jquery-style`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * Update copyright year
