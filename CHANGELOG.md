@@ -2,7 +2,8 @@
 
 ## master
 
-## 1.0.4RC3
+## 1.0.4RC4
+* Add rich_editor type
 * Add validate_email
 * Register `jquery-style`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly

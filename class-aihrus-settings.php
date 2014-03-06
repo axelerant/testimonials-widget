@@ -396,7 +396,26 @@ abstract class Aihrus_Settings {
 
 				if ( ! empty( $desc ) )
 					$content .= '<br /><span class="description">' . $desc . '</span>';
+				break;
 
+			case 'rich_editor':
+				global $wp_version;
+
+				if ( $wp_version >= 3.3 && function_exists( 'wp_editor' ) ) {
+					ob_start();
+					// fixme wp_editor( stripslashes( $field_value ), static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
+					wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
+					$content = ob_get_clean();
+				} else {
+					// fixme $content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( stripslashes( $field_value ) ) . '</textarea>';
+					$content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( $field_value ) . '</textarea>';
+				}
+
+				if ( ! empty( $desc ) )
+					$content .= '<br /><span class="description">' . $desc . '</span>';
+
+				if ( $show_code )
+					$content .= '<br /><code>' . $id . '</code>';
 				break;
 
 			case 'select':
