@@ -2,12 +2,15 @@
 
 ## master
 
-## 1.0.4RC4
+## 1.1.0RC1
+* Add class redrokk_metabox_class
 * Add rich_editor type
 * Add validate_email
 * Don't esc_attr rich editor value
-* Register `jquery-style`
+* Move classes/interfaces to includes
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
+* Register `jquery-style`
+* Set AIHR_DIR* helpers
 * Update copyright year
 
 ## 1.0.3

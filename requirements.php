@@ -19,10 +19,20 @@
 if ( ! defined( 'AIHR_BASE' ) )
 	define( 'AIHR_BASE', __FILE__ );
 
+if ( ! defined( 'AIHR_DIR' ) )
+	define( 'AIHR_DIR', plugin_dir_path( __FILE__ ) );
+
+if ( ! defined( 'AIHR_DIR_INC' ) )
+	define( 'AIHR_DIR_INC', AIHR_DIR . 'includes/' );
+
+if ( ! defined( 'AIHR_DIR_LIB' ) )
+	define( 'AIHR_DIR_LIB', AIHR_DIR_INC . 'libraries/' );
+
 if ( ! defined( 'AIHR_VERSION' ) )
-	define( 'AIHR_VERSION', '1.0.4RC4' );
+	define( 'AIHR_VERSION', '1.1.0RC1' );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 
 if ( ! function_exists( 'aihr_check_aihrus_framework' ) ) {
 	function aihr_check_aihrus_framework( $file = null, $name = null, $aihr_min = '1.0.0' ) {
