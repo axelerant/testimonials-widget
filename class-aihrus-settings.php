@@ -400,14 +400,14 @@ abstract class Aihrus_Settings {
 
 			case 'rich_editor':
 				global $wp_version;
+				
+				$field_value = $options[$id];
 
 				if ( $wp_version >= 3.3 && function_exists( 'wp_editor' ) ) {
 					ob_start();
-					// fixme wp_editor( stripslashes( $field_value ), static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
 					wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
 					$content = ob_get_clean();
 				} else {
-					// fixme $content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( stripslashes( $field_value ) ) . '</textarea>';
 					$content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( $field_value ) . '</textarea>';
 				}
 

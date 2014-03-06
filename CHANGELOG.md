@@ -5,6 +5,7 @@
 ## 1.0.4RC4
 * Add rich_editor type
 * Add validate_email
+* Don't esc_attr rich editor value
 * Register `jquery-style`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * Update copyright year
