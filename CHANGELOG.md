@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.3RC2
+## 2.18.3
 * Add option "Exclude bxSlider CSS?"
 * Exit if accessed directly
 * Initially no show bxSlider widget testimonials entries
