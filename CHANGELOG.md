@@ -8,6 +8,7 @@
 * Add rich_editor type
 * Add validate_email
 * Don't esc_attr rich editor value
+* Limit wp_custom_post_status to post type
 * Move classes/interfaces to includes
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * Register `jquery-style`

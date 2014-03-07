@@ -44,6 +44,15 @@ class wp_custom_post_status
 
 
 	/**
+	 * Track jQuery firing
+	 * 
+	 * @access protected
+	 * @var boolean
+	 */
+	private static $jquery_ran = false;
+
+
+	/**
 	 * Construct
 	 * @return void
 	 */
@@ -138,19 +147,24 @@ class wp_custom_post_status
 	 */
 	public function extend_submitdiv_post_status()
 	{
+		if ( self::$jquery_ran )
+			return;
+		else
+			self::$jquery_ran = true;
+
 		// Abort if we're on the wrong post type, but only if we got a restriction
-		if ( isset( $this->post_type ) )
+		if ( empty( $this->post_type ) )
+			return;
+
+		global $post_type;
+		if ( is_array( $this->post_type ) )
 		{
-			global $post_type;
-			if ( is_array( $this->post_type ) )
-			{
-				if ( in_array( $post_type, $this->post_type ) )
-					return;
-			}
-			elseif ( $this->post_type !== $post_type )
-			{
+			if ( in_array( $post_type, $this->post_type ) )
 				return;
-			}
+		}
+		elseif ( $this->post_type !== $post_type )
+		{
+			return;
 		}
 
 		// Our post status and post type objects
@@ -162,6 +176,9 @@ class wp_custom_post_status
 		{
 			if ( ! $status->_builtin )
 			{
+				if ( empty( $status->label_count['domain'] ) || 'cps_textdomain' != $status->label_count['domain'] )
+					continue;
+
 				// Match against the current posts status
 				$selected = selected( $post->post_status, $status->name, false );
 
