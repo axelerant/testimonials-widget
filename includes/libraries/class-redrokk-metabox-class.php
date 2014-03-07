@@ -1113,6 +1113,40 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 					<?php echo $desc.$default; ?>
 				</td>
 			</tr>
+			<?php case 'date': ?>
+			<tr>
+				<th scope="row" style="width: 140px">
+					<label for="<?php echo $id; ?>"><?php echo $name; ?></label>
+				</th>
+				<td>
+					<?php echo mysql2date( get_option( 'date_format' ), $meta ); ?>
+					<span class="description"><?php echo $desc; ?></span>
+				</td>
+			</tr>
+			<?php break; ?>
+			<?php case 'time': ?>
+			<tr>
+				<th scope="row" style="width: 140px">
+					<label for="<?php echo $id; ?>"><?php echo $name; ?></label>
+				</th>
+				<td>
+					<?php echo mysql2date( get_option( 'time_format' ), $meta ); ?>
+					<span class="description"><?php echo $desc; ?></span>
+				</td>
+			</tr>
+			<?php break; ?>
+			<?php case 'datetime': ?>
+			<tr>
+				<th scope="row" style="width: 140px">
+					<label for="<?php echo $id; ?>"><?php echo $name; ?></label>
+				</th>
+				<td>
+					<?php echo mysql2date( get_option( 'date_format' ), $meta ); ?>
+					<?php echo mysql2date( get_option( 'time_format' ), $meta ); ?>
+					<span class="description"><?php echo $desc; ?></span>
+				</td>
+			</tr>
+			<?php break; ?>
 			<?php } ?>
 			<?php endforeach; ?>
 		</table>
@@ -1164,7 +1198,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
 		global $wpdb;
 
 		$options = array( '0'=>' -- ' );
-		$query = $wpdb->prepare( "SELECT $wpdb->users.ID, $wpdb->users.display_name FROM $wpdb->users" );
+		$query = $wpdb->prepare( "SELECT $wpdb->users.ID, $wpdb->users.display_name FROM $wpdb->users", null );
 		$results = $wpdb->get_results( $query );
 
 		foreach ( (array)$results as $result ) {
