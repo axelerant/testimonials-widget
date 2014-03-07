@@ -174,20 +174,31 @@ class wp_custom_post_status
 		$options = $display = '';
 		foreach ( $wp_post_statuses as $status )
 		{
-			if ( ! $status->_builtin )
+			if ( ! empty( $status->internal ) )
+				continue;
+
+			if ( ! empty( $status->private ) )
+				continue;
+
+			if ( ! empty( $status->protected ) )
+				continue;
+
+			if ( empty( $status->_builtin ) )
 			{
-				if ( empty( $status->label_count['domain'] ) || 'cps_textdomain' != $status->label_count['domain'] )
+				if ( ! empty( $status->label_count['domain'] ) && 'cps_textdomain' != $status->label_count['domain'] )
 					continue;
 
-				// Match against the current posts status
-				$selected = selected( $post->post_status, $status->name, false );
-
-				// If we one of our custom post status is selected, remember it
-				$selected AND $display = $status->label;
-
-				// Build the options
-				$options .= "<option{$selected} value='{$status->name}'>{$status->label}</option>";
 			}
+
+			// Match against the current posts status
+			$selected = selected( $post->post_status, $status->name, false );
+
+			// If we one of our custom post status is selected, remember it
+			$selected AND $display = $status->label;
+
+			// Build the options
+			$options .= "<option{$selected} value='{$status->name}'>{$status->label}</option>";
+
 		}
 		?>
 		<script type="text/javascript">
