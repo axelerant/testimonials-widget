@@ -1,9 +1,8 @@
 # CHANGELOG Aihrus Framework
 
 ## master
-* Set defaults for validators
 
-## 1.1.0RC2
+## 1.1.0RC3
 * Add class redrokk_metabox_class
 * Add class wp_custom_post_status
 * Add date, time, and datetime types to redrokk_metabox_class
@@ -16,6 +15,7 @@
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * RESOLVE redrokk_metabox_class prepare warning
 * Set AIHR_DIR* helpers
+* Set defaults for validators
 * Update copyright year
 
 ## 1.0.3
