@@ -1,6 +1,7 @@
 # CHANGELOG Aihrus Framework
 
 ## master
+* Set defaults for validators
 
 ## 1.1.0RC2
 * Add class redrokk_metabox_class

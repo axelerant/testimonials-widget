@@ -688,7 +688,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_ids( $input, $default ) {
+	public static function validate_ids( $input, $default = false ) {
 		if ( preg_match( '#^\d+(,\s?\d+)*$#', $input ) )
 			return preg_replace( '#\s#', '', $input );
 
@@ -696,7 +696,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_order( $input, $default ) {
+	public static function validate_order( $input, $default = false ) {
 		if ( preg_match( '#^desc|asc$#i', $input ) )
 			return $input;
 
@@ -704,7 +704,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_slugs( $input, $default ) {
+	public static function validate_slugs( $input, $default = false ) {
 		if ( preg_match( '#^[\w-]+(,\s?[\w-]+)*$#', $input ) )
 			return preg_replace( '#\s#', '', $input );
 
@@ -712,7 +712,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_slug( $input, $default ) {
+	public static function validate_slug( $input, $default = false ) {
 		if ( preg_match( '#^[\w-]+$#', $input ) )
 			return $input;
 
@@ -720,7 +720,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_term( $input, $default ) {
+	public static function validate_term( $input, $default = false ) {
 		if ( preg_match( '#^\w+$#', $input ) )
 			return $input;
 
@@ -746,7 +746,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_email( $input, $default ) {
+	public static function validate_email( $input, $default = false ) {
 		if ( filter_var( $input, FILTER_VALIDATE_EMAIL ) )
 			return $input;
 
@@ -754,7 +754,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_terms( $input, $default ) {
+	public static function validate_terms( $input, $default = false ) {
 		if ( preg_match( '#^(([\w- ]+)(,\s?)?)+$#', $input ) )
 			return preg_replace( '#,\s*$#', '', $input );
 
@@ -762,7 +762,7 @@ abstract class Aihrus_Settings {
 	}
 
 
-	public static function validate_url( $input, $default ) {
+	public static function validate_url( $input, $default = false ) {
 		if ( filter_var( $input, FILTER_VALIDATE_URL ) )
 			return $input;
 
