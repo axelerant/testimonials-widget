@@ -1049,7 +1049,7 @@ EOF;
 			// widget display
 			if ( $use_bxslider ) {
 				$refresh_interval = $atts['refresh_interval'];
-				if ( ! empty( $refresh_interval ) && ! in_array( $transition_mode, array( 'horizontal', 'vertical' ) ) ) {
+				if ( ! $is_first && ! empty( $refresh_interval ) && ! in_array( $transition_mode, array( 'horizontal', 'vertical' ) ) ) {
 					$class .= ' display-none';
 				}
 			} else {
