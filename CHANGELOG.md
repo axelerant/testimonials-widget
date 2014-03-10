@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.18.4RC1
+* RESOLVE #69 Disallow .display-none when only 1 testimonials or no refresh_interval
+
 ## 2.18.3
 * Add option "Exclude bxSlider CSS?"
 * Exit if accessed directly
