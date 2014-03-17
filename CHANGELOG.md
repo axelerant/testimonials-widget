@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.18.4RC1
+## 2.18.4
 * RESOLVE #69 Disallow .display-none when only 1 testimonials or no refresh_interval
 
 ## 2.18.3
