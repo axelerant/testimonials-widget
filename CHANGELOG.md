@@ -2,7 +2,8 @@
 
 ## master
 
-## 2.18.5RC1
+## 2.19.0RC1
+* Aihrus 1.1.0
 
 ## 2.18.4
 * RESOLVE #69 Disallow .display-none when only 1 testimonials or no refresh_interval
