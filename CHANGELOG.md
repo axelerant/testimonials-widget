@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.0RC4
+## 1.1.0RC5
 * Abstract deactivate_plugins actual to aihr_deactivate_plugin_do
 * Add class redrokk_metabox_class
 * Add class wp_custom_post_status
@@ -17,6 +17,7 @@
 * Rename requirements.php to aihrus-framework.php
 * RESOLVE michael-cannon/testimonials-widget#63 Unable to activate premium license
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
+* RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
 * RESOLVE redrokk_metabox_class prepare warning
 * Set AIHR_DIR* helpers
 * Set defaults for validators
