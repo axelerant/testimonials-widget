@@ -416,6 +416,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
+= 2.19.0 =
+
+* Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
+
 = 2.18.3 =
 
 * CSS class `.hide` renamed `.display-none`

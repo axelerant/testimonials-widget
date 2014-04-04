@@ -5,9 +5,11 @@
 ## 2.19.0RC3
 * Aihrus 1.1.0RC5
 * Check system requirements after update
-* Revise Aihrus framework includes
-* RESOLVE #45 Plugin Disables Itself
 * Only check system requirements once a week
+* Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
+* RESOLVE #45 Plugin Disables Itself
+* RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
+* Revise Aihrus framework includes
 * Use aihr_deactivate_plugin call to deactivate
 
 ## 2.18.4
