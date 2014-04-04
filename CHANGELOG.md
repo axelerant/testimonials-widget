@@ -5,6 +5,7 @@
 ## 2.19.0RC1
 * Aihrus 1.1.0RC4
 * Revise Aihrus framework includes
+* Only check system requirements once a week
 * Use aihr_deactivate_plugin call to deactivate
 
 ## 2.18.4

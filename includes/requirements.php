@@ -20,6 +20,11 @@ require_once TW_DIR_LIB . 'aihrus-framework/aihrus-framework.php';
 
 
 function tw_requirements_check() {
+	$check_okay = get_transient( 'tw_requirements_check' );
+	if ( $check_okay !== false ) {
+		return $check_okay;
+	}
+
 	$deactivate_reason = false;
 	if ( ! function_exists( 'aihr_check_aihrus_framework' ) ) {
 		$deactivate_reason = esc_html__( 'Missing Aihrus Framework' );
@@ -40,7 +45,11 @@ function tw_requirements_check() {
 		aihr_deactivate_plugin( TW_BASE, TW_NAME, $deactivate_reason );
 	}
 
-	return empty( $deactivate_reason );
+	$check_okay = empty( $deactivate_reason );
+	delete_transient( 'tw_requirements_check' );
+	set_transient( 'tw_requirements_check', $check_okay, WEEK_IN_SECONDS );
+
+	return $check_okay;
 }
 
 
