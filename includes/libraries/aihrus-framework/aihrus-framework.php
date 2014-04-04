@@ -273,11 +273,18 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 
 if ( ! function_exists( 'aihr_deactivate_plugin' ) ) {
 	function aihr_deactivate_plugin( $file = null, $name = null, $reason = '' ) {
-		error_log( print_r( func_get_args(), true ) . ':' . __FUNCTION__  . ':' . __LINE__ . ':' . basename( __FILE__ ) );
+		error_log( __FUNCTION__  . ':' . __LINE__ . ':' . basename( __FILE__ ) );
+		error_log( print_r( func_get_args(), true ) );
+		error_log( print_r( debug_backtrace(), true ) );
 
 		if ( is_null( $file ) ) {
 			aihr_notice_error( __( '`aihr_deactivate_plugin` requires $file argument' ) );
 
+			return false;
+		}
+
+		if ( is_null( $name ) && empty( $reason ) ) {
+			aihr_deactivate_plugin_do( $file );
 			return false;
 		}
 
@@ -317,7 +324,19 @@ if ( ! function_exists( 'aihr_notice_deactivate' ) ) {
 
 		aihr_notice_error( $text );
 
-		deactivate_plugins( AIHR_DEACTIVATE_FILE );
+		aihr_deactivate_plugin_do( AIHR_DEACTIVATE_FILE );
+	}
+}
+
+if ( ! function_exists( 'aihr_deactivate_plugin_do' ) ) {
+	function aihr_deactivate_plugin_do( $file = null ) {
+		if ( is_null( $file ) ) {
+			aihr_notice_error( __( '`aihr_deactivate_plugin_do` requires $file argument' ) );
+
+			return false;
+		}
+
+		deactivate_plugins( $file );
 	}
 }
 
