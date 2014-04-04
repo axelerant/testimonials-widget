@@ -3,7 +3,7 @@
 ## master
 
 ## 2.19.0RC1
-* Aihrus 1.1.0
+* Aihrus 1.1.0RC4
 * Revise Aihrus framework includes
 
 ## 2.18.4
