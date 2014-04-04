@@ -14,10 +14,12 @@
 * Move classes/interfaces to includes
 * Register `jquery-style`
 * Rename requirements.php to aihrus-framework.php
+* RESOLVE michael-cannon/testimonials-widget#63 Unable to activate premium license
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * RESOLVE redrokk_metabox_class prepare warning
 * Set AIHR_DIR* helpers
 * Set defaults for validators
+* Set premium license key for a year
 * Update copyright year
 
 ## 1.0.3
