@@ -13,7 +13,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-require_once TW_DIR_LIB . 'aihrus-framework/class-aihrus-common.php';
+require_once AIHR_DIR_INC . 'class-aihrus-common.php';
 require_once TW_DIR_LIB . 'class-redrokk-metabox-class.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';

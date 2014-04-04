@@ -4,6 +4,7 @@
 
 ## 2.19.0RC1
 * Aihrus 1.1.0
+* Revise Aihrus framework includes
 
 ## 2.18.4
 * RESOLVE #69 Disallow .display-none when only 1 testimonials or no refresh_interval
