@@ -20,27 +20,27 @@ require_once TW_DIR_LIB . 'aihrus-framework/aihrus-framework.php';
 
 
 function tw_requirements_check() {
-	$valid_requirements = true;
+	$deactivate_reason = false;
 	if ( ! function_exists( 'aihr_check_aihrus_framework' ) ) {
-		$valid_requirements = false;
+		$deactivate_reason = esc_html__( 'Missing Aihrus Framework' );
 		add_action( 'admin_notices', 'tw_notice_aihrus' );
 	} elseif ( ! aihr_check_aihrus_framework( TW_BASE, TW_NAME, TW_AIHR_VERSION ) ) {
-		$valid_requirements = false;
+		$deactivate_reason = esc_html__( 'Old Aihrus Framework version detected' );
 	}
 
 	if ( ! aihr_check_php( TW_BASE, TW_NAME ) ) {
-		$valid_requirements = false;
+		$deactivate_reason = esc_html__( 'Old PHP version detected' );
 	}
 
 	if ( ! aihr_check_wp( TW_BASE, TW_NAME ) ) {
-		$valid_requirements = false;
+		$deactivate_reason = esc_html__( 'Old WordPress version detected' );
 	}
 
-	if ( ! $valid_requirements ) {
-		deactivate_plugins( TW_BASE );
+	if ( ! empty( $deactivate_reason ) ) {
+		aihr_deactivate_plugin( TW_BASE, TW_NAME, $deactivate_reason );
 	}
 
-	return $valid_requirements;
+	return empty( $deactivate_reason );
 }
 
 
