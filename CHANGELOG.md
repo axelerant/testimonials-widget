@@ -2,10 +2,11 @@
 
 ## master
 
-## 2.19.0RC1
+## 2.19.0RC2
 * Aihrus 1.1.0RC4
 * Check system requirements after update
 * Revise Aihrus framework includes
+* RESOLVE #45 Plugin Disables Itself
 * Only check system requirements once a week
 * Use aihr_deactivate_plugin call to deactivate
 
