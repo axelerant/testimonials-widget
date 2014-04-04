@@ -715,6 +715,9 @@ class Testimonials_Widget extends Aihrus_Common {
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
 
+		ksort( $atts );
+		error_log( print_r( $atts, true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
+
 		$atts['paging'] = false;
 		$atts['type']   = 'testimonialswidget_widget';
 
