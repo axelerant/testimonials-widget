@@ -295,8 +295,6 @@ if ( ! function_exists( 'aihr_deactivate_plugin' ) ) {
 
 		add_action( 'admin_notices', 'aihr_notice_deactivate' );
 	}
-
-	return $check_okay;
 }
 
 if ( ! function_exists( 'aihr_notice_deactivate' ) ) {
