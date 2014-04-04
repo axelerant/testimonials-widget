@@ -3,6 +3,7 @@
 ## master
 
 ## 1.1.0RC4
+* Abstract deactivate_plugins actual to aihr_deactivate_plugin_do
 * Add class redrokk_metabox_class
 * Add class wp_custom_post_status
 * Add date, time, and datetime types to redrokk_metabox_class
