@@ -712,17 +712,8 @@ class Testimonials_Widget extends Aihrus_Common {
 				$atts['enable_schema'] = 0;
 		}
 
-		if ( isset( $atts['hide_image_single'] ) )
-			error_log( var_export( $atts['hide_image_single'], true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
-
 		$atts = wp_parse_args( $atts, self::get_defaults() );
-
-		if ( isset( $atts['hide_image_single'] ) )
-			error_log( var_export( $atts['hide_image_single'], true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
-
-		if ( isset( $atts['hide_image_single'] ) )
-			error_log( var_export( $atts['hide_image_single'], true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
 
 		$atts['paging'] = false;
 		$atts['type']   = 'testimonialswidget_widget';
