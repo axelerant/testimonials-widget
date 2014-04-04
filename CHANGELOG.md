@@ -19,7 +19,7 @@
 * RESOLVE redrokk_metabox_class prepare warning
 * Set AIHR_DIR* helpers
 * Set defaults for validators
-* Set premium license key for a year
+* Set premium license key for 2 years though it expires at 1
 * Update copyright year
 
 ## 1.0.3
