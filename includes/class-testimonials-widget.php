@@ -351,8 +351,10 @@ class Testimonials_Widget extends Aihrus_Common {
 			if ( $prior_version < '2.15.0' )
 				self::set_notice( 'notice_2_15_0' );
 
-			if ( $prior_version < self::VERSION )
+			if ( $prior_version < self::VERSION ) {
+				tw_requirements_check( true );
 				do_action( 'testimonials_widget_update' );
+			}
 
 			tw_set_option( 'admin_notices' );
 		}
