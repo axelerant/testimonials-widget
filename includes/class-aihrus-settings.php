@@ -539,11 +539,7 @@ abstract class Aihrus_Settings {
 				if ( 'checkbox' != $type ) {
 					$input[ $id ] = $default;
 				} else {
-					if ( empty( $parts['widget'] ) ) {
-						continue;
-					} else {
-						$input[ $id ] = 0;
-					}
+					$input[ $id ] = 0;
 				}
 			}
 
