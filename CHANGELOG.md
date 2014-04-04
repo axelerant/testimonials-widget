@@ -3,7 +3,7 @@
 ## master
 
 ## 2.19.0RC2
-* Aihrus 1.1.0RC4
+* Aihrus 1.1.0RC5
 * Check system requirements after update
 * Revise Aihrus framework includes
 * RESOLVE #45 Plugin Disables Itself
