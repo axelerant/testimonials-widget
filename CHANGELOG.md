@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.0RC2
+## 2.19.0RC3
 * Aihrus 1.1.0RC5
 * Check system requirements after update
 * Revise Aihrus framework includes
