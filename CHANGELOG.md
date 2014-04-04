@@ -8,6 +8,7 @@
 * Add date, time, and datetime types to redrokk_metabox_class
 * Add rich_editor type
 * Add validate_email
+* Consolidate deactivate_plugins activity into aihr_deactivate_plugin
 * Don't esc_attr rich editor value
 * Limit wp_custom_post_status to post type
 * Move classes/interfaces to includes
