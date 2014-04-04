@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.0RC3
+## 1.1.0RC4
 * Add class redrokk_metabox_class
 * Add class wp_custom_post_status
 * Add date, time, and datetime types to redrokk_metabox_class
@@ -12,6 +12,7 @@
 * Limit wp_custom_post_status to post type
 * Move classes/interfaces to includes
 * Register `jquery-style`
+* Rename requirements.php to aihrus-framework.php
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * RESOLVE redrokk_metabox_class prepare warning
 * Set AIHR_DIR* helpers
