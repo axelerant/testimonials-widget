@@ -273,8 +273,6 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 
 if ( ! function_exists( 'aihr_deactivate_plugin' ) ) {
 	function aihr_deactivate_plugin( $file = null, $name = null, $reason = '' ) {
-		error_log( __FUNCTION__  . ':' . __LINE__ . ':' . basename( __FILE__ ) );
-		error_log( print_r( func_get_args(), true ) );
 		error_log( print_r( debug_backtrace(), true ) );
 
 		if ( is_null( $file ) ) {
