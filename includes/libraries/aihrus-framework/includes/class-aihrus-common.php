@@ -171,13 +171,19 @@ EOD;
 
 
 	public static function get_styles() {
-		if ( static::$styles_called )
+		if ( empty( self::$styles ) )
 			return;
 
-		foreach ( static::$styles as $style )
-			echo $style;
+		if ( empty( self::$styles_called ) ) {
+			echo '<style>';
 
-		static::$styles_called = true;
+			foreach ( self::$styles as $style )
+				echo $style;
+
+			echo '</style>';
+
+			self::$styles_called = true;
+		}
 	}
 
 
