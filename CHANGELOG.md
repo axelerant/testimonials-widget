@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.0RC3
+## 2.19.0RC4
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
 * Only check system requirements once a week

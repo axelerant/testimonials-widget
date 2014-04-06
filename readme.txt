@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.9.0
-Stable tag: 2.19.0RC3
+Stable tag: 2.19.0RC4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -552,6 +552,19 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 * [ReOrder Post Within Categories](http://wordpress.org/plugins/reorder-post-within-categories/) – Uses custom ordering table
 
 
+== Deprecation Notices ==
+
+= Deprecated Shortcodes =
+
+* `[[testimonialswidget_list]]` - Listings with paging 
+* `[[testimonialswidget_widget]]` - Rotating
+
+= Deprecated Theme Functions =
+
+* `testimonialswidget_list()` - Testimonials listing with paging 
+* `testimonialswidget_widget()` - Rotating testimonials
+
+
 == Localization ==
 
 * Dutch by Bjorn Robijns
@@ -572,13 +585,3 @@ You can translate this plugin into your own language if it's not done so already
 A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
-
-= Deprecated Shortcodes =
-
-* `[[testimonialswidget_list]]` - Listings with paging 
-* `[[testimonialswidget_widget]]` - Rotating
-
-= Deprecated Theme Functions =
-
-* `testimonialswidget_list()` - Testimonials listing with paging 
-* `testimonialswidget_widget()` - Rotating testimonials
