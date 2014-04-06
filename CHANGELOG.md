@@ -8,6 +8,7 @@
 * CSS class `.title` is now `.job-title`. Thank you Mark
 * Only check system requirements once a week
 * Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
+* RELATE #64 Remove deprecated options and codes
 * Require Aihrus 1.1.0
 * RESOLVE #20 Simplify shortcodes
 * RESOLVE #45 Plugin Disables Itself

@@ -229,9 +229,31 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
+		self::$settings['include_ie7_css'] = array(
+			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
+		);
+
 		self::$settings['disable_quotes'] = array(
 			'title' => esc_html__( 'Hide built-in quotes?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Remove open and close quote span tags surrounding testimonial content', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+		);
+
+		self::$settings['remove_hentry'] = array(
+			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Some themes use class `.hentry` in a manner that breaks Testimonials\' CSS', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+		);
+
+		self::$settings['use_quote_tag'] = array(
+			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Not HTML5 compliant', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 		);
@@ -682,44 +704,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Maximum Height', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Pre 2.15.0, Set for maximum display height, in pixels', 'testimonials-widget' ),
 			'validate' => 'min1',
-		);
-
-		self::$settings['include_ie7_css'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'IE7 specific CSS moved to separate CSS file in version 2.13.6.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.13.6',
-				'std' => 1,
-			),
-			'widget' => 0,
-		);
-
-		self::$settings['use_quote_tag'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Use `&lt;q&gt;` tag?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.11.0, not HTML5 compliant', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.11.0',
-				'std' => 1,
-			),
-		);
-
-		self::$settings['remove_hentry'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Remove `.hentry` CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Pre 2.6.4, some themes use class `.hentry` in a manner that breaks Testimonials\' CSS', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.6.4',
-				'std' => 1,
-			),
-			'std' => 1,
 		);
 
 		self::$settings['reset_expand_end'] = array(
