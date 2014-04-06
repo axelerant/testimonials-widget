@@ -96,20 +96,38 @@ register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivatio
 register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
 
 
-if ( ! function_exists( 'testimonialswidget_list' ) ) {
-	function testimonialswidget_list( $atts = array() ) {
+if ( ! function_exists( 'testimonials' ) ) {
+	function testimonials( $atts = array() ) {
 		global $Testimonials_Widget;
 
-		return $Testimonials_Widget->testimonialswidget_list( $atts );
+		return $Testimonials_Widget->testimonials( $atts );
+	}
+}
+
+
+if ( ! function_exists( 'testimonials_slider' ) ) {
+	function testimonials_slider( $atts = array(), $widget_number = null ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_slider( $atts, $widget_number );
+	}
+}
+
+
+if ( ! function_exists( 'testimonialswidget_list' ) ) {
+	function testimonialswidget_list( $atts = array() ) {
+		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials()' );
+
+		return testimonials( $atts );
 	}
 }
 
 
 if ( ! function_exists( 'testimonialswidget_widget' ) ) {
 	function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
-		global $Testimonials_Widget;
+		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials_slider()' );
 
-		return $Testimonials_Widget->testimonialswidget_widget( $atts, $widget_number );
+		return testimonials_slider( $atts, $widget_number );
 	}
 }
 

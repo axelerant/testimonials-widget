@@ -337,7 +337,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		self::$settings['paging'] = array(
 			'title' => esc_html__( 'Enable Paging?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'For `[testimonialswidget_list]`', 'testimonials-widget' ),
+			'desc' => esc_html__( 'For `[testimonials]`', 'testimonials-widget' ),
 			'type' => 'select',
 			'choices' => array(
 				'' => esc_html__( 'Disable', 'testimonials-widget' ),

@@ -13,6 +13,8 @@
 * RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
 * Revise Aihrus framework includes
 * Revise version_check
+* Shortcode and theme function `testimonialswidget_list` being deprecated by `testimonials`
+* Shortcode and theme function `testimonialswidget_widget` being deprecated by `testimonials_slider`
 * Use aihr_deactivate_plugin call to deactivate
 
 ## 2.18.4
