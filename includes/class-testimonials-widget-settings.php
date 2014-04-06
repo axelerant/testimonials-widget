@@ -109,6 +109,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
 		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
+		self::$sections['columns'] = esc_html__( 'Columns', 'testimonials-widget' );
 
 		parent::sections();
 
@@ -518,6 +519,77 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
+		// Columns
+		self::$settings['columns_id'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide ID?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
+		self::$settings['columns_thumbnail'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Image?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
+		);
+
+		self::$settings['columns_shortcode'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Shortcode?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
+		);
+
+		self::$settings['columns_job_title'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Job Title?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
+		self::$settings['columns_location'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Location?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
+		self::$settings['columns_email'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
+		self::$settings['columns_company'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
+		self::$settings['columns_url'] = array(
+			'section' => 'columns',
+			'title' => esc_html__( 'Hide URL?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+			'widget' => 0,
+		);
+
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
@@ -908,6 +980,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				'id'     => 'tw-post_type',
 				'title'     => esc_html__( 'Post Type', 'testimonials-widget' ),
 				'content' => '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>'
+			)
+		);
+
+		$screen->add_help_tab(
+			array(
+				'id'     => 'tw-columns',
+				'title'     => esc_html__( 'Columns', 'testimonials-widget' ),
+				'content' => '<p>' . esc_html__( 'Allowed columns to display on edit page.', 'testimonials-widget' ) . '</p>'
 			)
 		);
 

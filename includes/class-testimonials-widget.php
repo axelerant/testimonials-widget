@@ -544,15 +544,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'id' => esc_html__( 'ID', 'testimonials-widget' ),
-			'thumbnail' => esc_html__( 'Image', 'testimonials-widget' ),
 			'title' => esc_html__( 'Source', 'testimonials-widget' ),
-			'shortcode' => esc_html__( 'Shortcodes', 'testimonials-widget' ),
-			'testimonials-widget-title' => esc_html__( 'Job Title', 'testimonials-widget' ),
-			'testimonials-widget-location' => esc_html__( 'Location', 'testimonials-widget' ),
-			'testimonials-widget-email' => esc_html__( 'Email', 'testimonials-widget' ),
-			'testimonials-widget-company' => esc_html__( 'Company', 'testimonials-widget' ),
-			'testimonials-widget-url' => esc_html__( 'URL', 'testimonials-widget' ),
 			'author' => esc_html__( 'Published by', 'testimonials-widget' ),
 			'date' => esc_html__( 'Date', 'testimonials-widget' ),
 		);
@@ -564,6 +556,46 @@ class Testimonials_Widget extends Aihrus_Common {
 		} else {
 			$columns[ self::$cpt_category ] = esc_html__( 'Category', 'testimonials-widget' );
 			$columns[ self::$cpt_tags ]     = esc_html__( 'Tags', 'testimonials-widget' );
+		}
+
+		$show_id = tw_get_option( 'columns_id' );
+		if ( empty( $show_id ) ) {
+			$columns[ 'id' ] = esc_html__( 'ID', 'testimonials-widget' );
+		}
+
+		$show_thumbnail = tw_get_option( 'columns_thumbnail' );
+		if ( empty( $show_thumbnail ) ) {
+			$columns[ 'thumbnail' ] = esc_html__( 'Image', 'testimonials-widget' );
+		}
+
+		$show_shortcode = tw_get_option( 'columns_shortcode' );
+		if ( empty( $show_shortcode ) ) {
+			$columns[ 'shortcode' ] = esc_html__( 'Shortcodes', 'testimonials-widget' );
+		}
+
+		$show_job_title = tw_get_option( 'columns_job_title' );
+		if ( empty( $show_job_title ) ) {
+			$columns[ 'testimonials-widget-title' ] = esc_html__( 'Job Title', 'testimonials-widget' );
+		}
+
+		$show_location = tw_get_option( 'columns_location' );
+		if ( empty( $show_location ) ) {
+			$columns[ 'testimonials-widget-location' ] = esc_html__( 'Location', 'testimonials-widget' );
+		}
+
+		$show_email = tw_get_option( 'columns_email' );
+		if ( empty( $show_email ) ) {
+			$columns[ 'testimonials-widget-email' ] = esc_html__( 'Email', 'testimonials-widget' );
+		}
+
+		$show_company = tw_get_option( 'columns_company' );
+		if ( empty( $show_company ) ) {
+			$columns[ 'testimonials-widget-company' ] = esc_html__( 'Company', 'testimonials-widget' );
+		}
+
+		$show_url = tw_get_option( 'columns_url' );
+		if ( empty( $show_url ) ) {
+			$columns[ 'testimonials-widget-url' ] = esc_html__( 'URL', 'testimonials-widget' );
 		}
 
 		$columns = apply_filters( 'testimonials_widget_columns', $columns );

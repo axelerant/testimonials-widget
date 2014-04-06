@@ -405,6 +405,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 19. Using Review and AggregateRating schema data structures
 20. Testimonials Shortcode Examples page
 21. Shortcode helpers on category and tag admin screens
+22. Testimonials Settings > Columns tab
 
 [gallery]
 

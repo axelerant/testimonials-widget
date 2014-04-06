@@ -3,6 +3,7 @@
 ## master
 
 ## 2.19.0RC4
+* Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
 * Only check system requirements once a week
@@ -10,6 +11,7 @@
 * Require Aihrus 1.1.0
 * RESOLVE #20 Simplify shortcodes
 * RESOLVE #45 Plugin Disables Itself
+* RESOLVE #56 Prevent edit page column overload
 * RESOLVE #67 Use .job-title than .title for job title span class
 * RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
 * Revise Aihrus framework includes
