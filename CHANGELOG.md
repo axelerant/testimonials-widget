@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.0RC5
+## 1.1.0
 * Abstract deactivate_plugins actual to aihr_deactivate_plugin_do
 * Add class redrokk_metabox_class
 * Add class wp_custom_post_status
@@ -19,6 +19,7 @@
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 * RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
 * RESOLVE redrokk_metabox_class prepare warning
+* Revise get_styles handling
 * Set AIHR_DIR* helpers
 * Set defaults for validators
 * Set premium license key for 2 years though it expires at 1
