@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.0RC4
+## 2.19.0RC5
 * Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
