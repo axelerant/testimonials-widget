@@ -1231,7 +1231,7 @@ EOF;
 			$cite .= '<span class="join-title"></span>';
 
 		if ( $do_title ) {
-			$cite .= '<span class="title">';
+			$cite .= '<span class="job-title">';
 			$cite .= $testimonial_title;
 			$cite .= '</span>';
 		}
@@ -2043,9 +2043,14 @@ EOD;
 
 
 	public static function version_check() {
-		$good_version = true;
+		$valid_version = true;
+		if ( ! $valid_version ) {
+			$deactivate_reason = esc_html__( 'Failed version check' );
+			aihr_deactivate_plugin( self::BASE, TW_NAME, $deactivate_reason );
+			self::check_notices();
+		}
 
-		return $good_version;
+		return $valid_version;
 	}
 
 

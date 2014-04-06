@@ -3,13 +3,16 @@
 ## master
 
 ## 2.19.0RC3
-* Aihrus 1.1.0RC5
 * Check system requirements after update
+* CSS class `.title` is now `.job-title`. Thank you Mark
 * Only check system requirements once a week
 * Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
+* Require Aihrus 1.1.0
 * RESOLVE #45 Plugin Disables Itself
+* RESOLVE #67 Use .job-title than .title for job title span class
 * RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
 * Revise Aihrus framework includes
+* Revise version_check
 * Use aihr_deactivate_plugin call to deactivate
 
 ## 2.18.4

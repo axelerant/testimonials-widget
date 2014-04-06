@@ -418,6 +418,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 2.19.0 =
 
+* CSS class `.title` is now `.job-title`. Thank you Mark
 * Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
 
 = 2.18.3 =
