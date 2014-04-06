@@ -221,28 +221,11 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
-		$desc = __( 'Adds HTML tag markup per the <a href="%s">Review schema</a> to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.', 'testimonials-widget' );
-
-		self::$settings['enable_schema'] = array(
-			'title' => esc_html__( 'Enable Review Schema?', 'testimonials-widget' ),
-			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
+		self::$settings['exclude_bxslider_css'] = array(
+			'title' => esc_html__( 'Exclude bxSlider CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'For a bare-bones, unthemed slider.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-			'std' => 1,
-		);
-
-		self::$settings['item_reviewed'] = array(
-			'title' => esc_html__( 'Default Reviewed Item?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Name of thing being referenced in testimonials', 'testimonials-widget' ),
-			'std' => get_option( 'blogname' ),
-			'widget' => 0,
-		);
-
-		self::$settings['item_reviewed_url'] = array(
-			'title' => esc_html__( 'Default Reviewed Item URL?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'URL of thing being referenced in testimonials', 'testimonials-widget' ),
-			'std' => network_site_url(),
-			'validate' => 'url',
 			'widget' => 0,
 		);
 
@@ -253,10 +236,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'validate' => 'is_true',
 		);
 
-		self::$settings['hide_not_found'] = array(
-			'title' => esc_html__( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
+		self::$settings['general_heading_fields'] = array(
+			'desc' => esc_html__( 'Fields to Show', 'testimonials-widget' ),
+			'type' => 'heading',
 		);
 
 		self::$settings['hide_gravatar'] = array(
@@ -322,18 +304,24 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'validate' => 'is_true',
 		);
 
-		self::$settings['exclude_bxslider_css'] = array(
-			'title' => esc_html__( 'Exclude bxSlider CSS?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'For a bare-bones, unthemed slider.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
+		self::$settings['general_heading_misc'] = array(
+			'desc' => esc_html__( 'Miscellanious', 'testimonials-widget' ),
+			'type' => 'heading',
+		);
+
+		self::$settings['item_reviewed'] = array(
+			'title' => esc_html__( 'Default Reviewed Item?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Name of thing being referenced in testimonials', 'testimonials-widget' ),
+			'std' => get_option( 'blogname' ),
 			'widget' => 0,
 		);
 
-		self::$settings['target'] = array(
-			'title' => esc_html__( 'URL Target', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
-			'validate' => 'term',
+		self::$settings['item_reviewed_url'] = array(
+			'title' => esc_html__( 'Default Reviewed Item URL?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'URL of thing being referenced in testimonials', 'testimonials-widget' ),
+			'std' => network_site_url(),
+			'validate' => 'url',
+			'widget' => 0,
 		);
 
 		self::$settings['paging'] = array(
@@ -350,12 +338,34 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
+		$desc = __( 'Adds HTML tag markup per the <a href="%s">Review schema</a> to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.', 'testimonials-widget' );
+
+		self::$settings['enable_schema'] = array(
+			'title' => esc_html__( 'Enable Review Schema?', 'testimonials-widget' ),
+			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+		);
+
 		self::$settings['do_shortcode'] = array(
 			'title' => esc_html__( 'Enable [shortcodes]?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'If unchecked, shortcodes are stripped.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,
+		);
+
+		self::$settings['hide_not_found'] = array(
+			'title' => esc_html__( 'Hide "Testimonials Not Found"?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+		);
+
+		self::$settings['target'] = array(
+			'title' => esc_html__( 'URL Target', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Add target to all URLs; leave blank if none', 'testimonials-widget' ),
+			'validate' => 'term',
 		);
 
 		self::$settings['general_expand_end'] = array(
