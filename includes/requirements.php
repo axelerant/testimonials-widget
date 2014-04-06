@@ -47,7 +47,7 @@ function tw_requirements_check( $force_check = false ) {
 
 	$check_okay = empty( $deactivate_reason );
 	delete_transient( 'tw_requirements_check' );
-	set_transient( 'tw_requirements_check', $check_okay, WEEK_IN_SECONDS );
+	set_transient( 'tw_requirements_check', $check_okay, HOUR_IN_SECONDS );
 
 	return $check_okay;
 }
