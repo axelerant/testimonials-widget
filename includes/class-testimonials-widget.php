@@ -2093,7 +2093,7 @@ EOD;
 	public static function version_check() {
 		$valid_version = true;
 		if ( ! $valid_version ) {
-			$deactivate_reason = esc_html__( 'Failed version check' );
+			$deactivate_reason = esc_html__( 'Failed version check', 'testimonials-widget' );
 			aihr_deactivate_plugin( self::BASE, TW_NAME, $deactivate_reason );
 			self::check_notices();
 		}
