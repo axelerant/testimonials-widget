@@ -19,6 +19,7 @@
 * Revise version_check
 * Shortcode and theme function `testimonialswidget_list` being deprecated by `testimonials`
 * Shortcode and theme function `testimonialswidget_widget` being deprecated by `testimonials_slider`
+* Update BxSlider v4.1.2
 * Use aihr_deactivate_plugin call to deactivate
 
 ## 2.18.4
