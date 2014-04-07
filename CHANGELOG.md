@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.0RC5
+## 2.19.0
 * Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
@@ -14,7 +14,7 @@
 * RESOLVE #45 Plugin Disables Itself
 * RESOLVE #56 Prevent edit page column overload
 * RESOLVE #67 Use .job-title than .title for job title span class
-* RESOLVE michael-cannon/testimonials-widget#76 Undefined index: hide_image_single
+* RESOLVE #76 Undefined index: hide_image_single
 * Revise Aihrus framework includes
 * Revise version_check
 * Shortcode and theme function `testimonialswidget_list` being deprecated by `testimonials`
