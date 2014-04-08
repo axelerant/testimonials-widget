@@ -2,6 +2,8 @@
 
 ## master
 
+## 2.19.1RC1
+
 ## 2.19.0
 * Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
