@@ -3,6 +3,8 @@
 ## master
 
 ## 2.19.1RC1
+* Remove unsued `widget_options`
+* Require Aihrus 1.1.1
 
 ## 2.19.0
 * Add screenshot 22. Testimonials Settings > Columns tab

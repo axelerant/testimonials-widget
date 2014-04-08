@@ -100,17 +100,9 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 			);
 		}
 
-		$form_parts = self::widget_options( $form_parts );
+		$form_parts = apply_filters( 'testimonials_widget_widget_options', $form_parts );
 
 		return $form_parts;
-	}
-
-
-	public static function widget_options( $options ) {
-		$options = parent::widget_options( $options );
-		$options = apply_filters( 'testimonials_widget_widget_options', $options );
-
-		return $options;
 	}
 
 
