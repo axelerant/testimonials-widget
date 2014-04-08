@@ -2,6 +2,8 @@
 
 ## master
 
+## 1.1.1RC1
+
 ## 1.1.0
 * Abstract deactivate_plugins actual to aihr_deactivate_plugin_do
 * Add class redrokk_metabox_class
