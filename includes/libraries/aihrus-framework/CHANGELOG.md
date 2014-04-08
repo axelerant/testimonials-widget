@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.1RC1
+## 1.1.1
 * Remove unused `widget_options`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly
 
