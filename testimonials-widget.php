@@ -3,7 +3,7 @@
  * Plugin Name: Testimonials by Aihrus
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: Testimonials by Aihrus lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 2.19.1
+ * Version: 2.19.2
  * Author: Michael Cannon
  * Author URI: http://aihr.us/resume/
  * License: GPLv2 or later
@@ -52,7 +52,7 @@ if ( ! defined( 'TW_PREMIUM_LINK' ) )
 	define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Buy Premium</a>' );
 
 if ( ! defined( 'TW_VERSION' ) )
-	define( 'TW_VERSION', '2.19.1' );
+	define( 'TW_VERSION', '2.19.2' );
 
 require_once TW_DIR_INC . 'requirements.php';
 

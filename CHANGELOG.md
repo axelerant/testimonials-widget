@@ -2,6 +2,10 @@
 
 ## master
 
+## 2.19.2
+
+* Force WordPress to update files
+
 ## 2.19.1
 * Please resave your Testimonials > Settings and Widget options for defaults to be corrected
 * Remove unsued `widget_options`
