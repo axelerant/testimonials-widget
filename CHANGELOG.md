@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.1RC1
+## 2.19.1
 * Please resave your Testimonials > Settings and Widget options for defaults to be corrected
 * Remove unsued `widget_options`
 * Require Aihrus 1.1.1
