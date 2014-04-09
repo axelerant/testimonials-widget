@@ -2,6 +2,10 @@
 
 ## master
 
+## 1.1.2RC1
+* Code formatting
+* Restore default wp_remote_get timeout
+
 ## 1.1.1
 * Remove unused `widget_options`
 * RESOLVE michael-cannon/testimonials-widget#65 Widget blank options aren't saving correctly

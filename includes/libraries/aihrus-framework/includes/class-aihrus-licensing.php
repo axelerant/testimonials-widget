@@ -54,8 +54,9 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 
 	public function update_license( $value = null ) {
 		$license = $this->get_license();
-		if ( $license === $value )
+		if ( $license === $value ) {
 			return $value;
+		}
 
 		if ( $this->valid_hash( $value ) ) {
 			$this->set_license( $value );
@@ -77,17 +78,19 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 
 		delete_transient( $key );
 
-		if ( ! is_null( $value ) )
+		if ( ! is_null( $value ) ) {
 			set_transient( $key, $value, 2 * YEAR_IN_SECONDS );
+		}
 	}
 
 
 	public function valid_license() {
 		$license = $this->get_license();
-		if ( $this->valid_hash( $license ) )
+		if ( $this->valid_hash( $license ) ) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 
 
@@ -112,7 +115,6 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 		$response = wp_remote_get(
 			$api_call,
 			array(
-				'timeout' => 10,
 				'sslverify' => false,
 			)
 		);
@@ -140,8 +142,9 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 	public function get_license_data( $action = 'check_license' ) {
 		$api_call = $this->get_api_call( $action );
 		$response = $this->get_remote_get( $api_call );
-		if ( is_wp_error( $response ) )
+		if ( is_wp_error( $response ) ) {
 			return false;
+		}
 
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
@@ -152,8 +155,9 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 	public function deactivate_license() {
 		$license_data = $this->get_license_data( 'deactivate_license' );
 		if ( false !== $license_data ) {
-			if ( 'deactivated' == $license_data->license )
+			if ( 'deactivated' == $license_data->license ) {
 				return true;
+			}
 
 			return $license_data->license;
 		}
@@ -175,8 +179,9 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 
 
 	public function valid_hash( $value = null ) {
-		if ( is_string( $value ) && preg_match( '#^[0-9a-f]{32}$#i', $value ) )
+		if ( is_string( $value ) && preg_match( '#^[0-9a-f]{32}$#i', $value ) ) {
 			return true;
+		}
 
 		return false;
 	}
