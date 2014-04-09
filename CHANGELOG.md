@@ -2,8 +2,10 @@
 
 ## master
 
-## 2.19.2
+## 2.19.3RC1
+* RESOLVE michael-cannon/testimonials-widget#80 DB Performance Issues
 
+## 2.19.2
 * Force WordPress to update files
 
 ## 2.19.1
