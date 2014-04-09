@@ -4,6 +4,7 @@
 
 ## 1.1.2RC1
 * Code formatting
+* Don't remove license from settings
 * Restore default wp_remote_get timeout
 
 ## 1.1.1
