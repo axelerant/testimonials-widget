@@ -62,14 +62,12 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 			$this->set_license( $value );
 			$value = $this->activate_license();
 			$this->set_license( $value );
-
-			return $value;
 		} else {
 			$this->deactivate_license();
 			$this->delete_license();
-
-			return '';
 		}
+
+		return $value;
 	}
 
 
