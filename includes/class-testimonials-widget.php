@@ -1473,12 +1473,17 @@ EOF;
 		if ( has_filter( 'posts_orderby', 'CPTOrderPosts' ) )
 			remove_filter( 'posts_orderby', 'CPTOrderPosts', 99, 2 );
 
+		if ( empty( $fields ) ) {
+			$fields = false;
+		}
+
 		if ( $random ) {
 			$orderby = 'rand';
 			$order   = false;
 		}
 
 		$args = array(
+			'fields' => $fields,
 			'orderby' => $orderby,
 			'post_status' => array(
 				'publish',
