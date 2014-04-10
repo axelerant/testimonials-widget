@@ -16,8 +16,9 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-if ( class_exists( 'Aihrus_Licensing' ) )
+if ( class_exists( 'Aihrus_Licensing' ) ) {
 	return;
+}
 
 require_once 'interface-aihrus-licensing.php';
 
@@ -25,15 +26,19 @@ require_once 'interface-aihrus-licensing.php';
 abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 	public $author;
 	public $item_name;
+	public $item_name_encoded;
 	public $slug;
 	public $store_url;
 
+	public static $settings_saved = false;
+
 
 	public function __construct( $slug, $item_name, $author = 'Michael Cannon', $store_url = 'http://aihr.us' ) {
-		$this->author    = $author;
-		$this->item_name = urlencode( $item_name );
-		$this->slug      = $slug;
-		$this->store_url = $store_url;
+		$this->author            = $author;
+		$this->item_name_encoded = urlencode( $item_name );
+		$this->item_name         = $item_name;
+		$this->slug              = $slug;
+		$this->store_url         = $store_url;
 	}
 
 
@@ -58,6 +63,7 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 			return $value;
 		}
 
+		$deactivate_license = false;
 		if ( $this->valid_hash( $value ) ) {
 			$this->set_license( $value );
 			$value = $this->activate_license();
@@ -65,6 +71,24 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 		} else {
 			$this->deactivate_license();
 			$this->delete_license();
+
+			$deactivate_license = true;
+			$value              = '';
+		}
+
+		if ( $this->valid_license() ) {
+			$text = esc_html__( '%s license saved.' );
+			$text = sprintf( $text, $this->item_name );
+			add_settings_error( static::$settings_id, 'license_saved', $text, 'updated' );
+		} elseif ( empty( $deactivate_license ) ) {
+			$text = esc_html__( '%s license not saved.' );
+			$text = sprintf( $text, $this->item_name );
+			add_settings_error( static::$settings_id, 'license_not_saved', $text, 'error' );
+		}
+
+		if ( empty( self::$settings_saved ) ) {
+			self::$settings_saved = true;
+			set_transient( 'settings_errors', get_settings_errors(), 30 );
 		}
 
 		return $value;
@@ -73,7 +97,6 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 
 	public function set_license( $value = null ) {
 		$key = $this->license_key();
-
 		delete_transient( $key );
 
 		if ( ! is_null( $value ) ) {
@@ -96,7 +119,7 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 		$license    = $this->get_license();
 		$api_params = array(
 			'edd_action' => $action,
-			'item_name' => $this->item_name,
+			'item_name' => $this->item_name_encoded,
 			'license' => $license,
 		);
 
@@ -154,6 +177,10 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 		$license_data = $this->get_license_data( 'deactivate_license' );
 		if ( false !== $license_data ) {
 			if ( 'deactivated' == $license_data->license ) {
+				$text = esc_html__( '%s license deactivated.' );
+				$text = sprintf( $text, $this->item_name );
+				add_settings_error( static::$settings_id, 'license_deactivated', $text, 'updated' );
+
 				return true;
 			}
 
