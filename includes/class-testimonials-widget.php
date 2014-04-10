@@ -2119,7 +2119,7 @@ EOD;
 		} elseif ( ! empty( $_REQUEST['post_type'] ) && self::PT == $_REQUEST['post_type'] ) {
 			if ( ! empty( $GLOBALS['pagenow'] ) && in_array( $GLOBALS['pagenow'], array( 'edit.php', 'edit-tags.php' ) ) ) {
 				$do_load = true;
-			} elseif ( ! empty( $_REQUEST['page'] ) && Testimonials_Widget_Settings::ID == $_REQUEST['page'] ) {
+			} elseif ( ! empty( $_REQUEST['option_page'] ) && Testimonials_Widget_Settings::ID == $_REQUEST['option_page'] ) {
 				$do_load = true;
 			}
 		}
