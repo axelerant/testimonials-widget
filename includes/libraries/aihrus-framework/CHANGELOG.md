@@ -3,9 +3,11 @@
 ## master
 
 ## 1.1.2RC1
+* Add licensing status notices
 * Code formatting
 * Don't remove license from settings
 * Restore default wp_remote_get timeout
+* Update settings page detection
 
 ## 1.1.1
 * Remove unused `widget_options`
