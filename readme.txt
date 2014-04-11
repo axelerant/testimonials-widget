@@ -62,8 +62,8 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Shortcodes =
 
-* `[[testimonials]]` - Listings with paging 
-* `[[testimonials_slider]]` - Rotating
+* `[testimonials]` - Listings with paging 
+* `[testimonials_slider]` - Rotating
 
 = Theme Functions =
 
@@ -97,9 +97,9 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 = Premium Shortcodes =
 
-* Count of testimonials `[[testimonials_count]]`
-* List of testimonial source and title linking to full entry `[[testimonials_links]]` 
-* Testimonials entry form `[[testimonials_form]]`
+* Count of testimonials `[testimonials_count]`
+* List of testimonial source and title linking to full entry `[testimonials_links]` 
+* Testimonials entry form `[testimonials_form]`
 
 = Premium Theme Functions =
 
@@ -156,23 +156,23 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 
 = Shortcode Examples =
 
-**[[testimonials]]**
+**[testimonials]**
 
-* `[[testimonials category="category-name"]]` - Testimonial list by category
-* `[[testimonials category=product hide_not_found=true]]` - Testimonial list by category and hide "No testimonials found" message
-* `[[testimonials category=product tags=widget limit=5]]` - Testimonial list by tag, showing 5 at most
-* `[[testimonials char_limit=0 limit=-1]]` - Show all testimonials on one page
-* `[[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]]` - Show 3 full-length testimonials, with opening and closing quote marks removed
-* `[[testimonials hide_source=true hide_url=true]]` - Show testimonial list with source and urls hidden
-* `[[testimonials ids="1,11,111" paging=false]]` - Show only these 3 testimonials
-* `[[testimonials meta_key=testimonials-widget-company order=asc limit=15]]` - Show 15 testimonials, in company order
-* `[[testimonials order=ASC orderby=title]]` - List testimonials by post title
-* `[[testimonials tags="test,fun" random=true exclude="2,22,333"]]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
+* `[testimonials category="category-name"]` - Testimonial list by category
+* `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
+* `[testimonials category=product tags=widget limit=5]` - Testimonial list by tag, showing 5 at most
+* `[testimonials char_limit=0 limit=-1]` - Show all testimonials on one page
+* `[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]` - Show 3 full-length testimonials, with opening and closing quote marks removed
+* `[testimonials hide_source=true hide_url=true]` - Show testimonial list with source and urls hidden
+* `[testimonials ids="1,11,111" paging=false]` - Show only these 3 testimonials
+* `[testimonials meta_key=testimonials-widget-company order=asc limit=15]` - Show 15 testimonials, in company order
+* `[testimonials order=ASC orderby=title]` - List testimonials by post title
+* `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 
-**[[testimonials_slider]]**
+**[testimonials_slider]**
 
-* `[[testimonials_slider category=product order=asc]]` - Show rotating testimonials, of the product category, lowest post ids first
-* `[[testimonials_slider tags=sometag random=true]]` - Show rotating, random testimonials having tag "sometag"
+* `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first
+* `[testimonials_slider tags=sometag random=true]` - Show rotating, random testimonials having tag "sometag"
 
 = Shortcode and Widget Options =
 
@@ -216,7 +216,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
 * URL Target - Add target to all URLs; leave blank if none
 	* `target` - default none; target=_new
-* Enable Paging? - for [[testimonials]]
+* Enable Paging? - for [testimonials]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
 		* `before` – display paging only before testimonial entries
@@ -342,7 +342,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 1. Add and manage testimonials through the "Testimonials" menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to "Widgets" menu and drag "Testimonials" widget into the desired widget area
 1. Configure "Testimonials" to select quotes and display as needed
-1. Use the `[[testimonials]]` or `[[testimonials_slider]]` shortcodes to display testimonials on a page or in a post
+1. Use the `[testimonials]` or `[testimonials_slider]` shortcodes to display testimonials on a page or in a post
 1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for `testimonials()` and `testimonials_slider()`
 
 = Upgrading =
@@ -388,8 +388,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 2. Collapsed Testimonials options
 3. Expanded "General Options" in Testimonials options
 4. Testimonial widget in the sidebar 
-5. [[testimonials]] in post
-6. [[testimonials]] results with paging
+5. [testimonials] in post
+6. [testimonials] results with paging
 7. Widget whitespace kept
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
@@ -557,8 +557,8 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 = Deprecated Shortcodes =
 
-* `[[testimonialswidget_list]]` - Listings with paging 
-* `[[testimonialswidget_widget]]` - Rotating
+* `[testimonialswidget_list]` - Listings with paging 
+* `[testimonialswidget_widget]` - Rotating
 
 = Deprecated Theme Functions =
 

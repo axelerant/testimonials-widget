@@ -3,6 +3,7 @@
 ## master
 
 ## 2.19.3RC1
+* Replace [[/]] with [/]
 * Require Aihrus 1.1.2RC1
 * RESOLVE #80 DB Performance Issues
 * Update settings page detection
