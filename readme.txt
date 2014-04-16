@@ -360,26 +360,26 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Most Common Issues =
 
-* Got `Parse error: syntax error, unexpected T_STATIC, expecting ')'`? Read [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006) for the fixes.
+* Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
 * [404 - Page not found](https://aihrus.zendesk.com/entries/23679301)
-* [Change or debug CSS](https://aihrus.zendesk.com/entries/24910733) AKA "What's up with these quotes?"
+* [Change styling or debug CSS](https://aihrus.zendesk.com/entries/24910733)
 * [Customize bxSlider](http://bxslider.com/examples)
-* [Debug common theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
-* [How do I change my widget's rotation speed or other options?](https://aihrus.zendesk.com/entries/27714083)
+* [Debug theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
 * [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+* [How do I reset testimonials?](https://aihrus.zendesk.com/entries/30746533)
 * [How to change testimonials layout](https://aihrus.zendesk.com/entries/38055707)
-* [My options don't work, no matter what I do.](https://aihrus.zendesk.com/entries/30746533)
+* [My options don't work](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
-* [Widgets don't rotate](https://aihrus.zendesk.com/entries/23693363)
+* [Testimonials don't rotate](https://aihrus.zendesk.com/entries/23693363)
 
 = Still Stuck or Want Something Done? Get Support! =
 
-1. [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507) - read and comment upon 125+ frequently asked questions
-1. [Open Testimonials Issues](https://github.com/michael-cannon/testimonials-widget/issues) - review and submit bug reports and enhancement requests
-1. [Testimonials Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
-1. [Contribute Code to Testimonials](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
-1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - get the latest Testimonials version
+1. [Knowledge Base](https://aihrus.zendesk.com/categories/20104507) - read and comment upon 125+ frequently asked questions
+1. [Open Issues](https://github.com/michael-cannon/testimonials-widget/issues) - review and submit bug reports and enhancement requests
+1. [Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
+1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
+1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - provide feedback and direction to plugin development
 
 
 == Screenshots ==

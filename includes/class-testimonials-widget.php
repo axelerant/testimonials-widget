@@ -696,10 +696,14 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function get_defaults( $single_view = false ) {
-		if ( empty( $single_view ) )
-			return apply_filters( 'testimonials_widget_defaults', tw_get_options() );
-		else
-			return apply_filters( 'testimonials_widget_defaults_single', tw_get_options() );
+		$options = tw_get_options();
+		if ( empty( $single_view ) ) {
+			$defaults = apply_filters( 'testimonials_widget_defaults', $options );
+		} else {
+			$defaults = apply_filters( 'testimonials_widget_defaults_single', $options );
+		}
+
+		return $defaults;
 	}
 
 
