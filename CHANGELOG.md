@@ -8,6 +8,7 @@
 * Don't remove license from settings
 * RESOLVE Undefined index
 * Restore default wp_remote_get timeout
+* Return if library class exists already
 * Update settings page detection
 
 ## 1.1.1
