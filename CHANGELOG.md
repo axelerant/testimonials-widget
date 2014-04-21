@@ -2,10 +2,10 @@
 
 ## master
 
-## 2.19.3RC1
+## 2.19.3
 * Refactor get_defaults
 * Replace [[/]] with [/]
-* Require Aihrus 1.1.2RC1
+* Require Aihrus 1.1.2
 * RESOLVE #80 DB Performance Issues
 * Revise FAQ section
 * Update settings page detection
