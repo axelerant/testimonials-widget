@@ -6,6 +6,7 @@
 * Add licensing status notices
 * Code formatting
 * Don't remove license from settings
+* RESOLVE Undefined index
 * Restore default wp_remote_get timeout
 * Update settings page detection
 
