@@ -3,7 +3,7 @@
 ## master
 
 ## 2.19.4RC1
-* Require Aihrus 1.1.3
+* Require Aihrus 1.1.3RC2
 
 ## 2.19.3
 * Refactor get_defaults
