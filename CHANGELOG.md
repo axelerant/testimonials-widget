@@ -2,8 +2,9 @@
 
 ## master
 
-## 1.1.3RC1
+## 1.1.3RC2
 * RESOLVE michael-cannon/testimonials-widget#85 New testimonial rating field is blank
+* RESOLVE Undefined index notice
 
 ## 1.1.2
 * Add licensing status notices
