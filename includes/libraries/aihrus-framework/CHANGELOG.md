@@ -2,6 +2,9 @@
 
 ## master
 
+## 1.1.3RC1
+* RESOLVE michael-cannon/testimonials-widget#85 New testimonial rating field is blank
+
 ## 1.1.2
 * Add licensing status notices
 * Code formatting

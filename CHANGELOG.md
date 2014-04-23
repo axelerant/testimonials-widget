@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.19.4RC1
+* Require Aihrus 1.1.3
+
 ## 2.19.3
 * Refactor get_defaults
 * Replace [[/]] with [/]
