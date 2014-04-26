@@ -6,12 +6,21 @@
 * Add Testimonials to Dashboard's At a Glance
 * Hide version based options is bxSlider is enabled
 * RELATED #78 Show revert link in deactivation admin notice
-* Require Aihrus 1.1.3
 * RESOLVE #71 Permissions for Contributor
 * RESOLVE Authors seeing more than own testimonials for editing
+* Require Aihrus 1.1.3
 * Revise readme options layout
-* Update screenshot 3
+* Update screenshot 11
+* Update screenshot 14
+* Update screenshot 15
+* Update screenshot 16
 * Update screenshot 17
+* Update screenshot 18
+* Update screenshot 2
+* Update screenshot 20
+* Update screenshot 3
+* Update screenshot 6
+* Update screenshot 7
 
 ## 2.19.3
 * Refactor get_defaults

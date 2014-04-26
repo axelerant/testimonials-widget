@@ -404,7 +404,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 15. Testimonials Settings > Post Type tab
 16. Testimonials Settings > Widget tab
 17. Testimonials Settings > Reset tab
-18. Dashboard > Right Now "Testimonials" count
+18. Dashboard > At a Glance "Testimonials" count
 19. Using Review and AggregateRating schema data structures
 20. Testimonials Shortcode Examples page
 21. Shortcode helpers on category and tag admin screens
