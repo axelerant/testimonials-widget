@@ -100,6 +100,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+		add_action( 'dashboard_glance_items', array( __CLASS__, 'dashboard_glance_items' ) );
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
@@ -118,7 +119,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		self::support_thumbnails();
 
-		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . Testimonials_Widget::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
+		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . self::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
 
 		self::add_meta_box_testimonials_widget();
 		self::update();
@@ -275,7 +276,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			delete_option( Testimonials_Widget_Settings::ID );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
-			Testimonials_Widget::delete_testimonials();
+			self::delete_testimonials();
 		}
 	}
 
@@ -288,7 +289,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		foreach ( $posts as $post ) {
 			$post_id = $post->ID;
-			Testimonials_Widget::delete_attachments( $post_id );
+			self::delete_attachments( $post_id );
 
 			// dels post, meta & comments
 			// true is force delete
@@ -476,7 +477,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		// author's and below
 		if ( $query->is_admin ) {
 			if ( empty( $query->is_main_query ) ) {
-				if ( $query->is_post_type_archive( Testimonials_Widget::PT ) ) {
+				if ( $query->is_post_type_archive( self::PT ) ) {
 					if ( ! current_user_can( 'edit_others_posts' ) ) {
 						$query->set( 'post_author', $user_ID );
 					}
@@ -1506,7 +1507,7 @@ EOF;
 				'publish',
 				'private',
 			),
-			'post_type' => Testimonials_Widget::PT,
+			'post_type' => self::PT,
 			'posts_per_page' => $limit,
 		);
 
@@ -1532,7 +1533,7 @@ EOF;
 			$args['post__in'] = $ids;
 
 			if ( 'none' == $args['orderby'] )
-				add_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ), 10, 2 );
+				add_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ), 10, 2 );
 		}
 
 		if ( $exclude ) {
@@ -1600,8 +1601,8 @@ EOF;
 			$testimonials = apply_filters( 'testimonials_widget_cache_set', $testimonials, $args );
 		}
 
-		if ( has_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) ) )
-			remove_filter( 'posts_results', array( 'Testimonials_Widget', 'posts_results_sort_none' ) );
+		if ( has_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) ) )
+			remove_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) );
 
 		self::$max_num_pages = $testimonials->max_num_pages;
 		self::$found_posts   = $testimonials->found_posts;
@@ -1812,17 +1813,17 @@ EOF;
 				<td class="first b b-%1$s">%4$s%2$s%5$s</td>
 				<td class="t %1$s">%4$s%3$s%5$s</td>
 			</tr>';
-		$posts   = wp_count_posts( Testimonials_Widget::PT );
+		$posts   = wp_count_posts( self::PT );
 		$count   = $posts->publish;
 		$name    = _n( 'Testimonial', 'Testimonials', $count, 'testimonials-widget' );
 		$count_f = number_format_i18n( $count );
-		$a_open  = '<a href="edit.php?post_type=' . Testimonials_Widget::PT . '">';
+		$a_open  = '<a href="edit.php?post_type=' . self::PT . '">';
 		$a_close = '</a>';
 
 		if ( current_user_can( 'edit_others_posts' ) )
-			$result = sprintf( $content, Testimonials_Widget::PT, $count_f, $name, $a_open, $a_close );
+			$result = sprintf( $content, self::PT, $count_f, $name, $a_open, $a_close );
 		else
-			$result = sprintf( $content, Testimonials_Widget::PT, $count_f, $name, '', '' );
+			$result = sprintf( $content, self::PT, $count_f, $name, '', '' );
 
 		echo $result;
 	}
@@ -2017,7 +2018,7 @@ EOF;
 
 		if ( ! empty( $css ) ) {
 			self::$css = array_merge( $css, self::$css );
-			add_action( 'wp_footer', array( 'Testimonials_Widget', 'get_testimonials_css' ), 20 );
+			add_action( 'wp_footer', array( __CLASS__, 'get_testimonials_css' ), 20 );
 		}
 	}
 
@@ -2033,14 +2034,14 @@ EOF;
 
 		if ( ! empty( $js ) ) {
 			self::$scripts = array_merge( $js, self::$scripts );
-			add_action( 'wp_footer', array( 'Testimonials_Widget', 'get_testimonials_scripts' ), 20 );
+			add_action( 'wp_footer', array( __CLASS__, 'get_testimonials_scripts' ), 20 );
 		}
 	}
 
 
 	public static function call_scripts_styles( $testimonials, $atts, $widget_number = null ) {
 		if ( is_null( $widget_number ) )
-			$widget_number = Testimonials_Widget::get_instance();
+			$widget_number = self::get_instance();
 
 		self::scripts( $atts );
 
@@ -2182,6 +2183,31 @@ EOD;
 
 	public static function post_tag_column( $result, $column_name, $term_id ) {
 		return self::category_column( $result, $column_name, $term_id, false );
+	}
+
+
+	public static function dashboard_glance_items( $array ) {
+		if ( ! current_user_can( 'edit_others_posts' ) )
+			return $array;
+
+		$count = apply_filters( 'testimonials_widget_cache_get', false, 'dashboard_count' );
+		if ( false === $count ) {
+			$posts = wp_count_posts( self::PT );
+			$count = $posts->publish;
+			$count = apply_filters( 'testimonials_widget_cache_set', $count, 'dashboard_count' );
+		}
+
+		if ( $count ) {
+			$content = '%1$s%2$s %3$s%4$s';
+			$name    = _n( 'Testimonial', 'Testimonials', $count, 'testimonials-widget-premium' );
+			$count_f = number_format_i18n( $count );
+			$a_open  = '<a href="edit.php?post_type=' . self::PT . '">';
+			$a_close = '</a>';
+
+			$array[] = sprintf( $content, $a_open, $count_f, $name, $a_close );
+		}
+
+		return $array;
 	}
 }
 
