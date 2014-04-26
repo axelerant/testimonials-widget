@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 3.9.0
-Stable tag: 2.19.4RC1
+Stable tag: 2.19.4RC2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -380,6 +380,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 1. [Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
 1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
 1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - provide feedback and direction to plugin development
+1. [Old Plugin Versions](http://wordpress.org/plugins/testimonials-widget/developers/)
 
 
 == Screenshots ==

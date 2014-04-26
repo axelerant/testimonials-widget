@@ -2,8 +2,11 @@
 
 ## master
 
-## 2.19.4RC1
+## 2.19.4RC2
+* RELATED #78 Show revert link in deactivation admin notice
 * Require Aihrus 1.1.3RC2
+* RESOLVE #71 Permissions for Contributor
+* RESOLVE Authors seeing more than own testimonials for editing
 
 ## 2.19.3
 * Refactor get_defaults
