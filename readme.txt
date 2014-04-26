@@ -389,26 +389,16 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 1. Testimonials admin interface
 2. Collapsed Testimonials options
-3. Expanded "General Options" in Testimonials options
+3. Shortcode helpers on category and tag admin screens
 4. Testimonial widget in the sidebar 
-5. [testimonials] in post
+5. Testimonials Shortcode Examples page
 6. [testimonials] results with paging
-7. Widget whitespace kept
+7. Using Review and AggregateRating schema data structures
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 10. Poedit Catalog properties
 11. Testimonials Settings > General tab
-12. Expanded "Selection Options" in Testimonials options
-13. Expanded "Ordering Options" in Testimonials options
-14. Testimonials Settings > Selection tab
-15. Testimonials Settings > Post Type tab
-16. Testimonials Settings > Widget tab
-17. Testimonials Settings > Reset tab
-18. Dashboard > At a Glance "Testimonials" count
-19. Using Review and AggregateRating schema data structures
-20. Testimonials Shortcode Examples page
-21. Shortcode helpers on category and tag admin screens
-22. Testimonials Settings > Columns tab
+12. Dashboard > At a Glance "Testimonials" count
 
 [gallery]
 
