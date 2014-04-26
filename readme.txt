@@ -78,7 +78,9 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Premium =
 
-Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+Testimonials Premium is the most amazing and incredibly full-featured WordPress testimonials plugin there is. It lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+
+Further, Testimonials Premium offers caching, excerpts, ratings, read more links, more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
 [Buy Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
 

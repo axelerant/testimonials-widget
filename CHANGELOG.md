@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Revise premium introduction
 * Update premium links
 
 ## 2.19.4
