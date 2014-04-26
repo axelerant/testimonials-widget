@@ -641,7 +641,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
-			'desc' => esc_html__( 'Reset & Compatiblity Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Reset', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
