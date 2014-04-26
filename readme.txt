@@ -182,16 +182,17 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **General**
 
-* Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
-	* `enable_schema` - default true; enable_schema=false
-* Default Reviewed Item? - Name of thing being referenced in testimonials
-	* `item_reviewed` - default "Site Title"
-* Default Reviewed Item URL? - URL of thing being referenced in testimonials
-	* `item_reviewed_url` - default `network_site_url();`
+* Use bxSlider? - Prior to 2.15.0, Testimonials' used custom JavaScript for transitions.
+* Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
+	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
+* Include IE7 CSS?
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true
-* Hide "Testimonials Not Found"?
-	* `hide_not_found` - default show; hide_not_found=true
+* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS and corrupts microdata parsing
+	* `remove_hentry` - default true; remove_hentry=false
+* Use `<q>` tag? – Not HTML5 compliant
+	* `use_quote_tag` - default none; use_quote_tag=true
+
 * Hide Gravatar Image?
 	* `hide_gravatar` - default show; hide_gravatar=true
 * Hide Image?
@@ -212,23 +213,25 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_company` - default show; hide_company=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
-* Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
-	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
-* URL Target - Add target to all URLs; leave blank if none
-	* `target` - default none; target=_new
+
+* Default Reviewed Item? - Name of thing being referenced in testimonials
+	* `item_reviewed` - default "Site Title"
+* Default Reviewed Item URL? - URL of thing being referenced in testimonials
+	* `item_reviewed_url` - default `network_site_url();`
 * Enable Paging? - for [testimonials]
 	* `paging` - default true [true|before|after|false]; paging=false
 		* `true` – display paging before and after testimonial entries
 		* `before` – display paging only before testimonial entries
 		* `after` – display paging only after testimonial entries
 	* Widget - Not functional
+* Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
+	* `enable_schema` - default true; enable_schema=false
 * Enable [shortcodes]? - If unchecked, shortcodes are stripped.
 	* `do_shortcode` - default false; do_shortcode=true
-* Include IE7 CSS?
-* Use `<q>` tag? – Not HTML5 compliant
-	* `use_quote_tag` - default none; use_quote_tag=true
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS and corrupts microdata parsing
-	* `remove_hentry` - default true; remove_hentry=false
+* Hide "Testimonials Not Found"?
+	* `hide_not_found` - default show; hide_not_found=true
+* URL Target - Add target to all URLs; leave blank if none
+	* `target` - default none; target=_new
 
 **Selection**
 
@@ -296,7 +299,6 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 **Version Based Options**
 
-* Use bxSlider? - Pre 2.15.0, Testimonials' used custom JavaScript for transitions.
 * Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
 	* `disable_animation` - default false; disable_animation=true
 * Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
