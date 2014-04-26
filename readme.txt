@@ -20,7 +20,7 @@ Testimonials [by Aihrus](http://aihr.us/about-aihrus/) lets you randomly slide o
 
 **[Video introduction](https://www.youtube.com/watch?v=bhUhuQ-2m8s)**
 
-**View a [Live Testimonials Demo](http://aihr.us/good-work-deserves-good-words-testimonials-examples/)**
+**View a [Live Testimonials Demo](http://aihr.us/testimonials-examples/)**
 
 = Testimonials Is Way Beyond Being Just a Testimonials Slider! =
 
@@ -78,9 +78,9 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Premium =
 
-Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/products/testimonials-premium-wordpress-plugin/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+Testimonials Premium adds onto the best WordPress testimonials plugin there is, [Testimonials](http://wordpress.org/extend/plugins/testimonials-widget/). Testimonials Premium offers [caching, excerpts, filters, read more links](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/), more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
-[Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
+[Buy Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
 
 = Primary Premium Features =
 
@@ -108,7 +108,7 @@ Testimonials Premium adds onto the best WordPress testimonials plugin there is, 
 * `<?php echo testimonials_form( $args ); ?>`
 * `<?php echo testimonials_links( $args ); ?>`
 
-[Buy Testimonials Premium](http://aihr.us/products/testimonials-premium-wordpress-plugin/) plugin for WordPress.
+[Buy Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
 
 = Additional Features =
 
@@ -194,6 +194,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 * Use `<q>` tag? – Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
 
+**Fields to Show**
+
 * Hide Gravatar Image?
 	* `hide_gravatar` - default show; hide_gravatar=true
 * Hide Image?
@@ -214,6 +216,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `hide_company` - default show; hide_company=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
+
+**Miscellaneous**
 
 * Default Reviewed Item? - Name of thing being referenced in testimonials
 	* `item_reviewed` - default "Site Title"

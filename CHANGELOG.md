@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Update premium links
 
 ## 2.19.4
 * Add Testimonials to Dashboard's At a Glance
