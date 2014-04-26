@@ -2199,7 +2199,7 @@ EOD;
 
 		if ( $count ) {
 			$content = '%1$s%2$s %3$s%4$s';
-			$name    = _n( 'Testimonial', 'Testimonials', $count, 'testimonials-widget-premium' );
+			$name    = _n( 'Testimonial', 'Testimonials', $count, 'testimonials-widget-premium', 'testimonials-widget' );
 			$count_f = number_format_i18n( $count );
 			$a_open  = '<a href="edit.php?post_type=' . self::PT . '">';
 			$a_close = '</a>';
