@@ -10,6 +10,8 @@
 * RESOLVE #71 Permissions for Contributor
 * RESOLVE Authors seeing more than own testimonials for editing
 * Revise readme options layout
+* Update screenshot 3
+* Update screenshot 17
 
 ## 2.19.3
 * Refactor get_defaults
