@@ -343,7 +343,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['general_heading_misc'] = array(
-			'desc' => esc_html__( 'Miscellanious', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Miscellaneous', 'testimonials-widget' ),
 			'type' => 'heading',
 		);
 
