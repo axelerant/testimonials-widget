@@ -1,6 +1,9 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+
+## 2.19.5RC1
+* Require Aihrus Framework 1.1.4
 * Revise premium introduction
 * Update premium links
 
@@ -10,7 +13,7 @@
 * RELATED #78 Show revert link in deactivation admin notice
 * RESOLVE #71 Permissions for Contributor
 * RESOLVE Authors seeing more than own testimonials for editing
-* Require Aihrus 1.1.3
+* Require Aihrus Framework 1.1.3
 * Revise readme options layout
 * Revise screenshots
 
