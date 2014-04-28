@@ -3,7 +3,7 @@
 ## master
 
 ## 2.19.5RC1
-* Require Aihrus Framework 1.1.4
+* Require Aihrus Framework 1.1.4RC1
 * Revise premium introduction
 * Update premium links
 
