@@ -3,6 +3,7 @@
 ## master
 
 ## 2.19.5RC1
+* Remove Testimonials menu for authors removal code
 * Require Aihrus Framework 1.1.4RC1
 * Revise premium introduction
 * Update premium links

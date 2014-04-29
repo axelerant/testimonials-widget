@@ -111,12 +111,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function admin_init() {
-		if ( ! self::check_user_role( array( 'author' ) ) ) {
-			remove_menu_page( 'edit.php?post_type=' . self::PT );
-
-			return;
-		}
-
 		self::support_thumbnails();
 
 		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . self::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
