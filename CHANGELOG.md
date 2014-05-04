@@ -2,9 +2,9 @@
 
 ## master
 
-## 2.19.5RC1
+## 2.19.5
 * Remove Testimonials menu for authors removal code
-* Require Aihrus Framework 1.1.4RC1
+* Require Aihrus Framework 1.1.4
 * Revise premium introduction
 * Update premium links
 
@@ -959,7 +959,7 @@
 
 ## 2.3.4
 * BUGFIX [Testimonial plugin means Set Feature Image Not Displaying](http://wordpress.org/support/topic/testimonial-plugin-means-set-feature-image-not-displaying)
-* Test with WordPress 3.5.0 RC1
+* Test with WordPress 3.5.0RC1
 * TODO remove Publish & New - just click 'New Testimonial' after Publishing
 * Update donate link
 
