@@ -1345,16 +1345,19 @@ EOF;
 	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
 	public static function testimonials_truncate( $string, $char_limit = false, $pad = '…', $force_pad = false ) {
 		if ( empty( $force_pad ) ) {
-			if ( ! $char_limit )
+			if ( ! $char_limit ) {
 				return $string;
+			}
 
 			// return with no change if string is shorter than $char_limit
-			if ( strlen( $string ) <= $char_limit )
+			if ( strlen( $string ) <= $char_limit ) {
 				return $string;
+			}
 		}
 
-		if ( $char_limit )
+		if ( $char_limit ) {
 			return self::truncate( $string, $char_limit, $pad, $force_pad );
+		}
 
 		return $string . $pad;
 	}
