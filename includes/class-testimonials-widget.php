@@ -111,12 +111,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function admin_init() {
-		if ( ! self::check_user_role( array( 'author' ) ) ) {
-			remove_menu_page( 'edit.php?post_type=' . self::PT );
-
-			return;
-		}
-
 		self::support_thumbnails();
 
 		self::$settings_link = '<a href="' . get_admin_url() . 'edit.php?post_type=' . self::PT . '&page=' . Testimonials_Widget_Settings::ID . '">' . esc_html__( 'Settings', 'testimonials-widget' ) . '</a>';
@@ -1351,16 +1345,19 @@ EOF;
 	// Original PHP code as myTruncate2 by Chirp Internet: www.chirp.com.au
 	public static function testimonials_truncate( $string, $char_limit = false, $pad = '…', $force_pad = false ) {
 		if ( empty( $force_pad ) ) {
-			if ( ! $char_limit )
+			if ( ! $char_limit ) {
 				return $string;
+			}
 
 			// return with no change if string is shorter than $char_limit
-			if ( strlen( $string ) <= $char_limit )
+			if ( strlen( $string ) <= $char_limit ) {
 				return $string;
+			}
 		}
 
-		if ( $char_limit )
+		if ( $char_limit ) {
 			return self::truncate( $string, $char_limit, $pad, $force_pad );
+		}
 
 		return $string . $pad;
 	}
