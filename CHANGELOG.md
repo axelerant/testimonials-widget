@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Tested up to: 4.0.0
 
 ## 2.19.5
 * Remove Testimonials menu for authors removal code
