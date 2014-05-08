@@ -1,6 +1,7 @@
 # CHANGELOG Testimonials by Aihrus
 
 ## master
+* Add tutorial videos
 * Tested up to: 4.0.0
 
 ## 2.19.5
