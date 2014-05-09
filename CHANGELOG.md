@@ -2,6 +2,10 @@
 
 ## master
 
+## 2.19.5.1
+* Add tutorial videos
+* Tested up to: 4.0.0
+
 ## 2.19.5
 * Remove Testimonials menu for authors removal code
 * Require Aihrus Framework 1.1.4

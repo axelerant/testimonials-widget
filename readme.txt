@@ -4,8 +4,8 @@ Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
-Tested up to: 3.9.0
-Stable tag: 2.19.5
+Tested up to: 4.0.0
+Stable tag: 2.19.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -348,6 +348,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Usage =
 
 1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+1. Watch [Testimonial Widget](https://www.youtube.com/watch?v=zDz1igmRK2g)
 1. Add and manage testimonials through the "Testimonials" menu in the WordPress admin area
 1. To display testimonials in the sidebar, go to "Widgets" menu and drag "Testimonials" widget into the desired widget area
 1. Configure "Testimonials" to select quotes and display as needed
@@ -390,6 +391,28 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
 1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - provide feedback and direction to plugin development
 1. [Old Plugin Versions](http://wordpress.org/plugins/testimonials-widget/developers/)
+
+= Tutorials =
+
+**Adding or Editing Testimonial Widget on Your WordPress Website**
+
+https://www.youtube.com/watch?v=YaXCJppYOUM
+
+**Adding Rotating Testimonials to WordPress Tutorial**
+
+https://www.youtube.com/watch?v=QoFCZgLAUSE
+
+**Testimonials Widget - WordPress Training Video**
+
+https://www.youtube.com/watch?v=ybV5mKZlegA
+
+**Testimonials Widget for WordPress**
+
+https://www.youtube.com/watch?v=LqZ-vcZD8E0
+
+**WordPress Testimonial Plugin Update**
+
+https://www.youtube.com/watch?v=b81oz7k1wbM
 
 
 == Screenshots ==
