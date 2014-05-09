@@ -16,9 +16,9 @@ Testimonials by Aihrus lets you randomly slide or list selected portfolios, quot
 
 Testimonials [by Aihrus](http://aihr.us/about-aihrus/) lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
-[youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
+**Video introduction**
 
-**[Video introduction](https://www.youtube.com/watch?v=bhUhuQ-2m8s)**
+[youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
 
 **View a [Live Testimonials Demo](http://aihr.us/testimonials-examples/)**
 
