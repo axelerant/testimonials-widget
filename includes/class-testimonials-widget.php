@@ -1374,6 +1374,7 @@ EOF;
 
 		$keep_whitespace = $atts['keep_whitespace'];
 		$do_shortcode    = $atts['do_shortcode'];
+		$enable_video    = $atts['enable_video'];
 
 		// wrap our own quote class around the content before any formatting
 		// happens
@@ -1388,11 +1389,9 @@ EOF;
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );
 
-		if ( is_null( $widget_number ) || $keep_whitespace ) {
-			$content = wpautop( $content );
+		if ( $enable_video && ! empty( $GLOBALS['wp_embed'] ) ) {
+			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
 		}
-
-		$content = shortcode_unautop( $content );
 
 		if ( $do_shortcode ) {
 			$content = do_shortcode( $content );
@@ -1400,6 +1399,11 @@ EOF;
 			$content = strip_shortcodes( $content );
 		}
 
+		if ( is_null( $widget_number ) || $keep_whitespace ) {
+			$content = wpautop( $content );
+		}
+
+		$content = shortcode_unautop( $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
 		$content = trim( $content );
 

@@ -186,14 +186,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'std' => 1,
 		);
 
-		self::$settings['enable_video'] = array(
-			'section' => 'widget',
-			'title' => esc_html__( 'Enable Video?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Only enable when displaying video content.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-		);
-
 		self::$settings['keep_whitespace'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Keep Whitespace?', 'testimonials-widget' ),
@@ -384,6 +376,13 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,
+		);
+
+		self::$settings['enable_video'] = array(
+			'title' => esc_html__( 'Enable Video?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Only enable when displaying video content.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
 		);
 
 		self::$settings['do_shortcode'] = array(

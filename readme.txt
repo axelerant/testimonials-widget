@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 4.0.0
-Stable tag: 2.19.5.1
+Stable tag: 2.19.6RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,8 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* Widget - Not functional
 * Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
 	* `enable_schema` - default true; enable_schema=false
+* Enable Video? - Only enable when displaying video content.
+	* `enable_video` - default false; enable_video=true
 * Enable [shortcodes]? - If unchecked, shortcodes are stripped.
 	* `do_shortcode` - default false; do_shortcode=true
 * Hide "Testimonials Not Found"?
@@ -282,8 +284,6 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
 * Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
 	* `show_start_stop` - default true; show_start_stop=false
-* Enable Video? - Only enable when displaying video content.
-	* `enable_video` - default false; enable_video=true
 * Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
 	* `keep_whitespace` - default none; keep_whitespace=true
 	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
@@ -439,6 +439,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 2.19.6 =
+
+* Enable Video also means enable video embedding and display
 
 = 2.19.0 =
 
