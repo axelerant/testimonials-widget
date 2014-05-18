@@ -1053,20 +1053,25 @@ EOF;
 			);
 
 			self::set_not_found( true );
-		} else
+		} else {
 			self::set_not_found();
+		}
 
 		$pre_paging = '';
-		if ( $paging || $paging_before )
+		if ( $paging || $paging_before ) {
 			$pre_paging = self::get_testimonials_paging( $atts );
+		}
 
 		$is_first = true;
 
 		$testimonial_content = '';
 		foreach ( $testimonials as $testimonial ) {
 			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
-			if ( $target )
+			$content = apply_filters( 'the_content', $content );
+			if ( $target ) {
 				$content = links_add_target( $content, $target );
+			}
+
 			$content  = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
 			$is_first = false;
 
@@ -1369,6 +1374,7 @@ EOF;
 
 		$keep_whitespace = $atts['keep_whitespace'];
 		$do_shortcode    = $atts['do_shortcode'];
+		$enable_video    = $atts['enable_video'];
 
 		// wrap our own quote class around the content before any formatting
 		// happens
@@ -1383,16 +1389,21 @@ EOF;
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );
 
-		if ( is_null( $widget_number ) || $keep_whitespace )
+		if ( $enable_video && ! empty( $GLOBALS['wp_embed'] ) ) {
+			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
+		}
+
+		if ( $do_shortcode ) {
+			$content = do_shortcode( $content );
+		} else {
+			$content = strip_shortcodes( $content );
+		}
+
+		if ( is_null( $widget_number ) || $keep_whitespace ) {
 			$content = wpautop( $content );
+		}
 
 		$content = shortcode_unautop( $content );
-
-		if ( $do_shortcode )
-			$content = do_shortcode( $content );
-		else
-			$content = strip_shortcodes( $content );
-
 		$content = str_replace( ']]>', ']]&gt;', $content );
 		$content = trim( $content );
 

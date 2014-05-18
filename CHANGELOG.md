@@ -2,6 +2,10 @@
 
 ## master
 
+## 2.19.6
+* RESOLVE #92 Embed YouTube videos in reviews
+* Revise readme description
+
 ## 2.19.5.1
 * Add tutorial videos
 * Tested up to: 4.0.0
