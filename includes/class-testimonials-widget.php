@@ -1067,7 +1067,6 @@ EOF;
 		$testimonial_content = '';
 		foreach ( $testimonials as $testimonial ) {
 			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
-			$content = apply_filters( 'the_content', $content );
 			if ( $target ) {
 				$content = links_add_target( $content, $target );
 			}
