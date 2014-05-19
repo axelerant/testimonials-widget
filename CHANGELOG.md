@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.7RC1
+## 2.19.7
 * RESOLVE Testimonials content has the_content filter applied
 
 ## 2.19.6
