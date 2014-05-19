@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.19.7
+* RESOLVE Testimonials content has the_content filter applied
+
 ## 2.19.6
 * RESOLVE #92 Embed YouTube videos in reviews
 * Revise readme description
