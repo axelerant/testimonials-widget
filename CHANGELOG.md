@@ -2,6 +2,9 @@
 
 ## master
 
+## 2.19.8RC1
+* RELATES #95 Incoming YouTube links not embedded
+
 ## 2.19.7
 * RESOLVE Testimonials content has the_content filter applied
 
