@@ -1379,11 +1379,10 @@ EOF;
 		// happens
 
 		$temp_content  = self::$tag_open_quote;
-		$temp_content .= $content;
+		$temp_content .= trim( $content );
 		$temp_content .= self::$tag_close_quote;
 
 		$content = $temp_content;
-		$content = trim( $content );
 		$content = wptexturize( $content );
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );
