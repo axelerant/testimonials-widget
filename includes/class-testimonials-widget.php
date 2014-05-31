@@ -841,7 +841,10 @@ class Testimonials_Widget extends Aihrus_Common {
 			}
 		}
 
-		wp_enqueue_style( __CLASS__ );
+		$exclude_css = tw_get_option( 'exclude_css' );
+		if ( empty( $exclude_css ) ) {
+			wp_enqueue_style( __CLASS__ );
+		}
 
 		do_action( 'testimonials_widget_styles' );
 	}
@@ -1379,11 +1382,10 @@ EOF;
 		// happens
 
 		$temp_content  = self::$tag_open_quote;
-		$temp_content .= $content;
+		$temp_content .= trim( $content );
 		$temp_content .= self::$tag_close_quote;
 
 		$content = $temp_content;
-		$content = trim( $content );
 		$content = wptexturize( $content );
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );

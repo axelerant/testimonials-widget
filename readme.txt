@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 4.0.0
-Stable tag: 2.19.7
+Stable tag: 2.19.8RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -191,7 +191,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Use bxSlider? - Prior to 2.15.0, Testimonials' used custom JavaScript for transitions.
 * Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
-	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
+	* `exclude_bxslider_css` - default false; exclude_bxslider_css=true
+* Exclude default CSS? - Prevent default CSS from being loaded.
+	* `exclude_css` - default false; exclude_css=true
 * Include IE7 CSS?
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true

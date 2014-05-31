@@ -237,6 +237,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			);
 		}
 
+		self::$settings['exclude_css'] = array(
+			'title' => esc_html__( 'Exclude default CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Prevent default CSS from being loaded.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
+		);
+
 		self::$settings['include_ie7_css'] = array(
 			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
 			'type' => 'checkbox',
