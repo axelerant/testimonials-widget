@@ -252,16 +252,18 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function deactivation() {
-		if ( ! current_user_can( 'activate_plugins' ) )
+		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
+		}
 
 		flush_rewrite_rules();
 	}
 
 
 	public static function uninstall() {
-		if ( ! current_user_can( 'activate_plugins' ) )
+		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
+		}
 
 		global $wpdb;
 		
@@ -313,20 +315,23 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function plugin_row_meta( $input, $file ) {
-		if ( self::BASE != $file )
+		if ( self::BASE != $file ) {
 			return $input;
+		}
 
 		$disable_donate = tw_get_option( 'disable_donate' );
-		if ( $disable_donate )
+		if ( $disable_donate ) {
 			return $input;
+		}
 
 		$links = array(
 			self::$donate_link,
 		);
 
 		global $TW_Premium;
-		if ( ! isset( $TW_Premium ) )
+		if ( ! isset( $TW_Premium ) ) {
 			$links[] = TW_PREMIUM_LINK;
+		}
 
 		$input = array_merge( $input, $links );
 
@@ -351,11 +356,13 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static function update() {
 		$prior_version = tw_get_option( 'admin_notices' );
 		if ( $prior_version ) {
-			if ( $prior_version < '2.12.0' )
+			if ( $prior_version < '2.12.0' ) {
 				self::set_notice( 'notice_2_12_0' );
+			}
 
-			if ( $prior_version < '2.15.0' )
+			if ( $prior_version < '2.15.0' ) {
 				self::set_notice( 'notice_2_15_0' );
+			}
 
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
@@ -373,8 +380,9 @@ class Testimonials_Widget extends Aihrus_Common {
 		}
 
 		$options = get_option( self::OLD_NAME );
-		if ( true !== $options['migrated'] )
+		if ( true !== $options['migrated'] ) {
 			self::migrate();
+		}
 	}
 
 
@@ -447,8 +455,9 @@ class Testimonials_Widget extends Aihrus_Common {
 					// track/link testimonial import to new post
 					add_post_meta( $post_id, $meta_key, $result->testimonial_id );
 
-					if ( ! empty( $company ) )
+					if ( ! empty( $company ) ) {
 						add_post_meta( $post_id, 'testimonials-widget-company', $company );
+					}
 
 					$source = $result->source;
 					if ( ! empty( $source ) ) {
@@ -513,8 +522,9 @@ class Testimonials_Widget extends Aihrus_Common {
 			case 'testimonials-widget-email':
 			case 'testimonials-widget-url':
 				$url = get_post_meta( $post_id, $column, true );
-				if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) )
+				if ( ! empty( $url ) && ! is_email( $url ) && 0 === preg_match( '#https?://#', $url ) ) {
 					$url = 'http://' . $url;
+				}
 
 				$result = make_clickable( $url );
 				break;
@@ -522,10 +532,11 @@ class Testimonials_Widget extends Aihrus_Common {
 			case 'thumbnail':
 				$email = get_post_meta( $post_id, 'testimonials-widget-email', true );
 
-				if ( has_post_thumbnail( $post_id ) )
+				if ( has_post_thumbnail( $post_id ) ) {
 					$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
-				elseif ( is_email( $email ) )
+				} elseif ( is_email( $email ) ) {
 					$result = get_avatar( $email );
+				}
 				else
 					$result = false;
 				break;
@@ -536,8 +547,9 @@ class Testimonials_Widget extends Aihrus_Common {
 				$result = '';
 				if ( ! empty( $terms ) ) {
 					$out = array();
-					foreach ( $terms as $term )
+					foreach ( $terms as $term ) {
 						$out[] = '<a href="' . admin_url( 'edit-tags.php?action=edit&taxonomy=' . $column . '&tag_ID=' . $term->term_id . '&post_type=' . self::PT ) . '">' . $term->name . '</a>';
+					}
 
 					$result = join( ', ', $out );
 				}
@@ -546,8 +558,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$result = apply_filters( 'testimonials_widget_posts_custom_column', $result, $column, $post_id );
 
-		if ( $result )
+		if ( $result ) {
 			echo $result;
+		}
 	}
 
 
@@ -646,8 +659,9 @@ class Testimonials_Widget extends Aihrus_Common {
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 
 		// editor's and up
-		if ( current_user_can( 'edit_others_posts' ) )
+		if ( current_user_can( 'edit_others_posts' ) ) {
 			$supports[] = 'author';
+		}
 
 		if ( ! $use_cpt_taxonomy ) {
 			$do_register_taxonomy = false;
@@ -768,11 +782,13 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( empty( $widget_number ) ) {
 			$widget_number = self::$widget_number++;
 
-			if ( ! isset( $atts['random'] ) )
+			if ( ! isset( $atts['random'] ) ) {
 				$atts['random'] = 1;
+			}
 
-			if ( ! isset( $atts['enable_schema'] ) )
+			if ( ! isset( $atts['enable_schema'] ) ) {
 				$atts['enable_schema'] = 0;
+			}
 		}
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
@@ -800,8 +816,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function scripts( $atts ) {
-		if ( is_admin() )
+		if ( is_admin() ) {
 			return;
+		}
 
 		wp_enqueue_script( 'jquery' );
 
@@ -822,8 +839,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function styles() {
-		if ( is_admin() )
+		if ( is_admin() ) {
 			return;
+		}
 
 		$use_bxslider = tw_get_option( 'use_bxslider' );
 		if ( $use_bxslider ) {
@@ -901,8 +919,9 @@ EOF;
 
 	public static function get_testimonials_html_js( $testimonials, $atts, $widget_number = null ) {
 		$not_found = self::get_not_found();
-		if ( $not_found )
+		if ( $not_found ) {
 			return;
+		}
 
 		$scripts          = array();
 		$scripts_internal = array();
@@ -962,8 +981,9 @@ EOF;
 						$min_height        = $atts['min_height'];
 
 						$enable_animation = 1;
-						if ( $disable_animation || $height || $max_height || $min_height )
+						if ( $disable_animation || $height || $max_height || $min_height ) {
 							$enable_animation = 0;
+						}
 
 						if ( $refresh_interval ) {
 							$javascript .= <<<EOF
@@ -1043,8 +1063,9 @@ EOF;
 		if ( is_null( $widget_number ) ) {
 			$div_open = '<div class="' . $id;
 
-			if ( $is_list )
+			if ( $is_list ) {
 				$div_open .= ' listing';
+			}
 
 			$div_open .= '">';
 		} else {
@@ -1084,8 +1105,9 @@ EOF;
 		}
 
 		$post_paging = '';
-		if ( $paging || $paging_after )
+		if ( $paging || $paging_after ) {
 			$post_paging = self::get_testimonials_paging( $atts, false );
+		}
 
 		$div_close  = '</div>';
 		$div_close .= "\n";
@@ -1133,14 +1155,16 @@ EOF;
 			}
 		}
 
-		if ( $keep_whitespace )
+		if ( $keep_whitespace ) {
 			$class .= ' whitespace';
+		}
 
 		$post_id = $testimonial['post_id'];
-		if ( ! empty( $post_id ) )
+		if ( ! empty( $post_id ) ) {
 			$class = join( ' ', get_post_class( $class, $post_id ) );
-		else
+		} else {
 			$class = 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
+		}
 
 		$class     = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 		$div_open  = '<div class="' . $class . '">';
@@ -1151,8 +1175,9 @@ EOF;
 			$div_open .= sprintf( self::$schema_div_open, self::$review_schema );
 		}
 
-		if ( $remove_hentry )
+		if ( $remove_hentry ) {
 			$div_open = str_replace( ' hentry', '', $div_open );
+		}
 
 		$image = '';
 		if ( $do_image ) {
@@ -1163,8 +1188,9 @@ EOF;
 			$image .= '</span>';
 		}
 
-		if ( ! $do_image_single && 'get_single' == $atts['type'] )
+		if ( ! $do_image_single && 'get_single' == $atts['type'] ) {
 			$image = '';
+		}
 
 		$quote = self::get_quote( $testimonial, $atts, $widget_number );
 
@@ -1297,8 +1323,9 @@ EOF;
 			$cite .= '</span>';
 		}
 
-		if ( $do_title && $cite )
+		if ( $do_title && $cite ) {
 			$cite .= '<span class="join-title"></span>';
+		}
 
 		if ( $do_title ) {
 			$cite .= '<span class="job-title">';
@@ -1306,8 +1333,9 @@ EOF;
 			$cite .= '</span>';
 		}
 
-		if ( $do_location && $cite )
+		if ( $do_location && $cite ) {
 			$cite .= '<span class="join-location"></span>';
+		}
 
 		if ( $do_location ) {
 			$cite .= '<span class="location">';
@@ -1315,8 +1343,9 @@ EOF;
 			$cite .= '</span>';
 		}
 
-		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite )
+		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite ) {
 			$cite .= '<span class="join"></span>';
+		}
 
 		if ( $do_company && $do_url ) {
 			$cite .= '<span class="company">';
@@ -1418,23 +1447,26 @@ EOF;
 	public static function get_testimonials_paging( $atts, $prepend = true ) {
 		$html = '';
 
-		if ( is_home() || 1 === self::$max_num_pages )
+		if ( is_home() || 1 === self::$max_num_pages ) {
 			return $html;
+		}
 
 		$html .= '<div class="paging';
 
-		if ( $prepend )
+		if ( $prepend ) {
 			$html .= ' prepend';
-		else
+		} else {
 			$html .= ' append';
+		}
 
 		$html .= '">';
 		$html .= "\n";
 
-		if ( $atts['paged'] )
+		if ( $atts['paged'] ) {
 			$paged = $atts['paged'];
-		else
+		} else {
 			$paged = 1;
+		}
 
 		if ( ! function_exists( 'wp_pagenavi' ) ) {
 			$html .= '<div class="alignleft">';
@@ -1474,8 +1506,9 @@ EOF;
 
 	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
-			foreach ( self::$css as $css )
+			foreach ( self::$css as $css ) {
 				echo $css;
+			}
 
 			self::$css_called = true;
 		}
@@ -1484,8 +1517,9 @@ EOF;
 
 	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
-			foreach ( self::$scripts as $script )
+			foreach ( self::$scripts as $script ) {
 				echo $script;
+			}
 
 			self::$scripts_called = true;
 		}
@@ -1500,8 +1534,9 @@ EOF;
 	public static function get_query_args( $atts ) {
 		extract( $atts );
 
-		if ( has_filter( 'posts_orderby', 'CPTOrderPosts' ) )
+		if ( has_filter( 'posts_orderby', 'CPTOrderPosts' ) ) {
 			remove_filter( 'posts_orderby', 'CPTOrderPosts', 99, 2 );
+		}
 
 		if ( empty( $fields ) ) {
 			$fields = false;
@@ -1528,24 +1563,27 @@ EOF;
 			$args['post_status'][] = 'draft';
 		}
 
-		if ( $paging && ! empty( $atts['paged'] ) && is_singular() )
+		if ( $paging && ! empty( $atts['paged'] ) && is_singular() ) {
 			$args['paged'] = $atts['paged'];
+		}
 
 		if ( ! $random && $meta_key ) {
 			$args['meta_key'] = $meta_key;
 			$args['orderby']  = 'meta_value';
 		}
 
-		if ( $order )
+		if ( $order ) {
 			$args['order'] = $order;
+		}
 
 		if ( $ids ) {
 			$ids = explode( ',', $ids );
 
 			$args['post__in'] = $ids;
 
-			if ( 'none' == $args['orderby'] )
+			if ( 'none' == $args['orderby'] ) {
 				add_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ), 10, 2 );
+			}
 		}
 
 		if ( $exclude ) {
@@ -1555,20 +1593,24 @@ EOF;
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
-			if ( $category )
+			if ( $category ) {
 				$args['category_name'] = $category;
+			}
 
 			if ( $tags ) {
 				$tags = explode( ',', $tags );
 
-				if ( $tags_all )
+				if ( $tags_all ) {
 					$args['tag_slug__and'] = $tags;
-				else
+				}
+				else {
 					$args['tag_slug__in'] = $tags;
+				}
 			}
 		} else {
-			if ( $category )
+			if ( $category ) {
 				$args[ self::$cpt_category ] = $category;
+			}
 
 			if ( $tags ) {
 				if ( $tags_all ) {
@@ -1613,8 +1655,9 @@ EOF;
 			$testimonials = apply_filters( 'testimonials_widget_cache_set', $testimonials, $args );
 		}
 
-		if ( has_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) ) )
+		if ( has_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) ) ) {
 			remove_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) );
+		}
 
 		self::$max_num_pages = $testimonials->max_num_pages;
 		self::$found_posts   = $testimonials->found_posts;
@@ -1626,19 +1669,22 @@ EOF;
 		$image_size = apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
 		if ( ! is_array( $image_size ) ) {
 			global $_wp_additional_image_sizes;
-			if ( ! empty( $_wp_additional_image_sizes[ $image_size ] ) )
+			if ( ! empty( $_wp_additional_image_sizes[ $image_size ] ) ) {
 				$gravatar_size = $_wp_additional_image_sizes[ $image_size ]['width'];
-			else
+			} else {
 				$gravatar_size = get_option( $image_size . '_size_w' );
+			}
 
 			$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $gravatar_size );
-		} else
+		} else {
 			$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $image_size );
+		}
 
 		$testimonial_data = array();
 
-		if ( empty( self::$post_count ) )
+		if ( empty( self::$post_count ) ) {
 			return $testimonial_data;
+		}
 
 		foreach ( $testimonials->posts as $row ) {
 			$post_id = $row->ID;
@@ -1684,8 +1730,9 @@ EOF;
 
 	public static function posts_results_sort_none( $posts, $query ) {
 		$order = $query->query_vars['post__in'];
-		if ( empty( $order ) )
+		if ( empty( $order ) ) {
 			return $posts;
+		}
 
 		$posts_none_sorted = array();
 		// put posts in same orders as post__in
@@ -1832,10 +1879,11 @@ EOF;
 		$a_open  = '<a href="edit.php?post_type=' . self::PT . '">';
 		$a_close = '</a>';
 
-		if ( current_user_can( 'edit_others_posts' ) )
+		if ( current_user_can( 'edit_others_posts' ) ) {
 			$result = sprintf( $content, self::PT, $count_f, $name, $a_open, $a_close );
-		else
+		} else {
 			$result = sprintf( $content, self::PT, $count_f, $name, '', '' );
+		}
 
 		echo $result;
 	}
@@ -1848,8 +1896,9 @@ EOF;
 	 */
 	public static function get_schema( $testimonial, $atts ) {
 		foreach ( $testimonial as $key => $value ) {
-			if ( 'testimonial_image' != $key )
+			if ( 'testimonial_image' != $key ) {
 				$testimonial[ $key ] = self::clean_string( $value );
+			}
 		}
 
 		extract( $testimonial );
@@ -1876,21 +1925,26 @@ EOF;
 		$org_meta      = array();
 		$review_meta   = array();
 
-		if ( $do_source )
+		if ( $do_source ) {
 			$author_meta[ self::$thing_name ] = $testimonial_source;
+		}
 
-		if ( $do_title )
+		if ( $do_title ) {
 			$author_meta[ self::$person_job_title ] = $testimonial_title;
+		}
 
-		if ( $do_email )
+		if ( $do_email ) {
 			$author_meta[ self::$person_email ] = $testimonial_email;
+		}
 
 		if ( ! $do_company ) {
-			if ( $do_url )
+			if ( $do_url ) {
 				$author_meta[ self::$thing_url ] = $testimonial_url;
+			}
 		} else {
-			if ( $do_url )
+			if ( $do_url ) {
 				$org_meta[ self::$thing_url ] = $testimonial_url;
+			}
 
 			$org_meta[ self::$thing_name ] = $testimonial_company;
 		}
@@ -1898,16 +1952,18 @@ EOF;
 		if ( $do_location ) {
 			$location_meta[ self::$thing_name ] = $testimonial_location;
 
-			if ( ! $do_company )
+			if ( ! $do_company ) {
 				$author_meta[ self::$person_home ] = array( self::$place_schema, $location_meta );
-			else
+			} else {
 				$org_meta[ self::$org_location ] = array( self::$place_schema, $location_meta );
+			}
 		}
 
-		if ( ! empty( $author_meta ) && ! empty( $org_meta ) )
+		if ( ! empty( $author_meta ) && ! empty( $org_meta ) ) {
 			$author_meta[ self::$person_member ] = array( self::$org_schema, $org_meta );
-		elseif ( ! empty( $org_meta ) )
+		} elseif ( ! empty( $org_meta ) ) {
 			$author_meta[ self::$cw_source_org ] = array( self::$org_schema, $org_meta );
+		}
 
 		$author_meta = apply_filters( 'testimonials_widget_schema_author', $author_meta, $testimonial, $atts );
 		$author      = self::create_schema_div_prop( self::$cw_author, self::$person_schema, $author_meta );
@@ -1920,8 +1976,9 @@ EOF;
 
 		$review_name_length = apply_filters( 'testimonials_widget_review_name_length', 156 );
 
-		if ( $do_content )
+		if ( $do_content ) {
 			$review_meta[ self::$review_body ] = $testimonial['testimonial_content'];
+		}
 
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
@@ -1966,14 +2023,16 @@ EOF;
 	public static function create_schema_meta( $meta_data ) {
 		$meta = '';
 
-		if ( empty( $meta_data ) )
+		if ( empty( $meta_data ) ) {
 			return $meta;
+		}
 
 		foreach ( $meta_data as $key => $value ) {
-			if ( is_array( $value ) )
+			if ( is_array( $value ) ) {
 				$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
-			else
+			} else {
 				$meta .= sprintf( self::$schema_meta, $key, $value );
+			}
 
 			$meta .= "\n";
 		}
@@ -1985,8 +2044,9 @@ EOF;
 	public static function create_schema_span( $property_name, $span_data ) {
 		$span = '';
 
-		if ( empty( $span_data ) )
+		if ( empty( $span_data ) ) {
 			return $span;
+		}
 
 		$span = sprintf( self::$schema_span, $property_name, $span_data );
 
@@ -2055,8 +2115,9 @@ EOF;
 
 
 	public static function call_scripts_styles( $testimonials, $atts, $widget_number = null ) {
-		if ( is_null( $widget_number ) )
+		if ( is_null( $widget_number ) ) {
 			$widget_number = self::get_instance();
+		}
 
 		self::scripts( $atts );
 
@@ -2173,15 +2234,17 @@ EOD;
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
-			if ( $category )
+			if ( $category ) {
 				$term = get_term( $term_id, 'category' );
-			else
+			} else {
 				$term = get_term( $term_id, 'post_tag' );
+			}
 		} else {
-			if ( $category )
+			if ( $category ) {
 				$term = get_term( $term_id, self::$cpt_category );
-			else
+			} else {
 				$term = get_term( $term_id, self::$cpt_tags );
+			}
 		}
 
 		switch ( $column_name ) {
@@ -2202,8 +2265,9 @@ EOD;
 
 
 	public static function dashboard_glance_items( $array ) {
-		if ( ! current_user_can( 'edit_others_posts' ) )
+		if ( ! current_user_can( 'edit_others_posts' ) ) {
 			return $array;
+		}
 
 		$count = apply_filters( 'testimonials_widget_cache_get', false, 'dashboard_count' );
 		if ( false === $count ) {
