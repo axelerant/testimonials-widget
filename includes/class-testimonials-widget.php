@@ -346,6 +346,9 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function notice_donate( $disable_donate = null, $item_name = null ) {
 		$disable_donate = tw_get_option( 'disable_donate' );
 
@@ -1402,9 +1405,13 @@ EOF;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public static function format_content( $content, $widget_number, $atts ) {
-		if ( empty ( $content ) )
+		if ( empty ( $content ) ) {
 			return $content;
+		}
 
 		$keep_whitespace = $atts['keep_whitespace'];
 		$do_shortcode    = $atts['do_shortcode'];
