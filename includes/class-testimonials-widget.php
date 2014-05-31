@@ -2291,6 +2291,9 @@ EOD;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
 	public static function do_video( $content, $atts ) {
 		$enable_video = $atts['enable_video'];
 		if ( $enable_video && ! empty( $GLOBALS['wp_embed'] ) ) {
