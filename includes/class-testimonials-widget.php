@@ -841,7 +841,10 @@ class Testimonials_Widget extends Aihrus_Common {
 			}
 		}
 
-		wp_enqueue_style( __CLASS__ );
+		$exclude_css = tw_get_option( 'exclude_css' );
+		if ( empty( $exclude_css ) ) {
+			wp_enqueue_style( __CLASS__ );
+		}
 
 		do_action( 'testimonials_widget_styles' );
 	}

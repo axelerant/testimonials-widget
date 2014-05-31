@@ -191,7 +191,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Use bxSlider? - Prior to 2.15.0, Testimonials' used custom JavaScript for transitions.
 * Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
-	* `exclude_bxslider_css` - default show; exclude_bxslider_css=true
+	* `exclude_bxslider_css` - default false; exclude_bxslider_css=true
+* Exclude default CSS? - Prevent default CSS from being loaded.
+	* `exclude_css` - default false; exclude_css=true
 * Include IE7 CSS?
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
 	* `disable_quotes` - default false; disable_quotes=true
