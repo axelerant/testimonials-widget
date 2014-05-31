@@ -6,7 +6,7 @@
 * Add Configuration examples for filter testimonials_widget_meta_box
 * Add option Exclude default CSS?
 * Disable WordPress.WhiteSpace.ControlStructureSpacing coding standard
-* RELATES #95 Incoming YouTube links not embedded
+* RESOLVE #95 Incoming YouTube links not embedded
 
 ## 2.19.7
 * RESOLVE Testimonials content has the_content filter applied

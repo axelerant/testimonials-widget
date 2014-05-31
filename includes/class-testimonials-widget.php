@@ -229,6 +229,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			$details = self::get_testimonial_html( $testimonial, $atts );
 			$details = apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
 
+			$content = self::do_video( $content, $atts );
 			$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
 
 			$text = $content . $details;
@@ -1415,37 +1416,30 @@ EOF;
 
 		$keep_whitespace = $atts['keep_whitespace'];
 		$do_shortcode    = $atts['do_shortcode'];
-		$enable_video    = $atts['enable_video'];
 
-		// wrap our own quote class around the content before any formatting
-		// happens
+		$content = self::do_video( $content, $atts );
 
+		// wrap our own quote class around the content before any formatting happens
 		$temp_content  = self::$tag_open_quote;
 		$temp_content .= trim( $content );
 		$temp_content .= self::$tag_close_quote;
 
 		$content = $temp_content;
+
 		$content = wptexturize( $content );
 		$content = convert_smilies( $content );
 		$content = convert_chars( $content );
-
-		if ( $enable_video && ! empty( $GLOBALS['wp_embed'] ) ) {
-			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
-		}
-
-		if ( $do_shortcode ) {
-			$content = do_shortcode( $content );
-		} else {
-			$content = strip_shortcodes( $content );
-		}
-
 		if ( is_null( $widget_number ) || $keep_whitespace ) {
 			$content = wpautop( $content );
 		}
 
 		$content = shortcode_unautop( $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
-		$content = trim( $content );
+		if ( $do_shortcode ) {
+			$content = do_shortcode( $content );
+		} else {
+			$content = strip_shortcodes( $content );
+		}
 
 		return $content;
 	}
@@ -2294,6 +2288,17 @@ EOD;
 		}
 
 		return $array;
+	}
+
+
+	public static function do_video( $content, $atts ) {
+		$enable_video = $atts['enable_video'];
+		if ( $enable_video && ! empty( $GLOBALS['wp_embed'] ) ) {
+			$content = $GLOBALS['wp_embed']->autoembed( $content );
+			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
+		}
+
+		return $content;
 	}
 }
 
