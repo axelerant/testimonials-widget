@@ -4,6 +4,7 @@
 
 ## 2.19.8RC1
 * Add option Exclude default CSS?
+* Disable WordPress.WhiteSpace.ControlStructureSpacing coding standard
 * RELATES #95 Incoming YouTube links not embedded
 
 ## 2.19.7

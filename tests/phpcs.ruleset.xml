@@ -38,6 +38,7 @@
 	</rule>
 
 	<rule ref="WordPress">
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing" />
 		<exclude name="WordPress.XSS.EscapeOutput" />
 	</rule>
 </ruleset>
