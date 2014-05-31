@@ -3,6 +3,7 @@
 ## master
 
 ## 2.19.8RC1
+* Add Configuration examples for filter testimonials_widget_meta_box
 * Add option Exclude default CSS?
 * Disable WordPress.WhiteSpace.ControlStructureSpacing coding standard
 * RELATES #95 Incoming YouTube links not embedded

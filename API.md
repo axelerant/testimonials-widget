@@ -38,7 +38,7 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_get_testimonial_html`
 
-	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch.. [example](https://aihrus.zendesk.com/entries/23693433-How-do-I-use-filter-testimonials-widget-get-testimonial-html-)
+	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://aihrus.zendesk.com/entries/23693433-How-do-I-use-filter-testimonials-widget-get-testimonial-html-)
 
 * `testimonials_widget_gravatar_size`
 
@@ -145,7 +145,7 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_meta_box`
 
-	Modify Testimonial Data fields. [example](https://gist.github.com/michael-cannon/5833704)
+	Modify Testimonial Data fields. [example](https://gist.github.com/michael-cannon/5833704). [Configuration examples](https://github.com/michael-cannon/aihrus-framework/blob/master/includes/libraries/class-redrokk-metabox-class.php#L815) 
 
 * `testimonials_widget_posts_custom_column`
 
