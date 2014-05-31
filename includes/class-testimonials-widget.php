@@ -159,8 +159,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function plugin_action_links( $links, $file ) {
-		if ( self::BASE == $file )
+		if ( self::BASE == $file ) {
 			array_unshift( $links, self::$settings_link );
+		}
 
 		return $links;
 	}
@@ -206,8 +207,9 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static function get_single( $content ) {
 		global $post;
 
-		if ( ! is_single() || self::PT != $post->post_type )
+		if ( ! is_single() || self::PT != $post->post_type ) {
 			return $content;
+		}
 
 		$atts                 = self::get_defaults( true );
 		$atts['hide_content'] = 1;
@@ -240,8 +242,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function activation() {
-		if ( ! current_user_can( 'activate_plugins' ) )
+		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
+		}
 
 		self::init();
 		flush_rewrite_rules();
@@ -1995,22 +1998,25 @@ EOF;
 		$meta   = '';
 		$schema = '';
 
-		if ( empty( $meta_data ) )
+		if ( empty( $meta_data ) ) {
 			return $schema;
+		}
 
 		if ( is_array( $meta_data ) ) {
 			foreach ( $meta_data as $key => $value ) {
-				if ( is_array( $value ) )
+				if ( is_array( $value ) ) {
 					$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
-				else
+				} else {
 					$meta .= sprintf( self::$schema_meta, $key, $value );
+				}
 				
 				$meta .= "\n";
 			}
 
 			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta );
-		} else
+		} else {
 			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta_data );
+		}
 
 		return $schema;
 	}
