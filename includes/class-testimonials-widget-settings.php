@@ -134,7 +134,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['title_link'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Title Link', 'testimonials-widget' ),
-			'desc' => esc_html__( 'URL, path, or post ID to link widget title to. Ex: http://example.com/stuff, /testimonials, 123 or ', 'testimonials-widget' ),
+			'desc' => esc_html__( 'URL, path, or post ID to link widget title to. Ex: http://example.com/stuff, /testimonials, or 123', 'testimonials-widget' ),
 			'validate' => 'wp_kses_data',
 		);
 
