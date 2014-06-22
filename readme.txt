@@ -446,6 +446,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
+= 2.19.8 =
+
+* Cite fields for company and location are swapped
+
 = 2.19.6 =
 
 * Enable Video also means enable video embedding and display

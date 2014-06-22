@@ -1337,16 +1337,6 @@ EOF;
 			$cite .= '</span>';
 		}
 
-		if ( $do_location && $cite ) {
-			$cite .= '<span class="join-location"></span>';
-		}
-
-		if ( $do_location ) {
-			$cite .= '<span class="location">';
-			$cite .= $testimonial_location;
-			$cite .= '</span>';
-		}
-
 		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite ) {
 			$cite .= '<span class="join"></span>';
 		}
@@ -1364,6 +1354,16 @@ EOF;
 		} elseif ( $do_url && ! $done_url ) {
 			$cite .= '<span class="url">';
 			$cite .= make_clickable( $testimonial_url );
+			$cite .= '</span>';
+		}
+
+		if ( $do_location && $cite ) {
+			$cite .= '<span class="join-location"></span>';
+		}
+
+		if ( $do_location ) {
+			$cite .= '<span class="location">';
+			$cite .= $testimonial_location;
 			$cite .= '</span>';
 		}
 
