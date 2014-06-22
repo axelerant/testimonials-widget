@@ -2,9 +2,6 @@
 
 ## master
 
-## 1.1.5RC1
-* RELATES michael-cannon/testimonials-widget#86 Truncate content on word or whitespace
-
 ## 1.1.4
 * Carry over core baseline methods
 
