@@ -3,9 +3,10 @@
 ## master
 
 ## 2.19.9RC1
-* Add filter `tba_register_post_type_args`
 * Add filter `tba_register_category_args`
+* Add filter `tba_register_post_type_args`
 * Add filter `tba_register_tags_args`
+* Add `margin-bottom: 2em;` to `.testimonials-widget-testimonial.list`
 
 ## 2.19.8
 * Add Configuration examples for filter testimonials_widget_meta_box

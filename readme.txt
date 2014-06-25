@@ -446,6 +446,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == Upgrade Notice ==
 
+= 2.19.9 =
+
+* Added `margin-bottom: 2em;` to `.testimonials-widget-testimonial.list`
+
 = 2.19.8 =
 
 * Cite fields for company and location are swapped

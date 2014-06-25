@@ -36,7 +36,11 @@
 	float: right;
 }
 
-.testimonials-widget-testimonial.list,
+.testimonials-widget-testimonial.list {
+	clear: left;
+	margin-bottom: 2em;
+}
+
 .testimonials-widget-testimonial.single {
 	clear: left;
 }
