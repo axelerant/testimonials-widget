@@ -183,6 +183,18 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 	Override settings defaults with your own.
 
+* `tba_register_post_type_args`
+
+	Overrides `register_post_type` arguments.
+
+* `tba_register_category_args`
+
+	Overrides `register_taxonomy` arguments.
+
+* `tba_register_tags_args`
+
+	Overrides `register_taxonomy` arguments.
+
 ## Need More?
 
 Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).

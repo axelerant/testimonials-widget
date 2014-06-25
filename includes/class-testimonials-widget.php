@@ -700,6 +700,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			'taxonomies' => $taxonomies,
 		);
 
+		$args = apply_filters( 'tba_register_post_type_args', $args );
 		register_post_type( self::PT, $args );
 
 		if ( $do_register_taxonomy ) {
@@ -714,12 +715,14 @@ class Testimonials_Widget extends Aihrus_Common {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 		);
+		$args = apply_filters( 'tba_register_category_args', $args );
 		register_taxonomy( self::$cpt_category, self::PT, $args );
 
 		$args = array(
 			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
 		);
+		$args = apply_filters( 'tba_register_tags_args', $args );
 		register_taxonomy( self::$cpt_tags, self::PT, $args );
 	}
 
