@@ -3,6 +3,7 @@
 ## master
 
 ## 2.19.9RC1
+* Add example for `tba_register_post_type_args`
 * Add filter `tba_register_category_args`
 * Add filter `tba_register_post_type_args`
 * Add filter `tba_register_tags_args`

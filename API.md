@@ -185,7 +185,7 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `tba_register_post_type_args`
 
-	Overrides `register_post_type` arguments.
+	Overrides `register_post_type` arguments. [example](https://gist.github.com/michael-cannon/8fc217199ae1e8d5eecb)
 
 * `tba_register_category_args`
 
