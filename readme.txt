@@ -378,6 +378,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 * Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
 * [404 - Page not found](https://aihrus.zendesk.com/entries/23679301)
+* [Add testimonials using Gravity Forms](http://webtrainingwheels.com/how-to-collect-user-submitted-testimonials-wordpress/)
 * [Change styling or debug CSS](https://aihrus.zendesk.com/entries/24910733)
 * [Customize bxSlider](http://bxslider.com/examples)
 * [Debug theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
