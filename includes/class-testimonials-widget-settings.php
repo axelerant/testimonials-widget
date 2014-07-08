@@ -76,11 +76,13 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$version = Testimonials_Widget::VERSION;
 		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
 
-		if ( $version != self::$version )
+		if ( $version != self::$version ) {
 			self::initialize_settings();
+		}
 
-		if ( ! Testimonials_Widget::do_load() )
+		if ( ! Testimonials_Widget::do_load() ) {
 			return;
+		}
 
 		self::load_options();
 		self::register_settings();
@@ -757,19 +759,21 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			case 'text':
 				extract( $args );
 
-				if ( is_null( $input ) )
+				if ( is_null( $input ) ) {
 					$options = get_option( self::ID );
-				else {
+				} else {
 					$options      = array();
 					$options[$id] = $input;
 				}
 
-				if ( ! isset( $options[$id] ) )
+				if ( ! isset( $options[$id] ) ) {
 					$options[$id] = $std;
+				}
 
 				$field_class = '';
-				if ( ! empty( $class ) )
+				if ( ! empty( $class ) ) {
 					$field_class = ' ' . $class;
+				}
 
 				$field_class = esc_attr( $field_class );
 

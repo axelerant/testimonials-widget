@@ -377,6 +377,7 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 = Most Common Issues =
 
 * Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
+* Shortcode not working? Make sure your theme isn't using same shortcode.
 * [404 - Page not found](https://aihrus.zendesk.com/entries/23679301)
 * [Add testimonials using Gravity Forms](http://webtrainingwheels.com/how-to-collect-user-submitted-testimonials-wordpress/)
 * [Change styling or debug CSS](https://aihrus.zendesk.com/entries/24910733)
