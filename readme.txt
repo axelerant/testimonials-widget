@@ -330,8 +330,9 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Requirements =
 
-* [jQuery 1.10+](https://aihrus.zendesk.com/entries/23693363)
 * PHP 5.3+ [Read notice](https://aihrus.zendesk.com/entries/30678006) – Since 2.16.0
+* WordPress 3.6+
+* [jQuery 1.10+](https://aihrus.zendesk.com/entries/23693363)
 
 = Install Methods =
 
