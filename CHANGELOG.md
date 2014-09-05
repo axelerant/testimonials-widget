@@ -2,7 +2,7 @@
 
 ## master
 
-## 2.19.9RC1
+## 2.19.9
 * Add example for `tba_register_post_type_args`
 * Add FAQ Gravity Forms
 * Add filter `tba_register_category_args`
