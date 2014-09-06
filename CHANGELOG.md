@@ -3,7 +3,7 @@
 ## master
 
 ## 3.0.0RC1
-* TBD
+* Readme updates
 
 ## 2.19.9
 * Add example for `tba_register_post_type_args`
