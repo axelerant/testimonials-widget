@@ -1,4 +1,4 @@
-# CONTRIBUTE Testimonials
+# CONTRIBUTE - Testimonials by Aihrus
 
 Community made patches, localisation, bug reports and contributions are very welcome and help make Testimonials the #1 testimonials plugin for WordPress.
 

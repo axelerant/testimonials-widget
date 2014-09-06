@@ -2,7 +2,8 @@
 /**
  * Plugin Name: Testimonials by Aihrus
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
- * Description: Testimonials by Aihrus lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
+ * Description: Easily add social proofing to your website with Testimonials by Aihrus. List or slide reviews via functions, shortcodes, or widgets.
+ * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 3.0.0RC1
  * Author: Michael Cannon
  * Author URI: http://aihr.us/resume/
@@ -13,17 +14,22 @@
 
 
 /**
- * Copyright 2014 Michael Cannon (email: mc@aihr.us)
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 2, as
- * published by the Free Software Foundation.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+Testimonials by Aihrus
+Copyright (C) 2014  Michael Cannon
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 // Exit if accessed directly

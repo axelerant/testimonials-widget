@@ -1,9 +1,11 @@
-# CHANGELOG Testimonials by Aihrus
+# CHANGELOG - Testimonials by Aihrus
 
 ## master
 
 ## 3.0.0RC1
-* Readme updates
+* Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md helpers
+* Readme.txt updates
+* Update Testimonials by Aihrus branding
 
 ## 2.19.9
 * Add example for `tba_register_post_type_args`

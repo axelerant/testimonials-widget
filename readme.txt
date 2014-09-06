@@ -9,7 +9,7 @@ Stable tag: 3.0.0RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Testimonials by Aihrus lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
+Easily add social proofing to your website with Testimonials by Aihrus. List or slide reviews via functions, shortcodes, or widgets.
 
 
 == Description ==
@@ -163,23 +163,7 @@ Further, Testimonials Premium offers caching, excerpts, ratings, read more links
 
 = Shortcode Examples =
 
-**[testimonials]**
-
-* `[testimonials category="category-name"]` - Testimonial list by category
-* `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
-* `[testimonials category=product tags=widget limit=5]` - Testimonial list by tag, showing 5 at most
-* `[testimonials char_limit=0 limit=-1]` - Show all testimonials on one page
-* `[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]` - Show 3 full-length testimonials, with opening and closing quote marks removed
-* `[testimonials hide_source=true hide_url=true]` - Show testimonial list with source and urls hidden
-* `[testimonials ids="1,11,111" paging=false]` - Show only these 3 testimonials
-* `[testimonials meta_key=testimonials-widget-company order=asc limit=15]` - Show 15 testimonials, in company order
-* `[testimonials order=ASC orderby=title]` - List testimonials by post title
-* `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
-
-**[testimonials_slider]**
-
-* `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first
-* `[testimonials_slider tags=sometag random=true]` - Show rotating, random testimonials having tag "sometag"
+Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
 
 = Shortcode and Widget Options =
 
@@ -187,143 +171,7 @@ Please keep in mind that inheritance affects options. This means that changes ma
 
 Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
 
-**General**
-
-* Use bxSlider? - Prior to 2.15.0, Testimonials' used custom JavaScript for transitions.
-* Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
-	* `exclude_bxslider_css` - default false; exclude_bxslider_css=true
-* Exclude default CSS? - Prevent default CSS from being loaded.
-	* `exclude_css` - default false; exclude_css=true
-* Include IE7 CSS?
-* Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content
-	* `disable_quotes` - default false; disable_quotes=true
-* Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS and corrupts microdata parsing
-	* `remove_hentry` - default true; remove_hentry=false
-* Use `<q>` tag? – Not HTML5 compliant
-	* `use_quote_tag` - default none; use_quote_tag=true
-
-**Fields to Show**
-
-* Hide Gravatar Image?
-	* `hide_gravatar` - default show; hide_gravatar=true
-* Hide Image?
-	* `hide_image` - default show; hide_image=true
-* Hide Image in Single View?
-	* `hide_image_single` - default show; hide_image_single=true
-* Hide Testimonial Content?
-	* `hide_content` - default show; hide_content=true
-* Hide Author/Source? - Don't display "Post Title" in cite
-	* `hide_source` - default show; hide_source=true
-* Hide Email?
-	* `hide_email` - default show; hide_email=true
-* Hide Job Title?
-	* `hide_title` - default show; hide_title=true
-* Hide Location?
-	* `hide_location` - default show; hide_location=true
-* Hide Company?
-	* `hide_company` - default show; hide_company=true
-* Hide URL?
-	* `hide_url` - default show; hide_url=true
-
-**Miscellaneous**
-
-* Default Reviewed Item? - Name of thing being referenced in testimonials
-	* `item_reviewed` - default "Site Title"
-* Default Reviewed Item URL? - URL of thing being referenced in testimonials
-	* `item_reviewed_url` - default `network_site_url();`
-* Enable Paging? - for [testimonials]
-	* `paging` - default true [true|before|after|false]; paging=false
-		* `true` – display paging before and after testimonial entries
-		* `before` – display paging only before testimonial entries
-		* `after` – display paging only after testimonial entries
-	* Widget - Not functional
-* Enable Review Schema? – Adds HTML tag markup per the [Review schema](http://schema.org/Review) to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.
-	* `enable_schema` - default true; enable_schema=false
-* Enable Video? - Only enable when displaying video content.
-	* `enable_video` - default false; enable_video=true
-* Enable [shortcodes]? - If unchecked, shortcodes are stripped.
-	* `do_shortcode` - default false; do_shortcode=true
-* Hide "Testimonials Not Found"?
-	* `hide_not_found` - default show; hide_not_found=true
-* URL Target - Add target to all URLs; leave blank if none
-	* `target` - default none; target=_new
-
-**Selection**
-
-* Category Filter - Comma separated category names
-	* `category` - default none; category=product or category="category-a, another-category"
-* Tags Filter - Comma separated tag names
-	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
-* Require All Tags - Select only testimonials with all of the given tags
-	* `tags_all` - default OR; tags_all=true
-* Include IDs Filter - Comma separated IDs
-	* `ids` - default none; ids=2 or ids="2,4,6"
-* Exclude IDs Filter - Comma separated IDs
-	* `exclude` - default none; exclude=2 or exclude="2,4,6"
-* Limit - Number of testimonials to rotate through via widget or show at a time when listing
-	* `limit` - default 10; limit=25
-
-**Ordering**
-
-* Random Order? - Unchecking this will rotate testimonials per ORDER BY and ORDER BY Order. Widgets are random by default automatically
-	* `random` - default none; random=true (overrides `order` and `orderby`)
-	* Widget = default true
-* ORDER BY - Used when Random order is disabled
-	* `orderby` - [default ID](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); orderby=title
-* ORDER BY meta_key - Used when "Random Order" is disabled and sorting by a testimonials meta key is needed
-	* `meta_key` - default none [testimonials-widget-company|testimonials-widget-email|testimonials-widget-title|testimonials-widget-location|testimonials-widget-url]; meta_key=testimonials-widget-company
-* ORDER BY Order - DESC or ASC
-	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
-
-**Widget**
-
-* Widget Title
-	* `title` - default "Testimonials"
-* Title Link - URL or Post ID to link widget title to
-	* `title_link` - default none; title_link=123, title_link=http://example.com
-* Character Limit - Number of characters to limit testimonial views to
-	* `char_limit` - default none; char_limit=200
-	* Widget - default 500
-* Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all
-	* `refresh_interval` - default 5; refresh_interval=0
-* Transition Mode? - Type of transition between slides
-	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
-* Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
-	* `show_start_stop` - default true; show_start_stop=false
-* Keep Whitespace? - Keeps testimonials looking as entered than sans auto-formatting
-	* `keep_whitespace` - default none; keep_whitespace=true
-	* The citation has no whitespace adaptations. It's straight text, except for email or URL links. The presentation is handled strictly by CSS.
-* Testimonial Bottom Text - Custom text or HTML for bottom of testimonials
-	* `bottom_text` - default none; bottom_text="`&lt;h3&gt;&lt;a href="http://example.com"&gt;All testimonials&lt;/a&gt;&lt;/h3&gt;`"
-
-**Post Type**
-
-* Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
-* Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
-* Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
-
-**Reset**
-
-* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead
-* Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
-* Import Settings – Paste new serialized settings here to overwrite your current configuration.
-* Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion
-* Reset to Defaults? – Check this box to reset options to their defaults
-
-**Version Based Options**
-
-* Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
-	* `disable_animation` - default false; disable_animation=true
-* Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_out_speed` - default 1250; fade_out_speed=400
-* Fade In Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_in_speed` - default 500; fade_in_speed=800
-* Height - Testimonials height, in pixels. Overrides minimum and maximum height
-	* `height` - default none; height=300
-* Minimum Height - Set for minimum display height, in pixels
-	* `min_height` - default none; min_height=100
-* Maximum Height - Set for maximum display height, in pixels
-	* `max_height` - default none; max_height=250
+Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master/OPTIONS.md).
 
 
 == Installation ==
@@ -447,136 +295,12 @@ https://www.youtube.com/watch?v=b81oz7k1wbM
 
 == Changelog ==
 
-See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
+Read [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md).
 
 
 == Upgrade Notice ==
 
-= 3.0.0 =
-
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials by Aihrus and Testimonials Premium actions or output, this 3.0 upgrade will not be compatible with those modifications until corrections are made. Please read [Testimonials by Aihrus and Testimonials Premium 3.0.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
-
-= 2.19.9 =
-
-* Added `margin-bottom: 2em;` to `.testimonials-widget-testimonial.list`
-
-= 2.19.8 =
-
-* Cite fields for company and location are swapped
-
-= 2.19.6 =
-
-* Enable Video also means enable video embedding and display
-
-= 2.19.0 =
-
-* CSS class `.title` is now `.job-title`. Thank you Mark
-* Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
-* Shortcode and theme function `testimonialswidget_list` being deprecated by `testimonials`
-* Shortcode and theme function `testimonialswidget_widget` being deprecated by `testimonials_slider`
-
-= 2.18.3 =
-
-* CSS class `.hide` renamed `.display-none`
-* This is the last version supporting pre-bxSlider options
-
-= 2.18.2 =
-
-* CSS class `.display-none` renamed `.hide`
-
-= 2.18.1 =
-
-* CSS is back to being always loaded in the header
-* Removed "Use bxSlider?" and "Include IE7 CSS" from widget options
-
-= 2.18.0 =
-
-* `remove_hentry` is now true by default
-
-= 2.16.0 =
-
-* [Requires PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
-
-= 2.15.0 =
-
-* If upgrading, bxSlider will not be enabled by default. You must enable it in your widget and global settings. CSS customizations must be reviewed to have the `.active` and `.display-none` classes removed. The main `.testimonials-widget-testimonial` class also need the `display: none;` and `clear: left;` removed.
-
-= 2.14.0 =
-
-* **60 modifications** See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
-* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
-* Gravatar image size now based upon Thumbnail size in Media Settings
-* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
-* Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
-
-= 2.13.6 =
-
-* IE 7 CSS moved to separate file. Include via Testimonials > Settings if needed
-
-= 2.12.0 =
-
-* CSS and JavaScript renaming
-	* `bottom_text` renamed to `bottom-text`
-	* `close_quote` renamed to `close-quote`
-	* `display_none` renamed to `display-none`
-	* `join_location` renamed to `join-location`
-	* `join_title` renamed to `join-title`
-	* `open_quote` renamed to `open-quote`
-	* `testimonialswidget_testimonial` renamed to `testimonials-widget-testimonial`
-	* `testimonialswidget_testimonials` renamed to `testimonials-widget-testimonials`
-
-= 2.11.3 =
-
-* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
-
-= 2.11.0 =
-
-* CSS class names are simplified. For the most part, other than `testimonialswidget_testimonial` remove `testimonialswidget_` from the CSS class name in your CSS customizations.
-	* Ex: `.testimonialswidget_join` becomes `.join`
-	* Ex: `.testimonialswidget_author` becomes `.author`
-* Testimonials are now formatted using `blockquote` than `q` for HTML5 compliance. If you need `q` tag formatting, enable it at WP Admin > Testimonials > Settings, Compatibility & Reset tab
-	* `cite` is now `div.credit`
-
-= 2.8.0 =
-
-* Deprecated
-	* `hide_author` now `hide_source`
-* Removed filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
-	* Use `testimonials_widget_validate_settings` and `testimonials_widget_settings` instead
-* Renamed variable and related class `widget_text` to `bottom_text`
-
-= 2.7.3 =
-
-* Quotes are no longer handled via `q`, `p:before`, or `p:after` CSS. It's handled via `.testimonialswidget_testimonial .testimonialswidget_open_quote:before` and `.testimonialswidget_testimonial .testimonialswidget_close_quote:after`
-* This change was made to keep consistency in how quotes were managed and to reduce the number of exception cases. In the end, this is simpler.
-
-= 2.7.0 =
-
-* Quotes with `keep_whitespace=true` aren't applied via CSS `.testimonialswidget_testimonial q` tag anymore, but `.testimonialswidget_testimonial q p:first-child:before` and `.testimonialswidget_testimonial q p:last-child:after`
-* Widget testimonial `p` tags are no longer CSS `display: inline`, `display: block` as expected
-
-= 2.4.1 =
-
-* Paging is on by default, except for widgets
-
-= 2.0.0 =
-
-* CSS
-	* Class `testimonialswidget_company` replaces `testimonialswidget_source`
-	* Class `testimonialswidget_source` replaces `testimonialswidget_author`
-	* The tighten widget display up, p tags within q are displayed inline.
-* JavaScript
-	* The JavaScript for rotating testimonials is moved to the footer. As such, your theme requires `wp_footer()` in the footer.
-* Shortcode options
-	* `hide_source` replaced by `hide_url`
-	* `hide_author` replaced by `hide_source`
-* Testimonials
-	* Migration from the old custom table to new custom post type is automatically done. Import might take a few moments to complete.
-	* Company, URL and email details are attempted to be identified and placed properly based upon the original author and source fields. The company is "guessed" from the `author` field when there's a ", " or " of " context. If the `source` is an email, it's saved as such. Otherwise, it's assumed to be a URL.
-	* Public testimonials are saved as Published. Non-public testimonials are marked as Private.
-* Widget options
-	* "Show author" and "Show source" options are replaced by "Hide source" and "Hide URL" respectively. There's no backwards compatibility for these changes. 
-	* Default `min-height` is now 250px than 150px.
+Read [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md).
 
 
 == Notes ==
@@ -589,14 +313,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 == API ==
 
-* Read the [Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
-
-
-== Background ==
-
-Version 2.0.0 of Testimonials is a complete rewrite based upon a composite of ideas from user feedback and grokking the plugins [Imperfect Quotes](http://www.swarmstrategies.com/imperfect-quotes/), [IvyCat Ajax Testimonials](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/), and [TB Testimonials](http://travisballard.com/wordpress/tb-testimonials/). Thank you to these plugin developers for their efforts that have helped inspire this rewrite.
-
-Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://srinig.com/wordpress/plugins/quotes-collection/) by [Srini G](http://wordpress.org/support/profile/SriniG) with additional contributions from [j0hnsmith](http://wordpress.org/support/profile/j0hnsmith), [ChrisCree](http://wordpress.org/support/profile/ChrisCree) and [comprock](http://wordpress.org/support/profile/comprock).
+* Read [API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
 
 
 == Conflicts ==
@@ -606,15 +323,7 @@ Prior to version 2.0.0, this plugin was a fork of [Quotes Collection](http://sri
 
 == Deprecation Notices ==
 
-= Deprecated Shortcodes =
-
-* `[testimonialswidget_list]` - Listings with paging 
-* `[testimonialswidget_widget]` - Rotating
-
-= Deprecated Theme Functions =
-
-* `testimonialswidget_list()` - Testimonials listing with paging 
-* `testimonialswidget_widget()` - Rotating testimonials
+* Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md).
 
 
 == Localization ==
