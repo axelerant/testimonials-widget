@@ -303,14 +303,6 @@ Read [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/mast
 Read [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md).
 
 
-== Notes ==
-
-* Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* Migration from from pre-2.0.0 custom table to new custom post type is automatic
-* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
-* When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
-
-
 == API ==
 
 * Read [API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md).
@@ -334,6 +326,14 @@ Read [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/mast
 You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
 
 **[How do I localize?](https://aihrus.zendesk.com/entries/23691557)**
+
+
+== Notes ==
+
+* Default and Gravatar image size is based upon Thumbnail size in Media Settings
+* Migration from from pre-2.0.0 custom table to new custom post type is automatic
+* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
+* When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
 
 
 == Recommendation ==
