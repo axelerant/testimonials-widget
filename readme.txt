@@ -349,18 +349,21 @@ Further, global settings are the baseline for shortcodes. If you want to alter t
 
 = Activation Options =
 
-* Activate the "Testimonials" plugin after uploading
-* Activate the "Testimonials" plugin through WordPress Admin > Plugins
+* Activate the "Testimonials" plugin after uploading through WordPress Admin > Plugins
 
 = Usage =
 
-1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
 1. Watch [Testimonial Widget](https://www.youtube.com/watch?v=zDz1igmRK2g)
-1. Add and manage testimonials through the "Testimonials" menu in the WordPress admin area
-1. To display testimonials in the sidebar, go to "Widgets" menu and drag "Testimonials" widget into the desired widget area
-1. Configure "Testimonials" to select quotes and display as needed
-1. Use the `[testimonials]` or `[testimonials_slider]` shortcodes to display testimonials on a page or in a post
-1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for `testimonials()` and `testimonials_slider()`
+1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+1. Add and manage testimonials through the **Testimonials** menu in the WordPress admin area
+1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials** widget into the desired widget area. Then configure the widget to select options and display as desired.
+1. Use the following shortcodes to display testimonials on a page, post, etc.
+	* `[[testimonials]]` - Listings with paging
+	* `[[testimonials_slider]]` - Rotating testimonials
+1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for using the following theme helpers.
+	* `<?php echo testimonials( $args ); // Listings with paging ?>`
+	* `<?php echo testimonials_slider( $args ); // Rotating testimonials ?>`
+1. Shortcode and theme function settings are found in the **Shortcode and Widget Options** section.
 
 = Upgrading =
 
@@ -451,7 +454,7 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = 3.0.0 =
 
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters; this upgrade will break your system until minor corrections are made.
+* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials by Aihrus and Testimonials Premium actions or output, this 3.0 upgrade will not be compatible with those modifications until corrections are made. Please read [Testimonials by Aihrus and Testimonials Premium 3.0.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
 
 = 2.19.9 =
 
