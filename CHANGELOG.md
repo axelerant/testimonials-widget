@@ -4,6 +4,7 @@
 
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md helpers
+* API link updates
 * Readme.txt updates
 * Update licensing entries
 * Update Testimonials by Aihrus branding

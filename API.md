@@ -1,6 +1,6 @@
 # API - Testimonials by Aihrus
 
-The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
+The [Testimonials by Aihrus plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 
 ## Actions
 
@@ -26,11 +26,11 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_cite_html`
 
-	Adjust cite contents. [example](https://aihrus.zendesk.com/entries/24012926-How-do-I-add-the-date-to-the-cite-)
+	Adjust cite contents. [example](https://aihrus.zendesk.com/entries/24012926)
 
 * `testimonials_widget_content_more`
 
-	More content ellipsis. [example](https://aihrus.zendesk.com/entries/23691577-How-do-I-change-the-more-content-ellipsis-)
+	More content ellipsis. [example](https://aihrus.zendesk.com/entries/23691577)
 
 * `testimonials_widget_get_testimonials_html`
 
@@ -38,23 +38,23 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_get_testimonial_html`
 
-	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://aihrus.zendesk.com/entries/23693433-How-do-I-use-filter-testimonials-widget-get-testimonial-html-)
+	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://aihrus.zendesk.com/entries/23693433)
 
 * `testimonials_widget_gravatar_size`
 
-	Change the Gravatar size. [example](https://aihrus.zendesk.com/entries/23679271-How-do-I-change-the-Gravatar-size-)
+	Change the Gravatar size. [example](https://aihrus.zendesk.com/entries/23679271)
 
 * `testimonials_widget_image_size`
 
-	Change the image size. [example](https://aihrus.zendesk.com/entries/23677122-How-do-I-change-the-image-size-)
+	Change the image size. [example](https://aihrus.zendesk.com/entries/23677122)
 
 * `testimonials_widget_next_posts_link_text`
 
-	Configure Next page indicator. [example](https://aihrus.zendesk.com/entries/23691587-How-do-I-configure-Next-and-Previous-page-indicators-)
+	Configure Next page indicator. [example](https://aihrus.zendesk.com/entries/23691587)
 
 * `testimonials_widget_previous_posts_link_text`
 
-	Configure Previous page indicator. [example](https://aihrus.zendesk.com/entries/23691587-How-do-I-configure-Next-and-Previous-page-indicators-)
+	Configure Previous page indicator. [example](https://aihrus.zendesk.com/entries/23691587)
 
 * `testimonials_widget_testimonial_html_single_content`
 
@@ -62,11 +62,11 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_testimonial_html_single`
 
-	Customize testimonials single view output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23679391-How-do-I-customize-my-testimonial-single-output-)
+	Customize testimonials single view output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23679391)
 
 * `testimonials_widget_testimonial_html`
 
-	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23693413-How-do-I-customize-my-testimonial-list-and-widget-output-)
+	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23693413)
 
 * `testimonials_widget_get_testimonial_html_class`
 
@@ -86,7 +86,7 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_wp_pagenavi`
 
-	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361-How-do-I-get-page-numbers-for-pagination-)
+	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361)
 
 * `testimonials_widget_review_name_length`
 
@@ -133,15 +133,15 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 * `testimonials_widget_data`
 
-	Process testimonials data before display processing. [example](https://aihrus.zendesk.com/entries/23692056-How-do-I-filter-the-testimonials-data-before-display-processing-)
+	Process testimonials data before display processing. [example](https://aihrus.zendesk.com/entries/23692056)
 
 * `testimonials_widget_defaults_single`
 
-	Create a global or central Testimonials configuration for single view. [example](https://aihrus.zendesk.com/entries/23679071-How-do-I-add-testimonial-excerpt-to-single-view-). [example](https://aihrus.zendesk.com/entries/23679111-How-do-I-show-the-expert-and-hide-the-image-in-the-testimonial-single-view-)
+	Create a global or central Testimonials configuration for single view. [example](https://aihrus.zendesk.com/entries/23679071). [example](https://aihrus.zendesk.com/entries/23679111)
 
 * `testimonials_widget_defaults`
 
-	Create a global or central Testimonials configuration. [example](https://aihrus.zendesk.com/entries/23691607-How-do-I-use-filter-testimonials-widget-defaults-)
+	Create a global or central Testimonials configuration. [example](https://aihrus.zendesk.com/entries/23691607)
 
 * `testimonials_widget_meta_box`
 
@@ -197,4 +197,4 @@ The [Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) com
 
 ## Need More?
 
-Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507-Testimonials-Widget) and [source code](https://github.com/michael-cannon/testimonials-widget).
+Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507) and [source code](https://github.com/michael-cannon/testimonials-widget).
