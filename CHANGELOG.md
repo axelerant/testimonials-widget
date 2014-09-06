@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.0.0RC1
+* TBD
+
 ## 2.19.9
 * Add example for `tba_register_post_type_args`
 * Add FAQ Gravity Forms

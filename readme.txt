@@ -5,7 +5,7 @@ Donate link: http://aihr.us/about-aihrus/donate/
 Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
 Requires at least: 3.6
 Tested up to: 4.0.0
-Stable tag: 2.19.9
+Stable tag: 3.0.0RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -448,6 +448,10 @@ See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 
 == Upgrade Notice ==
+
+= 3.0.0 =
+
+* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters; this upgrade will break your system until minor corrections are made.
 
 = 2.19.9 =
 
