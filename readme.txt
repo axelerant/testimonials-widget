@@ -80,13 +80,13 @@ The single testimonial view supports image, source, title, location, email, comp
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 * [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
-= Testimonials Premium =
+= Aihrus Testimonials Premium =
 
-Testimonials Premium is the most amazing and incredibly full-featured WordPress testimonials plugin there is. It lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Aihrus Testimonials Premium is the most amazing and incredibly full-featured WordPress testimonials plugin there is. It lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
-Further, Testimonials Premium offers caching, excerpts, ratings, read more links, more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+Further, Aihrus Testimonials Premium offers caching, excerpts, ratings, read more links, more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
 
-[Buy Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
+[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
 
 = Primary Premium Features =
 
@@ -114,7 +114,7 @@ Further, Testimonials Premium offers caching, excerpts, ratings, read more links
 * `<?php echo testimonials_form( $args ); ?>`
 * `<?php echo testimonials_links( $args ); ?>`
 
-[Buy Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
+[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
 
 = Additional Features =
 

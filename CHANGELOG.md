@@ -7,6 +7,7 @@
 * API link updates
 * Readme.txt updates
 * Update Aihrus Testimonials branding
+* Update Aihrus Testimonials Premium branding
 * Update licensing entries
 
 ## 2.19.9
@@ -148,7 +149,7 @@
 * RESOLVE #44 Blank testimonial between each rotating testimonial
 
 ## 2.17.2
-* RESOLVE Testimonials Premium load issue
+* RESOLVE Aihrus Testimonials Premium load issue
 * RESOLVE [Testimonial box displays as all white in widget on IE9](http://wordpress.org/support/topic/testimonial-box-displays-as-all-white-in-widget-on-ie9). Thank you [jbmoore](http://wordpress.org/support/profile/jbmoore)
 
 ## 2.17.1
