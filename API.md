@@ -1,6 +1,6 @@
-# API - Testimonials by Aihrus
+# API - Aihrus Testimonials
 
-The [Testimonials by Aihrus plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
+The [Aihrus Testimonials plugin](http://wordpress.org/plugins/testimonials-widget/) comes with its own set of actions and filters, as described below.
 
 ## Actions
 

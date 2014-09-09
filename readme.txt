@@ -1,4 +1,4 @@
-=== Testimonials by Aihrus ===
+=== Aihrus Testimonials ===
 
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
@@ -9,7 +9,7 @@ Stable tag: 3.0.0RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily add social proofing to your website with Testimonials by Aihrus. List or slide reviews via functions, shortcodes, or widgets.
+Easily add social proofing to your website with Aihrus Testimonials. List or slide reviews via functions, shortcodes, or widgets.
 
 
 == Description ==
@@ -185,8 +185,8 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 = Install Methods =
 
 * Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
-	* Find "Testimonials by Aihrus"
-	* Click "Install Now" of "Testimonials by Aihrus"
+	* Find "Aihrus Testimonials"
+	* Click "Install Now" of "Aihrus Testimonials"
 * Download [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* Through WordPress Admin > Plugins > Add New
 	* Click Upload

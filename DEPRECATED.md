@@ -1,4 +1,4 @@
-# Deprecation Notices - Testimonials by Aihrus
+# Deprecation Notices - Aihrus Testimonials
 
 ## Deprecated Shortcodes
 

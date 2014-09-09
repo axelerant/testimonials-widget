@@ -1,6 +1,6 @@
 <?php
 /**
-Testimonials by Aihrus
+Aihrus Testimonials
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify

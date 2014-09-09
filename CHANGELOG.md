@@ -1,4 +1,4 @@
-# CHANGELOG - Testimonials by Aihrus
+# CHANGELOG - Aihrus Testimonials
 
 ## master
 
@@ -6,8 +6,8 @@
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md helpers
 * API link updates
 * Readme.txt updates
+* Update Aihrus Testimonials branding
 * Update licensing entries
-* Update Testimonials by Aihrus branding
 
 ## 2.19.9
 * Add example for `tba_register_post_type_args`

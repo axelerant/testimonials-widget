@@ -1,6 +1,6 @@
-# CONTRIBUTE - Testimonials by Aihrus
+# CONTRIBUTE - Aihrus Testimonials
 
-Community made patches, localisation, bug reports and contributions are very welcome and help make Testimonials by Aihrus the #1 testimonials plugin for WordPress.
+Community made patches, localisation, bug reports and contributions are very welcome and help make Aihrus Testimonials the #1 testimonials plugin for WordPress.
 
 When contributing please ensure you follow the guidelines below so that we can keep on top of things.
 
@@ -21,21 +21,21 @@ For localization, please refer to [How do I change Testimonials text labels?](ht
 * Make the changes to your forked repository
   * Ensure you stick to the [WordPress Coding Standards](http://codex.wordpress.org/WordPress_Coding_Standards) and have properly documented any new functions.
 * When committing, reference your issue (if present) and include a note about the fix.
-* Push the changes to your fork and submit a pull request to the 'master' branch of the Testimonials by Aihrus repository.
+* Push the changes to your fork and submit a pull request to the 'master' branch of the Aihrus Testimonials repository.
 
 ## Code Documentation
 
-* Try to ensure that every Testimonials by Aihrus function is documented well and follows the standards set by phpDoc.
+* Try to ensure that every Aihrus Testimonials function is documented well and follows the standards set by phpDoc.
 * An example function, by Yoast, can be found [here](https://gist.github.com/jdevalk/5574677)
 * Please make sure that every function is documented so that when we update our API Documentation things don't go awry!
-* Finally, please use tabs and not spaces. The tab indent size should be 4 for all Testimonials by Aihrus code.
+* Finally, please use tabs and not spaces. The tab indent size should be 4 for all Aihrus Testimonials code.
 
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 
 
 ## Additional Resources
 
-* [Testimonials by Aihrus API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
-* [Testimonials by Aihrus DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md)
+* [Aihrus Testimonials API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
+* [Aihrus Testimonials DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md)
 * [General GitHub Help](http://help.github.com/)
 * [GitHub Pull Request](http://help.github.com/send-pull-requests/)

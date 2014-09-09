@@ -1,4 +1,4 @@
-# Shortcode Examples - Testimonials by Aihrus
+# Shortcode Examples - Aihrus Testimonials
 
 **[testimonials]**
 

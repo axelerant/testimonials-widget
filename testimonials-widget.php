@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Testimonials by Aihrus
+ * Plugin Name: Aihrus Testimonials
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
- * Description: Easily add social proofing to your website with Testimonials by Aihrus. List or slide reviews via functions, shortcodes, or widgets.
+ * Description: Easily add social proofing to your website with Aihrus Testimonials. List or slide reviews via functions, shortcodes, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 3.0.0RC1
  * Author: Michael Cannon
@@ -14,7 +14,7 @@
 
 
 /**
-Testimonials by Aihrus
+Aihrus Testimonials
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -52,7 +52,7 @@ if ( ! defined( 'TW_DIR_LIB' ) )
 	define( 'TW_DIR_LIB', TW_DIR_INC . 'libraries/' );
 
 if ( ! defined( 'TW_NAME' ) )
-	define( 'TW_NAME', 'Testimonials by Aihrus' );
+	define( 'TW_NAME', 'Aihrus Testimonials' );
 
 if ( ! defined( 'TW_PREMIUM_LINK' ) )
 	define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Buy Premium</a>' );
