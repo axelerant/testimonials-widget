@@ -36,7 +36,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	const OLD_NAME = 'testimonialswidget';
 	const PT       = 'testimonials-widget';
 
-	private static $found_posts   = 0;
 	private static $max_num_pages = 0;
 	private static $post_count    = 0;
 	private static $wp_query;
@@ -46,11 +45,12 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $cpt_tags        = '';
 	public static $css             = array();
 	public static $css_called      = false;
+	public static $found_posts     = 0;
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
 	public static $menu_shortcodes;
-	public static $not_found = false;
 	public static $notice_key;
+	public static $not_found = false;
 	public static $plugin_assets;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
