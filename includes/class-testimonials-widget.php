@@ -1225,7 +1225,7 @@ EOF;
 		}
 
 		$bottom_text = '';
-		if ( ! empty( $atts['bottom_text'] ) ) {
+		if ( ! empty( $atts['bottom_text'] ) && 'false' != $atts['bottom_text'] ) {
 			$bottom_text  = '<div class="bottom_text">';
 			$bottom_text .= $atts['bottom_text'];
 			$bottom_text .= '</div>';
