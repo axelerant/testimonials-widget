@@ -6,6 +6,7 @@
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md helpers
 * API link updates
 * Readme.txt updates
+* RESOLVE #111 bottom_text=false shows false
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries
