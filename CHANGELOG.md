@@ -5,6 +5,7 @@
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md helpers
 * API link updates
+* Put latest Update Notice in readme.txt
 * Readme.txt updates
 * RESOLVE #111 bottom_text=false shows false
 * Update Aihrus Testimonials branding
