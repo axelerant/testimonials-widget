@@ -1,6 +1,10 @@
-# CHANGELOG Aihrus Framework
+# CHANGELOG - Aihrus Framework
 
 ## master
+
+## 1.1.5RC1
+* RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
+* Update licensing GPL 2.0
 
 ## 1.1.4
 * Carry over core baseline methods
