@@ -1,6 +1,6 @@
 # Shortcode Examples - Aihrus Testimonials
 
-**[testimonials]**
+## [testimonials]
 
 * `[testimonials category="category-name"]` - Testimonial list by category
 * `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
@@ -13,7 +13,7 @@
 * `[testimonials order=ASC orderby=title]` - List testimonials by post title
 * `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 
-**[testimonials_slider]**
+## [testimonials_slider]
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first
 * `[testimonials_slider tags=sometag random=true]` - Show rotating, random testimonials having tag "sometag"

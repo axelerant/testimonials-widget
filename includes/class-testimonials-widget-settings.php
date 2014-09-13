@@ -315,13 +315,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'desc' => esc_html__( 'Don\'t display "Post Title" in cite', 'testimonials-widget' ),
 		);
 
-		self::$settings['hide_email'] = array(
-			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'std' => 1,
-		);
-
 		self::$settings['hide_title'] = array(
 			'title' => esc_html__( 'Hide Job Title?', 'testimonials-widget' ),
 			'type' => 'checkbox',
@@ -338,6 +331,13 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
+		);
+
+		self::$settings['hide_email'] = array(
+			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
 		);
 
 		self::$settings['hide_url'] = array(
@@ -622,18 +622,18 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
-		self::$settings['columns_email'] = array(
+		self::$settings['columns_company'] = array(
 			'section' => 'columns',
-			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,
 			'widget' => 0,
 		);
 
-		self::$settings['columns_company'] = array(
+		self::$settings['columns_email'] = array(
 			'section' => 'columns',
-			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,
@@ -949,7 +949,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'</p><p>' .
 			sprintf(
 				__( 'View the <a href="%s">Testimonials documentation</a>.', 'testimonials-widget' ),
-				esc_url( 'http://wordpress.org/plugins/testimonials-widget/' )
+				esc_url( self::$plugin_url )
 			) .
 			'</p>'
 		);

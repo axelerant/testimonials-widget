@@ -1,19 +1,21 @@
 <?php
-/*
-	Copyright 2014 Michael Cannon (email: mc@aihr.us)
+/**
+Aihrus Framework
+Copyright (C) 2014  Michael Cannon
 
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License, version 2, as
-	published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 if ( class_exists( 'Aihrus_Widget' ) )
@@ -130,7 +132,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ) . slideToggle(); jQuery( \'.tw-collapsible\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse All Options' ) . ' &raquo;</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand All Options' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse All Options' ) . '</a>';
 
 				$do_return = true;
 				break;
@@ -139,7 +142,10 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();" class="tw-collapsible-control">' . esc_html__( 'Expand/Collapse' ) . ' &raquo;</a>';
+				echo '<span class="tw-collapsible-control">';
+				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo;' . esc_html__( 'Collapse' ) . '</a>';
+				echo '</span>';
 				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="tw-collapsible">';
 
 				$do_return = true;
