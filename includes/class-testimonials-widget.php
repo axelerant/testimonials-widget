@@ -616,14 +616,14 @@ class Testimonials_Widget extends Aihrus_Common {
 			$columns[ 'testimonials-widget-location' ] = esc_html__( 'Location', 'testimonials-widget' );
 		}
 
-		$show_email = tw_get_option( 'columns_email' );
-		if ( empty( $show_email ) ) {
-			$columns[ 'testimonials-widget-email' ] = esc_html__( 'Email', 'testimonials-widget' );
-		}
-
 		$show_company = tw_get_option( 'columns_company' );
 		if ( empty( $show_company ) ) {
 			$columns[ 'testimonials-widget-company' ] = esc_html__( 'Company', 'testimonials-widget' );
+		}
+
+		$show_email = tw_get_option( 'columns_email' );
+		if ( empty( $show_email ) ) {
+			$columns[ 'testimonials-widget-email' ] = esc_html__( 'Email', 'testimonials-widget' );
 		}
 
 		$show_url = tw_get_option( 'columns_url' );
@@ -1783,14 +1783,14 @@ EOF;
 				'desc' => '',
 			),
 			array(
-				'name' => esc_html__( 'Email', 'testimonials-widget' ),
-				'id' => 'testimonials-widget-email',
+				'name' => esc_html__( 'Company', 'testimonials-widget' ),
+				'id' => 'testimonials-widget-company',
 				'type' => 'text',
 				'desc' => '',
 			),
 			array(
-				'name' => esc_html__( 'Company', 'testimonials-widget' ),
-				'id' => 'testimonials-widget-company',
+				'name' => esc_html__( 'Email', 'testimonials-widget' ),
+				'id' => 'testimonials-widget-email',
 				'type' => 'text',
 				'desc' => '',
 			),

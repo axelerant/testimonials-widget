@@ -5,8 +5,10 @@
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * API link updates
+* Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
+* RELATES #23 Reorganize meta data fields - Author to top
 * RESOLVE #111 bottom_text=false shows false
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding

@@ -27,14 +27,14 @@
 	* `hide_content` - default show; hide_content=true
 * Hide Author/Source? - Don't display "Post Title" in cite
 	* `hide_source` - default show; hide_source=true
-* Hide Email?
-	* `hide_email` - default show; hide_email=true
 * Hide Job Title?
 	* `hide_title` - default show; hide_title=true
 * Hide Location?
 	* `hide_location` - default show; hide_location=true
 * Hide Company?
 	* `hide_company` - default show; hide_company=true
+* Hide Email?
+	* `hide_email` - default show; hide_email=true
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
 
@@ -114,6 +114,17 @@
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
+
+## Columns
+
+* Hide ID?	 
+* Hide Image?	 
+* Hide Shortcode?	 
+* Hide Job Title?	 
+* Hide Location?	 
+* Hide Company?	 
+* Hide Email?	 
+* Hide URL?	 
 
 ## Reset
 
