@@ -4,6 +4,7 @@
 
 ## 1.1.5RC1
 * RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
+* RESOLVE michael-cannon/testimonials-widget#78 Show revert link in deactivation admin notice
 * Update licensing GPL 2.0
 
 ## 1.1.4

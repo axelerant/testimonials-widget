@@ -275,8 +275,6 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 
 if ( ! function_exists( 'aihr_deactivate_plugin' ) ) {
 	function aihr_deactivate_plugin( $file = null, $name = null, $reason = '' ) {
-		error_log( print_r( debug_backtrace(), true ) );
-
 		if ( is_null( $file ) ) {
 			aihr_notice_error( __( '`aihr_deactivate_plugin` requires $file argument' ) );
 
@@ -320,11 +318,15 @@ if ( ! function_exists( 'aihr_notice_deactivate' ) ) {
 			$reason = esc_html__( 'Unknown' );
 		}
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated due to "%2$s". Once corrected, "%1$s" can be activated.' ), $name, $reason );
+		$file        = AIHR_DEACTIVATE_FILE;
+		$plugin_slug = dirname( plugin_basename( $file ) );
+		$url         = 'https://wordpress.org/plugins/' . $plugin_slug . '/developers/';
+
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated due to "%2$s". Once corrected, "%1$s" can be activated.</p><p>If you want to revert "%1$s", look for <a href="%3$s">older versions on WordPress</a> or <a href="mailto:support@aihr.us?subject=Old+Plugin+Version+Request">email Aihrus support</a> if this is a premium plugin.' ), $name, $reason, $url );
 
 		aihr_notice_error( $text );
 
-		aihr_deactivate_plugin_do( AIHR_DEACTIVATE_FILE );
+		aihr_deactivate_plugin_do( $file );
 	}
 }
 
