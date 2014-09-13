@@ -132,7 +132,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ) . slideToggle(); jQuery( \'.tw-collapsible\' ) . slideToggle();">' . esc_html__( 'Expand/Collapse All Options' ) . ' &raquo;</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand All Options' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse All Options' ) . '</a>';
 
 				$do_return = true;
 				break;
@@ -141,7 +142,10 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<a id="' . $this->get_field_id( $id ) . '" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ) . slideToggle();" class="tw-collapsible-control">' . esc_html__( 'Expand/Collapse' ) . ' &raquo;</a>';
+				echo '<span class="tw-collapsible-control">';
+				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo;' . esc_html__( 'Collapse' ) . '</a>';
+				echo '</span>';
 				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="tw-collapsible">';
 
 				$do_return = true;
