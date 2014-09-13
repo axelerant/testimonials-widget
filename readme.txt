@@ -321,7 +321,7 @@ Read [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/mast
 
 == Deprecation Notices ==
 
-* Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md).
+Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md).
 
 
 == Localization ==

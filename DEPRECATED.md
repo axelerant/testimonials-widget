@@ -4,7 +4,7 @@
 
 * `[testimonialswidget_list]` - Listings with paging
 	* Use `[testimonials]` instead
-* `[testimonialswidget_widget]` - Rotating
+* `[testimonialswidget_widget]` - Rotating testimonials
 	* Use `[testimonials_slider]` instead
 
 ## Deprecated Theme Functions

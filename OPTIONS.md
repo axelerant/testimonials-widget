@@ -15,7 +15,7 @@
 * Use `<q>` tag? – Not HTML5 compliant
 	* `use_quote_tag` - default none; use_quote_tag=true
 
-## Fields to Show
+### Fields to Show
 
 * Hide Gravatar Image?
 	* `hide_gravatar` - default show; hide_gravatar=true
@@ -38,7 +38,7 @@
 * Hide URL?
 	* `hide_url` - default show; hide_url=true
 
-## Miscellaneous
+### Miscellaneous
 
 * Default Reviewed Item? - Name of thing being referenced in testimonials
 	* `item_reviewed` - default "Site Title"
@@ -123,7 +123,7 @@
 * Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion
 * Reset to Defaults? – Check this box to reset options to their defaults
 
-## Version Based Options
+### Version Based Options
 
 * Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
 	* `disable_animation` - default false; disable_animation=true
