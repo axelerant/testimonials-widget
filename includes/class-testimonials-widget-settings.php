@@ -949,7 +949,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'</p><p>' .
 			sprintf(
 				__( 'View the <a href="%s">Testimonials documentation</a>.', 'testimonials-widget' ),
-				esc_url( 'http://wordpress.org/plugins/testimonials-widget/' )
+				esc_url( self::$plugin_url )
 			) .
 			'</p>'
 		);
