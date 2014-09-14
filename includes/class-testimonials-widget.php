@@ -521,6 +521,7 @@ class Testimonials_Widget extends Aihrus_Common {
 				$result .= '"]';
 				break;
 
+			case 'testimonials-widget-author':
 			case 'testimonials-widget-company':
 			case 'testimonials-widget-location':
 			case 'testimonials-widget-title':
@@ -603,6 +604,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		$show_shortcode = tw_get_option( 'columns_shortcode' );
 		if ( empty( $show_shortcode ) ) {
 			$columns[ 'shortcode' ] = esc_html__( 'Shortcodes', 'testimonials-widget' );
+		}
+
+		$show_author = tw_get_option( 'columns_author' );
+		if ( empty( $show_author ) ) {
+			$columns['testimonials-widget-author'] = esc_html__( 'Testimonial Author', 'testimonials-widget' );
 		}
 
 		$show_job_title = tw_get_option( 'columns_job_title' );
@@ -1313,7 +1319,12 @@ EOF;
 		if ( $do_source && $do_email ) {
 			$cite .= '<span class="author">';
 			$cite .= '<a href="mailto:' . $testimonial_email . '">';
-			$cite .= $testimonial_source;
+			if ( empty( $testimonial_author ) ) {
+				$cite .= $testimonial_source;
+			} else {
+				$cite .= $testimonial_author;
+			}
+
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_source && ! $do_company && $do_url ) {
@@ -1321,12 +1332,22 @@ EOF;
 
 			$cite .= '<span class="author">';
 			$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
-			$cite .= $testimonial_source;
+			if ( empty( $testimonial_author ) ) {
+				$cite .= $testimonial_source;
+			} else {
+				$cite .= $testimonial_author;
+			}
+
 			$cite .= '</a>';
 			$cite .= '</span>';
 		} elseif ( $do_source ) {
 			$cite .= '<span class="author">';
-			$cite .= $testimonial_source;
+			if ( empty( $testimonial_author ) ) {
+				$cite .= $testimonial_source;
+			} else {
+				$cite .= $testimonial_author;
+			}
+
 			$cite .= '</span>';
 		} elseif ( $do_email ) {
 			$cite .= '<span class="email">';
@@ -1716,6 +1737,7 @@ EOF;
 
 			$data = array(
 				'post_id' => $post_id,
+				'testimonial_author' => get_post_meta( $post_id, 'testimonials-widget-author', true ),
 				'testimonial_company' => get_post_meta( $post_id, 'testimonials-widget-company', true ),
 				'testimonial_content' => $row->post_content,
 				'testimonial_email' => $email,
@@ -1770,6 +1792,12 @@ EOF;
 	public static function add_meta_box_testimonials_widget() {
 		$fields = array(
 			array(
+				'name' => esc_html__( 'Author', 'testimonials-widget' ),
+				'id' => 'testimonials-widget-author',
+				'type' => 'text',
+				'desc' => esc_html__( 'Use when the testimonial title is not the author\'s name.', 'testimonials-widget' ),
+			),
+			array(
 				'name' => esc_html__( 'Job Title', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-title',
 				'type' => 'text',
@@ -1791,7 +1819,7 @@ EOF;
 				'name' => esc_html__( 'Email', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-email',
 				'type' => 'text',
-				'desc' => '',
+				'desc' => esc_html__( 'If an email is provided, but not an image, a Gravatar icon will be attempted to be loaded.', 'testimonials-widget' ),
 			),
 			array(
 				'name' => esc_html__( 'URL', 'testimonials-widget' ),
@@ -1906,8 +1934,16 @@ EOF;
 		$org_meta      = array();
 		$review_meta   = array();
 
+		if ( ! empty( $testimonial_author ) ) {
+			$author_meta[ self::$thing_name ] = $testimonial_author;
+		}
+
 		if ( $do_source ) {
-			$author_meta[ self::$thing_name ] = $testimonial_source;
+			if ( empty( $testimonial_author ) ) {
+				$author_meta[ self::$thing_name ] = $testimonial_source;
+			} else {
+				$review_meta[ self::$thing_name ] = $testimonial_source;
+			}
 		}
 
 		if ( $do_title ) {
@@ -1963,8 +1999,10 @@ EOF;
 
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
-		$review_meta[ self::$thing_name ]  = self::testimonials_truncate( $testimonial_content, $review_name_length );
 		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
+		if ( empty( $review_meta[ self::$thing_name ] ) ) {
+			$review_meta[ self::$thing_name ] = self::testimonials_truncate( $testimonial_content, $review_name_length );
+		}
 
 		if ( $do_image ) {
 			$src = self::get_image_src( $testimonial_image );

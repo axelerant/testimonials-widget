@@ -5,16 +5,18 @@
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * API link updates
+* Author field to override title when it's not the testimonial source
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #23 Reorganize meta data fields - Author to top
 * Removed customized edit title
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #23 Reorganize meta data fields - Author to top
 * Revise descriptions
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries
+* Update OPTIONS
 
 ## 2.19.9
 * Add example for `tba_register_post_type_args`

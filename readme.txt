@@ -160,6 +160,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 * Adjustable animation speed
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
+* Author field to override title when it's not the testimonial source
 * Auto-suggest for category and tag options
 * Automatic linking of email and URL fields via source or company fields
 * Clickable widget titles
