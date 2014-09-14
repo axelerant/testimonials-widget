@@ -6,6 +6,7 @@
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * API link updates
 * Author field to override title when it's not the testimonial source
+* Moved aggregate review schema data to premium
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates

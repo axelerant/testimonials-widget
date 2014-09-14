@@ -60,13 +60,9 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $use_instance    = false;
 	public static $widget_number   = 100000;
 
-	public static $agg_count  = 'reviewCount';
-	public static $agg_schema = 'http://schema.org/AggregateRating';
-
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
 	public static $cw_date_mod   = 'dateModified';
-	public static $cw_aggregate  = 'aggregateRating';
 	public static $cw_review     = 'review';
 	public static $cw_source_org = 'sourceOrganization';
 
@@ -1918,7 +1914,6 @@ EOF;
 		$schema  = sprintf( self::$schema_div_open, self::$review_schema );
 		$schema .= "\n";
 
-		$agg_meta      = array();
 		$author_meta   = array();
 		$item_meta     = array();
 		$location_meta = array();
@@ -2005,13 +2000,6 @@ EOF;
 		$review      = self::create_schema_meta( $review_meta );
 		$schema     .= $review;
 		$schema     .= "\n";
-
-		$agg_meta[ self::$agg_count ] = self::$found_posts;
-
-		$agg_meta  = apply_filters( 'testimonials_widget_schema_aggregate', $agg_meta, $testimonial, $atts );
-		$aggregate = self::create_schema_div_prop( self::$cw_aggregate, self::$agg_schema, $agg_meta );
-		$schema   .= $aggregate;
-		$schema   .= "\n";
 
 		$item_meta[ self::$thing_name ] = $item_reviewed;
 		$item_meta[ self::$thing_url ]  = $item_reviewed_url;

@@ -312,7 +312,7 @@ https://www.youtube.com/watch?v=b81oz7k1wbM
 4. Testimonial widget in the sidebar 
 5. Aihrus Testimonials Shortcode Examples page
 6. [testimonials] results with paging
-7. Using Review and AggregateRating schema data structures
+7. Using Review schema data structures
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 10. Poedit Catalog properties
