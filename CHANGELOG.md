@@ -10,6 +10,7 @@
 * Readme.txt updates
 * RELATES #23 Reorganize meta data fields - Author to top
 * Removed customized edit title
+* Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * Revise descriptions
 * Update Aihrus Testimonials branding
