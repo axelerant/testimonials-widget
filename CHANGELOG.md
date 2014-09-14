@@ -10,6 +10,7 @@
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
 * Removed customized edit title
+* Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #23 Reorganize meta data fields - Author to top
 * Revise descriptions

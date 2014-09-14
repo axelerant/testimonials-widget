@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 if ( ! defined( 'TW_AIHR_VERSION' ) )
-	define( 'TW_AIHR_VERSION', '1.1.4' );
+	define( 'TW_AIHR_VERSION', '1.1.5' );
 
 if ( ! defined( 'TW_BASE' ) )
 	define( 'TW_BASE', plugin_basename( __FILE__ ) );

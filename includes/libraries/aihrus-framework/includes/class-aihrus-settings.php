@@ -114,7 +114,7 @@ abstract class Aihrus_Settings {
 			'title' => esc_html__( 'Reset to Defaults?' ),
 			'type' => 'checkbox',
 			'class' => 'warning',
-			'desc' => esc_html__( 'Check this box to reset options to their defaults' ),
+			'desc' => esc_html__( 'Check this box to reset options to their defaults.' ),
 		);
 	}
 
