@@ -2,7 +2,7 @@
 
 ## 3.0.0
 
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Aihrus Testimonials and Aihrus Testimonials Premium actions or output, this 3.0 upgrade will not be compatible with those modifications until corrections are made. Please read [Aihrus Testimonials and Aihrus Testimonials Premium 3.0.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
+* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Aihrus Testimonials and Aihrus Testimonials Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read [Aihrus Testimonials 3.0 and Aihrus Testimonials Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
 
 ## 2.19.9
 
