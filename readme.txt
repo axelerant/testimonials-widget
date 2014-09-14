@@ -14,8 +14,6 @@ Easily add social proofing to your website with Aihrus Testimonials. List or sli
 
 == Description ==
 
-Aihrus Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
-
 Aihrus Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Also, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
 
 = Aihrus Testimonials is Beyond a Simple WordPress Testimonials Slider! =
