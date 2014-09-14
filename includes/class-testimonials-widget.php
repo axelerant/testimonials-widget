@@ -123,7 +123,6 @@ class Testimonials_Widget extends Aihrus_Common {
 		self::add_meta_box_testimonials_widget();
 		self::update();
 
-		add_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
 		add_action( 'manage_' . self::PT . '_posts_custom_column', array( __CLASS__, 'manage_posts_custom_column' ), 10, 2 );
 		add_action( 'right_now_content_table_end', array( __CLASS__, 'right_now_content_table_end' ) );
 		add_filter( 'manage_' . self::PT . '_posts_columns', array( __CLASS__, 'manage_posts_columns' ) );
@@ -1814,33 +1813,6 @@ EOF;
 				'_fields' => $fields,
 			)
 		);
-	}
-
-
-	/**
-	 * Revise default new testimonial text
-	 *
-	 * Original author: Travis Ballard http://www.travisballard.com
-	 *
-	 * @param string  $translation
-	 * @return string $translation
-	 */
-	public static function gettext_testimonials( $translation ) {
-		remove_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
-
-		global $post;
-
-		if ( is_object( $post ) && self::PT == $post->post_type ) {
-			switch ( $translation ) {
-				case esc_html__( 'Enter title here', 'testimonials-widget' ):
-					return esc_html__( 'Enter testimonial source here', 'testimonials-widget' );
-					break;
-			}
-		}
-
-		add_action( 'gettext', array( __CLASS__, 'gettext_testimonials' ) );
-
-		return $translation;
 	}
 
 

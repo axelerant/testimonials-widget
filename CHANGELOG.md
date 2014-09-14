@@ -9,6 +9,7 @@
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
 * RELATES #23 Reorganize meta data fields - Author to top
+* Removed customized edit title
 * RESOLVE #111 bottom_text=false shows false
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding
