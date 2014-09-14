@@ -11,6 +11,7 @@
 * RELATES #23 Reorganize meta data fields - Author to top
 * Removed customized edit title
 * RESOLVE #111 bottom_text=false shows false
+* Revise descriptions
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries

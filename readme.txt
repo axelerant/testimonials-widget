@@ -14,34 +14,35 @@ Easily add social proofing to your website with Aihrus Testimonials. List or sli
 
 == Description ==
 
-Testimonials [by Aihrus](http://aihr.us/about-aihrus/) lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Aihrus Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
+
+Aihrus Testimonials lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Also, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+
+= Aihrus Testimonials is Beyond a Simple WordPress Testimonials Slider! =
+
+* Carousel, fade, and slide transitions
+* Filter slideshow content by WordPress' categories, tags, or post-ID
+* Random display
+* Shortcode compatible - slide content that is rendered using shortcodes. e.g. Worpdress Galleries and Gravity Forms
+* Slide images - responsive image slideshow
+* Slide mixed content - responsively slide images, text, and video together
+* Slide text - useful for rotating testimonials
+* Slide videos - video slideshow
+* Widget and Shortcode ready 
 
 **Video Introduction**
 
 [youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
 
-**View a [Live Testimonials Demo](http://aihr.us/testimonials-examples/)**
+**View a [Live Aihrus Testimonials Demo](http://aihr.us/testimonials-examples/)**
 
-= Testimonials Is Way Beyond Being Just a Testimonials Slider! =
-
-* Slide Images - responsive image slideshow
-* Slide Videos - video slideshow
-* Slide Text - useful for rotating testimonials
-* Slide Mixed Content: slideshow having video slides, images slides, and text slides. Each individual slide can also have mixed content.
-* Shortcode compatible - slide content that is rendered using shortcodes. i.e. stock Worpdress Galleries and Gravity Forms
-* Widget ready
-* Shortcode ready 
-* Random display
-* Fade and slide transitions
-* Filter slideshow content by WordPress' built in categories, tags, or post-ID
-
-More than one Testimonials shortcode or widget instance can be displayed at a time on a page. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials anywhere you need. 
+More than one testimonials shortcode or widget instance can be displayed at a time on a page. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials anywhere you need. 
 
 Through categories and tagging, you can create organizational structures. Using categories for products, projects and services you can then apply tagging for further classification.
 
 As an example, create a **Portfolio** category and then use tags to identify _web_, _magazine_, _media_, _public_, _enterprise_, or other niches. Then configure the Testimonial instance to show only **Portfolio** testimonials with the _public_ and _enterprise_ tags. In another Testimonial instance, you can also select only **Portfolio** testimonials, but then allow _web_ and _media_ tags.
 
-For easy custom styling, each Testimonial widget has its own CSS class identifier.
+For easy custom styling, each testimonial widget has its own CSS class identifier.
 
 Widgets display content sans `wpautop` formatting. This means there's no forced paragraph breaks unless the content specifically contains them. If needed, you can enable `wpautop` via the "Keep whitespace?" option.
 
@@ -67,54 +68,95 @@ The single testimonial view supports image, source, title, location, email, comp
 = Shortcodes =
 
 * `[testimonials]` - Listings with paging 
-* `[testimonials_slider]` - Rotating
+* `[testimonials_slider]` - Rotating testimonials
 
 = Theme Functions =
 
 * `testimonials()` - Testimonials listing with paging 
 * `testimonials_slider()` - Rotating testimonials
 
-= Testimonials Migration Helpers =
-
-* Testimonials Widget pre 2.0.0 - Upgrading is automatic
-* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
-* [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
-
 = Aihrus Testimonials Premium =
 
-Aihrus Testimonials Premium is the most amazing and incredibly full-featured WordPress testimonials plugin there is. It lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Further, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Aihrus Testimonials Premium includes all of Aihrus Testimonials' benefits and features, plus…
 
-Further, Aihrus Testimonials Premium offers caching, excerpts, ratings, read more links, more selection options, and advanced capabilities like using custom post types as testimonials. Additionally, testimonials support ratings and users can submit their own testimonials via a front-end form shortcode or widget.
+* 5-star ratings
+* Caching
+* Excerpts
+* More selection options
+* Read more links
+* Use pages, posts, and custom post types as testimonials
+* Users can submit their own testimonials via a shortcode or widget based forms
 
-[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
+**[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
 
 = Primary Premium Features =
 
+* Admin interface to add, edit and manage testimonials
 * Akismet, math-based CAPTCHA, and more anti-spam traps
 * Alternate destinations for "Read more" links
+* API to manipulate testimonials output and selection
 * Auto rotate testimonials by page
-* CSS or HTML table based testimonials submissions form layout
 * Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
+* Capable of handling multiple widgets per page or post
 * Carousel mode for rotating multiple testimonials at the same time
+* CSS or HTML table based testimonials submissions form layout
 * Displays ratings to grant testimonials more power!
+* **Email-based support** with responses and resolution within 1- and 3-business days respectively
 * Excerpts for widget view, with read more link to complete testimonial
+* Fields for source, testimonial, image, title, location, email, company and URL details
 * Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
+* Minimalist CSS styling for easier theming
+* Multiple paging options for testimonials listings
+* Schema.org microdata format for improved search engine results
 * Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
+* Settings export/import
+* Settings screen for site-wide option defaults
+* Shortcodes and theme functions for listings and rotation
 * Show unique testimonials when displaying multiple testimonial instances
+* Single testimonial view includes image, source, title, location, email, company and URL details
+* Testimonials archive view
+* Use custom taxonomy or WordPress's own for categories and tags
+* Uses [bxSlider](http://bxslider.com) for transitions
 
 = Premium Shortcodes =
 
-* Count of testimonials `[testimonials_count]`
-* List of testimonial source and title linking to full entry `[testimonials_links]` 
-* Testimonials entry form `[testimonials_form]`
+* `[testimonials]` - Listings with paging
+* `[testimonials_count]` - Count of testimonials
+* `[testimonials_form]` - Testimonials entry form
+* `[testimonials_links]` - List of testimonial source and title linking to full entry
+* `[testimonials_slider]` - Rotating testimonials
 
 = Premium Theme Functions =
 
-* `<?php echo testimonials_count( $args ); ?>`
-* `<?php echo testimonials_form( $args ); ?>`
-* `<?php echo testimonials_links( $args ); ?>`
+* `<?php echo testimonials( $args ); // Listings with paging ?>`
+* `<?php echo testimonials_count( $args ); // Count of testimonials ?>`
+* `<?php echo testimonials_form( $args ); // Testimonials entry form ?>`
+* `<?php echo testimonials_links( $args ); // List of testimonial source and title linking to full entry ?>`
+* `<?php echo testimonials_slider( $args ); // Rotating testimonials ?>`
 
-[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/) plugin for WordPress.
+= Aihrus Testimonials Premium Doesn't Work For You? =
+
+No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+
+**[Buy Aihrus Testimonials Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
+
+= Shortcode Examples =
+
+Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
+
+= Shortcode and Widget Options =
+
+Please keep in mind that inheritance affects options. This means that changes made to Aihrus Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
+
+Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
+
+Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master/OPTIONS.md).
+
+= Aihrus Testimonials Migration Helpers =
+
+* Testimonials Widget pre 2.0.0 - Automatic upgrading
+* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
+* [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
 = Additional Features =
 
@@ -154,24 +196,12 @@ Further, Aihrus Testimonials Premium offers caching, excerpts, ratings, read mor
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Testimonials output is completely customizable via filters
-* Testimonials support styling based upon CSS classes for category, tags and post id
-* Testimonials widget displays static and rotating testimonials 
+* Aihrus Testimonials output is completely customizable via filters
+* Aihrus Testimonials support styling based upon CSS classes for category, tags and post id
+* Aihrus Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
-
-= Shortcode Examples =
-
-Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
-
-= Shortcode and Widget Options =
-
-Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
-
-Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
-
-Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master/OPTIONS.md).
 
 
 == Installation ==
@@ -184,7 +214,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Install Methods =
 
-* Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
+* Through WordPress Admin > Plugins > Add New, Search for "Aihrus Testimonials Widget"
 	* Find "Aihrus Testimonials"
 	* Click "Install Now" of "Aihrus Testimonials"
 * Download [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
@@ -197,14 +227,14 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Activation Options =
 
-* Activate the "Testimonials" plugin after uploading through WordPress Admin > Plugins
+* Activate the "Aihrus Testimonials" plugin after uploading through WordPress Admin > Plugins
 
 = Usage =
 
 1. Watch [Testimonial Widget](https://www.youtube.com/watch?v=zDz1igmRK2g)
 1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
-1. Add and manage testimonials through the **Testimonials** menu in the WordPress admin area
-1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials** widget into the desired widget area. Then configure the widget to select options and display as desired.
+1. Add and manage testimonials through the **Aihrus Testimonials** menu in the WordPress admin area
+1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Aihrus Testimonials** widget into the desired widget area. Then configure the widget to select options and display as desired.
 1. Use the following shortcodes to display testimonials on a page, post, etc.
 	* `[[testimonials]]` - Listings with paging
 	* `[[testimonials_slider]]` - Rotating testimonials
@@ -241,7 +271,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * [My options don't work](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
-* [Testimonials don't rotate](https://aihrus.zendesk.com/entries/23693363)
+* [Aihrus Testimonials don't rotate](https://aihrus.zendesk.com/entries/23693363)
 
 = Still Stuck or Want Something Done? Get Support! =
 
@@ -258,15 +288,15 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 https://www.youtube.com/watch?v=YaXCJppYOUM
 
-**Adding Rotating Testimonials to WordPress Tutorial**
+**Adding Rotating Aihrus Testimonials to WordPress Tutorial**
 
 https://www.youtube.com/watch?v=QoFCZgLAUSE
 
-**Testimonials Widget - WordPress Training Video**
+**Aihrus Testimonials Widget - WordPress Training Video**
 
 https://www.youtube.com/watch?v=ybV5mKZlegA
 
-**Testimonials Widget for WordPress**
+**Aihrus Testimonials Widget for WordPress**
 
 https://www.youtube.com/watch?v=LqZ-vcZD8E0
 
@@ -277,18 +307,18 @@ https://www.youtube.com/watch?v=b81oz7k1wbM
 
 == Screenshots ==
 
-1. Testimonials admin interface
-2. Collapsed Testimonials options
+1. Aihrus Testimonials admin interface
+2. Collapsed Aihrus Testimonials options
 3. Shortcode helpers on category and tag admin screens
 4. Testimonial widget in the sidebar 
-5. Testimonials Shortcode Examples page
+5. Aihrus Testimonials Shortcode Examples page
 6. [testimonials] results with paging
 7. Using Review and AggregateRating schema data structures
 8. Widget with clickable title and custom text/HTML on bottom
 9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
 10. Poedit Catalog properties
-11. Testimonials Settings > General tab
-12. Dashboard > At a Glance "Testimonials" count
+11. Aihrus Testimonials Settings > General tab
+12. Dashboard > At a Glance "Aihrus Testimonials" count
 
 [gallery]
 
@@ -349,6 +379,6 @@ You can translate this plugin into your own language if it's not done so already
 
 == Thank You ==
 
-A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Testimonials banner. It's fantastic.
+A big, special thank you to [Joe Weber](https://plus.google.com/100063271269277312276/posts) of [12 Star Creative](http://www.12starcreative.com/) for creating the Aihrus Testimonials banner. It's fantastic.
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
