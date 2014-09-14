@@ -13,7 +13,9 @@
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #23 Reorganize meta data fields - Author to top
+* RESOLVE Videos not showing in single view
 * Revise descriptions
+* Simplify Review schema handling
 * Update Aihrus Testimonials branding
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries

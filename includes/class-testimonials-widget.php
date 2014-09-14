@@ -150,7 +150,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function init() {
-		add_filter( 'the_content', array( __CLASS__, 'get_single' ), -1 );
+		add_filter( 'the_content', array( __CLASS__, 'get_single' ) );
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
@@ -1187,11 +1187,6 @@ EOF;
 		$div_open  = '<div class="' . $class . '">';
 		$div_open .= '<!-- ' . self::ID . ":{$post_id}: -->";
 
-		if ( $do_schema ) {
-			$div_open .= "\n";
-			$div_open .= sprintf( self::$schema_div_open, self::$review_schema );
-		}
-
 		if ( $remove_hentry ) {
 			$div_open = str_replace( ' hentry', '', $div_open );
 		}
@@ -1214,11 +1209,6 @@ EOF;
 		$cite = '';
 		if ( 1 < count( $testimonial ) ) {
 			$cite = self::get_cite( $testimonial, $atts );
-
-			if ( $do_schema ) {
-				$schema = self::get_schema( $testimonial, $atts );
-				$cite  .= $schema;
-			}
 		}
 
 		$extra = '';
@@ -1239,7 +1229,8 @@ EOF;
 
 		$div_close = '';
 		if ( $do_schema ) {
-			$div_close .= '</div>';
+			$schema     = self::get_schema( $testimonial, $atts );
+			$div_close .= $schema;
 			$div_close .= "\n";
 		}
 
@@ -1924,7 +1915,7 @@ EOF;
 		$item_reviewed     = self::clean_string( $atts['item_reviewed'] );
 		$item_reviewed_url = self::clean_string( $atts['item_reviewed_url'] );
 
-		$schema  = '<div style="display: none;">';
+		$schema  = sprintf( self::$schema_div_open, self::$review_schema );
 		$schema .= "\n";
 
 		$agg_meta      = array();
