@@ -112,6 +112,14 @@ The [Aihrus Testimonials plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Customize schema reviewed item contents.
 
+* `testimonials_widget_get_template_part`
+
+	Allow template choices to be filtered. [Usage](https://github.com/GaryJones/Gamajo-Template-Loader/blob/develop/class-gamajo-template-loader.php#L120)
+
+* `testimonials_widget_template_paths`
+
+	Allow ordered list of template paths to be amended. [Usage](https://github.com/GaryJones/Gamajo-Template-Loader/blob/develop/class-gamajo-template-loader.php#L201)
+
 
 ### Backend
 

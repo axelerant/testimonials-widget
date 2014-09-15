@@ -18,6 +18,7 @@
 		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.Found" />
 		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed" />
 		<exclude name="Generic.Files.EndFileNoNewline.Found" />
+		<exclude name="Generic.Files.InlineHTML.Found" />
 		<exclude name="Generic.Files.LineLength.MaxExceeded" />
 		<exclude name="Generic.Files.LineLength.TooLong" />
 		<exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine" />

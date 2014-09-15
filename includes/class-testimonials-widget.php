@@ -21,6 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 require_once AIHR_DIR_INC . 'class-aihrus-common.php';
 require_once AIHR_DIR_LIB . 'class-redrokk-metabox-class.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
@@ -57,8 +58,9 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $settings_link   = '';
 	public static $tag_close_quote = '<span class="close-quote"></span>';
 	public static $tag_open_quote  = '<span class="open-quote"></span>';
-	public static $use_instance    = false;
-	public static $widget_number   = 100000;
+	public static $template_loader;
+	public static $use_instance  = false;
+	public static $widget_number = 100000;
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -150,8 +152,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
-		self::$cpt_category = self::PT . '-category';
-		self::$cpt_tags     = self::PT . '-post_tag';
+		self::$cpt_category    = self::PT . '-category';
+		self::$cpt_tags        = self::PT . '-post_tag';
+		self::$template_loader = new Testimonials_Widget_Template_Loader();
 
 		self::init_post_type();
 		self::styles();
@@ -1138,57 +1141,18 @@ EOF;
 
 
 	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
-		$disable_quotes  = $atts['disable_quotes'];
-		$do_image        = ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] );
-		$do_image_single = ! $atts['hide_image_single'];
-		$do_schema       = $atts['enable_schema'];
-		$keep_whitespace = $atts['keep_whitespace'];
-		$remove_hentry   = $atts['remove_hentry'];
-		$transition_mode = $atts['transition_mode'];
-		$use_bxslider    = $atts['use_bxslider'];
+		global $at_template_args;
 
-		$class = 'testimonials-widget-testimonial';
-		if ( is_single() && empty( $widget_number ) ) {
-			$class .= ' single';
-		} elseif ( $is_list ) {
-			$class .= ' list';
-		} else {
-			// widget display
-			if ( $use_bxslider ) {
-				$refresh_interval = $atts['refresh_interval'];
-				if ( ! $is_first && ! empty( $refresh_interval ) && ! in_array( $transition_mode, array( 'horizontal', 'vertical' ) ) ) {
-					$class .= ' display-none';
-				}
-			} else {
-				if ( $is_first ) {
-					$class .= ' active';
-				} else {
-					$class .= ' display-none';
-				}
-			}
-		}
+		$at_template_args = compact( $testimonial, $atts, $is_list, $is_first, $widget_number );
 
-		if ( $keep_whitespace ) {
-			$class .= ' whitespace';
-		}
-
-		$post_id = $testimonial['post_id'];
-		if ( ! empty( $post_id ) ) {
-			$class = join( ' ', get_post_class( $class, $post_id ) );
-		} else {
-			$class = 'testimonials-widget type-testimonials-widget status-publish hentry ' . $class;
-		}
-
-		$class     = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
-		$div_open  = '<div class="' . $class . '">';
-		$div_open .= '<!-- ' . self::ID . ":{$post_id}: -->";
-
-		if ( $remove_hentry ) {
+		$div_open = self::get_template_part( 'testimonial', 'open' );
+		if ( $atts['remove_hentry'] ) {
 			$div_open = str_replace( ' hentry', '', $div_open );
 		}
 
+		// fixme use template engine
 		$image = '';
-		if ( $do_image ) {
+		if ( ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] ) ) {
 			$pic = $testimonial['testimonial_image'];
 
 			$image .= '<span class="image">';
@@ -1196,17 +1160,20 @@ EOF;
 			$image .= '</span>';
 		}
 
-		if ( ! $do_image_single && 'get_single' == $atts['type'] ) {
+		if ( $atts['hide_image_single'] && 'get_single' == $atts['type'] ) {
 			$image = '';
 		}
 
+		// fixme use template engine
 		$quote = self::get_quote( $testimonial, $atts, $widget_number );
 
+		// fixme use template engine
 		$cite = '';
 		if ( 1 < count( $testimonial ) ) {
 			$cite = self::get_cite( $testimonial, $atts );
 		}
 
+		// fixme use template engine
 		$extra = '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
 			$extra .= '<div class="extra">';
@@ -1215,6 +1182,7 @@ EOF;
 			$extra .= "\n";
 		}
 
+		// fixme use template engine
 		$bottom_text = '';
 		if ( ! empty( $atts['bottom_text'] ) && 'false' != $atts['bottom_text'] ) {
 			$bottom_text  = '<div class="bottom_text">';
@@ -1223,14 +1191,14 @@ EOF;
 			$bottom_text .= "\n";
 		}
 
-		$div_close = '';
-		if ( $do_schema ) {
-			$schema     = self::get_schema( $testimonial, $atts );
-			$div_close .= $schema;
-			$div_close .= "\n";
+		// fixme use template engine
+		if ( $atts['enable_schema'] ) {
+			$schema  = self::get_schema( $testimonial, $atts );
+			$schema .= "\n";
 		}
 
-		$div_close .= '</div>';
+		// fixme use template engine
+		$div_close  = '</div>';
 		$div_close .= "\n";
 
 		$html = $div_open
@@ -1239,12 +1207,13 @@ EOF;
 			. $cite
 			. $extra
 			. $bottom_text
+			. $schema
 			. $div_close;
 
 		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $bottom_text, $div_close );
 
 		// not done sooner as tag_close_quote is used for Premium
-		if ( $disable_quotes ) {
+		if ( $atts['disable_quotes'] ) {
 			$html = str_replace( self::$tag_open_quote, '', $html );
 			$html = str_replace( self::$tag_close_quote, '', $html );
 		}
@@ -2297,6 +2266,15 @@ EOD;
 			$content = $GLOBALS['wp_embed']->autoembed( $content );
 			$content = $GLOBALS['wp_embed']->run_shortcode( $content );
 		}
+
+		return $content;
+	}
+
+
+	public static function get_template_part( $slug, $name = null ) {
+		ob_start();
+		self::$template_loader->get_template_part( $slug, $name );
+		$content = ob_get_clean();
 
 		return $content;
 	}
