@@ -4,6 +4,7 @@
 
 ## 1.1.5RC1
 * Don't shortcode attribute for reset options
+* Move get_suggest to widget abstract class from interface
 * RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
 * RESOLVE michael-cannon/testimonials-widget#78 Show revert link in deactivation admin notice
 * Update licensing GPL 2.0

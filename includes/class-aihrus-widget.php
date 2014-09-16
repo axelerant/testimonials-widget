@@ -236,7 +236,7 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( $suggest )
-					echo static::get_suggest( $id, $suggest_id );
+					echo self::get_suggest( $id, $suggest_id );
 				break;
 
 			default:
@@ -252,6 +252,9 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 			echo '</div>';
 		}
 	}
+
+
+	public static function get_suggest( $id, $suggest_id ) {}
 
 
 }
