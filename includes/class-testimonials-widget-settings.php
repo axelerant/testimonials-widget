@@ -557,6 +557,16 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		// Post Type
+		self::$settings['use_cpt_taxonomy'] = array(
+			'section' => 'post_type',
+			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead.', 'testimonials-widget' ),
+			'widget' => 0,
+			'show_code' => false,
+		);
+
 		self::$settings['allow_comments'] = array(
 			'section' => 'post_type',
 			'title' => esc_html__( 'Allow Comments?', 'testimonials-widget' ),
@@ -710,16 +720,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'section' => 'reset',
 			'desc' => esc_html__( 'Reset', 'testimonials-widget' ),
 			'type' => 'expand_begin',
-		);
-
-		self::$settings['use_cpt_taxonomy'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead.', 'testimonials-widget' ),
-			'widget' => 0,
-			'show_code' => false,
 		);
 
 		parent::settings();

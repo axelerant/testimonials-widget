@@ -113,6 +113,7 @@
 
 ## Post Type
 
+* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead.
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Enable archives view? - Include testimonials in archive and category views.
@@ -134,7 +135,6 @@
 
 ## Reset
 
-* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead.
 * Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
 * Import Settings – Paste new serialized settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion.
