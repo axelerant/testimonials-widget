@@ -48,9 +48,10 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Primary Features =
 
-* API to manipulate testimonials output and selection
 * Admin interface to add, edit and manage testimonials
+* API to manipulate testimonials output and selection
 * Capable of handling multiple widgets per page or post
+* Customizable views via filters and template files
 * Fields for source, testimonial, image, title, location, email, company and URL details
 * Minimalist CSS styling for easier theming
 * Multiple paging options for testimonials listings

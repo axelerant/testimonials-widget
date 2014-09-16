@@ -12,10 +12,10 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #19 Template engine - Begin conversion
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
 * RESOLVE Videos not showing in single view
 * Revise descriptions

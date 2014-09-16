@@ -37,10 +37,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	const OLD_NAME = 'testimonialswidget';
 	const PT       = 'testimonials-widget';
 
-	private static $max_num_pages = 0;
-	private static $post_count    = 0;
-	private static $wp_query;
-
 	public static $class           = __CLASS__;
 	public static $cpt_category    = '';
 	public static $cpt_tags        = '';
@@ -49,10 +45,12 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $found_posts     = 0;
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
+	public static $max_num_pages   = 0;
 	public static $menu_shortcodes;
 	public static $notice_key;
 	public static $not_found = false;
 	public static $plugin_assets;
+	public static $post_count      = 0;
 	public static $scripts         = array();
 	public static $scripts_called  = false;
 	public static $settings_link   = '';
@@ -61,6 +59,7 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $template_loader;
 	public static $use_instance  = false;
 	public static $widget_number = 100000;
+	public static $wp_query;
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -87,7 +86,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $schema_div_prop  = '<div itemprop="%1$s" itemscope itemtype="%2$s">%3$s</div>';
 	public static $schema_item_prop = 'itemprop="%1$s"';
 	public static $schema_meta      = '<meta itemprop="%1$s" content="%2$s" />';
-	public static $schema_span      = '<span itemprop="%1$s">%2$s</span>';
 
 	public static $thing_image  = 'image';
 	public static $thing_name   = 'name';
@@ -1068,29 +1066,19 @@ EOF;
 
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
-		$hide_not_found = $atts['hide_not_found'];
-		$paging         = Testimonials_Widget_Settings::is_true( $atts['paging'] );
-		$paging_before  = ( 'before' === strtolower( $atts['paging'] ) );
-		$paging_after   = ( 'after' === strtolower( $atts['paging'] ) );
-		$target         = $atts['target'];
+		global $at_template_args;
 
-		$id = self::ID;
+		$at_template_args = compact( 'testimonials', 'atts', 'is_list', 'widget_number' );
 
-		if ( is_null( $widget_number ) ) {
-			$div_open = '<div class="' . $id;
+		$div_open = self::get_template_part( 'testimonials', 'open' );
 
-			if ( $is_list ) {
-				$div_open .= ' listing';
-			}
-
-			$div_open .= '">';
-		} else {
-			$id_base  = $id . $widget_number;
-			$div_open = '<div class="' . $id . ' ' . $id_base . '">';
+		$paging     = Testimonials_Widget_Settings::is_true( $atts['paging'] );
+		$pre_paging = '';
+		if ( $paging || 'before' === strtolower( $atts['paging'] ) ) {
+			$pre_paging = self::get_testimonials_paging( $atts );
 		}
 
-		$div_open .= "\n";
-		if ( empty( $testimonials ) && ! $hide_not_found ) {
+		if ( empty( $testimonials ) && ! $atts['hide_not_found'] ) {
 			$testimonials = array(
 				array( 'testimonial_content' => esc_html__( 'No testimonials found', 'testimonials-widget' ) ),
 			);
@@ -1100,33 +1088,23 @@ EOF;
 			self::set_not_found();
 		}
 
-		$pre_paging = '';
-		if ( $paging || $paging_before ) {
-			$pre_paging = self::get_testimonials_paging( $atts );
-		}
-
-		$is_first = true;
-
+		$is_first            = true;
 		$testimonial_content = '';
 		foreach ( $testimonials as $testimonial ) {
 			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
-			if ( $target ) {
-				$content = links_add_target( $content, $target );
-			}
-
-			$content  = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
-			$is_first = false;
+			$content = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
 
 			$testimonial_content .= $content;
+
+			$is_first = false;
 		}
 
 		$post_paging = '';
-		if ( $paging || $paging_after ) {
+		if ( $paging || 'after' === strtolower( $atts['paging'] ) ) {
 			$post_paging = self::get_testimonials_paging( $atts, false );
 		}
 
-		$div_close  = '</div>';
-		$div_close .= "\n";
+		$div_close = self::get_template_part( 'testimonials', 'close' );
 
 		$html = $div_open
 			. $pre_paging
@@ -1143,229 +1121,63 @@ EOF;
 	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
 		global $at_template_args;
 
-		$at_template_args = compact( $testimonial, $atts, $is_list, $is_first, $widget_number );
+		$at_template_args = compact( 'testimonial', 'atts', 'is_list', 'is_first', 'widget_number' );
 
 		$div_open = self::get_template_part( 'testimonial', 'open' );
-		if ( $atts['remove_hentry'] ) {
-			$div_open = str_replace( ' hentry', '', $div_open );
-		}
 
-		// fixme use template engine
 		$image = '';
 		if ( ! $atts['hide_image'] && ! empty( $testimonial['testimonial_image'] ) ) {
-			$pic = $testimonial['testimonial_image'];
-
-			$image .= '<span class="image">';
-			$image .= $pic;
-			$image .= '</span>';
+			if ( ! ( $atts['hide_image_single'] && 'get_single' == $atts['type'] ) ) {
+				$image = self::get_template_part( 'testimonial', 'image' );
+			}
 		}
 
-		if ( $atts['hide_image_single'] && 'get_single' == $atts['type'] ) {
-			$image = '';
+		$content = self::get_template_part( 'testimonial', 'content' );
+		if ( $atts['target'] ) {
+			$content = links_add_target( $content, $target );
 		}
 
-		// fixme use template engine
-		$quote = self::get_quote( $testimonial, $atts, $widget_number );
-
-		// fixme use template engine
 		$cite = '';
 		if ( 1 < count( $testimonial ) ) {
-			$cite = self::get_cite( $testimonial, $atts );
+			$cite = self::get_template_part( 'testimonial', 'cite' );
 		}
 
-		// fixme use template engine
 		$extra = '';
 		if ( ! empty( $testimonial['testimonial_extra'] ) ) {
-			$extra .= '<div class="extra">';
-			$extra .= $testimonial['testimonial_extra'];
-			$extra .= '</div>';
-			$extra .= "\n";
+			$extra = self::get_template_part( 'testimonial', 'extra' );
 		}
 
-		// fixme use template engine
 		$bottom_text = '';
 		if ( ! empty( $atts['bottom_text'] ) && 'false' != $atts['bottom_text'] ) {
-			$bottom_text  = '<div class="bottom_text">';
-			$bottom_text .= $atts['bottom_text'];
-			$bottom_text .= '</div>';
-			$bottom_text .= "\n";
+			$bottom_text = self::get_template_part( 'testimonial', 'bottom' );
 		}
 
-		// fixme use template engine
+		$schema = '';
 		if ( $atts['enable_schema'] ) {
 			$schema  = self::get_schema( $testimonial, $atts );
 			$schema .= "\n";
 		}
 
-		// fixme use template engine
-		$div_close  = '</div>';
-		$div_close .= "\n";
+		$div_close = self::get_template_part( 'testimonial', 'close' );
+		$div_close = $schema . $div_close;
 
 		$html = $div_open
 			. $image
-			. $quote
+			. $content
 			. $cite
 			. $extra
 			. $bottom_text
-			. $schema
 			. $div_close;
 
-		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $quote, $cite, $extra, $bottom_text, $div_close );
+		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
 
-		// not done sooner as tag_close_quote is used for Premium
+		// not done sooner as tag_close_quote is used Aihrus Testimonials Premium
 		if ( $atts['disable_quotes'] ) {
 			$html = str_replace( self::$tag_open_quote, '', $html );
 			$html = str_replace( self::$tag_close_quote, '', $html );
 		}
 
 		return $html;
-	}
-
-
-	public static function get_quote( $testimonial, $atts, $widget_number ) {
-		$char_limit    = $atts['char_limit'];
-		$content_more  = apply_filters( 'testimonials_widget_content_more', esc_html__( '…', 'testimonials-widget' ) );
-		$content_more .= self::$tag_close_quote;
-		$do_content    = ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
-		$use_quote_tag = $atts['use_quote_tag'];
-
-		$quote = '';
-		if ( $do_content ) {
-			$content = $testimonial['testimonial_content'];
-			$content = self::format_content( $content, $widget_number, $atts );
-			if ( $char_limit ) {
-				$content = self::testimonials_truncate( $content, $char_limit, $content_more );
-				$content = force_balance_tags( $content );
-			}
-
-			$content = apply_filters( 'testimonials_widget_content', $content, $widget_number, $testimonial, $atts );
-			$content = make_clickable( $content );
-
-			if ( ! $use_quote_tag ) {
-				$quote  = '<blockquote>';
-				$quote .= $content;
-				$quote .= '</blockquote>';
-			} else {
-				$quote  = '<q>';
-				$quote .= $content;
-				$quote .= '</q>';
-			}
-			
-			$quote = "\n" . $quote;
-		}
-
-		return $quote;
-	}
-
-
-	public static function get_cite( $testimonial, $atts ) {
-		extract( $testimonial );
-
-		$do_company    = ! $atts['hide_company'] && ! empty( $testimonial_company );
-		$do_email      = ! $atts['hide_email'] && ! empty( $testimonial_email ) && is_email( $testimonial_email );
-		$do_location   = ! $atts['hide_location'] && ! empty( $testimonial_location );
-		$do_source     = ! $atts['hide_source'] && ! empty( $testimonial_source );
-		$do_title      = ! $atts['hide_title'] && ! empty( $testimonial_title );
-		$do_url        = ! $atts['hide_url'] && ! empty( $testimonial_url );
-		$use_quote_tag = $atts['use_quote_tag'];
-
-		$cite = '';
-
-		$done_url = false;
-		if ( $do_source && $do_email ) {
-			$cite .= '<span class="author">';
-			$cite .= '<a href="mailto:' . $testimonial_email . '">';
-			if ( empty( $testimonial_author ) ) {
-				$cite .= $testimonial_source;
-			} else {
-				$cite .= $testimonial_author;
-			}
-
-			$cite .= '</a>';
-			$cite .= '</span>';
-		} elseif ( $do_source && ! $do_company && $do_url ) {
-			$done_url = true;
-
-			$cite .= '<span class="author">';
-			$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
-			if ( empty( $testimonial_author ) ) {
-				$cite .= $testimonial_source;
-			} else {
-				$cite .= $testimonial_author;
-			}
-
-			$cite .= '</a>';
-			$cite .= '</span>';
-		} elseif ( $do_source ) {
-			$cite .= '<span class="author">';
-			if ( empty( $testimonial_author ) ) {
-				$cite .= $testimonial_source;
-			} else {
-				$cite .= $testimonial_author;
-			}
-
-			$cite .= '</span>';
-		} elseif ( $do_email ) {
-			$cite .= '<span class="email">';
-			$cite .= make_clickable( $testimonial_email );
-			$cite .= '</span>';
-		}
-
-		if ( $do_title && $cite ) {
-			$cite .= '<span class="join-title"></span>';
-		}
-
-		if ( $do_title ) {
-			$cite .= '<span class="job-title">';
-			$cite .= $testimonial_title;
-			$cite .= '</span>';
-		}
-
-		if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite ) {
-			$cite .= '<span class="join"></span>';
-		}
-
-		if ( $do_company && $do_url ) {
-			$cite .= '<span class="company">';
-			$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
-			$cite .= $testimonial_company;
-			$cite .= '</a>';
-			$cite .= '</span>';
-		} elseif ( $do_company ) {
-			$cite .= '<span class="company">';
-			$cite .= $testimonial_company;
-			$cite .= '</span>';
-		} elseif ( $do_url && ! $done_url ) {
-			$cite .= '<span class="url">';
-			$cite .= make_clickable( $testimonial_url );
-			$cite .= '</span>';
-		}
-
-		if ( $do_location && $cite ) {
-			$cite .= '<span class="join-location"></span>';
-		}
-
-		if ( $do_location ) {
-			$cite .= '<span class="location">';
-			$cite .= $testimonial_location;
-			$cite .= '</span>';
-		}
-
-		$cite = apply_filters( 'testimonials_widget_cite_html', $cite, $testimonial, $atts );
-
-		if ( ! empty( $cite ) ) {
-			if ( ! $use_quote_tag ) {
-				$temp  = '<div class="credit">';
-				$temp .= $cite;
-				$temp .= '</div>';
-
-				$cite = "\n" . $temp . "\n";
-			} else {
-				$cite = '<cite>' . $cite . '</cite>';
-			}
-		}
-
-		return $cite;
 	}
 
 
@@ -1430,60 +1242,11 @@ EOF;
 
 
 	public static function get_testimonials_paging( $atts, $prepend = true ) {
-		$html = '';
+		global $at_template_args;
 
-		if ( is_home() || 1 === self::$max_num_pages ) {
-			return $html;
-		}
+		$at_template_args = compact( 'atts', 'prepend' );
 
-		$html .= '<div class="paging';
-
-		if ( $prepend ) {
-			$html .= ' prepend';
-		} else {
-			$html .= ' append';
-		}
-
-		$html .= '">';
-		$html .= "\n";
-
-		if ( $atts['paged'] ) {
-			$paged = $atts['paged'];
-		} else {
-			$paged = 1;
-		}
-
-		if ( ! function_exists( 'wp_pagenavi' ) ) {
-			$html .= '<div class="alignleft">';
-
-			if ( 1 < $paged ) {
-				$laquo = apply_filters( 'testimonials_widget_previous_posts_link_text', esc_html__( '&laquo;', 'testimonials-widget' ) );
-				$html .= get_previous_posts_link( $laquo, $paged );
-			}
-
-			$html .= '</div>';
-			$html .= "\n";
-			$html .= '<div class="alignright">';
-			if ( $paged != self::$max_num_pages ) {
-				$raquo = apply_filters( 'testimonials_widget_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
-				$html .= get_next_posts_link( $raquo, self::$max_num_pages );
-			}
-
-			$html .= '</div>';
-			$html .= "\n";
-		} else {
-			$args = array(
-				'echo' => false,
-				'query' => self::$wp_query,
-			);
-			$args = apply_filters( 'testimonials_widget_wp_pagenavi', $args );
-
-			$html .= wp_pagenavi( $args );
-			$html .= "\n";
-		}
-
-		$html .= '</div>';
-		$html .= "\n";
+		$html = self::get_template_part( 'testimonials', 'paging' );
 
 		return $html;
 	}
@@ -2005,19 +1768,6 @@ EOF;
 		}
 
 		return $meta;
-	}
-
-
-	public static function create_schema_span( $property_name, $span_data ) {
-		$span = '';
-
-		if ( empty( $span_data ) ) {
-			return $span;
-		}
-
-		$span = sprintf( self::$schema_span, $property_name, $span_data );
-
-		return $span;
 	}
 
 
