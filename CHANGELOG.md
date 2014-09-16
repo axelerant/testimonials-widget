@@ -24,6 +24,8 @@
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries
 * Update OPTIONS
+* Update [bxSlider 4.1.2](https://github.com/stevenwanderski/bxslider-4)
+* Use [bxSlider](https://github.com/stevenwanderski/bxslider-4) as a library
 
 ## 2.19.9
 * Add example for `tba_register_post_type_args`

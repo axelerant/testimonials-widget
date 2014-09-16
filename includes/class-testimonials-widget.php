@@ -45,7 +45,8 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $found_posts     = 0;
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
-	public static $max_num_pages   = 0;
+	public static $library_assets;
+	public static $max_num_pages = 0;
 	public static $menu_shortcodes;
 	public static $notice_key;
 	public static $not_found = false;
@@ -95,6 +96,9 @@ class Testimonials_Widget extends Aihrus_Common {
 
 	public function __construct() {
 		parent::__construct();
+
+		self::$library_assets = plugins_url( '/includes/libraries/', dirname( __FILE__ ) );
+		self::$library_assets = self::strip_protocol( self::$library_assets );
 
 		self::$plugin_assets = plugins_url( '/assets/', dirname( __FILE__ ) );
 		self::$plugin_assets = self::strip_protocol( self::$plugin_assets );
@@ -840,11 +844,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( $use_bxslider ) {
 			$enable_video = $atts['enable_video'];
 			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', self::$plugin_assets . 'js/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
+				wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
 				wp_enqueue_script( 'jquery.fitvids' );
 			}
 
-			wp_register_script( 'jquery.bxslider', self::$plugin_assets . 'js/jquery.bxslider.js', array( 'jquery' ), '4.1.1', true );
+			wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.js', array( 'jquery' ), '4.1.2', true );
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
 
@@ -861,7 +865,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		if ( $use_bxslider ) {
 			$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
 			if ( empty( $exclude_bxslider_css ) ) {
-				wp_register_style( 'jquery.bxslider', self::$plugin_assets . 'css/jquery.bxslider.css' );
+				wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
 				wp_enqueue_style( 'jquery.bxslider' );
 			}
 
