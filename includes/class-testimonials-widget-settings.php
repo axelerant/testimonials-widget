@@ -228,6 +228,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			),
 			'std' => 1,
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		$use_bxslider = tw_get_option( 'use_bxslider' );
@@ -238,6 +239,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				'type' => 'checkbox',
 				'validate' => 'is_true',
 				'widget' => 0,
+				'show_code' => false,
 			);
 		}
 
@@ -247,6 +249,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		self::$settings['include_ie7_css'] = array(
@@ -254,6 +257,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		self::$settings['disable_quotes'] = array(
@@ -560,6 +564,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		$desc        = __( 'URL slug-name for <a href="%1s">testimonials archive</a> page.', 'testimonials-widget' );
@@ -573,6 +578,22 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'std' => 'testimonials-archive',
 			'validate' => 'slash_sanitize_title',
 			'widget' => 0,
+			'show_code' => false,
+		);
+
+		self::$settings['enable_archives'] = array(
+			'backwards' => array(
+				'version' => '3.0.0',
+				'std' => 0,
+			),
+			'desc' => esc_html__( 'Include testimonials in archive and category views.', 'testimonials-widget' ),
+			'section' => 'post_type',
+			'show_code' => false,
+			'std' => 1,
+			'title' => esc_html__( 'Enable archives view?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'widget' => 0,
 		);
 
 		$desc = esc_html__( 'URL slug-name for testimonial view pages. Shouldn\'t be the same as the Archive Page URL nor should it match a page URL slug.', 'testimonials-widget' );
@@ -584,6 +605,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'std' => 'testimonial',
 			'validate' => 'slash_sanitize_title',
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		// Columns
@@ -697,6 +719,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'validate' => 'is_true',
 			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead.', 'testimonials-widget' ),
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		parent::settings();

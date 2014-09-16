@@ -184,6 +184,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * IDs column shown in testimonials edit page
 * IE7 CSS hacks for quotes and join parts
 * Image, email based Gravatar, category and tag enabled
+* Include testimonials in archive and category views.
 * Internal version tracking for compatibility checks and automatic settings update
 * Localizable via `languages/testimonials-widget.pot`
 * Optional commenting on testimonial single-view pages

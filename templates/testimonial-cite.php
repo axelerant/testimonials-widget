@@ -101,16 +101,16 @@ if ( empty( $cite ) ) {
 }
 
 if ( ! $use_quote_tag ) {
-?>
+	?>
 
-<div class="credit"><?php echo $cite; ?></div>
+	<div class="credit"><?php echo $cite; ?></div>
 
-<?php
+	<?php
 } else {
-?>
+	?>
 
-<cite><?php echo $cite; ?></cite>
+	<cite><?php echo $cite; ?></cite>
 
-<?php
+	<?php
 }
 ?>

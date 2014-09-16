@@ -8,6 +8,7 @@
 * Add filter `testimonials_widget_template_paths`
 * API link updates
 * Author field to override title when it's not the testimonial source
+* Don't shortcode attribute for global level options
 * Moved aggregate review schema data to premium
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
@@ -15,6 +16,7 @@
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #128 Move bxSlider to being library
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top

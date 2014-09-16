@@ -115,6 +115,7 @@
 
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
+* Enable archives view? - Include testimonials in archive and category views.
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
 ## Columns

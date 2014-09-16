@@ -151,6 +151,10 @@ class Testimonials_Widget extends Aihrus_Common {
 
 	public static function init() {
 		add_filter( 'the_content', array( __CLASS__, 'get_single' ) );
+		$enable_archives = tw_get_option( 'enable_archives' );
+		if ( $enable_archives ) {
+			add_filter( 'pre_get_posts', array( __CLASS__, 'pre_get_posts_allow_testimonials' ) );
+		}
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
@@ -1138,7 +1142,7 @@ EOF;
 
 		$content = self::get_template_part( 'testimonial', 'content' );
 		if ( $atts['target'] ) {
-			$content = links_add_target( $content, $target );
+			$content = links_add_target( $content, $atts['target'] );
 		}
 
 		$cite = '';
@@ -1245,6 +1249,9 @@ EOF;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function get_testimonials_paging( $atts, $prepend = true ) {
 		global $at_template_args;
 
@@ -2031,6 +2038,21 @@ EOD;
 		$content = ob_get_clean();
 
 		return $content;
+	}
+
+
+	public static function pre_get_posts_allow_testimonials( $query ) {
+		if ( $query->is_admin ) {
+			return $query;
+		} elseif ( ( $query->is_main_query() || is_feed() )
+			&& ! is_page()
+			&& ( ( ! empty( $query->query_vars['post_type'] ) && 'post' == $query->query_vars['post_type'] )
+			|| is_archive() )
+		) {
+			$query->set( 'post_type', array( 'post', self::PT ) );
+		}
+
+		return $query;
 	}
 }
 

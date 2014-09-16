@@ -14,14 +14,14 @@ if ( ! function_exists( 'wp_pagenavi' ) ) {
 	$paging = '<div class="alignleft">';
 
 	if ( 1 < $paged ) {
-		$laquo = apply_filters( 'testimonials_widget_previous_posts_link_text', esc_html__( '&laquo;', 'testimonials-widget' ) );
+		$laquo   = apply_filters( 'testimonials_widget_previous_posts_link_text', esc_html__( '&laquo;', 'testimonials-widget' ) );
 		$paging .= get_previous_posts_link( $laquo, $paged );
 	}
 
 	$paging .= '</div>';
 	$paging .= '<div class="alignright">';
 	if ( $paged != Testimonials_Widget::$max_num_pages ) {
-		$raquo = apply_filters( 'testimonials_widget_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
+		$raquo   = apply_filters( 'testimonials_widget_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
 		$paging .= get_next_posts_link( $raquo, Testimonials_Widget::$max_num_pages );
 	}
 

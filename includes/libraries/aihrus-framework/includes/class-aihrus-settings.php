@@ -87,6 +87,7 @@ abstract class Aihrus_Settings {
 				'desc' => esc_html__( 'These are your current settings in a serialized format. Copy the contents to make a backup of your settings.' ),
 				'std' => $serialized_options,
 				'widget' => 0,
+				'show_code' => false,
 			);
 		}
 
@@ -96,6 +97,7 @@ abstract class Aihrus_Settings {
 			'type' => 'textarea',
 			'desc' => esc_html__( 'Paste new serialized settings here to overwrite your current configuration.' ),
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		$desc = esc_html__( 'Delete all %s data and options from database on plugin deletion. Even if this option isn\'t checked, WordPress will still give a data deletion warning.' );
@@ -107,6 +109,7 @@ abstract class Aihrus_Settings {
 			'class' => 'warning',
 			'desc' => sprintf( $desc, static::NAME ),
 			'widget' => 0,
+			'show_code' => false,
 		);
 
 		static::$settings['reset_defaults'] = array(
@@ -115,6 +118,7 @@ abstract class Aihrus_Settings {
 			'type' => 'checkbox',
 			'class' => 'warning',
 			'desc' => esc_html__( 'Check this box to reset options to their defaults.' ),
+			'show_code' => false,
 		);
 	}
 

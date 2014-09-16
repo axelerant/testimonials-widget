@@ -21,17 +21,17 @@ if ( $do_content ) {
 	$content = make_clickable( $content );
 
 	if ( ! $use_quote_tag ) {
-?>
+		?>
 
-<blockquote><?php echo $content; ?></blockquote>
+		<blockquote><?php echo $content; ?></blockquote>
 
-<?php
+		<?php
 	} else {
-?>
+		?>
 
-<q><?php echo $content; ?></q>
+		<q><?php echo $content; ?></q>
 
-<?php
+		<?php
 	}
 }
 ?>
