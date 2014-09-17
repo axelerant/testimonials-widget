@@ -90,7 +90,7 @@
 
 ## Widget
 
-* Widget Title
+* Title
 	* `title` - default "Testimonials"
 * Title Link - URL or Post ID to link widget title to.
 	* `title_link` - default none; title_link=123, title_link=http://example.com

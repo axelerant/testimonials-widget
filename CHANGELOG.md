@@ -20,7 +20,7 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #18 Testimonials category/tag list/cloud widget
+* RELATES #18 Testimonials category/tag list/cloud widget - Begin archive widget
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
@@ -35,6 +35,7 @@
 * Update Aihrus Testimonials Premium branding
 * Update licensing entries
 * Update OPTIONS
+* Update widget title handling
 * Update [bxSlider 4.1.2](https://github.com/stevenwanderski/bxslider-4)
 * Use [bxSlider](https://github.com/stevenwanderski/bxslider-4) as a library
 

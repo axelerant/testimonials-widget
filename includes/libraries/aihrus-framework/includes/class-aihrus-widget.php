@@ -269,7 +269,7 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( $suggest )
-					echo self::get_suggest( $id, $suggest_id );
+					echo static::get_suggest( $id, $suggest_id );
 				break;
 
 			default:
@@ -293,6 +293,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	public static function form_instance( $instance ) {
 		if ( empty( $instance ) ) {
 			$instance = static::get_defaults();
+		} elseif ( ! empty( $instance['resetted'] ) ) {
+			$instance = static::get_defaults();
 		}
 
 		return $instance;
@@ -307,6 +309,26 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 		}
 
 		return $defaults;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function form_parts( $instance = null, $number = null ) {
+		$form_parts = array(
+			'title' => array(
+				'title' => esc_html__( 'Title' ),
+				'validate' => 'wp_kses_post',
+			),
+			'title_link' => array(
+				'title' => esc_html__( 'Title Link' ),
+				'desc' => esc_html__( 'URL, path, or post ID to link widget title to. Ex: http://example.com/stuff, /testimonials, or 123' ),
+				'validate' => 'wp_kses_data',
+			),
+		);
+
+		return $form_parts;
 	}
 
 

@@ -128,9 +128,15 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 */
 	public static function settings() {
 		// Widget
+		self::$settings['widget_heading'] = array(
+			'section' => 'widget',
+			'desc' => esc_html__( 'This section only applies to the testimonials slider widget.', 'testimonials-widget' ),
+			'type' => 'heading',
+		);
+
 		self::$settings['title'] = array(
 			'section' => 'widget',
-			'title' => esc_html__( 'Widget Title', 'testimonials-widget' ),
+			'title' => esc_html__( 'Title', 'testimonials-widget' ),
 			'std' => esc_html__( 'Testimonials', 'testimonials-widget' ),
 			'validate' => 'wp_kses_post',
 		);

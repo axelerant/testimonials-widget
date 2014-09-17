@@ -27,13 +27,16 @@ if ( class_exists( 'Testimonials_Widget_Widget_Tag_Cloud' ) )
 class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 	const ID = 'testimonials_widget_widget_tag_cloud';
 
+	public static $title;
+
+
 	public function __construct() {
 		$classname   = __CLASS__;
 		$description = esc_html__( 'A cloud of your most used testimonials\' tags .', 'testimonials-widget' );
 		$id_base     = self::ID;
-		$title       = esc_html__( 'Testimonials Tag Cloud', 'testimonials-widget' );
+		self::$title = esc_html__( 'Testimonials Tag Cloud', 'testimonials-widget' );
 
-		parent::__construct( $classname, $description, $id_base, $title );
+		parent::__construct( $classname, $description, $id_base, self::$title );
 	}
 
 
@@ -56,19 +59,9 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function form_parts( $instance = null, $number = null ) {
-		$form_parts = array();
+		$form_parts = parent::form_parts( $instance, $number );
 
-		$form_parts['title'] = array(
-			'title' => esc_html__( 'Widget Title', 'testimonials-widget' ),
-			'std' => esc_html__( 'Testimonials Tag Cloud', 'testimonials-widget' ),
-			'validate' => 'wp_kses_post',
-		);
-
-		$form_parts['title_link'] = array(
-			'title' => esc_html__( 'Title Link', 'testimonials-widget' ),
-			'desc' => esc_html__( 'URL, path, or post ID to link widget title to. Ex: http://example.com/stuff, /testimonials, or 123', 'testimonials-widget' ),
-			'validate' => 'wp_kses_data',
-		);
+		$form_parts['title']['std'] = self::$title;
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
