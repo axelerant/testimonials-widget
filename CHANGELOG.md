@@ -9,7 +9,10 @@
 * Add filter `testimonials_widget_widget_categories_args`
 * Add filter `testimonials_widget_widget_categories_dropdown_args`
 * Add filter `testimonials_widget_widget_categories_options`
+* Add filter `testimonials_widget_widget_tag_cloud_args`
+* Add filter `testimonials_widget_widget_tag_cloud_options`
 * Added testimonials category widget
+* Added testimonials tag cloud widget
 * API link updates
 * Author field to override title when it's not the testimonial source
 * Don't shortcode attribute for global level options

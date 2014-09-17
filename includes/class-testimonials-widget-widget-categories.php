@@ -25,7 +25,7 @@ if ( class_exists( 'Testimonials_Widget_Widget_Categories' ) )
 
 
 class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
-	const ID = 'testimonials_widget_categories';
+	const ID = 'testimonials_widget_widget_categories';
 
 	public function __construct() {
 		$classname   = __CLASS__;
@@ -37,6 +37,9 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function get_content( $instance, $widget_number ) {
 		$c = ! empty( $instance['count'] ) ? '1' : '0';
 		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
@@ -45,7 +48,7 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 		$cat_args = array(
 			'orderby' => 'name',
 			'show_count' => $c,
-			'hierarchical' => $h
+			'hierarchical' => $h,
 		);
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
@@ -54,38 +57,41 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 		}
 
 		if ( $d ) {
-			$cat_args['show_option_none'] = __('Select Testimonials Category');
+			$cat_args['show_option_none'] = esc_html__( 'Select Testimonials Category' );
 
 			wp_dropdown_categories( apply_filters( 'testimonials_widget_widget_categories_dropdown_args', $cat_args ) );
-?>
+			?>
 
-<script type='text/javascript'>
-/* <![CDATA[ */
-	var dropdown = document.getElementById("cat");
-	function onCatChange() {
-		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
-			location.href = "<?php echo home_url(); ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
-		}
-	}
-	dropdown.onchange = onCatChange;
-/* ]]> */
-</script>
+			<script type='text/javascript'>
+			/* <![CDATA[ */
+			var dropdown = document.getElementById("cat");
+			function onCatChange() {
+				if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+					location.href = "<?php echo home_url(); ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
+				}
+			}
+			dropdown.onchange = onCatChange;
+			/* ]]> */
+			</script>
 
-<?php
+			<?php
 		} else {
-?>
-		<ul>
-<?php
-		$cat_args['title_li'] = '';
+			?>
+			<ul>
+			<?php
+				$cat_args['title_li'] = '';
 
-		wp_list_categories( apply_filters( 'testimonials_widget_widget_categories_args', $cat_args ) );
-?>
-		</ul>
-<?php
+				wp_list_categories( apply_filters( 'testimonials_widget_widget_categories_args', $cat_args ) );
+			?>
+			</ul>
+			<?php
 		}
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function form_parts( $instance = null, $number = null ) {
 		$form_parts = array();
 

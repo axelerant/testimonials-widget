@@ -200,6 +200,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Testimonials category widget
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
+* Testimonials tag cloud widget
 * Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
 * URLs can be opened in new windows
