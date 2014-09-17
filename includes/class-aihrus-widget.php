@@ -25,7 +25,21 @@ require_once 'interface-aihrus-widget.php';
 
 
 abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interface {
-	public static $suggest_id = 0;
+	public static $default = array(
+		'choices' => array(), // key => value
+		'class' => null, // warning, etc.
+		'desc' => null,
+		'id' => null,
+		'std' => null, // default key or value
+		'suggest' => false, // attempt for auto-suggest on inputs
+		'title' => null,
+		'type' => 'text', // textarea, checkbox, radio, select, hidden, heading, password, expand_begin, expand_end
+		'validate' => null, // required, term, slug, slugs, ids, order, single paramater PHP functions
+		'widget' => 1,
+	);
+
+	public static $settings_saved = false;
+	public static $suggest_id     = 0;
 
 
 	public function __construct( $classname, $description, $id_base, $title ) {
@@ -51,32 +65,27 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	public function widget( $args, $instance ) {
-		global $before_widget, $before_title, $after_title, $after_widget;
-
 		$args = wp_parse_args( $args, static::get_defaults() );
 		extract( $args );
 
-		// Our variables from the widget settings
-		$title   = apply_filters( 'widget_title', $instance['title'], null );
-		$content = static::get_content( $instance, $this->number );
-
 		// Before widget (defined by themes)
-		echo $before_widget;
+		echo $args['before_widget'];
 
+		$title = apply_filters( 'widget_title', $instance['title'], null );
 		if ( ! empty( $instance['title_link'] ) ) {
 			$target = ! empty( $instance['target'] ) ? $instance['target'] : null;
 			$title  = Aihrus_Common::create_link( $instance['title_link'], $title, $target );
 		}
 
-		// Display the widget title if one was input (before and after defined by themes)
-		if ( ! empty( $title ) )
-			echo $before_title . $title . $after_title;
+		if ( ! empty( $title ) ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+		}
 
-		// Display Widget
+		$content = static::get_content( $instance, $this->number );
 		echo $content;
 
 		// After widget (defined by themes)
-		echo $after_widget;
+		echo $args['after_widget'];
 	}
 
 
@@ -91,6 +100,38 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 		$instance = static::validate_settings( $new_instance );
 
 		return $instance;
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
+	public static function validate_settings( $input, $options = null, $do_errors = false ) {
+		$errors = array();
+
+		$null_options = false;
+		if ( is_null( $options ) ) {
+			$null_options = true;
+
+			$defaults = static::get_defaults();
+			$options  = static::form_parts();
+
+			if ( is_admin() ) {
+				if ( ! empty( $input['reset_defaults'] ) ) {
+					foreach ( $defaults as $id => $std ) {
+						$input[ $id ] = $std;
+					}
+
+					unset( $input['reset_defaults'] );
+
+					$input['resetted'] = true;
+				}
+			}
+		}
+
+		return Aihrus_Settings::do_validate_settings( $input, $options, $do_errors );
 	}
 
 
@@ -132,8 +173,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand All Options' ) . '</a>';
-				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'.tw-collapsible-control\' ).slideToggle(); jQuery( \'.tw-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse All Options' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'.af-collapsible-control\' ).slideToggle(); jQuery( \'.af-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand All Options' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'.af-collapsible-control\' ).slideToggle(); jQuery( \'.af-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse All Options' ) . '</a>';
 
 				$do_return = true;
 				break;
@@ -142,11 +183,11 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				if ( ! empty( $desc ) )
 					echo '<h3>' . $desc . '</h3>';
 
-				echo '<span class="tw-collapsible-control">';
+				echo '<span class="af-collapsible-control">';
 				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand' ) . '</a>';
 				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo;' . esc_html__( 'Collapse' ) . '</a>';
 				echo '</span>';
-				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="tw-collapsible">';
+				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="af-collapsible">';
 
 				$do_return = true;
 				break;
@@ -255,6 +296,26 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	public static function get_suggest( $id, $suggest_id ) {}
+
+
+	public static function form_instance( $instance ) {
+		if ( empty( $instance ) ) {
+			$instance = static::get_defaults();
+		}
+
+		return $instance;
+	}
+
+
+	public static function get_defaults() {
+		$defaults = array();
+		$options  = static::form_parts();
+		foreach ( $options as $option => $value ) {
+			$defaults[ $option ] = $value['std'];
+		}
+
+		return $defaults;
+	}
 
 
 }
