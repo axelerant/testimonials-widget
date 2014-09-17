@@ -94,8 +94,6 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-
-
 	public function update( $new_instance, $old_instance ) {
 		$instance = static::validate_settings( $new_instance );
 
@@ -103,14 +101,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	}
 
 
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.Superglobals)
-	 */
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
-		$errors = array();
-
+		$errors       = array();
 		$null_options = false;
 		if ( is_null( $options ) ) {
 			$null_options = true;
