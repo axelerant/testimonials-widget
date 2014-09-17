@@ -3,10 +3,18 @@
 ## master
 
 ## 1.1.5RC1
+* Abstract do_validate_settings for easier reuse
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
+* RESOLVE Add widget option defaults
+* RESOLVE form_parts not allowing no arguments
 * RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
 * RESOLVE michael-cannon/testimonials-widget#78 Show revert link in deactivation admin notice
+* RESOLVE Move form_instance to abstract class Aihrus_Widget
+* RESOLVE Move get_suggest to abstract class Aihrus_Widget
+* RESOLVE Remove tw- reference
+* RESOLVE Use widget args than globals
+* Revise widget class for easier reuse
 * Update licensing GPL 2.0
 
 ## 1.1.4
