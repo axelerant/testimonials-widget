@@ -7,6 +7,7 @@
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
 * RESOLVE Add widget option defaults
+* RESOLVE form_parts not allowing no arguments
 * RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
 * RESOLVE michael-cannon/testimonials-widget#78 Show revert link in deactivation admin notice
 * RESOLVE Move form_instance to abstract class Aihrus_Widget

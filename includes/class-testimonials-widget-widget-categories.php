@@ -86,7 +86,7 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 	}
 
 
-	public static function form_parts( $instance, $number ) {
+	public static function form_parts( $instance = null, $number = null ) {
 		$form_parts = array();
 
 		$form_parts['title'] = array(

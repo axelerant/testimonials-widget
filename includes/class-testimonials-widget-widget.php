@@ -57,11 +57,6 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 	}
 
 
-	public static function validate_settings( $instance ) {
-		return Testimonials_Widget_Settings::validate_settings( $instance );
-	}
-
-
 	public static function form_instance( $instance ) {
 		$do_number = true;
 		if ( empty( $instance ) ) {
@@ -86,7 +81,7 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 	}
 
 
-	public static function form_parts( $instance, $number ) {
+	public static function form_parts( $instance = null, $number = null ) {
 		$form_parts = Testimonials_Widget_Settings::get_settings();
 
 		if ( ! empty( $instance['do_number'] ) ) {
