@@ -6,6 +6,10 @@
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * Add filter `testimonials_widget_get_template_part`
 * Add filter `testimonials_widget_template_paths`
+* Add filter `testimonials_widget_widget_categories_args`
+* Add filter `testimonials_widget_widget_categories_dropdown_args`
+* Add filter `testimonials_widget_widget_categories_options`
+* Added testimonials category widget
 * API link updates
 * Author field to override title when it's not the testimonial source
 * Don't shortcode attribute for global level options
@@ -13,6 +17,7 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
+* RELATES #18 Testimonials category/tag list/cloud widget
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false

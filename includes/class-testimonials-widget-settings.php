@@ -785,8 +785,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		self::$settings = apply_filters( 'testimonials_widget_settings', self::$settings );
 
-		foreach ( self::$settings as $id => $parts )
+		foreach ( self::$settings as $id => $parts ) {
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
+		}
 	}
 
 

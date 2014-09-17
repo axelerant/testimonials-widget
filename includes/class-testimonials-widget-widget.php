@@ -27,8 +27,8 @@ if ( class_exists( 'Testimonials_Widget_Widget' ) )
 class Testimonials_Widget_Widget extends Aihrus_Widget {
 	const ID = 'testimonials_widget';
 
-	public function __construct( $classname = null, $description = null, $id_base = null, $title = null ) {
-		$classname   = 'Testimonials_Widget_Widget';
+	public function __construct() {
+		$classname   = __CLASS__;
 		$description = esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' );
 		$id_base     = self::ID;
 		$title       = esc_html__( 'Testimonials', 'testimonials-widget' );

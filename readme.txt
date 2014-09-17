@@ -197,9 +197,10 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Aihrus Testimonials output is completely customizable via filters
-* Aihrus Testimonials support styling based upon CSS classes for category, tags and post id
-* Aihrus Testimonials widget displays static and rotating testimonials 
+* Testimonials category widget
+* Testimonials output is completely customizable via filters
+* Testimonials support styling based upon CSS classes for category, tags and post id
+* Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)

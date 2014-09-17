@@ -565,6 +565,16 @@ abstract class Aihrus_Settings {
 			}
 		}
 
+		return self::do_validate_settings( $input, $options, $do_errors );
+	}
+
+
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
+	public static function do_validate_settings( $input, $options = null, $do_errors = false ) {
 		foreach ( $options as $id => $parts ) {
 			$default     = $parts['std'];
 			$type        = $parts['type'];
