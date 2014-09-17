@@ -83,7 +83,6 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function getarchives_where( $where, $args ) {
-		error_log( print_r( func_get_args(), true ) . ':' . __LINE__ . ':' . basename( __FILE__ ) );
 		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
 	}
 
