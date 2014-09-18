@@ -28,6 +28,7 @@
 * RESOLVE #128 Move bxSlider to being library
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
+* RESOLVE Flush rewrite rules if baseline taxonomy changes
 * RESOLVE Videos not showing in single view
 * Revise descriptions
 * Simplify Review schema handling
