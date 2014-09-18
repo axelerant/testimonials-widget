@@ -25,7 +25,7 @@ if ( class_exists( 'Testimonials_Widget_Widget_Recent_Testimonials' ) )
 
 
 class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
-	const ID = 'testimonials_widget_widget_recent_testimonials';
+	const ID = 'tw_widget_recent_testimonials';
 
 	public static $title;
 
@@ -54,7 +54,7 @@ class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
 			'ignore_sticky_posts' => true,
 			'post_type' => Testimonials_Widget::PT,
 		);
-		$args = apply_filters( 'testimonials_widget_widget_recent_testimonials_args', $args );
+		$args = apply_filters( 'tw_widget_recent_testimonials_args', $args );
 
 		$r = new WP_Query( $args );
 		if ( $r->have_posts() ) { 
@@ -111,7 +111,7 @@ class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'testimonials_widget_widget_recent_testimonials_options', $form_parts );
+		$form_parts = apply_filters( 'tw_widget_recent_testimonials_options', $form_parts );
 
 		return $form_parts;
 	}

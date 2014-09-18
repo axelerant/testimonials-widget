@@ -234,19 +234,19 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$testimonials = array();
 
-		$text = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$text = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $text ) {
 			$testimonials = self::get_testimonials( $atts );
 			$testimonial  = $testimonials[0];
 
 			$details = self::get_testimonial_html( $testimonial, $atts );
-			$details = apply_filters( 'testimonials_widget_testimonial_html_single', $details, $testimonial, $atts );
+			$details = apply_filters( 'tw_testimonial_html_single', $details, $testimonial, $atts );
 
 			$content = self::do_video( $content, $atts );
-			$content = apply_filters( 'testimonials_widget_testimonial_html_single_content', $content, $testimonial, $atts );
+			$content = apply_filters( 'tw_testimonial_html_single_content', $content, $testimonial, $atts );
 
 			$text = $content . $details;
-			$text = apply_filters( 'testimonials_widget_cache_set', $text, $atts );
+			$text = apply_filters( 'tw_cache_set', $text, $atts );
 		}
 
 		self::call_scripts_styles( $testimonials, $atts, $instance );
@@ -383,7 +383,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
-				do_action( 'testimonials_widget_update' );
+				do_action( 'tw_update' );
 			}
 
 			tw_set_option( 'admin_notices' );
@@ -574,7 +574,7 @@ class Testimonials_Widget extends Aihrus_Common {
 				break;
 		}
 
-		$result = apply_filters( 'testimonials_widget_posts_custom_column', $result, $column, $post_id );
+		$result = apply_filters( 'tw_posts_custom_column', $result, $column, $post_id );
 
 		if ( $result ) {
 			echo $result;
@@ -645,7 +645,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			$columns[ 'testimonials-widget-url' ] = esc_html__( 'URL', 'testimonials-widget' );
 		}
 
-		$columns = apply_filters( 'testimonials_widget_columns', $columns );
+		$columns = apply_filters( 'tw_columns', $columns );
 
 		return $columns;
 	}
@@ -719,7 +719,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			'taxonomies' => $taxonomies,
 		);
 
-		$args = apply_filters( 'tba_register_post_type_args', $args );
+		$args = apply_filters( 'tw_register_post_type_args', $args );
 		register_post_type( self::PT, $args );
 
 		if ( $do_register_taxonomy ) {
@@ -734,14 +734,14 @@ class Testimonials_Widget extends Aihrus_Common {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 		);
-		$args = apply_filters( 'tba_register_category_args', $args );
+		$args = apply_filters( 'tw_register_category_args', $args );
 		register_taxonomy( self::$cpt_category, self::PT, $args );
 
 		$args = array(
 			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
 		);
-		$args = apply_filters( 'tba_register_tags_args', $args );
+		$args = apply_filters( 'tw_register_tags_args', $args );
 		register_taxonomy( self::$cpt_tags, self::PT, $args );
 	}
 
@@ -749,9 +749,9 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static function get_defaults( $single_view = false ) {
 		$options = tw_get_options();
 		if ( empty( $single_view ) ) {
-			$defaults = apply_filters( 'testimonials_widget_defaults', $options );
+			$defaults = apply_filters( 'tw_defaults', $options );
 		} else {
-			$defaults = apply_filters( 'testimonials_widget_defaults_single', $options );
+			$defaults = apply_filters( 'tw_defaults_single', $options );
 		}
 
 		return $defaults;
@@ -784,11 +784,11 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$testimonials = array();
 
-		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$content = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
 			$content      = self::get_testimonials_html( $testimonials, $atts );
-			$content      = apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+			$content      = apply_filters( 'tw_cache_set', $content, $atts );
 		}
 
 		self::call_scripts_styles( $testimonials, $atts, $instance );
@@ -828,11 +828,11 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$testimonials = array();
 
-		$content = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$content = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
 			$content      = self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
-			$content      = apply_filters( 'testimonials_widget_cache_set', $content, $atts );
+			$content      = apply_filters( 'tw_cache_set', $content, $atts );
 		}
 
 		self::call_scripts_styles( $testimonials, $atts, $widget_number );
@@ -860,7 +860,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			wp_enqueue_script( 'jquery.bxslider' );
 		}
 
-		do_action( 'testimonials_widget_scripts', $atts );
+		do_action( 'tw_scripts', $atts );
 	}
 
 
@@ -893,7 +893,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			wp_enqueue_style( __CLASS__ );
 		}
 
-		do_action( 'testimonials_widget_styles' );
+		do_action( 'tw_styles' );
 	}
 
 
@@ -937,7 +937,7 @@ EOF;
 				break;
 		}
 
-		$css = apply_filters( 'testimonials_widget_testimonials_css', $css, $atts, $widget_number );
+		$css = apply_filters( 'tw_testimonials_css', $css, $atts, $widget_number );
 
 		return $css;
 	}
@@ -1070,8 +1070,8 @@ EOF;
 				break;
 		}
 
-		$scripts          = apply_filters( 'testimonials_widget_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
-		$scripts_internal = apply_filters( 'testimonials_widget_testimonials_js_internal', $scripts_internal, $testimonials, $atts, $widget_number );
+		$scripts          = apply_filters( 'tw_testimonials_js', $scripts, $testimonials, $atts, $widget_number );
+		$scripts_internal = apply_filters( 'tw_testimonials_js_internal', $scripts_internal, $testimonials, $atts, $widget_number );
 		$internal_scripts = implode( "\n", $scripts_internal );
 		$scripts          = str_replace( '{INTERNAL_SCRIPTS}', $internal_scripts, $scripts );
 
@@ -1106,7 +1106,7 @@ EOF;
 		$testimonial_content = '';
 		foreach ( $testimonials as $testimonial ) {
 			$content = self::get_testimonial_html( $testimonial, $atts, $is_list, $is_first, $widget_number );
-			$content = apply_filters( 'testimonials_widget_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
+			$content = apply_filters( 'tw_testimonial_html', $content, $testimonial, $atts, $is_list, $is_first, $widget_number );
 
 			$testimonial_content .= $content;
 
@@ -1126,7 +1126,7 @@ EOF;
 			. $post_paging
 			. $div_close;
 
-		$html = apply_filters( 'testimonials_widget_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
+		$html = apply_filters( 'tw_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
 
 		return $html;
 	}
@@ -1183,7 +1183,7 @@ EOF;
 			. $bottom_text
 			. $div_close;
 
-		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
+		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
 
 		// not done sooner as tag_close_quote is used Testimonials Widget Premium
 		if ( $atts['disable_quotes'] ) {
@@ -1449,7 +1449,7 @@ EOF;
 			}
 		}
 
-		$args = apply_filters( 'testimonials_widget_query_args', $args, $atts );
+		$args = apply_filters( 'tw_query_args', $args, $atts );
 
 		return $args;
 	}
@@ -1466,10 +1466,10 @@ EOF;
 		$args          = self::get_query_args( $atts );
 		$args['query'] = true;
 
-		$testimonials = apply_filters( 'testimonials_widget_cache_get', false, $args );
+		$testimonials = apply_filters( 'tw_cache_get', false, $args );
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );
-			$testimonials = apply_filters( 'testimonials_widget_cache_set', $testimonials, $args );
+			$testimonials = apply_filters( 'tw_cache_set', $testimonials, $args );
 		}
 
 		if ( has_filter( 'posts_results', array( __CLASS__, 'posts_results_sort_none' ) ) ) {
@@ -1483,7 +1483,7 @@ EOF;
 
 		wp_reset_postdata();
 
-		$image_size = apply_filters( 'testimonials_widget_image_size', 'thumbnail' );
+		$image_size = apply_filters( 'tw_image_size', 'thumbnail' );
 		if ( ! is_array( $image_size ) ) {
 			global $_wp_additional_image_sizes;
 			if ( ! empty( $_wp_additional_image_sizes[ $image_size ] ) ) {
@@ -1492,9 +1492,9 @@ EOF;
 				$gravatar_size = get_option( $image_size . '_size_w' );
 			}
 
-			$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $gravatar_size );
+			$gravatar_size = apply_filters( 'tw_gravatar_size', $gravatar_size );
 		} else {
-			$gravatar_size = apply_filters( 'testimonials_widget_gravatar_size', $image_size );
+			$gravatar_size = apply_filters( 'tw_gravatar_size', $image_size );
 		}
 
 		$testimonial_data = array();
@@ -1540,7 +1540,7 @@ EOF;
 			$testimonial_data[] = $data;
 		}
 
-		$testimonial_data = apply_filters( 'testimonials_widget_data', $testimonial_data, $atts );
+		$testimonial_data = apply_filters( 'tw_data', $testimonial_data, $atts );
 
 		return $testimonial_data;
 	}
@@ -1621,7 +1621,7 @@ EOF;
 			),
 		);
 
-		$fields = apply_filters( 'testimonials_widget_meta_box', $fields );
+		$fields = apply_filters( 'tw_meta_box', $fields );
 
 		$meta_box = redrokk_metabox_class::getInstance(
 			self::ID,
@@ -1773,7 +1773,7 @@ EOF;
 			$author_meta[ self::$cw_source_org ] = array( self::$org_schema, $org_meta );
 		}
 
-		$author_meta = apply_filters( 'testimonials_widget_schema_author', $author_meta, $testimonial, $atts );
+		$author_meta = apply_filters( 'tw_schema_author', $author_meta, $testimonial, $atts );
 		$author      = self::create_schema_div_prop( self::$cw_author, self::$person_schema, $author_meta );
 		$schema     .= $author;
 		$schema     .= "\n";
@@ -1782,7 +1782,7 @@ EOF;
 		$the_date     = mysql2date( 'Y-m-d', $post->post_date );
 		$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
 
-		$review_name_length = apply_filters( 'testimonials_widget_review_name_length', 156 );
+		$review_name_length = apply_filters( 'tw_review_name_length', 156 );
 
 		if ( $do_content ) {
 			$review_meta[ self::$review_body ] = $testimonial['testimonial_content'];
@@ -1801,7 +1801,7 @@ EOF;
 			$review_meta[ self::$thing_image ] = $src;
 		}
 
-		$review_meta = apply_filters( 'testimonials_widget_schema_review', $review_meta, $testimonial, $atts );
+		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
 		$schema     .= $review;
 		$schema     .= "\n";
@@ -1809,7 +1809,7 @@ EOF;
 		$item_meta[ self::$thing_name ] = $item_reviewed;
 		$item_meta[ self::$thing_url ]  = $item_reviewed_url;
 
-		$item_meta = apply_filters( 'testimonials_widget_schema_item', $item_meta, $testimonial, $atts );
+		$item_meta = apply_filters( 'tw_schema_item', $item_meta, $testimonial, $atts );
 		$item      = self::create_schema_div_prop( self::$review_item, self::$thing_schema, $item_meta );
 		$schema   .= $item;
 		$schema   .= "\n";
@@ -1817,7 +1817,7 @@ EOF;
 		$schema .= '</div>';
 		$schema .= "\n";
 
-		$schema = apply_filters( 'testimonials_widget_schema', $schema, $testimonial, $atts );
+		$schema = apply_filters( 'tw_schema', $schema, $testimonial, $atts );
 
 		return $schema;
 	}
@@ -1875,10 +1875,10 @@ EOF;
 	public static function generate_css( $atts, $widget_number = null ) {
 		$atts['subtype'] = 'css';
 
-		$css = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$css = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $css ) {
 			$css = self::get_testimonials_html_css( $atts, $widget_number );
-			$css = apply_filters( 'testimonials_widget_cache_set', $css, $atts );
+			$css = apply_filters( 'tw_cache_set', $css, $atts );
 		}
 
 		if ( ! empty( $css ) ) {
@@ -1891,10 +1891,10 @@ EOF;
 	public static function generate_js( $testimonials, $atts, $widget_number = null ) {
 		$atts['subtype'] = 'js';
 
-		$js = apply_filters( 'testimonials_widget_cache_get', false, $atts );
+		$js = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $js ) {
 			$js = self::get_testimonials_html_js( $testimonials, $atts, $widget_number );
-			$js = apply_filters( 'testimonials_widget_cache_set', $js, $atts );
+			$js = apply_filters( 'tw_cache_set', $js, $atts );
 		}
 
 		if ( ! empty( $js ) ) {
@@ -1962,7 +1962,7 @@ EOF;
 </ul>
 EOD;
 
-		$shortcodes = apply_filters( 'testimonials_widget_shortcodes', $shortcodes );
+		$shortcodes = apply_filters( 'tw_shortcodes', $shortcodes );
 
 		echo $shortcodes;
 		echo '</div>';
@@ -2059,11 +2059,11 @@ EOD;
 			return $array;
 		}
 
-		$count = apply_filters( 'testimonials_widget_cache_get', false, 'dashboard_count' );
+		$count = apply_filters( 'tw_cache_get', false, 'dashboard_count' );
 		if ( false === $count ) {
 			$posts = wp_count_posts( self::PT );
 			$count = $posts->publish;
-			$count = apply_filters( 'testimonials_widget_cache_set', $count, 'dashboard_count' );
+			$count = apply_filters( 'tw_cache_set', $count, 'dashboard_count' );
 		}
 
 		if ( $count ) {

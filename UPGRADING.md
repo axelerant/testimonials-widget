@@ -54,7 +54,7 @@
 * **60 modifications** See [Changelog](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
 * CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
 * Gravatar image size now based upon Thumbnail size in Media Settings
-* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
+* Scripts `ksort` removed. Use `array_unshift` in your `tw_testimonials_js` filters instead.
 * Testimonials > Settings, General tab, option Enable Review Schema? is enabled by default.
 
 ## 2.13.6
@@ -75,7 +75,7 @@
 
 ## 2.11.3
 
-* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
+* Correct filter name `tw_next_posts_link` to `tw_next_posts_link_text`
 
 ## 2.11.0
 
@@ -89,8 +89,8 @@
 
 * Deprecated
 	* `hide_author` now `hide_source`
-* Removed filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
-	* Use `testimonials_widget_validate_settings` and `testimonials_widget_settings` instead
+* Removed filters `tw_options_update`, `tw_options_form`
+	* Use `tw_validate_settings` and `tw_settings` instead
 * Renamed variable and related class `widget_text` to `bottom_text`
 
 ## 2.7.3

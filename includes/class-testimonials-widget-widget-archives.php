@@ -25,7 +25,7 @@ if ( class_exists( 'Testimonials_Widget_Widget_Archives' ) )
 
 
 class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
-	const ID = 'testimonials_widget_widget_archives';
+	const ID = 'tw_widget_archives';
 
 	public static $title;
 
@@ -60,7 +60,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 				'format' => 'option',
 				'show_post_count' => $c,
 			);
-			wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_dropdown_args', $args ) );
+			wp_get_archives( apply_filters( 'tw_widget_archives_dropdown_args', $args ) );
 				?>
 			</select>
 			<?php
@@ -72,7 +72,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 				'type' => 'monthly',
 				'show_post_count' => $c,
 			);
-			wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_args', $args ) );
+			wp_get_archives( apply_filters( 'tw_widget_archives_args', $args ) );
 			?>
 			</ul>
 			<?php
@@ -123,7 +123,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'testimonials_widget_widget_archives_options', $form_parts );
+		$form_parts = apply_filters( 'tw_widget_archives_options', $form_parts );
 
 		return $form_parts;
 	}

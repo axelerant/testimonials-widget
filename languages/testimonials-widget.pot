@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Testimonials Widget 3.0.0RC1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget\n"
-"POT-Creation-Date: 2014-09-18 18:25:54+00:00\n"
+"POT-Creation-Date: 2014-09-18 19:59:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,32 +22,32 @@ msgid "Settings"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:111
-#: includes/class-testimonials-widget-settings.php:1030
+#: includes/class-testimonials-widget-settings.php:1039
 msgid "General"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:112
-#: includes/class-testimonials-widget-settings.php:1038
+#: includes/class-testimonials-widget-settings.php:1047
 msgid "Selection"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:113
-#: includes/class-testimonials-widget-settings.php:1046
+#: includes/class-testimonials-widget-settings.php:1055
 msgid "Ordering"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:114
-#: includes/class-testimonials-widget-settings.php:1054
+#: includes/class-testimonials-widget-settings.php:1063
 msgid "Widget"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:115
-#: includes/class-testimonials-widget-settings.php:1062
+#: includes/class-testimonials-widget-settings.php:1071
 msgid "Post Type"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:116
-#: includes/class-testimonials-widget-settings.php:1070
+#: includes/class-testimonials-widget-settings.php:1079
 msgid "Columns"
 msgstr ""
 
@@ -98,572 +98,580 @@ msgid "Additional Widget Options"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:180
-msgid "Transition Mode?"
+msgid "Adaptive Slider Height?"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:181
+msgid "Dynamically adjust slider height based on each slide's height."
+msgstr ""
+
+#: includes/class-testimonials-widget-settings.php:189
+msgid "Transition Mode?"
+msgstr ""
+
+#: includes/class-testimonials-widget-settings.php:190
 msgid "Type of transition between slides."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:184
+#: includes/class-testimonials-widget-settings.php:193
 msgid "Fade"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:185
+#: includes/class-testimonials-widget-settings.php:194
 msgid "Horizontal"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:186
+#: includes/class-testimonials-widget-settings.php:195
 msgid "Vertical"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:193
+#: includes/class-testimonials-widget-settings.php:202
 msgid "Show Play/Pause?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:194
+#: includes/class-testimonials-widget-settings.php:203
 msgid "Display start and stop buttons underneath the testimonial slider."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:202
+#: includes/class-testimonials-widget-settings.php:211
 msgid "Keep Whitespace?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:203
+#: includes/class-testimonials-widget-settings.php:212
 msgid "Keeps testimonials looking as entered than sans auto-formatting."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:210
+#: includes/class-testimonials-widget-settings.php:219
 msgid "Testimonial Bottom Text"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:211
+#: includes/class-testimonials-widget-settings.php:220
 msgid "Custom text or HTML for bottom of testimonials."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:223
+#: includes/class-testimonials-widget-settings.php:232
 msgid "General Options"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:228
+#: includes/class-testimonials-widget-settings.php:237
 msgid "Use bxSlider?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:229
+#: includes/class-testimonials-widget-settings.php:238
 msgid "Prior to 2.15.0, Testimonials' used custom JavaScript for transitions."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:244
+#: includes/class-testimonials-widget-settings.php:253
 msgid "Exclude bxSlider CSS?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:245
+#: includes/class-testimonials-widget-settings.php:254
 msgid "For a bare-bones, unthemed slider."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:254
+#: includes/class-testimonials-widget-settings.php:263
 msgid "Exclude default CSS?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:255
+#: includes/class-testimonials-widget-settings.php:264
 msgid "Prevent default CSS from being loaded."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:263
+#: includes/class-testimonials-widget-settings.php:272
 msgid "Include IE7 CSS?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:271
+#: includes/class-testimonials-widget-settings.php:280
 msgid "Hide built-in quotes?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:272
+#: includes/class-testimonials-widget-settings.php:281
 msgid "Remove open and close quote span tags surrounding testimonial content."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:278
+#: includes/class-testimonials-widget-settings.php:287
 msgid "Remove `.hentry` CSS?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:279
+#: includes/class-testimonials-widget-settings.php:288
 msgid "Some themes use class `.hentry` in a manner that breaks Testimonials' CSS."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:286
+#: includes/class-testimonials-widget-settings.php:295
 msgid "Use `&lt;q&gt;` tag?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:287
+#: includes/class-testimonials-widget-settings.php:296
 msgid "Not HTML5 compliant."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:293
+#: includes/class-testimonials-widget-settings.php:302
 msgid "Fields to Show"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:298
+#: includes/class-testimonials-widget-settings.php:307
 msgid "Hide Gravatar Image?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:301
+#: includes/class-testimonials-widget-settings.php:310
 msgid "Don't display Gravatar image with testimonial."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:305
-#: includes/class-testimonials-widget-settings.php:649
+#: includes/class-testimonials-widget-settings.php:314
+#: includes/class-testimonials-widget-settings.php:658
 msgid "Hide Image?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:308
+#: includes/class-testimonials-widget-settings.php:317
 msgid "Don't display featured image with testimonial."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:312
+#: includes/class-testimonials-widget-settings.php:321
 msgid "Hide Image in Single View?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:319
+#: includes/class-testimonials-widget-settings.php:328
 msgid "Hide Testimonial Content?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:322
+#: includes/class-testimonials-widget-settings.php:331
 msgid "Don't display testimonial content in a view."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:326
+#: includes/class-testimonials-widget-settings.php:335
 msgid "Hide Source?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:329
+#: includes/class-testimonials-widget-settings.php:338
 msgid "Don't display testimonial title in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:333
-#: includes/class-testimonials-widget-settings.php:677
+#: includes/class-testimonials-widget-settings.php:342
+#: includes/class-testimonials-widget-settings.php:686
 msgid "Hide Job Title?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:336
+#: includes/class-testimonials-widget-settings.php:345
 msgid "Don't display testimonial job title in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:340
-#: includes/class-testimonials-widget-settings.php:687
+#: includes/class-testimonials-widget-settings.php:349
+#: includes/class-testimonials-widget-settings.php:696
 msgid "Hide Location?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:343
+#: includes/class-testimonials-widget-settings.php:352
 msgid "Don't display testimonial location in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:347
-#: includes/class-testimonials-widget-settings.php:697
+#: includes/class-testimonials-widget-settings.php:356
+#: includes/class-testimonials-widget-settings.php:706
 msgid "Hide Company?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:350
+#: includes/class-testimonials-widget-settings.php:359
 msgid "Don't display testimonial company in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:354
-#: includes/class-testimonials-widget-settings.php:707
+#: includes/class-testimonials-widget-settings.php:363
+#: includes/class-testimonials-widget-settings.php:716
 msgid "Hide Email?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:358
+#: includes/class-testimonials-widget-settings.php:367
 msgid "Don't display or link to testimonial email in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:362
-#: includes/class-testimonials-widget-settings.php:717
+#: includes/class-testimonials-widget-settings.php:371
+#: includes/class-testimonials-widget-settings.php:726
 msgid "Hide URL?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:365
+#: includes/class-testimonials-widget-settings.php:374
 msgid "Don't display or link to testimonial URL in cite."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:369
+#: includes/class-testimonials-widget-settings.php:378
 msgid "Miscellaneous"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:374
+#: includes/class-testimonials-widget-settings.php:383
 msgid "Default Reviewed Item?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:375
+#: includes/class-testimonials-widget-settings.php:384
 msgid "Name of thing being referenced in testimonials."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:381
+#: includes/class-testimonials-widget-settings.php:390
 msgid "Default Reviewed Item URL?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:382
+#: includes/class-testimonials-widget-settings.php:391
 msgid "URL of thing being referenced in testimonials."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:389
+#: includes/class-testimonials-widget-settings.php:398
 msgid "Enable Paging?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:390
+#: includes/class-testimonials-widget-settings.php:399
 msgid "Show paging controls for `[testimonials]` listing."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:393
+#: includes/class-testimonials-widget-settings.php:402
 msgid "Disable"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:394
+#: includes/class-testimonials-widget-settings.php:403
 msgid "Enable"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:395
+#: includes/class-testimonials-widget-settings.php:404
 msgid "Before testimonials"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:396
+#: includes/class-testimonials-widget-settings.php:405
 msgid "After testimonials"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:402
+#: includes/class-testimonials-widget-settings.php:411
 msgid "Adds HTML tag markup per the <a href=\"%s\">Review schema</a> to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:405
+#: includes/class-testimonials-widget-settings.php:414
 msgid "Enable Review Schema?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:413
+#: includes/class-testimonials-widget-settings.php:422
 msgid "Enable Video?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:414
+#: includes/class-testimonials-widget-settings.php:423
 msgid "Only enable when displaying video content."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:420
+#: includes/class-testimonials-widget-settings.php:429
 msgid "Enable [shortcodes]?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:421
+#: includes/class-testimonials-widget-settings.php:430
 msgid "If unchecked, shortcodes are stripped."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:428
+#: includes/class-testimonials-widget-settings.php:437
 msgid "Hide \"Testimonials Not Found\"?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:434
+#: includes/class-testimonials-widget-settings.php:443
 msgid "URL Target"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:435
+#: includes/class-testimonials-widget-settings.php:444
 msgid "Add target to all URLs; leave blank if none."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:446
+#: includes/class-testimonials-widget-settings.php:455
 msgid "Selection Options"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:452
+#: includes/class-testimonials-widget-settings.php:461
 msgid "Category Filter"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:453
+#: includes/class-testimonials-widget-settings.php:462
 msgid "Comma separated category names or IDs. Ex: Category A, Another category, 123"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:460
+#: includes/class-testimonials-widget-settings.php:469
 msgid "Tags Filter"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:461
+#: includes/class-testimonials-widget-settings.php:470
 msgid "Comma separated tag names or IDs. Ex: Tag A, Another tag, 123"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:468
+#: includes/class-testimonials-widget-settings.php:477
 msgid "Require All Tags?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:469
+#: includes/class-testimonials-widget-settings.php:478
 msgid "Select only testimonials with all of the given tags."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:476
+#: includes/class-testimonials-widget-settings.php:485
 msgid "Include IDs Filter"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:477
-#: includes/class-testimonials-widget-settings.php:484
+#: includes/class-testimonials-widget-settings.php:486
+#: includes/class-testimonials-widget-settings.php:493
 msgid "Comma separated testimonial IDs. Ex: 3,1,2"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:483
+#: includes/class-testimonials-widget-settings.php:492
 msgid "Exclude IDs Filter"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:490
+#: includes/class-testimonials-widget-settings.php:499
 msgid "Limit"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:491
+#: includes/class-testimonials-widget-settings.php:500
 msgid "Number of testimonials to select per instance."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:504
+#: includes/class-testimonials-widget-settings.php:513
 msgid "Ordering Options"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:510
+#: includes/class-testimonials-widget-settings.php:519
 msgid "Random Order?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:511
+#: includes/class-testimonials-widget-settings.php:520
 msgid "If checked, ignores ORDER BY, ORDER BY meta_key, and ORDER BY Order. Widgets are random by default automatically."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:518
+#: includes/class-testimonials-widget-settings.php:527
 msgid "ORDER BY"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:519
+#: includes/class-testimonials-widget-settings.php:528
 msgid "Used when \"Random Order\" is disabled."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:522
+#: includes/class-testimonials-widget-settings.php:531
 msgid "Testimonial ID"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:523
-#: includes/class-testimonials-widget.php:1585
+#: includes/class-testimonials-widget-settings.php:532
+#: includes/class-testimonials-widget.php:1587
 msgid "Author"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:524
+#: includes/class-testimonials-widget-settings.php:533
 #: includes/class-testimonials-widget.php:591
 msgid "Date"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:525
+#: includes/class-testimonials-widget-settings.php:534
 msgid "Menu Order"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:526
+#: includes/class-testimonials-widget-settings.php:535
 #: includes/class-testimonials-widget.php:589
 msgid "Source"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:527
+#: includes/class-testimonials-widget-settings.php:536
 msgid "No order"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:535
+#: includes/class-testimonials-widget-settings.php:544
 msgid "ORDER BY meta_key"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:536
+#: includes/class-testimonials-widget-settings.php:545
 msgid "Used when \"Random Order\" is disabled and sorting by a testimonials meta key is needed. Overrides ORDER BY."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:539
+#: includes/class-testimonials-widget-settings.php:548
 msgid "None"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:540
+#: includes/class-testimonials-widget-settings.php:549
 #: includes/class-testimonials-widget.php:625
-#: includes/class-testimonials-widget.php:1591
+#: includes/class-testimonials-widget.php:1593
 msgid "Job Title"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:541
+#: includes/class-testimonials-widget-settings.php:550
 #: includes/class-testimonials-widget.php:640
-#: includes/class-testimonials-widget.php:1609
+#: includes/class-testimonials-widget.php:1611
 msgid "Email"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:542
+#: includes/class-testimonials-widget-settings.php:551
 #: includes/class-testimonials-widget.php:630
-#: includes/class-testimonials-widget.php:1597
+#: includes/class-testimonials-widget.php:1599
 msgid "Location"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:543
+#: includes/class-testimonials-widget-settings.php:552
 #: includes/class-testimonials-widget.php:635
-#: includes/class-testimonials-widget.php:1603
+#: includes/class-testimonials-widget.php:1605
 msgid "Company"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:544
+#: includes/class-testimonials-widget-settings.php:553
 #: includes/class-testimonials-widget.php:645
-#: includes/class-testimonials-widget.php:1615
+#: includes/class-testimonials-widget.php:1617
 msgid "URL"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:551
+#: includes/class-testimonials-widget-settings.php:560
 msgid "ORDER BY Order"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:554
+#: includes/class-testimonials-widget-settings.php:563
 msgid "Descending"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:555
+#: includes/class-testimonials-widget-settings.php:564
 msgid "Ascending"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:569
+#: includes/class-testimonials-widget-settings.php:578
 msgid "Don't Use Default Taxonomies?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:572
+#: includes/class-testimonials-widget-settings.php:581
 msgid "If checked, use Testimonials' own category and tag taxonomies than WordPress' defaults."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:579
+#: includes/class-testimonials-widget-settings.php:588
 msgid "Allow Comments?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:580
+#: includes/class-testimonials-widget-settings.php:589
 msgid "Only affects the Testimonials post edit page. Your theme controls the front-end view."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:587
+#: includes/class-testimonials-widget-settings.php:596
 msgid "URL slug-name for <a href=\"%1s\">testimonials archive</a> page."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:593
+#: includes/class-testimonials-widget-settings.php:602
 msgid "Archive Page URL"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:606
+#: includes/class-testimonials-widget-settings.php:615
 msgid "Include testimonials in archive and category views."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:610
+#: includes/class-testimonials-widget-settings.php:619
 msgid "Enable archives view?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:616
+#: includes/class-testimonials-widget-settings.php:625
 msgid "URL slug-name for testimonial view pages. Shouldn't be the same as the Archive Page URL nor should it match a page URL slug."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:620
+#: includes/class-testimonials-widget-settings.php:629
 msgid "Testimonial Page URL"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:631
+#: includes/class-testimonials-widget-settings.php:640
 msgid "Columns to display on the Testimonial's edit page"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:639
+#: includes/class-testimonials-widget-settings.php:648
 msgid "Hide ID?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:658
+#: includes/class-testimonials-widget-settings.php:667
 msgid "Hide Shortcode?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:667
+#: includes/class-testimonials-widget-settings.php:676
 msgid "Hide Author?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:728
+#: includes/class-testimonials-widget-settings.php:737
 #: includes/libraries/aihrus-framework/includes/class-aihrus-settings.php:66
 msgid "Reset"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:737
+#: includes/class-testimonials-widget-settings.php:746
 msgid "Version Based Options"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:743
+#: includes/class-testimonials-widget-settings.php:752
 msgid "Disable Animation?"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:744
+#: includes/class-testimonials-widget-settings.php:753
 msgid "Prior to 2.15.0, Disable animation between testimonial transitions. Useful when stacking widgets."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:752
+#: includes/class-testimonials-widget-settings.php:761
 msgid "Fade Out Speed"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:753
-#: includes/class-testimonials-widget-settings.php:761
+#: includes/class-testimonials-widget-settings.php:762
+#: includes/class-testimonials-widget-settings.php:770
 msgid "Prior to 2.15.0, Transition duration in milliseconds; higher values indicate slower animations, not faster ones."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:760
+#: includes/class-testimonials-widget-settings.php:769
 msgid "Fade In Speed"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:768
+#: includes/class-testimonials-widget-settings.php:777
 msgid "Height"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:769
+#: includes/class-testimonials-widget-settings.php:778
 msgid "Prior to 2.15.0, Testimonials height, in pixels. Overrides minimum and maximum height."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:775
+#: includes/class-testimonials-widget-settings.php:784
 msgid "Minimum Height"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:776
+#: includes/class-testimonials-widget-settings.php:785
 msgid "Prior to 2.15.0, Set for minimum display height, in pixels."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:782
+#: includes/class-testimonials-widget-settings.php:791
 msgid "Maximum Height"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:783
+#: includes/class-testimonials-widget-settings.php:792
 msgid "Prior to 2.15.0, Set for maximum display height, in pixels."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1016
+#: includes/class-testimonials-widget-settings.php:1025
 msgid "These Testimonials Settings establish the default option values for shortcodes, theme functions, and widget instances. Widgets, once created no longer inherit these global settings. Therefore, you'll need to update each widget with the new settings. It might be easier to delete the widget and then recreate it."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1018
+#: includes/class-testimonials-widget-settings.php:1027
 msgid "Shortcode option names are listed below each entry."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1021
+#: includes/class-testimonials-widget-settings.php:1030
 msgid "View the <a href=\"%s\">Testimonials documentation</a>."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1031
+#: includes/class-testimonials-widget-settings.php:1040
 msgid "Show or hide optional fields."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1039
+#: includes/class-testimonials-widget-settings.php:1048
 msgid "Options used to select testimonials."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1047
+#: includes/class-testimonials-widget-settings.php:1056
 msgid "Options used to determine displayed testimonials ordering."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1055
+#: includes/class-testimonials-widget-settings.php:1064
 msgid "Options related to showing testimonials in widgets."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1063
+#: includes/class-testimonials-widget-settings.php:1072
 msgid "Archive and singular page URL related testimonials options."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1071
+#: includes/class-testimonials-widget-settings.php:1080
 msgid "Allowed columns to display on edit page."
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1078
+#: includes/class-testimonials-widget-settings.php:1087
 msgid "Compatibility & Reset"
 msgstr ""
 
-#: includes/class-testimonials-widget-settings.php:1079
+#: includes/class-testimonials-widget-settings.php:1088
 msgid "Backwards compatibility, import/export options, and reset options."
 msgstr ""
 
@@ -760,7 +768,7 @@ msgid "This widget's unique CSS class for styling"
 msgstr ""
 
 #: includes/class-testimonials-widget.php:152
-#: includes/class-testimonials-widget.php:1937
+#: includes/class-testimonials-widget.php:1939
 msgid "Testimonials Shortcode Examples"
 msgstr ""
 
@@ -806,7 +814,7 @@ msgid "Edit Testimonial"
 msgstr ""
 
 #: includes/class-testimonials-widget.php:661
-#: includes/class-testimonials-widget.php:1095
+#: includes/class-testimonials-widget.php:1097
 msgid "No testimonials found"
 msgstr ""
 
@@ -819,8 +827,8 @@ msgid "Search Testimonials"
 msgstr ""
 
 #: includes/class-testimonials-widget.php:665
-#: includes/class-testimonials-widget.php:1676
-#: includes/class-testimonials-widget.php:2069
+#: includes/class-testimonials-widget.php:1678
+#: includes/class-testimonials-widget.php:2071
 msgid "Testimonial"
 msgstr ""
 
@@ -828,69 +836,69 @@ msgstr ""
 msgid "View Testimonial"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1588
+#: includes/class-testimonials-widget.php:1590
 msgid "Use when the testimonial title is not the author's name."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1612
+#: includes/class-testimonials-widget.php:1614
 msgid "If an email is provided, but not an image, a Gravatar icon will be attempted to be loaded."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1627
+#: includes/class-testimonials-widget.php:1629
 msgid "Testimonial Data"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1651
+#: includes/class-testimonials-widget.php:1653
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1652
+#: includes/class-testimonials-widget.php:1654
 msgid "Custom field updated."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1653
+#: includes/class-testimonials-widget.php:1655
 msgid "Custom field deleted."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1654
+#: includes/class-testimonials-widget.php:1656
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
 
-#: includes/class-testimonials-widget.php:1656
+#: includes/class-testimonials-widget.php:1658
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1657
+#: includes/class-testimonials-widget.php:1659
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1658
+#: includes/class-testimonials-widget.php:1660
 msgid "Testimonial saved."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1659
+#: includes/class-testimonials-widget.php:1661
 msgid "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1660
+#: includes/class-testimonials-widget.php:1662
 msgid "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1661
+#: includes/class-testimonials-widget.php:1663
 msgid "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1928
+#: includes/class-testimonials-widget.php:1930
 msgid "If your Testimonials display has gone to funky town, please <a href=\"%s\">read the FAQ</a> about possible fixes."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1983
+#: includes/class-testimonials-widget.php:1985
 msgid "Failed version check"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:2014
+#: includes/class-testimonials-widget.php:2016
 msgid "Shortcode"
 msgstr ""
 

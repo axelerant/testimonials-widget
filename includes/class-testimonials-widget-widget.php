@@ -98,7 +98,7 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 			);
 		}
 
-		$form_parts = apply_filters( 'testimonials_widget_widget_options', $form_parts );
+		$form_parts = apply_filters( 'tw_widget_options', $form_parts );
 
 		return $form_parts;
 	}

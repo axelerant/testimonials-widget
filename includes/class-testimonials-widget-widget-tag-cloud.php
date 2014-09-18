@@ -25,7 +25,7 @@ if ( class_exists( 'Testimonials_Widget_Widget_Tag_Cloud' ) )
 
 
 class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
-	const ID = 'testimonials_widget_widget_tag_cloud';
+	const ID = 'tw_widget_tag_cloud';
 
 	public static $title;
 
@@ -49,7 +49,7 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 		$args = array(
 			'taxonomy' => $instance['taxonomy'],
 		);
-		wp_tag_cloud( apply_filters( 'testimonials_widget_widget_tag_cloud_args', $args ) );
+		wp_tag_cloud( apply_filters( 'tw_widget_tag_cloud_args', $args ) );
 
 		echo "</div>\n";
 	}
@@ -91,7 +91,7 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'testimonials_widget_widget_tag_cloud_options', $form_parts );
+		$form_parts = apply_filters( 'tw_widget_tag_cloud_options', $form_parts );
 
 		return $form_parts;
 	}
