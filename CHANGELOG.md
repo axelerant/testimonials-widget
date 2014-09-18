@@ -41,6 +41,7 @@
 * Restore Testimonials Widget Premium branding
 * Revise descriptions
 * Simplify Review schema handling
+* Update keywords
 * Update licensing entries
 * Update OPTIONS
 * Update widget title handling

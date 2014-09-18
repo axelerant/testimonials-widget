@@ -2,9 +2,9 @@
 
 Contributors: comprock
 Donate link: http://aihr.us/about-aihrus/donate/
-Tags: client, customer, portfolio, quotations, quote, quotes, random, recommendation, reference, review, reviews, testimonial, testimonials, testimony, wpml
+Tags: aihrus, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.6
-Tested up to: 4.0.0
+Tested up to: 4.1.0
 Stable tag: 3.0.0RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -63,6 +63,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
+* Widgets for categories listing, recent testimonials, slider, and tag cloud
 
 = Shortcodes =
 
@@ -198,11 +199,11 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
+* Testimonials "slider" widget displays static and rotating testimonials 
 * Testimonials category widget
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * Testimonials tag cloud widget
-* Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
@@ -336,7 +337,7 @@ Read [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/mast
 
 = 3.0.0 =
 
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
+* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
 
 = Older Versions =
 
