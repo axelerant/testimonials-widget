@@ -28,6 +28,7 @@
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #124 Optionally include testimonials in category archives
+* RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library
 * RESOLVE #130 Recent Testimonials widget
 * RESOLVE #18 Testimonials category/tag list/cloud widget

@@ -132,6 +132,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'section' => 'widget',
 			'desc' => esc_html__( 'This section only applies to the testimonials slider widget.', 'testimonials-widget' ),
 			'type' => 'heading',
+			'widget' => 0,
 		);
 
 		self::$settings['title'] = array(
@@ -449,7 +450,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['category'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Category Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated category names. Ex: Category A, Another category', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated category names or IDs. Ex: Category A, Another category, 123', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -457,7 +458,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['tags'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated tag names. Ex: Tag A, Another tag', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated tag names or IDs. Ex: Tag A, Another tag, 123', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -568,7 +569,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead.', 'testimonials-widget' ),
+			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies than WordPress\' defaults.', 'testimonials-widget' ),
 			'widget' => 0,
 			'show_code' => false,
 		);

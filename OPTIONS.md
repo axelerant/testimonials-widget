@@ -63,9 +63,9 @@
 
 ## Selection
 
-* Category Filter - Comma separated category names.
+* Category Filter - Comma separated category names or IDs.
 	* `category` - default none; category=product or category="category-a, another-category"
-* Tags Filter - Comma separated tag names.
+* Tags Filter - Comma separated tag names or IDs.
 	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
 * Require All Tags - Select only testimonials with all of the given tags.
 	* `tags_all` - default OR; tags_all=true
@@ -113,7 +113,7 @@
 
 ## Post Type
 
-* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead.
+* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies than WordPress' defaults.
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Enable archives view? - Include testimonials in archive and category views.

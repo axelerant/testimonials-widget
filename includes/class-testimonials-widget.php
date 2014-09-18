@@ -1357,22 +1357,68 @@ EOF;
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
 			if ( $category ) {
-				$args['category_name'] = $category;
+				if ( ! preg_match( '#^\d+$#', $category ) ) {
+					$args['category_name'] = $category;
+				} else {
+					$args['cat'] = $category;
+				}
 			}
 
 			if ( $tags ) {
 				$tags = explode( ',', $tags );
+				foreach ( $tags as $tag ) {
+					if ( ! preg_match( '#^\d+$#', $tag ) ) {
+						if ( $tags_all ) {
+							if ( ! is_array( $args['tag_slug__and'] ) ) {
+								$args['tag_slug__and'] = array();
+							}
 
-				if ( $tags_all ) {
-					$args['tag_slug__and'] = $tags;
-				}
-				else {
-					$args['tag_slug__in'] = $tags;
+							$args['tag_slug__and'][] = $tag;
+						}
+						else {
+							if ( ! is_array( $args['tag_slug__in'] ) ) {
+								$args['tag_slug__in'] = array();
+							}
+
+							$args['tag_slug__in'][] = $tag;
+						}
+					} else {
+						if ( $tags_all ) {
+							if ( ! is_array( $args['tag__and'] ) ) {
+								$args['tag__and'] = array();
+							}
+
+							$args['tag__and'][] = $tag;
+						}
+						else {
+							if ( ! is_array( $args['tag__in'] ) ) {
+								$args['tag__in'] = array();
+							}
+
+							$args['tag__in'][] = $tag;
+						}
+					}
 				}
 			}
 		} else {
+			if ( ! is_array( $args[ 'tax_query' ] ) ) {
+				$args[ 'tax_query' ] = array();
+			}
+
 			if ( $category ) {
-				$args[ self::$cpt_category ] = $category;
+				if ( ! preg_match( '#^\d+$#', $category ) ) {
+					$args[ 'tax_query' ][] = array(
+						'taxonomy' => self::$cpt_category,
+						'terms' => array( $category ),
+						'field' => 'slug',
+					);
+				} else {
+					$args[ 'tax_query' ][] = array(
+						'taxonomy' => self::$cpt_category,
+						'terms' => array( $category ),
+						'field' => 'id',
+					);
+				}
 			}
 
 			if ( $tags ) {
@@ -1380,17 +1426,23 @@ EOF;
 					$args[ 'tax_query' ] = array(
 						'relation' => 'AND',
 					);
+				}
 
-					$tags = explode( ',', $tags );
-					foreach ( $tags as $term ) {
+				$tags = explode( ',', $tags );
+				foreach ( $tags as $term ) {
+					if ( ! preg_match( '#^\d+$#', $term ) ) {
 						$args[ 'tax_query' ][] = array(
 							'taxonomy' => self::$cpt_tags,
 							'terms' => array( $term ),
 							'field' => 'slug',
 						);
+					} else {
+						$args[ 'tax_query' ][] = array(
+							'taxonomy' => self::$cpt_tags,
+							'terms' => array( $term ),
+							'field' => 'id',
+						);
 					}
-				} else {
-					$args[ self::$cpt_tags ] = $tags;
 				}
 			}
 		}
