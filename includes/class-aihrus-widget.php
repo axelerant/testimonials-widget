@@ -177,7 +177,7 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 				echo '<span class="af-collapsible-control">';
 				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand' ) . '</a>';
-				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo;' . esc_html__( 'Collapse' ) . '</a>';
+				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse' ) . '</a>';
 				echo '</span>';
 				echo '<div id="' . $this->get_field_id( $id ) . '" style="display:none" class="af-collapsible">';
 

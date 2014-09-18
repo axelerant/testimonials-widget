@@ -14,6 +14,7 @@
 * RESOLVE Move form_instance to abstract class Aihrus_Widget
 * RESOLVE Move get_suggest to abstract class Aihrus_Widget
 * RESOLVE Remove tw- reference
+* RESOLVE Space missing before Collapse
 * RESOLVE Use widget args than globals
 * Revise widget class for easier reuse
 * Update licensing GPL 2.0
