@@ -9,8 +9,11 @@
 * Add filter `testimonials_widget_widget_categories_args`
 * Add filter `testimonials_widget_widget_categories_dropdown_args`
 * Add filter `testimonials_widget_widget_categories_options`
+* Add filter `testimonials_widget_widget_recent_testimonials_args`
+* Add filter `testimonials_widget_widget_recent_testimonials_options`
 * Add filter `testimonials_widget_widget_tag_cloud_args`
 * Add filter `testimonials_widget_widget_tag_cloud_options`
+* Added recent testimonials widget
 * Added testimonials category widget
 * Added testimonials tag cloud widget
 * API link updates
@@ -20,7 +23,9 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #18 Testimonials category/tag list/cloud widget - Begin archive widget
+* RELATES #129 Testimonials Archive widget
+* RELATES #130 Recent Testimonials widget
+* RELATES #18 Testimonials category/tag list/cloud widget
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false

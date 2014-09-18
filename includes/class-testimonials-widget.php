@@ -25,6 +25,7 @@ require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget-archives.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget-categories.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget-recent-testimonials.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget-tag-cloud.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
@@ -1514,8 +1515,9 @@ EOF;
 
 	public static function widgets_init() {
 		register_widget( 'Testimonials_Widget_Widget' );
-		register_widget( 'Testimonials_Widget_Widget_Archives' );
+		// register_widget( 'Testimonials_Widget_Widget_Archives' );
 		register_widget( 'Testimonials_Widget_Widget_Categories' );
+		register_widget( 'Testimonials_Widget_Widget_Recent_Testimonials' );
 		register_widget( 'Testimonials_Widget_Widget_Tag_Cloud' );
 	}
 

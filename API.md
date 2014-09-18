@@ -122,15 +122,19 @@ The [Aihrus Testimonials plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `testimonials_widget_widget_categories_dropdown_args`
 
-	Used for modifying [wp_dropdown_categories](codex.wordpress.org/Function_Reference/wp_dropdown_categories) as part of the testimonials' categories widget.
+	Used for modifying [wp_dropdown_categories](http://codex.wordpress.org/Function_Reference/wp_dropdown_categories) as part of the testimonials' categories widget.
 
 * `testimonials_widget_widget_categories_args`
 
-	Used for modifying [wp_list_categories](codex.wordpress.org/Function_Reference/wp_list_categories) as part of the testimonials' categories widget.
+	Used for modifying [wp_list_categories](http://codex.wordpress.org/Function_Reference/wp_list_categories) as part of the testimonials' categories widget.
 
 * `testimonials_widget_widget_tag_cloud_args`
 
-	Used for modifying [wp_tag_cloud](codex.wordpress.org/Function_Reference/wp_tag_cloud) as part of the testimonials' tag cloud widget.
+	Used for modifying [wp_tag_cloud](http://codex.wordpress.org/Function_Reference/wp_tag_cloud) as part of the testimonials' tag cloud widget.
+
+* `testimonials_widget_widget_recent_testimonials_args`
+
+	Used for modifying [WP_Query](http://codex.wordpress.org/Function_Reference/WP_Query) as part of the recent testimonials widget.
 
 ### Backend
 
@@ -201,6 +205,10 @@ The [Aihrus Testimonials plugin](http://wordpress.org/plugins/testimonials-widge
 * `testimonials_widget_widget_tag_cloud_options`
 
 	Used for modifying widget options as part of the testimonials' tag cloud widget. [similar example](https://gist.github.com/michael-cannon/5833782)
+
+* `testimonials_widget_widget_recent_testimonials_options`
+
+	Used for modifying widget options as part of the recent testimonials widget. [similar example](https://gist.github.com/michael-cannon/5833782)
 
 * `testimonials_widget_display_setting`
 

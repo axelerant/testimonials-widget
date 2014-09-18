@@ -189,6 +189,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Localizable via `languages/testimonials-widget.pot`
 * Optional commenting on testimonial single-view pages
 * Performance optimizations
+* Recent testimonials widget
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
 * Settings page contextual help

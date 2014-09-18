@@ -48,6 +48,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
 		
 		add_filter( 'getarchives_where', array( __CLASS__, 'getarchives_where' ), 10, 2 );
+		add_filter( 'get_archives_link', array( __CLASS__, 'get_archives_link' ), 10, 1 );
 
 		if ( $d ) {
 			?>
@@ -75,7 +76,18 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 			<?php
 		}
 		
+		remove_filter( 'get_archives_link', array( __CLASS__, 'get_archives_link' ), 10, 1 );
 		remove_filter( 'getarchives_where', array( __CLASS__, 'getarchives_where' ), 10, 2 );
+	}
+
+
+	public static function get_archives_link( $link_html ) {
+		$home_url     = home_url();
+		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
+		// $rewrite_slug = Testimonials_Widget::PT;
+		$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
+
+		return $link_html;
 	}
 
 
