@@ -94,7 +94,7 @@ if ( $do_location ) {
 	$cite .= '</span>';
 }
 
-$cite = apply_filters( 'testimonials_widget_cite_html', $cite, $testimonial, $atts );
+$cite = apply_filters( 'tw_cite_html', $cite, $testimonial, $atts );
 
 if ( empty( $cite ) ) {
 	return;

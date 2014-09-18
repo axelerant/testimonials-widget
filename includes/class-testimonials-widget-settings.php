@@ -76,7 +76,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		$version       = tw_get_option( 'version' );
 		self::$version = Testimonials_Widget::VERSION;
-		self::$version = apply_filters( 'testimonials_widget_version', self::$version );
+		self::$version = apply_filters( 'tw_version', self::$version );
 
 		if ( $version != self::$version ) {
 			self::initialize_settings();
@@ -117,7 +117,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		parent::sections();
 
-		self::$sections = apply_filters( 'testimonials_widget_sections', self::$sections );
+		self::$sections = apply_filters( 'tw_sections', self::$sections );
 	}
 
 
@@ -783,7 +783,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_end',
 		);
 
-		self::$settings = apply_filters( 'testimonials_widget_settings', self::$settings );
+		self::$settings = apply_filters( 'tw_settings', self::$settings );
 
 		foreach ( self::$settings as $id => $parts )
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
@@ -794,7 +794,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		$old_version = tw_get_option( 'version' );
 
 		$defaults = parent::get_defaults( $mode, $old_version );
-		$defaults = apply_filters( 'testimonials_widget_settings_defaults', $defaults );
+		$defaults = apply_filters( 'tw_settings_defaults', $defaults );
 
 		return $defaults;
 	}
@@ -851,7 +851,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				break;
 
 			default:
-				$content = apply_filters( 'testimonials_widget_display_setting', $content, $args, $input );
+				$content = apply_filters( 'tw_display_setting', $content, $args, $input );
 				break;
 		}
 
@@ -921,7 +921,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		$input['version']        = self::$version;
 		$input['donate_version'] = Testimonials_Widget::VERSION;
 
-		$input = apply_filters( 'testimonials_widget_validate_settings', $input, $errors );
+		$input = apply_filters( 'tw_validate_settings', $input, $errors );
 		if ( empty( $do_errors ) )
 			$validated = $input;
 		else {
@@ -1067,7 +1067,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			)
 		);
 
-		do_action( 'testimonials_widget_settings_add_help_tabs', $screen );
+		do_action( 'tw_settings_add_help_tabs', $screen );
 	}
 
 

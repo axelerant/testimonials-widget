@@ -39,7 +39,7 @@ if ( $atts['remove_hentry'] ) {
 	$class = str_replace( ' hentry', '', $class );
 }
 
-$class = apply_filters( 'testimonials_widget_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
+$class = apply_filters( 'tw_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 ?>
 
 <div class="<?php echo $class; ?>">

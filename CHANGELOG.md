@@ -4,8 +4,8 @@
 
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
-* Add filter `testimonials_widget_get_template_part`
-* Add filter `testimonials_widget_template_paths`
+* Add filter `tw_get_template_part`
+* Add filter `tw_template_paths`
 * API link updates
 * Author field to override title when it's not the testimonial source
 * Don't shortcode attribute for global level options
@@ -31,15 +31,15 @@
 * Use [bxSlider](https://github.com/stevenwanderski/bxslider-4) as a library
 
 ## 2.19.9
-* Add example for `tba_register_post_type_args`
+* Add example for `tw_register_post_type_args`
 * Add FAQ Gravity Forms
-* Add filter `tba_register_category_args`
-* Add filter `tba_register_post_type_args`
-* Add filter `tba_register_tags_args`
+* Add filter `tw_register_category_args`
+* Add filter `tw_register_post_type_args`
+* Add filter `tw_register_tags_args`
 * Add `margin-bottom: 2em;` to `.testimonials-widget-testimonial.list`
 
 ## 2.19.8
-* Add Configuration examples for filter testimonials_widget_meta_box
+* Add Configuration examples for filter tw_meta_box
 * Add option Exclude default CSS?
 * Disable WordPress.WhiteSpace.ControlStructureSpacing coding standard
 * RESOLVE #95 Incoming YouTube links not embedded
@@ -243,7 +243,7 @@
 
 ## 2.15.0
 * Add 2.15.0 upgrade notice
-* Add filter `testimonials_widget_get_testimonials_html`
+* Add filter `tw_get_testimonials_html`
 * Add option Always Load CSS?
 * Add option Enable Video?
 * Add option Start/Stop
@@ -272,15 +272,15 @@
 
 ## 2.14.0
 * Abstact schema generation
-* Add API action testimonials_widget_styles
-* Add API action testimonials_widget_update
-* Add API filter testimonials_widget_display_setting
-* Add API filter testimonials_widget_review_name_length
-* Add API filter testimonials_widget_schema
-* Add API filter testimonials_widget_schema_agg_rating
-* Add API filter testimonials_widget_schema_author
-* Add API filter testimonials_widget_schema_item
-* Add API filter testimonials_widget_schema_review
+* Add API action tw_styles
+* Add API action tw_update
+* Add API filter tw_display_setting
+* Add API filter tw_review_name_length
+* Add API filter tw_schema
+* Add API filter tw_schema_agg_rating
+* Add API filter tw_schema_author
+* Add API filter tw_schema_item
+* Add API filter tw_schema_review
 * Add Review schema date modified
 * Add aggregate review data
 * Add item reviewed name and url to Review schema 
@@ -319,7 +319,7 @@
 * Refactored scripts and styles handling
 * Remove `refresh_interval=0`'s automatic setting of `limit=1` - Thank you Phillip Gapp
 * Remove default overrides for custom post type
-* Scripts `ksort` removed. Use `array_unshift` in your `testimonials_widget_testimonials_js` filters instead.
+* Scripts `ksort` removed. Use `array_unshift` in your `tw_testimonials_js` filters instead.
 * Travis ignore WordPress.WhiteSpace.ControlStructureSpacing - false positives
 * Update FAQ
 * Update TODO
@@ -334,7 +334,7 @@
 
 ## 2.13.6
 * Add IDs column to edit testimonials listing page
-* Add filter `testimonials_widget_settings_add_help_tabs`
+* Add filter `tw_settings_add_help_tabs`
 * Add option Fade In Speed
 * Add option Fade Out Speed
 * Add settings page help tab
@@ -353,15 +353,15 @@
 * BUGFIX Caching defaults not correct
 
 ## 2.13.4
-* Add $atts parameter to filter `testimonials_widget_data`
-* Add action `testimonials_widget_scripts`
-* Add filter `testimonials_widget_get_testimonial_html_class`
-* Add filter `testimonials_widget_testimonials_js_internal`
+* Add $atts parameter to filter `tw_data`
+* Add action `tw_scripts`
+* Add filter `tw_get_testimonial_html_class`
+* Add filter `tw_testimonials_js_internal`
 * BUGFIX instance numbers breaking caching
 * BUGFIX settings page missing page title
 * Change &$this variable calls to $this
 * Enabling sorting of scripts for precedence
-* Remove unused first parameter from `testimonials_widget_cache_get` filter call
+* Remove unused first parameter from `tw_cache_get` filter call
 * Tie-in premium disable_donate option
 
 ## 2.13.3
@@ -414,7 +414,7 @@
 * Update POT
 
 ## 2.12.8
-* Add filter `testimonials_widget_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
+* Add filter `tw_cite_html` to adjust cite contents - Thank you [Dimitrios](http://visualweb.gr/) for the suggestion
 * BUGFIX Warning: Illegal string offset 'exclude'
 * Replace __ with esc_html__
 * Update Premium features
@@ -474,7 +474,7 @@
 
 ## 2.12.0
 * Add file headers to lib/class*
-* Add filter testimonials_widget_widget_options to alter displayed widget options
+* Add filter tw_widget_options to alter displayed widget options
 * BUGFIX Correct settings required validation `break 2`
 * BUGFIX Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically
 * CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
@@ -510,7 +510,7 @@
 * Bold option headers
 * Change `has_archive` default from `testimonials` to `testimonials-archive`
 * Clean up static method calls to prevent PHP Strict notices
-* Correct filter name `testimonials_widget_next_posts_link` to `testimonials_widget_next_posts_link_text`
+* Correct filter name `tw_next_posts_link` to `tw_next_posts_link_text`
 * Correct static methods calling
 * Secure activation, deactivation, uninstall operations
 * Update POT
@@ -529,7 +529,7 @@
 * Use `links_add_target` for widget title link
 
 ## 2.11.1
-* BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-testimonials_widget_settings)
+* BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-tw_settings)
 
 ## 2.11.0
 * Add Option "Hide Image in Single View?" `hide_image_single`
@@ -646,7 +646,7 @@
 * FAQ 68 feature XYZ
 
 ## 2.8.2
-* Add filter `testimonials_widget_version`
+* Add filter `tw_version`
 * Screenshot 11/16 updated
 * Update POT
 * Update Premium features
@@ -662,8 +662,8 @@
 ## 2.8.0
 * Merge in settings branch
 * Add `tw_get_options`
-* Add filter `testimonials_widget_sections` – Alter section options
-* Add filter `testimonials_widget_settings` – Alter setting options
+* Add filter `tw_sections` – Alter section options
+* Add filter `tw_settings` – Alter setting options
 * Add settings page 'Selection', 'Ordering', and 'Widget' tabs
 * BUG with "Post Types Order"
 * BUGFIX paging when not in singular view
@@ -672,7 +672,7 @@
 * FAQ 65 Disable the stylesheet
 * FEATURE Remove `.hentry` CSS?
 * FEATURE Testimonials Widget Settings screen
-* Removed filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
+* Removed filters `tw_options_update`, `tw_options_form`
 * Rename `widget_text` to `bottom_text`
 * Revise About page content
 * Revise Settings page footer
@@ -867,7 +867,7 @@
 * Correct screenshot 11 & 18
 
 ## 2.6.4
-* Add filters `testimonials_widget_posts_custom_column`, `testimonials_widget_columns`, `testimonials_widget_meta_box`
+* Add filters `tw_posts_custom_column`, `tw_columns`, `tw_meta_box`
 * BUGFIX Testimonial posts page column URL now correctly clickable
 * Code spacing cleanup
 * Enabled [scrolling text](http://wordpress.org/support/topic/plugin-testimonials-widget-scroll-for-a-single-but-long-testimonial) for maximum height restricted testimonial widgets
@@ -877,8 +877,8 @@
 * Update premium features
 
 ## 2.6.3
-* Add filter `testimonials_widget_query_args`
-* Add filters `testimonials_widget_testimonials_css`, `testimonials_widget_testimonials_js`
+* Add filter `tw_query_args`
+* Add filters `tw_testimonials_css`, `tw_testimonials_js`
 * Allow `limit=-1`
 * BUGFIX Repeated footer CSS and JavaScript
 * CSS - block disply widget image
@@ -896,13 +896,13 @@
 * Fix single view PHP warning
 
 ## 2.6.1
-* Add filter `testimonials_widget_testimonial_html_single_content`
+* Add filter `tw_testimonial_html_single_content`
 * Add `force_pad` option to `testimonials_truncate`
 * Copyright year update
 * Update Premium features
 
 ## 2.6.0
-* Add FAQ 51 filter `testimonials_widget_get_testimonial_html` usage
+* Add FAQ 51 filter `tw_get_testimonial_html` usage
 * FAQ 50 Revise
 * Reorganize `get_testimonial_html`
 
@@ -918,11 +918,11 @@
 * Refactor `get_testimonials_html` to break out CSS/JS generation
 * Respect [meta capabilities](http://wordpress.org/support/topic/plugin-testimonials-widget-version-20-rewrite-suggestions-request?replies=18#post-3359157)
 * Revise TODO text
-* TODO remove Template engine - see `testimonials_widget_testimonial_html*` filters
+* TODO remove Template engine - see `tw_testimonial_html*` filters
 
 ## 2.5.4
-* Add filter `testimonials_widget_testimonial_html_single`
-* Add filter `testimonials_widget_testimonial_html`
+* Add filter `tw_testimonial_html_single`
+* Add filter `tw_testimonial_html`
 * Aihrus testimonial URL correction
 * FAQ 34 Find `testimonialswidget_testimonialsNNN` instance naming
 * FAQ 48 Customize testimonial list/widget output
@@ -952,7 +952,7 @@
 * [CleanCSS](http://cleancss.com/) the CSS
 
 ## 2.4.7
-* Add filter `testimonials_widget_defaults_single`
+* Add filter `tw_defaults_single`
 * TODO clean up for premium version
 * TODO Optional wpautop functionality for better formatting
 
@@ -1023,17 +1023,17 @@
 * TODO Meta capabilities
 
 ## 2.3.2
-* Add filters `testimonials_widget_options_update`, `testimonials_widget_options_form`
+* Add filters `tw_options_update`, `tw_options_form`
 * BUGFIX ["featured image" module disappeared](http://wordpress.org/support/topic/no-image-upload?replies=12#post-3423001)
 * Clean up tags per [plugin guidelines](http://wordpress.org/extend/plugins/about/guidelines/)
 * Combine source and url display when no email or company
 * FAQ renumber second 36 to 37
-* FAQ 38 Use filter `testimonials_widget_defaults`
-* FEATURE Centralized defaults via filter `testimonials_widget_defaults`
+* FAQ 38 Use filter `tw_defaults`
+* FEATURE Centralized defaults via filter `tw_defaults`
 * Only grab `paged` information once
 * Prepend HTTP protocol if missing in URL
 * SCREENSHOT Widget Premium Options
-* Simplify filter `testimonials_widget_content`
+* Simplify filter `tw_content`
 * Simplify read more ellipsis
 * Trim content after formatting
 
@@ -1185,7 +1185,7 @@
 
 ## 2.1.2
 * Add `hide_gravatar` option
-* Add apply_filters( 'testimonials_widget_data', $testimonial_data ) to process data before display
+* Add apply_filters( 'tw_data', $testimonial_data ) to process data before display
 * Add right margin to gravatar image
 * Added empty testimonial data field `testimonial_extra` for customization in testimonials
 * Allow widget and shortcode sorting by post meta values via `meta_key`
