@@ -63,6 +63,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
+* Widgets for categories listing, recent testimonials, slider, and tag cloud
 
 = Shortcodes =
 
@@ -198,11 +199,11 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
+* Testimonials "slider" widget displays static and rotating testimonials 
 * Testimonials category widget
 * Testimonials output is completely customizable via filters
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * Testimonials tag cloud widget
-* Testimonials widget displays static and rotating testimonials 
 * Unique CSS class per widget
 * URLs can be opened in new windows
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
