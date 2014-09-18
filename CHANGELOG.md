@@ -1,4 +1,4 @@
-# CHANGELOG - Aihrus Testimonials
+# CHANGELOG - Testimonials Widget
 
 ## master
 
@@ -6,6 +6,16 @@
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * Add filter `tw_get_template_part`
 * Add filter `tw_template_paths`
+* Add filter `tw_widget_categories_args`
+* Add filter `tw_widget_categories_dropdown_args`
+* Add filter `tw_widget_categories_options`
+* Add filter `tw_widget_recent_testimonials_args`
+* Add filter `tw_widget_recent_testimonials_options`
+* Add filter `tw_widget_tag_cloud_args`
+* Add filter `tw_widget_tag_cloud_options`
+* Added recent testimonials widget
+* Added testimonials category widget
+* Added testimonials tag cloud widget
 * API link updates
 * Author field to override title when it's not the testimonial source
 * Don't shortcode attribute for global level options
@@ -13,20 +23,27 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
+* RELATES #129 Testimonials Archive widget
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
 * RESOLVE #124 Optionally include testimonials in category archives
+* RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library
+* RESOLVE #130 Recent Testimonials widget
+* RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
+* RESOLVE Flush rewrite rules if baseline taxonomy changes
 * RESOLVE Videos not showing in single view
+* Restore Testimonials Widget branding
+* Restore Testimonials Widget Premium branding
 * Revise descriptions
 * Simplify Review schema handling
-* Update Aihrus Testimonials branding
-* Update Aihrus Testimonials Premium branding
 * Update licensing entries
 * Update OPTIONS
+* Update widget title handling
 * Update [bxSlider 4.1.2](https://github.com/stevenwanderski/bxslider-4)
 * Use [bxSlider](https://github.com/stevenwanderski/bxslider-4) as a library
 
@@ -75,7 +92,7 @@
 ## 2.19.3
 * Refactor get_defaults
 * Replace [[/]] with [/]
-* Require Aihrus 1.1.2
+* Require Aihrus Framework 1.1.2
 * RESOLVE #80 DB Performance Issues
 * Revise FAQ section
 * Update settings page detection
@@ -86,16 +103,17 @@
 ## 2.19.1
 * Please resave your Testimonials > Settings and Widget options for defaults to be corrected
 * Remove unsued `widget_options`
-* Require Aihrus 1.1.1
+* Require Aihrus Framework 1.1.1
 
 ## 2.19.0
 * Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
+* Enable adaptive slider height
 * Only check system requirements once a week
 * Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
 * RELATE #64 Remove deprecated options and codes
-* Require Aihrus 1.1.0
+* Require Aihrus Framework 1.1.0
 * RESOLVE #20 Simplify shortcodes
 * RESOLVE #45 Plugin Disables Itself
 * RESOLVE #56 Prevent edit page column overload
@@ -169,7 +187,7 @@
 * RESOLVE #44 Blank testimonial between each rotating testimonial
 
 ## 2.17.2
-* RESOLVE Aihrus Testimonials Premium load issue
+* RESOLVE Testimonials Widget Premium load issue
 * RESOLVE [Testimonial box displays as all white in widget on IE9](http://wordpress.org/support/topic/testimonial-box-displays-as-all-white-in-widget-on-ie9). Thank you [jbmoore](http://wordpress.org/support/profile/jbmoore)
 
 ## 2.17.1

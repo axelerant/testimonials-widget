@@ -1,4 +1,4 @@
-# Shortcode and Widget Options - Aihrus Testimonials
+# Shortcode and Widget Options - Testimonials Widget
 
 ## General
 
@@ -63,9 +63,9 @@
 
 ## Selection
 
-* Category Filter - Comma separated category names.
+* Category Filter - Comma separated category names or IDs.
 	* `category` - default none; category=product or category="category-a, another-category"
-* Tags Filter - Comma separated tag names.
+* Tags Filter - Comma separated tag names or IDs.
 	* `tags` - default none; tags=fire or tags="tag-a, another-tag"
 * Require All Tags - Select only testimonials with all of the given tags.
 	* `tags_all` - default OR; tags_all=true
@@ -90,7 +90,7 @@
 
 ## Widget
 
-* Widget Title
+* Title
 	* `title` - default "Testimonials"
 * Title Link - URL or Post ID to link widget title to.
 	* `title_link` - default none; title_link=123, title_link=http://example.com
@@ -99,6 +99,8 @@
 	* Widget - default 500
 * Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all.
 	* `refresh_interval` - default 5; refresh_interval=0
+* Adaptive Slider Height? - Dynamically adjust slider height based on each slide's height.
+	* `adaptive_height` - default true; adaptive_height=false
 * Transition Mode? - Type of transition between slides.
 	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
 * Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
@@ -113,6 +115,7 @@
 
 ## Post Type
 
+* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies than WordPress' defaults.
 * Allow Comments? – Only affects the Testimonials post edit page. Your theme controls the front-end view.
 * Archive Page URL – URL slug-name for testimonials archive page. After changing, you must click "Save Changes" on Permalink Settings to update them.
 * Enable archives view? - Include testimonials in archive and category views.
@@ -134,7 +137,6 @@
 
 ## Reset
 
-* Don't Use Default Taxonomies? – If checked, use Testimonials' own category and tag taxonomies instead.
 * Export Settings – These are your current settings in a serialized format. Copy the contents to make a backup of your settings.
 * Import Settings – Paste new serialized settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion.

@@ -24,10 +24,9 @@ if ( class_exists( 'Aihrus_Widget_Interface' ) )
 
 interface Aihrus_Widget_Interface {
 	public static function form_instance( $instance );
-	public static function form_parts( $instance, $number );
+	public static function form_parts( $instance = null, $number = null );
 	public static function get_content( $instance, $widget_number );
 	public static function get_defaults();
-	public static function get_suggest( $id, $suggest_id );
 	public static function validate_settings( $instance );
 }
 

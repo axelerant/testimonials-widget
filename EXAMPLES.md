@@ -1,4 +1,4 @@
-# Shortcode Examples - Aihrus Testimonials
+# Shortcode Examples - Testimonials Widget
 
 ## [testimonials]
 

@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ if ( class_exists( 'Testimonials_Widget_Settings' ) )
 
 class Testimonials_Widget_Settings extends Aihrus_Settings {
 	const ID   = 'testimonialswidget_settings';
-	const NAME = 'Aihrus Testimonials Settings';
+	const NAME = 'Testimonials Widget Settings';
 
 	public static $admin_page;
 	public static $class    = __CLASS__;
@@ -128,9 +128,16 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 */
 	public static function settings() {
 		// Widget
+		self::$settings['widget_heading'] = array(
+			'section' => 'widget',
+			'desc' => esc_html__( 'This section only applies to the testimonials slider widget.', 'testimonials-widget' ),
+			'type' => 'heading',
+			'widget' => 0,
+		);
+
 		self::$settings['title'] = array(
 			'section' => 'widget',
-			'title' => esc_html__( 'Widget Title', 'testimonials-widget' ),
+			'title' => esc_html__( 'Title', 'testimonials-widget' ),
 			'std' => esc_html__( 'Testimonials', 'testimonials-widget' ),
 			'validate' => 'wp_kses_post',
 		);
@@ -166,6 +173,15 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'section' => 'widget',
 			'desc' => esc_html__( 'Additional Widget Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
+		);
+
+		self::$settings['adaptive_height'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Adaptive Slider Height?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Dynamically adjust slider height based on each slide\'s height.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
 		);
 
 		self::$settings['transition_mode'] = array(
@@ -443,7 +459,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['category'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Category Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated category names. Ex: Category A, Another category', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated category names or IDs. Ex: Category A, Another category, 123', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -451,7 +467,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['tags'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated tag names. Ex: Tag A, Another tag', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated tag names or IDs. Ex: Tag A, Another tag, 123', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -557,6 +573,16 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		// Post Type
+		self::$settings['use_cpt_taxonomy'] = array(
+			'section' => 'post_type',
+			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies than WordPress\' defaults.', 'testimonials-widget' ),
+			'widget' => 0,
+			'show_code' => false,
+		);
+
 		self::$settings['allow_comments'] = array(
 			'section' => 'post_type',
 			'title' => esc_html__( 'Allow Comments?', 'testimonials-widget' ),
@@ -712,16 +738,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
-		self::$settings['use_cpt_taxonomy'] = array(
-			'section' => 'reset',
-			'title' => esc_html__( 'Don\'t Use Default Taxonomies?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'desc' => esc_html__( 'If checked, use Testimonials\' own category and tag taxonomies instead.', 'testimonials-widget' ),
-			'widget' => 0,
-			'show_code' => false,
-		);
-
 		parent::settings();
 
 		if ( empty( $use_bxslider ) ) {
@@ -785,8 +801,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		self::$settings = apply_filters( 'tw_settings', self::$settings );
 
-		foreach ( self::$settings as $id => $parts )
+		foreach ( self::$settings as $id => $parts ) {
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
+		}
 	}
 
 
@@ -890,15 +907,17 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		$defaults = self::get_defaults();
 
-		if ( ! empty( $input['has_archive'] ) )
+		if ( ! empty( $input['has_archive'] ) ) {
 			$input['has_archive'] = self::prevent_slug_conflict( $input['has_archive'] );
-		else
+		} else {
 			$input['has_archive'] = $defaults['has_archive'];
+		}
 
-		if ( ! empty( $input['rewrite_slug'] ) )
+		if ( ! empty( $input['rewrite_slug'] ) ) {
 			$input['rewrite_slug'] = self::prevent_slug_conflict( $input['rewrite_slug'] );
-		else
+		} else {
 			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+		}
 
 		$flush_rewrite_rules = false;
 		// same has_archive and rewrite_slug causes problems
@@ -909,22 +928,25 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			$flush_rewrite_rules = true;
 		}
 
-		// did URL slugs change?
-		$has_archive  = tw_get_option( 'has_archive' );
-		$rewrite_slug = tw_get_option( 'rewrite_slug' );
-		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] )
+		// did URL slugs or taxonomy change?
+		$has_archive      = tw_get_option( 'has_archive' );
+		$rewrite_slug     = tw_get_option( 'rewrite_slug' );
+		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy' );
+		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] || $use_cpt_taxonomy != $input['use_cpt_taxonomy'] ) {
 			$flush_rewrite_rules = true;
+		}
 
-		if ( $flush_rewrite_rules )
+		if ( $flush_rewrite_rules ) {
 			flush_rewrite_rules();
+		}
 
 		$input['version']        = self::$version;
 		$input['donate_version'] = Testimonials_Widget::VERSION;
 
 		$input = apply_filters( 'tw_validate_settings', $input, $errors );
-		if ( empty( $do_errors ) )
+		if ( empty( $do_errors ) ) {
 			$validated = $input;
-		else {
+		} else {
 			$validated = array(
 				'input' => $input,
 				'errors' => $errors,

@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -27,8 +27,9 @@ if ( class_exists( 'Testimonials_Widget_Widget' ) )
 class Testimonials_Widget_Widget extends Aihrus_Widget {
 	const ID = 'testimonials_widget';
 
-	public function __construct( $classname = null, $description = null, $id_base = null, $title = null ) {
-		$classname   = 'Testimonials_Widget_Widget';
+
+	public function __construct() {
+		$classname   = __CLASS__;
 		$description = esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' );
 		$id_base     = self::ID;
 		$title       = esc_html__( 'Testimonials', 'testimonials-widget' );
@@ -57,11 +58,6 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 	}
 
 
-	public static function validate_settings( $instance ) {
-		return Testimonials_Widget_Settings::validate_settings( $instance );
-	}
-
-
 	public static function form_instance( $instance ) {
 		$do_number = true;
 		if ( empty( $instance ) ) {
@@ -86,7 +82,7 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 	}
 
 
-	public static function form_parts( $instance, $number ) {
+	public static function form_parts( $instance = null, $number = null ) {
 		$form_parts = Testimonials_Widget_Settings::get_settings();
 
 		if ( ! empty( $instance['do_number'] ) ) {

@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -23,6 +23,10 @@ require_once AIHR_DIR_LIB . 'class-redrokk-metabox-class.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget-archives.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget-categories.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget-recent-testimonials.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-widget-tag-cloud.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
 	return;
@@ -961,6 +965,7 @@ EOF;
 
 					$use_bxslider = $atts['use_bxslider'];
 					if ( $use_bxslider ) {
+						$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
 						$enable_video    = $atts['enable_video'];
 						$show_start_stop = $atts['show_start_stop'];
 						$transition_mode = $atts['transition_mode'];
@@ -978,6 +983,7 @@ var {$slider_var} = null;
 
 jQuery(document).ready(function() {
 	{$slider_var} = jQuery('.{$id_base}').bxSlider({
+		adaptiveHeight: {$adaptive_height},
 		auto: {$auto},
 		{$autoControls}
 		autoHover: true,
@@ -1179,7 +1185,7 @@ EOF;
 
 		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
 
-		// not done sooner as tag_close_quote is used Aihrus Testimonials Premium
+		// not done sooner as tag_close_quote is used Testimonials Widget Premium
 		if ( $atts['disable_quotes'] ) {
 			$html = str_replace( self::$tag_open_quote, '', $html );
 			$html = str_replace( self::$tag_close_quote, '', $html );
@@ -1353,22 +1359,68 @@ EOF;
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
 			if ( $category ) {
-				$args['category_name'] = $category;
+				if ( ! preg_match( '#^\d+$#', $category ) ) {
+					$args['category_name'] = $category;
+				} else {
+					$args['cat'] = $category;
+				}
 			}
 
 			if ( $tags ) {
 				$tags = explode( ',', $tags );
+				foreach ( $tags as $tag ) {
+					if ( ! preg_match( '#^\d+$#', $tag ) ) {
+						if ( $tags_all ) {
+							if ( ! is_array( $args['tag_slug__and'] ) ) {
+								$args['tag_slug__and'] = array();
+							}
 
-				if ( $tags_all ) {
-					$args['tag_slug__and'] = $tags;
-				}
-				else {
-					$args['tag_slug__in'] = $tags;
+							$args['tag_slug__and'][] = $tag;
+						}
+						else {
+							if ( ! is_array( $args['tag_slug__in'] ) ) {
+								$args['tag_slug__in'] = array();
+							}
+
+							$args['tag_slug__in'][] = $tag;
+						}
+					} else {
+						if ( $tags_all ) {
+							if ( ! is_array( $args['tag__and'] ) ) {
+								$args['tag__and'] = array();
+							}
+
+							$args['tag__and'][] = $tag;
+						}
+						else {
+							if ( ! is_array( $args['tag__in'] ) ) {
+								$args['tag__in'] = array();
+							}
+
+							$args['tag__in'][] = $tag;
+						}
+					}
 				}
 			}
 		} else {
+			if ( ! is_array( $args[ 'tax_query' ] ) ) {
+				$args[ 'tax_query' ] = array();
+			}
+
 			if ( $category ) {
-				$args[ self::$cpt_category ] = $category;
+				if ( ! preg_match( '#^\d+$#', $category ) ) {
+					$args[ 'tax_query' ][] = array(
+						'taxonomy' => self::$cpt_category,
+						'terms' => array( $category ),
+						'field' => 'slug',
+					);
+				} else {
+					$args[ 'tax_query' ][] = array(
+						'taxonomy' => self::$cpt_category,
+						'terms' => array( $category ),
+						'field' => 'id',
+					);
+				}
 			}
 
 			if ( $tags ) {
@@ -1376,17 +1428,23 @@ EOF;
 					$args[ 'tax_query' ] = array(
 						'relation' => 'AND',
 					);
+				}
 
-					$tags = explode( ',', $tags );
-					foreach ( $tags as $term ) {
+				$tags = explode( ',', $tags );
+				foreach ( $tags as $term ) {
+					if ( ! preg_match( '#^\d+$#', $term ) ) {
 						$args[ 'tax_query' ][] = array(
 							'taxonomy' => self::$cpt_tags,
 							'terms' => array( $term ),
 							'field' => 'slug',
 						);
+					} else {
+						$args[ 'tax_query' ][] = array(
+							'taxonomy' => self::$cpt_tags,
+							'terms' => array( $term ),
+							'field' => 'id',
+						);
 					}
-				} else {
-					$args[ self::$cpt_tags ] = $tags;
 				}
 			}
 		}
@@ -1511,6 +1569,10 @@ EOF;
 
 	public static function widgets_init() {
 		register_widget( 'Testimonials_Widget_Widget' );
+		// register_widget( 'Testimonials_Widget_Widget_Archives' );
+		register_widget( 'Testimonials_Widget_Widget_Categories' );
+		register_widget( 'Testimonials_Widget_Widget_Recent_Testimonials' );
+		register_widget( 'Testimonials_Widget_Widget_Tag_Cloud' );
 	}
 
 
