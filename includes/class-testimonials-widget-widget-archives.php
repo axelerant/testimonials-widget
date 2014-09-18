@@ -54,12 +54,13 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 			?>
 			<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
 				<option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
-				<?php
-				wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_dropdown_args', array(
-					'type'            => 'monthly',
-					'format'          => 'option',
-					'show_post_count' => $c
-				) ) );
+			<?php
+			$args = array(
+				'type' => 'monthly',
+				'format' => 'option',
+				'show_post_count' => $c,
+			);
+			wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_dropdown_args', $args ) );
 				?>
 			</select>
 			<?php
@@ -67,10 +68,11 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 			?>
 			<ul>
 			<?php
-				wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_args', array(
-					'type'            => 'monthly',
-					'show_post_count' => $c
-				) ) );
+			$args = array(
+				'type' => 'monthly',
+				'show_post_count' => $c,
+			);
+			wp_get_archives( apply_filters( 'testimonials_widget_widget_archives_args', $args ) );
 			?>
 			</ul>
 			<?php
@@ -84,7 +86,6 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 	public static function get_archives_link( $link_html ) {
 		$home_url     = home_url();
 		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
-		// $rewrite_slug = Testimonials_Widget::PT;
 		$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
 
 		return $link_html;
