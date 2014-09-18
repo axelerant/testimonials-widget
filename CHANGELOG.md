@@ -24,13 +24,13 @@
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
 * RELATES #129 Testimonials Archive widget
-* RELATES #130 Recent Testimonials widget
-* RELATES #18 Testimonials category/tag list/cloud widget
 * Removed customized edit title
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #128 Move bxSlider to being library
+* RESOLVE #130 Recent Testimonials widget
+* RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
 * RESOLVE Flush rewrite rules if baseline taxonomy changes
