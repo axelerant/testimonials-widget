@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -60,7 +60,7 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 		}
 
 		if ( $d ) {
-			$cat_args['show_option_none'] = esc_html__( 'Select Testimonials Category' );
+			$cat_args['show_option_none'] = esc_html__( 'Select Testimonials Category', 'testimonials-widget' );
 
 			wp_dropdown_categories( apply_filters( 'testimonials_widget_widget_categories_dropdown_args', $cat_args ) );
 			?>

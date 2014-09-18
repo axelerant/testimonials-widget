@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -1183,7 +1183,7 @@ EOF;
 
 		$html = apply_filters( 'testimonials_widget_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
 
-		// not done sooner as tag_close_quote is used Aihrus Testimonials Premium
+		// not done sooner as tag_close_quote is used Testimonials Widget Premium
 		if ( $atts['disable_quotes'] ) {
 			$html = str_replace( self::$tag_open_quote, '', $html );
 			$html = str_replace( self::$tag_close_quote, '', $html );

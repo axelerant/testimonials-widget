@@ -1,4 +1,4 @@
-# Shortcode and Widget Options - Aihrus Testimonials
+# Shortcode and Widget Options - Testimonials Widget
 
 ## General
 

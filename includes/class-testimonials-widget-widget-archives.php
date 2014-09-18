@@ -1,6 +1,6 @@
 <?php
 /**
-Aihrus Testimonials
+Testimonials Widget
 Copyright (C) 2014  Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
@@ -53,7 +53,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 		if ( $d ) {
 			?>
 			<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
-				<option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
+				<option value=""><?php echo esc_attr( __( 'Select Month', 'testimonials-widget' ) ); ?></option>
 			<?php
 			$args = array(
 				'type' => 'monthly',
