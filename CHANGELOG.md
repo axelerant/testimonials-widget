@@ -108,6 +108,7 @@
 * Add screenshot 22. Testimonials Settings > Columns tab
 * Check system requirements after update
 * CSS class `.title` is now `.job-title`. Thank you Mark
+* Enable adaptive slider height
 * Only check system requirements once a week
 * Please resave your WordPress Admin > Testimonials > Settings so that missing aoptions are included again.
 * RELATE #64 Remove deprecated options and codes

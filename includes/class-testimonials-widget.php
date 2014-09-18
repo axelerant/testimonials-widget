@@ -965,6 +965,7 @@ EOF;
 
 					$use_bxslider = $atts['use_bxslider'];
 					if ( $use_bxslider ) {
+						$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
 						$enable_video    = $atts['enable_video'];
 						$show_start_stop = $atts['show_start_stop'];
 						$transition_mode = $atts['transition_mode'];
@@ -982,6 +983,7 @@ var {$slider_var} = null;
 
 jQuery(document).ready(function() {
 	{$slider_var} = jQuery('.{$id_base}').bxSlider({
+		adaptiveHeight: {$adaptive_height},
 		auto: {$auto},
 		{$autoControls}
 		autoHover: true,

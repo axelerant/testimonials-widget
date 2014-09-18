@@ -175,6 +175,15 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['adaptive_height'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Adaptive Slider Height?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Dynamically adjust slider height based on each slide\'s height.', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 1,
+		);
+
 		self::$settings['transition_mode'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Transition Mode?', 'testimonials-widget' ),

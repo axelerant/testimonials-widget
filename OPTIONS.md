@@ -99,6 +99,8 @@
 	* Widget - default 500
 * Rotation speed - Seconds between testimonial rotations or 0 for no rotation at all.
 	* `refresh_interval` - default 5; refresh_interval=0
+* Adaptive Slider Height? - Dynamically adjust slider height based on each slide's height.
+	* `adaptive_height` - default true; adaptive_height=false
 * Transition Mode? - Type of transition between slides.
 	* `transition_mode` - default fade; transition_mode=horizontal|vertical|fade
 * Show Play/Pause? - Display start and stop buttons underneath the testimonial slider.
