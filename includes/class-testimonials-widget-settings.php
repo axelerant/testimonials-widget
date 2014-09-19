@@ -111,7 +111,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$sections['general']   = esc_html__( 'General', 'testimonials-widget' );
 		self::$sections['selection'] = esc_html__( 'Selection', 'testimonials-widget' );
 		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
-		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
+		self::$sections['widget']    = esc_html__( 'Slider Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
 		self::$sections['columns']   = esc_html__( 'Columns', 'testimonials-widget' );
 

@@ -117,6 +117,17 @@ if ( ! function_exists( 'testimonials_slider' ) ) {
 
 		return $Testimonials_Widget->testimonials_slider( $atts, $widget_number );
 	}
+
+
+if ( ! function_exists( 'testimonials_archives' ) ) {
+	function testimonials_archives( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_archives( $atts );
+	}
+}
+
+
 }
 
 ?>

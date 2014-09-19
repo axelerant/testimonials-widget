@@ -30,7 +30,7 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 
 	public function __construct() {
 		$classname   = __CLASS__;
-		$description = esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' );
+		$description = esc_html__( 'Displays rotating testimonials or statically.', 'testimonials-widget' );
 		$id_base     = self::ID;
 		$title       = esc_html__( 'Testimonials Slider', 'testimonials-widget' );
 

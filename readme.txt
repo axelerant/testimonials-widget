@@ -63,17 +63,19 @@ The single testimonial view supports image, source, title, location, email, comp
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
-* Widgets for categories listing, recent testimonials, slider, and tag cloud
+* Widgets for testimonial's archives, categories, recent, slider, and tag cloud
 
 = Shortcodes =
 
 * `[testimonials]` - Listings with paging 
-* `[testimonials_slider]` - Rotating testimonials
+* `[testimonials_archives]` - A monthly archive of your site's testimonials
+* `[testimonials_slider]` - Displays rotating testimonials or statically
 
 = Theme Functions =
 
 * `testimonials()` - Testimonials listing with paging 
-* `testimonials_slider()` - Rotating testimonials
+* `testimonials_archives()` - A monthly archive of your site's testimonials
+* `testimonials_slider()` - Displays rotating testimonials or statically
 
 = Testimonials Widget Premium =
 

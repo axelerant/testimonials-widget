@@ -13,6 +13,7 @@
 * Add filter `tw_widget_recent_testimonials_options`
 * Add filter `tw_widget_tag_cloud_args`
 * Add filter `tw_widget_tag_cloud_options`
+* Add shortcode and theme function `testimonials_archives`
 * Added recent testimonials widget
 * Added testimonials category widget
 * Added testimonials tag cloud widget
@@ -24,6 +25,7 @@
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
 * RELATES #129 Testimonials Archive widget
+* RELATES #132 Implement shortcodes for all widgets
 * Removed customized edit title
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Removed pre-2.0.0 migration code

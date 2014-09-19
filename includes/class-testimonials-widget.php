@@ -112,6 +112,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
+		add_shortcode( 'testimonials_archives', array( __CLASS__, 'testimonials_archives' ) );
 		add_shortcode( 'testimonials_slider', array( __CLASS__, 'testimonials_slider' ) );
 	}
 
@@ -1333,7 +1334,7 @@ EOF;
 
 
 	public static function widgets_init() {
-		// register_widget( 'Testimonials_Widget_Archives_Widget' );
+		register_widget( 'Testimonials_Widget_Archives_Widget' );
 		register_widget( 'Testimonials_Widget_Categories_Widget' );
 		register_widget( 'Testimonials_Widget_Recent_Testimonials_Widget' );
 		register_widget( 'Testimonials_Widget_Slider_Widget' );
@@ -1880,6 +1881,58 @@ EOD;
 		}
 
 		return $query;
+	}
+
+
+	public static function testimonials_archives( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Archives_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Archives_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_archives';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_archives_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	public static function get_archives_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'archives' );
+
+		return $content;
+	}
+
+
+	public static function get_archives_link( $link_html ) {
+		// fixme PT specific slug url not working
+		return $link_html;
+
+		$home_url     = home_url();
+		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
+		$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
+
+		return $link_html;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function getarchives_where( $where, $args ) {
+		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
 	}
 }
 

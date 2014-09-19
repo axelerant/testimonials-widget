@@ -86,7 +86,7 @@
 * ORDER BY Order - DESC or ASC.
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 
-## Widget
+## Slider Shortcode/Theme Function/Widget
 
 * Title
 	* `title` - default "Testimonials"
@@ -139,3 +139,10 @@
 * Import Settings – Paste new serialized settings here to overwrite your current configuration.
 * Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion.
 * Reset to Defaults? – Check this box to reset options to their defaults.
+
+## Archives Shortcode/Theme Function/Widget
+
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 

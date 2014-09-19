@@ -13,6 +13,10 @@
 * `[testimonials order=ASC orderby=title]` - List testimonials by post title
 * `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 
+## [testimonials_archives] - A monthly archive of your site's testimonials
+
+* `[testimonials_archives dropdown=true count=true]` - Testimonial's archive as dropdown with monthly count
+
 ## [testimonials_slider]
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first

@@ -44,59 +44,7 @@ class Testimonials_Widget_Archives_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance, $widget_number ) {
-		$c = ! empty( $instance['count'] ) ? '1' : '0';
-		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
-		
-		add_filter( 'getarchives_where', array( __CLASS__, 'getarchives_where' ), 10, 2 );
-		add_filter( 'get_archives_link', array( __CLASS__, 'get_archives_link' ), 10, 1 );
-
-		if ( $d ) {
-			?>
-			<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
-				<option value=""><?php echo esc_attr( __( 'Select Month', 'testimonials-widget' ) ); ?></option>
-			<?php
-			$args = array(
-				'type' => 'monthly',
-				'format' => 'option',
-				'show_post_count' => $c,
-			);
-			wp_get_archives( apply_filters( 'tw_archives_widget_dropdown_args', $args ) );
-				?>
-			</select>
-			<?php
-		} else {
-			?>
-			<ul>
-			<?php
-			$args = array(
-				'type' => 'monthly',
-				'show_post_count' => $c,
-			);
-			wp_get_archives( apply_filters( 'tw_archives_widget_args', $args ) );
-			?>
-			</ul>
-			<?php
-		}
-		
-		remove_filter( 'get_archives_link', array( __CLASS__, 'get_archives_link' ), 10, 1 );
-		remove_filter( 'getarchives_where', array( __CLASS__, 'getarchives_where' ), 10, 2 );
-	}
-
-
-	public static function get_archives_link( $link_html ) {
-		$home_url     = home_url();
-		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
-		$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
-
-		return $link_html;
-	}
-
-
-	/**
-	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public static function getarchives_where( $where, $args ) {
-		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
+		return Testimonials_Widget::testimonials_archives( $instance, $widget_number );
 	}
 
 

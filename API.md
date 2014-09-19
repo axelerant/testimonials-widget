@@ -136,11 +136,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Used for modifying [WP_Query](http://codex.wordpress.org/Function_Reference/WP_Query) as part of the recent testimonials widget.
 
-* `tw_archives_widget_dropdown_args`
+* `tw_archives_dropdown_args`
 
 	Used for modifying [wp_get_archives](http://codex.wordpress.org/Function_Reference/wp_get_archives) as part of the testimonials archive widget.
 
-* `tw_archives_widget_args`
+* `tw_archives_args`
 
 	Used for modifying [wp_get_archives](http://codex.wordpress.org/Function_Reference/wp_get_archives) as part of the testimonials archive widget.
 
