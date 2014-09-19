@@ -40,6 +40,7 @@
 * RESOLVE #128 Move bxSlider to being library
 * RESOLVE #129 Testimonials Archive widget
 * RESOLVE #130 Recent Testimonials widget
+* RESOLVE #131 Implement widget content caching
 * RESOLVE #132 Implement shortcodes for all widgets
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
