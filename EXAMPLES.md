@@ -17,6 +17,10 @@
 
 * `[testimonials_archives dropdown=true count=true]` - Testimonial's archive as dropdown with monthly count
 
+## [testimonials_categories] - A list or dropdown of testimonials' categories
+
+* `[testimonials_categories count=true hierarchical=true]` - Testimonial's categories as hierarchical with monthly count
+
 ## [testimonials_slider]
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first

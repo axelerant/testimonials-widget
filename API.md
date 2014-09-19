@@ -120,11 +120,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Allow ordered list of template paths to be amended. [Usage](https://github.com/GaryJones/Gamajo-Template-Loader/blob/develop/class-gamajo-template-loader.php#L201)
 
-* `tw_categories_widget_dropdown_args`
+* `tw_categories_dropdown_args`
 
 	Used for modifying [wp_dropdown_categories](http://codex.wordpress.org/Function_Reference/wp_dropdown_categories) as part of the testimonials' categories widget.
 
-* `tw_categories_widget_args`
+* `tw_categories_args`
 
 	Used for modifying [wp_list_categories](http://codex.wordpress.org/Function_Reference/wp_list_categories) as part of the testimonials' categories widget.
 

@@ -113,6 +113,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
 		add_shortcode( 'testimonials_archives', array( __CLASS__, 'testimonials_archives' ) );
+		add_shortcode( 'testimonials_categories', array( __CLASS__, 'testimonials_categories' ) );
 		add_shortcode( 'testimonials_slider', array( __CLASS__, 'testimonials_slider' ) );
 	}
 
@@ -1936,6 +1937,43 @@ EOD;
 	public static function getarchives_where( $where, $args ) {
 		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
 	}
+
+
+	public static function testimonials_categories( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Categories_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Categories_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_categories';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_categories_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_categories_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'categories' );
+
+		return $content;
+	}
+
+
 }
 
 

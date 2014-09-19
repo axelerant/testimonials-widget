@@ -14,6 +14,7 @@
 * Add filter `tw_widget_tag_cloud_args`
 * Add filter `tw_widget_tag_cloud_options`
 * Add shortcode and theme function `testimonials_archives`
+* Add shortcode and theme function `testimonials_categories`
 * Added recent testimonials widget
 * Added testimonials category widget
 * Added testimonials tag cloud widget

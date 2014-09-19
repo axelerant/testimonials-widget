@@ -146,3 +146,12 @@
 	* `dropdown` - default false; dropdown=true 
 * Show post counts
 	* `count` - default false; count=true 
+
+## Categories Shortcode/Theme Function/Widget
+
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 
+* Show hierarchy
+	* `hierarchical` - default false; hierarchical=true 

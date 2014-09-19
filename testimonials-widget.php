@@ -128,4 +128,13 @@ if ( ! function_exists( 'testimonials_archives' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'testimonials_categories' ) ) {
+	function testimonials_categories( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_categories( $atts );
+	}
+}
+
 ?>
