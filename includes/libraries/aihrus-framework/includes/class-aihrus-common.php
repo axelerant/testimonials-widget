@@ -550,13 +550,13 @@ EOD;
 
 		$dates = array( 
 			array( 
-				'rule' => '( [ 0-9 ]{4} )/( [ 0-9 ]{1,2} )/( [ 0-9 ]{1,2} )',
+				'rule' => '([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})',
 				'vars' => array( 'year', 'monthnum', 'day' ) ),
 			array( 
-				'rule' => '( [ 0-9 ]{4} )/( [ 0-9 ]{1,2} )',
+				'rule' => '([0-9]{4})/([0-9]{1,2})',
 				'vars' => array( 'year', 'monthnum' ) ),
 			array( 
-				'rule' => '( [ 0-9 ]{4} )',
+				'rule' => '([0-9]{4})',
 				'vars' => array( 'year' ) )
 			);
 
@@ -571,9 +571,9 @@ EOD;
 			}
 
 			$rules[ $rule . '/?$' ]                                 = $query;
-			$rules[ $rule . '/feed/( feed|rdf|rss|rss2|atom )/?$' ] = $query . '&feed=' . $wp_rewrite->preg_index( $i );
-			$rules[ $rule . '/( feed|rdf|rss|rss2|atom )/?$' ]      = $query . '&feed=' . $wp_rewrite->preg_index( $i );
-			$rules[ $rule . '/page/( [ 0-9 ]{1,} )/?$' ]            = $query . '&paged=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/feed/(feed|rdf|rss|rss2|atom)/?$' ] = $query . '&feed=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/(feed|rdf|rss|rss2|atom)/?$' ]      = $query . '&feed=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/page/([0-9]{1,})/?$' ]            = $query . '&paged=' . $wp_rewrite->preg_index( $i );
 		}
 
 		return $rules;
