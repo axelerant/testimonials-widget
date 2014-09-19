@@ -1905,6 +1905,9 @@ EOD;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function get_archives_html( $atts ) {
 		global $at_template_args;
 
@@ -1917,12 +1920,11 @@ EOD;
 
 
 	public static function get_archives_link( $link_html ) {
-		// fixme PT specific slug url not working
-		return $link_html;
-
-		$home_url     = home_url();
-		$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
-		$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
+		if ( false ) {
+			$home_url     = home_url();
+			$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
+			$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
+		}
 
 		return $link_html;
 	}

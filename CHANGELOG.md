@@ -24,7 +24,6 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #129 Testimonials Archive widget
 * RELATES #132 Implement shortcodes for all widgets
 * Removed customized edit title
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
@@ -37,6 +36,7 @@
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library
+* RESOLVE #129 Testimonials Archive widget
 * RESOLVE #130 Recent Testimonials widget
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine

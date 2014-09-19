@@ -117,6 +117,7 @@ if ( ! function_exists( 'testimonials_slider' ) ) {
 
 		return $Testimonials_Widget->testimonials_slider( $atts, $widget_number );
 	}
+}
 
 
 if ( ! function_exists( 'testimonials_archives' ) ) {
@@ -125,9 +126,6 @@ if ( ! function_exists( 'testimonials_archives' ) ) {
 
 		return $Testimonials_Widget->testimonials_archives( $atts );
 	}
-}
-
-
 }
 
 ?>
