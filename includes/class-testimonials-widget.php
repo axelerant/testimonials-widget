@@ -1925,16 +1925,16 @@ EOD;
 
 
 	public static function get_archives_link( $link_html ) {
-		$home_url    = home_url();
-		$has_archive = tw_get_option( 'has_archive' );
-		$link_html   = str_replace( $home_url, $home_url . '/' . $has_archive, $link_html );
+		$home_url   = home_url();
+		$slug       = Aihrus_Common::get_archive_slug( self::PT );
+		$link_html  = str_replace( $home_url, $home_url . '/' . $slug, $link_html );
 
 		return $link_html;
 	}
 
 
-	function generate_rewrite_rules( $wp_rewrite ) {
-		$rules             = cpt_generate_date_archives( self::PT, $wp_rewrite );
+	public static function generate_rewrite_rules( $wp_rewrite ) {
+		$rules             = Aihrus_Common::generate_date_archives( self::PT, $wp_rewrite );
 		$wp_rewrite->rules = $rules + $wp_rewrite->rules;
 
 		return $wp_rewrite;
