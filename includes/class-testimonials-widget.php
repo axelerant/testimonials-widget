@@ -20,13 +20,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-common.php';
 require_once AIHR_DIR_LIB . 'class-redrokk-metabox-class.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-archives-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-categories-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-recent-testimonials-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-slider-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-tag-cloud-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-archives.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-categories.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-recent-testimonials.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-tag-cloud.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
 	return;
@@ -758,13 +758,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public static function testimonialswidget_list( $atts ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials()' );
-
-		return self::testimonials( $atts );
-	}
-
-
 	public static function testimonials( $atts ) {
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
@@ -794,13 +787,6 @@ class Testimonials_Widget extends Aihrus_Common {
 		self::call_scripts_styles( $testimonials, $atts, $instance );
 
 		return $content;
-	}
-
-
-	public static function testimonialswidget_widget( $atts, $widget_number = null ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials_slider()' );
-
-		return self::testimonials_slider( $atts, $widget_number );
 	}
 
 
@@ -848,17 +834,14 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		wp_enqueue_script( 'jquery' );
 
-		$use_bxslider = $atts['use_bxslider'];
-		if ( $use_bxslider ) {
-			$enable_video = $atts['enable_video'];
-			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
-				wp_enqueue_script( 'jquery.fitvids' );
-			}
-
-			wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.js', array( 'jquery' ), '4.1.2', true );
-			wp_enqueue_script( 'jquery.bxslider' );
+		$enable_video = $atts['enable_video'];
+		if ( $enable_video ) {
+			wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'jquery.fitvids' );
 		}
+
+		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.js', array( 'jquery' ), '4.1.2', true );
+		wp_enqueue_script( 'jquery.bxslider' );
 
 		do_action( 'tw_scripts', $atts );
 	}
@@ -869,24 +852,13 @@ class Testimonials_Widget extends Aihrus_Common {
 			return;
 		}
 
-		$use_bxslider = tw_get_option( 'use_bxslider' );
-		if ( $use_bxslider ) {
-			$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
-			if ( empty( $exclude_bxslider_css ) ) {
-				wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
-				wp_enqueue_style( 'jquery.bxslider' );
-			}
-
-			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
-		} else {
-			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget-2.14.0.css' );
-
-			$include_ie7_css = tw_get_option( 'include_ie7_css' );
-			if ( $include_ie7_css ) {
-				wp_register_style( __CLASS__ . '-ie7', self::$plugin_assets . 'css/testimonials-widget-ie7.css' );
-				wp_enqueue_style( __CLASS__ . '-ie7' );
-			}
+		$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
+		if ( empty( $exclude_bxslider_css ) ) {
+			wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
+			wp_enqueue_style( 'jquery.bxslider' );
 		}
+
+		wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
 
 		$exclude_css = tw_get_option( 'exclude_css' );
 		if ( empty( $exclude_css ) ) {
@@ -898,45 +870,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function get_testimonials_html_css( $atts, $widget_number = null ) {
-		$css     = array();
-		$id_base = self::ID . $widget_number;
-
-		switch ( $atts['type'] ) {
-			case 'testimonials_slider':
-				$use_bxslider = $atts['use_bxslider'];
-				if ( ! $use_bxslider ) {
-					$height     = $atts['height'];
-					$max_height = $atts['max_height'];
-					$min_height = $atts['min_height'];
-
-					if ( $height ) {
-						$max_height = $height;
-						$min_height = $height;
-					}
-
-					if ( $min_height ) {
-						$css[] = <<<EOF
-<style>
-.$id_base {
-min-height: {$min_height}px;
-}
-</style>
-EOF;
-					}
-
-					if ( $max_height ) {
-						$css[] = <<<EOF
-<style>
-.$id_base {
-	max-height: {$max_height}px;
-}
-</style>
-EOF;
-					}
-				}
-				break;
-		}
-
+		$css = array();
 		$css = apply_filters( 'tw_testimonials_css', $css, $atts, $widget_number );
 
 		return $css;
@@ -963,22 +897,20 @@ EOF;
 
 					$javascript .= '<script type="text/javascript">' . "\n";
 
-					$use_bxslider = $atts['use_bxslider'];
-					if ( $use_bxslider ) {
-						$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
-						$enable_video    = $atts['enable_video'];
-						$show_start_stop = $atts['show_start_stop'];
-						$transition_mode = $atts['transition_mode'];
+					$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
+					$enable_video    = $atts['enable_video'];
+					$show_start_stop = $atts['show_start_stop'];
+					$transition_mode = $atts['transition_mode'];
 
-						$auto  = $refresh_interval ? 'true' : 'false';
-						$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
-						$pause = $refresh_interval * 1000;
-						$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
+					$auto  = $refresh_interval ? 'true' : 'false';
+					$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
+					$pause = $refresh_interval * 1000;
+					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
-						$autoControls = $show_start_stop ? 'autoControls: true,' : '';
+					$autoControls = $show_start_stop ? 'autoControls: true,' : '';
 
-						$slider_var  = self::SLUG . $widget_number;
-						$javascript .= <<<EOF
+					$slider_var  = self::SLUG . $widget_number;
+					$javascript .= <<<EOF
 var {$slider_var} = null;
 
 jQuery(document).ready(function() {
@@ -995,74 +927,7 @@ jQuery(document).ready(function() {
 		slideMargin: 2
 	});
 });
-
 EOF;
-					} else {
-						$tw_padding = 'tw_padding' . $widget_number;
-						$tw_wrapper = 'tw_wrapper' . $widget_number;
-
-						$disable_animation = $atts['disable_animation'];
-						$fade_in_speed     = $atts['fade_in_speed'];
-						$fade_out_speed    = $atts['fade_out_speed'];
-						$height            = $atts['height'];
-						$max_height        = $atts['max_height'];
-						$min_height        = $atts['min_height'];
-
-						$enable_animation = 1;
-						if ( $disable_animation || $height || $max_height || $min_height ) {
-							$enable_animation = 0;
-						}
-
-						if ( $refresh_interval ) {
-							$javascript .= <<<EOF
-function nextTestimonial{$widget_number}() {
-	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
-		var active = jQuery('.{$id_base} .active');
-		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
-
-		active.fadeOut({$fade_out_speed}, function() {
-			active.removeClass('active');
-			next.fadeIn({$fade_in_speed});
-			next.removeClass('display-none');
-			next.addClass('active');
-
-			{INTERNAL_SCRIPTS}
-
-			// added padding
-			if ( {$enable_animation} )
-				{$tw_wrapper}.animate({ height: next.height() + {$tw_padding} });
-		});
-	}
-}
-
-jQuery(document).ready(function() {
-	jQuery('.{$id_base}').hover(function() {
-		jQuery(this).addClass('hovered')
-	}, function() {
-		jQuery(this).removeClass('hovered')
-	});
-
-	nextTestimonial{$widget_number}interval = setInterval('nextTestimonial{$widget_number}()', {$refresh_interval} * 1000);
-});
-
-EOF;
-						}
-
-						$javascript .= <<<EOF
-if ( {$enable_animation} ) {
-	var {$tw_wrapper} = jQuery('.{$id_base}');
-	var {$tw_padding} = 0;
-
-	jQuery(document).ready(function() {
-		// tw_padding is the difference in height to take into account all styling options
-		{$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget-testimonial').height();
-
-		// fixes first animation by defining height to adjust to
-		{$tw_wrapper}.height( {$tw_wrapper}.height() );
-	});
-}
-EOF;
-					}
 
 					$javascript         .= "\n" . '</script>';
 					$scripts[ $id_base ] = $javascript;
@@ -1568,11 +1433,11 @@ EOF;
 
 
 	public static function widgets_init() {
-		register_widget( 'Testimonials_Widget_Widget' );
-		// register_widget( 'Testimonials_Widget_Widget_Archives' );
-		register_widget( 'Testimonials_Widget_Widget_Categories' );
-		register_widget( 'Testimonials_Widget_Widget_Recent_Testimonials' );
-		register_widget( 'Testimonials_Widget_Widget_Tag_Cloud' );
+		// register_widget( 'Testimonials_Widget_Archives_Widget' );
+		register_widget( 'Testimonials_Widget_Categories_Widget' );
+		register_widget( 'Testimonials_Widget_Recent_Testimonials_Widget' );
+		register_widget( 'Testimonials_Widget_Slider_Widget' );
+		register_widget( 'Testimonials_Widget_Tag_Cloud_Widget' );
 	}
 
 

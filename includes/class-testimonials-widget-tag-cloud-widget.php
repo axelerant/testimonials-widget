@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget_Tag_Cloud' ) )
+if ( class_exists( 'Testimonials_Widget_Tag_Cloud_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
-	const ID = 'tw_widget_tag_cloud';
+class Testimonials_Widget_Tag_Cloud_Widget extends Aihrus_Widget {
+	const ID = 'tw_tag_cloud_widget';
 
 	public static $title;
 
@@ -49,7 +49,7 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 		$args = array(
 			'taxonomy' => $instance['taxonomy'],
 		);
-		wp_tag_cloud( apply_filters( 'tw_widget_tag_cloud_args', $args ) );
+		wp_tag_cloud( apply_filters( 'tw_tag_cloud_widget_args', $args ) );
 
 		echo "</div>\n";
 	}
@@ -91,7 +91,7 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'tw_widget_tag_cloud_options', $form_parts );
+		$form_parts = apply_filters( 'tw_tag_cloud_widget_options', $form_parts );
 
 		return $form_parts;
 	}

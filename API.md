@@ -120,21 +120,29 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Allow ordered list of template paths to be amended. [Usage](https://github.com/GaryJones/Gamajo-Template-Loader/blob/develop/class-gamajo-template-loader.php#L201)
 
-* `tw_widget_categories_dropdown_args`
+* `tw_categories_widget_dropdown_args`
 
 	Used for modifying [wp_dropdown_categories](http://codex.wordpress.org/Function_Reference/wp_dropdown_categories) as part of the testimonials' categories widget.
 
-* `tw_widget_categories_args`
+* `tw_categories_widget_args`
 
 	Used for modifying [wp_list_categories](http://codex.wordpress.org/Function_Reference/wp_list_categories) as part of the testimonials' categories widget.
 
-* `tw_widget_tag_cloud_args`
+* `tw_tag_cloud_widget_args`
 
 	Used for modifying [wp_tag_cloud](http://codex.wordpress.org/Function_Reference/wp_tag_cloud) as part of the testimonials' tag cloud widget.
 
-* `tw_widget_recent_testimonials_args`
+* `tw_recent_testimonials_widget_args`
 
 	Used for modifying [WP_Query](http://codex.wordpress.org/Function_Reference/WP_Query) as part of the recent testimonials widget.
+
+* `tw_archives_widget_dropdown_args`
+
+	Used for modifying [wp_get_archives](http://codex.wordpress.org/Function_Reference/wp_get_archives) as part of the testimonials archive widget.
+
+* `tw_archives_widget_args`
+
+	Used for modifying [wp_get_archives](http://codex.wordpress.org/Function_Reference/wp_get_archives) as part of the testimonials archive widget.
 
 ### Backend
 
@@ -194,21 +202,25 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Version tracking for settings. [example](https://gist.github.com/michael-cannon/5833774)
 
-* `tw_widget_options`
+* `tw_slider_widget_options`
 
 	Alters displayed widget options. [example](https://gist.github.com/michael-cannon/5833782)
 
-* `tw_widget_categories_options`
+* `tw_categories_widget_options`
 
 	Used for modifying widget options as part of the testimonials' categories widget. [similar example](https://gist.github.com/michael-cannon/5833782)
 
-* `tw_widget_tag_cloud_options`
+* `tw_tag_cloud_widget_options`
 
 	Used for modifying widget options as part of the testimonials' tag cloud widget. [similar example](https://gist.github.com/michael-cannon/5833782)
 
-* `tw_widget_recent_testimonials_options`
+* `tw_recent_testimonials_widget_options`
 
 	Used for modifying widget options as part of the recent testimonials widget. [similar example](https://gist.github.com/michael-cannon/5833782)
+
+* `tw_archives_widget_options`
+
+	Used for modifying widget options as part of the testimonials archives widget. [similar example](https://gist.github.com/michael-cannon/5833782)
 
 * `tw_display_setting`
 

@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget_Archives' ) )
+if ( class_exists( 'Testimonials_Widget_Archives_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
-	const ID = 'tw_widget_archives';
+class Testimonials_Widget_Archives_Widget extends Aihrus_Widget {
+	const ID = 'tw_archives_widget';
 
 	public static $title;
 
@@ -60,7 +60,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 				'format' => 'option',
 				'show_post_count' => $c,
 			);
-			wp_get_archives( apply_filters( 'tw_widget_archives_dropdown_args', $args ) );
+			wp_get_archives( apply_filters( 'tw_archives_widget_dropdown_args', $args ) );
 				?>
 			</select>
 			<?php
@@ -72,7 +72,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 				'type' => 'monthly',
 				'show_post_count' => $c,
 			);
-			wp_get_archives( apply_filters( 'tw_widget_archives_args', $args ) );
+			wp_get_archives( apply_filters( 'tw_archives_widget_args', $args ) );
 			?>
 			</ul>
 			<?php
@@ -123,7 +123,7 @@ class Testimonials_Widget_Widget_Archives extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'tw_widget_archives_options', $form_parts );
+		$form_parts = apply_filters( 'tw_archives_widget_options', $form_parts );
 
 		return $form_parts;
 	}

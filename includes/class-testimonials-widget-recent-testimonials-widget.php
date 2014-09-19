@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget_Recent_Testimonials' ) )
+if ( class_exists( 'Testimonials_Widget_Recent_Testimonials_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
-	const ID = 'tw_widget_recent_testimonials';
+class Testimonials_Widget_Recent_Testimonials_Widget extends Aihrus_Widget {
+	const ID = 'tw_recent_testimonials_widget';
 
 	public static $title;
 
@@ -54,7 +54,7 @@ class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
 			'ignore_sticky_posts' => true,
 			'post_type' => Testimonials_Widget::PT,
 		);
-		$args = apply_filters( 'tw_widget_recent_testimonials_args', $args );
+		$args = apply_filters( 'tw_recent_testimonials_widget_args', $args );
 
 		$r = new WP_Query( $args );
 		if ( $r->have_posts() ) { 
@@ -111,7 +111,7 @@ class Testimonials_Widget_Widget_Recent_Testimonials extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'tw_widget_recent_testimonials_options', $form_parts );
+		$form_parts = apply_filters( 'tw_recent_testimonials_widget_options', $form_parts );
 
 		return $form_parts;
 	}

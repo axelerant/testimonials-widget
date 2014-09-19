@@ -119,22 +119,4 @@ if ( ! function_exists( 'testimonials_slider' ) ) {
 	}
 }
 
-
-if ( ! function_exists( 'testimonialswidget_list' ) ) {
-	function testimonialswidget_list( $atts = array() ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials()' );
-
-		return testimonials( $atts );
-	}
-}
-
-
-if ( ! function_exists( 'testimonialswidget_widget' ) ) {
-	function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials_slider()' );
-
-		return testimonials_slider( $atts, $widget_number );
-	}
-}
-
 ?>

@@ -25,8 +25,10 @@
 * Readme.txt updates
 * RELATES #129 Testimonials Archive widget
 * Removed customized edit title
+* Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
@@ -40,6 +42,7 @@
 * Restore Testimonials Widget branding
 * Restore Testimonials Widget Premium branding
 * Revise descriptions
+* Revise widget class and files names
 * Simplify Review schema handling
 * Update keywords
 * Update licensing entries

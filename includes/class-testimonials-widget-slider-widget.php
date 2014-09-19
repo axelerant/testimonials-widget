@@ -20,19 +20,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget' ) )
+if ( class_exists( 'Testimonials_Widget_Slider_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget extends Aihrus_Widget {
-	const ID = 'testimonials_widget';
+class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
+	const ID = 'tw_slider_widget';
 
 
 	public function __construct() {
 		$classname   = __CLASS__;
 		$description = esc_html__( 'Display testimonials with multiple selection and display options', 'testimonials-widget' );
 		$id_base     = self::ID;
-		$title       = esc_html__( 'Testimonials', 'testimonials-widget' );
+		$title       = esc_html__( 'Testimonials Slider', 'testimonials-widget' );
 
 		parent::__construct( $classname, $description, $id_base, $title );
 	}
@@ -98,7 +98,7 @@ class Testimonials_Widget_Widget extends Aihrus_Widget {
 			);
 		}
 
-		$form_parts = apply_filters( 'tw_widget_options', $form_parts );
+		$form_parts = apply_filters( 'tw_slider_widget_options', $form_parts );
 
 		return $form_parts;
 	}
