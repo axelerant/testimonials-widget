@@ -3,6 +3,7 @@
 ## [testimonials] - Listings with paging 
 
 * `[testimonials category="category-name"]` - Testimonial list by category
+* `[testimonials category=123]` - Testimonial list by category ID 123
 * `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
 * `[testimonials category=product tags=widget limit=5]` - Testimonial list by tag, showing 5 at most
 * `[testimonials char_limit=0 limit=-1]` - Show all testimonials on one page
