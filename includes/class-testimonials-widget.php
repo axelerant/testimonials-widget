@@ -169,6 +169,8 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		self::init_post_type();
 		self::styles();
+		
+		add_action( 'generate_rewrite_rules', array( __CLASS__, 'generate_rewrite_rules' ) );
 	}
 
 
@@ -1923,13 +1925,19 @@ EOD;
 
 
 	public static function get_archives_link( $link_html ) {
-		if ( false ) {
-			$home_url     = home_url();
-			$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
-			$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
-		}
+		$home_url    = home_url();
+		$has_archive = tw_get_option( 'has_archive' );
+		$link_html   = str_replace( $home_url, $home_url . '/' . $has_archive, $link_html );
 
 		return $link_html;
+	}
+
+
+	function generate_rewrite_rules( $wp_rewrite ) {
+		$rules             = cpt_generate_date_archives( self::PT, $wp_rewrite );
+		$wp_rewrite->rules = $rules + $wp_rewrite->rules;
+
+		return $wp_rewrite;
 	}
 
 

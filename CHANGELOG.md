@@ -42,6 +42,7 @@
 * RESOLVE #130 Recent Testimonials widget
 * RESOLVE #131 Implement widget content caching
 * RESOLVE #132 Implement shortcodes for all widgets
+* RESOLVE #134 Implement testimonials date archives
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
