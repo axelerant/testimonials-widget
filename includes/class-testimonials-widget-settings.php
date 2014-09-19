@@ -111,7 +111,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$sections['general']   = esc_html__( 'General', 'testimonials-widget' );
 		self::$sections['selection'] = esc_html__( 'Selection', 'testimonials-widget' );
 		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
-		self::$sections['widget']    = esc_html__( 'Widget', 'testimonials-widget' );
+		self::$sections['widget']    = esc_html__( 'Slider Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
 		self::$sections['columns']   = esc_html__( 'Columns', 'testimonials-widget' );
 
@@ -233,43 +233,18 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
-		self::$settings['use_bxslider'] = array(
-			'title' => esc_html__( 'Use bxSlider?', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Prior to 2.15.0, Testimonials\' used custom JavaScript for transitions.', 'testimonials-widget' ),
+		self::$settings['exclude_bxslider_css'] = array(
+			'title' => esc_html__( 'Exclude bxSlider CSS?', 'testimonials-widget' ),
+			'desc' => esc_html__( 'For a bare-bones, unthemed slider.', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-			'backwards' => array(
-				'version' => '2.15.0',
-				'std' => 0,
-			),
-			'std' => 1,
 			'widget' => 0,
 			'show_code' => false,
 		);
-
-		$use_bxslider = tw_get_option( 'use_bxslider' );
-		if ( $use_bxslider ) {
-			self::$settings['exclude_bxslider_css'] = array(
-				'title' => esc_html__( 'Exclude bxSlider CSS?', 'testimonials-widget' ),
-				'desc' => esc_html__( 'For a bare-bones, unthemed slider.', 'testimonials-widget' ),
-				'type' => 'checkbox',
-				'validate' => 'is_true',
-				'widget' => 0,
-				'show_code' => false,
-			);
-		}
 
 		self::$settings['exclude_css'] = array(
 			'title' => esc_html__( 'Exclude default CSS?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'Prevent default CSS from being loaded.', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'widget' => 0,
-			'show_code' => false,
-		);
-
-		self::$settings['include_ie7_css'] = array(
-			'title' => esc_html__( 'Include IE7 CSS?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'widget' => 0,
@@ -739,60 +714,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		parent::settings();
-
-		if ( empty( $use_bxslider ) ) {
-			self::$settings['version_options_heading'] = array(
-				'section' => 'reset',
-				'desc' => esc_html__( 'Version Based Options', 'testimonials-widget' ),
-				'type' => 'heading',
-			);
-
-			self::$settings['disable_animation'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Disable Animation?', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Disable animation between testimonial transitions. Useful when stacking widgets.', 'testimonials-widget' ),
-				'type' => 'checkbox',
-				'validate' => 'is_true',
-				'std' => 1,
-			);
-
-			self::$settings['fade_out_speed'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Fade Out Speed', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
-				'std' => 1250,
-				'validate' => 'absint',
-			);
-
-			self::$settings['fade_in_speed'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Fade In Speed', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Transition duration in milliseconds; higher values indicate slower animations, not faster ones.', 'testimonials-widget' ),
-				'std' => 500,
-				'validate' => 'absint',
-			);
-
-			self::$settings['height'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Height', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Testimonials height, in pixels. Overrides minimum and maximum height.', 'testimonials-widget' ),
-				'validate' => 'min1',
-			);
-
-			self::$settings['min_height'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Minimum Height', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Set for minimum display height, in pixels.', 'testimonials-widget' ),
-				'validate' => 'min1',
-			);
-
-			self::$settings['max_height'] = array(
-				'section' => 'reset',
-				'title' => esc_html__( 'Maximum Height', 'testimonials-widget' ),
-				'desc' => esc_html__( 'Prior to 2.15.0, Set for maximum display height, in pixels.', 'testimonials-widget' ),
-				'validate' => 'min1',
-			);
-		}
 
 		self::$settings['reset_expand_end'] = array(
 			'section' => 'reset',

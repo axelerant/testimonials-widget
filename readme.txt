@@ -63,17 +63,25 @@ The single testimonial view supports image, source, title, location, email, comp
 * Testimonials archive view
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
-* Widgets for categories listing, recent testimonials, slider, and tag cloud
+* Widgets for testimonial's archives, categories, recent, slider, and tag cloud
 
 = Shortcodes =
 
 * `[testimonials]` - Listings with paging 
-* `[testimonials_slider]` - Rotating testimonials
+* `[testimonials_archives]` - A monthly archive of your site's testimonials
+* `[testimonials_categories]` - A list or dropdown of testimonials' categories
+* `[testimonials_recent]` - Your site's most recent testimonials
+* `[testimonials_slider]` - Displays rotating testimonials or statically
+* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
 
 = Theme Functions =
 
 * `testimonials()` - Testimonials listing with paging 
-* `testimonials_slider()` - Rotating testimonials
+* `testimonials_archives()` - A monthly archive of your site's testimonials
+* `testimonials_categories()` - A list or dropdown of testimonials' categories
+* `testimonials_recent()` - Your site's most recent testimonials
+* `testimonials_slider()` - Displays rotating testimonials or statically
+* `testimonials_tag_cloud()` - A cloud of your most used testimonials' tags
 
 = Testimonials Widget Premium =
 
@@ -154,7 +162,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Testimonials Widget Migration Helpers =
 
-* Testimonials Widget pre 2.0.0 - Automatic upgrading
+* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 * [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
@@ -199,9 +207,9 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Testimonials "slider" widget displays static and rotating testimonials 
 * Testimonials category widget
 * Testimonials output is completely customizable via filters
+* Testimonials slider widget displays rotating testimonials or statically
 * Testimonials support styling based upon CSS classes for category, tags and post id
 * Testimonials tag cloud widget
 * Unique CSS class per widget

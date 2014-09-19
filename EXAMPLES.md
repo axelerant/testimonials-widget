@@ -1,6 +1,6 @@
 # Shortcode Examples - Testimonials Widget
 
-## [testimonials]
+## [testimonials] - Listings with paging 
 
 * `[testimonials category="category-name"]` - Testimonial list by category
 * `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
@@ -13,7 +13,23 @@
 * `[testimonials order=ASC orderby=title]` - List testimonials by post title
 * `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
 
-## [testimonials_slider]
+## [testimonials_archives] - A monthly archive of your site's testimonials
+
+* `[testimonials_archives dropdown=true count=true]` - Testimonial's archive as dropdown with monthly count
+
+## [testimonials_categories] - A list or dropdown of testimonials' categories
+
+* `[testimonials_categories count=true hierarchical=true]` - Testimonial's categories as hierarchical with monthly count
+
+## [testimonials_recent] - Your site's most recent testimonials
+
+* `[testimonials_recent number=3 show_date=true]` - The 3 most recent testimonials with dates
+
+## [testimonials_slider] - Displays rotating testimonials or statically
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first
 * `[testimonials_slider tags=sometag random=true]` - Show rotating, random testimonials having tag "sometag"
+
+## [testimonials_tag_cloud] - A cloud of your most used testimonials' tags
+
+* `[testimonials_tag_cloud]` - Show testimonials post tag cloud

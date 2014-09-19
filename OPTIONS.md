@@ -2,12 +2,10 @@
 
 ## General
 
-* Use bxSlider? - Prior to 2.15.0, Testimonials' used custom JavaScript for transitions.
 * Exclude bxSlider CSS? - For a bare-bones, unthemed slider.
 	* `exclude_bxslider_css` - default false; exclude_bxslider_css=true
 * Exclude default CSS? - Prevent default CSS from being loaded.
 	* `exclude_css` - default false; exclude_css=true
-* Include IE7 CSS?
 * Hide built-in quotes? - Remove open and close quote span tags surrounding testimonial content.
 	* `disable_quotes` - default false; disable_quotes=true
 * Remove `.hentry` CSS? – Some themes use class `.hentry` in a manner that breaks Testimonials' CSS and corrupts microdata parsing.
@@ -88,7 +86,7 @@
 * ORDER BY Order - DESC or ASC.
 	* `order` - [default DESC](http://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters); order=ASC
 
-## Widget
+## Slider Shortcode/Theme Function/Widget
 
 * Title
 	* `title` - default "Testimonials"
@@ -142,17 +140,39 @@
 * Remove Plugin Data on Deletion? - Delete all Testimonials data and options from database on plugin deletion.
 * Reset to Defaults? – Check this box to reset options to their defaults.
 
-### Version Based Options
+## Archives Shortcode/Theme Function/Widget
 
-* Disable Animation? - Disable animation between testimonial transitions. Useful when stacking.
-	* `disable_animation` - default false; disable_animation=true
-* Fade Out Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_out_speed` - default 1250; fade_out_speed=400
-* Fade In Speed - Transition duration in milliseconds; higher values indicate slower animations, not faster ones.
-	* `fade_in_speed` - default 500; fade_in_speed=800
-* Height - Testimonials height, in pixels. Overrides minimum and maximum height.
-	* `height` - default none; height=300
-* Minimum Height - Set for minimum display height, in pixels.
-	* `min_height` - default none; min_height=100
-* Maximum Height - Set for maximum display height, in pixels.
-	* `max_height` - default none; max_height=250
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 
+
+## Categories Shortcode/Theme Function/Widget
+
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 
+* Show hierarchy
+	* `hierarchical` - default false; hierarchical=true 
+
+## Categories Shortcode/Theme Function/Widget
+
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 
+* Show hierarchy
+	* `hierarchical` - default false; hierarchical=true 
+
+## Recent Shortcode/Theme Function/Widget
+
+* Number of testimonials to show
+	* `number` - default 5; number=10 
+* Display testimonial date?
+	* `show_date` - default false; show_date=true 
+
+## Tag Cloud Shortcode/Theme Function/Widget
+
+* Taxonomy
+	* `taxonomy` - default post_tag; taxonomy=cpt_post_tag

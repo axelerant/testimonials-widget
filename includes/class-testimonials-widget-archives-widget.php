@@ -20,21 +20,21 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget_Tag_Cloud' ) )
+if ( class_exists( 'Testimonials_Widget_Archives_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
-	const ID = 'tw_widget_tag_cloud';
+class Testimonials_Widget_Archives_Widget extends Aihrus_Widget {
+	const ID = 'tw_archives_widget';
 
 	public static $title;
 
 
 	public function __construct() {
 		$classname   = __CLASS__;
-		$description = esc_html__( 'A cloud of your most used testimonials\' tags .', 'testimonials-widget' );
+		$description = esc_html__( 'A monthly archive of your site\'s testimonials.', 'testimonials-widget' );
 		$id_base     = self::ID;
-		self::$title = esc_html__( 'Testimonials Tag Cloud', 'testimonials-widget' );
+		self::$title = esc_html__( 'Testimonials Archives', 'testimonials-widget' );
 
 		parent::__construct( $classname, $description, $id_base, self::$title );
 	}
@@ -44,54 +44,34 @@ class Testimonials_Widget_Widget_Tag_Cloud extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance, $widget_number ) {
-		echo '<div class="tagcloud">';
-
-		$args = array(
-			'taxonomy' => $instance['taxonomy'],
-		);
-		wp_tag_cloud( apply_filters( 'tw_widget_tag_cloud_args', $args ) );
-
-		echo "</div>\n";
+		return Testimonials_Widget::testimonials_archives( $instance, $widget_number );
 	}
 
 
-	/**
-	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
 	public static function form_parts( $instance = null, $number = null ) {
 		$form_parts = parent::form_parts( $instance, $number );
 
 		$form_parts['title']['std'] = self::$title;
 
-		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
-		if ( ! $use_cpt_taxonomy ) {
-			$options = array(
-				'category' => esc_html__( 'Category', 'testimonials-widget' ),
-				'post_tag' => esc_html__( 'Tags', 'testimonials-widget' ),
-			);
+		$form_parts['dropdown'] = array(
+			'title' => esc_html__( 'Display as dropdown', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 0,
+		);
 
-			$std = 'post_tag';
-		} else {
-			$options = array(
-				Testimonials_Widget::$cpt_category => esc_html__( 'Category', 'testimonials-widget' ),
-				Testimonials_Widget::$cpt_tags => esc_html__( 'Tags', 'testimonials-widget' ),
-			);
-
-			$std = Testimonials_Widget::$cpt_tags;
-		}
-
-		$form_parts['taxonomy'] = array(
-			'title' => esc_html__( 'Taxonomy', 'testimonials-widget' ),
-			'type' => 'select',
-			'choices' => $options,
-			'std' => $std,
+		$form_parts['count'] = array(
+			'title' => esc_html__( 'Show post counts', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'std' => 0,
 		);
 
 		foreach ( $form_parts as $id => $parts ) {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'tw_widget_tag_cloud_options', $form_parts );
+		$form_parts = apply_filters( 'tw_archives_widget_options', $form_parts );
 
 		return $form_parts;
 	}

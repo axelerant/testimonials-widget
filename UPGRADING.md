@@ -2,7 +2,28 @@
 
 ## 3.0.0
 
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
+This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those customizations until corrections are made.
+
+The changes and helpers below are intended to help you update your customizations quickly. If further help is required, please request it via commenting upon the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055).
+
+### Changes
+
+* As [Internet Explorer 7.0 usage](http://www.w3schools.com/browsers/browsers_explorer.asp) is under 0.5% of Internet traffic, support for it is discontinued. Option `include_ie7_css` is removed.
+* Pre-2.15.0 JavaScript slider code has been replaced with [bxSlider](http://bxslider.com/) and is now removed. Options `use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, and `max_height` are removed.
+* Pre-2.0.0 Testimonials Widget automatic migration has been removed. Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
+* Replace `testimonials_widget_premium_` of actions, filters, and functions with `twp_`
+* Replace `testimonials_widget_` of actions, filters, and functions with `tw_`
+* Replace `tba_` of actions, filters, and functions with `tw_`
+* Replace `tw_widget_options` with `tw_slider_widget_options`
+
+###  Helpers
+
+*The ordering of the helper code below is important to prevent corruption.*
+
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#testimonials_widget_premium_#twp_#g" {} \;`
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#testimonials_widget_#tw_#g" {} \;`
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#tba_#tw_#g" {} \;`
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#tw_widget_options#tw_slider_widget_options#g" {} \;`
 
 ## 2.19.9
 

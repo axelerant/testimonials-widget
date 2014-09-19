@@ -111,6 +111,33 @@ if ( ! function_exists( 'testimonials' ) ) {
 }
 
 
+if ( ! function_exists( 'testimonials_archives' ) ) {
+	function testimonials_archives( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_archives( $atts );
+	}
+}
+
+
+if ( ! function_exists( 'testimonials_categories' ) ) {
+	function testimonials_categories( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_categories( $atts );
+	}
+}
+
+
+if ( ! function_exists( 'testimonials_recent' ) ) {
+	function testimonials_recent( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_recent( $atts );
+	}
+}
+
+
 if ( ! function_exists( 'testimonials_slider' ) ) {
 	function testimonials_slider( $atts = array(), $widget_number = null ) {
 		global $Testimonials_Widget;
@@ -120,20 +147,11 @@ if ( ! function_exists( 'testimonials_slider' ) ) {
 }
 
 
-if ( ! function_exists( 'testimonialswidget_list' ) ) {
-	function testimonialswidget_list( $atts = array() ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials()' );
+if ( ! function_exists( 'testimonials_tag_cloud' ) ) {
+	function testimonials_tag_cloud( $atts = array() ) {
+		global $Testimonials_Widget;
 
-		return testimonials( $atts );
-	}
-}
-
-
-if ( ! function_exists( 'testimonialswidget_widget' ) ) {
-	function testimonialswidget_widget( $atts = array(), $widget_number = null ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials_slider()' );
-
-		return testimonials_slider( $atts, $widget_number );
+		return $Testimonials_Widget->testimonials_tag_cloud( $atts );
 	}
 }
 

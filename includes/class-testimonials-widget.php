@@ -20,13 +20,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-common.php';
 require_once AIHR_DIR_LIB . 'class-redrokk-metabox-class.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-archives-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-categories-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-recent-testimonials-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-slider-widget.php';
+require_once TW_DIR_INC . 'class-testimonials-widget-tag-cloud-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-archives.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-categories.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-recent-testimonials.php';
-require_once TW_DIR_INC . 'class-testimonials-widget-widget-tag-cloud.php';
 
 if ( class_exists( 'Testimonials_Widget' ) )
 	return;
@@ -38,12 +38,11 @@ class Testimonials_Widget extends Aihrus_Common {
 	const SLUG    = 'tw_';
 	const VERSION = TW_VERSION;
 
-	const OLD_NAME = 'testimonialswidget';
-	const PT       = 'testimonials-widget';
+	const PT = 'testimonials-widget';
 
-	public static $class           = __CLASS__;
-	public static $cpt_category    = '';
-	public static $cpt_tags        = '';
+	public static $class = __CLASS__;
+	public static $cpt_category;
+	public static $cpt_tags;
 	public static $css             = array();
 	public static $css_called      = false;
 	public static $found_posts     = 0;
@@ -55,10 +54,10 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $notice_key;
 	public static $not_found = false;
 	public static $plugin_assets;
-	public static $post_count      = 0;
-	public static $scripts         = array();
-	public static $scripts_called  = false;
-	public static $settings_link   = '';
+	public static $post_count     = 0;
+	public static $scripts        = array();
+	public static $scripts_called = false;
+	public static $settings_link;
 	public static $tag_close_quote = '<span class="close-quote"></span>';
 	public static $tag_open_quote  = '<span class="open-quote"></span>';
 	public static $template_loader;
@@ -113,9 +112,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
-		add_shortcode( 'testimonialswidget_list', array( __CLASS__, 'testimonialswidget_list' ) );
-		add_shortcode( 'testimonialswidget_widget', array( __CLASS__, 'testimonialswidget_widget' ) );
+		add_shortcode( 'testimonials_archives', array( __CLASS__, 'testimonials_archives' ) );
+		add_shortcode( 'testimonials_categories', array( __CLASS__, 'testimonials_categories' ) );
+		add_shortcode( 'testimonials_recent', array( __CLASS__, 'testimonials_recent' ) );
 		add_shortcode( 'testimonials_slider', array( __CLASS__, 'testimonials_slider' ) );
+		add_shortcode( 'testimonials_tag_cloud', array( __CLASS__, 'testimonials_tag_cloud' ) );
 	}
 
 
@@ -285,7 +286,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$delete_data = tw_get_option( 'delete_data', false );
 		if ( $delete_data ) {
-			delete_option( self::OLD_NAME );
 			delete_option( Testimonials_Widget_Settings::ID );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
@@ -395,102 +395,6 @@ class Testimonials_Widget extends Aihrus_Common {
 			self::set_notice( 'notice_donate' );
 			tw_set_option( 'donate_version', self::VERSION );
 		}
-
-		$options = get_option( self::OLD_NAME );
-		if ( true !== $options['migrated'] ) {
-			self::migrate();
-		}
-	}
-
-
-	public static function migrate() {
-		global $wpdb;
-
-		$table_name       = $wpdb->prefix . self::OLD_NAME;
-		$meta_key         = '_' . self::PT . ':testimonial_id';
-		$has_table_query  = "SELECT table_name FROM information_schema.tables WHERE table_schema='{$wpdb->dbname}' AND table_name='{$table_name}'";
-		$has_table_result = $wpdb->get_col( $has_table_query );
-
-		if ( ! empty( $has_table_result ) ) {
-			// check that db table exists and has entries
-			$query = 'SELECT `testimonial_id`, `testimonial`, `author`, `source`, `tags`, `public`, `time_added`, `time_updated` FROM `' . $table_name . '`';
-
-			// ignore already imported
-			$done_import_query = 'SELECT meta_value FROM ' . $wpdb->postmeta . ' WHERE meta_key = "' . $meta_key . '"';
-			$done_import       = $wpdb->get_col( $done_import_query );
-
-			if ( ! empty( $done_import ) ) {
-				$done_import = array_unique( $done_import );
-				$query      .= ' WHERE testimonial_id NOT IN ( ' . implode( ',', $done_import ) . ' )';
-			}
-
-			$results = $wpdb->get_results( $query );
-			if ( ! empty( $results ) ) {
-				foreach ( $results as $result ) {
-					// author can contain title and company details
-					$author  = $result->author;
-					$company = false;
-
-					// ex: First Last of Company!
-					$author = str_replace( ' of ', ', ', $author );
-					// now ex: First Last, Company!
-
-					// ex: First Last, Company
-					// ex: First Last, Web Development Manager, Topcon Positioning Systems, Inc.
-					// ex: First Last, Owner, Company, LLC
-					$author     = str_replace( ' of ', ', ', $author );
-					$temp_comma = '^^^';
-					$author     = str_replace( ', LLC', $temp_comma . ' LLC', $author );
-
-					// now ex: First Last, Owner, Company^^^ LLC
-					$author = str_replace( ', Inc', $temp_comma . ' Inc', $author );
-
-					// ex: First Last, Web Development Manager, Company^^^ Inc.
-					// it's possible to have "Michael Cannon, Senior Developer" and "Senior Developer" become the company. Okay for now
-					$author = explode( ', ', $author );
-
-					if ( 1 < count( $author ) ) {
-						$company = array_pop( $author );
-						$company = str_replace( $temp_comma, ',', $company );
-					}
-
-					$author = implode( ', ', $author );
-					$author = str_replace( $temp_comma, ',', $author );
-
-					$post_data = array(
-						'post_type' => self::PT,
-						'post_status' => ( 'yes' == $result->public ) ? 'publish' : 'private',
-						'post_date' => $result->time_added,
-						'post_modified' => $result->time_updated,
-						'post_title' => $author,
-						'post_content' => $result->testimonial,
-						'tags_input' => $result->tags,
-					);
-
-					$post_id = wp_insert_post( $post_data, true );
-
-					// track/link testimonial import to new post
-					add_post_meta( $post_id, $meta_key, $result->testimonial_id );
-
-					if ( ! empty( $company ) ) {
-						add_post_meta( $post_id, 'testimonials-widget-company', $company );
-					}
-
-					$source = $result->source;
-					if ( ! empty( $source ) ) {
-						if ( is_email( $source ) ) {
-							add_post_meta( $post_id, 'testimonials-widget-email', $source );
-						} else {
-							add_post_meta( $post_id, 'testimonials-widget-url', $source );
-						}
-					}
-				}
-			}
-		}
-
-		$options['migrated'] = true;
-		delete_option( self::OLD_NAME );
-		add_option( self::OLD_NAME, $options, '', 'no' );
 	}
 
 
@@ -758,13 +662,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public static function testimonialswidget_list( $atts ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials()' );
-
-		return self::testimonials( $atts );
-	}
-
-
 	public static function testimonials( $atts ) {
 		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Testimonials_Widget_Settings::validate_settings( $atts );
@@ -794,13 +691,6 @@ class Testimonials_Widget extends Aihrus_Common {
 		self::call_scripts_styles( $testimonials, $atts, $instance );
 
 		return $content;
-	}
-
-
-	public static function testimonialswidget_widget( $atts, $widget_number = null ) {
-		_deprecated_function( __FUNCTION__, '2.19.0', 'testimonials_slider()' );
-
-		return self::testimonials_slider( $atts, $widget_number );
 	}
 
 
@@ -848,17 +738,14 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		wp_enqueue_script( 'jquery' );
 
-		$use_bxslider = $atts['use_bxslider'];
-		if ( $use_bxslider ) {
-			$enable_video = $atts['enable_video'];
-			if ( $enable_video ) {
-				wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
-				wp_enqueue_script( 'jquery.fitvids' );
-			}
-
-			wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.js', array( 'jquery' ), '4.1.2', true );
-			wp_enqueue_script( 'jquery.bxslider' );
+		$enable_video = $atts['enable_video'];
+		if ( $enable_video ) {
+			wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'jquery.fitvids' );
 		}
+
+		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.js', array( 'jquery' ), '4.1.2', true );
+		wp_enqueue_script( 'jquery.bxslider' );
 
 		do_action( 'tw_scripts', $atts );
 	}
@@ -869,24 +756,13 @@ class Testimonials_Widget extends Aihrus_Common {
 			return;
 		}
 
-		$use_bxslider = tw_get_option( 'use_bxslider' );
-		if ( $use_bxslider ) {
-			$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
-			if ( empty( $exclude_bxslider_css ) ) {
-				wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
-				wp_enqueue_style( 'jquery.bxslider' );
-			}
-
-			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
-		} else {
-			wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget-2.14.0.css' );
-
-			$include_ie7_css = tw_get_option( 'include_ie7_css' );
-			if ( $include_ie7_css ) {
-				wp_register_style( __CLASS__ . '-ie7', self::$plugin_assets . 'css/testimonials-widget-ie7.css' );
-				wp_enqueue_style( __CLASS__ . '-ie7' );
-			}
+		$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
+		if ( empty( $exclude_bxslider_css ) ) {
+			wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
+			wp_enqueue_style( 'jquery.bxslider' );
 		}
+
+		wp_register_style( __CLASS__, self::$plugin_assets . 'css/testimonials-widget.css' );
 
 		$exclude_css = tw_get_option( 'exclude_css' );
 		if ( empty( $exclude_css ) ) {
@@ -898,45 +774,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function get_testimonials_html_css( $atts, $widget_number = null ) {
-		$css     = array();
-		$id_base = self::ID . $widget_number;
-
-		switch ( $atts['type'] ) {
-			case 'testimonials_slider':
-				$use_bxslider = $atts['use_bxslider'];
-				if ( ! $use_bxslider ) {
-					$height     = $atts['height'];
-					$max_height = $atts['max_height'];
-					$min_height = $atts['min_height'];
-
-					if ( $height ) {
-						$max_height = $height;
-						$min_height = $height;
-					}
-
-					if ( $min_height ) {
-						$css[] = <<<EOF
-<style>
-.$id_base {
-min-height: {$min_height}px;
-}
-</style>
-EOF;
-					}
-
-					if ( $max_height ) {
-						$css[] = <<<EOF
-<style>
-.$id_base {
-	max-height: {$max_height}px;
-}
-</style>
-EOF;
-					}
-				}
-				break;
-		}
-
+		$css = array();
 		$css = apply_filters( 'tw_testimonials_css', $css, $atts, $widget_number );
 
 		return $css;
@@ -963,22 +801,20 @@ EOF;
 
 					$javascript .= '<script type="text/javascript">' . "\n";
 
-					$use_bxslider = $atts['use_bxslider'];
-					if ( $use_bxslider ) {
-						$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
-						$enable_video    = $atts['enable_video'];
-						$show_start_stop = $atts['show_start_stop'];
-						$transition_mode = $atts['transition_mode'];
+					$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
+					$enable_video    = $atts['enable_video'];
+					$show_start_stop = $atts['show_start_stop'];
+					$transition_mode = $atts['transition_mode'];
 
-						$auto  = $refresh_interval ? 'true' : 'false';
-						$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
-						$pause = $refresh_interval * 1000;
-						$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
+					$auto  = $refresh_interval ? 'true' : 'false';
+					$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
+					$pause = $refresh_interval * 1000;
+					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
-						$autoControls = $show_start_stop ? 'autoControls: true,' : '';
+					$autoControls = $show_start_stop ? 'autoControls: true,' : '';
 
-						$slider_var  = self::SLUG . $widget_number;
-						$javascript .= <<<EOF
+					$slider_var  = self::SLUG . $widget_number;
+					$javascript .= <<<EOF
 var {$slider_var} = null;
 
 jQuery(document).ready(function() {
@@ -995,74 +831,7 @@ jQuery(document).ready(function() {
 		slideMargin: 2
 	});
 });
-
 EOF;
-					} else {
-						$tw_padding = 'tw_padding' . $widget_number;
-						$tw_wrapper = 'tw_wrapper' . $widget_number;
-
-						$disable_animation = $atts['disable_animation'];
-						$fade_in_speed     = $atts['fade_in_speed'];
-						$fade_out_speed    = $atts['fade_out_speed'];
-						$height            = $atts['height'];
-						$max_height        = $atts['max_height'];
-						$min_height        = $atts['min_height'];
-
-						$enable_animation = 1;
-						if ( $disable_animation || $height || $max_height || $min_height ) {
-							$enable_animation = 0;
-						}
-
-						if ( $refresh_interval ) {
-							$javascript .= <<<EOF
-function nextTestimonial{$widget_number}() {
-	if ( ! jQuery('.{$id_base}').first().hasClass('hovered') ) {
-		var active = jQuery('.{$id_base} .active');
-		var next   = (jQuery('.{$id_base} .active').next().length > 0) ? jQuery('.{$id_base} .active').next() : jQuery('.{$id_base} .testimonials-widget-testimonial:first-child');
-
-		active.fadeOut({$fade_out_speed}, function() {
-			active.removeClass('active');
-			next.fadeIn({$fade_in_speed});
-			next.removeClass('display-none');
-			next.addClass('active');
-
-			{INTERNAL_SCRIPTS}
-
-			// added padding
-			if ( {$enable_animation} )
-				{$tw_wrapper}.animate({ height: next.height() + {$tw_padding} });
-		});
-	}
-}
-
-jQuery(document).ready(function() {
-	jQuery('.{$id_base}').hover(function() {
-		jQuery(this).addClass('hovered')
-	}, function() {
-		jQuery(this).removeClass('hovered')
-	});
-
-	nextTestimonial{$widget_number}interval = setInterval('nextTestimonial{$widget_number}()', {$refresh_interval} * 1000);
-});
-
-EOF;
-						}
-
-						$javascript .= <<<EOF
-if ( {$enable_animation} ) {
-	var {$tw_wrapper} = jQuery('.{$id_base}');
-	var {$tw_padding} = 0;
-
-	jQuery(document).ready(function() {
-		// tw_padding is the difference in height to take into account all styling options
-		{$tw_padding} = {$tw_wrapper}.height() - jQuery('.{$id_base} .testimonials-widget-testimonial').height();
-
-		// fixes first animation by defining height to adjust to
-		{$tw_wrapper}.height( {$tw_wrapper}.height() );
-	});
-}
-EOF;
-					}
 
 					$javascript         .= "\n" . '</script>';
 					$scripts[ $id_base ] = $javascript;
@@ -1568,11 +1337,11 @@ EOF;
 
 
 	public static function widgets_init() {
-		register_widget( 'Testimonials_Widget_Widget' );
-		// register_widget( 'Testimonials_Widget_Widget_Archives' );
-		register_widget( 'Testimonials_Widget_Widget_Categories' );
-		register_widget( 'Testimonials_Widget_Widget_Recent_Testimonials' );
-		register_widget( 'Testimonials_Widget_Widget_Tag_Cloud' );
+		register_widget( 'Testimonials_Widget_Archives_Widget' );
+		register_widget( 'Testimonials_Widget_Categories_Widget' );
+		register_widget( 'Testimonials_Widget_Recent_Testimonials_Widget' );
+		register_widget( 'Testimonials_Widget_Slider_Widget' );
+		register_widget( 'Testimonials_Widget_Tag_Cloud_Widget' );
 	}
 
 
@@ -2116,6 +1885,167 @@ EOD;
 
 		return $query;
 	}
+
+
+	public static function testimonials_archives( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Archives_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Archives_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_archives';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_archives_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_archives_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'archives' );
+
+		return $content;
+	}
+
+
+	public static function get_archives_link( $link_html ) {
+		if ( false ) {
+			$home_url     = home_url();
+			$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
+			$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
+		}
+
+		return $link_html;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function getarchives_where( $where, $args ) {
+		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
+	}
+
+
+	public static function testimonials_categories( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Categories_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Categories_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_categories';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_categories_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_categories_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'categories' );
+
+		return $content;
+	}
+
+
+	public static function testimonials_recent( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Recent_Testimonials_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Recent_Testimonials_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_recent';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_recent_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_recent_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'recent' );
+
+		return $content;
+	}
+
+
+	public static function testimonials_tag_cloud( $atts, $widget_number = null ) {
+		$atts = wp_parse_args( $atts, Testimonials_Widget_Tag_Cloud_Widget::get_defaults() );
+		$atts = Testimonials_Widget_Tag_Cloud_Widget::validate_settings( $atts );
+
+		$atts['type'] = 'testimonials_tag_cloud';
+
+		$instance              = ! empty( $widget_number ) ? $widget_number : self::add_instance();
+		$atts['widget_number'] = $instance;
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_tag_cloud_html( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts, $instance );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_tag_cloud_html( $atts ) {
+		global $at_template_args;
+
+		$at_template_args = compact( 'atts' );
+
+		$content = self::get_template_part( 'testimonials', 'tag-cloud' );
+
+		return $content;
+	}
+
+
 }
 
 

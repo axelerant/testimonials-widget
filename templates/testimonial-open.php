@@ -10,17 +10,9 @@ if ( is_single() && empty( $widget_number ) ) {
 	$class .= ' list';
 } else {
 	// widget display
-	if ( $atts['use_bxslider'] ) {
-		$refresh_interval = $atts['refresh_interval'];
-		if ( ! $is_first && ! empty( $refresh_interval ) && ! in_array( $atts['transition_mode'], array( 'horizontal', 'vertical' ) ) ) {
-			$class .= ' display-none';
-		}
-	} else {
-		if ( $is_first ) {
-			$class .= ' active';
-		} else {
-			$class .= ' display-none';
-		}
+	$refresh_interval = $atts['refresh_interval'];
+	if ( ! $is_first && ! empty( $refresh_interval ) && ! in_array( $atts['transition_mode'], array( 'horizontal', 'vertical' ) ) ) {
+		$class .= ' display-none';
 	}
 }
 

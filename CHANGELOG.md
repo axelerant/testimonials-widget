@@ -13,6 +13,10 @@
 * Add filter `tw_widget_recent_testimonials_options`
 * Add filter `tw_widget_tag_cloud_args`
 * Add filter `tw_widget_tag_cloud_options`
+* Add shortcode and theme function `testimonials_archives`
+* Add shortcode and theme function `testimonials_categories`
+* Add shortcode and theme function `testimonials_recent`
+* Add shortcode and theme function `testimonials_tag_cloud`
 * Added recent testimonials widget
 * Added testimonials category widget
 * Added testimonials tag cloud widget
@@ -23,15 +27,20 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
-* RELATES #129 Testimonials Archive widget
 * Removed customized edit title
+* Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
+* Removed pre-2.0.0 migration code
+* Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
+* RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library
+* RESOLVE #129 Testimonials Archive widget
 * RESOLVE #130 Recent Testimonials widget
+* RESOLVE #132 Implement shortcodes for all widgets
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
@@ -40,6 +49,7 @@
 * Restore Testimonials Widget branding
 * Restore Testimonials Widget Premium branding
 * Revise descriptions
+* Revise widget class and files names
 * Simplify Review schema handling
 * Update keywords
 * Update licensing entries

@@ -2,14 +2,10 @@
 
 ## Deprecated Shortcodes
 
-* `[testimonialswidget_list]` - Listings with paging
-	* Use `[testimonials]` instead
-* `[testimonialswidget_widget]` - Rotating testimonials
-	* Use `[testimonials_slider]` instead
+* `[testimonialswidget_list]` use `[testimonials]` instead as of 2.19.0
+* `[testimonialswidget_widget]` use `[testimonials_slider]` instead as of 2.19.0
 
 ## Deprecated Theme Functions
 
-* `testimonialswidget_list()` - Testimonials listing with paging 
-	* Use `testimonials()` instead
-* `testimonialswidget_widget()` - Rotating testimonials
-	* Use `testimonials_slider()` instead
+* `testimonialswidget_list()` use `testimonials()` instead as of 2.19.0
+* `testimonialswidget_widget()` use `testimonials_slider()` instead as of 2.19.0

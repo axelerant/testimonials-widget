@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Widget_Categories' ) )
+if ( class_exists( 'Testimonials_Widget_Categories_Widget' ) )
 	return;
 
 
-class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
-	const ID = 'tw_widget_categories';
+class Testimonials_Widget_Categories_Widget extends Aihrus_Widget {
+	const ID = 'tw_categories_widget';
 
 	public static $title;
 
@@ -44,51 +44,7 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance, $widget_number ) {
-		$c = ! empty( $instance['count'] ) ? '1' : '0';
-		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
-		$h = ! empty( $instance['hierarchical'] ) ? '1' : '0';
-
-		$cat_args = array(
-			'orderby' => 'name',
-			'show_count' => $c,
-			'hierarchical' => $h,
-		);
-
-		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
-		if ( $use_cpt_taxonomy ) {
-			$cat_args['taxonomy'] = Testimonials_Widget::$cpt_category;
-		}
-
-		if ( $d ) {
-			$cat_args['show_option_none'] = esc_html__( 'Select Testimonials Category', 'testimonials-widget' );
-
-			wp_dropdown_categories( apply_filters( 'tw_widget_categories_dropdown_args', $cat_args ) );
-			?>
-
-			<script type='text/javascript'>
-			/* <![CDATA[ */
-			var dropdown = document.getElementById("cat");
-			function onCatChange() {
-				if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
-					location.href = "<?php echo home_url(); ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
-				}
-			}
-			dropdown.onchange = onCatChange;
-			/* ]]> */
-			</script>
-
-			<?php
-		} else {
-			?>
-			<ul>
-			<?php
-				$cat_args['title_li'] = '';
-
-				wp_list_categories( apply_filters( 'tw_widget_categories_args', $cat_args ) );
-			?>
-			</ul>
-			<?php
-		}
+		return Testimonials_Widget::testimonials_categories( $instance, $widget_number );
 	}
 
 
@@ -125,7 +81,7 @@ class Testimonials_Widget_Widget_Categories extends Aihrus_Widget {
 			$form_parts[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		$form_parts = apply_filters( 'tw_widget_categories_options', $form_parts );
+		$form_parts = apply_filters( 'tw_categories_widget_options', $form_parts );
 
 		return $form_parts;
 	}
