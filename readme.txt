@@ -183,6 +183,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Custom widget bottom text
 * Customizable archive and testimonial URLs
 * Customizable testimonial data field `testimonial_extra`
+* Date based archives
 * Deletes testimonials-widget custom post type entries and settings on uninstall
 * Disable self-generated quotation marks
 * Easily label and link to reviewed item for Review schema
