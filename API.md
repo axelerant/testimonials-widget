@@ -128,7 +128,7 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Used for modifying [wp_list_categories](http://codex.wordpress.org/Function_Reference/wp_list_categories) as part of the testimonials' categories widget.
 
-* `tw_tag_cloud_widget_args`
+* `tw_tag_cloud_args`
 
 	Used for modifying [wp_tag_cloud](http://codex.wordpress.org/Function_Reference/wp_tag_cloud) as part of the testimonials' tag cloud widget.
 

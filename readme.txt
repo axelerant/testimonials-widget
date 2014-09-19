@@ -72,6 +72,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * `[testimonials_categories]` - A list or dropdown of testimonials' categories
 * `[testimonials_recent]` - Your site's most recent testimonials
 * `[testimonials_slider]` - Displays rotating testimonials or statically
+* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
 
 = Theme Functions =
 
@@ -80,6 +81,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * `testimonials_categories()` - A list or dropdown of testimonials' categories
 * `testimonials_recent()` - Your site's most recent testimonials
 * `testimonials_slider()` - Displays rotating testimonials or statically
+* `testimonials_tag_cloud()` - A cloud of your most used testimonials' tags
 
 = Testimonials Widget Premium =
 

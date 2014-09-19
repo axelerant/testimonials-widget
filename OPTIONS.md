@@ -171,3 +171,8 @@
 	* `number` - default 5; number=10 
 * Display testimonial date?
 	* `show_date` - default false; show_date=true 
+
+## Tag Cloud Shortcode/Theme Function/Widget
+
+* Taxonomy
+	* `taxonomy` - default post_tag; taxonomy=cpt_post_tag

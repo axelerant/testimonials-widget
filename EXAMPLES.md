@@ -1,6 +1,6 @@
 # Shortcode Examples - Testimonials Widget
 
-## [testimonials]
+## [testimonials] - Listings with paging 
 
 * `[testimonials category="category-name"]` - Testimonial list by category
 * `[testimonials category=product hide_not_found=true]` - Testimonial list by category and hide "No testimonials found" message
@@ -25,7 +25,11 @@
 
 * `[testimonials_recent number=3 show_date=true]` - The 3 most recent testimonials with dates
 
-## [testimonials_slider]
+## [testimonials_slider] - Displays rotating testimonials or statically
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first
 * `[testimonials_slider tags=sometag random=true]` - Show rotating, random testimonials having tag "sometag"
+
+## [testimonials_tag_cloud] - A cloud of your most used testimonials' tags
+
+* `[testimonials_tag_cloud]` - Show testimonials post tag cloud

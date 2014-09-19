@@ -32,7 +32,7 @@ class Testimonials_Widget_Tag_Cloud_Widget extends Aihrus_Widget {
 
 	public function __construct() {
 		$classname   = __CLASS__;
-		$description = esc_html__( 'A cloud of your most used testimonials\' tags .', 'testimonials-widget' );
+		$description = esc_html__( 'A cloud of your most used testimonials\' tags.', 'testimonials-widget' );
 		$id_base     = self::ID;
 		self::$title = esc_html__( 'Testimonials Tag Cloud', 'testimonials-widget' );
 
@@ -44,14 +44,7 @@ class Testimonials_Widget_Tag_Cloud_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance, $widget_number ) {
-		echo '<div class="tagcloud">';
-
-		$args = array(
-			'taxonomy' => $instance['taxonomy'],
-		);
-		wp_tag_cloud( apply_filters( 'tw_tag_cloud_widget_args', $args ) );
-
-		echo "</div>\n";
+		return Testimonials_Widget::testimonials_tag_cloud( $instance, $widget_number );
 	}
 
 
