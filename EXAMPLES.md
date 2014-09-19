@@ -21,6 +21,10 @@
 
 * `[testimonials_categories count=true hierarchical=true]` - Testimonial's categories as hierarchical with monthly count
 
+## [testimonials_recent] - Your site's most recent testimonials
+
+* `[testimonials_recent number=3 show_date=true]` - The 3 most recent testimonials with dates
+
 ## [testimonials_slider]
 
 * `[testimonials_slider category=product order=asc]` - Show rotating testimonials, of the product category, lowest post ids first

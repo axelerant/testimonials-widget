@@ -137,4 +137,13 @@ if ( ! function_exists( 'testimonials_categories' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'testimonials_recent' ) ) {
+	function testimonials_recent( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_recent( $atts );
+	}
+}
+
 ?>

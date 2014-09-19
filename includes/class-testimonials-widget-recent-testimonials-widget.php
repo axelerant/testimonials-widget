@@ -44,44 +44,7 @@ class Testimonials_Widget_Recent_Testimonials_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance, $widget_number ) {
-		$number    = $instance['number'];
-		$show_date = $instance['show_date'];
-
-		$args = array(
-			'posts_per_page' => $number,
-			'no_found_rows' => true,
-			'post_status' => 'publish',
-			'ignore_sticky_posts' => true,
-			'post_type' => Testimonials_Widget::PT,
-		);
-		$args = apply_filters( 'tw_recent_testimonials_widget_args', $args );
-
-		$r = new WP_Query( $args );
-		if ( $r->have_posts() ) { 
-			echo '<ul>';
-			while ( $r->have_posts() ) {
-				$r->the_post();
-				echo '<li>';
-
-				$title = get_the_title() ? get_the_title() : get_the_ID();
-				if ( ! class_exists( 'Testimonials_Widget_Premium' ) ) {
-					echo $title;
-				} else {
-					echo '<a href="' . get_permalink() . '">' . $title . '</a>';
-				}
-
-				if ( $show_date ) {
-					echo ' <span class="post-date">' . get_the_date() . '</span>';
-				}
-				
-				echo '</li>';
-			}
-
-			echo '</ul>';
-		}
-
-		// Reset the global $the_post as this query will have stomped on it
-		wp_reset_postdata();
+		return Testimonials_Widget::testimonials_recent( $instance, $widget_number );
 	}
 
 

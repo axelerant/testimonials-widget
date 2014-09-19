@@ -155,3 +155,19 @@
 	* `count` - default false; count=true 
 * Show hierarchy
 	* `hierarchical` - default false; hierarchical=true 
+
+## Categories Shortcode/Theme Function/Widget
+
+* Display as dropdown
+	* `dropdown` - default false; dropdown=true 
+* Show post counts
+	* `count` - default false; count=true 
+* Show hierarchy
+	* `hierarchical` - default false; hierarchical=true 
+
+## Recent Shortcode/Theme Function/Widget
+
+* Number of testimonials to show
+	* `number` - default 5; number=10 
+* Display testimonial date?
+	* `show_date` - default false; show_date=true 
