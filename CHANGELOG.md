@@ -26,6 +26,8 @@
 * RELATES #129 Testimonials Archive widget
 * Removed customized edit title
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
+* Removed pre-2.0.0 migration code
+* Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #112 Remove deprecated methods

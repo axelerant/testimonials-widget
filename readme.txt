@@ -154,7 +154,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Testimonials Widget Migration Helpers =
 
-* Testimonials Widget pre 2.0.0 - Automatic upgrading
+* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 * [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
