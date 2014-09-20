@@ -150,7 +150,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'E.g. Shortcodes', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( __CLASS__, 'show_shortcodes' ) );
+		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Examples of Testimonials Options', 'testimonials-widget' ), esc_html__( 'Examples of Options', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( __CLASS__, 'show_examples' ) );
 	}
 
 
@@ -1704,19 +1704,27 @@ EOF;
 	}
 
 
-	public static function show_shortcodes() {
+	public static function show_examples() {
 		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
+		$parsedown = new Parsedown();
 
 		echo '<div class="wrap">';
 		echo '<div class="icon32" id="icon-options-general"></div>';
 
 		$examples_file = TW_DIR . 'EXAMPLES.md';
 		$examples_text = file_get_contents( $examples_file );
-		$parsedown     = new Parsedown();
 		$examples_html = $parsedown->text( $examples_text );
-		$examples_html = apply_filters( 'tw_shortcodes', $examples_html );
+		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
 
-		echo $examples_html;
+		$options_file = TW_DIR . 'OPTIONS.md';
+		$options_text = file_get_contents( $options_file );
+		$options_html = $parsedown->text( $options_text );
+		$options_html = apply_filters( 'tw_options_html', $options_html );
+
+		$html = $examples_html . $options_html;
+		$html = apply_filters( 'tw_examples', $html );
+		echo $html;
+
 		echo '</div>';
 	}
 
