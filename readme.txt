@@ -240,9 +240,9 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Download and unzip [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* Using FTP, upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 
-= Activation Options =
+= Activation =
 
-* Activate the "Testimonials Widget" plugin after uploading through WordPress Admin > Plugins
+* Click the "Activate" link for "Testimonials Widget" at WordPress Admin > Plugins
 
 = Usage =
 
@@ -275,6 +275,15 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 	* Download and unzip [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
 	* Upload directory `testimonials-widget` to your website's `/wp-content/plugins/` directory
 	* Be sure to overwrite your existing `testimonials-widget` folder contents
+
+= Deactivation =
+
+* Click the "Deactivate" link for "Testimonials Widget" at WordPress Admin > Plugins
+
+= Deletion =
+
+* Click the "Delete" link for "Testimonials Widget" at WordPress Admin > Plugins
+* Click the "Yes, Delete these files and data" button to confirm "Testimonials Widget" plugin removal
 
 
 == Frequently Asked Questions ==

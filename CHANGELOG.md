@@ -16,6 +16,7 @@
 * Add filter `tw_widget_recent_testimonials_options`
 * Add filter `tw_widget_tag_cloud_args`
 * Add filter `tw_widget_tag_cloud_options`
+* Add Plugin Deactivation & Deletion section to readme
 * Add shortcode and theme function `testimonials_archives`
 * Add shortcode and theme function `testimonials_categories`
 * Add shortcode and theme function `testimonials_recent`
