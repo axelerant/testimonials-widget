@@ -41,6 +41,7 @@
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
+* RESOLVE #123 Revise installation and usage instructions for ease of use
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library

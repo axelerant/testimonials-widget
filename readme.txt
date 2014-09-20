@@ -76,12 +76,12 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Theme Functions =
 
-* `testimonials()` - Testimonials listing with paging 
-* `testimonials_archives()` - A monthly archive of your site's testimonials
-* `testimonials_categories()` - A list or dropdown of testimonials' categories
-* `testimonials_recent()` - Your site's most recent testimonials
-* `testimonials_slider()` - Displays rotating testimonials or statically
-* `testimonials_tag_cloud()` - A cloud of your most used testimonials' tags
+* `<?php echo testimonials()` // Testimonials listing with paging  ?>
+* `<?php echo testimonials_archives()` // A monthly archive of your site's testimonials ?>
+* `<?php echo testimonials_categories()` // A list or dropdown of testimonials' categories ?>
+* `<?php echo testimonials_recent()` // Your site's most recent testimonials ?>
+* `<?php echo testimonials_slider()` // Displays rotating testimonials or statically ?>
+* `<?php echo testimonials_tag_cloud()` // A cloud of your most used testimonials' tags ?>
 
 = Testimonials Widget Premium =
 
@@ -249,14 +249,22 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 1. Watch [Testimonial Widget](https://www.youtube.com/watch?v=zDz1igmRK2g)
 1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
 1. Add and manage testimonials through the **Testimonials Widget** menu in the WordPress admin area
-1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials Widget** widget into the desired widget area. Then configure the widget to select options and display as desired.
+1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials Slider** widget into the desired widget area. Then configure the widget to select options and display as desired.
 1. Use the following shortcodes to display testimonials on a page, post, etc.
-	* `[[testimonials]]` - Listings with paging
-	* `[[testimonials_slider]]` - Rotating testimonials
+	* `[testimonials]` - Listings with paging 
+	* `[testimonials_archives]` - A monthly archive of your site's testimonials
+	* `[testimonials_categories]` - A list or dropdown of testimonials' categories
+	* `[testimonials_recent]` - Your site's most recent testimonials
+	* `[testimonials_slider]` - Displays rotating testimonials or statically
+	* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
 1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for using the following theme helpers.
-	* `<?php echo testimonials( $args ); // Listings with paging ?>`
-	* `<?php echo testimonials_slider( $args ); // Rotating testimonials ?>`
-1. Shortcode and theme function settings are found in the **Shortcode and Widget Options** section.
+	* `<?php echo testimonials()` // Testimonials listing with paging  ?>
+	* `<?php echo testimonials_archives()` // A monthly archive of your site's testimonials ?>
+	* `<?php echo testimonials_categories()` // A list or dropdown of testimonials' categories ?>
+	* `<?php echo testimonials_recent()` // Your site's most recent testimonials ?>
+	* `<?php echo testimonials_slider()` // Displays rotating testimonials or statically ?>
+	* `<?php echo testimonials_tag_cloud()` // A cloud of your most used testimonials' tags ?>
+1. See the **Shortcode and Widget Options** section for configuring shortcode and theme function attributes.
 
 = Upgrading =
 
