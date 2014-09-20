@@ -10,6 +10,7 @@
 * `[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]` - Show 3 full-length testimonials, with opening and closing quote marks removed
 * `[testimonials hide_source=true hide_url=true]` - Show testimonial list with source and urls hidden
 * `[testimonials ids="1,11,111" paging=false]` - Show only these 3 testimonials
+* `[testimonials ids="123" paging=false]` - Show the single testimonial of ID 123 on a page
 * `[testimonials meta_key=testimonials-widget-company order=asc limit=15]` - Show 15 testimonials, in company order
 * `[testimonials order=ASC orderby=title]` - List testimonials by post title
 * `[testimonials tags="test,fun" random=true exclude="2,22,333"]` - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids
