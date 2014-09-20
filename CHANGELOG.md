@@ -19,7 +19,7 @@
 * RESOLVE Use widget args than globals
 * Revise widget class for easier reuse
 * Update licensing GPL 2.0
-* Use PHP Markdown Lib 1.4.1 for Markdown to HTML conversion
+* Use parsedown for Markdown to HTML conversion
 
 ## 1.1.4
 * Carry over core baseline methods
