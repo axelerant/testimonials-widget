@@ -557,7 +557,7 @@ EOD;
 				'vars' => array( 'year', 'monthnum' ) ),
 			array( 
 				'rule' => '([0-9]{4})',
-				'vars' => array( 'year' ) )
+				'vars' => array( 'year' ) ),
 			);
 
 		foreach ( $dates as $data ) {
@@ -570,10 +570,10 @@ EOD;
 				$i++;
 			}
 
-			$rules[ $rule . '/?$' ]                                 = $query;
+			$rules[ $rule . '/?$' ]                               = $query;
 			$rules[ $rule . '/feed/(feed|rdf|rss|rss2|atom)/?$' ] = $query . '&feed=' . $wp_rewrite->preg_index( $i );
 			$rules[ $rule . '/(feed|rdf|rss|rss2|atom)/?$' ]      = $query . '&feed=' . $wp_rewrite->preg_index( $i );
-			$rules[ $rule . '/page/([0-9]{1,})/?$' ]            = $query . '&paged=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/page/([0-9]{1,})/?$' ]              = $query . '&paged=' . $wp_rewrite->preg_index( $i );
 		}
 
 		return $rules;
