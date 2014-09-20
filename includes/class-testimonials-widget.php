@@ -1914,9 +1914,9 @@ EOF;
 
 
 	public static function get_archives_link( $link_html ) {
-		$home_url   = home_url();
-		$slug       = Aihrus_Common::get_archive_slug( self::PT );
-		$link_html  = str_replace( $home_url, $home_url . '/' . $slug, $link_html );
+		$home_url  = home_url();
+		$slug      = Aihrus_Common::get_archive_slug( self::PT );
+		$link_html = str_replace( $home_url, $home_url . '/' . $slug, $link_html );
 
 		return $link_html;
 	}
