@@ -229,7 +229,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Install Methods =
 
-* Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget Widget"
+* Through WordPress Admin > Plugins > Add New, Search for "Testimonials Widget"
 	* Find "Testimonials Widget"
 	* Click "Install Now" of "Testimonials Widget"
 * Download [`testimonials-widget.zip`](http://downloads.wordpress.org/plugin/testimonials-widget.zip) locally
@@ -303,7 +303,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * [My options don't work](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
 * [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
-* [Testimonials Widget don't rotate](https://aihrus.zendesk.com/entries/23693363)
+* [Testimonials slider doesn't rotate](https://aihrus.zendesk.com/entries/23693363)
 
 = Still Stuck or Want Something Done? Get Support! =
 
@@ -320,15 +320,15 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 https://www.youtube.com/watch?v=YaXCJppYOUM
 
-**Adding Rotating Testimonials Widget to WordPress Tutorial**
+**Adding Rotating Testimonials to WordPress Tutorial**
 
 https://www.youtube.com/watch?v=QoFCZgLAUSE
 
-**Testimonials Widget Widget - WordPress Training Video**
+**Testimonials Widget - WordPress Training Video**
 
 https://www.youtube.com/watch?v=ybV5mKZlegA
 
-**Testimonials Widget Widget for WordPress**
+**Testimonials Widget for WordPress**
 
 https://www.youtube.com/watch?v=LqZ-vcZD8E0
 
@@ -399,7 +399,6 @@ You can translate this plugin into your own language if it's not done so already
 == Notes ==
 
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* Migration from from pre-2.0.0 custom table to new custom post type is automatic
 * Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
 * When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
 
