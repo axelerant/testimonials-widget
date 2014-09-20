@@ -4,6 +4,7 @@
 
 ## 1.1.5RC1
 * Abstract do_validate_settings for easier reuse
+* Add 'content' option to settings display
 * Add CPT date archives helper
 * Add widget's form_parts method
 * Don't shortcode attribute for reset options
