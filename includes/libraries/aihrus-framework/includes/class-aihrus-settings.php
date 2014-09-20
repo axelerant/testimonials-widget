@@ -487,6 +487,10 @@ abstract class Aihrus_Settings {
 				}
 				break;
 
+			case 'content':
+				$content .= $desc . '</td></tr>';
+				break;
+
 			default:
 				break;
 		}

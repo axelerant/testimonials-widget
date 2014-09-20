@@ -150,7 +150,7 @@ No problem, get a 100% refund and keep the software. Your license for support an
 
 = Shortcode Examples =
 
-See WordPress Admin > Testimonials > Examples of Options or read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
+Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
 
 = Shortcode and Widget Options =
 
@@ -189,7 +189,6 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Easily label and link to reviewed item for Review schema
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
-* Examples of Options within WordPress Admin
 * Flush URLs on deactivation 
 * Gravatars saved as featured images
 * IDs column shown in testimonials edit page
@@ -198,6 +197,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 * Include testimonials in archive and category views.
 * Internal version tracking for compatibility checks and automatic settings update
 * Localizable via `languages/testimonials-widget.pot`
+* Lots of examples at WordPress Admin > Testimonials > Settings, Examples tab
 * Optional commenting on testimonial single-view pages
 * Performance optimizations
 * Recent testimonials widget

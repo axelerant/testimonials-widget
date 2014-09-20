@@ -150,7 +150,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Examples of Testimonials Options', 'testimonials-widget' ), esc_html__( 'Examples of Options', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( __CLASS__, 'show_examples' ) );
 	}
 
 
@@ -1706,10 +1705,8 @@ EOF;
 
 	public static function show_examples() {
 		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
-		$parsedown = new Parsedown();
 
-		echo '<div class="wrap">';
-		echo '<div class="icon32" id="icon-options-general"></div>';
+		$parsedown = new Parsedown();
 
 		$examples_file = TW_DIR . 'EXAMPLES.md';
 		$examples_text = file_get_contents( $examples_file );
@@ -1723,9 +1720,8 @@ EOF;
 
 		$html = $examples_html . $options_html;
 		$html = apply_filters( 'tw_examples', $html );
-		echo $html;
 
-		echo '</div>';
+		return $html;
 	}
 
 
