@@ -1709,7 +1709,6 @@ EOF;
 
 		echo '<div class="wrap">';
 		echo '<div class="icon32" id="icon-options-general"></div>';
-		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ) . '</h2>';
 
 		$examples_file = TW_DIR . 'EXAMPLES.md';
 		$examples_text = file_get_contents( $examples_file );
