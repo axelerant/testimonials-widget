@@ -1705,37 +1705,19 @@ EOF;
 
 
 	public static function show_shortcodes() {
+		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
+
 		echo '<div class="wrap">';
 		echo '<div class="icon32" id="icon-options-general"></div>';
 		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ) . '</h2>';
 
-		$shortcodes = <<<EOD
-<h3>[testimonials]</h3>
+		$examples_file = TW_DIR . 'EXAMPLES.md';
+		$examples_text = file_get_contents( $examples_file );
+		$parsedown     = new Parsedown();
+		$examples_html = $parsedown->text( $examples_text );
+		$examples_html = apply_filters( 'tw_shortcodes', $examples_html );
 
-<ul>
-<li><code>[testimonials category="category-name"]</code> - Testimonial list by category</li>
-<li><code>[testimonials category=product hide_not_found=true]</code> - Testimonial list by category and hide "No testimonials found" message</li>
-<li><code>[testimonials category=product tags=widget limit=5]</code> - Testimonial list by tag, showing 5 at most</li>
-<li><code>[testimonials char_limit=0 limit=-1]</code> - Show all testimonials on one page</li>
-<li><code>[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]</code> - Show 3 full-length testimonials, with opening and closing quote marks removed</li>
-<li><code>[testimonials hide_source=true hide_url=true]</code> - Show testimonial list with source and urls hidden</li>
-<li><code>[testimonials ids="1,11,111" paging=false]</code> - Show only these 3 testimonials</li>
-<li><code>[testimonials meta_key=testimonials-widget-company order=asc limit=15]</code> - Show 15 testimonials, in company order</li>
-<li><code>[testimonials order=ASC orderby=title]</code> - List testimonials by post title</li>
-<li><code>[testimonials tags="test,fun" random=true exclude="2,22,333"]</code> - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids</li>
-</ul>
-
-<h3>[testimonials_slider]</h3>
-
-<ul>
-<li><code>[testimonials_slider category=product order=asc]</code> - Show rotating testimonials, of the product category, lowest post ids first</li>
-<li><code>[testimonials_slider tags=sometag random=true]</code> - Show rotating, random testimonials having tag "sometag"</li>
-</ul>
-EOD;
-
-		$shortcodes = apply_filters( 'tw_shortcodes', $shortcodes );
-
-		echo $shortcodes;
+		echo $examples_html;
 		echo '</div>';
 	}
 
@@ -2055,6 +2037,5 @@ EOD;
 
 
 }
-
 
 ?>

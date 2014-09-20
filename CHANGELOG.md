@@ -27,6 +27,7 @@
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
+* RELATES #103 Example of every option - Add Parsedown prep code
 * Removed customized edit title
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Removed pre-2.0.0 migration code
