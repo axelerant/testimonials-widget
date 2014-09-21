@@ -9,13 +9,14 @@ The changes and helpers below are intended to help you update your customization
 ### Changes
 
 * As [Internet Explorer 7.0 usage](http://www.w3schools.com/browsers/browsers_explorer.asp) is under 0.5% of Internet traffic, support for it is discontinued. Option `include_ie7_css` is removed.
-* Pre-2.15.0 JavaScript slider code has been replaced with [bxSlider](http://bxslider.com/) and is now removed. Options `use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, and `max_height` are removed.
-* Pre-2.0.0 Testimonials Widget automatic migration has been removed. Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
+* Deprecated functions and API hooks of Testimonials Widget 2.19.0 and Testimonials Widget Premium 1.20.0 are removed. Read DEPRECATED.md for details.
 * Replace `testimonials_widget_premium_` of actions, filters, and functions with `twp_`
 * Replace `testimonials_widget_` of actions, filters, and functions with `tw_`
-* Replace `tba_` of actions, filters, and functions with `tw_`
-* Replace `tw_widget_options` with `tw_slider_widget_options`
-* Replace `tw_shortcodes` with `tw_examples`
+* Replaced `tba_` of actions, filters, and functions with `tw_`
+* Replaced `tw_shortcodes` with `tw_examples`
+* Replaced `tw_widget_options` with `tw_slider_widget_options`
+* Testimonials Widget pre-2.0.0 automatic migration has been removed. Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
+* Testimonials Widget pre-2.15.0 JavaScript slider code has been replaced with [bxSlider](http://bxslider.com/) and is now removed. Options `use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, and `max_height` are removed.
 
 ###  Helpers
 
