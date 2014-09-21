@@ -4,6 +4,8 @@
 
 ## 1.1.5RC1
 * Abstract do_validate_settings for easier reuse
+* Add 'content' option to settings display
+* Add CPT date archives helper
 * Add widget's form_parts method
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
@@ -18,6 +20,7 @@
 * RESOLVE Use widget args than globals
 * Revise widget class for easier reuse
 * Update licensing GPL 2.0
+* Use parsedown for Markdown to HTML conversion
 
 ## 1.1.4
 * Carry over core baseline methods

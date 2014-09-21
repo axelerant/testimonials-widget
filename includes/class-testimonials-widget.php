@@ -150,7 +150,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function admin_menu() {
-		self::$menu_shortcodes = add_submenu_page( 'edit.php?post_type=' . self::PT, esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ), esc_html__( 'E.g. Shortcodes', 'testimonials-widget' ), 'manage_options', 'shortcodes', array( __CLASS__, 'show_shortcodes' ) );
 	}
 
 
@@ -169,6 +168,8 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		self::init_post_type();
 		self::styles();
+		
+		add_action( 'generate_rewrite_rules', array( __CLASS__, 'generate_rewrite_rules' ) );
 	}
 
 
@@ -1702,39 +1703,25 @@ EOF;
 	}
 
 
-	public static function show_shortcodes() {
-		echo '<div class="wrap">';
-		echo '<div class="icon32" id="icon-options-general"></div>';
-		echo '<h2>' . esc_html__( 'Testimonials Shortcode Examples', 'testimonials-widget' ) . '</h2>';
+	public static function show_examples() {
+		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
 
-		$shortcodes = <<<EOD
-<h3>[testimonials]</h3>
+		$parsedown = new Parsedown();
 
-<ul>
-<li><code>[testimonials category="category-name"]</code> - Testimonial list by category</li>
-<li><code>[testimonials category=product hide_not_found=true]</code> - Testimonial list by category and hide "No testimonials found" message</li>
-<li><code>[testimonials category=product tags=widget limit=5]</code> - Testimonial list by tag, showing 5 at most</li>
-<li><code>[testimonials char_limit=0 limit=-1]</code> - Show all testimonials on one page</li>
-<li><code>[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]</code> - Show 3 full-length testimonials, with opening and closing quote marks removed</li>
-<li><code>[testimonials hide_source=true hide_url=true]</code> - Show testimonial list with source and urls hidden</li>
-<li><code>[testimonials ids="1,11,111" paging=false]</code> - Show only these 3 testimonials</li>
-<li><code>[testimonials meta_key=testimonials-widget-company order=asc limit=15]</code> - Show 15 testimonials, in company order</li>
-<li><code>[testimonials order=ASC orderby=title]</code> - List testimonials by post title</li>
-<li><code>[testimonials tags="test,fun" random=true exclude="2,22,333"]</code> - Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids</li>
-</ul>
+		$examples_file = TW_DIR . 'EXAMPLES.md';
+		$examples_text = file_get_contents( $examples_file );
+		$examples_html = $parsedown->text( $examples_text );
+		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
 
-<h3>[testimonials_slider]</h3>
+		$options_file = TW_DIR . 'OPTIONS.md';
+		$options_text = file_get_contents( $options_file );
+		$options_html = $parsedown->text( $options_text );
+		$options_html = apply_filters( 'tw_options_html', $options_html );
 
-<ul>
-<li><code>[testimonials_slider category=product order=asc]</code> - Show rotating testimonials, of the product category, lowest post ids first</li>
-<li><code>[testimonials_slider tags=sometag random=true]</code> - Show rotating, random testimonials having tag "sometag"</li>
-</ul>
-EOD;
+		$html = $examples_html . $options_html;
+		$html = apply_filters( 'tw_examples', $html );
 
-		$shortcodes = apply_filters( 'tw_shortcodes', $shortcodes );
-
-		echo $shortcodes;
-		echo '</div>';
+		return $html;
 	}
 
 
@@ -1923,13 +1910,19 @@ EOD;
 
 
 	public static function get_archives_link( $link_html ) {
-		if ( false ) {
-			$home_url     = home_url();
-			$rewrite_slug = tw_get_option( 'rewrite_slug', 'testimonial' );
-			$link_html    = str_replace( $home_url, $home_url . '/' . $rewrite_slug, $link_html );
-		}
+		$home_url  = home_url();
+		$slug      = Aihrus_Common::get_archive_slug( self::PT );
+		$link_html = str_replace( $home_url, $home_url . '/' . $slug, $link_html );
 
 		return $link_html;
+	}
+
+
+	public static function generate_rewrite_rules( $wp_rewrite ) {
+		$rules             = Aihrus_Common::generate_date_archives( self::PT, $wp_rewrite );
+		$wp_rewrite->rules = $rules + $wp_rewrite->rules;
+
+		return $wp_rewrite;
 	}
 
 
@@ -2047,6 +2040,5 @@ EOD;
 
 
 }
-
 
 ?>

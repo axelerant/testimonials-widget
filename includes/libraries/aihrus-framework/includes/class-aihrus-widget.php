@@ -102,7 +102,6 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
-		$errors       = array();
 		$null_options = false;
 		if ( is_null( $options ) ) {
 			$null_options = true;
@@ -287,6 +286,9 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
 	public static function get_suggest( $id, $suggest_id ) {}
 
 

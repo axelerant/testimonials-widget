@@ -4,7 +4,10 @@
 
 ## 3.0.0RC1
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
+* Add filter `tw_examples_html`
+* Add filter `tw_examples`
 * Add filter `tw_get_template_part`
+* Add filter `tw_options_html`
 * Add filter `tw_template_paths`
 * Add filter `tw_widget_categories_args`
 * Add filter `tw_widget_categories_dropdown_args`
@@ -13,6 +16,7 @@
 * Add filter `tw_widget_recent_testimonials_options`
 * Add filter `tw_widget_tag_cloud_args`
 * Add filter `tw_widget_tag_cloud_options`
+* Add Plugin Deactivation & Deletion section to readme
 * Add shortcode and theme function `testimonials_archives`
 * Add shortcode and theme function `testimonials_categories`
 * Add shortcode and theme function `testimonials_recent`
@@ -23,6 +27,7 @@
 * API link updates
 * Author field to override title when it's not the testimonial source
 * Don't shortcode attribute for global level options
+* Link help to FAQ
 * Moved aggregate review schema data to premium
 * Moved email column and data input before URL
 * Put latest Update Notice in readme.txt
@@ -31,10 +36,13 @@
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Removed pre-2.0.0 migration code
 * Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
+* Replace `tw_shortcodes` with `tw_examples`
 * Require Aihrus Framework 1.1.5
+* RESOLVE #103 Example of every option
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
+* RESOLVE #123 Revise installation and usage instructions for ease of use
 * RESOLVE #124 Optionally include testimonials in category archives
 * RESOLVE #127 Use category and tag IDs in addition to names for testimonials selection
 * RESOLVE #128 Move bxSlider to being library
@@ -42,6 +50,7 @@
 * RESOLVE #130 Recent Testimonials widget
 * RESOLVE #131 Implement widget content caching
 * RESOLVE #132 Implement shortcodes for all widgets
+* RESOLVE #134 Implement testimonials date archives
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top
@@ -55,6 +64,7 @@
 * Update keywords
 * Update licensing entries
 * Update OPTIONS
+* Update shortcode examples with description first
 * Update widget title handling
 * Update [bxSlider 4.1.2](https://github.com/stevenwanderski/bxslider-4)
 * Use [bxSlider](https://github.com/stevenwanderski/bxslider-4) as a library

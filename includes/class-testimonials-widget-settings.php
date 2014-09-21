@@ -114,6 +114,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$sections['widget']    = esc_html__( 'Slider Widget', 'testimonials-widget' );
 		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
 		self::$sections['columns']   = esc_html__( 'Columns', 'testimonials-widget' );
+		self::$sections['examples']  = esc_html__( 'Examples', 'testimonials-widget' );
 
 		parent::sections();
 
@@ -706,6 +707,12 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'show_code' => false,
 		);
 
+		self::$settings['examples'] = array(
+			'section' => 'examples',
+			'desc' => Testimonials_Widget::show_examples( false ),
+			'type' => 'content',
+		);
+
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
@@ -949,7 +956,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'</p><p>' .
 			sprintf(
 				__( 'View the <a href="%s">Testimonials documentation</a>.', 'testimonials-widget' ),
-				esc_url( self::$plugin_url )
+				esc_url( self::$plugin_url . '/faq/' )
 			) .
 			'</p>'
 		);

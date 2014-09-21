@@ -15,6 +15,7 @@ The changes and helpers below are intended to help you update your customization
 * Replace `testimonials_widget_` of actions, filters, and functions with `tw_`
 * Replace `tba_` of actions, filters, and functions with `tw_`
 * Replace `tw_widget_options` with `tw_slider_widget_options`
+* Replace `tw_shortcodes` with `tw_examples`
 
 ###  Helpers
 
@@ -24,6 +25,7 @@ The changes and helpers below are intended to help you update your customization
 * `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#testimonials_widget_#tw_#g" {} \;`
 * `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#tba_#tw_#g" {} \;`
 * `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#tw_widget_options#tw_slider_widget_options#g" {} \;`
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#tw_shortcodes#tw_examples#g" {} \;`
 
 ## 2.19.9
 

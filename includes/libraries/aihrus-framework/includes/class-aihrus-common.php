@@ -480,7 +480,7 @@ EOD;
 			return false;
 
 		// Append administrator to roles, if necessary
-		if ( !in_array( 'administrator', $roles ) )
+		if ( ! in_array( 'administrator', $roles ) )
 			$roles[] = 'administrator';
 
 		// Loop through user roles
@@ -524,7 +524,61 @@ EOD;
 	}
 
 
-}
+	public static function get_archive_slug( $cpt ) {
+		$post_type    = get_post_type_object( $cpt );
+		$archive_slug = $post_type->has_archive;
+		if ( $archive_slug === true ) {
+			$archive_slug = $post_type->name;
+		}
 
+		return $archive_slug;
+	}
+
+
+	/**
+	 * Generate date archive rewrite rules for a given custom post type
+	 *
+	 * @param string $cpt slug of the custom post type
+	 * @return rules returns a set of rewrite rules for Wordpress to handle
+	 */
+	public static function generate_date_archives( $cpt, $wp_rewrite ) {
+		$rules        = array();
+		$slug_archive = self::get_archive_slug( $cpt );
+		if ( $slug_archive === false ) {
+			return $rules;
+		}
+
+		$dates = array( 
+			array( 
+				'rule' => '([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})',
+				'vars' => array( 'year', 'monthnum', 'day' ) ),
+			array( 
+				'rule' => '([0-9]{4})/([0-9]{1,2})',
+				'vars' => array( 'year', 'monthnum' ) ),
+			array( 
+				'rule' => '([0-9]{4})',
+				'vars' => array( 'year' ) ),
+			);
+
+		foreach ( $dates as $data ) {
+			$query = 'index.php?post_type=' . $cpt;
+			$rule  = $slug_archive . '/' . $data[ 'rule' ];
+
+			$i = 1;
+			foreach ( $data[ 'vars' ] as $var ) {
+				$query .= '&' . $var . '=' . $wp_rewrite->preg_index( $i );
+				$i++;
+			}
+
+			$rules[ $rule . '/?$' ]                               = $query;
+			$rules[ $rule . '/feed/(feed|rdf|rss|rss2|atom)/?$' ] = $query . '&feed=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/(feed|rdf|rss|rss2|atom)/?$' ]      = $query . '&feed=' . $wp_rewrite->preg_index( $i );
+			$rules[ $rule . '/page/([0-9]{1,})/?$' ]              = $query . '&paged=' . $wp_rewrite->preg_index( $i );
+		}
+
+		return $rules;
+	}
+
+}
 
 ?>

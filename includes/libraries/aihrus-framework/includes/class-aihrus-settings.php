@@ -487,6 +487,10 @@ abstract class Aihrus_Settings {
 				}
 				break;
 
+			case 'content':
+				$content .= $desc . '</td></tr>';
+				break;
+
 			default:
 				break;
 		}
@@ -533,8 +537,6 @@ abstract class Aihrus_Settings {
 	 * @SuppressWarnings(PHPMD.Superglobals)
 	 */
 	public static function validate_settings( $input, $options = null, $do_errors = false ) {
-		$errors = array();
-
 		$null_options = false;
 		if ( is_null( $options ) ) {
 			$null_options = true;
@@ -565,7 +567,7 @@ abstract class Aihrus_Settings {
 			}
 		}
 
-		return self::do_validate_settings( $input, $options, $do_errors );
+		return self::do_validate_settings( $input, $options, $do_errors, $null_options );
 	}
 
 
@@ -574,7 +576,9 @@ abstract class Aihrus_Settings {
 	 *
 	 * @SuppressWarnings(PHPMD.Superglobals)
 	 */
-	public static function do_validate_settings( $input, $options = null, $do_errors = false ) {
+	public static function do_validate_settings( $input, $options = null, $do_errors = false, $null_options = true ) {
+		$errors = array();
+
 		foreach ( $options as $id => $parts ) {
 			$default     = $parts['std'];
 			$type        = $parts['type'];
