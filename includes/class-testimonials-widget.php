@@ -164,7 +164,6 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		self::$cpt_category    = self::PT . '-category';
 		self::$cpt_tags        = self::PT . '-post_tag';
-		self::$template_loader = new Testimonials_Widget_Template_Loader();
 
 		self::init_post_type();
 		self::styles();
@@ -850,9 +849,9 @@ EOF;
 
 
 	public static function get_testimonials_html( $testimonials, $atts, $is_list = true, $widget_number = null ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'testimonials', 'atts', 'is_list', 'widget_number' );
+		$tw_template_args = compact( 'testimonials', 'atts', 'is_list', 'widget_number' );
 
 		$div_open = self::get_template_part( 'testimonials', 'open' );
 
@@ -903,9 +902,9 @@ EOF;
 
 
 	public static function get_testimonial_html( $testimonial, $atts, $is_list = true, $is_first = false, $widget_number = null ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'testimonial', 'atts', 'is_list', 'is_first', 'widget_number' );
+		$tw_template_args = compact( 'testimonial', 'atts', 'is_list', 'is_first', 'widget_number' );
 
 		$div_open = self::get_template_part( 'testimonial', 'open' );
 
@@ -1029,9 +1028,9 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_testimonials_paging( $atts, $prepend = true ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'atts', 'prepend' );
+		$tw_template_args = compact( 'atts', 'prepend' );
 
 		$html = self::get_template_part( 'testimonials', 'paging' );
 
@@ -1704,18 +1703,12 @@ EOF;
 
 
 	public static function show_examples() {
-		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
-
-		$parsedown = new Parsedown();
-
 		$examples_file = TW_DIR . 'EXAMPLES.md';
-		$examples_text = file_get_contents( $examples_file );
-		$examples_html = $parsedown->text( $examples_text );
+		$examples_html = self::markdown2html( $examples_file );
 		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
 
 		$options_file = TW_DIR . 'OPTIONS.md';
-		$options_text = file_get_contents( $options_file );
-		$options_html = $parsedown->text( $options_text );
+		$options_html = self::markdown2html( $options_file );
 		$options_html = apply_filters( 'tw_options_html', $options_html );
 
 		$html = $examples_html . $options_html;
@@ -1851,6 +1844,10 @@ EOF;
 
 
 	public static function get_template_part( $slug, $name = null ) {
+		if ( is_null( self::$template_loader ) ) {
+			self::$template_loader = new Testimonials_Widget_Template_Loader();
+		}
+
 		ob_start();
 		self::$template_loader->get_template_part( $slug, $name );
 		$content = ob_get_clean();
@@ -1899,9 +1896,9 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_archives_html( $atts ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'atts' );
+		$tw_template_args = compact( 'atts' );
 
 		$content = self::get_template_part( 'testimonials', 'archives' );
 
@@ -1959,9 +1956,9 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_categories_html( $atts ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'atts' );
+		$tw_template_args = compact( 'atts' );
 
 		$content = self::get_template_part( 'testimonials', 'categories' );
 
@@ -1994,9 +1991,9 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_recent_html( $atts ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'atts' );
+		$tw_template_args = compact( 'atts' );
 
 		$content = self::get_template_part( 'testimonials', 'recent' );
 
@@ -2029,9 +2026,9 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_tag_cloud_html( $atts ) {
-		global $at_template_args;
+		global $tw_template_args;
 
-		$at_template_args = compact( 'atts' );
+		$tw_template_args = compact( 'atts' );
 
 		$content = self::get_template_part( 'testimonials', 'tag-cloud' );
 

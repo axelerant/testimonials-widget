@@ -1,7 +1,7 @@
 <?php
-global $at_template_args;
+global $tw_template_args;
 
-extract( $at_template_args );
+extract( $tw_template_args );
 
 $class = 'testimonials-widget-testimonial';
 if ( is_single() && empty( $widget_number ) ) {

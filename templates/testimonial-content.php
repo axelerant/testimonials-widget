@@ -1,7 +1,7 @@
 <?php
-global $at_template_args;
+global $tw_template_args;
 
-extract( $at_template_args );
+extract( $tw_template_args );
 
 $char_limit    = $atts['char_limit'];
 $content_more  = apply_filters( 'tw_content_more', esc_html__( '…', 'testimonials-widget' ) );

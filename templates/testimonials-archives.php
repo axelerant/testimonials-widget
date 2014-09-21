@@ -1,7 +1,7 @@
 <?php
-global $at_template_args;
+global $tw_template_args;
 
-extract( $at_template_args );
+extract( $tw_template_args );
 
 $c = ! empty( $atts['count'] ) ? '1' : '0';
 $d = ! empty( $atts['dropdown'] ) ? '1' : '0';
