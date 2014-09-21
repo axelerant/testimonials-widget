@@ -6,6 +6,7 @@
 * Abstract do_validate_settings for easier reuse
 * Add 'content' option to settings display
 * Add CPT date archives helper
+* Add markdown2html helper
 * Add widget's form_parts method
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface

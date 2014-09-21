@@ -1,97 +1,63 @@
 <?php
-global $at_template_args;
+global $tw_template_args;
 
-extract( $at_template_args );
+extract( $tw_template_args );
 extract( $testimonial );
 
-$do_company    = ! $atts['hide_company'] && ! empty( $testimonial_company );
-$do_email      = ! $atts['hide_email'] && ! empty( $testimonial_email ) && is_email( $testimonial_email );
-$do_location   = ! $atts['hide_location'] && ! empty( $testimonial_location );
-$do_source     = ! $atts['hide_source'] && ! empty( $testimonial_source );
-$do_title      = ! $atts['hide_title'] && ! empty( $testimonial_title );
-$do_url        = ! $atts['hide_url'] && ! empty( $testimonial_url );
+$do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
+$do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
+$do_location = ! $atts['hide_location'] && ! empty( $testimonial['testimonial_location'] );
+$do_source   = ! $atts['hide_source'] && ! empty( $testimonial['testimonial_source'] );
+$do_title    = ! $atts['hide_title'] && ! empty( $testimonial['testimonial_title'] );
+$do_url      = ! $atts['hide_url'] && ! empty( $testimonial['testimonial_url'] );
+
 $use_quote_tag = $atts['use_quote_tag'];
 
 $cite     = '';
 $done_url = false;
 
 if ( $do_source && $do_email ) {
-	$cite .= '<span class="author">';
-	$cite .= '<a href="mailto:' . $testimonial_email . '">';
-	if ( empty( $testimonial_author ) ) {
-		$cite .= $testimonial_source;
-	} else {
-		$cite .= $testimonial_author;
-	}
-
-	$cite .= '</a>';
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'author-email' );
 } elseif ( $do_source && ! $do_company && $do_url ) {
 	$done_url = true;
 
-	$cite .= '<span class="author">';
-	$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
-	if ( empty( $testimonial_author ) ) {
-		$cite .= $testimonial_source;
-	} else {
-		$cite .= $testimonial_author;
-	}
-
-	$cite .= '</a>';
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'author-url' );
 } elseif ( $do_source ) {
-	$cite .= '<span class="author">';
-	if ( empty( $testimonial_author ) ) {
-		$cite .= $testimonial_source;
-	} else {
-		$cite .= $testimonial_author;
-	}
-
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'author' );
 } elseif ( $do_email ) {
-	$cite .= '<span class="email">';
-	$cite .= make_clickable( $testimonial_email );
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'email' );
 }
 
 if ( $do_title && $cite ) {
-	$cite .= '<span class="join-title"></span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-title' );
 }
 
 if ( $do_title ) {
-	$cite .= '<span class="job-title">';
-	$cite .= $testimonial_title;
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'job-title' );
 }
 
 if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite ) {
-	$cite .= '<span class="join"></span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-company' );
 }
 
 if ( $do_company && $do_url ) {
-	$cite .= '<span class="company">';
-	$cite .= '<a href="' . $testimonial_url . '" rel="nofollow">';
-	$cite .= $testimonial_company;
-	$cite .= '</a>';
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'company-url' );
 } elseif ( $do_company ) {
-	$cite .= '<span class="company">';
-	$cite .= $testimonial_company;
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'company' );
 } elseif ( $do_url && ! $done_url ) {
-	$cite .= '<span class="url">';
-	$cite .= make_clickable( $testimonial_url );
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'url' );
 }
 
 if ( $do_location && $cite ) {
-	$cite .= '<span class="join-location"></span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-location' );
 }
 
 if ( $do_location ) {
-	$cite .= '<span class="location">';
-	$cite .= $testimonial_location;
-	$cite .= '</span>';
+	$cite .= Testimonials_Widget::get_template_part( 'span', 'location' );
+}
+
+if ( ! empty( $cite ) ) {
+	$cite = preg_replace( "#\r|\n#", '', $cite );
 }
 
 $cite = apply_filters( 'tw_cite_html', $cite, $testimonial, $atts );

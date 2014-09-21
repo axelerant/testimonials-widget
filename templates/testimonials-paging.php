@@ -1,7 +1,7 @@
 <?php
-global $at_template_args;
+global $tw_template_args;
 
-extract( $at_template_args );
+extract( $tw_template_args );
 
 if ( is_home() || 1 === Testimonials_Widget::$max_num_pages ) {
 	return;

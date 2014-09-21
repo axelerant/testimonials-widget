@@ -711,6 +711,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'section' => 'examples',
 			'desc' => Testimonials_Widget::show_examples( false ),
 			'type' => 'content',
+			'widget' => 0,
 		);
 
 		// Reset

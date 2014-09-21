@@ -67,7 +67,7 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Shortcodes =
 
-* `[testimonials]` - Listings with paging 
+* `[testimonials]` - Testimonials listings with paging 
 * `[testimonials_archives]` - A monthly archive of your site's testimonials
 * `[testimonials_categories]` - A list or dropdown of testimonials' categories
 * `[testimonials_recent]` - Your site's most recent testimonials
@@ -162,7 +162,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 
 = Testimonials Widget Migration Helpers =
 
-* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget.
+* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget for automatic upgrading.
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 * [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
@@ -251,7 +251,7 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 1. Add and manage testimonials through the **Testimonials Widget** menu in the WordPress admin area
 1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials Slider** widget into the desired widget area. Then configure the widget to select options and display as desired.
 1. Use the following shortcodes to display testimonials on a page, post, etc.
-	* `[testimonials]` - Listings with paging 
+	* `[testimonials]` - Testimonials listings with paging 
 	* `[testimonials_archives]` - A monthly archive of your site's testimonials
 	* `[testimonials_categories]` - A list or dropdown of testimonials' categories
 	* `[testimonials_recent]` - Your site's most recent testimonials

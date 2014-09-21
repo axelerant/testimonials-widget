@@ -3,5 +3,4 @@ global $tw_template_args;
 
 extract( $tw_template_args );
 ?>
-
-</div>
+<span class="join"></span>
