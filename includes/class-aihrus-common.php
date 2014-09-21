@@ -27,6 +27,7 @@ require_once 'interface-aihrus-common.php';
 abstract class Aihrus_Common implements Aihrus_Common_Interface {
 	public static $donate_button;
 	public static $donate_link;
+	public static $markdown_helper;
 
 
 	public function __construct() {
@@ -577,6 +578,23 @@ EOD;
 		}
 
 		return $rules;
+	}
+
+
+	public static function markdown2html( $markdown ) {
+		require_once AIHR_DIR_LIB . 'parsedown/Parsedown.php';
+
+		if ( is_null( self::$markdown_helper ) ) {
+			self::$markdown_helper = new Parsedown();
+		}
+
+		if ( is_readable( $markdown ) ) {
+			$markdown = file_get_contents( $markdown );
+		}
+
+		$html = self::$markdown_helper->text( $markdown );
+
+		return $html;
 	}
 
 }

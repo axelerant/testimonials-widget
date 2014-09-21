@@ -376,7 +376,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'heading':
-				$content .= '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
+				$content .= '</td></tr><tr valign="top"><td colspan="2"><h3>' . $desc . '</h3>';
 				break;
 
 			case 'hidden':
