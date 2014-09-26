@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.0.0RC1
+## 3.0.0RC2
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * Add filter `tw_examples_html`
 * Add filter `tw_examples`
