@@ -328,6 +328,8 @@ abstract class Aihrus_Settings {
 
 		extract( $args );
 
+		$placeholder = ! empty( $placeholder ) ? $placeholder : $std;
+
 		if ( is_null( $input ) ) {
 			$options = get_option( static::ID );
 		} else {
@@ -464,7 +466,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'text':
-				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $field_value . '" />';
+				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $field_value . '" />';
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -476,7 +478,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'textarea':
-				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . $field_value . '</textarea>';
+				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" rows="5" cols="30">' . $field_value . '</textarea>';
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
