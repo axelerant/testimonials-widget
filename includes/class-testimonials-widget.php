@@ -45,7 +45,6 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $cpt_tags;
 	public static $css             = array();
 	public static $css_called      = false;
-	public static $found_posts     = 0;
 	public static $instance_number = 0;
 	public static $instance_widget = 0;
 	public static $library_assets;
@@ -64,6 +63,12 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $use_instance  = false;
 	public static $widget_number = 100000;
 	public static $wp_query;
+
+	public static $aggregate_count   = 'reviewCount';
+	public static $aggregate_data    = array();
+	public static $aggregate_no_item = '__NO_ITEM__';
+	public static $aggregate_rating  = 'aggregateRating';
+	public static $aggregate_schema  = 'http://schema.org/AggregateRating';
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -701,10 +706,6 @@ class Testimonials_Widget extends Aihrus_Common {
 			if ( ! isset( $atts['random'] ) ) {
 				$atts['random'] = 1;
 			}
-
-			if ( ! isset( $atts['enable_schema'] ) ) {
-				$atts['enable_schema'] = 0;
-			}
 		}
 
 		$atts = wp_parse_args( $atts, self::get_defaults() );
@@ -1246,7 +1247,6 @@ EOF;
 		}
 
 		self::$max_num_pages = $testimonials->max_num_pages;
-		self::$found_posts   = $testimonials->found_posts;
 		self::$post_count    = $testimonials->post_count;
 		self::$wp_query      = $testimonials;
 
@@ -1569,6 +1569,12 @@ EOF;
 
 			$review_meta[ self::$thing_image ] = $src;
 		}
+
+		$aggregate_meta = array(
+			self::$aggregate_count => self::get_aggregate_count( $testimonial ),
+		);
+
+		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
 
 		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
@@ -2033,6 +2039,35 @@ EOF;
 		$content = self::get_template_part( 'testimonials', 'tag-cloud' );
 
 		return $content;
+	}
+
+
+	public static function get_aggregate_count( $testimonial ) {
+		$testimonial_item = ! empty( $testimonial[ 'testimonial_item' ] ) ? $testimonial[ 'testimonial_item' ] : self::$aggregate_no_item;
+		if ( ! isset( self::$aggregate_data[ $testimonial_item ]['count'] ) ) {
+			$query_args = array(
+				'post_type' => Testimonials_Widget::PT,
+				'meta_query' => array(
+					'relation' => 'AND',
+					array(
+						'key' => 'testimonials-widget-item',
+						'value' => $testimonial_item,
+						'compare' => 'LIKE',
+					),
+				),
+			);
+
+			$count = 0;
+			$query = new WP_Query( $query_args );
+			while  ( $query->have_posts() ) {
+				$query->the_post();
+				$count++;
+			}
+
+			self::$aggregate_data[ $testimonial_item ]['count'] = $count;
+		}
+
+		return self::$aggregate_data[ $testimonial_item ]['count'];
 	}
 
 
