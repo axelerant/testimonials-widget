@@ -3,6 +3,7 @@
 ## master
 
 ## 3.0.0RC2
+* RELATES #137 Simple aggregrate numbers needed in freebie
 * Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
 * Add filter `tw_examples_html`
 * Add filter `tw_examples`
@@ -61,6 +62,7 @@
 * Revise descriptions
 * Revise widget class and files names
 * Simplify Review schema handling
+* Slider schema enabled by default
 * Update keywords
 * Update licensing entries
 * Update OPTIONS

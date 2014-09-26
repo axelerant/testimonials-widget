@@ -63,17 +63,16 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 		if ( empty( $instance ) ) {
 			$do_number = false;
 
-			$instance['char_limit']    = 500;
-			$instance['random']        = 1;
-			$instance['enable_schema'] = 0;
+			$instance['char_limit'] = 500;
+			$instance['random']     = 1;
 		} elseif ( ! empty( $instance['resetted'] ) ) {
-			if ( empty( $instance['char_limit'] ) )
+			if ( empty( $instance['char_limit'] ) ) {
 				$instance['char_limit'] = 500;
+			}
 
-			if ( empty( $instance['random'] ) )
+			if ( empty( $instance['random'] ) ) {
 				$instance['random'] = 1;
-
-			$instance['enable_schema'] = 0;
+			}
 		}
 
 		$instance['do_number'] = $do_number;
