@@ -30,6 +30,7 @@
 * Link help to FAQ
 * Moved aggregate review schema data to premium
 * Moved email column and data input before URL
+* Moved Tutorials to below Usage section in readme
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
 * Removed customized edit title

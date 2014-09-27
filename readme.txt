@@ -266,6 +266,28 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 	* `<?php echo testimonials_tag_cloud()` // A cloud of your most used testimonials' tags ?>
 1. See the **Shortcode and Widget Options** section for configuring shortcode and theme function attributes.
 
+= Tutorials =
+
+**Adding or Editing Testimonial Widget on Your WordPress Website**
+
+https://www.youtube.com/watch?v=YaXCJppYOUM
+
+**Adding Rotating Testimonials to WordPress Tutorial**
+
+https://www.youtube.com/watch?v=QoFCZgLAUSE
+
+**Testimonials Widget - WordPress Training Video**
+
+https://www.youtube.com/watch?v=ybV5mKZlegA
+
+**Testimonials Widget for WordPress**
+
+https://www.youtube.com/watch?v=LqZ-vcZD8E0
+
+**WordPress Testimonial Plugin Update**
+
+https://www.youtube.com/watch?v=b81oz7k1wbM
+
 = Upgrading =
 
 * Through WordPress
@@ -313,28 +335,6 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
 1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - provide feedback and direction to plugin development
 1. [Old Plugin Versions](http://wordpress.org/plugins/testimonials-widget/developers/)
-
-= Tutorials =
-
-**Adding or Editing Testimonial Widget on Your WordPress Website**
-
-https://www.youtube.com/watch?v=YaXCJppYOUM
-
-**Adding Rotating Testimonials to WordPress Tutorial**
-
-https://www.youtube.com/watch?v=QoFCZgLAUSE
-
-**Testimonials Widget - WordPress Training Video**
-
-https://www.youtube.com/watch?v=ybV5mKZlegA
-
-**Testimonials Widget for WordPress**
-
-https://www.youtube.com/watch?v=LqZ-vcZD8E0
-
-**WordPress Testimonial Plugin Update**
-
-https://www.youtube.com/watch?v=b81oz7k1wbM
 
 
 == Screenshots ==
