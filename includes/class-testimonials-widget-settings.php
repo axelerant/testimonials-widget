@@ -53,6 +53,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		'class' => null, // warning, etc.
 		'desc' => null,
 		'id' => null,
+		'maxlength' => null,
 		'placeholder' => null,
 		'section' => 'general',
 		'show_code' => true,
@@ -765,6 +766,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			case 'text':
 				extract( $args );
 
+				$maxlength   = ! empty( $maxlength ) ? 'maxlength="' . $maxlength . '"' : null;
 				$placeholder = ! empty( $placeholder ) ? $placeholder : $std;
 
 				if ( is_null( $input ) ) {
@@ -787,7 +789,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 				$suggest_id = 'suggest_' . self::$suggest_id++;
 
-				$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $options[$id] . '" />';
+				$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $options[$id] . '" ' . $maxlength . ' />';
 
 				if ( ! empty( $suggest ) )
 					$content .= self::get_suggest( $id, $suggest_id );
