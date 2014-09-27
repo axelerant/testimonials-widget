@@ -1922,7 +1922,7 @@ EOF;
 
 
 	public static function generate_rewrite_rules( $wp_rewrite ) {
-		$rules             = Aihrus_Common::generate_date_archives( self::PT, $wp_rewrite );
+		$rules             = Aihrus_Common::rewrite_rules_date_archives( self::PT, $wp_rewrite );
 		$wp_rewrite->rules = $rules + $wp_rewrite->rules;
 
 		return $wp_rewrite;

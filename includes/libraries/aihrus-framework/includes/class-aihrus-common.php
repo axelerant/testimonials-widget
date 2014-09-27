@@ -542,7 +542,7 @@ EOD;
 	 * @param string $cpt slug of the custom post type
 	 * @return rules returns a set of rewrite rules for Wordpress to handle
 	 */
-	public static function generate_date_archives( $cpt, $wp_rewrite ) {
+	public static function rewrite_rules_date_archives( $cpt, $wp_rewrite ) {
 		$rules        = array();
 		$slug_archive = self::get_archive_slug( $cpt );
 		if ( $slug_archive === false ) {
@@ -595,6 +595,16 @@ EOD;
 		$html = self::$markdown_helper->text( $markdown );
 
 		return $html;
+	}
+
+
+	public static function rewrite_rules_feed( $wp_rewrite ) {
+		$rules = array(
+			'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index(1),
+			'(.+).xml' => 'index.php?feed=' . $wp_rewrite->preg_index(1),
+		);
+
+		return $rules;
 	}
 
 }
