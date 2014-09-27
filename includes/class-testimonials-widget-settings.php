@@ -168,7 +168,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		self::$settings['widget_expand_begin'] = array(
 			'section' => 'widget',
-			'desc' => esc_html__( 'Additional Widget Options', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Additional Options', 'testimonials-widget' ),
 			'type' => 'expand_begin',
 		);
 
