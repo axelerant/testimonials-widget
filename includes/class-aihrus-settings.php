@@ -328,6 +328,7 @@ abstract class Aihrus_Settings {
 
 		extract( $args );
 
+		$maxlength   = ! empty( $maxlength ) ? 'maxlength="' . $maxlength . '"' : null;
 		$placeholder = ! empty( $placeholder ) ? $placeholder : $std;
 
 		if ( is_null( $input ) ) {
@@ -426,17 +427,11 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'rich_editor':
-				global $wp_version;
-				
 				$field_value = $options[$id];
 
-				if ( $wp_version >= 3.3 && function_exists( 'wp_editor' ) ) {
-					ob_start();
-					wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
-					$content = ob_get_clean();
-				} else {
-					$content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( $field_value ) . '</textarea>';
-				}
+				ob_start();
+				wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
+				$content = ob_get_clean();
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -466,7 +461,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'text':
-				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $field_value . '" />';
+				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $field_value . '" ' . $maxlength . ' />';
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
@@ -478,7 +473,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'textarea':
-				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" rows="5" cols="30">' . $field_value . '</textarea>';
+				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" ' . $maxlength . ' rows="5" cols="30">' . $field_value . '</textarea>';
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
