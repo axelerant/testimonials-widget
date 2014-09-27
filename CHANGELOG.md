@@ -37,6 +37,7 @@
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Removed pre-2.0.0 migration code
 * Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
+* Reorganize settings
 * Replace `tw_shortcodes` with `tw_examples`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #103 Example of every option

@@ -111,11 +111,12 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 	public static function sections() {
 		self::$sections['general']   = esc_html__( 'General', 'testimonials-widget' );
+		self::$sections['fields']    = esc_html__( 'Fields to Show', 'testimonials-widget' );
 		self::$sections['selection'] = esc_html__( 'Selection', 'testimonials-widget' );
 		self::$sections['ordering']  = esc_html__( 'Ordering', 'testimonials-widget' );
-		self::$sections['widget']    = esc_html__( 'Slider Widget', 'testimonials-widget' );
-		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
 		self::$sections['columns']   = esc_html__( 'Columns', 'testimonials-widget' );
+		self::$sections['post_type'] = esc_html__( 'Post Type', 'testimonials-widget' );
+		self::$sections['widget']    = esc_html__( 'Slider Widget', 'testimonials-widget' );
 		self::$sections['examples']  = esc_html__( 'Examples', 'testimonials-widget' );
 
 		parent::sections();
@@ -131,13 +132,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 */
 	public static function settings() {
 		// Widget
-		self::$settings['widget_heading'] = array(
-			'section' => 'widget',
-			'desc' => esc_html__( 'This section only applies to the testimonials slider widget.', 'testimonials-widget' ),
-			'type' => 'heading',
-			'widget' => 0,
-		);
-
 		self::$settings['title'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Title', 'testimonials-widget' ),
@@ -276,12 +270,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'validate' => 'is_true',
 		);
 
-		self::$settings['general_heading_fields'] = array(
-			'desc' => esc_html__( 'Fields to Show', 'testimonials-widget' ),
-			'type' => 'heading',
-		);
-
 		self::$settings['hide_gravatar'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Gravatar Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -289,6 +279,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_image'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Image?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -296,6 +287,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_image_single'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Image in Single View?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -303,6 +295,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_content'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Testimonial Content?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -310,6 +303,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_source'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Source?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -317,6 +311,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_title'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Job Title?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -324,6 +319,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_location'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Location?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -331,6 +327,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_company'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -338,6 +335,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_email'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide Email?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
@@ -346,15 +344,11 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['hide_url'] = array(
+			'section' => 'fields',
 			'title' => esc_html__( 'Hide URL?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'desc' => esc_html__( 'Don\'t display or link to testimonial URL in cite.', 'testimonials-widget' ),
-		);
-
-		self::$settings['general_heading_misc'] = array(
-			'desc' => esc_html__( 'Miscellaneous', 'testimonials-widget' ),
-			'type' => 'heading',
 		);
 
 		self::$settings['item_reviewed'] = array(
@@ -616,7 +610,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['columns_heading'] = array(
 			'section' => 'columns',
 			'desc' => esc_html__( 'Columns to display on the Testimonial\'s edit page', 'testimonials-widget' ),
-			'type' => 'heading',
+			'type' => 'content',
 			'widget' => 0,
 			'show_code' => false,
 		);
