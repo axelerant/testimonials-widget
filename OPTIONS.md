@@ -13,7 +13,7 @@
 * Use `<q>` tag? – Not HTML5 compliant.
 	* `use_quote_tag` - default none; use_quote_tag=true
 
-### Fields to Show
+### Fields
 
 * Hide Gravatar Image? - Don't display Gravatar image with testimonial.
 	* `hide_gravatar` - default show; hide_gravatar=true
@@ -120,8 +120,6 @@
 * Testimonial Page URL – URL slug-name for testimonial view pages. After changing, you must click "Save Changes" on Permalink Settings to update them.
 
 ## Columns
-
-### Columns to display on the Testimonial's edit page
 
 * Hide ID?	 
 * Hide Image?	 
