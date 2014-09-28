@@ -120,7 +120,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		parent::sections();
 
 		self::$sections['examples'] = esc_html__( 'Examples', 'testimonials-widget' );
-		self::$sections['options']  = esc_html__( 'Options Summary', 'testimonials-widget' );
+		self::$sections['options']  = esc_html__( 'Shortcode Attributes', 'testimonials-widget' );
 
 		self::$sections = apply_filters( 'tw_sections', self::$sections );
 	}
@@ -720,7 +720,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
-		// Options Summary
+		// Shortcode Attributes
 		self::$settings['options'] = array(
 			'section' => 'options',
 			'type' => 'content',
