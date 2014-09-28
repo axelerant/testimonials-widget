@@ -883,6 +883,15 @@ EOD;
 	}
 
 
+	public static function get_sections() {
+		if ( empty( static::$sections ) ) {
+			static::sections();
+		}
+
+		return static::$sections;
+	}
+
+
 }
 
 
