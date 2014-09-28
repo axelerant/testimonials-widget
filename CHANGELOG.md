@@ -19,6 +19,8 @@
 * Add Plugin Deactivation & Deletion section to readme
 * Add shortcode and theme function `testimonials_archives`
 * Add shortcode and theme function `testimonials_categories`
+* Add shortcode and theme function `testimonials_examples`
+* Add shortcode and theme function `testimonials_options`
 * Add shortcode and theme function `testimonials_recent`
 * Add shortcode and theme function `testimonials_tag_cloud`
 * Added recent testimonials widget

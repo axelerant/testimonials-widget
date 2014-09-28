@@ -119,6 +119,8 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
 		add_shortcode( 'testimonials_archives', array( __CLASS__, 'testimonials_archives' ) );
 		add_shortcode( 'testimonials_categories', array( __CLASS__, 'testimonials_categories' ) );
+		add_shortcode( 'testimonials_examples', array( __CLASS__, 'testimonials_examples' ) );
+		add_shortcode( 'testimonials_options', array( __CLASS__, 'testimonials_options' ) );
 		add_shortcode( 'testimonials_recent', array( __CLASS__, 'testimonials_recent' ) );
 		add_shortcode( 'testimonials_slider', array( __CLASS__, 'testimonials_slider' ) );
 		add_shortcode( 'testimonials_tag_cloud', array( __CLASS__, 'testimonials_tag_cloud' ) );
@@ -1708,22 +1710,6 @@ EOF;
 	}
 
 
-	public static function show_examples() {
-		$examples_file = TW_DIR . 'EXAMPLES.md';
-		$examples_html = self::markdown2html( $examples_file );
-		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
-
-		$options_file = TW_DIR . 'OPTIONS.md';
-		$options_html = self::markdown2html( $options_file );
-		$options_html = apply_filters( 'tw_options_html', $options_html );
-
-		$html = $examples_html . $options_html;
-		$html = apply_filters( 'tw_examples', $html );
-
-		return $html;
-	}
-
-
 	public static function set_not_found( $not_found = false ) {
 		self::$not_found = $not_found;
 	}
@@ -2071,6 +2057,28 @@ EOF;
 	}
 
 
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function testimonials_examples( $atts = null ) {
+		$examples_file = TW_DIR . 'EXAMPLES.md';
+		$examples_html = self::markdown2html( $examples_file );
+		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
+
+		return $examples_html;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function testimonials_options( $atts = null ) {
+		$options_file = TW_DIR . 'OPTIONS.md';
+		$options_html = self::markdown2html( $options_file );
+		$options_html = apply_filters( 'tw_options_html', $options_html );
+
+		return $options_html;
+	}
 }
 
 ?>

@@ -70,18 +70,22 @@ The single testimonial view supports image, source, title, location, email, comp
 * `[testimonials]` - Testimonials listings with paging 
 * `[testimonials_archives]` - A monthly archive of your site's testimonials
 * `[testimonials_categories]` - A list or dropdown of testimonials' categories
+* `[testimonials_examples]` - Displays examples of commonly used testimonials' shortcodes with attributes
+* `[testimonials_options]` - Displays summary of testimonials' settings for use with shortcodes and theme functions
 * `[testimonials_recent]` - Your site's most recent testimonials
 * `[testimonials_slider]` - Displays rotating testimonials or statically
 * `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
 
 = Theme Functions =
 
-* `<?php echo testimonials()` // Testimonials listing with paging  ?>
-* `<?php echo testimonials_archives()` // A monthly archive of your site's testimonials ?>
-* `<?php echo testimonials_categories()` // A list or dropdown of testimonials' categories ?>
-* `<?php echo testimonials_recent()` // Your site's most recent testimonials ?>
-* `<?php echo testimonials_slider()` // Displays rotating testimonials or statically ?>
-* `<?php echo testimonials_tag_cloud()` // A cloud of your most used testimonials' tags ?>
+* `<?php echo testimonials(); // Testimonials listing with paging  ?>`
+* `<?php echo testimonials_archives(); // A monthly archive of your site's testimonials ?>`
+* `<?php echo testimonials_categories(); // A list or dropdown of testimonials' categories ?>`
+* `<?php echo testimonials_examples(); // Displays examples of commonly used testimonials' shortcodes with attributes ?>`
+* `<?php echo testimonials_options(); // Displays summary of testimonials' settings for use with shortcodes and theme functions ?>`
+* `<?php echo testimonials_recent(); // Your site's most recent testimonials ?>`
+* `<?php echo testimonials_slider(); // Displays rotating testimonials or statically ?>`
+* `<?php echo testimonials_tag_cloud(); // A cloud of your most used testimonials' tags ?>`
 
 = Testimonials Widget Premium =
 
@@ -254,16 +258,20 @@ Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master
 	* `[testimonials]` - Testimonials listings with paging 
 	* `[testimonials_archives]` - A monthly archive of your site's testimonials
 	* `[testimonials_categories]` - A list or dropdown of testimonials' categories
+	* `[testimonials_examples]` - Displays examples of commonly used testimonials' shortcodes with attributes
+	* `[testimonials_options]` - Displays summary of testimonials' settings for use with shortcodes and theme functions
 	* `[testimonials_recent]` - Your site's most recent testimonials
 	* `[testimonials_slider]` - Displays rotating testimonials or statically
 	* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
 1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for using the following theme helpers.
-	* `<?php echo testimonials()` // Testimonials listing with paging  ?>
-	* `<?php echo testimonials_archives()` // A monthly archive of your site's testimonials ?>
-	* `<?php echo testimonials_categories()` // A list or dropdown of testimonials' categories ?>
-	* `<?php echo testimonials_recent()` // Your site's most recent testimonials ?>
-	* `<?php echo testimonials_slider()` // Displays rotating testimonials or statically ?>
-	* `<?php echo testimonials_tag_cloud()` // A cloud of your most used testimonials' tags ?>
+	* `<?php echo testimonials(); // Testimonials listing with paging  ?>`
+	* `<?php echo testimonials_archives(); // A monthly archive of your site's testimonials ?>`
+	* `<?php echo testimonials_categories(); // A list or dropdown of testimonials' categories ?>`
+	* `<?php echo testimonials_examples(); // Displays examples of commonly used testimonials' shortcodes with attributes ?>`
+	* `<?php echo testimonials_options(); // Displays summary of testimonials' settings for use with shortcodes and theme functions ?>`
+	* `<?php echo testimonials_recent(); // Your site's most recent testimonials ?>`
+	* `<?php echo testimonials_slider(); // Displays rotating testimonials or statically ?>`
+	* `<?php echo testimonials_tag_cloud(); // A cloud of your most used testimonials' tags ?>`
 1. See the **Shortcode and Widget Options** section for configuring shortcode and theme function attributes.
 
 = Tutorials =

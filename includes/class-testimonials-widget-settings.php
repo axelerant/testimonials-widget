@@ -119,7 +119,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		parent::sections();
 
-		self::$sections['examples']  = esc_html__( 'Examples', 'testimonials-widget' );
+		self::$sections['examples'] = esc_html__( 'Examples', 'testimonials-widget' );
+		self::$sections['options']  = esc_html__( 'Options Summary', 'testimonials-widget' );
 
 		self::$sections = apply_filters( 'tw_sections', self::$sections );
 	}
@@ -696,14 +697,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'show_code' => false,
 		);
 
-		// Examples
-		self::$settings['examples'] = array(
-			'section' => 'examples',
-			'desc' => Testimonials_Widget::show_examples( false ),
-			'type' => 'content',
-			'widget' => 0,
-		);
-
 		// Reset
 		self::$settings['reset_expand_begin'] = array(
 			'section' => 'reset',
@@ -716,6 +709,22 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['reset_expand_end'] = array(
 			'section' => 'reset',
 			'type' => 'expand_end',
+		);
+
+		// Examples
+		self::$settings['examples'] = array(
+			'section' => 'examples',
+			'desc' => Testimonials_Widget::testimonials_examples(),
+			'type' => 'content',
+			'widget' => 0,
+		);
+
+		// Options Summary
+		self::$settings['options'] = array(
+			'section' => 'options',
+			'desc' => Testimonials_Widget::testimonials_options(),
+			'type' => 'content',
+			'widget' => 0,
 		);
 
 		self::$settings = apply_filters( 'tw_settings', self::$settings );

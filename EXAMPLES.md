@@ -35,3 +35,11 @@
 ## [testimonials_tag_cloud] - A cloud of your most used testimonials' tags
 
 * Show testimonials post tag cloud - `[testimonials_tag_cloud]`
+
+## [testimonials_examples] - Displays examples of commonly used testimonials' shortcodes with attributes
+
+* Show testimonials' shortcodes with attributes - `[testimonials_examples]`
+
+## [testimonials_options] - Displays summary of testimonials' settings for use with shortcodes and theme functions
+
+* Show summary of testimonials shortcode and theme function attributes - `[testimonials_options]`

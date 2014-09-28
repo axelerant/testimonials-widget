@@ -250,10 +250,6 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Enhance or override options HTML.
 
-* `tw_examples`
-
-	Enhance or override Examples of Options page HTML.
-
 ## Need More?
 
 Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507) and [source code](https://github.com/michael-cannon/testimonials-widget).

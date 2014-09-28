@@ -155,4 +155,22 @@ if ( ! function_exists( 'testimonials_tag_cloud' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'testimonials_examples' ) ) {
+	function testimonials_examples( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_examples( $atts );
+	}
+}
+
+
+if ( ! function_exists( 'testimonials_options' ) ) {
+	function testimonials_options( $atts = array() ) {
+		global $Testimonials_Widget;
+
+		return $Testimonials_Widget->testimonials_options( $atts );
+	}
+}
+
 ?>
