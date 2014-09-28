@@ -57,6 +57,7 @@
 * RESOLVE #132 Implement shortcodes for all widgets
 * RESOLVE #134 Implement testimonials date archives
 * RESOLVE #137 Simple aggregrate numbers needed in freebie
+* RESOLVE #139 Auto-generate option examples
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top

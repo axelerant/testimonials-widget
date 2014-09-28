@@ -2061,6 +2061,24 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_examples( $atts = null ) {
+		$atts['type'] = 'testimonials_examples';
+
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_testimonials_examples( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_testimonials_examples( $atts = null ) {
 		$examples_file = TW_DIR . 'EXAMPLES.md';
 		$examples_html = self::markdown2html( $examples_file );
 		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
@@ -2073,11 +2091,90 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_options( $atts = null ) {
-		$options_file = TW_DIR . 'OPTIONS.md';
-		$options_html = self::markdown2html( $options_file );
-		$options_html = apply_filters( 'tw_options_html', $options_html );
+		$atts['type'] = 'testimonials_options';
 
-		return $options_html;
+		$content = apply_filters( 'tw_cache_get', false, $atts );
+		if ( false === $content ) {
+			$content = self::get_testimonials_options( $atts );
+			$content = apply_filters( 'tw_cache_set', $content, $atts );
+		}
+
+		self::call_scripts_styles( array(), $atts );
+
+		return $content;
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_testimonials_options( $atts = null ) {
+		$sections = Testimonials_Widget_Settings::get_sections();
+		$settings = Testimonials_Widget_Settings::get_settings();
+
+		$ignored_types = array( 'expand_begin', 'expand_end', 'expand_all', 'content', );
+
+		$first_dl = true;
+		$open_dl  = false;
+		$html     = '';
+		foreach( $settings as $setting => $parts ) {
+			if ( in_array( $parts['type'], $ignored_types ) ) {
+				continue;
+			}
+
+			if ( empty( $parts['show_code'] ) ) {
+				continue;
+			}
+
+			// section header
+			if ( ! empty( $sections[ $parts['section'] ] ) ) {
+				if ( ! $first_dl ) {
+					$html .= '</dl>';
+				} else {
+					$first_dl = false;
+				}
+
+				$html .= '<h2>' . $sections[ $parts['section'] ] . '</h2>';
+				$html .= '<dl>';
+
+				$open_dl = true;
+
+				unset( $sections[ $parts['section'] ] );
+			}
+
+			// option name
+			$html .= '<dt>' . $parts['title'] . '</dt>';
+
+			// description
+			if ( ! empty( $parts['desc'] ) ) {
+				$html .= '<dd>' . $parts['desc'] . '</dd>';
+			}
+
+			// validation helpers
+			$validate = self::define_options_validate( $parts );
+			if ( ! empty( $validate ) ) {
+				$html .= '<dd>' . $validate . '</dd>';
+			}
+
+			$choices = self::define_options_choices( $parts );
+			if ( ! empty( $choices ) ) {
+				$html .= '<dd>' . esc_html__( 'Options: ' ) . '<code>' . $choices . '</code></dd>';
+			}
+
+			$value = self::define_options_value( $setting, $parts );
+			if ( ! empty( $value ) ) {
+				$html .= '<dd>' . esc_html__( 'Usage: ' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
+			}
+		}
+
+		if ( $open_dl ) {
+			$html .= '</dl>';
+		} 
+
+		$html = links_add_target( $html, '_tw' );
+		$html = apply_filters( 'tw_options_html', $html );
+
+		return $html;
 	}
 }
 

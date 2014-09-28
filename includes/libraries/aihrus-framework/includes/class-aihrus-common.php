@@ -28,6 +28,7 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 	public static $donate_button;
 	public static $donate_link;
 	public static $markdown_helper;
+	public static $value_use_check;
 
 
 	public function __construct() {
@@ -605,6 +606,123 @@ EOD;
 		);
 
 		return $rules;
+	}
+
+
+	public static function define_options_validate( $parts ) {
+		$validate = '';
+		if ( empty( $parts['validate'] ) ) {
+			return $validate;
+		}
+
+		$validation_info = array(
+			'absint' => __( '<a href="http://codex.wordpress.org/Function_Reference/absint">absint</a>.' ),
+			'ids' => __( 'Digit-only characters to make a multiple or single entries. Regex <code>#^\d+(,\s?\d+)*$#</code>.' ),
+			'intval' => __( '<a href="php.net/manual/en/function.intval.php">intval</a>.' ),
+			'is_true' => __( 'Values like true, \'true\', 1, \'on\', and \'yes\' are <strong>true</strong>; otherwise <strong>false</strong>.' ),
+			'nozero' => __( 'A non-zero <a href="php.net/manual/en/function.intval.php">intval</a>.' ),
+			'slash_sanitize_title' => __( '<a href="http://codex.wordpress.org/Function_Reference/sanitize_title">sanitize_title</a>.' ),
+			'slug' => __( 'Word-only characters including a hyphen to make a single term. Regex <code>#^[\w-]+$#</code>.' ),
+			'term' => __( 'Word-only characters to make a single term. Regex <code>#^\w+$#</code>.' ),
+			'terms' => __( 'Word-only characters including hyphens and spaces to make a multiple or single terms. Regex <code>#^(([\w- ]+)(,\s?)?)+$#</code>.' ),
+			'url' => __( '<a href="http://php.net/manual/en/filter.filters.validate.php">filter_var( $url, FILTER_VALIDATE_URL )</a>.' ),
+			'wp_kses_data' => __( '<a href="http://codex.wordpress.org/Function_Reference/wp_kses_data">wp_kses_data</a>.' ),
+			'wp_kses_post' => __( '<a href="http://codex.wordpress.org/Function_Reference/wp_kses_post">wp_kses_post</a>.' ),
+		);
+
+		$validations = ! empty( $parts['validate'] ) ? $parts['validate'] : array();
+		if ( ! empty( $validations ) ) {
+			$validate = esc_html__( 'Validatation: ' );
+
+			$validates   = array();
+			$validations = explode( ',', $validations );
+			foreach ( $validations as $validation ) {
+				if ( ! empty( $validation_info[ $validation ] ) ) {
+					$validates[] = $validation_info[ $validation ];
+				} else {
+					$validates[] = 'TBD ' . $validation;
+				}
+
+				self::$value_use_check = 'use_' . $validation;
+			}
+
+			$validate .= implode( ', ', $validates );
+		}
+
+		return $validate;
+	}
+
+
+	public static function define_options_choices( $parts ) {
+		$choices = '';
+		if ( empty( $parts['choices'] ) ) {
+			return $choices;
+		}
+
+		$choices = $parts['choices'];
+		$choices = array_keys( $parts['choices'] );
+		if ( '' == $choices[ 0 ] ) {
+			$choices[ 0 ] = 'false';
+		}
+
+		$choices = implode( ', ', $choices );
+
+		return $choices;
+	}
+
+
+	public static function define_options_value( $setting, $parts ) {
+		$value = $parts['std'];
+
+		switch( $parts['type'] ) {
+		case 'checkbox':
+			if ( Aihrus_Settings::is_false( $value ) ) {
+				$value = 'false';
+			} elseif ( Aihrus_Settings::is_true( $value ) ) {
+				$value = 'true';
+			} elseif ( empty( $value ) ) {
+				$value = esc_html__( 'TBD empty ' ) . $parts['type'];
+			}
+			break;
+
+		case 'select':
+			if ( empty( $value ) ) {
+				$value = esc_html__( 'Pick an option' );
+			}
+			break;
+
+		case 'text':
+		case 'textarea':
+			if ( empty( $value ) ) {
+				if ( 'use_absint' == self::$value_use_check ) {
+					$value = '10';
+				} elseif ( 'use_ids' == self::$value_use_check ) {
+					$value = '3,1,2';
+				} elseif ( 'use_nozero' == self::$value_use_check ) {
+					$value = '10';
+				} elseif ( 'use_slug' == self::$value_use_check ) {
+					$value = 'slug-name';
+				} elseif ( 'use_term' == self::$value_use_check ) {
+					$value = 'termname';
+				} elseif ( 'use_terms' == self::$value_use_check ) {
+					if ( preg_match( '#category|categories#i', $setting ) ) {
+						$value = esc_html__( 'Category A, Another category, 123' );
+					} else {
+						$value = esc_html__( 'Tag A, Another tag, 123' );
+					}
+				} else {
+					$value = esc_html__( 'You decide…' );
+				}
+			}
+			break;
+
+		default:
+			break;
+		}
+
+		self::$value_use_check = null;
+
+		return $value;
 	}
 
 }

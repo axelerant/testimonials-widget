@@ -225,6 +225,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'desc' => esc_html__( 'Name of thing being referenced in testimonials.', 'testimonials-widget' ),
 			'std' => get_option( 'blogname' ),
 			'widget' => 0,
+			'validate' => 'wp_kses_post',
 		);
 
 		self::$settings['item_reviewed_url'] = array(
@@ -433,7 +434,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['category'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Category Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated category names or IDs. Ex: Category A, Another category, 123', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated category names or IDs.', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -441,14 +442,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['exclude'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Exclude IDs Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated testimonial IDs.', 'testimonials-widget' ),
 			'validate' => 'ids',
 		);
 
 		self::$settings['ids'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Include IDs Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated testimonial IDs. Ex: 3,1,2', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated testimonial IDs.', 'testimonials-widget' ),
 			'validate' => 'ids',
 		);
 
@@ -471,7 +472,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['tags'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated tag names or IDs. Ex: Tag A, Another tag, 123', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated tag names or IDs.', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);
@@ -722,15 +723,18 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		// Options Summary
 		self::$settings['options'] = array(
 			'section' => 'options',
-			'desc' => Testimonials_Widget::testimonials_options(),
 			'type' => 'content',
 			'widget' => 0,
 		);
 
-		self::$settings = apply_filters( 'tw_settings', self::$settings );
-
 		foreach ( self::$settings as $id => $parts ) {
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
+		}
+
+		self::$settings = apply_filters( 'tw_settings', self::$settings );
+
+		if ( empty( self::$settings['options']['desc'] ) ) {
+			self::$settings['options']['desc'] = Testimonials_Widget::testimonials_options();
 		}
 	}
 
