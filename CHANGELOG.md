@@ -3,7 +3,7 @@
 ## master
 
 ## 3.0.0RC2
-* Add DEPRECATED.md, EXAMPLES.md, OPTIONS.md, and UPGRADING.md documentation
+* Add DEPRECATED.md, EXAMPLES.md, and UPGRADING.md documentation
 * Add filter `tw_examples_html`
 * Add filter `tw_examples`
 * Add filter `tw_get_template_part`
@@ -72,7 +72,6 @@
 * Slider schema enabled by default
 * Update keywords
 * Update licensing entries
-* Update OPTIONS
 * Update shortcode examples with description first
 * Update widget title handling
 * Update [bxSlider 4.1.2](https://github.com/stevenwanderski/bxslider-4)

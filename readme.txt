@@ -158,11 +158,11 @@ Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/maste
 
 = Shortcode and Widget Options =
 
-Please keep in mind that inheritance affects options. This means that changes made to Testimonials Widget > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
+Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
 
 Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
 
-Read [OPTIONS](https://github.com/michael-cannon/testimonials-widget/blob/master/OPTIONS.md).
+Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings.
 
 = Testimonials Widget Migration Helpers =
 
