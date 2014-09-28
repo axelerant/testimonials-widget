@@ -33,6 +33,7 @@
 * Moved Tutorials to below Usage section in readme
 * Put latest Update Notice in readme.txt
 * Readme.txt updates
+* Remove `show_code` examples from settings entries
 * Removed customized edit title
 * Removed options: `include_ie7_css`,`use_bxslider`, `disable_animation`, `fade_out_speed`, `fade_in_speed`, `height`, `min_height`, `max_height`
 * Removed pre-2.0.0 migration code

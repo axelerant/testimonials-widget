@@ -39,9 +39,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static $defaults = array();
 	public static $plugin_assets;
 	public static $plugin_url = 'http://wordpress.org/plugins/testimonials-widget/';
-	public static $sections   = array();
-	public static $settings   = array();
-	public static $suggest_id = 0;
+	public static $sections = array();
+	public static $settings = array();
 	public static $version;
 
 	public static $default = array(
@@ -757,54 +756,18 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content = '';
 		switch ( $args['type'] ) {
-			case 'text':
-				extract( $args );
-
-				$maxlength   = ! empty( $maxlength ) ? 'maxlength="' . $maxlength . '"' : null;
-				$placeholder = ! empty( $placeholder ) ? $placeholder : $std;
-
-				if ( is_null( $input ) ) {
-					$options = get_option( self::ID );
-				} else {
-					$options      = array();
-					$options[$id] = $input;
-				}
-
-				if ( ! isset( $options[$id] ) ) {
-					$options[$id] = $std;
-				}
-
-				$field_class = '';
-				if ( ! empty( $class ) ) {
-					$field_class = ' ' . $class;
-				}
-
-				$field_class = esc_attr( $field_class );
-
-				$suggest_id = 'suggest_' . self::$suggest_id++;
-
-				$content .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . self::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $options[$id] . '" ' . $maxlength . ' />';
-
-				if ( ! empty( $suggest ) )
-					$content .= self::get_suggest( $id, $suggest_id );
-
-				if ( ! empty( $desc ) )
-					$content .= '<br /><span class="description">' . $desc . '</span>';
-
-				if ( $show_code )
-					$content .= '<br /><code>' . $id . '</code>';
-				break;
-
 			default:
 				$content = apply_filters( 'tw_display_setting', $content, $args, $input );
 				break;
 		}
 
-		if ( empty( $content ) )
+		if ( empty( $content ) ) {
 			$content = parent::display_setting( $args, false, $input );
+		}
 
-		if ( ! $do_echo )
+		if ( ! $do_echo ) {
 			return $content;
+		}
 
 		echo $content;
 	}
