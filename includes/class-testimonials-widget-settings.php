@@ -39,8 +39,8 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static $defaults = array();
 	public static $plugin_assets;
 	public static $plugin_url = 'http://wordpress.org/plugins/testimonials-widget/';
-	public static $sections = array();
-	public static $settings = array();
+	public static $sections   = array();
+	public static $settings   = array();
 	public static $version;
 
 	public static $default = array(

@@ -169,8 +169,8 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		load_plugin_textdomain( self::PT, false, 'testimonials-widget/languages' );
 
-		self::$cpt_category    = self::PT . '-category';
-		self::$cpt_tags        = self::PT . '-post_tag';
+		self::$cpt_category = self::PT . '-category';
+		self::$cpt_tags     = self::PT . '-post_tag';
 
 		self::init_post_type();
 		self::styles();
@@ -2165,6 +2165,57 @@ EOF;
 			if ( ! empty( $value ) ) {
 				$html .= '<dd>' . esc_html__( 'Usage: ' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
 			}
+		}
+
+		// remaining widgets
+		$widgets = array(
+			'Testimonials_Widget_Archives_Widget',
+			'Testimonials_Widget_Categories_Widget',
+			'Testimonials_Widget_Recent_Testimonials_Widget',
+			'Testimonials_Widget_Tag_Cloud_Widget',
+		);
+
+		foreach( $widgets as $widget ) {
+			$form_parts = $widget::form_parts();
+
+			// section header
+			$html .= '</dl>';
+			$html .= '<h2>' . $widget::$title . '</h2>';
+			$html .= '<dl>';
+
+			foreach( $form_parts as $setting => $parts ) {
+				if ( in_array( $parts['type'], $ignored_types ) ) {
+					continue;
+				}
+
+				// option name
+				$html .= '<dt>' . $parts['title'] . '</dt>';
+
+				// description
+				if ( ! empty( $parts['desc'] ) ) {
+					$html .= '<dd>' . $parts['desc'] . '</dd>';
+				}
+
+				// validation helpers
+				$validate = self::define_options_validate( $parts );
+				if ( ! empty( $validate ) ) {
+					$html .= '<dd>' . $validate . '</dd>';
+				}
+
+				$choices = self::define_options_choices( $parts );
+				if ( ! empty( $choices ) ) {
+					$html .= '<dd>' . esc_html__( 'Options: ' ) . '<code>' . $choices . '</code></dd>';
+				}
+
+				$value = self::define_options_value( $setting, $parts );
+				if ( ! empty( $value ) ) {
+					$html .= '<dd>' . esc_html__( 'Usage: ' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
+				}
+			}
+
+			if ( $open_dl ) {
+				$html .= '</dl>';
+			} 
 		}
 
 		if ( $open_dl ) {
