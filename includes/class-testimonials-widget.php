@@ -2135,6 +2135,27 @@ EOF;
 				}
 
 				$html .= '<h2>' . $sections[ $parts['section'] ] . '</h2>';
+
+				$used_with_codes = array(
+					'[testimonials_slider]',
+					'testimonials_slider()',
+				);
+
+				if ( 'widget' != $parts['section'] ) {
+					$used_with_codes[] = '[testimonials]';
+					$used_with_codes[] = 'testimonials()';
+				}
+
+				$used_with_codes = apply_filters( 'tw_used_with_codes', $used_with_codes, $setting, $parts );
+
+				if ( ! empty( $used_with_codes ) ) {
+					$used_with_codes = implode( '</code>, <code>', $used_with_codes );
+
+					$html .= '<p>' . esc_html__( 'Used with: ' );
+					$html .= '<code>' . $used_with_codes . '</code>';
+					$html .= '</p>';
+				}
+
 				$html .= '<dl>';
 
 				$open_dl = true;
@@ -2169,18 +2190,34 @@ EOF;
 
 		// remaining widgets
 		$widgets = array(
-			'Testimonials_Widget_Archives_Widget',
-			'Testimonials_Widget_Categories_Widget',
-			'Testimonials_Widget_Recent_Testimonials_Widget',
-			'Testimonials_Widget_Tag_Cloud_Widget',
+			'Testimonials_Widget_Archives_Widget' => 'testimonials_archives',
+			'Testimonials_Widget_Categories_Widget' => 'testimonials_categories',
+			'Testimonials_Widget_Recent_Testimonials_Widget' => 'testimonials_recent',
+			'Testimonials_Widget_Tag_Cloud_Widget' => 'testimonials_tag_cloud',
 		);
 
-		foreach( $widgets as $widget ) {
+		foreach( $widgets as $widget => $shortcode ) {
 			$form_parts = $widget::form_parts();
 
 			// section header
 			$html .= '</dl>';
 			$html .= '<h2>' . $widget::$title . '</h2>';
+
+			$used_with_codes = array(
+				'[' . $shortcode . ']',
+				'' . $shortcode . '()',
+			);
+
+			$used_with_codes = apply_filters( 'tw_used_with_codes_widgets', $used_with_codes, $widget, $shortcode );
+
+			if ( ! empty( $used_with_codes ) ) {
+				$used_with_codes = implode( '</code>, <code>', $used_with_codes );
+
+				$html .= '<p>' . esc_html__( 'Used with: ' );
+				$html .= '<code>' . $used_with_codes . '</code>';
+				$html .= '</p>';
+			}
+
 			$html .= '<dl>';
 
 			foreach( $form_parts as $setting => $parts ) {
