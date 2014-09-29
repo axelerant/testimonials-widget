@@ -246,6 +246,18 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Enhance or override examples HTML.
 
+* `tw_used_with_codes`
+
+	Enhance or override primary widgets shortcode and theme function accessibility.
+
+* `tw_options_widgets`
+
+	Enhance or override widgets included for options documentation.
+
+* `tw_used_with_codes_widgets`
+
+	Enhance or override additionally widgets shortcode and theme function accessibility.
+
 * `tw_options_html`
 
 	Enhance or override options HTML.

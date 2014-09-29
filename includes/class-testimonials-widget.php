@@ -2195,6 +2195,8 @@ EOF;
 			'Testimonials_Widget_Recent_Testimonials_Widget' => 'testimonials_recent',
 			'Testimonials_Widget_Tag_Cloud_Widget' => 'testimonials_tag_cloud',
 		);
+		
+		$widgets = apply_filters( 'tw_options_widgets', $widgets );
 
 		foreach( $widgets as $widget => $shortcode ) {
 			$form_parts = $widget::form_parts();
