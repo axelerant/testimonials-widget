@@ -2061,6 +2061,8 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_examples( $atts = null ) {
+		$atts = wp_parse_args( $atts, self::get_defaults() );
+
 		$atts['type'] = 'testimonials_examples';
 
 		$content = apply_filters( 'tw_cache_get', false, $atts );
@@ -2082,6 +2084,8 @@ EOF;
 		$examples_file = TW_DIR . 'EXAMPLES.md';
 		$examples_html = self::markdown2html( $examples_file );
 		$examples_html = apply_filters( 'tw_examples_html', $examples_html );
+		$examples_html = str_replace( '[[', '[', $examples_html );
+		$examples_html = str_replace( ']]', ']', $examples_html );
 
 		return $examples_html;
 	}
@@ -2091,6 +2095,8 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_options( $atts = null ) {
+		$atts = wp_parse_args( $atts, self::get_defaults() );
+
 		$atts['type'] = 'testimonials_options';
 
 		$content = apply_filters( 'tw_cache_get', false, $atts );

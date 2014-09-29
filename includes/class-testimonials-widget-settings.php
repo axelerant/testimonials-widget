@@ -712,28 +712,29 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_end',
 		);
 
-		// Examples
-		self::$settings['examples'] = array(
-			'section' => 'examples',
-			'desc' => Testimonials_Widget::testimonials_examples(),
-			'type' => 'content',
-			'widget' => 0,
-		);
-
-		// Shortcode Attributes
-		self::$settings['options'] = array(
-			'section' => 'options',
-			'type' => 'content',
-			'widget' => 0,
-		);
-
 		self::$settings = apply_filters( 'tw_settings', self::$settings );
 		foreach ( self::$settings as $id => $parts ) {
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
 		}
 
-		if ( empty( self::$settings['options']['desc'] ) ) {
-			self::$settings['options']['desc'] = Testimonials_Widget::testimonials_options();
+		if ( ! empty( $_REQUEST['page'] ) && 'testimonialswidget_settings' == $_REQUEST['page'] ) {
+			// Examples
+			self::$settings['examples'] = array(
+				'section' => 'examples',
+				'desc' => Testimonials_Widget::testimonials_examples(),
+				'type' => 'content',
+				'widget' => 0,
+			);
+			self::$settings['examples'] = wp_parse_args( self::$settings['examples'], self::$default );
+
+			// Shortcode Attributes
+			self::$settings['options'] = array(
+				'section' => 'options',
+				'type' => 'content',
+				'desc' => Testimonials_Widget::testimonials_options(),
+				'widget' => 0,
+			);
+			self::$settings['options'] = wp_parse_args( self::$settings['options'], self::$default );
 		}
 	}
 
@@ -915,8 +916,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 	public static function settings_add_help_tabs() {
 		$screen = get_current_screen();
-		if ( self::$admin_page != $screen->id )
+		if ( self::$admin_page != $screen->id ) {
 			return;
+		}
 
 		$screen->set_help_sidebar(
 			'<p>' .
