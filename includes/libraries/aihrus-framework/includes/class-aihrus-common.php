@@ -28,7 +28,7 @@ abstract class Aihrus_Common implements Aihrus_Common_Interface {
 	public static $donate_button;
 	public static $donate_link;
 	public static $markdown_helper;
-	public static $value_use_check;
+	public static $value_check;
 
 
 	public function __construct() {
@@ -620,11 +620,14 @@ EOD;
 			'ids' => __( 'Digit-only characters to make a multiple or single entries. Regex <code>#^\d+(,\s?\d+)*$#</code>.' ),
 			'intval' => __( '<a href="php.net/manual/en/function.intval.php">intval</a>.' ),
 			'is_true' => __( 'Values like true, \'true\', 1, \'on\', and \'yes\' are <strong>true</strong>; otherwise <strong>false</strong>.' ),
+			'min1' => __( 'An <a href="php.net/manual/en/function.intval.php">intval</a> greater than zero.' ),
 			'nozero' => __( 'A non-zero <a href="php.net/manual/en/function.intval.php">intval</a>.' ),
+			'order' => __( 'SQL ordering "ASC" or "DESC". Regex <code>#^desc|asc$#i</code>.' ),
 			'slash_sanitize_title' => __( '<a href="http://codex.wordpress.org/Function_Reference/sanitize_title">sanitize_title</a>.' ),
 			'slug' => __( 'Word-only characters including a hyphen to make a single term. Regex <code>#^[\w-]+$#</code>.' ),
 			'term' => __( 'Word-only characters to make a single term. Regex <code>#^\w+$#</code>.' ),
 			'terms' => __( 'Word-only characters including hyphens and spaces to make a multiple or single terms. Regex <code>#^(([\w- ]+)(,\s?)?)+$#</code>.' ),
+			'twp_update_license' => esc_html__( 'Current license.' ),
 			'url' => __( '<a href="http://php.net/manual/en/filter.filters.validate.php">filter_var( $url, FILTER_VALIDATE_URL )</a>.' ),
 			'wp_kses_data' => __( '<a href="http://codex.wordpress.org/Function_Reference/wp_kses_data">wp_kses_data</a>.' ),
 			'wp_kses_post' => __( '<a href="http://codex.wordpress.org/Function_Reference/wp_kses_post">wp_kses_post</a>.' ),
@@ -643,7 +646,7 @@ EOD;
 					$validates[] = 'TBD ' . $validation;
 				}
 
-				self::$value_use_check = 'use_' . $validation;
+				self::$value_check = $validation;
 			}
 
 			$validate .= implode( ', ', $validates );
@@ -694,17 +697,21 @@ EOD;
 		case 'text':
 		case 'textarea':
 			if ( empty( $value ) ) {
-				if ( 'use_absint' == self::$value_use_check ) {
-					$value = '10';
-				} elseif ( 'use_ids' == self::$value_use_check ) {
+				if ( 'absint' == self::$value_check ) {
+					$value = 10;
+				} elseif ( 'ids' == self::$value_check ) {
 					$value = '3,1,2';
-				} elseif ( 'use_nozero' == self::$value_use_check ) {
-					$value = '10';
-				} elseif ( 'use_slug' == self::$value_use_check ) {
+				} elseif ( 'intval' == self::$value_check ) {
+					$value = 10;
+				} elseif ( 'min1' == self::$value_check ) {
+					$value = 5;
+				} elseif ( 'nozero' == self::$value_check ) {
+					$value = 10;
+				} elseif ( 'slug' == self::$value_check ) {
 					$value = 'slug-name';
-				} elseif ( 'use_term' == self::$value_use_check ) {
+				} elseif ( 'term' == self::$value_check ) {
 					$value = 'termname';
-				} elseif ( 'use_terms' == self::$value_use_check ) {
+				} elseif ( 'terms' == self::$value_check ) {
 					if ( preg_match( '#category|categories#i', $setting ) ) {
 						$value = esc_html__( 'Category A, Another category, 123' );
 					} else {
@@ -720,7 +727,7 @@ EOD;
 			break;
 		}
 
-		self::$value_use_check = null;
+		self::$value_check = null;
 
 		return $value;
 	}

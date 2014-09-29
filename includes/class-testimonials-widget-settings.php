@@ -727,11 +727,10 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
+		self::$settings = apply_filters( 'tw_settings', self::$settings );
 		foreach ( self::$settings as $id => $parts ) {
 			self::$settings[ $id ] = wp_parse_args( $parts, self::$default );
 		}
-
-		self::$settings = apply_filters( 'tw_settings', self::$settings );
 
 		if ( empty( self::$settings['options']['desc'] ) ) {
 			self::$settings['options']['desc'] = Testimonials_Widget::testimonials_options();

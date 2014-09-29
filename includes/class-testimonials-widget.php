@@ -2114,6 +2114,9 @@ EOF;
 
 		$ignored_types = array( 'expand_begin', 'expand_end', 'expand_all', 'content', );
 
+		$do_continue  = false;
+		$do_used_with = false;
+
 		$first_dl = true;
 		$open_dl  = false;
 		$html     = '';
@@ -2130,24 +2133,32 @@ EOF;
 			if ( ! empty( $sections[ $parts['section'] ] ) ) {
 				if ( ! $first_dl ) {
 					$html .= '</dl>';
-				} else {
-					$first_dl = false;
+					
+					$open_dl = false;
 				}
 
 				$html .= '<h2>' . $sections[ $parts['section'] ] . '</h2>';
 
-				$used_with_codes = array(
-					'[testimonials_slider]',
-					'testimonials_slider()',
-				);
+				unset( $sections[ $parts['section'] ] );
+				
+				$do_used_with = true;
+			}
 
-				if ( 'widget' != $parts['section'] ) {
-					$used_with_codes[] = '[testimonials]';
-					$used_with_codes[] = 'testimonials()';
+			if ( 'heading' == $parts['type'] ) {
+				if ( $open_dl ) {
+					$html .= '</dl>';
+
+					$open_dl = false;
 				}
 
-				$used_with_codes = apply_filters( 'tw_used_with_codes', $used_with_codes, $setting, $parts );
+				$html .= '<h2>' . $parts['desc'] . '</h2>';
 
+				$do_continue  = true;
+				$do_used_with = true;
+			}
+
+			if ( $do_used_with ) {
+				$used_with_codes = self::get_used_with_codes( $parts );
 				if ( ! empty( $used_with_codes ) ) {
 					$used_with_codes = implode( '</code>, <code>', $used_with_codes );
 
@@ -2156,11 +2167,20 @@ EOF;
 					$html .= '</p>';
 				}
 
+				$do_used_with = false;
+			}
+
+			if ( $do_continue ) {
+				$do_continue = false;
+
+				continue;
+			}
+
+			if ( empty( $open_dl ) ) {
 				$html .= '<dl>';
 
-				$open_dl = true;
-
-				unset( $sections[ $parts['section'] ] );
+				$first_dl = false;
+				$open_dl  = true;
 			}
 
 			// option name
@@ -2266,6 +2286,24 @@ EOF;
 
 		return $html;
 	}
+
+
+	public static function get_used_with_codes( $parts ) {
+		$used_with_codes = array(
+			'[testimonials_slider]',
+			'testimonials_slider()',
+		);
+
+		if ( 'widget' != $parts['section'] ) {
+			$used_with_codes[] = '[testimonials]';
+			$used_with_codes[] = 'testimonials()';
+		}
+
+		$used_with_codes = apply_filters( 'tw_used_with_codes', $used_with_codes, $parts );
+
+		return $used_with_codes;
+	}
+
 }
 
 ?>
