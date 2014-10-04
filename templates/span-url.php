@@ -1,6 +1,9 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
+$testimonial = $tw_template_args['testimonial'];
+
+$url = $testimonial['testimonial_url'];
+$url = make_clickable( $url );
 ?>
-<span class="url"><?php echo make_clickable( $testimonial['testimonial_url'] ); ?></span>
+<span class="url"><?php _e( $url ); ?></span>

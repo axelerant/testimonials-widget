@@ -28,8 +28,9 @@ require_once TW_DIR_INC . 'class-testimonials-widget-slider-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-tag-cloud-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
 
-if ( class_exists( 'Testimonials_Widget' ) )
+if ( class_exists( 'Testimonials_Widget' ) ) {
 	return;
+}
 
 
 class Testimonials_Widget extends Aihrus_Common {
@@ -174,7 +175,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		self::init_post_type();
 		self::styles();
-		
+
 		add_action( 'generate_rewrite_rules', array( __CLASS__, 'generate_rewrite_rules' ) );
 	}
 
@@ -288,7 +289,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		}
 
 		global $wpdb;
-		
+
 		require_once TW_DIR_INC . 'class-testimonials-widget-settings.php';
 
 		$delete_data = tw_get_option( 'delete_data', false );
@@ -504,8 +505,8 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 		if ( ! $use_cpt_taxonomy ) {
-			$columns[ 'categories' ] = esc_html__( 'Category', 'testimonials-widget' );
-			$columns[ 'tags' ]       = esc_html__( 'Tags', 'testimonials-widget' );
+			$columns['categories'] = esc_html__( 'Category', 'testimonials-widget' );
+			$columns['tags']       = esc_html__( 'Tags', 'testimonials-widget' );
 		} else {
 			$columns[ self::$cpt_category ] = esc_html__( 'Category', 'testimonials-widget' );
 			$columns[ self::$cpt_tags ]     = esc_html__( 'Tags', 'testimonials-widget' );
@@ -513,17 +514,17 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$show_id = tw_get_option( 'columns_id' );
 		if ( empty( $show_id ) ) {
-			$columns[ 'id' ] = esc_html__( 'ID', 'testimonials-widget' );
+			$columns['id'] = esc_html__( 'ID', 'testimonials-widget' );
 		}
 
 		$show_thumbnail = tw_get_option( 'columns_thumbnail' );
 		if ( empty( $show_thumbnail ) ) {
-			$columns[ 'thumbnail' ] = esc_html__( 'Image', 'testimonials-widget' );
+			$columns['thumbnail'] = esc_html__( 'Image', 'testimonials-widget' );
 		}
 
 		$show_shortcode = tw_get_option( 'columns_shortcode' );
 		if ( empty( $show_shortcode ) ) {
-			$columns[ 'shortcode' ] = esc_html__( 'Shortcodes', 'testimonials-widget' );
+			$columns['shortcode'] = esc_html__( 'Shortcodes', 'testimonials-widget' );
 		}
 
 		$show_author = tw_get_option( 'columns_author' );
@@ -533,27 +534,27 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$show_job_title = tw_get_option( 'columns_job_title' );
 		if ( empty( $show_job_title ) ) {
-			$columns[ 'testimonials-widget-title' ] = esc_html__( 'Job Title', 'testimonials-widget' );
+			$columns['testimonials-widget-title'] = esc_html__( 'Job Title', 'testimonials-widget' );
 		}
 
 		$show_location = tw_get_option( 'columns_location' );
 		if ( empty( $show_location ) ) {
-			$columns[ 'testimonials-widget-location' ] = esc_html__( 'Location', 'testimonials-widget' );
+			$columns['testimonials-widget-location'] = esc_html__( 'Location', 'testimonials-widget' );
 		}
 
 		$show_company = tw_get_option( 'columns_company' );
 		if ( empty( $show_company ) ) {
-			$columns[ 'testimonials-widget-company' ] = esc_html__( 'Company', 'testimonials-widget' );
+			$columns['testimonials-widget-company'] = esc_html__( 'Company', 'testimonials-widget' );
 		}
 
 		$show_email = tw_get_option( 'columns_email' );
 		if ( empty( $show_email ) ) {
-			$columns[ 'testimonials-widget-email' ] = esc_html__( 'Email', 'testimonials-widget' );
+			$columns['testimonials-widget-email'] = esc_html__( 'Email', 'testimonials-widget' );
 		}
 
 		$show_url = tw_get_option( 'columns_url' );
 		if ( empty( $show_url ) ) {
-			$columns[ 'testimonials-widget-url' ] = esc_html__( 'URL', 'testimonials-widget' );
+			$columns['testimonials-widget-url'] = esc_html__( 'URL', 'testimonials-widget' );
 		}
 
 		$columns = apply_filters( 'tw_columns', $columns );
@@ -1175,19 +1176,19 @@ EOF;
 				}
 			}
 		} else {
-			if ( ! is_array( $args[ 'tax_query' ] ) ) {
-				$args[ 'tax_query' ] = array();
+			if ( ! is_array( $args['tax_query'] ) ) {
+				$args['tax_query'] = array();
 			}
 
 			if ( $category ) {
 				if ( ! preg_match( '#^\d+$#', $category ) ) {
-					$args[ 'tax_query' ][] = array(
+					$args['tax_query'][] = array(
 						'taxonomy' => self::$cpt_category,
 						'terms' => array( $category ),
 						'field' => 'slug',
 					);
 				} else {
-					$args[ 'tax_query' ][] = array(
+					$args['tax_query'][] = array(
 						'taxonomy' => self::$cpt_category,
 						'terms' => array( $category ),
 						'field' => 'id',
@@ -1197,7 +1198,7 @@ EOF;
 
 			if ( $tags ) {
 				if ( $tags_all ) {
-					$args[ 'tax_query' ] = array(
+					$args['tax_query'] = array(
 						'relation' => 'AND',
 					);
 				}
@@ -1205,13 +1206,13 @@ EOF;
 				$tags = explode( ',', $tags );
 				foreach ( $tags as $term ) {
 					if ( ! preg_match( '#^\d+$#', $term ) ) {
-						$args[ 'tax_query' ][] = array(
+						$args['tax_query'][] = array(
 							'taxonomy' => self::$cpt_tags,
 							'terms' => array( $term ),
 							'field' => 'slug',
 						);
 					} else {
-						$args[ 'tax_query' ][] = array(
+						$args['tax_query'][] = array(
 							'taxonomy' => self::$cpt_tags,
 							'terms' => array( $term ),
 							'field' => 'id',
@@ -1636,7 +1637,7 @@ EOF;
 				} else {
 					$meta .= sprintf( self::$schema_meta, $key, $value );
 				}
-				
+
 				$meta .= "\n";
 			}
 
@@ -1779,14 +1780,14 @@ EOF;
 		}
 
 		switch ( $column_name ) {
-			case 'shortcode':	
+			case 'shortcode':
 				$result  = '[testimonials ' . $attribute . '="' .$term->slug . '"]';
 				$result .= '<br />';
 				$result .= '[testimonials_slider ' . $attribute . '="' .$term->slug . '"]';
 				break;
 		}
 
-		return $result;	
+		return $result;
 	}
 
 
@@ -2029,7 +2030,7 @@ EOF;
 
 
 	public static function get_aggregate_count( $testimonial ) {
-		$testimonial_item = ! empty( $testimonial[ 'testimonial_item' ] ) ? $testimonial[ 'testimonial_item' ] : self::$aggregate_no_item;
+		$testimonial_item = ! empty( $testimonial['testimonial_item'] ) ? $testimonial['testimonial_item'] : self::$aggregate_no_item;
 		if ( ! isset( self::$aggregate_data[ $testimonial_item ]['count'] ) ) {
 			$query_args = array(
 				'post_type' => Testimonials_Widget::PT,
@@ -2139,14 +2140,14 @@ EOF;
 			if ( ! empty( $sections[ $parts['section'] ] ) ) {
 				if ( ! $first_dl ) {
 					$html .= '</dl>';
-					
+
 					$open_dl = false;
 				}
 
 				$html .= '<h2>' . $sections[ $parts['section'] ] . '</h2>';
 
 				unset( $sections[ $parts['section'] ] );
-				
+
 				$do_used_with = true;
 			}
 
@@ -2221,7 +2222,7 @@ EOF;
 			'Testimonials_Widget_Recent_Testimonials_Widget' => 'testimonials_recent',
 			'Testimonials_Widget_Tag_Cloud_Widget' => 'testimonials_tag_cloud',
 		);
-		
+
 		$widgets = apply_filters( 'tw_options_widgets', $widgets );
 
 		foreach( $widgets as $widget => $shortcode ) {
@@ -2280,12 +2281,12 @@ EOF;
 
 			if ( $open_dl ) {
 				$html .= '</dl>';
-			} 
+			}
 		}
 
 		if ( $open_dl ) {
 			$html .= '</dl>';
-		} 
+		}
 
 		$html = links_add_target( $html, '_tw' );
 		$html = apply_filters( 'tw_options_html', $html );

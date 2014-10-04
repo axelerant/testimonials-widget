@@ -2,11 +2,14 @@
 
 ## [testimonials] - Listings with paging 
 
+* List of testimonials only 200 characters long with only source shown in credit box - `[testimonialswidget_list char_limit=200 hide_title=true hide_email=true hide_url=true hide_location=true hide_company=true]`
 * List testimonials by post title - `[testimonials order=ASC orderby=title]`
 * Select testimonials tagged with either "test" or "fun", in random order, but ignore those of the excluded ids - `[testimonials tags="test,fun" random=true exclude="2,22,333"]`
 * Show 15 testimonials, in company order - `[testimonials meta_key=testimonials-widget-company order=asc limit=15]`
 * Show 3 full-length testimonials, with opening and closing quote marks removed - `[testimonials char_limit=0 target=_new limit=3 disable_quotes=true]`
+* Show 5 full-length testimonials, with paging - `[testimonials limit=5 paging=true char_limit=0]`
 * Show all testimonials on one page - `[testimonials char_limit=0 limit=-1]`
+* Show one random testimonial - `[testimonials limit=1 no_cache=true random=true]`
 * Show only these 3 testimonials - `[testimonials ids="1,11,111" paging=false]`
 * Show testimonial list with source and urls hidden - `[testimonials hide_source=true hide_url=true]`
 * Show the single testimonial of ID 123 on a page - `[testimonials ids="123" paging=false]`
@@ -29,6 +32,9 @@
 
 ## [testimonials_slider] - Displays rotating testimonials or statically
 
+* Change rotation speed to 3 seconds - `[testimonialswidget_widget refresh_interval=3]`
+* Show "liposuction" testimonials in oldest first sorting - `[testimonials_slider category=liposculpture order=asc]` 
+* Show random "dreamweaver" testimonials - `[testimonials_slider category="dreamweaver" random="true"]`
 * Show rotating testimonials, of the product category, lowest post ids first - `[testimonials_slider category=product order=asc]`
 * Show rotating, random testimonials having tag "sometag" - `[testimonials_slider tags=sometag random=true]`
 

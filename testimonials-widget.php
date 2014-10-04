@@ -33,32 +33,41 @@ with this program; if not, write to the Free Software Foundation, Inc.,
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
-if ( ! defined( 'TW_AIHR_VERSION' ) )
+if ( ! defined( 'TW_AIHR_VERSION' ) ) {
 	define( 'TW_AIHR_VERSION', '1.1.5RC1' );
+}
 
-if ( ! defined( 'TW_BASE' ) )
+if ( ! defined( 'TW_BASE' ) ) {
 	define( 'TW_BASE', plugin_basename( __FILE__ ) );
+}
 
-if ( ! defined( 'TW_DIR' ) )
+if ( ! defined( 'TW_DIR' ) ) {
 	define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
+}
 
-if ( ! defined( 'TW_DIR_INC' ) )
+if ( ! defined( 'TW_DIR_INC' ) ) {
 	define( 'TW_DIR_INC', TW_DIR . 'includes/' );
+}
 
-if ( ! defined( 'TW_DIR_LIB' ) )
+if ( ! defined( 'TW_DIR_LIB' ) ) {
 	define( 'TW_DIR_LIB', TW_DIR_INC . 'libraries/' );
+}
 
-if ( ! defined( 'TW_NAME' ) )
+if ( ! defined( 'TW_NAME' ) ) {
 	define( 'TW_NAME', 'Testimonials Widget' );
+}
 
-if ( ! defined( 'TW_PREMIUM_LINK' ) )
+if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
 	define( 'TW_PREMIUM_LINK', '<a href="http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/">Buy Premium</a>' );
+}
 
-if ( ! defined( 'TW_VERSION' ) )
+if ( ! defined( 'TW_VERSION' ) ) {
 	define( 'TW_VERSION', '3.0.0RC2' );
+}
 
 require_once TW_DIR_INC . 'requirements.php';
 

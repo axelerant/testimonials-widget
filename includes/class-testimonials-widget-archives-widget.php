@@ -20,8 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Archives_Widget' ) )
+if ( class_exists( 'Testimonials_Widget_Archives_Widget' ) ) {
 	return;
+}
 
 
 class Testimonials_Widget_Archives_Widget extends Aihrus_Widget {

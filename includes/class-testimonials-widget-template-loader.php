@@ -26,8 +26,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once TW_DIR_LIB . 'Gamajo-Template-Loader/class-gamajo-template-loader.php';
 
-if ( class_exists( 'Testimonials_Widget_Template_Loader' ) )
+if ( class_exists( 'Testimonials_Widget_Template_Loader' ) ) {
 	return;
+}
 
 
 /**

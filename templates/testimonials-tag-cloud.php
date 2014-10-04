@@ -1,7 +1,7 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
+$atts = $tw_template_args['atts'];
 
 echo '<div class="tagcloud">';
 

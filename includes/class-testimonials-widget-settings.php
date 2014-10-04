@@ -26,8 +26,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-settings.php';
 
-if ( class_exists( 'Testimonials_Widget_Settings' ) )
+if ( class_exists( 'Testimonials_Widget_Settings' ) ) {
 	return;
+}
 
 
 class Testimonials_Widget_Settings extends Aihrus_Settings {
@@ -777,7 +778,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			return $content;
 		}
 
-		echo $content;
+		_e( $content );
 	}
 
 
@@ -862,7 +863,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		// slugs must be unique within their own trees
 		$check_sql  = "SELECT post_name FROM $wpdb->posts WHERE post_name = %s AND post_parent = 0 LIMIT 1";
 		$slug_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug ) );
-
 		if ( $slug_check ) {
 			$suffix = 2;
 			do {
@@ -886,8 +886,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 */
 	public static function is_bad_hierarchical_slug( $is_bad_hierarchical_slug, $slug, $post_type, $post_parent ) {
 		// This post has no parent and is a "base" post
-		if ( ! $post_parent && self::is_cpt_slug( $slug ) )
+		if ( ! $post_parent && self::is_cpt_slug( $slug ) ) {
 			return true;
+		}
 
 		return $is_bad_hierarchical_slug;
 	}
@@ -899,8 +900,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function is_bad_flat_slug( $is_bad_flat_slug, $slug, $post_type ) {
-		if ( self::is_cpt_slug( $slug ) )
+		if ( self::is_cpt_slug( $slug ) ) {
 			return true;
+		}
 
 		return $is_bad_flat_slug;
 	}
@@ -1008,18 +1010,20 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 		switch ( $id ) {
 			case 'category':
-				if ( ! $use_cpt_taxonomy )
+				if ( ! $use_cpt_taxonomy ) {
 					$taxonomy = 'category';
-				else
+				} else {
 					$taxonomy = Testimonials_Widget::$cpt_category;
+				}
 
 				break;
 
 			case 'tags':
-				if ( ! $use_cpt_taxonomy )
+				if ( ! $use_cpt_taxonomy ) {
 					$taxonomy = 'post_tag';
-				else
+				} else {
 					$taxonomy = Testimonials_Widget::$cpt_tags;
+				}
 
 				break;
 		}
@@ -1057,20 +1061,22 @@ function tw_get_options() {
 function tw_get_option( $option, $default = null ) {
 	$options = get_option( Testimonials_Widget_Settings::ID, null );
 
-	if ( isset( $options[$option] ) )
+	if ( isset( $options[$option] ) ) {
 		return $options[$option];
-	else
+	} else {
 		return $default;
+	}
 }
 
 
 function tw_set_option( $option, $value = null ) {
 	$options = get_option( Testimonials_Widget_Settings::ID );
 
-	if ( ! is_array( $options ) )
+	if ( ! is_array( $options ) ) {
 		$options = array();
+	}
 
-	$options[$option] = $value;
+	$options[ $option ] = $value;
 	update_option( Testimonials_Widget_Settings::ID, $options );
 }
 

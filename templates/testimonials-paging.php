@@ -1,7 +1,8 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
+$atts    = $tw_template_args['atts'];
+$prepend = $tw_template_args['prepend'];
 
 if ( is_home() || 1 === Testimonials_Widget::$max_num_pages ) {
 	return;
@@ -38,4 +39,4 @@ if ( ! function_exists( 'wp_pagenavi' ) ) {
 
 ?>
 
-<div class="paging <?php echo $class; ?>"><?php echo $paging; ?></div>
+<div class="paging <?php _e( $class ); ?>"><?php _e( $paging ); ?></div>

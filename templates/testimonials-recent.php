@@ -1,7 +1,7 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
+$atts = $tw_template_args['atts'];
 
 $number    = $atts['number'];
 $show_date = $atts['show_date'];
@@ -16,7 +16,7 @@ $args = array(
 $args = apply_filters( 'tw_recent_testimonials_args', $args );
 
 $r = new WP_Query( $args );
-if ( $r->have_posts() ) { 
+if ( $r->have_posts() ) {
 	echo '<ul>';
 	while ( $r->have_posts() ) {
 		$r->the_post();
@@ -24,7 +24,7 @@ if ( $r->have_posts() ) {
 
 		$title = get_the_title() ? get_the_title() : get_the_ID();
 		if ( ! class_exists( 'Testimonials_Widget_Premium' ) ) {
-			echo $title;
+			_e( $title );
 		} else {
 			echo '<a href="' . get_permalink() . '">' . $title . '</a>';
 		}
@@ -32,7 +32,7 @@ if ( $r->have_posts() ) {
 		if ( $show_date ) {
 			echo ' <span class="post-date">' . get_the_date() . '</span>';
 		}
-		
+
 		echo '</li>';
 	}
 

@@ -1,8 +1,8 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
-extract( $testimonial );
+$atts        = $tw_template_args['atts'];
+$testimonial = $tw_template_args['testimonial'];
 
 $do_company  = ! $atts['hide_company'] && ! empty( $testimonial['testimonial_company'] );
 $do_email    = ! $atts['hide_email'] && ! empty( $testimonial['testimonial_email'] ) && is_email( $testimonial['testimonial_email'] );
@@ -69,13 +69,13 @@ if ( empty( $cite ) ) {
 if ( ! $use_quote_tag ) {
 	?>
 
-	<div class="credit"><?php echo $cite; ?></div>
+	<div class="credit"><?php _e( $cite ); ?></div>
 
 	<?php
 } else {
 	?>
 
-	<cite><?php echo $cite; ?></cite>
+	<cite><?php _e( $cite ); ?></cite>
 
 	<?php
 }

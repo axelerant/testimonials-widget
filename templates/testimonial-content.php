@@ -1,7 +1,9 @@
 <?php
 global $tw_template_args;
 
-extract( $tw_template_args );
+$atts          = $tw_template_args['atts'];
+$testimonial   = $tw_template_args['testimonial'];
+$widget_number = $tw_template_args['widget_number'];
 
 $char_limit    = $atts['char_limit'];
 $content_more  = apply_filters( 'tw_content_more', esc_html__( '…', 'testimonials-widget' ) );
@@ -23,13 +25,13 @@ if ( $do_content ) {
 	if ( ! $use_quote_tag ) {
 		?>
 
-		<blockquote><?php echo $content; ?></blockquote>
+		<blockquote><?php _e( $content ); ?></blockquote>
 
 		<?php
 	} else {
 		?>
 
-		<q><?php echo $content; ?></q>
+		<q><?php _e( $content ); ?></q>
 
 		<?php
 	}
