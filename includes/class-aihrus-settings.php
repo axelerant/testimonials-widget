@@ -53,6 +53,8 @@ abstract class Aihrus_Settings {
 
 	private static $settings_saved = false;
 
+	public static $suggest_id = 0;
+
 	public function __construct() {}
 
 
@@ -328,6 +330,9 @@ abstract class Aihrus_Settings {
 
 		extract( $args );
 
+		$maxlength   = ! empty( $maxlength ) ? 'maxlength="' . $maxlength . '"' : null;
+		$placeholder = ! empty( $placeholder ) ? $placeholder : $std;
+
 		if ( is_null( $input ) ) {
 			$options = get_option( static::ID );
 		} else {
@@ -359,10 +364,6 @@ abstract class Aihrus_Settings {
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<label for="' . $id . '"><span class="description">' . $desc . '</span></label>';
-				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
 				}
 				break;
 
@@ -409,10 +410,6 @@ abstract class Aihrus_Settings {
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
 				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
-				}
 				break;
 
 			case 'readonly':
@@ -424,24 +421,14 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'rich_editor':
-				global $wp_version;
-				
 				$field_value = $options[$id];
 
-				if ( $wp_version >= 3.3 && function_exists( 'wp_editor' ) ) {
-					ob_start();
-					wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
-					$content = ob_get_clean();
-				} else {
-					$content = '<textarea class="large-text" rows="10" id="' . static::ID . '[' . $id . ']" name="' . static::ID . '[' . $id . ']">' . esc_textarea( $field_value ) . '</textarea>';
-				}
+				ob_start();
+				wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
+				$content = ob_get_clean();
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
-				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
 				}
 				break;
 
@@ -457,33 +444,26 @@ abstract class Aihrus_Settings {
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
 				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
-				}
 				break;
 
 			case 'text':
-				$content .= '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" value="' . $field_value . '" />';
+				$suggest_id = 'suggest_' . self::$suggest_id++;
+				$content   .= '<input class="regular-text' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" value="' . $field_value . '" ' . $maxlength . ' />';
+
+				if ( ! empty( $suggest ) ) {
+					$content .= static::get_suggest( $id, $suggest_id );
+				}
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
-				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
 				}
 				break;
 
 			case 'textarea':
-				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . $field_value . '</textarea>';
+				$content .= '<textarea class="' . $field_class . '" id="' . $id . '" name="' . static::ID . '[' . $id . ']" placeholder="' . $placeholder . '" ' . $maxlength . ' rows="5" cols="30">' . $field_value . '</textarea>';
 
 				if ( ! empty( $desc ) ) {
 					$content .= '<br /><span class="description">' . $desc . '</span>';
-				}
-
-				if ( $show_code ) {
-					$content .= '<br /><code>' . $id . '</code>';
 				}
 				break;
 
@@ -495,8 +475,9 @@ abstract class Aihrus_Settings {
 				break;
 		}
 
-		if ( ! $do_echo )
+		if ( ! $do_echo ) {
 			return $content;
+		}
 
 		echo $content;
 	}
@@ -851,6 +832,63 @@ abstract class Aihrus_Settings {
 		foreach ( static::$styles as $style ) {
 			echo $style;
 		}
+	}
+
+
+	/**
+	 * Let values like false, 'false', 0, 'off', and 'no' to be true. Else, false
+	 */
+	public static function is_false( $value = null, $return_boolean = false ) {
+		if ( false === $value || 'false' == strtolower( $value ) || 0 == $value || 'off' == strtolower( $value ) || 'no' == strtolower( $value ) ) {
+			if ( $return_boolean ) {
+				return true;
+			} else {
+				return 1;
+			}
+		} else {
+			if ( $return_boolean ) {
+				return false;
+			} else {
+				return 0;
+			}
+		}
+	}
+
+
+	public static function get_suggest( $id, $suggest_id ) {
+		wp_enqueue_script( 'suggest' );
+
+		switch ( $id ) {
+			case 'category':
+				$taxonomy = 'category';
+				break;
+
+			case 'tags':
+				$taxonomy = 'post_tag';
+				break;
+		}
+
+		$ajax_url   = site_url() . '/wp-admin/admin-ajax.php';
+		$suggest_js = "suggest( '{$ajax_url}?action=ajax-tag-search&tax={$taxonomy}', { delay: 500, minchars: 2, multiple: true, multipleSep: ', ' } )";
+
+		$scripts = <<<EOD
+<script type="text/javascript">
+jQuery(document).ready( function() {
+	jQuery( '.{$suggest_id}' ).{$suggest_js};
+});
+</script>
+EOD;
+
+		return $scripts;
+	}
+
+
+	public static function get_sections() {
+		if ( empty( static::$sections ) ) {
+			static::sections();
+		}
+
+		return static::$sections;
 	}
 
 

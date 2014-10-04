@@ -289,7 +289,9 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 	/**
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-	public static function get_suggest( $id, $suggest_id ) {}
+	public static function get_suggest( $id, $suggest_id ) {
+		return;
+	}
 
 
 	public static function form_instance( $instance ) {
@@ -333,6 +335,13 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 		return $form_parts;
 	}
 
+
+	/**
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public static function get_content( $instance = null, $number = null ) {
+		return;
+	}
 
 }
 
