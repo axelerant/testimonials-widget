@@ -31,6 +31,7 @@
 * Added testimonials tag cloud widget
 * API link updates
 * Author field to override title when it's not the testimonial source
+* Begin updating to WordPress-VIP coding standards
 * Don't shortcode attribute for global level options
 * Link help to FAQ
 * Moved aggregate review schema data to premium
