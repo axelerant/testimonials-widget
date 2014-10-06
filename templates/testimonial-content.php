@@ -25,13 +25,13 @@ if ( $do_content ) {
 	if ( ! $use_quote_tag ) {
 		?>
 
-		<blockquote><?php _e( $content ); ?></blockquote>
+		<blockquote><?php echo $content; ?></blockquote>
 
 		<?php
 	} else {
 		?>
 
-		<q><?php _e( $content ); ?></q>
+		<q><?php echo $content; ?></q>
 
 		<?php
 	}

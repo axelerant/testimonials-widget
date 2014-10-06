@@ -24,7 +24,7 @@ if ( $r->have_posts() ) {
 
 		$title = get_the_title() ? get_the_title() : get_the_ID();
 		if ( ! class_exists( 'Testimonials_Widget_Premium' ) ) {
-			_e( $title );
+			echo $title;
 		} else {
 			echo '<a href="' . get_permalink() . '">' . $title . '</a>';
 		}

@@ -69,13 +69,13 @@ if ( empty( $cite ) ) {
 if ( ! $use_quote_tag ) {
 	?>
 
-	<div class="credit"><?php _e( $cite ); ?></div>
+	<div class="credit"><?php echo $cite; ?></div>
 
 	<?php
 } else {
 	?>
 
-	<cite><?php _e( $cite ); ?></cite>
+	<cite><?php echo $cite; ?></cite>
 
 	<?php
 }

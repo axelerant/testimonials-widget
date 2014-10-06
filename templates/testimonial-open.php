@@ -38,5 +38,5 @@ if ( $atts['remove_hentry'] ) {
 $class = apply_filters( 'tw_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 ?>
 
-<div class="<?php _e( $class ); ?>">
-<!-- <?php _e( Testimonials_Widget::ID ); ?>:<?php _e( $post_id ); ?>: -->
+<div class="<?php echo $class; ?>">
+<!-- <?php echo Testimonials_Widget::ID; ?>:<?php echo $post_id; ?>: -->

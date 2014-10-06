@@ -16,4 +16,4 @@ if ( is_null( $widget_number ) ) {
 }
 ?>
 
-<div class="<?php _e( $class ); ?>">
+<div class="<?php echo $class; ?>">

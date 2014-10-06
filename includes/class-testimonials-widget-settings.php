@@ -778,7 +778,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			return $content;
 		}
 
-		_e( $content );
+		echo $content;
 	}
 
 

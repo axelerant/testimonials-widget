@@ -489,7 +489,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		$result = apply_filters( 'tw_posts_custom_column', $result, $column, $post_id );
 
 		if ( $result ) {
-			_e( $result );
+			echo $result;
 		}
 	}
 
@@ -1046,7 +1046,7 @@ EOF;
 	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
 			foreach ( self::$css as $css ) {
-				_e( $css );
+				echo $css;
 			}
 
 			self::$css_called = true;
@@ -1057,7 +1057,7 @@ EOF;
 	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
 			foreach ( self::$scripts as $script ) {
-				_e( $script );
+				echo $script;
 			}
 
 			self::$scripts_called = true;
@@ -1460,7 +1460,7 @@ EOF;
 			$result = sprintf( $content, self::PT, $count_f, $name, '', '' );
 		}
 
-		_e( $result );
+		echo $result;
 	}
 
 
@@ -2034,6 +2034,7 @@ EOF;
 	public static function get_aggregate_count( $testimonial ) {
 		$testimonial_item = ! empty( $testimonial['testimonial_item'] ) ? $testimonial['testimonial_item'] : self::$aggregate_no_item;
 		if ( ! isset( self::$aggregate_data[ $testimonial_item ]['count'] ) ) {
+			// @codingStandardsIgnoreStart
 			$query_args = array(
 				'post_type' => Testimonials_Widget::PT,
 				'meta_query' => array(
@@ -2045,6 +2046,7 @@ EOF;
 					),
 				),
 			);
+			// @codingStandardsIgnoreEnd
 
 			$count = 0;
 			$query = new WP_Query( $query_args );
