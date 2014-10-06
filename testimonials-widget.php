@@ -95,12 +95,14 @@ if ( ! function_exists( 'testimonialswidget_init' ) ) {
 	function testimonialswidget_init() {
 		if ( Testimonials_Widget::version_check() ) {
 			global $Testimonials_Widget_Settings;
-			if ( is_null( $Testimonials_Widget_Settings ) )
+			if ( is_null( $Testimonials_Widget_Settings ) ) {
 				$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
+			}
 
 			global $Testimonials_Widget;
-			if ( is_null( $Testimonials_Widget ) )
+			if ( is_null( $Testimonials_Widget ) ) {
 				$Testimonials_Widget = new Testimonials_Widget();
+			}
 		}
 	}
 }

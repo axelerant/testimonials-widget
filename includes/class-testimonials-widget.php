@@ -466,9 +466,9 @@ class Testimonials_Widget extends Aihrus_Common {
 					$result = get_the_post_thumbnail( $post_id, 'thumbnail' );
 				} elseif ( is_email( $email ) ) {
 					$result = get_avatar( $email );
-				}
-				else
+				} else {
 					$result = false;
+				}
 				break;
 
 			case self::$cpt_category:
@@ -489,7 +489,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		$result = apply_filters( 'tw_posts_custom_column', $result, $column, $post_id );
 
 		if ( $result ) {
-			echo $result;
+			_e( $result );
 		}
 	}
 
@@ -586,8 +586,9 @@ class Testimonials_Widget extends Aihrus_Common {
 		);
 
 		$allow_comments = tw_get_option( 'allow_comments', false );
-		if ( $allow_comments )
+		if ( $allow_comments ) {
 			$supports[] = 'comments';
+		}
 
 		$has_archive      = tw_get_option( 'has_archive', true );
 		$rewrite_slug     = tw_get_option( 'rewrite_slug', 'testimonial' );
@@ -1045,7 +1046,7 @@ EOF;
 	public static function get_testimonials_css() {
 		if ( empty( self::$css_called ) ) {
 			foreach ( self::$css as $css ) {
-				echo $css;
+				_e( $css );
 			}
 
 			self::$css_called = true;
@@ -1056,7 +1057,7 @@ EOF;
 	public static function get_testimonials_scripts() {
 		if ( empty( self::$scripts_called ) ) {
 			foreach ( self::$scripts as $script ) {
-				echo $script;
+				_e( $script );
 			}
 
 			self::$scripts_called = true;
@@ -1292,8 +1293,9 @@ EOF;
 			$image = self::strip_protocol( $image );
 
 			$url = get_post_meta( $post_id, 'testimonials-widget-url', true );
-			if ( ! empty( $url ) && 0 === preg_match( '#https?://#', $url ) )
+			if ( ! empty( $url ) && 0 === preg_match( '#https?://#', $url ) ) {
 				$url = 'http://' . $url;
+			}
 
 			$data = array(
 				'post_id' => $post_id,
@@ -1330,7 +1332,7 @@ EOF;
 			foreach ( $posts as $key => $post ) {
 				if ( $id == $post->ID ) {
 					$posts_none_sorted[] = $post;
-					unset( $posts[$key] );
+					unset( $posts[ $key ] );
 				}
 			}
 		}
@@ -1458,7 +1460,7 @@ EOF;
 			$result = sprintf( $content, self::PT, $count_f, $name, '', '' );
 		}
 
-		echo $result;
+		_e( $result );
 	}
 
 
@@ -1610,7 +1612,7 @@ EOF;
 
 		foreach ( $meta_data as $key => $value ) {
 			if ( is_array( $value ) ) {
-				$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
+				$meta .= self::create_schema_div_prop( $key, $value[0], $value[1] );
 			} else {
 				$meta .= sprintf( self::$schema_meta, $key, $value );
 			}
@@ -1633,7 +1635,7 @@ EOF;
 		if ( is_array( $meta_data ) ) {
 			foreach ( $meta_data as $key => $value ) {
 				if ( is_array( $value ) ) {
-					$meta .= self::create_schema_div_prop( $key, $value[ 0 ], $value[ 1 ] );
+					$meta .= self::create_schema_div_prop( $key, $value[0], $value[1] );
 				} else {
 					$meta .= sprintf( self::$schema_meta, $key, $value );
 				}
@@ -2127,7 +2129,7 @@ EOF;
 		$first_dl = true;
 		$open_dl  = false;
 		$html     = '';
-		foreach( $settings as $setting => $parts ) {
+		foreach ( $settings as $setting => $parts ) {
 			if ( in_array( $parts['type'], $ignored_types ) ) {
 				continue;
 			}
@@ -2225,7 +2227,7 @@ EOF;
 
 		$widgets = apply_filters( 'tw_options_widgets', $widgets );
 
-		foreach( $widgets as $widget => $shortcode ) {
+		foreach ( $widgets as $widget => $shortcode ) {
 			$form_parts = $widget::form_parts();
 
 			// section header
@@ -2249,7 +2251,7 @@ EOF;
 
 			$html .= '<dl>';
 
-			foreach( $form_parts as $setting => $parts ) {
+			foreach ( $form_parts as $setting => $parts ) {
 				if ( in_array( $parts['type'], $ignored_types ) ) {
 					continue;
 				}

@@ -1061,8 +1061,8 @@ function tw_get_options() {
 function tw_get_option( $option, $default = null ) {
 	$options = get_option( Testimonials_Widget_Settings::ID, null );
 
-	if ( isset( $options[$option] ) ) {
-		return $options[$option];
+	if ( isset( $options[ $option ] ) ) {
+		return $options[ $option ];
 	} else {
 		return $default;
 	}
