@@ -613,7 +613,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		// Columns
 		self::$settings['columns_author'] = array(
 			'section' => 'columns',
-			'title' => esc_html__( 'Hide Author?', 'testimonials-widget', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Source?', 'testimonials-widget', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,

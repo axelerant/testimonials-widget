@@ -287,18 +287,19 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 == Screenshots ==
 
-1. Testimonials Widget admin interface
-2. Collapsed Testimonials Widget options
-3. Shortcode helpers on category and tag admin screens
-4. Testimonial widget in the sidebar 
-5. Testimonials Widget Shortcode Examples page
-6. [testimonials] results with paging
-7. Using Review schema data structures
-8. Widget with clickable title and custom text/HTML on bottom
-9. [WP-PageNavi compatible](http://wordpress.org/extend/plugins/wp-pagenavi/) for page numbers than default arrows
-10. Poedit Catalog properties
-11. Testimonials Widget Settings > General tab
-12. Dashboard > At a Glance "Testimonials Widget" count
+1. Testimonials Slider widget in use
+2. [testimonials_slider] demo
+3. [testimonials] demo
+4. [testimonials_archives] demo
+5. [testimonials_categories] demo
+6. [testimonials_tag_cloud] demo
+7. [testimonials_recent] demo
+8. Single page testimonial view
+9. Testimonials edit page
+10. Testimonials Widget Settings page
+11. Testimonials Categories page
+12. Poedit Catalog properties
+13. Using Review schema data structures
 
 [gallery]
 
@@ -312,7 +313,7 @@ Read [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/mast
 
 = 3.0.0 =
 
-* This is a major overhaul *without* backwards compliance. If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
+This is a major overhaul *without* backwards compliance of over 80 changes. Further, if you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help.
 
 = Older Versions =
 

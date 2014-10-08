@@ -23,11 +23,7 @@ if ( $r->have_posts() ) {
 		echo '<li>';
 
 		$title = get_the_title() ? get_the_title() : get_the_ID();
-		if ( ! class_exists( 'Testimonials_Widget_Premium' ) ) {
-			echo $title;
-		} else {
-			echo '<a href="' . get_permalink() . '">' . $title . '</a>';
-		}
+		echo '<a href="' . get_permalink() . '">' . $title . '</a>';
 
 		if ( $show_date ) {
 			echo ' <span class="post-date">' . get_the_date() . '</span>';

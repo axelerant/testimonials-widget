@@ -26,7 +26,8 @@ if ( class_exists( 'Testimonials_Widget_Slider_Widget' ) ) {
 
 
 class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
-	const ID = 'tw_slider_widget';
+	// should be tw_slider_widget, but for backwards compliance left alone
+	const ID = 'testimonials_widget';
 
 
 	public function __construct() {
