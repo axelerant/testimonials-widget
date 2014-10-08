@@ -22,11 +22,12 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 * Filter slideshow content by WordPress' categories, tags, or post-ID
 * Random display
 * Shortcode compatible - slide content that is rendered using shortcodes. e.g. Worpdress Galleries and Gravity Forms
+* Simply styled for easy theme adaption
 * Slide images - responsive image slideshow
 * Slide mixed content - responsively slide images, text, and video together
 * Slide text - useful for rotating testimonials
 * Slide videos - video slideshow
-* Widget and Shortcode ready 
+* Widget and shortcode ready 
 
 **Video Introduction**
 
@@ -46,24 +47,73 @@ Widgets display content sans `wpautop` formatting. This means there's no forced 
 
 The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
 
-= Primary Features =
+= Features =
 
+* Adjustable animation speed
 * Admin interface to add, edit and manage testimonials
 * API to manipulate testimonials output and selection
+* Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
+* Author field to override title when it's not the testimonial source
+* Auto-suggest for category and tag options
+* Automatic linking of email and URL fields via source or company fields
 * Capable of handling multiple widgets per page or post
+* Clickable widget titles
+* Commenting on testimonial single-view pages
+* Compatible with WordPress multisite
+* Configuration based validation for easy extending or overriding
+* Content truncation respects HTML tags
+* Custom CSS in footer for HTML validation
+* Custom text or HTML for bottom of widgets
+* Custom widget bottom text
+* Customizable archive and testimonial URLs
+* Customizable testimonial data field `testimonial_extra`
 * Customizable views via filters and template files
+* Date based archives
+* Deletes testimonials-widget custom post type entries and settings on uninstall
+* Disable self-generated quotation marks
+* Easily label and link to reviewed item for Review schema
+* Easy to configure Next and Previous page indicators
+* Editors and admins can edit testimonial publisher
 * Fields for source, testimonial, image, title, location, email, company and URL details
+* Flush URLs on deactivation 
+* Gravatars saved as featured images
+* IDs column shown in testimonials edit page
+* IE7 CSS hacks for quotes and join parts
+* Image, email based Gravatar, category and tag enabled
+* Include testimonials in archive and category views.
+* Internal version tracking for compatibility checks and automatic settings update
+* Localizable via `languages/testimonials-widget.pot`
+* Lots of examples at WordPress Admin > Testimonials > Settings, Examples tab
 * Minimalist CSS styling for easier theming
 * Multiple paging options for testimonials listings
+* Optional commenting on testimonial single-view pages
+* Performance optimizations
+* Recent testimonials widget
+* Respects meta capabilities
+* Rotation JavaScript in footer than body
 * Schema.org microdata format for improved search engine results
 * Settings export/import
+* Settings page contextual help
 * Settings screen for site-wide option defaults
+* Shortcode helpers on category and tag admin screens
+* Shortcodes allowed inside of testimonials content
 * Shortcodes and theme functions for listings and rotation
 * Single testimonial view includes image, source, title, location, email, company and URL details
+* Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
+* Testimonial content supports HTML
+* Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
 * Testimonials archive view
+* Testimonials category widget
+* Testimonials output is completely customizable via filters
+* Testimonials slider widget displays rotating testimonials or statically
+* Testimonials support styling based upon CSS classes for category, tags and post id
+* Testimonials tag cloud widget
+* Unique CSS class per widget
+* URLs can be opened in new windows
 * Use custom taxonomy or WordPress's own for categories and tags
 * Uses [bxSlider](http://bxslider.com) for transitions
 * Widgets for testimonial's archives, categories, recent, slider, and tag cloud
+* WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 = Shortcodes =
 
@@ -89,68 +139,24 @@ The single testimonial view supports image, source, title, location, email, comp
 
 = Testimonials Widget Premium =
 
-Testimonials Widget Premium includes all of Testimonials Widget' benefits and features, plus…
+Testimonials Widget Premium includes all of Testimonials Widget' benefits and features to over a 100 with…
 
 * 5-star ratings
 * Caching
 * Excerpts
+* Free, comprehensive support
 * More selection options
 * Read more links
-* Use pages, posts, and custom post types as testimonials
-* Users can submit their own testimonials via a shortcode or widget based forms
+* RSS feeds
+* Shortcodes and theme functions for testimonials count, form, and links summary
+* Use any post types for testimonials
+* User submitted testimonials
 
 **[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
-
-= Primary Premium Features =
-
-* Admin interface to add, edit and manage testimonials
-* Akismet, math-based CAPTCHA, and more anti-spam traps
-* Alternate destinations for "Read more" links
-* API to manipulate testimonials output and selection
-* Auto rotate testimonials by page
-* Caching of testimonials queries and content to decrease server load time improve page loading speed by 1/10 to 1/2 a second
-* Capable of handling multiple widgets per page or post
-* Carousel mode for rotating multiple testimonials at the same time
-* CSS or HTML table based testimonials submissions form layout
-* Displays ratings to grant testimonials more power!
-* **Email-based support** with responses and resolution within 1- and 3-business days respectively
-* Excerpts for widget view, with read more link to complete testimonial
-* Fields for source, testimonial, image, title, location, email, company and URL details
-* Front-end entry form for user supplied testimonials. **[Live form demo](http://aihr.us/about-aihrus/testimonials/add-testimonial/)**
-* Minimalist CSS styling for easier theming
-* Multiple paging options for testimonials listings
-* Schema.org microdata format for improved search engine results
-* Select only testimonials with excerpts, images or of arbitrary maximum and minimum length
-* Settings export/import
-* Settings screen for site-wide option defaults
-* Shortcodes and theme functions for listings and rotation
-* Show unique testimonials when displaying multiple testimonial instances
-* Single testimonial view includes image, source, title, location, email, company and URL details
-* Testimonials archive view
-* Use custom taxonomy or WordPress's own for categories and tags
-* Uses [bxSlider](http://bxslider.com) for transitions
-
-= Premium Shortcodes =
-
-* `[testimonials]` - Listings with paging
-* `[testimonials_count]` - Count of testimonials
-* `[testimonials_form]` - Testimonials entry form
-* `[testimonials_links]` - List of testimonial source and title linking to full entry
-* `[testimonials_slider]` - Rotating testimonials
-
-= Premium Theme Functions =
-
-* `<?php echo testimonials( $args ); // Listings with paging ?>`
-* `<?php echo testimonials_count( $args ); // Count of testimonials ?>`
-* `<?php echo testimonials_form( $args ); // Testimonials entry form ?>`
-* `<?php echo testimonials_links( $args ); // List of testimonial source and title linking to full entry ?>`
-* `<?php echo testimonials_slider( $args ); // Rotating testimonials ?>`
 
 = Testimonials Widget Premium Doesn't Work For You? =
 
 No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
-
-**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
 
 = Shortcode Examples =
 
@@ -169,58 +175,6 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 * Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget for automatic upgrading.
 * [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
 * [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
-
-= Additional Features =
-
-* Adjustable animation speed
-* Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
-* Author field to override title when it's not the testimonial source
-* Auto-suggest for category and tag options
-* Automatic linking of email and URL fields via source or company fields
-* Clickable widget titles
-* Commenting on testimonial single-view pages
-* Compatible with WordPress multisite
-* Configuration based validation for easy extending or overriding
-* Content truncation respects HTML tags
-* Custom CSS in footer for HTML validation
-* Custom text or HTML for bottom of widgets
-* Custom widget bottom text
-* Customizable archive and testimonial URLs
-* Customizable testimonial data field `testimonial_extra`
-* Date based archives
-* Deletes testimonials-widget custom post type entries and settings on uninstall
-* Disable self-generated quotation marks
-* Easily label and link to reviewed item for Review schema
-* Easy to configure Next and Previous page indicators
-* Editors and admins can edit testimonial publisher
-* Flush URLs on deactivation 
-* Gravatars saved as featured images
-* IDs column shown in testimonials edit page
-* IE7 CSS hacks for quotes and join parts
-* Image, email based Gravatar, category and tag enabled
-* Include testimonials in archive and category views.
-* Internal version tracking for compatibility checks and automatic settings update
-* Localizable via `languages/testimonials-widget.pot`
-* Lots of examples at WordPress Admin > Testimonials > Settings, Examples tab
-* Optional commenting on testimonial single-view pages
-* Performance optimizations
-* Recent testimonials widget
-* Respects meta capabilities
-* Rotation JavaScript in footer than body
-* Settings page contextual help
-* Shortcode helpers on category and tag admin screens
-* Shortcodes allowed inside of testimonials content
-* Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
-* Testimonial content supports HTML
-* Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
-* Testimonials category widget
-* Testimonials output is completely customizable via filters
-* Testimonials slider widget displays rotating testimonials or statically
-* Testimonials support styling based upon CSS classes for category, tags and post id
-* Testimonials tag cloud widget
-* Unique CSS class per widget
-* URLs can be opened in new windows
-* WordPress Multilingual enabled [WPML](http://wpml.org/)
 
 
 == Installation ==
@@ -276,25 +230,11 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 = Tutorials =
 
-**Adding or Editing Testimonial Widget on Your WordPress Website**
-
-https://www.youtube.com/watch?v=YaXCJppYOUM
-
-**Adding Rotating Testimonials to WordPress Tutorial**
-
-https://www.youtube.com/watch?v=QoFCZgLAUSE
-
-**Testimonials Widget - WordPress Training Video**
-
-https://www.youtube.com/watch?v=ybV5mKZlegA
-
-**Testimonials Widget for WordPress**
-
-https://www.youtube.com/watch?v=LqZ-vcZD8E0
-
-**WordPress Testimonial Plugin Update**
-
-https://www.youtube.com/watch?v=b81oz7k1wbM
+* [Adding or Editing Testimonial Widget on Your WordPress Website](https://www.youtube.com/watch?v=YaXCJppYOUM)
+* [Adding Rotating Testimonials to WordPress Tutorial](https://www.youtube.com/watch?v=QoFCZgLAUSE)
+* [Testimonials Widget - WordPress Training Video](https://www.youtube.com/watch?v=ybV5mKZlegA)
+* [Testimonials Widget for WordPress](https://www.youtube.com/watch?v=LqZ-vcZD8E0)
+* [WordPress Testimonial Plugin Update](https://www.youtube.com/watch?v=b81oz7k1wbM)
 
 = Upgrading =
 
