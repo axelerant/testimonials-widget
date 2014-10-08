@@ -49,6 +49,7 @@
 * Replace `tw_shortcodes` with `tw_examples`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #103 Example of every option
+* RESOLVE #104 Include help in the plugin
 * RESOLVE #111 bottom_text=false shows false
 * RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
