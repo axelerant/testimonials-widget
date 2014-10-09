@@ -11,6 +11,7 @@
 * Add widget's form_parts method
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
+* RESOLVE #4 Enable std default for metabox class
 * RESOLVE Add widget option defaults
 * RESOLVE form_parts not allowing no arguments
 * RESOLVE michael-cannon/testimonials-widget#6 On widget options, switch labels expand/collapse when using them
