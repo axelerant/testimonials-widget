@@ -291,8 +291,9 @@ EOD;
 			'post_title' => $media_name,
 		);
 
-		$file_move = wp_upload_bits( $media_name, null, self::file_get_contents_curl( $media_src ) );
-		$file_name = $file_move['file'];
+		$file_contents = self::file_get_contents( $media_src );
+		$file_move     = wp_upload_bits( $media_name, null, $file_contents );
+		$file_name     = $file_move['file'];
 
 		$image_id = wp_insert_attachment( $attachment, $file_name, $post_id );
 		$metadata = wp_generate_attachment_metadata( $image_id, $file_name );
@@ -309,20 +310,9 @@ EOD;
 	/**
 	 * Thank you Tobylewis
 	 *
-	 * file_get_contents support on some shared systems is turned off
-	 *
 	 * @ref http://wordpress.org/support/topic/plugin-flickr-shortcode-importer-file_get_contents-with-url-isp-does-not-support?replies=2#post-2878241
 	 */
 	public static function file_get_contents_curl( $url ) {
-		if ( ! function_exists( 'curl_init' ) ) {
-			$text  = esc_html__( 'cURL not installed. Unable to retrieve URL %3$s. Line %1$s File %2$s' );
-			$error = sprintf( $text, __LINE__, basename( __FILE__ ), $url );
-
-			aihr_notice_error( $error );
-
-			return '';
-		}
-
 		$ch = curl_init();
 
 		curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
@@ -335,6 +325,25 @@ EOD;
 		curl_close( $ch );
 
 		return $data;
+	}
+
+
+	/**
+	 * file_get_contents support on some shared systems is turned off
+	 */
+	public static function file_get_contents( $url ) {
+		if ( function_exists( 'file_get_contents' ) ) {
+			return file_get_contents( $url );
+		} elseif ( function_exists( 'curl_init' ) ) {
+			return self::file_get_contents_curl( $url );
+		} else {
+			$text  = esc_html__( 'cURL is not installed and file_get_contents is not accessible. Unable to retrieve URL %1$s.' );
+			$error = sprintf( $text, $url );
+
+			aihr_notice_error( $error );
+
+			return;
+		}
 	}
 
 
@@ -620,7 +629,9 @@ EOD;
 		}
 
 		if ( is_readable( $markdown ) ) {
-			$markdown = self::file_get_contents_curl( $markdown );
+			$markdown = self::file_get_contents( $markdown );
+		} else {
+			return;
 		}
 
 		$html = self::$markdown_helper->text( $markdown );
