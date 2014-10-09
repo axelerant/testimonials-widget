@@ -33,7 +33,7 @@ if ( class_exists( 'Testimonials_Widget_Settings' ) ) {
 
 class Testimonials_Widget_Settings extends Aihrus_Settings {
 	const ID   = 'testimonialswidget_settings';
-	const NAME = 'Testimonials Widget Settings';
+	const NAME = 'Testimonials Settings';
 
 	public static $admin_page;
 	public static $class    = __CLASS__;
@@ -584,14 +584,9 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		);
 
 		self::$settings['enable_archives'] = array(
-			'backwards' => array(
-				'version' => '3.0.0',
-				'std' => 0,
-			),
 			'desc' => esc_html__( 'Include testimonials in archive and category views.', 'testimonials-widget' ),
 			'section' => 'post_type',
 			'show_code' => false,
-			'std' => 1,
 			'title' => esc_html__( 'Enable archives view?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
