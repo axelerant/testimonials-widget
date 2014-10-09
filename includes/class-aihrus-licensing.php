@@ -22,10 +22,8 @@ if ( class_exists( 'Aihrus_Licensing' ) ) {
 	return;
 }
 
-require_once 'interface-aihrus-licensing.php';
 
-
-abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
+abstract class Aihrus_Licensing {
 	public $author;
 	public $item_name;
 	public $item_name_encoded;
@@ -214,6 +212,9 @@ abstract class Aihrus_Licensing implements Aihrus_Licensing_Interface {
 	}
 
 
+	public static function settings( $settings ) {
+		return $settings;
+	}
 }
 
 

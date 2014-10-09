@@ -1,29 +1,26 @@
 <?php
 /**
-Aihrus Framework
-Copyright (C) 2014  Michael Cannon
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * Aihrus Framework
+ * Copyright (C) 2014  Michael Cannon
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+
 
 /**
  * Aihrus Framework settings helper class
  *
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
-
 require_once ABSPATH . 'wp-admin/includes/template.php';
 
 if ( class_exists( 'Aihrus_Settings' ) ) {
@@ -132,8 +129,9 @@ abstract class Aihrus_Settings {
 
 		$do_backwards = false;
 		if ( 'backwards' == $mode ) {
-			if ( ! empty( $old_version ) )
+			if ( ! empty( $old_version ) ) {
 				$do_backwards = true;
+			}
 		}
 
 		foreach ( static::$settings as $id => $parts ) {
@@ -141,8 +139,9 @@ abstract class Aihrus_Settings {
 			if ( $do_backwards ) {
 				$version = ! empty( $parts['backwards']['version'] ) ? $parts['backwards']['version'] : false;
 				if ( ! empty( $version ) ) {
-					if ( $old_version < $version )
+					if ( $old_version < $version ) {
 						$std = $parts['backwards']['std'];
+					}
 				}
 			}
 
@@ -198,7 +197,7 @@ abstract class Aihrus_Settings {
 			'type' => $type,
 		);
 
-		static::$defaults[$id] = $std;
+		static::$defaults[ $id ] = $std;
 
 		add_settings_field( $id, $title, array( static::$class, 'display_setting' ), static::ID, $section, $field_args );
 	}
@@ -225,16 +224,16 @@ abstract class Aihrus_Settings {
 	public static function do_settings_sections( $page ) {
 		global $wp_settings_sections, $wp_settings_fields;
 
-		if ( ! isset( $wp_settings_sections ) || ! isset( $wp_settings_sections[$page] ) ) {
+		if ( ! isset( $wp_settings_sections ) || ! isset( $wp_settings_sections[ $page ] ) ) {
 			return;
 		}
 
-		foreach ( (array) $wp_settings_sections[$page] as $section ) {
+		foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
 			if ( $section['callback'] ) {
 				call_user_func( $section['callback'], $section );
 			}
 
-			if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[$page] ) || ! isset( $wp_settings_fields[$page][$section['id']] ) ) {
+			if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
 				continue;
 			}
 
@@ -325,6 +324,11 @@ abstract class Aihrus_Settings {
 	}
 
 
+	/**
+	 *
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+	 */
 	public static function display_setting( $args = array(), $do_echo = true, $input = null ) {
 		$content = '';
 
@@ -337,13 +341,13 @@ abstract class Aihrus_Settings {
 			$options = get_option( static::ID );
 		} else {
 			$options      = array();
-			$options[$id] = $input;
+			$options[ $id ] = $input;
 		}
 
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' ) {
-			$options[$id] = $std;
-		} elseif ( ! isset( $options[$id] ) ) {
-			$options[$id] = 0;
+		if ( ! isset( $options[ $id ] ) && $type != 'checkbox' ) {
+			$options[ $id ] = $std;
+		} elseif ( ! isset( $options[ $id ] ) ) {
+			$options[ $id ] = 0;
 		}
 
 		$field_class = '';
@@ -355,7 +359,7 @@ abstract class Aihrus_Settings {
 		$choices     = array_map( 'esc_attr', $choices );
 		$field_class = esc_attr( $field_class );
 		$id          = esc_attr( $id );
-		$field_value = esc_attr( $options[$id] );
+		$field_value = esc_attr( $options[ $id ] );
 		$std         = esc_attr( $std );
 
 		switch ( $type ) {
@@ -421,7 +425,7 @@ abstract class Aihrus_Settings {
 				break;
 
 			case 'rich_editor':
-				$field_value = $options[$id];
+				$field_value = $options[ $id ];
 
 				ob_start();
 				wp_editor( $field_value, static::ID . '[' . $id . ']', array( 'textarea_name' => static::ID . '[' . $id . ']' ) );
@@ -712,8 +716,9 @@ abstract class Aihrus_Settings {
 
 			case 'trim':
 				$options = explode( "\n", $input[ $id ] );
-				foreach ( $options as $key => $value )
+				foreach ( $options as $key => $value ) {
 					$options[ $key ] = trim( $value );
+				}
 
 				$input[ $id ] = implode( "\n", $options );
 				break;
