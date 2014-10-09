@@ -9,9 +9,11 @@
 * Add markdown2html helper
 * Add suggest ability to text filed
 * Add widget's form_parts method
+* Coding standards update
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
-* On aihr_notice_error usage, push to error_log()
+* On aihr_notice_error usage, push to server error log
+* Remove interface class usage
 * RESOLVE #4 Enable std default for metabox class
 * RESOLVE #5 Check for file_get_contents and curl_init before file grabbing
 * RESOLVE Add widget option defaults

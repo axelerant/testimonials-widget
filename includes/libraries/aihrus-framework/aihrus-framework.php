@@ -18,20 +18,25 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-if ( ! defined( 'AIHR_BASE' ) )
+if ( ! defined( 'AIHR_BASE' ) ) {
 	define( 'AIHR_BASE', __FILE__ );
+}
 
-if ( ! defined( 'AIHR_DIR' ) )
+if ( ! defined( 'AIHR_DIR' ) ) {
 	define( 'AIHR_DIR', plugin_dir_path( __FILE__ ) );
+}
 
-if ( ! defined( 'AIHR_DIR_INC' ) )
+if ( ! defined( 'AIHR_DIR_INC' ) ) {
 	define( 'AIHR_DIR_INC', AIHR_DIR . 'includes/' );
+}
 
-if ( ! defined( 'AIHR_DIR_LIB' ) )
+if ( ! defined( 'AIHR_DIR_LIB' ) ) {
 	define( 'AIHR_DIR_LIB', AIHR_DIR_INC . 'libraries/' );
+}
 
-if ( ! defined( 'AIHR_VERSION' ) )
+if ( ! defined( 'AIHR_VERSION' ) ) {
 	define( 'AIHR_VERSION', '1.1.5RC1' );
+}
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -229,9 +234,9 @@ if ( ! function_exists( 'aihr_notice_updated' ) ) {
 if ( ! function_exists( 'aihr_notice_version' ) ) {
 	function aihr_notice_version( $required_base, $required_name, $required_slug, $required_version, $item_name ) {
 		$is_active = is_plugin_active( $required_base );
-		if ( $is_active )
+		if ( $is_active ) {
 			$link = sprintf( __( '<a href="%1$s">update to</a>' ), self_admin_url( 'update-core.php' ) );
-		else {
+		} else {
 			$plugins = get_plugins();
 			if ( empty( $plugins[ $required_base ] ) ) {
 				$install = esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $required_slug ), 'install-plugin_' . $required_slug ) );
@@ -250,10 +255,11 @@ if ( ! function_exists( 'aihr_notice_version' ) ) {
 
 if ( ! function_exists( 'aihr_notice_license' ) ) {
 	function aihr_notice_license( $post_type, $settings_id, $free_name, $purchase_url, $item_name ) {
-		if ( empty( $post_type ) )
+		if ( empty( $post_type ) ) {
 			$link = get_admin_url() . 'options-general.php?page=' . $settings_id;
-		else
+		} else {
 			$link = get_admin_url() . 'edit.php?post_type=' . $post_type . '&page=' . $settings_id;
+		}
 
 		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry' );
 

@@ -1,30 +1,27 @@
 <?php
 /**
-Aihrus Framework
-Copyright (C) 2014  Michael Cannon
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * Aihrus Framework
+ * Copyright (C) 2014  Michael Cannon
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-if ( class_exists( 'Aihrus_Widget' ) )
+
+if ( class_exists( 'Aihrus_Widget' ) ) {
 	return;
+}
 
-require_once 'interface-aihrus-widget.php';
 
-
-abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interface {
+abstract class Aihrus_Widget extends WP_Widget {
 	public static $default = array(
 		'choices' => array(), // key => value
 		'class' => null, // warning, etc.
@@ -133,7 +130,7 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 		$form_parts = static::form_parts( $instance, $this->number );
 		foreach ( $form_parts as $key => $part ) {
-			$part[ 'id' ] = $key;
+			$part['id'] = $key;
 			$this->display_setting( $part, $instance );
 		}
 	}
@@ -154,15 +151,17 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 		$do_return = false;
 		switch ( $type ) {
 			case 'heading':
-				if ( ! empty( $desc ) )
+				if ( ! empty( $desc ) ) {
 					echo '<h3>' . $desc . '</h3>';
+				}
 
 				$do_return = true;
 				break;
 
 			case 'expand_all':
-				if ( ! empty( $desc ) )
+				if ( ! empty( $desc ) ) {
 					echo '<h3>' . $desc . '</h3>';
+				}
 
 				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'.af-collapsible-control\' ).slideToggle(); jQuery( \'.af-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand All Options' ) . '</a>';
 				echo '<a id="' . $this->get_field_id( $id ) . '-collapse" style="cursor:pointer; display: none;" onclick="jQuery( \'.af-collapsible-control\' ).slideToggle(); jQuery( \'.af-collapsible\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-expand\' ).show();">&laquo; ' . esc_html__( 'Collapse All Options' ) . '</a>';
@@ -171,8 +170,9 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				break;
 
 			case 'expand_begin':
-				if ( ! empty( $desc ) )
+				if ( ! empty( $desc ) ) {
 					echo '<h3>' . $desc . '</h3>';
+				}
 
 				echo '<span class="af-collapsible-control">';
 				echo '<a id="' . $this->get_field_id( $id ) . '-expand" style="cursor:pointer;" onclick="jQuery( \'div#' . $this->get_field_id( $id ) . '\' ).slideToggle(); jQuery( this ).hide(); jQuery( \'#' . $this->get_field_id( $id ) . '-collapse\' ).show();">&raquo; ' . esc_html__( 'Expand' ) . '</a>';
@@ -201,20 +201,22 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 			return;
 		}
 
-		if ( ! isset( $options[$id] ) && $type != 'checkbox' )
-			$options[$id] = $std;
-		elseif ( ! isset( $options[$id] ) )
-			$options[$id] = 0;
+		if ( ! isset( $options[ $id ] ) && $type != 'checkbox' ) {
+			$options[ $id ] = $std;
+		} elseif ( ! isset( $options[ $id ] ) ) {
+			$options[ $id ] = 0;
+		}
 
 		$field_class = '';
-		if ( ! empty( $class ) )
+		if ( ! empty( $class ) ) {
 			$field_class = ' ' . $class;
+		}
 
 		echo '<p>';
 
 		switch ( $type ) {
 			case 'checkbox':
-				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[$id], 1, false ) . ' /> ';
+				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="1" ' . checked( $options[ $id ], 1, false ) . ' /> ';
 
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 				break;
@@ -223,8 +225,9 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 				echo '<select id="' . $this->get_field_id( $id ) . '"class="select' . $field_class . '" name="' . $this->get_field_name( $id ) . '">';
 
-				foreach ( $choices as $value => $label )
-					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+				foreach ( $choices as $value => $label ) {
+					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[ $id ], $value, false ) . '>' . $label . '</option>';
+				}
 
 				echo '</select>';
 				break;
@@ -234,9 +237,11 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 				$count_options = count( $options ) - 1;
 
 				foreach ( $choices as $value => $label ) {
-					echo '<input class="radio' . $field_class . '" type="radio" name="' . $this->get_field_name( $id ) . '" id="' . $this->get_field_name( $id . $i ) . '" value="' . esc_attr( $value ) . '" ' . checked( $options[$id], $value, false ) . '> <label for="' . $this->get_field_name( $id . $i ) . '">' . $label . '</label>';
-					if ( $i < $count_options )
+					echo '<input class="radio' . $field_class . '" type="radio" name="' . $this->get_field_name( $id ) . '" id="' . $this->get_field_name( $id . $i ) . '" value="' . esc_attr( $value ) . '" ' . checked( $options[ $id ], $value, false ) . '> <label for="' . $this->get_field_name( $id . $i ) . '">' . $label . '</label>';
+					if ( $i < $count_options ) {
 						echo '<br />';
+					}
+
 					$i++;
 				}
 
@@ -246,37 +251,39 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 			case 'textarea':
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-				echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[ $id ] ) . '</textarea>';
 				break;
 
 			case 'password':
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-				echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" />';
+				echo '<input class="widefat' . $field_class . '" type="password" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[ $id ] ) . '" />';
 				break;
 
 			case 'readonly':
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-				echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[$id] ) . '" readonly="readonly" />';
+				echo '<input class="widefat' . $field_class . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" value="' . esc_attr( $options[ $id ] ) . '" readonly="readonly" />';
 				break;
 
 			case 'text':
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
 				$suggest_id = 'suggest_' . self::$suggest_id++;
-				echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
+				echo '<input class="widefat' . $field_class . ' ' . $suggest_id . '" type="text" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" value="' . esc_attr( $options[ $id ] ) . '" />';
 
-				if ( $suggest )
+				if ( $suggest ) {
 					echo static::get_suggest( $id, $suggest_id );
+				}
 				break;
 
 			default:
 				break;
 		}
 
-		if ( ! empty( $desc ) )
+		if ( ! empty( $desc ) ) {
 			echo '<br /><span class="setting-description"><small>' . $desc . '</small></span>';
+		}
 
 		echo '</p>';
 
@@ -287,6 +294,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	/**
+	 *
+	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_suggest( $id, $suggest_id ) {
@@ -317,6 +326,8 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	/**
+	 *
+	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function form_parts( $instance = null, $number = null ) {
@@ -337,11 +348,14 @@ abstract class Aihrus_Widget extends WP_Widget implements Aihrus_Widget_Interfac
 
 
 	/**
+	 *
+	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance = null, $number = null ) {
 		return;
 	}
+
 
 }
 
