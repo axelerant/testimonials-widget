@@ -296,7 +296,7 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 7. [testimonials_recent] demo
 8. Single page testimonial view
 9. Testimonials edit page
-10. Testimonials Widget Settings page
+10. Testimonials Settings page
 11. Testimonials Categories page
 12. Poedit Catalog properties
 13. Using Review schema data structures
