@@ -303,6 +303,15 @@ EOD;
 	 * @ref http://wordpress.org/support/topic/plugin-flickr-shortcode-importer-file_get_contents-with-url-isp-does-not-support?replies=2#post-2878241
 	 */
 	public static function file_get_contents_curl( $url ) {
+		if ( ! function_exists( 'curl_init' ) ) {
+			$text  = esc_html__( 'cURL not installed. Unable to retrieve URL %3$s. Line %1$s File %2$s' );
+			$error = sprintf( $text, __LINE__, basename( __FILE__ ), $url );
+
+			aihr_notice_error( $error );
+
+			return '';
+		}
+
 		$ch = curl_init();
 
 		curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
@@ -590,7 +599,7 @@ EOD;
 		}
 
 		if ( is_readable( $markdown ) ) {
-			$markdown = file_get_contents( $markdown );
+			$markdown = self::file_get_contents_curl( $markdown );
 		}
 
 		$html = self::$markdown_helper->text( $markdown );

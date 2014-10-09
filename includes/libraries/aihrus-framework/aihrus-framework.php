@@ -207,13 +207,15 @@ if ( ! function_exists( 'aihr_notice_wp' ) ) {
 if ( ! function_exists( 'aihr_notice_error' ) ) {
 	function aihr_notice_error( $text ) {
 		aihr_notice_updated( $text, 'error' );
+		error_log( $text );
 	}
 }
 
 if ( ! function_exists( 'aihr_notice_updated' ) ) {
 	function aihr_notice_updated( $text, $class = 'updated' ) {
-		if ( 'updated' == $class )
+		if ( 'updated' == $class ) {
 			$class .= ' fade';
+		}
 
 		$content  = '';
 		$content .= '<div class="' . $class . '"><p>';
