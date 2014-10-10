@@ -9,6 +9,7 @@
 * Add markdown2html helper
 * Add suggest ability to text filed
 * Add widget's form_parts method
+* Auto-detect file_get_contents or curl availability
 * Coding standards update
 * Don't shortcode attribute for reset options
 * Move get_suggest to widget abstract class from interface
