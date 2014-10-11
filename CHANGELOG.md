@@ -46,6 +46,7 @@
 * Removed pre-2.0.0 migration code
 * Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
 * Reorganize settings
+* Replace "Source" with "Author"
 * Replace `tw_shortcodes` with `tw_examples`
 * Replace "Source" with "Author"
 * Require Aihrus Framework 1.1.5
