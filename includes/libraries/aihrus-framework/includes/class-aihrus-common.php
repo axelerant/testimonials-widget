@@ -384,7 +384,7 @@ EOD;
 	 */
 	public static function truncate( $html, $max_length, $indicator = '&hellip;', $force_indicator = false ) {
 		$output_length = 0; // number of counted characters stored so far in $output
-		$position      = 0;      // character offset within input string after last tag/entity
+		$position      = 0; // character offset within input string after last tag/entity
 		$tag_stack     = array(); // stack of tags we've encountered but not closed
 		$output        = '';
 		$truncated     = false;
