@@ -54,6 +54,7 @@
 * RESOLVE #112 Remove deprecated methods
 * RESOLVE #113 Replace testimonials_widget_ of actions, filters, and functions with tw_
 * RESOLVE #117 Revise benefits content
+* RESOLVE #119 Confirm WPML integration works
 * RESOLVE #120 Implement ease of use
 * RESOLVE #121 Updated screenshots
 * RESOLVE #123 Revise installation and usage instructions for ease of use
