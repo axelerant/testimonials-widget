@@ -47,6 +47,7 @@
 * Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
 * Reorganize settings
 * Replace `tw_shortcodes` with `tw_examples`
+* Replace "Source" with "Author"
 * Require Aihrus Framework 1.1.5
 * RESOLVE #103 Example of every option
 * RESOLVE #104 Include help in the plugin

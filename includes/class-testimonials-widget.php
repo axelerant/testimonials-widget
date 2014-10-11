@@ -498,7 +498,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		// order of keys matches column ordering
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'title' => esc_html__( 'Source', 'testimonials-widget' ),
+			'title' => esc_html__( 'Author', 'testimonials-widget' ),
 			'author' => esc_html__( 'Published by', 'testimonials-widget' ),
 			'date' => esc_html__( 'Date', 'testimonials-widget' ),
 		);
@@ -529,7 +529,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$show_author = tw_get_option( 'columns_author' );
 		if ( empty( $show_author ) ) {
-			$columns['testimonials-widget-author'] = esc_html__( 'Source', 'testimonials-widget' );
+			$columns['testimonials-widget-author'] = esc_html__( 'Author', 'testimonials-widget' );
 		}
 
 		$show_job_title = tw_get_option( 'columns_job_title' );
@@ -1358,10 +1358,10 @@ EOF;
 	public static function add_meta_box_testimonials_widget() {
 		$fields = array(
 			array(
-				'name' => esc_html__( 'Source', 'testimonials-widget' ),
+				'name' => esc_html__( 'Author', 'testimonials-widget' ),
 				'id' => 'testimonials-widget-author',
 				'type' => 'text',
-				'desc' => esc_html__( 'Use when the testimonial title is not the source\'s name.', 'testimonials-widget' ),
+				'desc' => esc_html__( 'Use when the testimonial title is not the authors\' name.', 'testimonials-widget' ),
 			),
 			array(
 				'name' => esc_html__( 'Job Title', 'testimonials-widget' ),

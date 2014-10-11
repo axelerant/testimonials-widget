@@ -340,6 +340,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['hide_source'] = array(
+			'section' => 'fields',
+			'title' => esc_html__( 'Hide Author?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'desc' => esc_html__( 'Don\'t display testimonial title in cite.', 'testimonials-widget' ),
+		);
+
 		self::$settings['hide_company'] = array(
 			'section' => 'fields',
 			'title' => esc_html__( 'Hide Company?', 'testimonials-widget' ),
@@ -403,14 +411,6 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'desc' => esc_html__( 'Don\'t display testimonial location in cite.', 'testimonials-widget' ),
-		);
-
-		self::$settings['hide_source'] = array(
-			'section' => 'fields',
-			'title' => esc_html__( 'Hide Source?', 'testimonials-widget' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-			'desc' => esc_html__( 'Don\'t display testimonial title in cite.', 'testimonials-widget' ),
 		);
 
 		self::$settings['hide_url'] = array(
@@ -500,7 +500,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				'author' => esc_html__( 'Author', 'testimonials-widget' ),
 				'date' => esc_html__( 'Date', 'testimonials-widget' ),
 				'menu_order' => esc_html__( 'Menu Order', 'testimonials-widget' ),
-				'title' => esc_html__( 'Source', 'testimonials-widget' ),
+				'title' => esc_html__( 'Author', 'testimonials-widget' ),
 				'none' => esc_html__( 'No order', 'testimonials-widget' ),
 			),
 			'std' => 'ID',
@@ -608,7 +608,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		// Columns
 		self::$settings['columns_author'] = array(
 			'section' => 'columns',
-			'title' => esc_html__( 'Hide Source?', 'testimonials-widget', 'testimonials-widget' ),
+			'title' => esc_html__( 'Hide Author?', 'testimonials-widget', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
 			'std' => 1,
