@@ -145,14 +145,14 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_filter( 'pre_get_posts', array( __CLASS__, 'pre_get_posts_author' ) );
 
 		if ( self::do_load() ) {
+			add_filter( 'manage_' . self::PT . '-category_custom_column', array( __CLASS__, 'category_column' ), 10, 3 );
+			add_filter( 'manage_' . self::PT . '-post_tag_custom_column', array( __CLASS__, 'post_tag_column' ), 10, 3 );
 			add_filter( 'manage_category_custom_column', array( __CLASS__, 'category_column' ), 10, 3 );
+			add_filter( 'manage_edit-' . self::PT . '-category_columns', array( __CLASS__, 'category_columns' ) );
+			add_filter( 'manage_edit-' . self::PT . '-post_tag_columns', array( __CLASS__, 'category_columns' ) );
 			add_filter( 'manage_edit-category_columns', array( __CLASS__, 'category_columns' ) );
 			add_filter( 'manage_edit-post_tag_columns', array( __CLASS__, 'category_columns' ) );
-			add_filter( 'manage_edit-testimonials-widget-category_columns', array( __CLASS__, 'category_columns' ) );
-			add_filter( 'manage_edit-testimonials-widget-post_tag_columns', array( __CLASS__, 'category_columns' ) );
 			add_filter( 'manage_post_tag_custom_column', array( __CLASS__, 'post_tag_column' ), 10, 3 );
-			add_filter( 'manage_testimonials-widget-category_custom_column', array( __CLASS__, 'category_column' ), 10, 3 );
-			add_filter( 'manage_testimonials-widget-post_tag_custom_column', array( __CLASS__, 'post_tag_column' ), 10, 3 );
 		}
 	}
 
