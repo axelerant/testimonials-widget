@@ -3,6 +3,6 @@ global $tw_template_args;
 
 $testimonial = $tw_template_args['testimonial'];
 
-$source = empty( $testimonial['testimonial_author'] ) ? $testimonial['testimonial_source'] : $testimonial['testimonial_author'];
+$author = empty( $testimonial['testimonial_author'] ) ? $testimonial['testimonial_source'] : $testimonial['testimonial_author'];
 ?>
-<span class="author"><?php echo $source; ?></span>
+<span class="author"><?php echo $author; ?></span>

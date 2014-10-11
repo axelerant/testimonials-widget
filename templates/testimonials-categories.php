@@ -23,7 +23,6 @@ if ( $d ) {
 
 	wp_dropdown_categories( apply_filters( 'tw_categories_dropdown_args', $cat_args ) );
 	?>
-
 	<script type='text/javascript'>
 	/* <![CDATA[ */
 	var dropdown = document.getElementById("cat");
@@ -35,7 +34,6 @@ if ( $d ) {
 	dropdown.onchange = onCatChange;
 	/* ]]> */
 	</script>
-
 	<?php
 } else {
 	?>

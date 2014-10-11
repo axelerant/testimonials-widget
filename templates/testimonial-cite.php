@@ -68,15 +68,11 @@ if ( empty( $cite ) ) {
 
 if ( ! $use_quote_tag ) {
 	?>
-
 	<div class="credit"><?php echo $cite; ?></div>
-
 	<?php
 } else {
 	?>
-
 	<cite><?php echo $cite; ?></cite>
-
 	<?php
 }
 ?>

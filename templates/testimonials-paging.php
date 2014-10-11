@@ -38,5 +38,4 @@ if ( ! function_exists( 'wp_pagenavi' ) ) {
 }
 
 ?>
-
 <div class="paging <?php echo $class; ?>"><?php echo $paging; ?></div>

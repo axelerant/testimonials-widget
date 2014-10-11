@@ -15,5 +15,4 @@ if ( is_null( $widget_number ) ) {
 	$class   = $id . ' ' . $id_base;
 }
 ?>
-
 <div class="<?php echo $class; ?>">

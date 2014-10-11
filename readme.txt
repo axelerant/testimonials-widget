@@ -45,7 +45,7 @@ For easy custom styling, each testimonial widget has its own CSS class identifie
 
 Widgets display content sans `wpautop` formatting. This means there's no forced paragraph breaks unless the content specifically contains them. If needed, you can enable `wpautop` via the "Keep whitespace?" option.
 
-The single testimonial view supports image, source, title, location, email, company and URL details with optional Review schema.
+The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
 
 = Features =
 
@@ -53,9 +53,9 @@ The single testimonial view supports image, source, title, location, email, comp
 * Admin interface to add, edit and manage testimonials
 * API to manipulate testimonials output and selection
 * Archive Page URL and Testimonial Page URL are prevented from being the same or matching existing pages.
-* Author field to override title when it's not the testimonial source
+* Author field can override testimonial title
 * Auto-suggest for category and tag options
-* Automatic linking of email and URL fields via source or company fields
+* Automatic linking of email and URL fields via author or company fields
 * Capable of handling multiple widgets per page or post
 * Clickable widget titles
 * Commenting on testimonial single-view pages
@@ -74,7 +74,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Easily label and link to reviewed item for Review schema
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
-* Fields for source, testimonial, image, title, location, email, company and URL details
+* Fields for author, testimonial, image, title, location, email, company and URL details
 * Flush URLs on deactivation 
 * Gravatars saved as featured images
 * IDs column shown in testimonials edit page
@@ -98,7 +98,7 @@ The single testimonial view supports image, source, title, location, email, comp
 * Shortcode helpers on category and tag admin screens
 * Shortcodes allowed inside of testimonials content
 * Shortcodes and theme functions for listings and rotation
-* Single testimonial view includes image, source, title, location, email, company and URL details
+* Single testimonial view includes image, author, title, location, email, company and URL details
 * Supports [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/)
 * Testimonial content supports HTML
 * Testimonial, email, and URL fields are clickable – URL requires `http://` or `https://` prefix
