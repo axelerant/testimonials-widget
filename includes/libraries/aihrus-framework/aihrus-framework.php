@@ -254,14 +254,14 @@ if ( ! function_exists( 'aihr_notice_version' ) ) {
 }
 
 if ( ! function_exists( 'aihr_notice_license' ) ) {
-	function aihr_notice_license( $post_type, $settings_id, $free_name, $purchase_url, $item_name ) {
+	function aihr_notice_license( $post_type, $settings_id, $free_name, $purchase_url, $item_name, $product_id = null, $license = null ) {
 		if ( empty( $post_type ) ) {
 			$link = get_admin_url() . 'options-general.php?page=' . $settings_id;
 		} else {
 			$link = get_admin_url() . 'edit.php?post_type=' . $post_type . '&page=' . $settings_id;
 		}
 
-		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em> entry' );
+		$text = __( '<a href="%1$s">%2$s &gt; Settings</a>, <em>Premium</em> tab, <em>License Key</em>' );
 
 		$settings_link = sprintf( $text, $link, $free_name );
 
@@ -271,11 +271,25 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 		$faq_link = sprintf( $text, $link );
 
 		$link = esc_url( $purchase_url );
-		$text = __( '<a href="%1$s">%2$s</a>' );
+		$text = __( '<a href="%1$s">Purchase</a>' );
 
 		$buy_link = sprintf( $text, $link, $item_name );
 
-		$text = sprintf( __( 'Plugin "%1$s" requires license activation before updating will work. Please activate the license key through %2$s. No license key? See "%3$s" or purchase "%4$s".' ), $item_name, $settings_link, $faq_link, $buy_link );
+		$renew_link = '';
+		if ( ! empty( $license ) ) {
+			$link = parse_url( $purchase_url );
+			$link = $link['host'];
+			$text = __( '%1$s/checkout/?edd_license_key=%2$s&download_id=%3$s' );
+			$renew_url = sprintf( $text, $link, $license, $product_id );
+
+			$link = esc_url( $renew_url );
+			$text = __( '<a href="%1$s">Renew</a> or ' );
+
+			$renew_link = sprintf( $text, $link, $item_name );
+		}
+
+		$text = sprintf( __( 'Plugin "%1$s" requires license activation for software updates and support. Please activate the license via %2$s. See %3$s for help. Alternately, %5$s%4$s a %1$s license.' ), $item_name, $settings_link, $faq_link, $buy_link, $renew_link );
+		$text = links_add_target( $text, '_blank' );
 
 		aihr_notice_error( $text );
 	}
