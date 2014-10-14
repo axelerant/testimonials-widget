@@ -312,6 +312,8 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 
 Read [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md).
 
+Read [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md).
+
 
 == Upgrade Notice ==
 
