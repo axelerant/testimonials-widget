@@ -47,8 +47,8 @@
 * Removed shortcodes: `testimonialswidget_list`, `testimonialswidget_widget`
 * Reorganize settings
 * Replace "Source" with "Author"
-* Replace `tw_shortcodes` with `tw_examples`
 * Replace "Source" with "Author"
+* Replace `tw_shortcodes` with `tw_examples`
 * Require Aihrus Framework 1.1.5
 * RESOLVE #103 Example of every option
 * RESOLVE #104 Include help in the plugin
@@ -80,6 +80,7 @@
 * Restore Testimonials Widget branding
 * Restore Testimonials Widget Premium branding
 * Revise descriptions
+* Revise upgrade notice
 * Revise widget class and files names
 * Simplify Review schema handling
 * Slider schema enabled by default
