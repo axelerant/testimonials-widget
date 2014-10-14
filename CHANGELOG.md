@@ -3,6 +3,7 @@
 ## master
 
 ## 3.0.1RC1
+* Restore settings page name as Testimonials Widget Settings
 
 ## 3.0.0
 * Add DEPRECATED.md, EXAMPLES.md, and UPGRADING.md documentation

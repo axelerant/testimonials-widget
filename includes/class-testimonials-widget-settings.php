@@ -33,7 +33,7 @@ if ( class_exists( 'Testimonials_Widget_Settings' ) ) {
 
 class Testimonials_Widget_Settings extends Aihrus_Settings {
 	const ID   = 'testimonialswidget_settings';
-	const NAME = 'Testimonials Settings';
+	const NAME = 'Testimonials Widget Settings';
 
 	public static $admin_page;
 	public static $class    = __CLASS__;
