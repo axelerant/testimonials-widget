@@ -258,6 +258,10 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 == Frequently Asked Questions ==
 
+= Testimonials Widget 3.0 Upgrading =
+
+This is a major overhaul *without* backwards compliance of over 80 changes. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://aihrus.zendesk.com/entries/52514055) for more help. 
+
 = Most Common Issues =
 
 * Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
