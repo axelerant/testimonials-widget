@@ -352,7 +352,7 @@ abstract class Aihrus_Widget extends WP_Widget {
 	 *
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
-	public static function get_content( $instance = null, $number = null ) {
+	public static function get_content( $instance = null, $widget_number = null ) {
 		return;
 	}
 
