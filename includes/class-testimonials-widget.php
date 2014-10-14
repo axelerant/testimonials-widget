@@ -2175,7 +2175,7 @@ EOF;
 				if ( ! empty( $used_with_codes ) ) {
 					$used_with_codes = implode( '</code>, <code>', $used_with_codes );
 
-					$html .= '<p>' . esc_html__( 'Used with: ' );
+					$html .= '<p>' . esc_html__( 'Used with: ', 'testimonials-widget' );
 					$html .= '<code>' . $used_with_codes . '</code>';
 					$html .= '</p>';
 				}
@@ -2212,12 +2212,12 @@ EOF;
 
 			$choices = self::define_options_choices( $parts );
 			if ( ! empty( $choices ) ) {
-				$html .= '<dd>' . esc_html__( 'Options: ' ) . '<code>' . $choices . '</code></dd>';
+				$html .= '<dd>' . esc_html__( 'Options: ', 'testimonials-widget' ) . '<code>' . $choices . '</code></dd>';
 			}
 
 			$value = self::define_options_value( $setting, $parts );
 			if ( ! empty( $value ) ) {
-				$html .= '<dd>' . esc_html__( 'Usage: ' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
+				$html .= '<dd>' . esc_html__( 'Usage: ', 'testimonials-widget' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
 			}
 		}
 
@@ -2248,7 +2248,7 @@ EOF;
 			if ( ! empty( $used_with_codes ) ) {
 				$used_with_codes = implode( '</code>, <code>', $used_with_codes );
 
-				$html .= '<p>' . esc_html__( 'Used with: ' );
+				$html .= '<p>' . esc_html__( 'Used with: ', 'testimonials-widget' );
 				$html .= '<code>' . $used_with_codes . '</code>';
 				$html .= '</p>';
 			}
@@ -2276,12 +2276,12 @@ EOF;
 
 				$choices = self::define_options_choices( $parts );
 				if ( ! empty( $choices ) ) {
-					$html .= '<dd>' . esc_html__( 'Options: ' ) . '<code>' . $choices . '</code></dd>';
+					$html .= '<dd>' . esc_html__( 'Options: ', 'testimonials-widget' ) . '<code>' . $choices . '</code></dd>';
 				}
 
 				$value = self::define_options_value( $setting, $parts );
 				if ( ! empty( $value ) ) {
-					$html .= '<dd>' . esc_html__( 'Usage: ' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
+					$html .= '<dd>' . esc_html__( 'Usage: ', 'testimonials-widget' ) . '<code>' . $setting . '="' . $value . '"</code></dd>';
 				}
 			}
 
