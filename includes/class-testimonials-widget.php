@@ -118,6 +118,8 @@ class Testimonials_Widget extends Aihrus_Common {
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
 		add_shortcode( 'testimonials', array( __CLASS__, 'testimonials' ) );
+		add_shortcode( 'testimonialswidget_list', array( __CLASS__, 'testimonials' ) );
+		add_shortcode( 'testimonialswidget_widget', array( __CLASS__, 'testimonials_slider' ) );
 		add_shortcode( 'testimonials_archives', array( __CLASS__, 'testimonials_archives' ) );
 		add_shortcode( 'testimonials_categories', array( __CLASS__, 'testimonials_categories' ) );
 		add_shortcode( 'testimonials_examples', array( __CLASS__, 'testimonials_examples' ) );

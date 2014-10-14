@@ -71,6 +71,7 @@
 * RESOLVE #137 Simple aggregrate numbers needed in freebie
 * RESOLVE #138 Add shortcode attributes example tab to settings page
 * RESOLVE #139 Auto-generate option examples
+* RESOLVE #149 Restore deprecated shortcodes and theme functions to TW
 * RESOLVE #18 Testimonials category/tag list/cloud widget
 * RESOLVE #19 Template engine
 * RESOLVE #23 Reorganize meta data fields - Author to top

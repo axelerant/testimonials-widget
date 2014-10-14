@@ -184,4 +184,18 @@ if ( ! function_exists( 'testimonials_options' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'testimonialswidget_list' ) ) {
+	function testimonialswidget_list( $atts = array() ) {
+		return testimonials( $atts );
+	}
+}
+
+
+if ( ! function_exists( 'testimonialswidget_widget' ) ) {
+	function testimonialswidget_widget( $atts = array() ) {
+		return testimonials_slider( $atts );
+	}
+}
+
 ?>
