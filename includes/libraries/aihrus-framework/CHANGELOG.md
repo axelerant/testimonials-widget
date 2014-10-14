@@ -2,6 +2,8 @@
 
 ## master
 
+## 1.1.6RC1
+
 ## 1.1.5
 * Abstract do_validate_settings for easier reuse
 * Add 'content' option to settings display
