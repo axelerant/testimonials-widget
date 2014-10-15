@@ -47,7 +47,68 @@ Widgets display content sans `wpautop` formatting. This means there's no forced 
 
 The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
 
-= Features =
+= Shortcodes =
+
+* `[testimonials]` - Testimonials listings with paging 
+* `[testimonials_archives]` - A monthly archive of your site's testimonials
+* `[testimonials_categories]` - A list or dropdown of testimonials' categories
+* `[testimonials_examples]` - Displays examples of commonly used testimonials' shortcodes with attributes
+* `[testimonials_options]` - Displays summary of testimonials' settings for use with shortcodes and theme functions
+* `[testimonials_recent]` - Your site's most recent testimonials
+* `[testimonials_slider]` - Displays rotating testimonials or statically
+* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
+
+= Theme Functions =
+
+* `<?php echo testimonials(); // Testimonials listing with paging  ?>`
+* `<?php echo testimonials_archives(); // A monthly archive of your site's testimonials ?>`
+* `<?php echo testimonials_categories(); // A list or dropdown of testimonials' categories ?>`
+* `<?php echo testimonials_examples(); // Displays examples of commonly used testimonials' shortcodes with attributes ?>`
+* `<?php echo testimonials_options(); // Displays summary of testimonials' settings for use with shortcodes and theme functions ?>`
+* `<?php echo testimonials_recent(); // Your site's most recent testimonials ?>`
+* `<?php echo testimonials_slider(); // Displays rotating testimonials or statically ?>`
+* `<?php echo testimonials_tag_cloud(); // A cloud of your most used testimonials' tags ?>`
+
+= Testimonials Widget Premium =
+
+Testimonials Widget Premium increases all of Testimonials Widget' benefits and features to over a 100 with…
+
+* 5-star ratings
+* Caching
+* Excerpts
+* Free, comprehensive support
+* More selection options
+* Read more links
+* RSS feeds
+* Shortcodes and theme functions for testimonials count, form, and links summary
+* Use any post types for testimonials
+* User submitted testimonials
+
+**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
+
+= Testimonials Widget Premium Doesn't Work For You? =
+
+No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+
+= Shortcode Examples =
+
+Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
+
+= Shortcode and Widget Options =
+
+Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
+
+Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
+
+Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings.
+
+= Testimonials Widget Migration Helpers =
+
+* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget for automatic upgrading.
+* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
+* [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
+
+= 50+ Features =
 
 * Adjustable animation speed
 * Admin interface to add, edit and manage testimonials
@@ -114,67 +175,6 @@ The single testimonial view supports image, author, title, location, email, comp
 * Uses [bxSlider](http://bxslider.com) for transitions
 * Widgets for testimonial's archives, categories, recent, slider, and tag cloud
 * WordPress Multilingual enabled [WPML](http://wpml.org/)
-
-= Shortcodes =
-
-* `[testimonials]` - Testimonials listings with paging 
-* `[testimonials_archives]` - A monthly archive of your site's testimonials
-* `[testimonials_categories]` - A list or dropdown of testimonials' categories
-* `[testimonials_examples]` - Displays examples of commonly used testimonials' shortcodes with attributes
-* `[testimonials_options]` - Displays summary of testimonials' settings for use with shortcodes and theme functions
-* `[testimonials_recent]` - Your site's most recent testimonials
-* `[testimonials_slider]` - Displays rotating testimonials or statically
-* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
-
-= Theme Functions =
-
-* `<?php echo testimonials(); // Testimonials listing with paging  ?>`
-* `<?php echo testimonials_archives(); // A monthly archive of your site's testimonials ?>`
-* `<?php echo testimonials_categories(); // A list or dropdown of testimonials' categories ?>`
-* `<?php echo testimonials_examples(); // Displays examples of commonly used testimonials' shortcodes with attributes ?>`
-* `<?php echo testimonials_options(); // Displays summary of testimonials' settings for use with shortcodes and theme functions ?>`
-* `<?php echo testimonials_recent(); // Your site's most recent testimonials ?>`
-* `<?php echo testimonials_slider(); // Displays rotating testimonials or statically ?>`
-* `<?php echo testimonials_tag_cloud(); // A cloud of your most used testimonials' tags ?>`
-
-= Testimonials Widget Premium =
-
-Testimonials Widget Premium includes all of Testimonials Widget' benefits and features to over a 100 with…
-
-* 5-star ratings
-* Caching
-* Excerpts
-* Free, comprehensive support
-* More selection options
-* Read more links
-* RSS feeds
-* Shortcodes and theme functions for testimonials count, form, and links summary
-* Use any post types for testimonials
-* User submitted testimonials
-
-**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
-
-= Testimonials Widget Premium Doesn't Work For You? =
-
-No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
-
-= Shortcode Examples =
-
-Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
-
-= Shortcode and Widget Options =
-
-Please keep in mind that inheritance affects options. This means that changes made to Testimonials > Settings will not affect current widget instance options. You must change the widget instance manually. However, if you create a new widget instance, then the global settings will apply.
-
-Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
-
-Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings.
-
-= Testimonials Widget Migration Helpers =
-
-* Testimonials Widget pre 2.0.0 - Install and activate Testimonials Widget 2.19.0 before installing the latest Testimonials Widget for automatic upgrading.
-* [GC Testimonials](http://wordpress.org/plugins/gc-testimonials-to-testimonials/)
-* [Testimonials by WooThemes](http://wordpress.org/plugins/wootheme-testimonials-to-testimonials/)
 
 
 == Installation ==
