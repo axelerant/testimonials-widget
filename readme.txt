@@ -19,7 +19,7 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 = Testimonials Widget is Beyond a Simple WordPress Testimonials Slider! =
 
 * Carousel, fade, and slide transitions
-* Filter slideshow content by WordPress' categories, tags, or post-ID
+* Filter slideshow content by WordPress' categories, tags, or post ID
 * Random display
 * Shortcode compatible - slide content that is rendered using shortcodes. e.g. Worpdress Galleries and Gravity Forms
 * Simply styled for easy theme adaption
@@ -55,6 +55,8 @@ Testimonials Widget Premium increases all of Testimonials Widget' benefits and f
 = Testimonials Widget Premium Doesn't Work For You? =
 
 No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+
+= General Information =
 
 More than one testimonials shortcode or widget instance can be displayed at a time on a page. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials anywhere you need. 
 
