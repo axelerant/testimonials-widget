@@ -47,6 +47,27 @@ Widgets display content sans `wpautop` formatting. This means there's no forced 
 
 The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
 
+= Testimonials Widget Premium =
+
+Testimonials Widget Premium increases all of Testimonials Widget' benefits and features to over a 100 with…
+
+* 5-star ratings
+* Caching
+* Excerpts
+* Free, comprehensive support
+* More selection options
+* Read more links
+* RSS feeds
+* Shortcodes and theme functions for testimonials count, form, and links summary
+* Use any post types for testimonials
+* User submitted testimonials
+
+**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
+
+= Testimonials Widget Premium Doesn't Work For You? =
+
+No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+
 = Shortcodes =
 
 * `[testimonials]` - Testimonials listings with paging 
@@ -68,27 +89,6 @@ The single testimonial view supports image, author, title, location, email, comp
 * `<?php echo testimonials_recent(); // Your site's most recent testimonials ?>`
 * `<?php echo testimonials_slider(); // Displays rotating testimonials or statically ?>`
 * `<?php echo testimonials_tag_cloud(); // A cloud of your most used testimonials' tags ?>`
-
-= Testimonials Widget Premium =
-
-Testimonials Widget Premium increases all of Testimonials Widget' benefits and features to over a 100 with…
-
-* 5-star ratings
-* Caching
-* Excerpts
-* Free, comprehensive support
-* More selection options
-* Read more links
-* RSS feeds
-* Shortcodes and theme functions for testimonials count, form, and links summary
-* Use any post types for testimonials
-* User submitted testimonials
-
-**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
-
-= Testimonials Widget Premium Doesn't Work For You? =
-
-No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
 
 = Shortcode Examples =
 
