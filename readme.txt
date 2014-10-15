@@ -272,7 +272,7 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 * [Customize bxSlider](http://bxslider.com/examples)
 * [Debug theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
 * [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
-* [How do I reset testimonials?](https://aihrus.zendesk.com/entries/30746533)
+* [How do I reset options?](https://aihrus.zendesk.com/entries/30746533)
 * [How to change testimonials layout](https://aihrus.zendesk.com/entries/38055707)
 * [My options don't work](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
