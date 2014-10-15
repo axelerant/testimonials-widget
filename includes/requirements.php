@@ -23,7 +23,7 @@ require_once TW_DIR_LIB . 'aihrus-framework/aihrus-framework.php';
 
 function tw_requirements_check( $force_check = false ) {
 	$check_okay = get_transient( 'tw_requirements_check' );
-	if ( empty( $force_check ) && $check_okay !== false ) {
+	if ( empty( $force_check ) && false !== $check_okay ) {
 		return $check_okay;
 	}
 

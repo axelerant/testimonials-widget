@@ -996,7 +996,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.Superglobals)
 	 */
 	public static function format_content( $content, $widget_number, $atts ) {
-		if ( empty ( $content ) ) {
+		if ( empty( $content ) ) {
 			return $content;
 		}
 
