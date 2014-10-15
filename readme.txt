@@ -35,18 +35,6 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 
 **View a [Live Testimonials Widget Demo](http://aihr.us/testimonials-examples/)**
 
-More than one testimonials shortcode or widget instance can be displayed at a time on a page. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials anywhere you need. 
-
-Through categories and tagging, you can create organizational structures. Using categories for products, projects and services you can then apply tagging for further classification.
-
-As an example, create a **Portfolio** category and then use tags to identify _web_, _magazine_, _media_, _public_, _enterprise_, or other niches. Then configure the Testimonial instance to show only **Portfolio** testimonials with the _public_ and _enterprise_ tags. In another Testimonial instance, you can also select only **Portfolio** testimonials, but then allow _web_ and _media_ tags.
-
-For easy custom styling, each testimonial widget has its own CSS class identifier.
-
-Widgets display content sans `wpautop` formatting. This means there's no forced paragraph breaks unless the content specifically contains them. If needed, you can enable `wpautop` via the "Keep whitespace?" option.
-
-The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
-
 = Testimonials Widget Premium =
 
 Testimonials Widget Premium increases all of Testimonials Widget' benefits and features to over a 100 with…
@@ -67,6 +55,18 @@ Testimonials Widget Premium increases all of Testimonials Widget' benefits and f
 = Testimonials Widget Premium Doesn't Work For You? =
 
 No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+
+More than one testimonials shortcode or widget instance can be displayed at a time on a page. Additionally, with shortcodes and theme functions, you can display a short or long list or rotation of testimonials anywhere you need. 
+
+Through categories and tagging, you can create organizational structures. Using categories for products, projects and services you can then apply tagging for further classification.
+
+As an example, create a **Portfolio** category and then use tags to identify _web_, _magazine_, _media_, _public_, _enterprise_, or other niches. Then configure the Testimonial instance to show only **Portfolio** testimonials with the _public_ and _enterprise_ tags. In another Testimonial instance, you can also select only **Portfolio** testimonials, but then allow _web_ and _media_ tags.
+
+For easy custom styling, each testimonial widget has its own CSS class identifier.
+
+Widgets display content sans `wpautop` formatting. This means there's no forced paragraph breaks unless the content specifically contains them. If needed, you can enable `wpautop` via the "Keep whitespace?" option.
+
+The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
 
 = Shortcodes =
 
