@@ -54,7 +54,7 @@ Testimonials Widget Premium increases all of Testimonials Widget' benefits and f
 
 = Testimonials Widget Premium Doesn't Work For You? =
 
-No problem, get a 100% refund and keep the software. Your license for support and updates will be revoked though.
+No problem, it has a 30-day, money back guarantee. Also, you can keep the software, sans support and updates.
 
 = General Information =
 
