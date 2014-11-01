@@ -39,10 +39,10 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 
 Testimonials Widget Premium increases all of Testimonials Widget' benefits and features to over a 100 with…
 
+* **Free, comprehensive support**
 * 5-star ratings
 * Caching
 * Excerpts
-* Free, comprehensive support
 * More selection options
 * Read more links
 * RSS feeds
