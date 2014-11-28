@@ -2,9 +2,10 @@
 
 ## master
 
-## 3.0.1RC1
+## 3.0.1RC2
 * Restore settings page name as Testimonials Widget Settings
 * Swap Shortcode Examples and Attributes tab positions
+* RESOLVE #158 Minify JS
 
 ## 3.0.0
 * Add DEPRECATED.md, EXAMPLES.md, and UPGRADING.md documentation
