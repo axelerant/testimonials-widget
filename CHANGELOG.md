@@ -2,10 +2,11 @@
 
 ## master
 
-## 3.0.1RC2
+## 3.0.1RC3
+* RESOLVE #158 Minify JS
+* RESOLVE is_array( $args['tax_query'] ) notice
 * Restore settings page name as Testimonials Widget Settings
 * Swap Shortcode Examples and Attributes tab positions
-* RESOLVE #158 Minify JS
 
 ## 3.0.0
 * Add DEPRECATED.md, EXAMPLES.md, and UPGRADING.md documentation

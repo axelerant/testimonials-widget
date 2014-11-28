@@ -1179,7 +1179,7 @@ EOF;
 				}
 			}
 		} else {
-			if ( ! is_array( $args['tax_query'] ) ) {
+			if ( isset( $args['tax_query'] ) && ! is_array( $args['tax_query'] ) ) {
 				$args['tax_query'] = array();
 			}
 
