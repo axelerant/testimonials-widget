@@ -11,8 +11,6 @@
  * Text Domain: testimonials-widget
  * Domain Path: /languages
  */
-
-
 /**
 Testimonials Widget
 Copyright (C) 2014  Michael Cannon
