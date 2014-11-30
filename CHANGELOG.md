@@ -3,6 +3,7 @@
 ## master
 
 ## 3.0.1RC3
+* FAQ Got `The plugin does not have a valid header` error?
 * RESOLVE #158 Minify JS
 * RESOLVE is_array( $args['tax_query'] ) notice
 * RESOLVE The plugin does not have a valid header - remove blank lines between header comments
