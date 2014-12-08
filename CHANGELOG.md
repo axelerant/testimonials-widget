@@ -6,7 +6,7 @@
 * FAQ Got `The plugin does not have a valid header` error?
 * RESOLVE #158 Minify JS
 * RESOLVE is_array( $args['tax_query'] ) notice
-* RESOLVE Slide Width stuck on 200pixels
+* RESOLVE Slide Width stuck on 200 pixels
 * RESOLVE The plugin does not have a valid header - remove blank lines between header comments
 * Restore settings page name as Testimonials Widget Settings
 * Swap Shortcode Examples and Attributes tab positions
