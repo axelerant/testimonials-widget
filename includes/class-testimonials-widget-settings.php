@@ -197,6 +197,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'std' => 1,
 		);
 
+		self::$settings['slide_width'] = array(
+			'section' => 'widget',
+			'title' => esc_html__( 'Slide Width?' ),
+			'desc' => esc_html__( 'Width of each testimonial. Increase to thumbnail width or greater for horizontal transitions or when defaults fail.' ),
+			'validate' => 'intval',
+			'std' => 0,
+		);
+
 		self::$settings['transition_mode'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Transition Mode?', 'testimonials-widget' ),

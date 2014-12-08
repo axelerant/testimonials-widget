@@ -811,6 +811,7 @@ class Testimonials_Widget extends Aihrus_Common {
 					$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
 					$enable_video    = $atts['enable_video'];
 					$show_start_stop = $atts['show_start_stop'];
+					$slide_width     = $atts['slide_width'];
 					$transition_mode = $atts['transition_mode'];
 
 					$auto  = $refresh_interval ? 'true' : 'false';
@@ -835,7 +836,8 @@ jQuery(document).ready(function() {
 		{$pager},
 		pause: {$pause},
 		{$video},
-		slideMargin: 2
+		slideMargin: 2,
+		slideWidth: {$slide_width}
 	});
 });
 EOF;
