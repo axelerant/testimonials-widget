@@ -21,7 +21,7 @@ A helper library for WordPress plugins by Aihrus.
 ```
 git remote add aihrus https://github.com/michael-cannon/aihrus-framework.git
 git subtree add -P include/libraries/aihrus-framework aihrus master
-git commit -a -m "Readd aihrus framework"
+git commit -a -m "Read aihrus framework"
 git push origin master
 ```
 
@@ -72,3 +72,7 @@ git subtree pull -P include/libraries/aihrus-framework aihrus master
 ```
 git push origin master
 ```
+
+## Libraries Included
+
+* [Parsedown](http://parsedown.org/)
