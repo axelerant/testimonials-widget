@@ -4,6 +4,7 @@
 
 ## 3.0.1RC4
 * FAQ Got `The plugin does not have a valid header` error?
+* Require Aihrus Framework 1.1.6
 * RESOLVE #158 Minify JS
 * RESOLVE is_array( $args['tax_query'] ) notice
 * RESOLVE Slide Width stuck on 200 pixels
