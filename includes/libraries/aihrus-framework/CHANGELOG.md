@@ -2,7 +2,11 @@
 
 ## master
 
+<<<<<<< HEAD
 ## 1.1.6RC1
+=======
+## 1.1.6RC2
+>>>>>>> 49c4c3aa44dfb5b4edb2c329a66d2c8b9a49d518
 * RESOLVE michael-cannon/testimonials-widget#162 Error: This is not a valid feed template with WordPress SEO sitemap
 * Denote included libraries
 
