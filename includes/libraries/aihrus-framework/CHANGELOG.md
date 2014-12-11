@@ -3,6 +3,7 @@
 ## master
 
 ## 1.1.6RC1
+* RESOLVE michael-cannon/testimonials-widget#162 Error: This is not a valid feed template with WordPress SEO sitemap
 
 ## 1.1.5
 * Abstract do_validate_settings for easier reuse

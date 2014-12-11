@@ -640,10 +640,10 @@ EOD;
 	}
 
 
-	public static function rewrite_rules_feed( $wp_rewrite ) {
+	public static function rewrite_rules_feed( $wp_rewrite, $slug ) {
 		$rules = array(
-			'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
-			'(.+).xml' => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
+			"feed/({$slug})" => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
+			"({$slug}).xml" => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
 		);
 
 		return $rules;
