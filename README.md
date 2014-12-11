@@ -73,6 +73,6 @@ git subtree pull -P include/libraries/aihrus-framework aihrus master
 git push origin master
 ```
 
-## Libraries Included
+## Included Libraries
 
 * [Parsedown](http://parsedown.org/)
