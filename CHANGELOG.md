@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.0.1RC4
+## 3.0.1RC5
 * FAQ Got `The plugin does not have a valid header` error?
 * Require Aihrus Framework 1.1.6
 * RESOLVE #158 Minify JS
