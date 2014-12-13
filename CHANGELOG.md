@@ -3,8 +3,9 @@
 ## master
 
 ## 1.1.6
-* RESOLVE michael-cannon/testimonials-widget#162 Error: This is not a valid feed template with WordPress SEO sitemap
 * Denote included libraries
+* RESOLVE michael-cannon/testimonials-widget#162 Error: This is not a valid feed template with WordPress SEO sitemap
+* Use https for Aihrus store
 
 ## 1.1.5
 * Abstract do_validate_settings for easier reuse
