@@ -257,6 +257,19 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 * Click the "Delete" link for "Testimonials Widget" at WordPress Admin > Plugins
 * Click the "Yes, Delete these files and data" button to confirm "Testimonials Widget" plugin removal
 
+= Documentation =
+
+* [Installation Guide](https://wordpress.org/plugins/testimonials-widget/installation/)
+* [Frequently Asked Questions](https://wordpress.org/plugins/testimonials-widget/faq/)
+* [Options](http://aihr.us/best-wordpress-testimonials-plugin/shortcode-widget-options/)
+* [API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
+* [Benefits and Features](https://wordpress.org/plugins/testimonials-widget/)
+* [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
+* [CONTRIBUTING](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
+* [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md)
+* [EXAMPLES](http://aihr.us/best-wordpress-testimonials-plugin/shortcode-examples/)
+* [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md)
+
 
 == Frequently Asked Questions ==
 
