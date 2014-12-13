@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.6RC2
+## 1.1.6
 * RESOLVE michael-cannon/testimonials-widget#162 Error: This is not a valid feed template with WordPress SEO sitemap
 * Denote included libraries
 
