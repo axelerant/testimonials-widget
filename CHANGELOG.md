@@ -7,6 +7,7 @@
 * Require Aihrus Framework 1.1.6
 * RESOLVE #158 Minify JS
 * RESOLVE is_array( $args['tax_query'] ) notice
+* RESOLVE Missing slideWidth 0 
 * RESOLVE Notice: Undefined index: tag_slug__in
 * RESOLVE Slide Width stuck on 200 pixels
 * RESOLVE The plugin does not have a valid header - remove blank lines between header comments
