@@ -1149,14 +1149,14 @@ EOF;
 				foreach ( $tags as $tag ) {
 					if ( ! preg_match( '#^\d+$#', $tag ) ) {
 						if ( $tags_all ) {
-							if ( ! is_array( $args['tag_slug__and'] ) ) {
+							if ( empty( $args['tag_slug__and'] ) || ! is_array( $args['tag_slug__and'] ) ) {
 								$args['tag_slug__and'] = array();
 							}
 
 							$args['tag_slug__and'][] = $tag;
 						}
 						else {
-							if ( ! is_array( $args['tag_slug__in'] ) ) {
+							if ( empty( $args['tag_slug__in'] ) || ! is_array( $args['tag_slug__in'] ) ) {
 								$args['tag_slug__in'] = array();
 							}
 
@@ -1164,14 +1164,14 @@ EOF;
 						}
 					} else {
 						if ( $tags_all ) {
-							if ( ! is_array( $args['tag__and'] ) ) {
+							if ( empty( $args['tag__and'] ) || ! is_array( $args['tag__and'] ) ) {
 								$args['tag__and'] = array();
 							}
 
 							$args['tag__and'][] = $tag;
 						}
 						else {
-							if ( ! is_array( $args['tag__in'] ) ) {
+							if ( empty( $args['tag__in'] ) || ! is_array( $args['tag__in'] ) ) {
 								$args['tag__in'] = array();
 							}
 
@@ -1181,7 +1181,7 @@ EOF;
 				}
 			}
 		} else {
-			if ( isset( $args['tax_query'] ) && ! is_array( $args['tax_query'] ) ) {
+			if ( empty( $args['tax_query'] ) || ! is_array( $args['tax_query'] ) ) {
 				$args['tax_query'] = array();
 			}
 
