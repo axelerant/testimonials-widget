@@ -1,20 +1,8 @@
-<?xml version="1.0"?>
-<ruleset name="Aihrus">
-	<description>
-		Custom phpcs rules to check for Aihrus' WordPress projects
-	</description>
 
-	<exclude-pattern>includes/libraries/</exclude-pattern>
-	<exclude-pattern>jquery-ui-1.10.3.custom.css</exclude-pattern>
-	<exclude-pattern>jquery-ui-1.10.3.custom.min.css</exclude-pattern>
-	<exclude-pattern>jquery.bxslider.css</exclude-pattern>
-	<exclude-pattern>jquery.bxslider.js</exclude-pattern>
-	<exclude-pattern>jquery.bxslider.min.js</exclude-pattern>
-	<exclude-pattern>jquery.easing.1.3.js</exclude-pattern>
-	<exclude-pattern>jquery.fitvids.js</exclude-pattern>
-	<exclude-pattern>tests/</exclude-pattern>
-
-	<rule ref="WordPress-Core"/>
+	<rule ref="WordPress-Core">
+		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+	</rule>
 
 	<!-- Extras -->
 	<rule ref="WordPress.PHP.DiscouragedFunctions"/>
