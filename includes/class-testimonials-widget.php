@@ -815,7 +815,6 @@ class Testimonials_Widget extends Aihrus_Common {
 					$transition_mode = $atts['transition_mode'];
 
 					$auto  = $refresh_interval ? 'true' : 'false';
-					$pager = ! $refresh_interval ? 'pager: true' : 'pager: false';
 					$pause = $refresh_interval * 1000;
 					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
@@ -833,7 +832,7 @@ jQuery(document).ready(function() {
 		autoHover: true,
 		controls: false,
 		mode: '{$transition_mode}',
-		{$pager},
+		pager: false,
 		pause: {$pause},
 		{$video},
 		slideMargin: 2,

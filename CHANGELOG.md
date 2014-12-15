@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.0.2
+* RESOLVE Pager always showing
+
 ## 3.0.1
 * Add Documentation section to readme
 * FAQ Got `The plugin does not have a valid header` error?
