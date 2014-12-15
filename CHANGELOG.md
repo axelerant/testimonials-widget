@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.0.3RC1
+* Add demo link to examples
+
 ## 3.0.2
 * RESOLVE Pager always showing
 
