@@ -65,10 +65,11 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $widget_number = 100000;
 	public static $wp_query;
 
-	public static $aggregate_count   = 'reviewCount';
+	public static $aggregate_count   = 'ratingCount';
 	public static $aggregate_data    = array();
 	public static $aggregate_no_item = '__NO_ITEM__';
 	public static $aggregate_rating  = 'aggregateRating';
+	public static $aggregate_review  = 'reviewCount';
 	public static $aggregate_schema  = 'http://schema.org/AggregateRating';
 
 	public static $cw_author     = 'author';
@@ -1588,10 +1589,11 @@ EOF;
 		}
 
 		$aggregate_meta = array(
-			self::$aggregate_count => self::get_aggregate_count( $testimonial ),
+			self::$aggregate_review => self::get_review_count( $testimonial ),
 		);
 
-		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
+		$aggregate_meta[ self::$aggregate_count ] = $aggregate_meta[ self::$aggregate_review ];
+		$review_meta[ self::$aggregate_rating ]    = array( self::$aggregate_schema, $aggregate_meta );
 
 		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
@@ -2043,22 +2045,42 @@ EOF;
 	}
 
 
-	public static function get_aggregate_count( $testimonial ) {
+	public static function get_review_count( $testimonial ) {
+		self::$aggregate_data = apply_filters( 'tw_cache_get', self::$aggregate_data, 'tw_aggregate_data' );
+
 		$testimonial_item = ! empty( $testimonial['testimonial_item'] ) ? $testimonial['testimonial_item'] : self::$aggregate_no_item;
 		if ( ! isset( self::$aggregate_data[ $testimonial_item ]['count'] ) ) {
-			// @codingStandardsIgnoreStart
-			$query_args = array(
-				'post_type' => Testimonials_Widget::PT,
-				'meta_query' => array(
-					'relation' => 'AND',
-					array(
-						'key' => 'testimonials-widget-item',
-						'value' => $testimonial_item,
-						'compare' => 'LIKE',
+			if ( self::$aggregate_no_item != $testimonial_item ) {
+				// @codingStandardsIgnoreStart
+				$query_args = array(
+					'post_type' => Testimonials_Widget::PT,
+					'posts_per_page' => -1,
+					'meta_query' => array(
+						'relation' => 'AND',
+						array(
+							'key' => 'testimonials-widget-item',
+							'value' => $testimonial_item,
+							'compare' => 'LIKE',
+						),
 					),
-				),
-			);
-			// @codingStandardsIgnoreEnd
+				);
+				// @codingStandardsIgnoreEnd
+			} else {
+				// @codingStandardsIgnoreStart
+				$query_args = array(
+					'post_type' => Testimonials_Widget::PT,
+					'posts_per_page' => -1,
+					'meta_query' => array(
+						'relation' => 'AND',
+						array(
+							'key' => 'testimonials-widget-item',
+							'value' => '',
+							'compare' => 'LIKE',
+						),
+					),
+				);
+				// @codingStandardsIgnoreEnd
+			}
 
 			$count = 0;
 			$query = new WP_Query( $query_args );
@@ -2068,6 +2090,8 @@ EOF;
 			}
 
 			self::$aggregate_data[ $testimonial_item ]['count'] = $count;
+
+			self::$aggregate_data = apply_filters( 'tw_cache_set', self::$aggregate_data, 'tw_aggregate_data' );
 		}
 
 		return self::$aggregate_data[ $testimonial_item ]['count'];
