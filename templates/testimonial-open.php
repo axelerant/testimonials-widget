@@ -24,7 +24,11 @@ if ( $atts['keep_whitespace'] ) {
 	$class .= ' whitespace';
 }
 
-$post_id = $testimonial['post_id'];
+$post_id = false;
+if ( isset( $testimonial['post_id'] ) ) {
+	$post_id = $testimonial['post_id'];
+}
+
 if ( ! empty( $post_id ) ) {
 	$class = join( ' ', get_post_class( $class, $post_id ) );
 } else {

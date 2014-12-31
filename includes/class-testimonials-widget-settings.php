@@ -481,7 +481,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		self::$settings['tags'] = array(
 			'section' => 'selection',
 			'title' => esc_html__( 'Tags Filter', 'testimonials-widget' ),
-			'desc' => esc_html__( 'Comma separated tag names or IDs.', 'testimonials-widget' ),
+			'desc' => esc_html__( 'Comma separated tag slugs or IDs.', 'testimonials-widget' ),
 			'validate' => 'terms',
 			'suggest' => true,
 		);

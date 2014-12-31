@@ -4,6 +4,8 @@
 
 ## 3.0.3RC1
 * Add demo link to examples
+* RESOLVE #159 Under 'Selection Options', 'Tag Filter', the description should say 'Comma separated tag SLUGS or IDs.'
+* RESOLVE PHP Notice: Undefined index: post_id
 
 ## 3.0.2
 * RESOLVE Pager always showing

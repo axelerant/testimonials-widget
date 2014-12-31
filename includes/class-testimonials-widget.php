@@ -1473,6 +1473,10 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
 	 */
 	public static function get_schema( $testimonial, $atts ) {
+		if ( ! isset( $testimonial['post_id'] ) ) {
+			return;
+		}
+
 		foreach ( $testimonial as $key => $value ) {
 			if ( 'testimonial_image' != $key ) {
 				$testimonial[ $key ] = self::clean_string( $value );
