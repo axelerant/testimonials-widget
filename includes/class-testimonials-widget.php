@@ -924,9 +924,6 @@ EOF;
 		}
 
 		$content = self::get_template_part( 'testimonial', 'content' );
-		if ( $atts['target'] ) {
-			$content = links_add_target( $content, $atts['target'] );
-		}
 
 		$cite = '';
 		if ( 1 < count( $testimonial ) ) {
@@ -941,6 +938,14 @@ EOF;
 		$bottom_text = '';
 		if ( ! empty( $atts['bottom_text'] ) && 'false' != $atts['bottom_text'] ) {
 			$bottom_text = self::get_template_part( 'testimonial', 'bottom' );
+		}
+
+		$do_target = $atts['target'];
+		if ( $do_target ) {
+			$content     = links_add_target( $content, $do_target );
+			$cite        = links_add_target( $cite, $do_target );
+			$extra       = links_add_target( $extra, $do_target );
+			$bottom_text = links_add_target( $bottom_text, $do_target );
 		}
 
 		$schema = '';
