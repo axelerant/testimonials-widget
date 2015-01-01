@@ -4,6 +4,7 @@
 
 ## 3.0.3RC1
 * Add demo link to examples
+* Require Aihrus Framework 1.1.7
 * RESOLVE #150 URL target doesn't work
 * RESOLVE #155 Aggregate data is off per Google
 * RESOLVE #159 Under 'Selection Options', 'Tag Filter', the description should say 'Comma separated tag SLUGS or IDs.'
