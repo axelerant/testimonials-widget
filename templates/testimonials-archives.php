@@ -6,8 +6,8 @@ $atts = $tw_template_args['atts'];
 $c = ! empty( $atts['count'] ) ? '1' : '0';
 $d = ! empty( $atts['dropdown'] ) ? '1' : '0';
 
-add_filter( 'getarchives_where', array( Testimonials_Widget, 'getarchives_where' ), 10, 2 );
-add_filter( 'get_archives_link', array( Testimonials_Widget, 'get_archives_link' ), 10, 1 );
+add_filter( 'getarchives_where', array( 'Testimonials_Widget', 'getarchives_where' ), 10, 2 );
+add_filter( 'get_archives_link', array( 'Testimonials_Widget', 'get_archives_link' ), 10, 1 );
 
 if ( $d ) {
 	?>
@@ -37,6 +37,6 @@ if ( $d ) {
 	<?php
 }
 
-remove_filter( 'get_archives_link', array( Testimonials_Widget, 'get_archives_link' ), 10, 1 );
-remove_filter( 'getarchives_where', array( Testimonials_Widget, 'getarchives_where' ), 10, 2 );
+remove_filter( 'get_archives_link', array( 'Testimonials_Widget', 'get_archives_link' ), 10, 1 );
+remove_filter( 'getarchives_where', array( 'Testimonials_Widget', 'getarchives_where' ), 10, 2 );
 ?>

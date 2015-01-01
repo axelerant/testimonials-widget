@@ -746,8 +746,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		wp_enqueue_script( 'jquery' );
 
-		$enable_video = $atts['enable_video'];
-		if ( $enable_video ) {
+		if ( ! empty( $atts['enable_video'] ) ) {
 			wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'jquery.fitvids' );
 		}

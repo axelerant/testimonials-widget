@@ -7,7 +7,10 @@
 * RESOLVE #150 URL target doesn't work
 * RESOLVE #155 Aggregate data is off per Google
 * RESOLVE #159 Under 'Selection Options', 'Tag Filter', the description should say 'Comma separated tag SLUGS or IDs.'
+* RESOLVE #165 Stack of testimonials appear on load
+* RESOLVE PHP Notice: Undefined index: enable_video
 * RESOLVE PHP Notice: Undefined index: post_id
+* RESOLVE PHP Notice: Use of undefined constant Testimonials_Widget - assumed 'Testimonials_Widget'
 
 ## 3.0.2
 * RESOLVE Pager always showing

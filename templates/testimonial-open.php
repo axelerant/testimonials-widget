@@ -8,6 +8,7 @@ $testimonial   = $tw_template_args['testimonial'];
 $widget_number = $tw_template_args['widget_number'];
 
 $class = 'testimonials-widget-testimonial';
+$style = '';
 if ( is_single() && empty( $widget_number ) ) {
 	$class .= ' single';
 } elseif ( $is_list ) {
@@ -16,7 +17,7 @@ if ( is_single() && empty( $widget_number ) ) {
 	// widget display
 	$refresh_interval = $atts['refresh_interval'];
 	if ( ! $is_first && ! empty( $refresh_interval ) && ! in_array( $atts['transition_mode'], array( 'horizontal', 'vertical' ) ) ) {
-		$class .= ' display-none';
+		$style = 'display: none;';
 	}
 }
 
@@ -41,5 +42,5 @@ if ( $atts['remove_hentry'] ) {
 
 $class = apply_filters( 'tw_get_testimonial_html_class', $class, $testimonial, $atts, $is_list, $is_first, $widget_number );
 ?>
-<div class="<?php echo $class; ?>">
+<div class="<?php echo $class; ?>" style="<?php echo $style; ?>">
 <!-- <?php echo Testimonials_Widget::ID; ?>:<?php echo $post_id; ?>: -->
