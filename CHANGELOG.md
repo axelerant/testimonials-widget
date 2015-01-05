@@ -12,6 +12,7 @@
 * RESOLVE PHP Notice: Undefined index: enable_video
 * RESOLVE PHP Notice: Undefined index: post_id
 * RESOLVE PHP Notice: Use of undefined constant Testimonials_Widget - assumed 'Testimonials_Widget'
+* Update FAQ on shortcodes
 
 ## 3.0.2
 * RESOLVE Pager always showing

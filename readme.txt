@@ -282,7 +282,7 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 
 * Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
 * Got `The plugin does not have a valid header` error? See [Error: The plugin does not have a valid header](https://aihrus.zendesk.com/entries/68888915)
-* Shortcode not working? Make sure your theme isn't using same shortcode.
+* Shortcode not working? Read about [enabling shortcodes in widgets](https://aihrus.zendesk.com/entries/23677312) and make sure your theme isn't using the same shortcode.
 * [404 - Page not found](https://aihrus.zendesk.com/entries/23679301)
 * [Add testimonials using Gravity Forms](http://webtrainingwheels.com/how-to-collect-user-submitted-testimonials-wordpress/)
 * [Change styling or debug CSS](https://aihrus.zendesk.com/entries/24910733)
