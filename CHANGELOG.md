@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.0.3RC2
+## 3.0.3
 * Add demo link to examples
 * Require Aihrus Framework 1.1.7
 * RESOLVE #150 URL target doesn't work
