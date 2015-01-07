@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.1.7RC1
+## 1.1.7
 * RESOLVE michael-cannon/testimonials-widget#156 License not saving
 
 ## 1.1.6
