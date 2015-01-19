@@ -103,7 +103,7 @@ Please keep in mind that inheritance affects options. This means that changes ma
 
 Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
 
-Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings.
+Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings. Alternately, read [OPTIONS](http://aihr.us/best-wordpress-testimonials-plugin/shortcode-widget-options/).
 
 = Testimonials Widget Migration Helpers =
 
