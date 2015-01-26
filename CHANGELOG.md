@@ -1,6 +1,7 @@
 # CHANGELOG - Testimonials Widget
 
 ## master
+* Update Structured Data Testing Tool link
 
 ## 3.0.3
 * Add demo link to examples

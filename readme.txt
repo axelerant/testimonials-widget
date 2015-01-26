@@ -293,7 +293,7 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 * [How to change testimonials layout](https://aihrus.zendesk.com/entries/38055707)
 * [My options don't work](https://aihrus.zendesk.com/entries/30746533)
 * [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
-* [Test Review schema output](http://www.google.com/webmasters/tools/richsnippets)
+* [Test Review schema output](https://developers.google.com/webmasters/structured-data/testing-tool/)
 * [Testimonials slider doesn't rotate](https://aihrus.zendesk.com/entries/23693363)
 
 = Still Stuck or Want Something Done? Get Support! =
@@ -373,7 +373,7 @@ You can translate this plugin into your own language if it's not done so already
 == Notes ==
 
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* Review schema [structured data testing tool](http://www.google.com/webmasters/tools/richsnippets)
+* Review schema [structured data testing tool](https://developers.google.com/webmasters/structured-data/testing-tool/)
 * When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
 
 
