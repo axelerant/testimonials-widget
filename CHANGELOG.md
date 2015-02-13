@@ -1,6 +1,9 @@
 # CHANGELOG - Testimonials Widget
 
 ## master
+
+## 3.0.4RC1
+* RESOLVE Warning: Illegal string offset 'random'
 * Update Structured Data Testing Tool link
 
 ## 3.0.3

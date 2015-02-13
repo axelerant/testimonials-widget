@@ -707,6 +707,10 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function testimonials_slider( $atts, $widget_number = null ) {
+		if ( is_null( $atts ) || ! is_array( $atts ) ) {
+			$atts = array();
+		}
+
 		if ( empty( $widget_number ) ) {
 			$widget_number = self::$widget_number++;
 
