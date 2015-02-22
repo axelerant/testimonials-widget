@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: Easily add social proofing to your website with Testimonials Widget. List or slide reviews via functions, shortcodes, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 3.0.4RC1
+ * Version: 3.0.4
  * Author: Michael Cannon
  * Author URI: http://aihr.us/resume/
  * License: GPLv2 or later
@@ -13,7 +13,7 @@
  */
 /**
 Testimonials Widget
-Copyright (C) 2014  Michael Cannon
+Copyright (C) 2015 Michael Cannon
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
 }
 
 if ( ! defined( 'TW_VERSION' ) ) {
-	define( 'TW_VERSION', '3.0.4RC1' );
+	define( 'TW_VERSION', '3.0.4' );
 }
 
 require_once TW_DIR_INC . 'requirements.php';

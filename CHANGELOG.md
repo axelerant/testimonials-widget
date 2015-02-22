@@ -2,8 +2,9 @@
 
 ## master
 
-## 3.0.4RC1
+## 3.0.4
 * RESOLVE Warning: Illegal string offset 'random'
+* Update copyright year
 * Update Structured Data Testing Tool link
 
 ## 3.0.3
