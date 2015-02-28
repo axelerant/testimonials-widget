@@ -6,6 +6,7 @@
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
 * Require Aihrus Framework 1.2.0
+* Update library Gamajo-Template-Loader
 
 ## 3.0.4
 * RESOLVE Warning: Illegal string offset 'random'
