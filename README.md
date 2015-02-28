@@ -24,7 +24,7 @@ If you find an issue, [let us know here](https://github.com/michael-cannon/testi
 
 ## Support
 
-This is a developer's portal for Testimonials Widget and should not be used for support. Please visit the [Testimonials Widget Knowledge Base](https://aihrus.zendesk.com/categories/20104507) for frequently asked questions, offering ideas, or getting support.
+This is a developer's portal for Testimonials Widget and should not be used for support. Please visit the [Testimonials Widget Knowledge Base](https://nodedesk.zendesk.com/hc/en-us/sections/200861112) for frequently asked questions, offering ideas, or getting support.
 
 ## Contributions
 
@@ -34,7 +34,7 @@ There are various ways you can contribute:
 
 * [Raise an issue](https://github.com/michael-cannon/testimonials-widget/issues) on GitHub.
 * Fork Testimonials Widget and send a Pull Request with your bug fixes and/or new features.
-* [Translate Testimonials Widget into different languages](https://aihrus.zendesk.com/entries/23691557).
+* [Translate Testimonials Widget into different languages](https://nodedesk.zendesk.com/hc/en-us/articles/202294892).
 * Provide feedback and [suggestions on enhancements](https://github.com/michael-cannon/testimonials-widget/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open).
 
 ## Thank You

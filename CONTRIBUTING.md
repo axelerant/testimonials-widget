@@ -6,7 +6,7 @@ When contributing please ensure you follow the guidelines below so that we can k
 
 **Please Note:** GitHub is for bug reports and contributions only - if you have a support question or a request for a customisation don't post here, go to our [Support Forum](http://wordpress.org/support/plugin/testimonials-widget) instead.
 
-For localization, please refer to [How do I change Testimonials text labels?](https://aihrus.zendesk.com/entries/23691557), though bugs with strings that can't be translated are welcome here.
+For localization, please refer to [How do I change Testimonials text labels?](https://nodedesk.zendesk.com/hc/en-us/articles/202294892), though bugs with strings that can't be translated are welcome here.
 
 ## Getting Started
 

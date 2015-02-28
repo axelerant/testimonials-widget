@@ -1,11 +1,10 @@
 === Testimonials Widget ===
 
-Contributors: comprock
-Donate link: http://aihr.us/about-aihrus/donate/
-Tags: aihrus, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
+Contributors: comprock,saurabhd
+Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.6
 Tested up to: 4.1.0
-Stable tag: 3.0.4
+Stable tag: 3.1.0RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +32,7 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 
 [youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
 
-**View a [Live Testimonials Widget Demo](http://aihr.us/testimonials-examples/)**
+**View a [Live Testimonials Widget Demo](http://axelerant.com/testimonials-examples/)**
 
 = Testimonials Widget Premium =
 
@@ -50,7 +49,7 @@ Testimonials Widget Premium increases all of Testimonials Widget' benefits and f
 * Use any post types for testimonials
 * User submitted testimonials
 
-**[Buy Testimonials Widget Premium](http://aihr.us/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
+**[Buy Testimonials Widget Premium](http://axelerant.com/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
 
 = Testimonials Widget Premium Doesn't Work For You? =
 
@@ -95,7 +94,7 @@ The single testimonial view supports image, author, title, location, email, comp
 = Shortcode Examples =
 
 * Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
-* View [Testimonials Widget demo](http://aihr.us/testimonials-examples/).
+* View [Testimonials Widget demo](http://axelerant.com/testimonials-examples/).
 
 = Shortcode and Widget Options =
 
@@ -184,9 +183,9 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 = Requirements =
 
-* PHP 5.3+ [Read notice](https://aihrus.zendesk.com/entries/30678006) – Since 2.16.0
+* PHP 5.3+ [Read notice](https://nodedesk.zendesk.com/hc/en-us/articles/202331041) – Since 2.16.0
 * WordPress 3.6+
-* [jQuery 1.10+](https://aihrus.zendesk.com/entries/23693363)
+* [jQuery 1.10+](https://nodedesk.zendesk.com/hc/en-us/articles/202244022)
 
 = Install Methods =
 
@@ -208,7 +207,7 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 = Usage =
 
 1. Watch [Testimonial Widget](https://www.youtube.com/watch?v=zDz1igmRK2g)
-1. Read [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
+1. Read [How do I create a testimonial record?](https://nodedesk.zendesk.com/hc/en-us/articles/202243712)
 1. Add and manage testimonials through the **Testimonials Widget** menu in the WordPress admin area
 1. To display testimonials as a widget, go to the **Appearance** > **Widgets** menu and drag the **Testimonials Slider** widget into the desired widget area. Then configure the widget to select options and display as desired.
 1. Use the following shortcodes to display testimonials on a page, post, etc.
@@ -220,7 +219,7 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 	* `[testimonials_recent]` - Your site's most recent testimonials
 	* `[testimonials_slider]` - Displays rotating testimonials or statically
 	* `[testimonials_tag_cloud]` - A cloud of your most used testimonials' tags
-1. Read [theme functions usage](https://aihrus.zendesk.com/entries/23702878) for using the following theme helpers.
+1. Read [theme functions usage](https://nodedesk.zendesk.com/hc/en-us/articles/202380271) for using the following theme helpers.
 	* `<?php echo testimonials(); // Testimonials listing with paging  ?>`
 	* `<?php echo testimonials_archives(); // A monthly archive of your site's testimonials ?>`
 	* `<?php echo testimonials_categories(); // A list or dropdown of testimonials' categories ?>`
@@ -262,13 +261,13 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 * [Installation Guide](https://wordpress.org/plugins/testimonials-widget/installation/)
 * [Frequently Asked Questions](https://wordpress.org/plugins/testimonials-widget/faq/)
-* [Options](http://aihr.us/best-wordpress-testimonials-plugin/shortcode-widget-options/)
+* [Options](http://axelerant.com/best-wordpress-testimonials-plugin/shortcode-widget-options/)
 * [API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
 * [Benefits and Features](https://wordpress.org/plugins/testimonials-widget/)
 * [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
 * [CONTRIBUTING](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
 * [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md)
-* [EXAMPLES](http://aihr.us/best-wordpress-testimonials-plugin/shortcode-examples/)
+* [EXAMPLES](http://axelerant.com/best-wordpress-testimonials-plugin/shortcode-examples/)
 * [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md)
 
 
@@ -280,29 +279,29 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 
 = Most Common Issues =
 
-* Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Aihrus Plugins Require PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
-* Got `The plugin does not have a valid header` error? See [Error: The plugin does not have a valid header](https://aihrus.zendesk.com/entries/68888915)
-* Shortcode not working? Read about [enabling shortcodes in widgets](https://aihrus.zendesk.com/entries/23677312) and make sure your theme isn't using the same shortcode.
-* [404 - Page not found](https://aihrus.zendesk.com/entries/23679301)
+* Got `Parse error: syntax error, unexpected T_STATIC…`? See [Most Axelerant Plugins Require PHP 5.3+](https://nodedesk.zendesk.com/hc/en-us/articles/202331041)
+* Got `The plugin does not have a valid header` error? See [Error: The plugin does not have a valid header](https://nodedesk.zendesk.com/hc/en-us/articles/202380141)
+* Shortcode not working? Read about [enabling shortcodes in widgets](https://nodedesk.zendesk.com/hc/en-us/articles/202385631) and make sure your theme isn't using the same shortcode.
+* [404 - Page not found](https://nodedesk.zendesk.com/hc/en-us/articles/202243692)
 * [Add testimonials using Gravity Forms](http://webtrainingwheels.com/how-to-collect-user-submitted-testimonials-wordpress/)
-* [Change styling or debug CSS](https://aihrus.zendesk.com/entries/24910733)
+* [Change styling or debug CSS](https://nodedesk.zendesk.com/hc/en-us/articles/202243372)
 * [Customize bxSlider](http://bxslider.com/examples)
-* [Debug theme and plugin conflicts](https://aihrus.zendesk.com/entries/25119302)
-* [How do I create a testimonial record?](https://aihrus.zendesk.com/entries/30602506)
-* [How do I reset options?](https://aihrus.zendesk.com/entries/30746533)
-* [How to change testimonials layout](https://aihrus.zendesk.com/entries/38055707)
-* [My options don't work](https://aihrus.zendesk.com/entries/30746533)
-* [Pagination is broken](https://aihrus.zendesk.com/entries/23693513)
+* [Debug theme and plugin conflicts](https://nodedesk.zendesk.com/hc/en-us/articles/202330781)
+* [How do I create a testimonial record?](https://nodedesk.zendesk.com/hc/en-us/articles/202243712)
+* [How do I reset options?](https://nodedesk.zendesk.com/hc/en-us/articles/202243702)
+* [How to change testimonials layout](https://nodedesk.zendesk.com/hc/en-us/articles/202331021)
+* [My options don't work](https://nodedesk.zendesk.com/hc/en-us/articles/202243702)
+* [Pagination is broken](https://nodedesk.zendesk.com/hc/en-us/articles/202331071)
 * [Test Review schema output](https://developers.google.com/webmasters/structured-data/testing-tool/)
-* [Testimonials slider doesn't rotate](https://aihrus.zendesk.com/entries/23693363)
+* [Testimonials slider doesn't rotate](https://nodedesk.zendesk.com/hc/en-us/articles/202244022)
 
 = Still Stuck or Want Something Done? Get Support! =
 
-1. [Knowledge Base](https://aihrus.zendesk.com/categories/20104507) - read and comment upon 125+ frequently asked questions
+1. [Knowledge Base](https://nodedesk.zendesk.com/hc/en-us/sections/200861112) - read and comment upon 125+ frequently asked questions
 1. [Open Issues](https://github.com/michael-cannon/testimonials-widget/issues) - review and submit bug reports and enhancement requests
 1. [Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
 1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
-1. [Beta Testers Needed](http://aihr.us/become-beta-tester/) - provide feedback and direction to plugin development
+1. [Beta Testers Needed](http://axelerant.com/become-beta-tester/) - provide feedback and direction to plugin development
 1. [Old Plugin Versions](http://wordpress.org/plugins/testimonials-widget/developers/)
 
 
@@ -365,9 +364,9 @@ Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/mas
 * Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://aihr.us/contact-aihrus/) for plugin inclusion.
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://axelerant.com/contact-axelerant/) for plugin inclusion.
 
-**[How do I localize?](https://aihrus.zendesk.com/entries/23691557)**
+**[How do I localize?](https://nodedesk.zendesk.com/hc/en-us/articles/202294892)**
 
 
 == Notes ==
@@ -388,4 +387,4 @@ A big, special thank you to [Joe Weber](https://plus.google.com/1000632712692773
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
-Current development by [Michael Cannon](https://profiles.wordpress.org/comprock/) of [Aihrus](http://aihr.us/about-aihrus/).
+Current development by [Michael Cannon](https://profiles.wordpress.org/comprock/) of [Axelerant](http://axelerant.com/about-axelerant/).

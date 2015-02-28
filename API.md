@@ -26,11 +26,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_cite_html`
 
-	Adjust cite contents. [example](https://aihrus.zendesk.com/entries/24012926)
+	Adjust cite contents. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202295462)
 
 * `tw_content_more`
 
-	More content ellipsis. [example](https://aihrus.zendesk.com/entries/23691577)
+	More content ellipsis. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202300032)
 
 * `tw_get_testimonials_html`
 
@@ -38,23 +38,23 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_get_testimonial_html`
 
-	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://aihrus.zendesk.com/entries/23693433)
+	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385211)
 
 * `tw_gravatar_size`
 
-	Change the Gravatar size. [example](https://aihrus.zendesk.com/entries/23679271)
+	Change the Gravatar size. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202300072)
 
 * `tw_image_size`
 
-	Change the image size. [example](https://aihrus.zendesk.com/entries/23677122)
+	Change the image size. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202379911)
 
 * `tw_next_posts_link_text`
 
-	Configure Next page indicator. [example](https://aihrus.zendesk.com/entries/23691587)
+	Configure Next page indicator. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385431)
 
 * `tw_previous_posts_link_text`
 
-	Configure Previous page indicator. [example](https://aihrus.zendesk.com/entries/23691587)
+	Configure Previous page indicator. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385431)
 
 * `tw_testimonial_html_single_content`
 
@@ -62,11 +62,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_testimonial_html_single`
 
-	Customize testimonials single view output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23679391)
+	Customize testimonials single view output post `get_testimonial_html`. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202331941)
 
 * `tw_testimonial_html`
 
-	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://aihrus.zendesk.com/entries/23693413)
+	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202380281)
 
 * `tw_get_testimonial_html_class`
 
@@ -86,7 +86,7 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_wp_pagenavi`
 
-	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://aihrus.zendesk.com/entries/23679361)
+	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202379891)
 
 * `tw_review_name_length`
 
@@ -164,15 +164,15 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_data`
 
-	Process testimonials data before display processing. [example](https://aihrus.zendesk.com/entries/23692056)
+	Process testimonials data before display processing. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385251)
 
 * `tw_defaults_single`
 
-	Create a global or central Testimonials configuration for single view. [example](https://aihrus.zendesk.com/entries/23679071). [example](https://aihrus.zendesk.com/entries/23679111)
+	Create a global or central Testimonials configuration for single view. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385321). [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385331)
 
 * `tw_defaults`
 
-	Create a global or central Testimonials configuration. [example](https://aihrus.zendesk.com/entries/23691607)
+	Create a global or central Testimonials configuration. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385411)
 
 * `tw_meta_box`
 
@@ -264,4 +264,4 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 ## Need More?
 
-Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://aihrus.zendesk.com/categories/20104507) and [source code](https://github.com/michael-cannon/testimonials-widget).
+Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://nodedesk.zendesk.com/hc/en-us/sections/200861112) and [source code](https://github.com/michael-cannon/testimonials-widget).

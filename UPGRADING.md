@@ -69,7 +69,7 @@ The changes and helpers below are intended to help you update your customization
 
 ## 2.16.0
 
-* [Requires PHP 5.3+](https://aihrus.zendesk.com/entries/30678006)
+* [Requires PHP 5.3+](https://nodedesk.zendesk.com/hc/en-us/articles/202331041)
 
 ## 2.15.0
 

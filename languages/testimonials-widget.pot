@@ -1081,11 +1081,11 @@ msgid "Save Changes"
 msgstr ""
 
 #: includes/libraries/aihrus-framework/includes/class-aihrus-settings.php:304
-msgid "If you like this plugin, please <a href=\"%1$s\" title=\"Donate for Good Karma\"><img src=\"%2$s\" border=\"0\" alt=\"Donate for Good Karma\" /></a> or <a href=\"%3$s\" title=\"purchase premium WordPress plugins from Aihrus \">purchase the Premium version</a> to help fund further development and <a href=\"%4$s\" title=\"Support forums\">support</a>."
+msgid "If you like this plugin, please <a href=\"%1$s\" title=\"Donate for Good Karma\"><img src=\"%2$s\" border=\"0\" alt=\"Donate for Good Karma\" /></a> or <a href=\"%3$s\" title=\"purchase premium WordPress plugins from Axelerant \">purchase the Premium version</a> to help fund further development and <a href=\"%4$s\" title=\"Support forums\">support</a>."
 msgstr ""
 
 #: includes/libraries/aihrus-framework/includes/class-aihrus-settings.php:315
-msgid "Copyright &copy;%1$s <a href=\"%2$s\">Aihrus</a>."
+msgid "Copyright &copy;%1$s <a href=\"%2$s\">Axelerant</a>."
 msgstr ""
 
 #: includes/libraries/aihrus-framework/includes/class-aihrus-settings.php:622

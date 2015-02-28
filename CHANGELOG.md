@@ -2,6 +2,10 @@
 
 ## master
 
+##3.1.0RC1
+* Change brand name from Aihrus to Axelerant
+* Change copyright text
+
 ## 3.0.4
 * RESOLVE Warning: Illegal string offset 'random'
 * Update copyright year
@@ -1181,7 +1185,7 @@
 * TODO Updates
 
 ## 2.2.5
-* Adapt for [Testimonials Widget Premium plugin](http://aihr.us/downloads/testimonials-widget-premium-wordpress-plugin/)
+* Adapt for [Testimonials Widget Premium plugin](http://axelerant.com/downloads/testimonials-widget-premium-wordpress-plugin/)
 * Add support text
 * Correct verbiage spacing
 * Explain `limit`

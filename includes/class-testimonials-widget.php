@@ -1,7 +1,7 @@
 <?php
 /**
 Testimonials Widget
-Copyright (C) 2015 Michael Cannon
+Copyright (C) 2015 Axelerant
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -365,7 +365,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function notice_2_12_0() {
-		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/23722573-Major-Changes-Since-2-10-0' ) );
+		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://nodedesk.zendesk.com/hc/en-us/articles/202244392-Major-Changes-Since-2-10-0' ) );
 
 		aihr_notice_updated( $text );
 	}
@@ -1724,7 +1724,7 @@ EOF;
 
 
 	public static function notice_2_15_0() {
-		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://aihrus.zendesk.com/entries/28402246-Major-Change-for-2-15-0' ) );
+		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://nodedesk.zendesk.com/hc/en-us/articles/202331821-Major-Change-for-2-15-0' ) );
 
 		aihr_notice_updated( $text );
 	}
