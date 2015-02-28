@@ -5,6 +5,7 @@
 ##3.1.0RC1
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
+* Require Aihrus Framework 1.2.0
 
 ## 3.0.4
 * RESOLVE Warning: Illegal string offset 'random'
