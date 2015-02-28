@@ -387,4 +387,4 @@ A big, special thank you to [Joe Weber](https://plus.google.com/1000632712692773
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
-Current development by [Michael Cannon](https://profiles.wordpress.org/comprock/) of [Axelerant](http://axelerant.com/about-axelerant/).
+Current development by [Axelerant](http://axelerant.com/about-axelerant/).
