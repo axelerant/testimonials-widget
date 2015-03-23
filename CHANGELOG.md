@@ -7,6 +7,7 @@
 * Change copyright text
 * Require Aihrus Framework 1.2.0
 * Update library Gamajo-Template-Loader
+* WordPress 4.2 compatible
 
 ## 3.0.4
 * RESOLVE Warning: Illegal string offset 'random'
