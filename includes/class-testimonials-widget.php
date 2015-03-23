@@ -54,9 +54,8 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $notice_key;
 	public static $not_found = false;
 	public static $plugin_assets;
-	public static $post_count     = 0;
-	public static $scripts        = array();
-	// public static $scripts_called = false;
+	public static $post_count = 0;
+	public static $scripts    = array();
 	public static $settings_link;
 	public static $tag_close_quote = '<span class="close-quote"></span>';
 	public static $tag_open_quote  = '<span class="open-quote"></span>';
