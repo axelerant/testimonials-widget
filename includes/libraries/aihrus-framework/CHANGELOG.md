@@ -4,6 +4,7 @@
 
 ## 1.2.0
 * Add Axelerant careers link
+* RESOLVE PHP Fatal error: Access to undeclared static property: CLASS::$scripts_called
 * Update about Axelerant data
 * Update Axelerant support URLs
 * Update branding from Aihrus to Axelerant
