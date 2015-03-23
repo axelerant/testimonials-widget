@@ -751,11 +751,11 @@ class Testimonials_Widget extends Aihrus_Common {
 		wp_enqueue_script( 'jquery' );
 
 		if ( ! empty( $atts['enable_video'] ) ) {
-			wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/plugins/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'jquery.fitvids', self::$library_assets . 'bxslider-4/dist/vendor/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'jquery.fitvids' );
 		}
 
-		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.min.js', array( 'jquery' ), '4.1.2', true );
+		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/dist/jquery.bxslider.min.js', array( 'jquery' ), '4.1.2', true );
 		wp_enqueue_script( 'jquery.bxslider' );
 
 		do_action( 'tw_scripts', $atts );
@@ -769,7 +769,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		$exclude_bxslider_css = tw_get_option( 'exclude_bxslider_css' );
 		if ( empty( $exclude_bxslider_css ) ) {
-			wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/jquery.bxslider.css' );
+			wp_register_style( 'jquery.bxslider', self::$library_assets . 'bxslider-4/dist/jquery.bxslider.css' );
 			wp_enqueue_style( 'jquery.bxslider' );
 		}
 

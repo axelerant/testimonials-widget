@@ -6,6 +6,8 @@
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
 * Require Aihrus Framework 1.2.0
+* RESOLVE bxslider-4 CSS change for .bx-wrapper border showing
+* RESOLVE bxslider-4 library pathing
 * Update library Gamajo-Template-Loader
 * WordPress 4.2 compatible
 
