@@ -2,10 +2,10 @@
 
 ## master
 
-##3.1.0
+## 3.1.0
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
-* Require Aihrus Framework 1.2.0
+* Require Aihrus Framework 1.2.1
 * RESOLVE bxslider-4 CSS change for .bx-wrapper border showing
 * RESOLVE bxslider-4 library pathing
 * Update library Gamajo-Template-Loader
