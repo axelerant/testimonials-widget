@@ -2,7 +2,7 @@
 
 ## master
 
-##3.1.0RC1
+##3.1.0
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
 * Require Aihrus Framework 1.2.0
