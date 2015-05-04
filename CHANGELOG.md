@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.1.1
+* Redo SVN release
+
 ## 3.1.0
 * Change brand name from Aihrus to Axelerant
 * Change copyright text
