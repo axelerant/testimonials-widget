@@ -2,6 +2,8 @@
 
 ## master
 
+## 3.2.0RC1
+
 ## 3.1.1
 * Redo SVN release
 
