@@ -29,7 +29,7 @@ First and most important, the jQuery library needs to be included (no need to do
 
 ```html
 <!-- jQuery library (served from Google) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- bxSlider Javascript file -->
 <script src="/js/jquery.bxslider.min.js"></script>
 <!-- bxSlider CSS file -->
@@ -51,7 +51,7 @@ Create a `<ul class="bxslider">` element, with a `<li>` for each slide. Slides c
 
 ###Step 3: Call the bxSlider
 
-Call .bxslider() on `<ul class="bxslider">`. Note that the call must be made inside of a $(document).ready() call, or the plugin will not work!
+Call `.bxSlider()` on `<ul class="bxslider">`. Note that the call must be made inside of a `$(document).ready()` call, or the plugin will not work!
 
 ```javascript
 $(document).ready(function(){
