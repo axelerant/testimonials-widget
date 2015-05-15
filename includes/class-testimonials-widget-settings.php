@@ -809,38 +809,39 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		}
 
 		$defaults = self::get_defaults();
+		if ( ! empty( $_REQUEST['page'] ) && 'testimonialswidget_settings' == $_REQUEST['page'] ) {
+			if ( ! empty( $input['has_archive'] ) ) {
+				$input['has_archive'] = self::prevent_slug_conflict( $input['has_archive'] );
+			} else {
+				$input['has_archive'] = $defaults['has_archive'];
+			}
 
-		if ( ! empty( $input['has_archive'] ) ) {
-			$input['has_archive'] = self::prevent_slug_conflict( $input['has_archive'] );
-		} else {
-			$input['has_archive'] = $defaults['has_archive'];
-		}
+			if ( ! empty( $input['rewrite_slug'] ) ) {
+				$input['rewrite_slug'] = self::prevent_slug_conflict( $input['rewrite_slug'] );
+			} else {
+				$input['rewrite_slug'] = $defaults['rewrite_slug'];
+			}
 
-		if ( ! empty( $input['rewrite_slug'] ) ) {
-			$input['rewrite_slug'] = self::prevent_slug_conflict( $input['rewrite_slug'] );
-		} else {
-			$input['rewrite_slug'] = $defaults['rewrite_slug'];
-		}
+			$flush_rewrite_rules = false;
+			// same has_archive and rewrite_slug causes problems
+			if ( $input['has_archive'] == $input['rewrite_slug'] ) {
+				$input['has_archive']  = $defaults['has_archive'];
+				$input['rewrite_slug'] = $defaults['rewrite_slug'];
 
-		$flush_rewrite_rules = false;
-		// same has_archive and rewrite_slug causes problems
-		if ( $input['has_archive'] == $input['rewrite_slug'] ) {
-			$input['has_archive']  = $defaults['has_archive'];
-			$input['rewrite_slug'] = $defaults['rewrite_slug'];
+				$flush_rewrite_rules = true;
+			}
 
-			$flush_rewrite_rules = true;
-		}
+			// did URL slugs or taxonomy change?
+			$has_archive      = tw_get_option( 'has_archive' );
+			$rewrite_slug     = tw_get_option( 'rewrite_slug' );
+			$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy' );
+			if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] || $use_cpt_taxonomy != $input['use_cpt_taxonomy'] ) {
+				$flush_rewrite_rules = true;
+			}
 
-		// did URL slugs or taxonomy change?
-		$has_archive      = tw_get_option( 'has_archive' );
-		$rewrite_slug     = tw_get_option( 'rewrite_slug' );
-		$use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy' );
-		if ( $has_archive != $input['has_archive'] || $rewrite_slug != $input['rewrite_slug'] || $use_cpt_taxonomy != $input['use_cpt_taxonomy'] ) {
-			$flush_rewrite_rules = true;
-		}
-
-		if ( $flush_rewrite_rules ) {
-			flush_rewrite_rules();
+			if ( $flush_rewrite_rules ) {
+				flush_rewrite_rules();
+			}
 		}
 
 		$input['version']        = self::$version;
