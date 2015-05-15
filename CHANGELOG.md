@@ -3,6 +3,7 @@
 ## master
 
 ## 3.2.0RC1
+* RESOLVE #168 Auto save options and clear permalinks on updating
 
 ## 3.1.1
 * Redo SVN release

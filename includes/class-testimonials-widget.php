@@ -272,6 +272,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		}
 
 		self::init();
+		tw_init_options();
 		flush_rewrite_rules();
 	}
 
@@ -393,6 +394,8 @@ class Testimonials_Widget extends Aihrus_Common {
 
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
+				tw_init_options();
+				flush_rewrite_rules();
 				do_action( 'tw_update' );
 			}
 

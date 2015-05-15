@@ -1084,4 +1084,11 @@ function tw_set_option( $option, $value = null ) {
 }
 
 
+function tw_init_options() {
+	$options = tw_get_options();
+	$options = wp_parse_args( $options, Testimonials_Widget::get_defaults() );
+	$options = Testimonials_Widget_Settings::validate_settings( $options );
+	update_option( Testimonials_Widget_Settings::ID, $options );
+}
+
 ?>
