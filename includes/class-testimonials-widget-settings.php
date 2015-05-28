@@ -348,6 +348,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'type' => 'expand_begin',
 		);
 
+		self::$settings['hide_source_title'] = array(
+			'section' => 'fields',
+			'title' => esc_html__( 'Hide Title?', 'testimonials-widget' ),
+			'type' => 'checkbox',
+			'validate' => 'is_true',
+			'desc' => esc_html__( 'Don\'t display testimonial title.', 'testimonials-widget' ),
+		);
+
 		self::$settings['hide_source'] = array(
 			'section' => 'fields',
 			'title' => esc_html__( 'Hide Author?', 'testimonials-widget' ),

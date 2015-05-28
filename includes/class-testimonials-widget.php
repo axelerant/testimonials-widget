@@ -929,6 +929,9 @@ EOF;
 			}
 		}
 
+		$source_title = '';
+		$source_title = self::get_template_part( 'testimonial', 'title' );
+
 		$content = self::get_template_part( 'testimonial', 'content' );
 
 		$cite = '';
@@ -948,10 +951,11 @@ EOF;
 
 		$do_target = $atts['target'];
 		if ( $do_target ) {
-			$content     = links_add_target( $content, $do_target );
-			$cite        = links_add_target( $cite, $do_target );
-			$extra       = links_add_target( $extra, $do_target );
-			$bottom_text = links_add_target( $bottom_text, $do_target );
+			$source_title 	= links_add_target( $source_title, $do_target );
+			$content     	= links_add_target( $content, $do_target );
+			$cite        	= links_add_target( $cite, $do_target );
+			$extra       	= links_add_target( $extra, $do_target );
+			$bottom_text 	= links_add_target( $bottom_text, $do_target );
 		}
 
 		$schema = '';
@@ -965,13 +969,14 @@ EOF;
 
 		$html = $div_open
 			. $image
+			. $source_title
 			. $content
 			. $cite
 			. $extra
 			. $bottom_text
 			. $div_close;
 
-		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
+		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $source_title, $content, $cite, $extra, $bottom_text, $div_close );
 
 		// not done sooner as tag_close_quote is used Testimonials Widget Premium
 		if ( $atts['disable_quotes'] ) {
