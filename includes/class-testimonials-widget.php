@@ -930,7 +930,9 @@ EOF;
 		}
 
 		$source_title = '';
-		$source_title = self::get_template_part( 'testimonial', 'title' );
+		if ( ! $atts['hide_source_title'] ) {
+			$source_title = self::get_template_part( 'testimonial', 'title' );
+		}
 
 		$content = self::get_template_part( 'testimonial', 'content' );
 
@@ -951,7 +953,6 @@ EOF;
 
 		$do_target = $atts['target'];
 		if ( $do_target ) {
-			$source_title 	= links_add_target( $source_title, $do_target );
 			$content     	= links_add_target( $content, $do_target );
 			$cite        	= links_add_target( $cite, $do_target );
 			$extra       	= links_add_target( $extra, $do_target );
