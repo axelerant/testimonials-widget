@@ -1257,6 +1257,12 @@ EOF;
 		$testimonials = apply_filters( 'tw_cache_get', false, $args );
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );
+
+			$enable_sticky_testimonials = tw_get_option( 'enable_sticky_testimonials' );
+			if ( $enable_sticky_testimonials && class_exists( 'Testimonials_Widget_Premium_Sticky' ) ) {
+				$testimonials->posts = Testimonials_Widget_Premium_Sticky::stick_the_sticky_at_top( $testimonials );
+			}
+
 			$testimonials = apply_filters( 'tw_cache_set', $testimonials, $args );
 		}
 
