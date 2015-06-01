@@ -953,10 +953,10 @@ EOF;
 
 		$do_target = $atts['target'];
 		if ( $do_target ) {
-			$content     	= links_add_target( $content, $do_target );
-			$cite        	= links_add_target( $cite, $do_target );
-			$extra       	= links_add_target( $extra, $do_target );
-			$bottom_text 	= links_add_target( $bottom_text, $do_target );
+			$content     = links_add_target( $content, $do_target );
+			$cite        = links_add_target( $cite, $do_target );
+			$extra       = links_add_target( $extra, $do_target );
+			$bottom_text = links_add_target( $bottom_text, $do_target );
 		}
 
 		$schema = '';
