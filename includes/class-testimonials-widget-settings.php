@@ -353,6 +353,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			'title' => esc_html__( 'Hide Title?', 'testimonials-widget' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
+			'std' => 1,
 			'desc' => esc_html__( 'Don\'t display testimonial title.', 'testimonials-widget' ),
 		);
 
