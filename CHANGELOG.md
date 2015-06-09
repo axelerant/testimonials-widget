@@ -5,6 +5,7 @@
 ## 3.2.0RC1
 * RESOLVE #168 Auto save options and clear permalinks on updating
 * RESOLVE #173 prevent_slug_conflict runs on front end page load
+* Update bxslider library to 4.2.4
 
 ## 3.1.1
 * Redo SVN release
