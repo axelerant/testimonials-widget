@@ -1,6 +1,6 @@
 === Testimonials Widget ===
 
-Contributors: comprock,saurabhd
+Contributors: comprock,saurabhd,subharanjan
 Donate link: https://axelerant.com/about-axelerant/donate/
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
