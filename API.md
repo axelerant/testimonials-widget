@@ -194,6 +194,10 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Alter setting options. [example](https://gist.github.com/michael-cannon/5833757)
 
+* `tw_testimonial_query`
+
+	Alter testimonials WP_Query within `get_testimonials`
+
 * `tw_validate_settings`
 
 	Validate settings helper. [example](https://gist.github.com/michael-cannon/5833768)
