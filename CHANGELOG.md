@@ -4,6 +4,7 @@
 
 ## 1.2.2RC1
 * Add Inside Axelerant link
+* Store branding updates
 * Update about Axelerant verbiage
 
 ## 1.2.1
