@@ -296,9 +296,9 @@ abstract class Aihrus_Settings {
 			echo '<p>' .
 				sprintf(
 				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase premium WordPress plugins from Axelerant ">purchase the Premium version</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.' ),
-				esc_url( '//axelerant.com/about-axelerant/donate/' ),
+				esc_url( 'https://axelerant.com/about-axelerant/donate/' ),
 				esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
-				esc_url( '//axelerant.com/store/' ),
+				esc_url( 'https://store.axelerant.com/' ),
 				esc_url( 'https://nodedesk.zendesk.com' )
 			) .
 				'</p>';
