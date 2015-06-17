@@ -308,7 +308,7 @@ abstract class Aihrus_Settings {
 			sprintf(
 			__( 'Copyright &copy;%1$s <a href="%2$s">Axlerant</a>.' ),
 			date( 'Y' ),
-			esc_url( '//axelerant.com' )
+			esc_url( 'https://axelerant.com' )
 		) .
 			'</p>';
 
