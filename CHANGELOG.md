@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.2.0RC1
+## 3.2.0RC2
 * Add filter tw_testimonial_query to alter WP_Query in get_testimonials
 * Require Aihrus Framework 1.2.2
 * RESOLVE #168 Auto save options and clear permalinks on updating
