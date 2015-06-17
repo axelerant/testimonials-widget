@@ -1258,8 +1258,6 @@ EOF;
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );
 			$testimonials = apply_filters( 'tw_testimonials_query', $testimonials, $args );
-
-
 			$testimonials = apply_filters( 'tw_cache_set', $testimonials, $args );
 		}
 
