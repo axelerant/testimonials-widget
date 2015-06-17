@@ -3,7 +3,8 @@
 ## master
 
 ## 1.2.2RC1
-* Update about Axelerant bits
+* Add Inside Axelerant link
+* Update about Axelerant verbiage
 
 ## 1.2.1
 * RESOLVE PHP Fatal error: Access to undeclared static property: CLASS::$scripts_called
