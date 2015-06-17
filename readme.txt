@@ -1,7 +1,7 @@
 === Testimonials Widget ===
 
 Contributors: comprock,saurabhd
-Donate link: http://axelerant.com/about-axelerant/donate/
+Donate link: https://axelerant.com/about-axelerant/donate/
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
 Tested up to: 4.2.0
@@ -33,7 +33,7 @@ Testimonials Widget lets you randomly slide or list selected portfolios, quotes,
 
 [youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
 
-**View a [Live Testimonials Widget Demo](http://axelerant.com/testimonials-examples/)**
+**View a [Live Testimonials Widget Demo](https://store.axelerant.com/testimonials-examples/)**
 
 = Testimonials Widget Premium =
 
@@ -50,7 +50,7 @@ Testimonials Widget Premium increases all of Testimonials Widget' benefits and f
 * Use any post types for testimonials
 * User submitted testimonials
 
-**[Buy Testimonials Widget Premium](http://axelerant.com/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
+**[Buy Testimonials Widget Premium](https://store.axelerant.com/downloads/best-wordpress-testimonials-plugin-testimonials-premium/)** plugin for WordPress.
 
 = Testimonials Widget Premium Doesn't Work For You? =
 
@@ -95,7 +95,7 @@ The single testimonial view supports image, author, title, location, email, comp
 = Shortcode Examples =
 
 * Read [EXAMPLES](https://github.com/michael-cannon/testimonials-widget/blob/master/EXAMPLES.md).
-* View [Testimonials Widget demo](http://axelerant.com/testimonials-examples/).
+* View [Testimonials Widget demo](https://store.axelerant.com/testimonials-examples/).
 
 = Shortcode and Widget Options =
 
@@ -103,7 +103,7 @@ Please keep in mind that inheritance affects options. This means that changes ma
 
 Further, global settings are the baseline for shortcodes. If you want to alter the shortcode appearance, then alter the shortcode options directly.
 
-Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings. Alternately, read [OPTIONS](http://axelerant.com/best-wordpress-testimonials-plugin/shortcode-widget-options/).
+Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Settings. Alternately, read [OPTIONS](https://store.axelerant.com/best-wordpress-testimonials-plugin/shortcode-widget-options/).
 
 = Testimonials Widget Migration Helpers =
 
@@ -262,13 +262,13 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 
 * [Installation Guide](https://wordpress.org/plugins/testimonials-widget/installation/)
 * [Frequently Asked Questions](https://wordpress.org/plugins/testimonials-widget/faq/)
-* [Options](http://axelerant.com/best-wordpress-testimonials-plugin/shortcode-widget-options/)
+* [Options](https://store.axelerant.com/best-wordpress-testimonials-plugin/shortcode-widget-options/)
 * [API](https://github.com/michael-cannon/testimonials-widget/blob/master/API.md)
 * [Benefits and Features](https://wordpress.org/plugins/testimonials-widget/)
 * [CHANGELOG](https://github.com/michael-cannon/testimonials-widget/blob/master/CHANGELOG.md)
 * [CONTRIBUTING](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
 * [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/master/DEPRECATED.md)
-* [EXAMPLES](http://axelerant.com/best-wordpress-testimonials-plugin/shortcode-examples/)
+* [EXAMPLES](https://store.axelerant.com/best-wordpress-testimonials-plugin/shortcode-examples/)
 * [UPGRADING](https://github.com/michael-cannon/testimonials-widget/blob/master/UPGRADING.md)
 
 
@@ -302,7 +302,7 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 1. [Open Issues](https://github.com/michael-cannon/testimonials-widget/issues) - review and submit bug reports and enhancement requests
 1. [Support on WordPress](http://wordpress.org/support/plugin/testimonials-widget) - ask questions and review responses
 1. [Contribute Code](https://github.com/michael-cannon/testimonials-widget/blob/master/CONTRIBUTING.md)
-1. [Beta Testers Needed](http://axelerant.com/become-beta-tester/) - provide feedback and direction to plugin development
+1. [Beta Testers Needed](https://store.axelerant.com/become-beta-tester/) - provide feedback and direction to plugin development
 1. [Old Plugin Versions](http://wordpress.org/plugins/testimonials-widget/developers/)
 
 
@@ -365,7 +365,7 @@ Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/mas
 * Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](http://axelerant.com/contact-axelerant/) for plugin inclusion.
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](https://axelerant.com/contact-axelerant/) for plugin inclusion.
 
 **[How do I localize?](https://nodedesk.zendesk.com/hc/en-us/articles/202294892)**
 
@@ -388,4 +388,4 @@ A big, special thank you to [Joe Weber](https://plus.google.com/1000632712692773
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
-Current development by [Axelerant](http://axelerant.com/about-axelerant/).
+Current development by [Axelerant](https://axelerant.com/about-axelerant/).

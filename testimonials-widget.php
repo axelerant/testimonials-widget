@@ -6,7 +6,7 @@
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
  * Version: 3.2.0RC1
  * Author: Axelerant
- * Author URI: http://axelerant.com/
+ * Author URI: https://axelerant.com/
  * License: GPLv2 or later
  * Text Domain: testimonials-widget
  * Domain Path: /languages
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'TW_AIHR_VERSION' ) ) {
-	define( 'TW_AIHR_VERSION', '1.2.1' );
+	define( 'TW_AIHR_VERSION', '1.2.2' );
 }
 
 if ( ! defined( 'TW_BASE' ) ) {
@@ -60,7 +60,7 @@ if ( ! defined( 'TW_NAME' ) ) {
 }
 
 if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
-	define( 'TW_PREMIUM_LINK', '<a href="http://axelerant.com/downloads/testimonials-widget-premium-wordpress-plugin/">Buy Premium</a>' );
+	define( 'TW_PREMIUM_LINK', '<a href="https://store.axelerant.com/downloads/best-wordpress-testimonials-plugin-testimonials-premium/">Buy Premium</a>' );
 }
 
 if ( ! defined( 'TW_VERSION' ) ) {
