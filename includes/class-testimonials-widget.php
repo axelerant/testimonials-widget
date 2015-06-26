@@ -1164,8 +1164,7 @@ EOF;
 							}
 
 							$args['tag_slug__and'][] = $tag;
-						}
-						else {
+						} else {
 							if ( empty( $args['tag_slug__in'] ) || ! is_array( $args['tag_slug__in'] ) ) {
 								$args['tag_slug__in'] = array();
 							}
@@ -1179,8 +1178,7 @@ EOF;
 							}
 
 							$args['tag__and'][] = $tag;
-						}
-						else {
+						} else {
 							if ( empty( $args['tag__in'] ) || ! is_array( $args['tag__in'] ) ) {
 								$args['tag__in'] = array();
 							}
@@ -2090,7 +2088,7 @@ EOF;
 
 			$count = 0;
 			$query = new WP_Query( $query_args );
-			while  ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
 				$query->the_post();
 				$count++;
 			}
