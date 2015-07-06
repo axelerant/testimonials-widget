@@ -22,14 +22,28 @@ if ( $do_content ) {
 	$content = apply_filters( 'tw_content', $content, $widget_number, $testimonial, $atts );
 	$content = make_clickable( $content );
 
-	if ( ! $use_quote_tag ) {
-		?>
-		<blockquote><?php echo $content; ?></blockquote>
-		<?php
+	//Add <blockquote> open tag if "Hide Title Above Content?" is active from Testimonials Widget settings.
+	if ( ! $atts['hide_source_title'] ) {
+		if ( ! $use_quote_tag ) {
+			?>
+			<?php echo $content; ?></blockquote>
+			<?php
+		} else {
+			?>
+			<?php echo $content; ?></q>
+			<?php
+		}
 	} else {
-		?>
-		<q><?php echo $content; ?></q>
-		<?php
+		if ( ! $use_quote_tag ) {
+			?>
+			<blockquote><?php echo $content; ?></blockquote>
+			<?php
+		} else {
+			?>
+			<q><?php echo $content; ?></q>
+			<?php
+		}
 	}
+
 }
 ?>
