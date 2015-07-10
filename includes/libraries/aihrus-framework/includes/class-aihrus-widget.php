@@ -251,7 +251,7 @@ abstract class Aihrus_Widget extends WP_Widget {
 			case 'textarea':
 				echo '<label for="' . $this->get_field_id( $id ) . '">' . $title . '</label>';
 
-				echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[ $id ] ) . '</textarea>';
+				echo '<textarea class="widefat' . $field_class . '" id="' . $this->get_field_id( $id ) . '" name="' . $this->get_field_name( $id ) . '" placeholder="' . $std . '" rows="5" cols="30">' . format_for_editor( $options[ $id ] ) . '</textarea>';
 				break;
 
 			case 'password':
@@ -318,7 +318,7 @@ abstract class Aihrus_Widget extends WP_Widget {
 		$defaults = array();
 		$options  = static::form_parts();
 		foreach ( $options as $option => $value ) {
-			$defaults[ $option ] = $value['std'];
+			$defaults[ $option ] = isset( $value['std'] ) ? $value['std'] : '';
 		}
 
 		return $defaults;
