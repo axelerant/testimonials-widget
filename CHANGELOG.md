@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.2.1RC1
+* RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
+
 ## 3.2.0
 * Add filter tw_testimonial_query to alter WP_Query in get_testimonials
 * Require Aihrus Framework 1.2.2
