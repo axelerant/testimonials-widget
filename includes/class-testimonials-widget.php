@@ -1598,7 +1598,7 @@ EOF;
 			self::$aggregate_review => self::get_review_count( $testimonial ),
 		);
 
-		$aggregate_meta[ self::$aggregate_count ] 		 = $aggregate_meta[ self::$aggregate_review ];
+		$aggregate_meta[ self::$aggregate_count ]        = $aggregate_meta[ self::$aggregate_review ];
 		$aggregate_meta[ self::$aggregate_rating_value ] = self::$aggregate_rating_max;
 
 		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
