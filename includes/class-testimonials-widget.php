@@ -2167,7 +2167,7 @@ EOF;
 		$sections = Testimonials_Widget_Settings::get_sections();
 		$settings = Testimonials_Widget_Settings::get_settings();
 
-		$ignored_types = array( 'expand_begin', 'expand_end', 'expand_all', 'content' );
+		$ignored_types = array( 'expand_begin', 'expand_end', 'expand_all', 'content', );
 
 		$do_continue  = false;
 		$do_used_with = false;
