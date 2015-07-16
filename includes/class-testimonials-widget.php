@@ -930,11 +930,6 @@ EOF;
 			}
 		}
 
-		$source_title = '';
-		if ( ! $atts['hide_source_title'] && ! is_single() ) {
-			$source_title = self::get_template_part( 'testimonial', 'title' );
-		}
-
 		$content = self::get_template_part( 'testimonial', 'content' );
 
 		$cite = '';
@@ -971,14 +966,13 @@ EOF;
 
 		$html = $div_open
 			. $image
-			. $source_title
 			. $content
 			. $cite
 			. $extra
 			. $bottom_text
 			. $div_close;
 
-		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $source_title, $content, $cite, $extra, $bottom_text, $div_close );
+		$html = apply_filters( 'tw_get_testimonial_html', $html, $testimonial, $atts, $is_list, $is_first, $widget_number, $div_open, $image, $content, $cite, $extra, $bottom_text, $div_close );
 
 		// not done sooner as tag_close_quote is used Testimonials Widget Premium
 		if ( $atts['disable_quotes'] ) {
