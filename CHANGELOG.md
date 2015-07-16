@@ -3,6 +3,7 @@
 ## master
 
 ## 3.2.1RC1
+* Require Aihrus Framework 1.2.3
 * RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
 
 ## 3.2.0
