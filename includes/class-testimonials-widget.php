@@ -64,12 +64,14 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $widget_number = 100000;
 	public static $wp_query;
 
-	public static $aggregate_count   = 'ratingCount';
-	public static $aggregate_data    = array();
-	public static $aggregate_no_item = '__NO_ITEM__';
-	public static $aggregate_rating  = 'aggregateRating';
-	public static $aggregate_review  = 'reviewCount';
-	public static $aggregate_schema  = 'http://schema.org/AggregateRating';
+	public static $aggregate_count        = 'ratingCount';
+	public static $aggregate_data         = array();
+	public static $aggregate_no_item      = '__NO_ITEM__';
+	public static $aggregate_rating       = 'aggregateRating';
+	public static $aggregate_rating_value = 'ratingValue';
+	public static $aggregate_rating_max   = 5;
+	public static $aggregate_review       = 'reviewCount';
+	public static $aggregate_schema       = 'http://schema.org/AggregateRating';
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -404,7 +406,7 @@ class Testimonials_Widget extends Aihrus_Common {
 
 		// display donate on major/minor version release
 		$donate_version = tw_get_option( 'donate_version', false );
-		if ( ! $donate_version || ( $donate_version != self::VERSION && preg_match( '#\.0$#', self::VERSION ) ) ) {
+		if ( ! $donate_version || ( self::VERSION != $donate_version && preg_match( '#\.0$#', self::VERSION ) ) ) {
 			self::set_notice( 'notice_donate' );
 			tw_set_option( 'donate_version', self::VERSION );
 		}
@@ -1447,7 +1449,7 @@ EOF;
 			7 => esc_html__( 'Testimonial saved.', 'testimonials-widget' ),
 			8 => sprintf( __( 'Testimonial submitted. <a target="_blank" href="%s">Preview testimonial</a>', 'testimonials-widget' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
 			9 => sprintf( __( 'Testimonial scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview testimonial</a>', 'testimonials-widget' ), date_i18n( 'M j, Y @ G:i', strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
-			10 => sprintf( __( 'Testimonial draft updated. <a target="_blank" href="%s">Preview testimonial</a>', 'testimonials-widget' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) )
+			10 => sprintf( __( 'Testimonial draft updated. <a target="_blank" href="%s">Preview testimonial</a>', 'testimonials-widget' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
 		);
 
 		return $m;
@@ -1596,8 +1598,10 @@ EOF;
 			self::$aggregate_review => self::get_review_count( $testimonial ),
 		);
 
-		$aggregate_meta[ self::$aggregate_count ] = $aggregate_meta[ self::$aggregate_review ];
-		$review_meta[ self::$aggregate_rating ]    = array( self::$aggregate_schema, $aggregate_meta );
+		$aggregate_meta[ self::$aggregate_count ]        = $aggregate_meta[ self::$aggregate_review ];
+		$aggregate_meta[ self::$aggregate_rating_value ] = self::$aggregate_rating_max;
+
+		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
 
 		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
