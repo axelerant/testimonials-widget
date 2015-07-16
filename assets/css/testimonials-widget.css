@@ -46,6 +46,10 @@
 	float: none;
 }
 
+.testimonials-widget-testimonial .list-title {
+	font-weight: bold;
+}
+
 .testimonials-widget-testimonial q,
 .testimonials-widget-testimonial blockquote {
 	/* the testimonial itself */

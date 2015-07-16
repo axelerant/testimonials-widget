@@ -248,6 +248,7 @@ class Testimonials_Widget extends Aihrus_Common {
 		$testimonials = array();
 
 		$text = apply_filters( 'tw_cache_get', false, $atts );
+
 		if ( false === $text ) {
 			$testimonials = self::get_testimonials( $atts );
 			$testimonial  = $testimonials[0];
