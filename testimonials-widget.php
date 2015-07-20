@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'TW_AIHR_VERSION' ) ) {
-	define( 'TW_AIHR_VERSION', '1.2.2' );
+	define( 'TW_AIHR_VERSION', '1.2.3RC1' );
 }
 
 if ( ! defined( 'TW_BASE' ) ) {
