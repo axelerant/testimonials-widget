@@ -68,10 +68,11 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $aggregate_data         = array();
 	public static $aggregate_no_item      = '__NO_ITEM__';
 	public static $aggregate_rating       = 'aggregateRating';
-	public static $aggregate_rating_value = 'ratingValue';
-	public static $aggregate_rating_max   = 5;
 	public static $aggregate_review       = 'reviewCount';
 	public static $aggregate_schema       = 'http://schema.org/AggregateRating';
+
+	public static $rating_max    = 5;
+	public static $rating_value  = 'ratingValue';
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -1598,8 +1599,8 @@ EOF;
 			self::$aggregate_review => self::get_review_count( $testimonial ),
 		);
 
-		$aggregate_meta[ self::$aggregate_count ]        = $aggregate_meta[ self::$aggregate_review ];
-		$aggregate_meta[ self::$aggregate_rating_value ] = self::$aggregate_rating_max;
+		$aggregate_meta[ self::$aggregate_count ] = $aggregate_meta[ self::$aggregate_review ];
+		$aggregate_meta[ self::$rating_value ]    = self::$rating_max;
 
 		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
 
