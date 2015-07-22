@@ -68,8 +68,8 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $aggregate_data         = array();
 	public static $aggregate_no_item      = '__NO_ITEM__';
 	public static $aggregate_rating       = 'aggregateRating';
-	public static $aggregate_rating_value = 'ratingValue';
 	public static $aggregate_rating_max   = 5;
+	public static $aggregate_rating_value = 'ratingValue';
 	public static $aggregate_review       = 'reviewCount';
 	public static $aggregate_schema       = 'http://schema.org/AggregateRating';
 
