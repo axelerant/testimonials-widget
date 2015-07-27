@@ -68,10 +68,11 @@ class Testimonials_Widget extends Aihrus_Common {
 	public static $aggregate_data         = array();
 	public static $aggregate_no_item      = '__NO_ITEM__';
 	public static $aggregate_rating       = 'aggregateRating';
-	public static $aggregate_rating_max   = 5;
-	public static $aggregate_rating_value = 'ratingValue';
 	public static $aggregate_review       = 'reviewCount';
 	public static $aggregate_schema       = 'http://schema.org/AggregateRating';
+
+	public static $rating_max    = 5;
+	public static $rating_value  = 'ratingValue';
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -819,7 +820,7 @@ class Testimonials_Widget extends Aihrus_Common {
 					$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
 					$enable_video    = $atts['enable_video'];
 					$show_start_stop = $atts['show_start_stop'];
-					$slide_width     = empty( $slide_width ) ? 0 : $atts['slide_width'];
+					$slide_width     = empty( $atts['slide_width'] ) ? 0 : $atts['slide_width'];
 					$transition_mode = $atts['transition_mode'];
 
 					$auto  = $refresh_interval ? 'true' : 'false';
@@ -1598,8 +1599,8 @@ EOF;
 			self::$aggregate_review => self::get_review_count( $testimonial ),
 		);
 
-		$aggregate_meta[ self::$aggregate_count ]        = $aggregate_meta[ self::$aggregate_review ];
-		$aggregate_meta[ self::$aggregate_rating_value ] = self::$aggregate_rating_max;
+		$aggregate_meta[ self::$aggregate_count ] = $aggregate_meta[ self::$aggregate_review ];
+		$aggregate_meta[ self::$rating_value ]    = self::$rating_max;
 
 		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
 
