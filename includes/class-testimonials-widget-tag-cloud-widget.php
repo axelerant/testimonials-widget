@@ -45,7 +45,7 @@ class Testimonials_Widget_Tag_Cloud_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance = null, $widget_number = null ) {
-		return Testimonials_Widget::testimonials_tag_cloud( $instance, $widget_number );
+		return Axl_Testimonials_Widget::testimonials_tag_cloud( $instance, $widget_number );
 	}
 
 
@@ -67,11 +67,11 @@ class Testimonials_Widget_Tag_Cloud_Widget extends Aihrus_Widget {
 			$std = 'post_tag';
 		} else {
 			$options = array(
-				Testimonials_Widget::$cpt_category => esc_html__( 'Category', 'testimonials-widget' ),
-				Testimonials_Widget::$cpt_tags => esc_html__( 'Tags', 'testimonials-widget' ),
+				Axl_Testimonials_Widget::$cpt_category => esc_html__( 'Category', 'testimonials-widget' ),
+				Axl_Testimonials_Widget::$cpt_tags => esc_html__( 'Tags', 'testimonials-widget' ),
 			);
 
-			$std = Testimonials_Widget::$cpt_tags;
+			$std = Axl_Testimonials_Widget::$cpt_tags;
 		}
 
 		$form_parts['taxonomy'] = array(

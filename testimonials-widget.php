@@ -91,7 +91,7 @@ add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
  */
 if ( ! function_exists( 'testimonialswidget_init' ) ) {
 	function testimonialswidget_init() {
-		if ( Testimonials_Widget::version_check() ) {
+		if ( Axl_Testimonials_Widget::version_check() ) {
 			global $Testimonials_Widget_Settings;
 			if ( is_null( $Testimonials_Widget_Settings ) ) {
 				$Testimonials_Widget_Settings = new Testimonials_Widget_Settings();
@@ -99,16 +99,16 @@ if ( ! function_exists( 'testimonialswidget_init' ) ) {
 
 			global $Testimonials_Widget;
 			if ( is_null( $Testimonials_Widget ) ) {
-				$Testimonials_Widget = new Testimonials_Widget();
+				$Testimonials_Widget = new Axl_Testimonials_Widget();
 			}
 		}
 	}
 }
 
 
-register_activation_hook( __FILE__, array( 'Testimonials_Widget', 'activation' ) );
-register_deactivation_hook( __FILE__, array( 'Testimonials_Widget', 'deactivation' ) );
-register_uninstall_hook( __FILE__, array( 'Testimonials_Widget', 'uninstall' ) );
+register_activation_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'uninstall' ) );
 
 
 if ( ! function_exists( 'testimonials' ) ) {

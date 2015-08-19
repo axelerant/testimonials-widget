@@ -11,7 +11,7 @@ $args = array(
 	'no_found_rows' => true,
 	'post_status' => 'publish',
 	'ignore_sticky_posts' => true,
-	'post_type' => Testimonials_Widget::PT,
+	'post_type' => Axl_Testimonials_Widget::PT,
 );
 $args = apply_filters( 'tw_recent_testimonials_args', $args );
 

@@ -28,12 +28,12 @@ require_once TW_DIR_INC . 'class-testimonials-widget-slider-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-tag-cloud-widget.php';
 require_once TW_DIR_INC . 'class-testimonials-widget-template-loader.php';
 
-if ( class_exists( 'Testimonials_Widget' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget' ) ) {
 	return;
 }
 
 
-class Testimonials_Widget extends Aihrus_Common {
+class Axl_Testimonials_Widget extends Aihrus_Common {
 	const BASE    = TW_BASE;
 	const ID      = 'testimonials-widget-testimonials';
 	const SLUG    = 'tw_';
@@ -1945,7 +1945,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function getarchives_where( $where, $args ) {
-		return "WHERE post_type = '" . Testimonials_Widget::PT . "' AND post_status = 'publish'";
+		return "WHERE post_type = '" . Axl_Testimonials_Widget::PT . "' AND post_status = 'publish'";
 	}
 
 
@@ -2062,7 +2062,7 @@ EOF;
 			if ( self::$aggregate_no_item != $testimonial_item ) {
 				// @codingStandardsIgnoreStart
 				$query_args = array(
-					'post_type' => Testimonials_Widget::PT,
+					'post_type' => Axl_Testimonials_Widget::PT,
 					'posts_per_page' => -1,
 					'meta_query' => array(
 						'relation' => 'AND',
@@ -2077,7 +2077,7 @@ EOF;
 			} else {
 				// @codingStandardsIgnoreStart
 				$query_args = array(
-					'post_type' => Testimonials_Widget::PT,
+					'post_type' => Axl_Testimonials_Widget::PT,
 					'posts_per_page' => -1,
 					'meta_query' => array(
 						'relation' => 'AND',

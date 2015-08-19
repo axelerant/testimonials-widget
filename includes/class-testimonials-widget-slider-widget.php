@@ -41,22 +41,22 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 
 
 	public static function get_testimonials_css() {
-		Testimonials_Widget::get_testimonials_css();
+		Axl_Testimonials_Widget::get_testimonials_css();
 	}
 
 
 	public static function get_testimonials_scripts() {
-		Testimonials_Widget::get_testimonials_scripts();
+		Axl_Testimonials_Widget::get_testimonials_scripts();
 	}
 
 
 	public static function get_defaults() {
-		return Testimonials_Widget::get_defaults();
+		return Axl_Testimonials_Widget::get_defaults();
 	}
 
 
 	public static function get_content( $instance = null, $widget_number = null ) {
-		return Testimonials_Widget::testimonials_slider( $instance, $widget_number );
+		return Axl_Testimonials_Widget::testimonials_slider( $instance, $widget_number );
 	}
 
 
@@ -87,7 +87,7 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 		$form_parts = Testimonials_Widget_Settings::get_settings();
 
 		if ( ! empty( $instance['do_number'] ) ) {
-			$std = ' .' . Testimonials_Widget::ID . $number;
+			$std = ' .' . Axl_Testimonials_Widget::ID . $number;
 
 			$form_parts['css_class'] = array(
 				'section' => 'widget',

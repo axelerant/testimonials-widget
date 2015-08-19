@@ -77,14 +77,14 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		add_filter( 'wp_unique_post_slug_is_bad_flat_slug', array( __CLASS__, 'is_bad_flat_slug' ), 10, 3 );
 
 		$version       = tw_get_option( 'version' );
-		self::$version = Testimonials_Widget::VERSION;
+		self::$version = Axl_Testimonials_Widget::VERSION;
 		self::$version = apply_filters( 'tw_version', self::$version );
 
 		if ( $version != self::$version ) {
 			self::initialize_settings();
 		}
 
-		if ( ! Testimonials_Widget::do_load() ) {
+		if ( ! Axl_Testimonials_Widget::do_load() ) {
 			return;
 		}
 
@@ -94,7 +94,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 
 
 	public static function admin_menu() {
-		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Testimonials_Widget::PT, esc_html__( 'Testimonials Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( __CLASS__, 'display_page' ) );
+		self::$admin_page = add_submenu_page( 'edit.php?post_type=' . Axl_Testimonials_Widget::PT, esc_html__( 'Testimonials Settings', 'testimonials-widget' ), esc_html__( 'Settings', 'testimonials-widget' ), 'manage_options', self::ID, array( __CLASS__, 'display_page' ) );
 
 		add_action( 'admin_print_scripts-' . self::$admin_page, array( __CLASS__, 'scripts' ) );
 		add_action( 'admin_print_styles-' . self::$admin_page, array( __CLASS__, 'styles' ) );
@@ -105,7 +105,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 	public static function init() {
 		load_plugin_textdomain( 'testimonials-widget', false, '/testimonials-widget/languages/' );
 
-		self::$plugin_assets = Testimonials_Widget::$plugin_assets;
+		self::$plugin_assets = Axl_Testimonials_Widget::$plugin_assets;
 	}
 
 
@@ -734,7 +734,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			// Examples
 			self::$settings['examples'] = array(
 				'section' => 'examples',
-				'desc' => Testimonials_Widget::testimonials_examples(),
+				'desc' => Axl_Testimonials_Widget::testimonials_examples(),
 				'type' => 'content',
 				'widget' => 0,
 			);
@@ -744,7 +744,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 			self::$settings['options'] = array(
 				'section' => 'options',
 				'type' => 'content',
-				'desc' => Testimonials_Widget::testimonials_options(),
+				'desc' => Axl_Testimonials_Widget::testimonials_options(),
 				'widget' => 0,
 			);
 			self::$settings['options'] = wp_parse_args( self::$settings['options'], self::$default );
@@ -854,7 +854,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 		}
 
 		$input['version']        = self::$version;
-		$input['donate_version'] = Testimonials_Widget::VERSION;
+		$input['donate_version'] = Axl_Testimonials_Widget::VERSION;
 
 		$input = apply_filters( 'tw_validate_settings', $input, $errors );
 		if ( empty( $do_errors ) ) {
@@ -1026,7 +1026,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				if ( ! $use_cpt_taxonomy ) {
 					$taxonomy = 'category';
 				} else {
-					$taxonomy = Testimonials_Widget::$cpt_category;
+					$taxonomy = Axl_Testimonials_Widget::$cpt_category;
 				}
 
 				break;
@@ -1035,7 +1035,7 @@ class Testimonials_Widget_Settings extends Aihrus_Settings {
 				if ( ! $use_cpt_taxonomy ) {
 					$taxonomy = 'post_tag';
 				} else {
-					$taxonomy = Testimonials_Widget::$cpt_tags;
+					$taxonomy = Axl_Testimonials_Widget::$cpt_tags;
 				}
 
 				break;
@@ -1096,7 +1096,7 @@ function tw_set_option( $option, $value = null ) {
 
 function tw_init_options() {
 	$options = tw_get_options();
-	$options = wp_parse_args( $options, Testimonials_Widget::get_defaults() );
+	$options = wp_parse_args( $options, Axl_Testimonials_Widget::get_defaults() );
 	$options = Testimonials_Widget_Settings::validate_settings( $options );
 	update_option( Testimonials_Widget_Settings::ID, $options );
 }

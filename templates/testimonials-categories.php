@@ -15,7 +15,7 @@ $cat_args = array(
 
 $use_cpt_taxonomy = tw_get_option( 'use_cpt_taxonomy', false );
 if ( $use_cpt_taxonomy ) {
-	$cat_args['taxonomy'] = Testimonials_Widget::$cpt_category;
+	$cat_args['taxonomy'] = Axl_Testimonials_Widget::$cpt_category;
 }
 
 if ( $d ) {

@@ -4,7 +4,7 @@ global $tw_template_args;
 $atts    = $tw_template_args['atts'];
 $prepend = $tw_template_args['prepend'];
 
-if ( is_home() || 1 === Testimonials_Widget::$max_num_pages ) {
+if ( is_home() || 1 === Axl_Testimonials_Widget::$max_num_pages ) {
 	return;
 }
 
@@ -21,16 +21,16 @@ if ( ! function_exists( 'wp_pagenavi' ) ) {
 
 	$paging .= '</div>';
 	$paging .= '<div class="alignright">';
-	if ( $paged != Testimonials_Widget::$max_num_pages ) {
+	if ( $paged != Axl_Testimonials_Widget::$max_num_pages ) {
 		$raquo   = apply_filters( 'tw_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
-		$paging .= get_next_posts_link( $raquo, Testimonials_Widget::$max_num_pages );
+		$paging .= get_next_posts_link( $raquo, Axl_Testimonials_Widget::$max_num_pages );
 	}
 
 	$paging .= '</div>';
 } else {
 	$args = array(
 		'echo' => false,
-		'query' => Testimonials_Widget::$wp_query,
+		'query' => Axl_Testimonials_Widget::$wp_query,
 	);
 	$args = apply_filters( 'tw_wp_pagenavi', $args );
 

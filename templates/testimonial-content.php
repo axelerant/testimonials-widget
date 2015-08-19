@@ -7,16 +7,16 @@ $widget_number = $tw_template_args['widget_number'];
 
 $char_limit    	= $atts['char_limit'];
 $content_more  	= apply_filters( 'tw_content_more', esc_html__( '…', 'testimonials-widget' ) );
-$content_more  .= Testimonials_Widget::$tag_close_quote;
+$content_more  .= Axl_Testimonials_Widget::$tag_close_quote;
 $do_content    	= ! $atts['hide_content'] && ! empty( $testimonial['testimonial_content'] );
 $do_title		= ! $atts['hide_source_title'] && ! empty( $testimonial['testimonial_source'] );
 $use_quote_tag 	= $atts['use_quote_tag'];
 
 if ( $do_content ) {
 	$content = $testimonial['testimonial_content'];
-	$content = Testimonials_Widget::format_content( $content, $widget_number, $atts );
+	$content = Axl_Testimonials_Widget::format_content( $content, $widget_number, $atts );
 	if ( $char_limit ) {
-		$content = Testimonials_Widget::testimonials_truncate( $content, $char_limit, $content_more );
+		$content = Axl_Testimonials_Widget::testimonials_truncate( $content, $char_limit, $content_more );
 		$content = force_balance_tags( $content );
 	}
 

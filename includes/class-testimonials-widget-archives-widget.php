@@ -45,7 +45,7 @@ class Testimonials_Widget_Archives_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance = null, $widget_number = null ) {
-		return Testimonials_Widget::testimonials_archives( $instance, $widget_number );
+		return Axl_Testimonials_Widget::testimonials_archives( $instance, $widget_number );
 	}
 
 

@@ -17,43 +17,43 @@ $cite     = '';
 $done_url = false;
 
 if ( $do_source && $do_email ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'author-email' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'author-email' );
 } elseif ( $do_source && ! $do_company && $do_url ) {
 	$done_url = true;
 
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'author-url' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'author-url' );
 } elseif ( $do_source ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'author' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'author' );
 } elseif ( $do_email ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'email' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'email' );
 }
 
 if ( $do_title && $cite ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-title' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'join-title' );
 }
 
 if ( $do_title ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'job-title' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'job-title' );
 }
 
 if ( ( $do_company || ( $do_url && ! $done_url ) ) && $cite ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-company' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'join-company' );
 }
 
 if ( $do_company && $do_url ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'company-url' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'company-url' );
 } elseif ( $do_company ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'company' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'company' );
 } elseif ( $do_url && ! $done_url ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'url' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'url' );
 }
 
 if ( $do_location && $cite ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'join-location' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'join-location' );
 }
 
 if ( $do_location ) {
-	$cite .= Testimonials_Widget::get_template_part( 'span', 'location' );
+	$cite .= Axl_Testimonials_Widget::get_template_part( 'span', 'location' );
 }
 
 if ( ! empty( $cite ) ) {
