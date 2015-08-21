@@ -3,6 +3,7 @@
 ## master
 
 ## 3.2.1RC3
+* Confirm WordPress 4.4 compatibility
 * Require Aihrus Framework 1.2.3
 * RESOLVE #178 Provide ways to display the testimonial title on top of the testimonial content
 * RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
