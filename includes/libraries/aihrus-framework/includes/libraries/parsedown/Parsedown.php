@@ -17,7 +17,7 @@ class Parsedown
 {
     # ~
 
-    const version = '1.5.3';
+    const version = '1.5.4';
 
     # ~
 
@@ -665,7 +665,9 @@ class Parsedown
 
         if (preg_match('/^<(\w*)(?:[ ]*'.$this->regexHtmlAttribute.')*[ ]*(\/)?>/', $Line['text'], $matches))
         {
-            if (in_array($matches[1], $this->textLevelElements))
+            $element = strtolower($matches[1]);
+
+            if (in_array($element, $this->textLevelElements))
             {
                 return;
             }
@@ -979,7 +981,6 @@ class Parsedown
     {
         $markup = '';
 
-        # $text contains the unexamined text
         # $excerpt is based on the first occurrence of a marker
 
         while ($excerpt = strpbrk($text, $this->inlineMarkerList))
