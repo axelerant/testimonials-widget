@@ -6,6 +6,7 @@
 * Require Aihrus Framework 1.2.3
 * RESOLVE #178 Provide ways to display the testimonial title on top of the testimonial content
 * RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
+* RESOLVE Replace deprecated 'post_permalink' with 'get_permalink'
 
 ## 3.2.0
 * Add filter tw_testimonial_query to alter WP_Query in get_testimonials

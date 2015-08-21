@@ -1584,7 +1584,7 @@ EOF;
 
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
-		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
+		$review_meta[ self::$thing_url ]   = get_permalink( $post->ID );
 		if ( empty( $review_meta[ self::$thing_name ] ) ) {
 			$review_meta[ self::$thing_name ] = self::testimonials_truncate( $testimonial_content, $review_name_length );
 		}
