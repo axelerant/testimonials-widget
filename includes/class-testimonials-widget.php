@@ -398,6 +398,7 @@ class Testimonials_Widget extends Aihrus_Common {
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
 				tw_init_options();
+				self::init_post_type();
 				flush_rewrite_rules();
 				do_action( 'tw_update' );
 			}
