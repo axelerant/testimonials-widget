@@ -64,15 +64,15 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	public static $widget_number = 100000;
 	public static $wp_query;
 
-	public static $aggregate_count        = 'ratingCount';
-	public static $aggregate_data         = array();
-	public static $aggregate_no_item      = '__NO_ITEM__';
-	public static $aggregate_rating       = 'aggregateRating';
-	public static $aggregate_review       = 'reviewCount';
-	public static $aggregate_schema       = 'http://schema.org/AggregateRating';
+	public static $aggregate_count   = 'ratingCount';
+	public static $aggregate_data    = array();
+	public static $aggregate_no_item = '__NO_ITEM__';
+	public static $aggregate_rating  = 'aggregateRating';
+	public static $aggregate_review  = 'reviewCount';
+	public static $aggregate_schema  = 'http://schema.org/AggregateRating';
 
-	public static $rating_max    = 5;
-	public static $rating_value  = 'ratingValue';
+	public static $rating_max   = 5;
+	public static $rating_value = 'ratingValue';
 
 	public static $cw_author     = 'author';
 	public static $cw_date       = 'datePublished';
@@ -398,6 +398,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
 				tw_init_options();
+				self::init_post_type();
 				flush_rewrite_rules();
 				do_action( 'tw_update' );
 			}
@@ -1584,7 +1585,7 @@ EOF;
 
 		$review_meta[ self::$cw_date ]     = $the_date;
 		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
-		$review_meta[ self::$thing_url ]   = post_permalink( $post->ID );
+		$review_meta[ self::$thing_url ]   = get_permalink( $post->ID );
 		if ( empty( $review_meta[ self::$thing_name ] ) ) {
 			$review_meta[ self::$thing_name ] = self::testimonials_truncate( $testimonial_content, $review_name_length );
 		}
