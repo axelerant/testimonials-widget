@@ -43,7 +43,7 @@
 * RESOLVE #165 Stack of testimonials appear on load
 * RESOLVE PHP Notice: Undefined index: enable_video
 * RESOLVE PHP Notice: Undefined index: post_id
-* RESOLVE PHP Notice: Use of undefined constant Testimonials_Widget - assumed 'Testimonials_Widget'
+* RESOLVE PHP Notice: Use of undefined constant Axl_Testimonials_Widget - assumed 'Axl_Testimonials_Widget'
 * Update FAQ on shortcodes
 
 ## 3.0.2
@@ -317,7 +317,7 @@
 
 ## 2.16.4
 * BUGFIX #1 Widget title displays "array" than link
-* BUGUnreproducible Call to undefined method Testimonials_Widget::clean_string
+* BUGUnreproducible Call to undefined method Axl_Testimonials_Widget::clean_string
 
 ## 2.16.3
 * Check for PHP 5.3
@@ -359,7 +359,7 @@
 * Use aihrus framework
 
 ## 2.15.1
-* BUGFIX Fatal error: Access to undeclared static property: Testimonials_Widget_Settings::$cpt_category
+* BUGFIX Fatal error: Access to undeclared static property: Axl_Testimonials_Widget_Settings::$cpt_category
 * Encapsulate shortcodes
 * [BUGFIX](http://wordpress.org/support/topic/2151-warning-illegal-offset-type-in-isset-or-empty?replies=3) Warning: Illegal offset type in isset or empty
 
@@ -426,7 +426,7 @@
 * BUGFIX single content not wrapped with review schema
 * BUGFIX single view doesn't support caching
 * BUGFIX styles not included for `get_single`
-* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Testimonials_Widget'
+* CSS wp_register_style and wp_enqueue_style slug changed from 'testimonials-widget' to 'Axl_Testimonials_Widget'
 * Clean up JavaScript
 * Correct Review schema name usage
 * Default `do_shortcode` on
@@ -598,7 +598,7 @@
 * Add file headers to lib/class*
 * Add filter tw_widget_options to alter displayed widget options
 * BUGFIX Correct settings required validation `break 2`
-* BUGFIX Non-static method Testimonials_Widget::get_testimonials_html() should not be called statically
+* BUGFIX Non-static method Axl_Testimonials_Widget::get_testimonials_html() should not be called statically
 * CSS rename testimonialswidget_testimonial(s) to testimonials-widget-testimonial(s)
 * Correct static get_testimonials_html, get_testimonials_htmls, widget_options function declaration
 * Correct static validators call
@@ -651,7 +651,7 @@
 * Use `links_add_target` for widget title link
 
 ## 2.11.1
-* BUGFIX [Fatal error: Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-tw_settings)
+* BUGFIX [Fatal error: Axl_Testimonials_Widget_Settings](http://wordpress.org/support/topic/fatal-error-tw_settings)
 
 ## 2.11.0
 * Add Option "Hide Image in Single View?" `hide_image_single`
@@ -789,7 +789,7 @@
 * Add settings page 'Selection', 'Ordering', and 'Widget' tabs
 * BUG with "Post Types Order"
 * BUGFIX paging when not in singular view
-* Configure settings within Testimonials_Widget_Settings class
+* Configure settings within Axl_Testimonials_Widget_Settings class
 * Enable 'Expand/Collapse' view in Widget options
 * FAQ 65 Disable the stylesheet
 * FEATURE Remove `.hentry` CSS?
@@ -810,8 +810,8 @@
 * Screenshot 4 updated, Expanded 'General Options' Testimonials Widget 
 * Update "Shortcode and Widget Options" verbiage
 * Update POT file
-* Use defaults via Testimonials_Widget_Settings class
-* Validate shortcode and widget options via Testimonials_Widget_Settings::validate_settings
+* Use defaults via Axl_Testimonials_Widget_Settings class
+* Validate shortcode and widget options via Axl_Testimonials_Widget_Settings::validate_settings
 * Verbiage updates
 
 ## 2.7.17
@@ -1339,7 +1339,7 @@
 
 ## 2.0.2
 * BUGFIX [Warning: call_user_func_array() ??](http://wordpress.org/support/topic/plugin-testimonials-widget-warning-call_user_func_array)
-* Added Testimonials_Widget_Widget::get_testimonials_scripts for use with add_filter for wp_footer
+* Added Axl_Testimonials_Widget_Widget::get_testimonials_scripts for use with add_filter for wp_footer
 
 ## 2.0.1
 * Verbiage updates

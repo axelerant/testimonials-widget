@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Recent_Testimonials_Widget' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget_Recent_Testimonials_Widget' ) ) {
 	return;
 }
 
 
-class Testimonials_Widget_Recent_Testimonials_Widget extends Aihrus_Widget {
+class Axl_Testimonials_Widget_Recent_Testimonials_Widget extends Aihrus_Widget {
 	const ID = 'tw_recent_testimonials_widget';
 
 	public static $title;
@@ -45,7 +45,7 @@ class Testimonials_Widget_Recent_Testimonials_Widget extends Aihrus_Widget {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function get_content( $instance = null, $widget_number = null ) {
-		return Testimonials_Widget::testimonials_recent( $instance, $widget_number );
+		return Axl_Testimonials_Widget::testimonials_recent( $instance, $widget_number );
 	}
 
 

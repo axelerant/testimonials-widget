@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once TW_DIR_LIB . 'Gamajo-Template-Loader/class-gamajo-template-loader.php';
 
-if ( class_exists( 'Testimonials_Widget_Template_Loader' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget_Template_Loader' ) ) {
 	return;
 }
 
@@ -36,7 +36,7 @@ if ( class_exists( 'Testimonials_Widget_Template_Loader' ) ) {
  *
  * @SuppressWarnings(PHPMD.LongVariable)
  */
-class Testimonials_Widget_Template_Loader extends Gamajo_Template_Loader {
+class Axl_Testimonials_Widget_Template_Loader extends Gamajo_Template_Loader {
 	protected $filter_prefix            = 'testimonials_widget';
 	protected $theme_template_directory = 'testimonials-widget';
 	protected $plugin_directory         = TW_DIR;

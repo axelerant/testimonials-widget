@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Slider_Widget' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget_Slider_Widget' ) ) {
 	return;
 }
 
 
-class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
+class Axl_Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 	// should be tw_slider_widget, but for backwards compliance left alone
 	const ID = 'testimonials_widget';
 
@@ -84,7 +84,7 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 
 
 	public static function form_parts( $instance = null, $number = null ) {
-		$form_parts = Testimonials_Widget_Settings::get_settings();
+		$form_parts = Axl_Testimonials_Widget_Settings::get_settings();
 
 		if ( ! empty( $instance['do_number'] ) ) {
 			$std = ' .' . Axl_Testimonials_Widget::ID . $number;
@@ -106,7 +106,7 @@ class Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 
 
 	public static function get_suggest( $id, $suggest_id ) {
-		return Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
+		return Axl_Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
 	}
 
 

@@ -26,12 +26,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-settings.php';
 
-if ( class_exists( 'Testimonials_Widget_Settings' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget_Settings' ) ) {
 	return;
 }
 
 
-class Testimonials_Widget_Settings extends Aihrus_Settings {
+class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 	const ID   = 'testimonialswidget_settings';
 	const NAME = 'Testimonials Widget Settings';
 
@@ -1060,11 +1060,11 @@ EOD;
 
 
 function tw_get_options() {
-	$options = get_option( Testimonials_Widget_Settings::ID );
+	$options = get_option( Axl_Testimonials_Widget_Settings::ID );
 
 	if ( false === $options ) {
-		$options = Testimonials_Widget_Settings::get_defaults();
-		update_option( Testimonials_Widget_Settings::ID, $options );
+		$options = Axl_Testimonials_Widget_Settings::get_defaults();
+		update_option( Axl_Testimonials_Widget_Settings::ID, $options );
 	}
 
 	return $options;
@@ -1072,7 +1072,7 @@ function tw_get_options() {
 
 
 function tw_get_option( $option, $default = null ) {
-	$options = get_option( Testimonials_Widget_Settings::ID, null );
+	$options = get_option( Axl_Testimonials_Widget_Settings::ID, null );
 
 	if ( isset( $options[ $option ] ) ) {
 		return $options[ $option ];
@@ -1083,22 +1083,22 @@ function tw_get_option( $option, $default = null ) {
 
 
 function tw_set_option( $option, $value = null ) {
-	$options = get_option( Testimonials_Widget_Settings::ID );
+	$options = get_option( Axl_Testimonials_Widget_Settings::ID );
 
 	if ( ! is_array( $options ) ) {
 		$options = array();
 	}
 
 	$options[ $option ] = $value;
-	update_option( Testimonials_Widget_Settings::ID, $options );
+	update_option( Axl_Testimonials_Widget_Settings::ID, $options );
 }
 
 
 function tw_init_options() {
 	$options = tw_get_options();
 	$options = wp_parse_args( $options, Axl_Testimonials_Widget::get_defaults() );
-	$options = Testimonials_Widget_Settings::validate_settings( $options );
-	update_option( Testimonials_Widget_Settings::ID, $options );
+	$options = Axl_Testimonials_Widget_Settings::validate_settings( $options );
+	update_option( Axl_Testimonials_Widget_Settings::ID, $options );
 }
 
 ?>

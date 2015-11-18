@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 require_once AIHR_DIR_INC . 'class-aihrus-widget.php';
 
-if ( class_exists( 'Testimonials_Widget_Categories_Widget' ) ) {
+if ( class_exists( 'Axl_Testimonials_Widget_Categories_Widget' ) ) {
 	return;
 }
 
 
-class Testimonials_Widget_Categories_Widget extends Aihrus_Widget {
+class Axl_Testimonials_Widget_Categories_Widget extends Aihrus_Widget {
 	const ID = 'tw_categories_widget';
 
 	public static $title;
