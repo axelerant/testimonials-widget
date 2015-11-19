@@ -11,17 +11,17 @@ The changes and helpers below are intended to help you update your customization
 ### Changes
 
 * Class names below and all the references to these inside the plugin have been prepended with `Axl_`.
-    * Testimonials_Widget
-    * Testimonials_Widget_Slider_Widget
-    * Testimonials_Widget_Archives_Widget
-    * Testimonials_Widget_Tag_Cloud_Widget
-    * Testimonials_Widget_Categories_Widget
-    * Testimonials_Widget_Recent_Testimonials_Widget
-    * Testimonials_Widget_Settings
-    * Testimonials_Widget_Template_Loader
+    * `Testimonials_Widget` > `Axl_Testimonials_Widget`
+    * `Testimonials_Widget_Slider_Widget` > `Axl_Testimonials_Widget_Slider_Widget`
+    * `Testimonials_Widget_Archives_Widget` > `Axl_Testimonials_Widget_Archives_Widget`
+    * `Testimonials_Widget_Tag_Cloud_Widget` > `Axl_Testimonials_Widget_Tag_Cloud_Widget`
+    * `Testimonials_Widget_Categories_Widget` > `Axl_Testimonials_Widget_Categories_Widget`
+    * `Testimonials_Widget_Recent_Testimonials_Widget` > `Axl_Testimonials_Widget_Recent_Testimonials_Widget`
+    * `Testimonials_Widget_Settings` > `Axl_Testimonials_Widget_Settings`
+    * `Testimonials_Widget_Template_Loader` > `Axl_Testimonials_Widget_Template_Loader`
 * Global variables below have been prepended with `Axl_`.
-    * $Testimonials_Widget_Settings
-    * $Testimonials_Widget
+    * `$Testimonials_Widget_Settings` > `$Axl_Testimonials_Widget_Settings`
+    * `$Testimonials_Widget` > `$Axl_Testimonials_Widget`
 
 ###  Helpers
 
