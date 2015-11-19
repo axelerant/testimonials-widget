@@ -1,5 +1,34 @@
 # Upgrade Notices - Testimonials Widget
 
+## 3.2.1RC4
+
+This is an overhaul **without** backwards compliance.
+
+If you use the template system, class, methods, global variables of the plugin to modify Testimonials Widget and Testimonials Widget Premium output, this upgrade will not be compatible with those modifications until corrections are made.
+
+The changes and helpers below are intended to help you update your customizations quickly. If further help is required, please request it via the support forum.
+
+### Changes
+
+* Class names below and all the references to these inside the plugin have been prepended with `Axl_`.
+    * Testimonials_Widget
+    * Testimonials_Widget_Slider_Widget
+    * Testimonials_Widget_Archives_Widget
+    * Testimonials_Widget_Tag_Cloud_Widget
+    * Testimonials_Widget_Categories_Widget
+    * Testimonials_Widget_Recent_Testimonials_Widget
+    * Testimonials_Widget_Settings
+    * Testimonials_Widget_Template_Loader
+* Global variables below have been prepended with `Axl_`.
+    * $Testimonials_Widget_Settings
+    * $Testimonials_Widget
+
+###  Helpers
+
+*Replace `Testimonials_Widget` with `Axl_Testimonials_Widget` through out all your custom plugins and themes which customize Testimonials Widget's output. Please take backup measures beforehand.*
+
+* `find . -type f \( -name "*.php" -o -name "*.txt" -o -name "*.md" \) -exec perl -pi -e "s#\b(Testimonials_Widget)#Axl_\1#g" {} \;`
+
 ## 3.0.0
 
 This is a major overhaul *without* backwards compliance of over 80 changes. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://nodedesk.zendesk.com/hc/en-us/articles/202476552) for more help. 

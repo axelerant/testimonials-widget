@@ -111,6 +111,9 @@ register_deactivation_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'deactiv
 register_uninstall_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'uninstall' ) );
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials' ) ) {
 	function testimonials( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -120,6 +123,9 @@ if ( ! function_exists( 'testimonials' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_archives' ) ) {
 	function testimonials_archives( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -129,6 +135,9 @@ if ( ! function_exists( 'testimonials_archives' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_categories' ) ) {
 	function testimonials_categories( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -138,6 +147,9 @@ if ( ! function_exists( 'testimonials_categories' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_recent' ) ) {
 	function testimonials_recent( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -147,6 +159,9 @@ if ( ! function_exists( 'testimonials_recent' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_slider' ) ) {
 	function testimonials_slider( $atts = array(), $widget_number = null ) {
 		global $Axl_Testimonials_Widget;
@@ -156,6 +171,9 @@ if ( ! function_exists( 'testimonials_slider' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_tag_cloud' ) ) {
 	function testimonials_tag_cloud( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -165,6 +183,9 @@ if ( ! function_exists( 'testimonials_tag_cloud' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_examples' ) ) {
 	function testimonials_examples( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
@@ -174,6 +195,9 @@ if ( ! function_exists( 'testimonials_examples' ) ) {
 }
 
 
+/**
+ * @SuppressWarnings(PHPMD.LongVariable)
+ */
 if ( ! function_exists( 'testimonials_options' ) ) {
 	function testimonials_options( $atts = array() ) {
 		global $Axl_Testimonials_Widget;
