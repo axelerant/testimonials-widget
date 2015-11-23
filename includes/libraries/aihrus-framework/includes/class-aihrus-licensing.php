@@ -133,7 +133,7 @@ abstract class Aihrus_Licensing {
 
 
 	public function get_remote_get( $api_call ) {
-		$response = wp_remote_get( $api_call );
+		$response = wp_remote_get( $api_call, array( 'sslverify' => false ) );
 
 		return $response;
 	}
