@@ -108,9 +108,6 @@ class Axl_Testimonials_Widget_Slider_Widget extends Aihrus_Widget {
 	public static function get_suggest( $id, $suggest_id ) {
 		return Axl_Testimonials_Widget_Settings::get_suggest( $id, $suggest_id );
 	}
-
-
 }
-
 
 ?>

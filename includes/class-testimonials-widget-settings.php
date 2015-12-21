@@ -952,7 +952,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-general',
 				'title'     => esc_html__( 'General', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'General options.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'General options.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -960,7 +960,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-fields',
 				'title'     => esc_html__( 'Fields', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Show or hide fields.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Show or hide fields.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -968,7 +968,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-selection',
 				'title'     => esc_html__( 'Selection', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Options used to select testimonials.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Options used to select testimonials.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -976,7 +976,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-ordering',
 				'title'     => esc_html__( 'Ordering', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Options used to determine displayed testimonials ordering.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Options used to determine displayed testimonials ordering.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -984,7 +984,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-columns',
 				'title'     => esc_html__( 'Columns', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Allowed columns to display on edit page.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Allowed columns to display on edit page.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -992,7 +992,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-post_type',
 				'title'     => esc_html__( 'Post Type', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Archive and singular page URL related testimonials options.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -1000,7 +1000,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-widget',
 				'title'     => esc_html__( 'Slider Widget', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Options related to showing testimonials in widgets.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Options related to showing testimonials in widgets.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -1008,7 +1008,7 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			array(
 				'id'     => 'tw-reset',
 				'title'     => esc_html__( 'Reset', 'testimonials-widget' ),
-				'content' => '<p>' . esc_html__( 'Backwards compatibility, import/export options, and reset options.', 'testimonials-widget' ) . '</p>'
+				'content' => '<p>' . esc_html__( 'Backwards compatibility, import/export options, and reset options.', 'testimonials-widget' ) . '</p>',
 			)
 		);
 
@@ -1054,8 +1054,6 @@ EOD;
 
 		return $scripts;
 	}
-
-
 }
 
 

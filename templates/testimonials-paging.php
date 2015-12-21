@@ -21,7 +21,7 @@ if ( ! function_exists( 'wp_pagenavi' ) ) {
 
 	$paging .= '</div>';
 	$paging .= '<div class="alignright">';
-	if ( $paged != Axl_Testimonials_Widget::$max_num_pages ) {
+	if ( Axl_Testimonials_Widget::$max_num_pages != $paged ) {
 		$raquo   = apply_filters( 'tw_next_posts_link_text', esc_html__( '&raquo;', 'testimonials-widget' ) );
 		$paging .= get_next_posts_link( $raquo, Axl_Testimonials_Widget::$max_num_pages );
 	}
