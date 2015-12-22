@@ -1,7 +1,6 @@
 # Developer Readme - Testimonials Widget
 
 [![Codeship status](https://www.codeship.io/projects/b5524630-43f6-0131-3b4d-76a8e32a74d4/status)](https://www.codeship.io/projects/10739)
-[![ProjectStatus](http://stillmaintained.com/michael-cannon/testimonials-widget.png)](http://stillmaintained.com/michael-cannon/testimonials-widget)
 
 ## Welcome to the Testimonials Widget Github repository
 
