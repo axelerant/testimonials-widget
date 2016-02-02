@@ -1596,15 +1596,6 @@ EOF;
 			$review_meta[ self::$thing_image ] = $src;
 		}
 
-		$aggregate_meta = array(
-			self::$aggregate_review => self::get_review_count( $testimonial ),
-		);
-
-		$aggregate_meta[ self::$aggregate_count ] = $aggregate_meta[ self::$aggregate_review ];
-		$aggregate_meta[ self::$rating_value ]    = self::$rating_max;
-
-		$review_meta[ self::$aggregate_rating ] = array( self::$aggregate_schema, $aggregate_meta );
-
 		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
 		$review      = self::create_schema_meta( $review_meta );
 		$schema     .= $review;
