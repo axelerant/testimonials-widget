@@ -828,7 +828,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 					$pause = $refresh_interval * 1000;
 					$video = $enable_video ? "video: true,\nuseCSS: false" : 'video: false';
 
-					$autoControls = $show_start_stop ? 'autoControls: true,' : '';
+					$auto_controls = $show_start_stop ? 'autoControls: true,' : '';
 
 					$slider_var  = self::SLUG . $widget_number;
 					$javascript .= <<<EOF
@@ -838,7 +838,7 @@ jQuery(document).ready(function() {
 	{$slider_var} = jQuery('.{$id_base}').bxSlider({
 		adaptiveHeight: {$adaptive_height},
 		auto: {$auto},
-		{$autoControls}
+		{$auto_controls}
 		autoHover: true,
 		controls: false,
 		mode: '{$transition_mode}',

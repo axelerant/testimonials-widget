@@ -10,6 +10,7 @@
 	<rule ref="WordPress-Core">
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCase" />
 	</rule>
 
 	<!-- Extras -->
