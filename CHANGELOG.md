@@ -12,6 +12,7 @@
 * RESOLVE #178 Provide ways to display the testimonial title on top of the testimonial content
 * RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
 * RESOLVE #183 Rename core class name to prevent fatal errors
+* RESOLVE #193 Warning in Google's structured data testing tool for `aggregateRating` in testimonials
 * RESOLVE Replace deprecated 'post_permalink' with 'get_permalink'
 * Update Gamajo-Template-Loader
 
