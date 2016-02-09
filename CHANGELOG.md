@@ -8,7 +8,7 @@
 * Fix coding standards for CI.
 * Remove option to disable the license not saved notice rather set sslverify to false.
 * Remove the use of deprecated function `wp_htmledit_pre()` and use `format_for_editor()` instead.
-* Require Aihrus Framework 1.2.4RC1
+* Require Aihrus Framework 1.2.4
 * RESOLVE #178 Provide ways to display the testimonial title on top of the testimonial content
 * RESOLVE #180 Add missing required `ratingValue` for AggregateRating schema property
 * RESOLVE #183 Rename core class name to prevent fatal errors
