@@ -1,6 +1,6 @@
 # Upgrade Notices - Testimonials Widget
 
-## 3.2.1RC7
+## 3.2.1RC8
 
 This is an overhaul **without** backwards compliance.
 

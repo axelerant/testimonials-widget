@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.2.1RC7
+## 3.2.1RC8
 * Change support email address to support@axelerant.com
 * Confirm WordPress 4.4 compatibility
 * Fix coding standards for CI.
