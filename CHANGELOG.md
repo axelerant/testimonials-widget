@@ -5,7 +5,8 @@
 ## 3.3.0RC1
 * Change support email address to support@axelerant.com
 * Confirm WordPress 4.4 compatibility
-* Fix coding standards for CI.
+* Fix aggregate rating count
+* Fix coding standards for CI
 * Remove option to disable the license not saved notice rather set sslverify to false.
 * Remove the use of deprecated function `wp_htmledit_pre()` and use `format_for_editor()` instead.
 * Require Aihrus Framework 1.2.4
