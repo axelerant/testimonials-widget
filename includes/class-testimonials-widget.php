@@ -2061,7 +2061,7 @@ EOF;
 						array(
 							'key' => 'testimonials-widget-item',
 							'value' => $testimonial_item,
-							'compare' => 'LIKE',
+							'compare' => '=',
 						),
 					),
 				);
@@ -2076,7 +2076,7 @@ EOF;
 						array(
 							'key' => 'testimonials-widget-item',
 							'value' => '',
-							'compare' => 'LIKE',
+							'compare' => '=',
 						),
 					),
 				);
