@@ -70,6 +70,10 @@ Widgets display content sans `wpautop` formatting. This means there's no forced 
 
 The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
 
+As per Google's quality guidelines, marking up irrelevant or misleading content, such as fake reviews or content unrelated to the focus of a page may lead to review stars removed.
+
+As per John Mueller, Webmaster Trends Analyst at Google, testimonials are not reviews, and it doesn't make sense to use review schema for them. Please use "Enable Review Schema" option wisely to stay "compliant" with Google's recommendations.
+
 = Shortcodes =
 
 * `[testimonials]` - Testimonials listings with paging 
