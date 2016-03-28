@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.3.0RC1
+## 3.3.0
 * Change support email address to support@axelerant.com
 * Confirm WordPress 4.4 compatibility
 * Fix aggregate rating count
