@@ -117,6 +117,9 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+		add_action( 'admin_notices', array( __CLASS__, 'notice_schema' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_scripts' ) );
+		add_action( 'wp_ajax_tw_schema_notice', array( __CLASS__, 'dismiss_schema_notice' ) );
 		add_action( 'dashboard_glance_items', array( __CLASS__, 'dashboard_glance_items' ) );
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
@@ -384,6 +387,46 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	}
 
 
+	public static function notice_schema() {
+		$option_name = 'schema_notice';
+
+		if ( empty( tw_get_option( $option_name ) ) ) {
+
+			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use/enable <strong>Review schema</strong> at your own risk.', 'testimonials-widget' );
+
+			$notice_content = '';
+			$notice_content .= '<div class="notice is-dismissible error twp-schema-notice"><p>';
+			$notice_content .= $text;
+			$notice_content .= '</p></div>';
+
+			echo $notice_content;
+		}
+	}
+
+
+	/**
+	 * @SuppressWarnings(PHPMD.Superglobals)
+	 */
+	public static function dismiss_schema_notice() {
+		$nonce = $_POST['nonce'];
+
+		if ( ! wp_verify_nonce( $nonce, 'tw_schema_notice' ) ) {
+			wp_die();
+		}
+
+		$option_name = 'schema_notice';
+		tw_set_option( $option_name, self::VERSION );
+
+		wp_die();
+	}
+
+
+	public static function reset_schema_notice() {
+		$option_name = 'schema_notice';
+		tw_set_option( $option_name, '' );
+	}
+
+
 	public static function update() {
 		$prior_version = tw_get_option( 'admin_notices' );
 		if ( $prior_version ) {
@@ -404,6 +447,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			}
 
 			tw_set_option( 'admin_notices' );
+			self::reset_schema_notice();
 		}
 
 		// display donate on major/minor version release
@@ -746,6 +790,20 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		self::call_scripts_styles( $testimonials, $atts, $widget_number );
 
 		return $content;
+	}
+
+
+	public static function admin_scripts() {
+		wp_register_script( 'tw_admin_scripts', self::$plugin_assets . 'js/tw-admin-scripts.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'tw_admin_scripts' );
+
+		wp_localize_script(
+			'tw_admin_scripts',
+			'tw_schema_notice',
+			array(
+				'nonce' => wp_create_nonce( 'tw_schema_notice' ),
+			)
+		);
 	}
 
 

@@ -280,7 +280,6 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
 			'type' => 'checkbox',
 			'validate' => 'is_true',
-			'std' => 1,
 		);
 
 		self::$settings['do_shortcode'] = array(
