@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.3.1RC1
+* Add notice for existing users about review schema
+* Disable use of review schema by default
+
 ## 3.3.0
 * Change support email address to support@axelerant.com
 * Confirm WordPress 4.4 compatibility
