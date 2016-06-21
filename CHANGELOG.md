@@ -4,6 +4,7 @@
 
 ## 3.3.1RC1
 * Add notice for existing users about review schema
+* Confirm WordPress 4.5.2 compatibility
 * Disable use of review schema by default
 
 ## 3.3.0
