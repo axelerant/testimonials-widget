@@ -288,6 +288,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			return;
 		}
 
+		self::reset_schema_notice();
 		flush_rewrite_rules();
 	}
 
@@ -306,6 +307,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			delete_option( Axl_Testimonials_Widget_Settings::ID );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
+			self::reset_schema_notice();
 			self::delete_testimonials();
 		}
 	}
@@ -390,7 +392,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	public static function notice_schema() {
 		$option_name = 'schema_notice';
 
-		if ( empty( tw_get_option( $option_name ) ) ) {
+		if ( empty( get_option( $option_name ) ) ) {
 
 			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use/enable <strong>Review schema</strong> at your own risk.', 'testimonials-widget' );
 
@@ -415,7 +417,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		}
 
 		$option_name = 'schema_notice';
-		tw_set_option( $option_name, self::VERSION );
+		update_option( $option_name, self::VERSION );
 
 		wp_die();
 	}
@@ -423,7 +425,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 	public static function reset_schema_notice() {
 		$option_name = 'schema_notice';
-		tw_set_option( $option_name, '' );
+		delete_option( $option_name );
 	}
 
 
@@ -441,13 +443,13 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
 				tw_init_options();
+				self::reset_schema_notice();
 				self::init_post_type();
 				flush_rewrite_rules();
 				do_action( 'tw_update' );
 			}
 
 			tw_set_option( 'admin_notices' );
-			self::reset_schema_notice();
 		}
 
 		// display donate on major/minor version release
