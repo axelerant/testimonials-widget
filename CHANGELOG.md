@@ -5,8 +5,8 @@
 ## 3.3.1RC2
 * Add notice for existing users about review schema
 * Confirm WordPress 4.5.3 compatibility
-* Disable use of review schema by default
 * Confirm PHP7 compatibility
+* Disable use of review schema by default
 * Update Gamajo-Template-Loader library
 
 ## 3.3.0
