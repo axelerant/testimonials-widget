@@ -6,6 +6,8 @@
 * Add notice for existing users about review schema
 * Confirm WordPress 4.5.3 compatibility
 * Disable use of review schema by default
+* Confirm PHP7 compatibility
+* Update Gamajo-Template-Loader library
 
 ## 3.3.0
 * Change support email address to support@axelerant.com
