@@ -39,7 +39,8 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	const SLUG    = 'tw_';
 	const VERSION = TW_VERSION;
 
-	const PT = 'testimonials-widget';
+	const PT         = 'testimonials-widget';
+	const NOTICE_KEY = 'tw_schema_notice';
 
 	public static $class = __CLASS__;
 	public static $cpt_category;
@@ -390,15 +391,14 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function notice_schema() {
-		$option_name = 'schema_notice';
+		if ( empty( get_option( self::NOTICE_KEY ) ) ) {
 
-		if ( empty( get_option( $option_name ) ) ) {
-
-			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use/enable <strong>Review schema</strong> at your own risk.', 'testimonials-widget' );
+			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use/enable <strong>Review schema</strong> at your own risk. ', 'testimonials-widget' );
 
 			$notice_content = '';
 			$notice_content .= '<div class="notice is-dismissible error twp-schema-notice"><p>';
 			$notice_content .= $text;
+			$notice_content .= self::$settings_link;
 			$notice_content .= '</p></div>';
 
 			echo $notice_content;
@@ -416,16 +416,14 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			wp_die();
 		}
 
-		$option_name = 'schema_notice';
-		update_option( $option_name, self::VERSION );
+		update_option( self::NOTICE_KEY, self::VERSION );
 
 		wp_die();
 	}
 
 
 	public static function reset_schema_notice() {
-		$option_name = 'schema_notice';
-		delete_option( $option_name );
+		delete_option( self::NOTICE_KEY );
 	}
 
 
