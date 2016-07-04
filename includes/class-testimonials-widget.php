@@ -393,13 +393,13 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	public static function notice_schema() {
 		if ( empty( get_option( self::NOTICE_KEY ) ) ) {
 
-			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use/enable <strong>Review schema</strong> at your own risk. ', 'testimonials-widget' );
+			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use <strong>Review schema</strong> at your own risk via ', 'testimonials-widget' );
 
 			$notice_content = '';
 			$notice_content .= '<div class="notice is-dismissible error twp-schema-notice"><p>';
 			$notice_content .= $text;
 			$notice_content .= self::$settings_link;
-			$notice_content .= '</p></div>';
+			$notice_content .= '.</p></div>';
 
 			echo $notice_content;
 		}
