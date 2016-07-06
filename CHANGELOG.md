@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.3.1RC2
+## 3.3.1
 * Add notice for existing users about review schema
 * Confirm WordPress 4.5.3 compatibility
 * Confirm PHP7 compatibility
