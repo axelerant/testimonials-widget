@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.3.2RC1
+## 3.3.2
 * Fix `Fatal error: Can't use function return value in write context`
 
 ## 3.3.1
