@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.3.2RC1
+* Fix `Fatal error: Can't use function return value in write context`
+
 ## 3.3.1
 * Add notice for existing users about review schema
 * Confirm WordPress 4.5.3 compatibility
