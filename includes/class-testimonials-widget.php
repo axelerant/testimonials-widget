@@ -394,12 +394,13 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		$notice_set = get_option( self::NOTICE_KEY );
 
 		if ( empty( $notice_set ) ) {
-			$text = __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. Please use <strong>Review schema</strong> at your own risk via ', 'testimonials-widget' );
+			$settings_link = get_admin_url() . 'edit.php?post_type=' . self::PT . '&page=' . Axl_Testimonials_Widget_Settings::ID;
+
+			$text = sprintf( __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. We recommend you <a href="%s">disable the Review schema</a> in settings.', 'testimonials-widget' ), esc_url( $settings_link ) );
 
 			$notice_content = '';
 			$notice_content .= '<div class="notice is-dismissible error twp-schema-notice"><p>';
 			$notice_content .= $text;
-			$notice_content .= self::$settings_link;
 			$notice_content .= '.</p></div>';
 
 			echo $notice_content;
