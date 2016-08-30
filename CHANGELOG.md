@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.3.4RC1
+* Change verbiage for schema notice
+* Confirm WordPress 4.6 compatibility
+
 ## 3.3.3
 * Fix `Fatal error: Can't use function return value in write context`
 
