@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.3.4RC1
+## 3.3.4
 * Change verbiage for schema notice
 * Confirm WordPress 4.6 compatibility
 
