@@ -4,6 +4,7 @@
 
 ## 3.3.5RC1
 * Change Axelerant's plugins FAQ links
+* Change support email address to `support@axelerant.atlassian.net`
 * Require Aihrus Framework 1.2.6
 
 ## 3.3.4
