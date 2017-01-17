@@ -374,7 +374,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function notice_2_12_0() {
-		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://nodedesk.zendesk.com/hc/en-us/articles/202244392-Major-Changes-Since-2-10-0' ) );
+		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible CSS fixes.', 'testimonials-widget' ), esc_url( 'https://axelerant.atlassian.net/wiki/display/WPFAQ/Major+Changes+Since+2.10.0' ) );
 
 		aihr_notice_updated( $text );
 	}
@@ -1782,7 +1782,7 @@ EOF;
 
 
 	public static function notice_2_15_0() {
-		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://nodedesk.zendesk.com/hc/en-us/articles/202331821-Major-Change-for-2-15-0' ) );
+		$text = sprintf( __( 'If your Testimonials display has gone to funky town, please <a href="%s">read the FAQ</a> about possible fixes.', 'testimonials-widget' ), esc_url( 'https://axelerant.atlassian.net/wiki/display/WPFAQ/Major+Change+for+2.15.0' ) );
 
 		aihr_notice_updated( $text );
 	}

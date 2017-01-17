@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.3.5RC1
+* Change Axelerant's plugins FAQ links
+* Require Aihrus Framework 1.2.6
+
 ## 3.3.4
 * Change verbiage for schema notice
 * Confirm WordPress 4.6 compatibility

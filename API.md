@@ -26,11 +26,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_cite_html`
 
-	Adjust cite contents. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202295462)
+	Adjust cite contents. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+add+the+date+to+the+cite)
 
 * `tw_content_more`
 
-	More content ellipsis. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202300032)
+	More content ellipsis. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+change+the+more+content+ellipsis)
 
 * `tw_get_testimonials_html`
 
@@ -38,23 +38,23 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_get_testimonial_html`
 
-	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385211)
+	Customize testimonial contents and layout within `get_testimonial_html`. Useful for moving processed parts around than regenerating everything from scratch. [example](https://axelerant.atlassian.net/wiki/pages/viewpage.action?pageId=14024720)
 
 * `tw_gravatar_size`
 
-	Change the Gravatar size. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202300072)
+	Change the Gravatar size. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+change+the+Gravatar+size)
 
 * `tw_image_size`
 
-	Change the image size. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202379911)
+	Change the image size. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/Follow+How+do+I+change+the+image+size)
 
 * `tw_next_posts_link_text`
 
-	Configure Next page indicator. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385431)
+	Configure Next page indicator. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+configure+Next+and+Previous+page+indicators)
 
 * `tw_previous_posts_link_text`
 
-	Configure Previous page indicator. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385431)
+	Configure Previous page indicator. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+configure+Next+and+Previous+page+indicators)
 
 * `tw_testimonial_html_single_content`
 
@@ -62,11 +62,11 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_testimonial_html_single`
 
-	Customize testimonials single view output post `get_testimonial_html`. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202331941)
+	Customize testimonials single view output post `get_testimonial_html`. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+customize+my+testimonial+single+output)
 
 * `tw_testimonial_html`
 
-	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202380281)
+	Customize testimonials list and widget output post `get_testimonial_html`. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+customize+my+testimonial+list+and+widget+output)
 
 * `tw_get_testimonial_html_class`
 
@@ -86,7 +86,7 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_wp_pagenavi`
 
-	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202379891)
+	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/Follow+How+do+I+get+page+numbers+for+pagination)
 
 * `tw_review_name_length`
 
@@ -164,15 +164,15 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 * `tw_data`
 
-	Process testimonials data before display processing. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385251)
+	Process testimonials data before display processing. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+filter+the+testimonials+data+before+display+processing)
 
 * `tw_defaults_single`
 
-	Create a global or central Testimonials configuration for single view. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385321). [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385331)
+	Create a global or central Testimonials configuration for single view. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+add+testimonial+excerpt+to+single+view). [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+show+the+expert+and+hide+the+image+in+the+testimonial+single+view)
 
 * `tw_defaults`
 
-	Create a global or central Testimonials configuration. [example](https://nodedesk.zendesk.com/hc/en-us/articles/202385411)
+	Create a global or central Testimonials configuration. [example](https://axelerant.atlassian.net/wiki/pages/viewpage.action?pageId=13566004)
 
 * `tw_meta_box`
 
@@ -268,4 +268,4 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 ## Need More?
 
-Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://nodedesk.zendesk.com/hc/en-us/sections/200861112) and [source code](https://github.com/michael-cannon/testimonials-widget).
+Further examples and more can be found by reading and searching the [Testimonials Knowledge Base](https://axelerant.atlassian.net/wiki/display/WPFAQ/) and [source code](https://github.com/michael-cannon/testimonials-widget).

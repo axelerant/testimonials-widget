@@ -31,11 +31,11 @@ The changes and helpers below are intended to help you update your customization
 
 ## 3.0.0
 
-This is a major overhaul *without* backwards compliance of over 80 changes. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://nodedesk.zendesk.com/hc/en-us/articles/202476552) for more help. 
+This is a major overhaul *without* backwards compliance of over 80 changes. Please read the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://axelerant.atlassian.net/wiki/display/WPFAQ/Testimonials+Widget+3.0+and+Testimonials+Widget+Premium+2.0+Upgrade+Notice) for more help. 
 
 If you use custom CSS, actions, or filters to modify Testimonials Widget and Testimonials Widget Premium actions or output, this upgrade will not be compatible with those modifications until corrections are made.
 
-The changes and helpers below are intended to help you update your customizations quickly. If further help is required, please request it via commenting upon the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://nodedesk.zendesk.com/hc/en-us/articles/202476552).
+The changes and helpers below are intended to help you update your customizations quickly. If further help is required, please request it via commenting upon the [Testimonials Widget 3.0 and Testimonials Widget Premium 2.0 Upgrade Notice](https://axelerant.atlassian.net/wiki/display/WPFAQ/Testimonials+Widget+3.0+and+Testimonials+Widget+Premium+2.0+Upgrade+Notice).
 
 ### Changes
 
@@ -98,7 +98,7 @@ The changes and helpers below are intended to help you update your customization
 
 ## 2.16.0
 
-* [Requires PHP 5.3+](https://nodedesk.zendesk.com/hc/en-us/articles/202331041)
+* [Requires PHP 5.3+](https://axelerant.atlassian.net/wiki/pages/viewpage.action?pageId=12845151)
 
 ## 2.15.0
 
