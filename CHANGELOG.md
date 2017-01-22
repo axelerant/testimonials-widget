@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.3.6RC1
+* Change support email address to `support@axelerant.com`
+* Require Aihrus Framework 1.2.8
+
 ## 3.3.5
 * Change Axelerant's plugins FAQ links
 * Change support email address to `support@axelerant.atlassian.net`
