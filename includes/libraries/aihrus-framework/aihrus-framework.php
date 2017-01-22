@@ -35,7 +35,7 @@ if ( ! defined( 'AIHR_DIR_LIB' ) ) {
 }
 
 if ( ! defined( 'AIHR_VERSION' ) ) {
-	define( 'AIHR_VERSION', '1.2.7' );
+	define( 'AIHR_VERSION', '1.2.8' );
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -211,7 +211,7 @@ if ( ! function_exists( 'aihr_notice_wp' ) ) {
 
 if ( ! function_exists( 'aihr_notice_error' ) ) {
 	function aihr_notice_error( $text ) {
-		aihr_notice_updated( $text, 'error' );
+		aihr_notice_updated( $text, 'error error-twp' );
 		error_log( $text );
 	}
 }
@@ -330,7 +330,7 @@ if ( ! function_exists( 'aihr_notice_deactivate' ) ) {
 		$plugin_slug = dirname( plugin_basename( $file ) );
 		$url         = 'https://wordpress.org/plugins/' . $plugin_slug . '/developers/';
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated due to "%2$s". Once corrected, "%1$s" can be activated.</p><p>If you want to revert "%1$s", look for <a href="%3$s">older versions on WordPress</a> or <a href="mailto:support@axelerant.atlassian.net?subject=Old+Plugin+Version+Request">email Axelerant support</a> if this is a premium plugin.' ), $name, $reason, $url );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated due to "%2$s". Once corrected, "%1$s" can be activated.</p><p>If you want to revert "%1$s", look for <a href="%3$s">older versions on WordPress</a> or <a href="mailto:support@axelerant.com?subject=Old+Plugin+Version+Request">email Axelerant support</a> if this is a premium plugin.' ), $name, $reason, $url );
 
 		aihr_notice_error( $text );
 
