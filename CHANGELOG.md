@@ -2,6 +2,9 @@
 
 ## master
 
+## 1.2.9
+* Added target url to blank to open links in seperate tab
+
 ## 1.2.8
 * Change support email address to `support@axelerant.com`
 * Modify class name to display error message for license missing
