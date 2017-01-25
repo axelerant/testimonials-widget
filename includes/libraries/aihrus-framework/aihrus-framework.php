@@ -35,7 +35,7 @@ if ( ! defined( 'AIHR_DIR_LIB' ) ) {
 }
 
 if ( ! defined( 'AIHR_VERSION' ) ) {
-	define( 'AIHR_VERSION', '1.2.8' );
+	define( 'AIHR_VERSION', '1.2.9' );
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -87,7 +87,7 @@ if ( ! function_exists( 'aihr_notice_aihrus_framework' ) ) {
 		}
 
 		$help_url  = esc_url( 'https://axelerant.atlassian.net/wiki/display/WPFAQ/Axelerant+Framework+Out+of+Date' );
-		$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s">More information</a>.' ), self_admin_url( 'update-core.php' ), $help_url );
+		$help_link = sprintf( __( '<a href="%1$s">Update plugins</a>. <a href="%2$s" target="_blank">More information</a>.' ), self_admin_url( 'update-core.php' ), $help_url );
 
 		$note = '';
 		if ( defined( 'AIHR_BASE' ) ) {
@@ -151,7 +151,7 @@ if ( ! function_exists( 'aihr_notice_php' ) ) {
 
 		$help_url = esc_url( 'https://axelerant.atlassian.net/wiki/pages/viewpage.action?pageId=12845151' );
 
-		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s">More information</a>.' ), $name, AIHR_PHP_VERSION_MIN, $help_url, PHP_VERSION );
+		$text = sprintf( __( 'Plugin "%1$s" has been deactivated as it requires PHP %2$s or newer. You\'re running PHP %4$s. Once corrected, "%1$s" can be activated. <a href="%3$s" target="_blank">More information</a>.' ), $name, AIHR_PHP_VERSION_MIN, $help_url, PHP_VERSION );
 
 		aihr_notice_error( $text );
 	}
@@ -252,7 +252,7 @@ if ( ! function_exists( 'aihr_notice_license' ) ) {
 		$settings_link = sprintf( $text, $link, $free_name );
 
 		$link = esc_url( 'https://axelerant.atlassian.net/wiki/display/WPFAQ/Where+does+my+license+key+go' );
-		$text = __( '<a href="%s">Where\'s my license key?</a>' );
+		$text = __( '<a href="%s" target="_blank">Where\'s my license key?</a>' );
 
 		$faq_link = sprintf( $text, $link );
 
