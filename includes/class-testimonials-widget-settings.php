@@ -273,15 +273,6 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			'widget' => 0,
 		);
 
-		$desc = __( 'Adds HTML tag markup per the <a href="%s">Review schema</a> to testimonials. Search engines including Bing, Google, Yahoo! and Yandex rely on this markup to improve the display of search results.', 'testimonials-widget' );
-
-		self::$settings['enable_schema'] = array(
-			'title' => esc_html__( 'Enable Review Schema?', 'testimonials-widget' ),
-			'desc' => sprintf( $desc, 'http://schema.org/Review' ),
-			'type' => 'checkbox',
-			'validate' => 'is_true',
-		);
-
 		self::$settings['do_shortcode'] = array(
 			'title' => esc_html__( 'Enable [shortcodes]?', 'testimonials-widget' ),
 			'desc' => esc_html__( 'If unchecked, shortcodes are stripped.', 'testimonials-widget' ),
