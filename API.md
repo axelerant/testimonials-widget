@@ -88,30 +88,6 @@ The [Testimonials Widget plugin](http://wordpress.org/plugins/testimonials-widge
 
 	Configure WP-PageNavi specifically for Testimonial Widgets. [example](https://axelerant.atlassian.net/wiki/display/WPFAQ/Follow+How+do+I+get+page+numbers+for+pagination)
 
-* `tw_review_name_length`
-
-	Maximium length of review schema's name. Default is 156 characters.
-
-* `tw_schema`
-
-	Customize schema contents.
-
-* `tw_schema_review`
-
-	Customize schema review meta contents.
-
-* `tw_schema_agg_rating`
-
-	Customize schema aggregate rating for item.
-
-* `tw_schema_author`
-
-	Customize schema author contents.
-
-* `tw_schema_item`
-
-	Customize schema reviewed item contents.
-
 * `tw_get_template_part`
 
 	Allow template choices to be filtered. [Usage](https://github.com/GaryJones/Gamajo-Template-Loader/blob/develop/class-gamajo-template-loader.php#L120)

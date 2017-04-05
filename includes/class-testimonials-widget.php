@@ -40,7 +40,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	const VERSION = TW_VERSION;
 
 	const PT         = 'testimonials-widget';
-	const NOTICE_KEY = 'tw_schema_notice';
 
 	public static $class = __CLASS__;
 	public static $cpt_category;
@@ -65,47 +64,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	public static $widget_number = 100000;
 	public static $wp_query;
 
-	public static $aggregate_count   = 'ratingCount';
-	public static $aggregate_data    = array();
-	public static $aggregate_no_item = '__NO_ITEM__';
-	public static $aggregate_rating  = 'aggregateRating';
-	public static $aggregate_review  = 'reviewCount';
-	public static $aggregate_schema  = 'http://schema.org/AggregateRating';
-
-	public static $rating_max   = 5;
-	public static $rating_value = 'ratingValue';
-
-	public static $cw_author     = 'author';
-	public static $cw_date       = 'datePublished';
-	public static $cw_date_mod   = 'dateModified';
-	public static $cw_review     = 'review';
-	public static $cw_source_org = 'sourceOrganization';
-
-	public static $org_location = 'location';
-	public static $org_schema   = 'http://schema.org/Organization';
-
-	public static $person_email     = 'email';
-	public static $person_home      = 'homeLocation';
-	public static $person_job_title = 'jobTitle';
-	public static $person_schema    = 'http://schema.org/Person';
-	public static $person_member    = 'memberOf';
-
-	public static $place_schema = 'http://schema.org/Place';
-
-	public static $review_body   = 'reviewBody';
-	public static $review_item   = 'itemReviewed';
-	public static $review_schema = 'http://schema.org/Review';
-
-	public static $schema_div_open  = '<div itemscope itemtype="%1$s">';
-	public static $schema_div_prop  = '<div itemprop="%1$s" itemscope itemtype="%2$s">%3$s</div>';
-	public static $schema_item_prop = 'itemprop="%1$s"';
-	public static $schema_meta      = '<meta itemprop="%1$s" content="%2$s" />';
-
-	public static $thing_image  = 'image';
-	public static $thing_name   = 'name';
-	public static $thing_schema = 'http://schema.org/Thing';
-	public static $thing_url    = 'url';
-
 
 	public function __construct() {
 		parent::__construct();
@@ -118,9 +76,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
-		add_action( 'admin_notices', array( __CLASS__, 'notice_schema' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_scripts' ) );
-		add_action( 'wp_ajax_tw_schema_notice', array( __CLASS__, 'dismiss_schema_notice' ) );
 		add_action( 'dashboard_glance_items', array( __CLASS__, 'dashboard_glance_items' ) );
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'widgets_init' ) );
@@ -289,7 +245,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			return;
 		}
 
-		self::reset_schema_notice();
 		flush_rewrite_rules();
 	}
 
@@ -308,7 +263,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			delete_option( Axl_Testimonials_Widget_Settings::ID );
 			$wpdb->query( 'OPTIMIZE TABLE `' . $wpdb->options . '`' );
 
-			self::reset_schema_notice();
 			self::delete_testimonials();
 		}
 	}
@@ -390,45 +344,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	}
 
 
-	public static function notice_schema() {
-		$notice_set = get_option( self::NOTICE_KEY );
-
-		if ( empty( $notice_set ) ) {
-			$settings_link = get_admin_url() . 'edit.php?post_type=' . self::PT . '&page=' . Axl_Testimonials_Widget_Settings::ID;
-
-			$text = sprintf( __( TW_NAME . ' uses <a href="http://schema.org/Review" target="_blank">Review schema</a> markup for the testimonials. A recent move by Google <a href="https://www.seroundtable.com/google-takes-action-on-flight-rich-snippet-markup-22029.html" target="_blank">may penalize your website for using improper schema snippets</a>. We recommend you <a href="%s">disable the Review schema</a> in settings.', 'testimonials-widget' ), esc_url( $settings_link ) );
-
-			$notice_content = '';
-			$notice_content .= '<div class="notice is-dismissible error twp-schema-notice"><p>';
-			$notice_content .= $text;
-			$notice_content .= '.</p></div>';
-
-			echo $notice_content;
-		}
-	}
-
-
-	/**
-	 * @SuppressWarnings(PHPMD.Superglobals)
-	 */
-	public static function dismiss_schema_notice() {
-		$nonce = $_POST['nonce'];
-
-		if ( ! wp_verify_nonce( $nonce, 'tw_schema_notice' ) ) {
-			wp_die();
-		}
-
-		update_option( self::NOTICE_KEY, self::VERSION );
-
-		wp_die();
-	}
-
-
-	public static function reset_schema_notice() {
-		delete_option( self::NOTICE_KEY );
-	}
-
-
 	public static function update() {
 		$prior_version = tw_get_option( 'admin_notices' );
 		if ( $prior_version ) {
@@ -443,7 +358,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			if ( $prior_version < self::VERSION ) {
 				tw_requirements_check( true );
 				tw_init_options();
-				self::reset_schema_notice();
 				self::init_post_type();
 				flush_rewrite_rules();
 				do_action( 'tw_update' );
@@ -799,13 +713,6 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		wp_register_script( 'tw_admin_scripts', self::$plugin_assets . 'js/tw-admin-scripts.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tw_admin_scripts' );
 
-		wp_localize_script(
-			'tw_admin_scripts',
-			'tw_schema_notice',
-			array(
-				'nonce' => wp_create_nonce( 'tw_schema_notice' ),
-			)
-		);
 	}
 
 
@@ -1018,14 +925,8 @@ EOF;
 			$bottom_text = links_add_target( $bottom_text, $do_target );
 		}
 
-		$schema = '';
-		if ( $atts['enable_schema'] ) {
-			$schema  = self::get_schema( $testimonial, $atts );
-			$schema .= "\n";
-		}
-
 		$div_close = self::get_template_part( 'testimonial', 'close' );
-		$div_close = $schema . $div_close;
+		$div_close = $div_close;
 
 		$html = $div_open
 			. $image
@@ -1538,192 +1439,6 @@ EOF;
 		}
 
 		echo $result;
-	}
-
-
-	/**
-	 *
-	 *
-	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
-	 */
-	public static function get_schema( $testimonial, $atts ) {
-		if ( ! isset( $testimonial['post_id'] ) ) {
-			return;
-		}
-
-		foreach ( $testimonial as $key => $value ) {
-			if ( 'testimonial_image' != $key ) {
-				$testimonial[ $key ] = self::clean_string( $value );
-			}
-		}
-
-		extract( $testimonial );
-
-		$do_company  = ! $atts['hide_company'] && ! empty( $testimonial_company );
-		$do_content  = ! empty( $testimonial['testimonial_content'] );
-		$do_email    = ! $atts['hide_email'] && ! empty( $testimonial_email ) && is_email( $testimonial_email );
-		$do_image    = ! $atts['hide_image'] && ! empty( $testimonial_image );
-		$do_location = ! $atts['hide_location'] && ! empty( $testimonial_location );
-		$do_source   = ! $atts['hide_source'] && ! empty( $testimonial_source );
-		$do_title    = ! $atts['hide_title'] && ! empty( $testimonial_title );
-		$do_url      = ! $atts['hide_url'] && ! empty( $testimonial_url );
-
-		$item_reviewed     = self::clean_string( $atts['item_reviewed'] );
-		$item_reviewed_url = self::clean_string( $atts['item_reviewed_url'] );
-
-		$schema  = sprintf( self::$schema_div_open, self::$review_schema );
-		$schema .= "\n";
-
-		$author_meta   = array();
-		$item_meta     = array();
-		$location_meta = array();
-		$org_meta      = array();
-		$review_meta   = array();
-
-		if ( ! empty( $testimonial_author ) ) {
-			$author_meta[ self::$thing_name ] = $testimonial_author;
-		}
-
-		if ( $do_source ) {
-			if ( empty( $testimonial_author ) ) {
-				$author_meta[ self::$thing_name ] = $testimonial_source;
-			} else {
-				$review_meta[ self::$thing_name ] = $testimonial_source;
-			}
-		}
-
-		if ( $do_title ) {
-			$author_meta[ self::$person_job_title ] = $testimonial_title;
-		}
-
-		if ( $do_email ) {
-			$author_meta[ self::$person_email ] = $testimonial_email;
-		}
-
-		if ( ! $do_company ) {
-			if ( $do_url ) {
-				$author_meta[ self::$thing_url ] = $testimonial_url;
-			}
-		} else {
-			if ( $do_url ) {
-				$org_meta[ self::$thing_url ] = $testimonial_url;
-			}
-
-			$org_meta[ self::$thing_name ] = $testimonial_company;
-		}
-
-		if ( $do_location ) {
-			$location_meta[ self::$thing_name ] = $testimonial_location;
-
-			if ( ! $do_company ) {
-				$author_meta[ self::$person_home ] = array( self::$place_schema, $location_meta );
-			} else {
-				$org_meta[ self::$org_location ] = array( self::$place_schema, $location_meta );
-			}
-		}
-
-		if ( ! empty( $author_meta ) && ! empty( $org_meta ) ) {
-			$author_meta[ self::$person_member ] = array( self::$org_schema, $org_meta );
-		} elseif ( ! empty( $org_meta ) ) {
-			$author_meta[ self::$cw_source_org ] = array( self::$org_schema, $org_meta );
-		}
-
-		$author_meta = apply_filters( 'tw_schema_author', $author_meta, $testimonial, $atts );
-		$author      = self::create_schema_div_prop( self::$cw_author, self::$person_schema, $author_meta );
-		$schema     .= $author;
-		$schema     .= "\n";
-
-		$post         = get_post( $testimonial['post_id'] );
-		$the_date     = mysql2date( 'Y-m-d', $post->post_date );
-		$the_date_mod = mysql2date( 'Y-m-d', $post->post_modified );
-
-		$review_name_length = apply_filters( 'tw_review_name_length', 156 );
-
-		if ( $do_content ) {
-			$review_meta[ self::$review_body ] = $testimonial['testimonial_content'];
-		}
-
-		$review_meta[ self::$cw_date ]     = $the_date;
-		$review_meta[ self::$cw_date_mod ] = $the_date_mod;
-		$review_meta[ self::$thing_url ]   = get_permalink( $post->ID );
-		if ( empty( $review_meta[ self::$thing_name ] ) ) {
-			$review_meta[ self::$thing_name ] = self::testimonials_truncate( $testimonial_content, $review_name_length );
-		}
-
-		if ( $do_image ) {
-			$src = self::get_image_src( $testimonial_image );
-
-			$review_meta[ self::$thing_image ] = $src;
-		}
-
-		$review_meta = apply_filters( 'tw_schema_review', $review_meta, $testimonial, $atts );
-		$review      = self::create_schema_meta( $review_meta );
-		$schema     .= $review;
-		$schema     .= "\n";
-
-		$item_meta[ self::$thing_name ] = $item_reviewed;
-		$item_meta[ self::$thing_url ]  = $item_reviewed_url;
-
-		$item_meta = apply_filters( 'tw_schema_item', $item_meta, $testimonial, $atts );
-		$item      = self::create_schema_div_prop( self::$review_item, self::$thing_schema, $item_meta );
-		$schema   .= $item;
-		$schema   .= "\n";
-
-		$schema .= '</div>';
-		$schema .= "\n";
-
-		$schema = apply_filters( 'tw_schema', $schema, $testimonial, $atts );
-
-		return $schema;
-	}
-
-
-	public static function create_schema_meta( $meta_data ) {
-		$meta = '';
-
-		if ( empty( $meta_data ) ) {
-			return $meta;
-		}
-
-		foreach ( $meta_data as $key => $value ) {
-			if ( is_array( $value ) ) {
-				$meta .= self::create_schema_div_prop( $key, $value[0], $value[1] );
-			} else {
-				$meta .= sprintf( self::$schema_meta, $key, $value );
-			}
-
-			$meta .= "\n";
-		}
-
-		return $meta;
-	}
-
-
-	public static function create_schema_div_prop( $property_name, $schema_name, $meta_data ) {
-		$meta   = '';
-		$schema = '';
-
-		if ( empty( $meta_data ) ) {
-			return $schema;
-		}
-
-		if ( is_array( $meta_data ) ) {
-			foreach ( $meta_data as $key => $value ) {
-				if ( is_array( $value ) ) {
-					$meta .= self::create_schema_div_prop( $key, $value[0], $value[1] );
-				} else {
-					$meta .= sprintf( self::$schema_meta, $key, $value );
-				}
-
-				$meta .= "\n";
-			}
-
-			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta );
-		} else {
-			$schema = sprintf( self::$schema_div_prop, $property_name, $schema_name, $meta_data );
-		}
-
-		return $schema;
 	}
 
 
