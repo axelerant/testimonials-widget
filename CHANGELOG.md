@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.4.0RC1
+## 3.4.0
 * Remove review schema code
 
 ## 3.3.6
