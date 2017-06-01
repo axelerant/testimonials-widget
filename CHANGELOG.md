@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.4.1RC1
+## 3.4.1
 * Confirm WordPress 4.6 compatibility
 * Remove review schema completely
 * Set max rating variable to 5
