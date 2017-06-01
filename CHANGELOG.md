@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.4.1RC1
+* Confirm WordPress 4.6 compatibility
+* Remove review schema completely
+
 ## 3.4.0
 * Remove review schema code
 

@@ -64,6 +64,40 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 	public static $widget_number = 100000;
 	public static $wp_query;
 
+	public static $rating_max   = 5;
+	public static $rating_value = 'ratingValue';
+
+	public static $cw_author     = 'author';
+	public static $cw_date       = 'datePublished';
+	public static $cw_date_mod   = 'dateModified';
+	public static $cw_review     = 'review';
+	public static $cw_source_org = 'sourceOrganization';
+
+	public static $org_location = 'location';
+	public static $org_schema   = 'http://schema.org/Organization';
+
+	public static $person_email     = 'email';
+	public static $person_home      = 'homeLocation';
+	public static $person_job_title = 'jobTitle';
+	public static $person_schema    = 'http://schema.org/Person';
+	public static $person_member    = 'memberOf';
+
+	public static $place_schema = 'http://schema.org/Place';
+
+	public static $review_body   = 'reviewBody';
+	public static $review_item   = 'itemReviewed';
+	public static $review_schema = 'http://schema.org/Review';
+
+	public static $schema_div_open  = '<div itemscope itemtype="%1$s">';
+	public static $schema_div_prop  = '<div itemprop="%1$s" itemscope itemtype="%2$s">%3$s</div>';
+	public static $schema_item_prop = 'itemprop="%1$s"';
+	public static $schema_meta      = '<meta itemprop="%1$s" content="%2$s" />';
+
+	public static $thing_image  = 'image';
+	public static $thing_name   = 'name';
+	public static $thing_schema = 'http://schema.org/Thing';
+	public static $thing_url    = 'url';
+
 
 	public function __construct() {
 		parent::__construct();

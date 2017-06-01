@@ -4,8 +4,8 @@ Contributors: comprock,saurabhd,subharanjan
 Donate link: https://axelerant.com/about-axelerant/donate/
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
-Tested up to: 4.7.4
-Stable tag: 3.4.0
+Tested up to: 4.8
+Stable tag: 3.4.1RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Easily add social proofing to your website with Testimonials Widget. List or sli
 
 == Description ==
 
-Testimonials Widget lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering. Also, [Review schema](http://schema.org/Review) for improved search engine results is built-in.
+Testimonials Widget lets you randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site. You can insert Testimonials content via shortcode, theme functions, or widgets with category and tag selections and having multiple display options such as random or specific ordering.
 
 = Testimonials Widget is Beyond a Simple WordPress Testimonials Slider! =
 
@@ -68,11 +68,9 @@ For easy custom styling, each testimonial widget has its own CSS class identifie
 
 Widgets display content sans `wpautop` formatting. This means there's no forced paragraph breaks unless the content specifically contains them. If needed, you can enable `wpautop` via the "Keep whitespace?" option.
 
-The single testimonial view supports image, author, title, location, email, company and URL details with optional Review schema.
+The single testimonial view supports image, author, title, location, email, company and URL details.
 
 As per Google's quality guidelines, marking up irrelevant or misleading content, such as fake reviews or content unrelated to the focus of a page may lead to review stars removed.
-
-As per John Mueller, Webmaster Trends Analyst at Google, testimonials are not reviews, and it doesn't make sense to use review schema for them. Please use "Enable Review Schema" option wisely to stay "compliant" with Google's recommendations.
 
 = Shortcodes =
 
@@ -139,7 +137,6 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 * Date based archives
 * Deletes testimonials-widget custom post type entries and settings on uninstall
 * Disable self-generated quotation marks
-* Easily label and link to reviewed item for Review schema
 * Easy to configure Next and Previous page indicators
 * Editors and admins can edit testimonial publisher
 * Fields for author, testimonial, image, title, location, email, company and URL details
@@ -159,7 +156,6 @@ Details on the Shortcode Attributes tab at WordPress Admin > Testimonials > Sett
 * Recent testimonials widget
 * Respects meta capabilities
 * Rotation JavaScript in footer than body
-* Schema.org microdata format for improved search engine results
 * Settings export/import
 * Settings page contextual help
 * Settings screen for site-wide option defaults
@@ -297,7 +293,6 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 * [How to change testimonials layout](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+to+change+testimonials+layout)
 * [My options don't work](https://axelerant.atlassian.net/wiki/display/WPFAQ/My+options+don%27t+work%2C+no+matter+what+I+do)
 * [Pagination is broken](https://axelerant.atlassian.net/wiki/pages/viewpage.action?pageId=14024846)
-* [Test Review schema output](https://developers.google.com/webmasters/structured-data/testing-tool/)
 * [Testimonials slider doesn't rotate](https://axelerant.atlassian.net/wiki/display/WPFAQ/Testimonials+widget+is+not+rotating)
 
 = Still Stuck or Want Something Done? Get Support! =
@@ -324,7 +319,6 @@ This is a major overhaul *without* backwards compliance of over 80 changes. Plea
 10. Testimonials Settings page
 11. Testimonials Categories page
 12. Poedit Catalog properties
-13. Using Review schema data structures
 
 [gallery]
 
@@ -377,7 +371,6 @@ You can translate this plugin into your own language if it's not done so already
 == Notes ==
 
 * Default and Gravatar image size is based upon Thumbnail size in Media Settings
-* Review schema [structured data testing tool](https://developers.google.com/webmasters/structured-data/testing-tool/)
 * When plugin is uninstalled, all data and settings are deleted if "Remove Plugin Data on Deletion" is checked in Settings
 
 
