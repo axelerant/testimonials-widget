@@ -820,6 +820,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 					$javascript .= '<script type="text/javascript">' . "\n";
 
 					$adaptive_height = $atts['adaptive_height'] ? 'true' : 'false';
+					$scroll_on_hover = $atts['scroll_on_hover'] ? 'true' : 'false';
 					$enable_video    = $atts['enable_video'];
 					$show_start_stop = $atts['show_start_stop'];
 					$slide_width     = empty( $atts['slide_width'] ) ? 0 : $atts['slide_width'];
@@ -840,7 +841,7 @@ jQuery(document).ready(function() {
 		adaptiveHeight: {$adaptive_height},
 		auto: {$auto},
 		{$auto_controls}
-		autoHover: true,
+		autoHover: {$scroll_on_hover},
 		controls: false,
 		mode: '{$transition_mode}',
 		pager: false,

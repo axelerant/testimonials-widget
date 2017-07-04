@@ -157,6 +157,15 @@ class Axl_Testimonials_Widget_Settings extends Aihrus_Settings {
 			'std' => 1,
 		);
 
+    self::$settings['scroll_on_hover'] = array(
+      'section' => 'widget',
+      'title' => esc_html__( 'Stop scroll on hover?', 'testimonials-widget' ),
+      'desc' => esc_html__( 'If checked, slider will not scroll when mouse hovers over the testimonial slide.', 'testimonials-widget' ),
+      'type' => 'checkbox',
+      'validate' => 'is_true',
+      'std' => 1,
+    );
+
 		self::$settings['bottom_text'] = array(
 			'section' => 'widget',
 			'title' => esc_html__( 'Bottom Text', 'testimonials-widget' ),
