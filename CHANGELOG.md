@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.3RC1
+* Add setting for scroll on hover
+
 ## 3.4.2
 * Confirm WordPress 4.8 compatibility
 
