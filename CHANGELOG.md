@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.4.3RC1
+## 3.4.3RC2
 * Add setting for scroll on hover
 
 ## 3.4.2
