@@ -848,7 +848,8 @@ jQuery(document).ready(function() {
 		pause: {$pause},
 		{$video},
 		slideMargin: 2,
-		slideWidth: {$slide_width}
+		slideWidth: {$slide_width},
+		startSlide: 0
 	});
 });
 EOF;
