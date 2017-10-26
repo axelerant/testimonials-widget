@@ -730,7 +730,8 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 		$testimonials = array();
 
-		$content = apply_filters( 'tw_cache_get', false, $atts );
+		//$content = apply_filters( 'tw_cache_get', false, $atts );
+		$content = false;
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
 			$content      = self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -742,7 +743,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		return $content;
 	}
 
-
+	
 	public static function admin_scripts() {
 		wp_register_script( 'tw_admin_scripts', self::$plugin_assets . 'js/tw-admin-scripts.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tw_admin_scripts' );
@@ -916,7 +917,7 @@ EOF;
 			. $post_paging
 			. $div_close;
 
-		$html = apply_filters( 'tw_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
+		//$html = apply_filters( 'tw_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
 
 		return $html;
 	}
@@ -1097,8 +1098,8 @@ EOF;
 		}
 
 		if ( $random ) {
-			$orderby = 'rand';
-			$order   = false;
+			$orderby = 'date';
+			$order   = DESC;
 		}
 
 		$args = array(
@@ -1253,7 +1254,8 @@ EOF;
 		$args          = self::get_query_args( $atts );
 		$args['query'] = true;
 
-		$testimonials = apply_filters( 'tw_cache_get', false, $args );
+		//$testimonials = apply_filters( 'tw_cache_get', false, $args );
+		$testimonials = false;
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );
 			$testimonials = apply_filters( 'tw_testimonials_query', $testimonials, $args );
