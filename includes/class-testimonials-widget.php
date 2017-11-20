@@ -675,7 +675,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function testimonials( $atts ) {
-		$atts = wp_parse_args( $atts, self::get_defaults() );
+		$atts = wp_parse_args( self::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Settings::validate_settings( $atts );
 
 		if ( get_query_var( 'paged' ) ) {
@@ -719,7 +719,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			}
 		}
 
-		$atts = wp_parse_args( $atts, self::get_defaults() );
+		$atts = wp_parse_args( self::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Settings::validate_settings( $atts );
 
 		$atts['paging'] = false;
@@ -1695,7 +1695,7 @@ EOF;
 
 
 	public static function testimonials_archives( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Archives_Widget::get_defaults() );
+		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Archives_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_archives';
@@ -1755,7 +1755,7 @@ EOF;
 
 
 	public static function testimonials_categories( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Categories_Widget::get_defaults() );
+		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Categories_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_categories';
@@ -1790,7 +1790,7 @@ EOF;
 
 
 	public static function testimonials_recent( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Recent_Testimonials_Widget::get_defaults() );
+		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Recent_Testimonials_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_recent';
@@ -1825,7 +1825,7 @@ EOF;
 
 
 	public static function testimonials_tag_cloud( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Tag_Cloud_Widget::get_defaults() );
+		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
 		$atts = Axl_Testimonials_Widget_Tag_Cloud_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_tag_cloud';
@@ -1916,7 +1916,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_examples( $atts = null ) {
-		$atts = wp_parse_args( $atts, self::get_defaults() );
+		$atts = wp_parse_args( self::get_defaults(), $atts );
 
 		$atts['type'] = 'testimonials_examples';
 
@@ -1950,7 +1950,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_options( $atts = null ) {
-		$atts = wp_parse_args( $atts, self::get_defaults() );
+		$atts = wp_parse_args( self::get_defaults(), $atts );
 
 		$atts['type'] = 'testimonials_options';
 
