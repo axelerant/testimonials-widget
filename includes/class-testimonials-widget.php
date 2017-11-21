@@ -743,7 +743,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 		return $content;
 	}
 
-	
+
 	public static function admin_scripts() {
 		wp_register_script( 'tw_admin_scripts', self::$plugin_assets . 'js/tw-admin-scripts.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tw_admin_scripts' );

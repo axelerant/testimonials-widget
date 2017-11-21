@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.3RC3
+* User defined settings not being saved fixed
+
 ## 3.4.3RC2
 * Add setting for scroll on hover
 * Add TW Slider start from 1st index
