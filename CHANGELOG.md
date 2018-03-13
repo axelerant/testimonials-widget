@@ -3,12 +3,10 @@
 ## master
 
 ## 3.4.3RC3
-* User defined settings not being saved fixed
-
-## 3.4.3RC2
 * Add setting for scroll on hover
 * Add TW Slider start from 1st index
 * Update bxSlider-4 version
+* User defined settings not being saved fixed
 
 ## 3.4.2
 * Confirm WordPress 4.8 compatibility
