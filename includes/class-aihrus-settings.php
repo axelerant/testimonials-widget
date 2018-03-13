@@ -1,6 +1,6 @@
 <?php
 /**
- * Aihrus Framework
+ * Axelerant Framework
  * Copyright (C) 2015 Axelerant
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 
 
 /**
- * Aihrus Framework settings helper class
+ * Axelerant Framework settings helper class
  *
  * Based upon http://alisothegeek.com/2011/01/wordpress-settings-api-tutorial-1/
  */
@@ -296,7 +296,7 @@ abstract class Aihrus_Settings {
 			echo '<p>' .
 				sprintf(
 				__( 'If you like this plugin, please <a href="%1$s" title="Donate for Good Karma"><img src="%2$s" border="0" alt="Donate for Good Karma" /></a> or <a href="%3$s" title="purchase premium WordPress plugins from Axelerant ">purchase the Premium version</a> to help fund further development and <a href="%4$s" title="Support forums">support</a>.' ),
-				esc_url( 'https://axelerant.com/about-axelerant/donate/' ),
+				esc_url( 'https://store.axelerant.com/donate/' ),
 				esc_url( 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif' ),
 				esc_url( 'https://store.axelerant.com/' ),
 				esc_url( 'mailto:support@axelerant.com' )
@@ -306,7 +306,7 @@ abstract class Aihrus_Settings {
 
 		echo '<p class="copyright">' .
 			sprintf(
-			__( 'Copyright &copy;%1$s <a href="%2$s">Axlerant</a>.' ),
+			__( 'Copyright &copy;%1$s <a href="%2$s">Axelerant</a>.' ),
 			date( 'Y' ),
 			esc_url( 'https://axelerant.com' )
 		) .
