@@ -5,6 +5,7 @@
 ## 3.4.3RC3
 * Add setting for scroll on hover
 * Add TW Slider start from 1st index
+* Confirm WordPress 4.9.4 compatibility
 * Update bxSlider-4 version
 * User defined settings not being saved fixed
 
