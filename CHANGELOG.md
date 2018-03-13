@@ -6,6 +6,7 @@
 * Add setting for scroll on hover
 * Add TW Slider start from 1st index
 * Confirm WordPress 4.9.4 compatibility
+* Require Aihrus Framework 1.3.1
 * Update bxSlider-4 version
 * User defined settings not being saved fixed
 
