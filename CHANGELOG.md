@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.4RC1
+* Fix `Parse error: syntax error, unexpected ‘[‘` 
+
 ## 3.4.3
 * Add setting for scroll on hover
 * Add TW Slider start from 1st index

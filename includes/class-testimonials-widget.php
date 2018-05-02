@@ -1098,9 +1098,8 @@ EOF;
 		}
 
 		if ( $random ) {
-			$orders = ['DESC', 'ASC'];
-			$orderby = 'date';
-			$order   = $orders[rand(0, 1)];
+			$orderby = 'rand';
+			$order   = false;
 		}
 
 		$args = array(
