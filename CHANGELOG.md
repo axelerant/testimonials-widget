@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.4.4RC1
+## 3.4.4
 * Fix `Parse error: syntax error, unexpected ‘[‘` 
 
 ## 3.4.3
