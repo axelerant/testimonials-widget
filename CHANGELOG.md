@@ -2,8 +2,19 @@
 
 ## master
 
-## 3.4.3RC1
+## 3.4.5RC1
+* Fix issue with slider/list to filter/display testimonials using category and tags.
+
+## 3.4.4
+* Fix `Parse error: syntax error, unexpected ‘[‘` 
+
+## 3.4.3
 * Add setting for scroll on hover
+* Add TW Slider start from 1st index
+* Confirm WordPress 4.9.5 compatibility
+* Require Aihrus Framework 1.3.1
+* Update bxSlider-4 version
+* User defined settings not being saved fixed
 
 ## 3.4.2
 * Confirm WordPress 4.8 compatibility
