@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Testimonials Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Testimonials Widget 3.4.4\n"
+"Project-Id-Version: Testimonials Widget 3.4.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/testimonials-widget\n"
-"POT-Creation-Date: 2018-05-02 13:01:33+00:00\n"
+"POT-Creation-Date: 2018-05-04 06:39:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -495,7 +495,7 @@ msgstr ""
 #: includes/class-testimonials-widget-settings.php:519
 #: includes/class-testimonials-widget.php:504
 #: includes/class-testimonials-widget.php:535
-#: includes/class-testimonials-widget.php:1377
+#: includes/class-testimonials-widget.php:1374
 msgid "Author"
 msgstr ""
 
@@ -526,31 +526,31 @@ msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:533
 #: includes/class-testimonials-widget.php:540
-#: includes/class-testimonials-widget.php:1383
+#: includes/class-testimonials-widget.php:1380
 msgid "Job Title"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:534
 #: includes/class-testimonials-widget.php:555
-#: includes/class-testimonials-widget.php:1401
+#: includes/class-testimonials-widget.php:1398
 msgid "Email"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:535
 #: includes/class-testimonials-widget.php:545
-#: includes/class-testimonials-widget.php:1389
+#: includes/class-testimonials-widget.php:1386
 msgid "Location"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:536
 #: includes/class-testimonials-widget.php:550
-#: includes/class-testimonials-widget.php:1395
+#: includes/class-testimonials-widget.php:1392
 msgid "Company"
 msgstr ""
 
 #: includes/class-testimonials-widget-settings.php:537
 #: includes/class-testimonials-widget.php:560
-#: includes/class-testimonials-widget.php:1407
+#: includes/class-testimonials-widget.php:1404
 msgid "URL"
 msgstr ""
 
@@ -748,7 +748,7 @@ msgid "Edit Testimonial"
 msgstr ""
 
 #: includes/class-testimonials-widget.php:576
-#: includes/class-testimonials-widget.php:888
+#: includes/class-testimonials-widget.php:886
 msgid "No testimonials found"
 msgstr ""
 
@@ -761,8 +761,8 @@ msgid "Search Testimonials"
 msgstr ""
 
 #: includes/class-testimonials-widget.php:580
-#: includes/class-testimonials-widget.php:1468
-#: includes/class-testimonials-widget.php:1643
+#: includes/class-testimonials-widget.php:1465
+#: includes/class-testimonials-widget.php:1640
 msgid "Testimonial"
 msgstr ""
 
@@ -770,84 +770,84 @@ msgstr ""
 msgid "View Testimonial"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1380
+#: includes/class-testimonials-widget.php:1377
 msgid "Use when the testimonial title is not the authors' name."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1404
+#: includes/class-testimonials-widget.php:1401
 msgid "If an email is provided, but not an image, a Gravatar icon will be attempted to be loaded."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1419
+#: includes/class-testimonials-widget.php:1416
 msgid "Testimonial Data"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1443
+#: includes/class-testimonials-widget.php:1440
 msgid "Testimonial updated. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1444
+#: includes/class-testimonials-widget.php:1441
 msgid "Custom field updated."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1445
+#: includes/class-testimonials-widget.php:1442
 msgid "Custom field deleted."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1446
+#: includes/class-testimonials-widget.php:1443
 msgid "Testimonial updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision
 
-#: includes/class-testimonials-widget.php:1448
+#: includes/class-testimonials-widget.php:1445
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1449
+#: includes/class-testimonials-widget.php:1446
 msgid "Testimonial published. <a href=\"%s\">View testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1450
+#: includes/class-testimonials-widget.php:1447
 msgid "Testimonial saved."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1451
+#: includes/class-testimonials-widget.php:1448
 msgid "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1452
+#: includes/class-testimonials-widget.php:1449
 msgid "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1453
+#: includes/class-testimonials-widget.php:1450
 msgid "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview testimonial</a>"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1538
+#: includes/class-testimonials-widget.php:1535
 msgid "If your Testimonials display has gone to funky town, please <a href=\"%s\">read the FAQ</a> about possible fixes."
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1557
+#: includes/class-testimonials-widget.php:1554
 msgid "Failed version check"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:1588
+#: includes/class-testimonials-widget.php:1585
 msgid "Shortcode"
 msgstr ""
 
-#: includes/class-testimonials-widget.php:2026
-#: includes/class-testimonials-widget.php:2099
+#: includes/class-testimonials-widget.php:2023
+#: includes/class-testimonials-widget.php:2096
 msgid "Used with: "
 msgstr ""
 
-#: includes/class-testimonials-widget.php:2063
-#: includes/class-testimonials-widget.php:2127
+#: includes/class-testimonials-widget.php:2060
+#: includes/class-testimonials-widget.php:2124
 msgid "Options: "
 msgstr ""
 
-#: includes/class-testimonials-widget.php:2068
-#: includes/class-testimonials-widget.php:2132
+#: includes/class-testimonials-widget.php:2065
+#: includes/class-testimonials-widget.php:2129
 msgid "Usage: "
 msgstr ""
 
