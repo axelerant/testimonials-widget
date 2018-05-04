@@ -675,7 +675,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 
 	public static function testimonials( $atts ) {
-		$atts = wp_parse_args( self::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Settings::validate_settings( $atts );
 
 		if ( get_query_var( 'paged' ) ) {
@@ -719,7 +719,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			}
 		}
 
-		$atts = wp_parse_args( self::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, self::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Settings::validate_settings( $atts );
 
 		$atts['paging'] = false;
@@ -730,8 +730,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 
 		$testimonials = array();
 
-		//$content = apply_filters( 'tw_cache_get', false, $atts );
-		$content = false;
+		$content = apply_filters( 'tw_cache_get', false, $atts );
 		if ( false === $content ) {
 			$testimonials = self::get_testimonials( $atts );
 			$content      = self::get_testimonials_html( $testimonials, $atts, false, $widget_number );
@@ -849,8 +848,7 @@ jQuery(document).ready(function() {
 		pause: {$pause},
 		{$video},
 		slideMargin: 2,
-		slideWidth: {$slide_width},
-		startSlide: 0
+		slideWidth: {$slide_width}
 	});
 });
 EOF;
@@ -917,7 +915,7 @@ EOF;
 			. $post_paging
 			. $div_close;
 
-		//$html = apply_filters( 'tw_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
+		$html = apply_filters( 'tw_get_testimonials_html', $html, $testimonials, $atts, $is_list, $widget_number, $div_open, $pre_paging, $testimonial_content, $post_paging, $div_close );
 
 		return $html;
 	}
@@ -1254,8 +1252,7 @@ EOF;
 		$args          = self::get_query_args( $atts );
 		$args['query'] = true;
 
-		//$testimonials = apply_filters( 'tw_cache_get', false, $args );
-		$testimonials = false;
+		$testimonials = apply_filters( 'tw_cache_get', false, $args );
 		if ( false === $testimonials ) {
 			$testimonials = new WP_Query( $args );
 			$testimonials = apply_filters( 'tw_testimonials_query', $testimonials, $args );
@@ -1695,7 +1692,7 @@ EOF;
 
 
 	public static function testimonials_archives( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Archives_Widget::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Archives_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_archives';
@@ -1755,7 +1752,7 @@ EOF;
 
 
 	public static function testimonials_categories( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Categories_Widget::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Categories_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_categories';
@@ -1790,7 +1787,7 @@ EOF;
 
 
 	public static function testimonials_recent( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Recent_Testimonials_Widget::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Recent_Testimonials_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_recent';
@@ -1825,7 +1822,7 @@ EOF;
 
 
 	public static function testimonials_tag_cloud( $atts, $widget_number = null ) {
-		$atts = wp_parse_args( Axl_Testimonials_Widget_Archives_Widget::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, Axl_Testimonials_Widget_Tag_Cloud_Widget::get_defaults() );
 		$atts = Axl_Testimonials_Widget_Tag_Cloud_Widget::validate_settings( $atts );
 
 		$atts['type'] = 'testimonials_tag_cloud';
@@ -1916,7 +1913,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_examples( $atts = null ) {
-		$atts = wp_parse_args( self::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, self::get_defaults() );
 
 		$atts['type'] = 'testimonials_examples';
 
@@ -1950,7 +1947,7 @@ EOF;
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public static function testimonials_options( $atts = null ) {
-		$atts = wp_parse_args( self::get_defaults(), $atts );
+		$atts = wp_parse_args( $atts, self::get_defaults() );
 
 		$atts['type'] = 'testimonials_options';
 
