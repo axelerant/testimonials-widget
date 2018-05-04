@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.5
+* Fix issue with slider/list to filter/display testimonials using category and tags.
+
 ## 3.4.4
 * Fix `Parse error: syntax error, unexpected ‘[‘` 
 
