@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.6
+* Update Gamajo-Template-Loader template
+
 ## 3.4.5
 * Fix issue with slider/list to filter/display testimonials using category and tags.
 
