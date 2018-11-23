@@ -64,7 +64,7 @@ if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
 }
 
 if ( ! defined( 'TW_VERSION' ) ) {
-	define( 'TW_VERSION', '3.4.6' );
+	define( 'TW_VERSION', '3.4.7RC1' );
 }
 
 require_once TW_DIR_INC . 'requirements.php';
