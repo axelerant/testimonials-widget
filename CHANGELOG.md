@@ -2,8 +2,9 @@
 
 ## master
 
-## 3.4.7
-* Confirm WordPress 4.8 compatibility 
+## 3.4.7RC1
+* Confirm WordPress 4.8 compatibility
+* Fix compatibility issue with PHP7* 
 
 ## 3.4.6
 * Update Gamajo-Template-Loader template
