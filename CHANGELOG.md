@@ -2,6 +2,10 @@
 
 ## master
 
+## 1.3.2
+* Removed deprecated function "create_function"
+* Tested with WordPress 4.9.8
+
 ## 1.3.1
 * Tested with WordPress 4.9.4
 * Fix copyright branding typo
