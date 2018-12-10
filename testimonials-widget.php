@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: Easily add social proofing to your website with Testimonials Widget. List or slide reviews via functions, shortcodes, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 3.4.7RC1
+ * Version: 3.4.7
  * Author: Axelerant
  * Author URI: https://axelerant.com/
  * License: GPLv2 or later
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'TW_AIHR_VERSION' ) ) {
-	define( 'TW_AIHR_VERSION', '1.3.3RC1' );
+	define( 'TW_AIHR_VERSION', '1.3.3' );
 }
 
 if ( ! defined( 'TW_BASE' ) ) {
@@ -64,7 +64,7 @@ if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
 }
 
 if ( ! defined( 'TW_VERSION' ) ) {
-	define( 'TW_VERSION', '3.4.7RC1' );
+	define( 'TW_VERSION', '3.4.7' );
 }
 
 require_once TW_DIR_INC . 'requirements.php';
