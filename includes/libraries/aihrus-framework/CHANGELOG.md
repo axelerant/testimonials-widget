@@ -2,7 +2,7 @@
 
 ## master
 
-## 1.3.3RC1
+## 1.3.3
 * Fix Axelerant website links
 
 ## 1.3.2
