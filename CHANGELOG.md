@@ -2,6 +2,9 @@
 
 ## master
 
+## 1.3.3RC1
+* Fix Axelerant website links
+
 ## 1.3.2
 * Removed deprecated function "create_function"
 * Tested with WordPress 4.9.8
