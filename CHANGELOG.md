@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.4.8RC1
+* Confirm WordPress 5.0.3 compatibility
+
 ## 3.4.7
 * Confirm WordPress 5.0 compatibility
 * Fix compatibility issue with PHP7* 
