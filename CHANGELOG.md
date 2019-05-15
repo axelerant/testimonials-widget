@@ -2,6 +2,9 @@
 
 ## master
 
+## 3.5.0
+* Confirm WordPress 5.2 compatibility
+
 ## 3.4.8
 * Confirm WordPress 5.0.3 compatibility
 

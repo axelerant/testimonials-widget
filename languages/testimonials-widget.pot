@@ -1167,5 +1167,5 @@ msgid "Axelerant"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://axelerant.com/"
+msgid "https://www.axelerant.com/"
 msgstr ""

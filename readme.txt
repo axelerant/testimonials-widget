@@ -4,8 +4,8 @@ Contributors: comprock,saurabhd,subharanjan
 Donate link: https://store.axelerant.com/donate/
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
-Tested up to: 5.1
-Stable tag: 3.4.8
+Tested up to: 5.2
+Stable tag: 3.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -363,7 +363,7 @@ Read [DEPRECATED](https://github.com/michael-cannon/testimonials-widget/blob/mas
 * Dutch by Bjorn Robijns
 * [Hebrew by Ahrale](http://atar4u.com/)
 
-You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](https://axelerant.com/contact-axelerant/) for plugin inclusion.
+You can translate this plugin into your own language if it's not done so already. The localization file `testimonials-widget.pot` can be found in the `languages` folder of this plugin. After translation, please [send the localized file](https://www.axelerant.com/contact-axelerant/) for plugin inclusion.
 
 **[How do I localize?](https://axelerant.atlassian.net/wiki/display/WPFAQ/How+do+I+change+Testimonials+Widget+text+labels)**
 
@@ -385,4 +385,4 @@ A big, special thank you to [Joe Weber](https://plus.google.com/1000632712692773
 
 A cool thanks to RedRokk Library for the [redrokk_metabox_class](https://gist.github.com/1880770). It makes configuring meta boxes for your posts, pages or custom post types a snap.
 
-Current development by [Axelerant](https://axelerant.com/about-axelerant/).
+Current development by [Axelerant](https://www.axelerant.com/about-axelerant/).
