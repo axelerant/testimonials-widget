@@ -803,7 +803,7 @@ abstract class Aihrus_Settings {
 
 
 	public static function validate_terms( $input, $default = false ) {
-		if ( preg_match( '#^(([\w- ]+)(,\s?)?)+$#', $input ) ) {
+		if ( preg_match( '#^(([\w\- ]+)(,\s?)?)+$#', $input ) ) {
 			return preg_replace( '#,\s*$#', '', $input );
 		}
 
