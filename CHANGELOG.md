@@ -2,6 +2,10 @@
 
 ## master
 
+## 3.5.1RC1
+* Confirm WordPress 5.3 compatibility
+*
+
 ## 3.5.0
 * Confirm WordPress 5.2 compatibility
 
