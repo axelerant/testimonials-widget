@@ -4,7 +4,8 @@
 
 ## 3.5.1RC1
 * Confirm WordPress 5.3 compatibility
-*
+* Fix Category/Tags sorting issue
+* Fix PHP 7.3 Compatibility issue
 
 ## 3.5.0
 * Confirm WordPress 5.2 compatibility
