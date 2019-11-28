@@ -2,7 +2,7 @@
 
 ## master
 
-## 3.5.1RC1
+## 3.5.1
 * Confirm WordPress 5.3 compatibility
 * Fix Category/Tags sorting issue
 * Fix PHP 7.3 Compatibility issue
