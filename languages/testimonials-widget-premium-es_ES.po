@@ -1,0 +1,136 @@
+# Copyright (C) 2013 Testimonials Widget Premium
+# This file is distributed under the same license as the Testimonials Widget Premium package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Testimonials Widget Premium 1.7.7\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/testimonials-widget-premium\n"
+"POT-Creation-Date: 2013-02-02 08:45:09+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-02-23 09:52+0800\n"
+"Last-Translator: Michael Cannon <mc@aihr.us>\n"
+"Language-Team: braintopixel <info@braintopixel.com>\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: testimonials-widget-premium.php:146
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"Un Error HTTP Inesperado ocurrió durante el pedido API.</p> <p><a href=\"?\" "
+"onclick=\"document.location.reload(); return false;\">Inténtalo nuevamente</"
+"a>"
+
+#: testimonials-widget-premium.php:151
+msgid "An unknown error occurred"
+msgstr "Ocurrió un error inesperado"
+
+#: testimonials-widget-premium.php:159 testimonials-widget-premium.php:183
+msgid "Read More Link"
+msgstr "Link Leer Más"
+
+#: testimonials-widget-premium.php:186
+msgid ""
+"Alternate destination for \"Read more\" link. Leave blank for normal linking "
+"to full testimonial."
+msgstr ""
+"Destino alternativo para enlace \"Read more\". Dejar en blanco para enlace "
+"normal."
+
+#: testimonials-widget-premium.php:477 testimonials-widget-premium.php:731
+msgid "…"
+msgstr "…"
+
+#: testimonials-widget-premium.php:498
+msgid "Next testimonial…"
+msgstr "Siguiente testimonio…"
+
+#: testimonials-widget-premium.php:553
+msgid "No testimonials found"
+msgstr "Ningún testimonio encontrado"
+
+#: testimonials-widget-premium.php:598 testimonials-widget-premium.php:738
+msgid "Complete testimonial by "
+msgstr "Testimonio completo de"
+
+#: testimonials-widget-premium.php:670
+msgid "Premium Options"
+msgstr "Opciones Premium"
+
+#: testimonials-widget-premium.php:671
+msgid "Disable cache?"
+msgstr "¿Deshabilitar cache?"
+
+#: testimonials-widget-premium.php:672
+msgid "Hide Excerpt?"
+msgstr "¿Ocultar extracto?"
+
+#: testimonials-widget-premium.php:673
+msgid "Hide \"Read more\" links?"
+msgstr "¿Ocultar links \"Leer más\"?"
+
+#: testimonials-widget-premium.php:674
+msgid "Maximum Length"
+msgstr "Longitud Máxima"
+
+#: testimonials-widget-premium.php:674
+msgid "Maximum number of allowed characters in testimonial"
+msgstr "Máximo número de caractéres permitidos en testimonio"
+
+#: testimonials-widget-premium.php:675
+msgid "Minimum Length"
+msgstr "Longitud Mínima"
+
+#: testimonials-widget-premium.php:675
+msgid "Minimum number of characters required in testimonial"
+msgstr "Mínimo número de caractéres requeridos en testimonio"
+
+#: testimonials-widget-premium.php:676
+msgid "Prevent duplicates?"
+msgstr "¿Prevenir duplicados?"
+
+#: testimonials-widget-premium.php:677
+msgid "Require excerpt?"
+msgstr "¿Requerir extracto?"
+
+#: testimonials-widget-premium.php:678
+msgid "Require image?"
+msgstr "¿Requerir imagen?"
+
+#: testimonials-widget-premium.php:679
+msgid "Show next testimonial link?"
+msgstr "¿Mostrar enlace hacia el siguiente testimonio?"
+
+#: testimonials-widget-premium.php:741
+msgid "Read more"
+msgstr "Leer más"
+
+#. Plugin Name of the plugin/theme
+msgid "Testimonials Widget Premium"
+msgstr "Testimonials Widget Premium"
+
+#. Plugin URI of the plugin/theme
+msgid "http://aihr.us/wordpress/testimonials-widget-premium/"
+msgstr "http://aihr.us/wordpress/testimonials-widget-premium/"
+
+#. Description of the plugin/theme
+msgid ""
+"Testimonials Widget Premium extends the Testimonials Widget plugin with "
+"additional selection options, caching, excerpts, shortcodes and more. "
+"Testimonials Widget plugin required to be activated."
+msgstr ""
+"Testimonials Widget Premium extiende el plugin Testimonials Widget con "
+"opciones adicionales, caching, extractos, shortcodes y más. Requiere el "
+"plugin Testimonials Widget para ser activado."
+
+#. Author of the plugin/theme
+msgid "Michael Cannon"
+msgstr "Michael Cannon"
+
+#. Author URI of the plugin/theme
+msgid "http://aihr.us/about-aihrus/michael-cannon-resume/"
+msgstr "http://aihr.us/about-aihrus/michael-cannon-resume/"

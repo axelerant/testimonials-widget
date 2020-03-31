@@ -1,0 +1,26 @@
+.testimonials-widget-premium-form {
+}
+
+.testimonials-widget-premium-form td .submit,
+.testimonials-widget-premium-form td .reset {
+	float: left;
+	margin-top: 2em;
+}
+
+.testimonials-widget-premium-form p label {
+	float: left;
+	width: 200px;
+}
+
+.testimonials-widget-premium-form .required {
+	color: red;
+	font-weight: bold;
+	margin-left: 2px;
+}
+
+.testimonials-widget-premium-form.debug {
+	border: thin red solid;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	padding: 1em;
+}

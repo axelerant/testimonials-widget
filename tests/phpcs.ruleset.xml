@@ -5,12 +5,17 @@
 	</description>
 
 	<exclude-pattern>includes/libraries/</exclude-pattern>
+	<exclude-pattern>js/jquery.cookie.js</exclude-pattern>
+	<exclude-pattern>js/jquery.cookie.min.js</exclude-pattern>
+	<exclude-pattern>js/jquery.raty.min.js</exclude-pattern>
+	<exclude-pattern>js/testimonials-widget-premium-sticky.min.js</exclude-pattern>
 	<exclude-pattern>tests/</exclude-pattern>
 
 	<rule ref="WordPress-Core">
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar" />
 	</rule>
 
 	<!-- Extras -->

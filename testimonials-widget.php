@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: Testimonials Widget
+ * Plugin Name: Testimonials Widget Premium
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
- * Description: Easily add social proofing to your website with Testimonials Widget. List or slide reviews via functions, shortcodes, or widgets.
+ * Description: WordPress' most fully featured testimonials plugin demonstrates social proof via forms, lists, ratings,  shortcodes, sliders, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 3.5.1
+ * Version: 4.0.0RC1
  * Author: Axelerant
  * Author URI: https://www.axelerant.com/
  * License: GPLv2 or later
- * Text Domain: testimonials-widget
+ * Text Domain: testimonials-widget-premium
  * Domain Path: /languages
  */
 /**
-Testimonials Widget
+Testimonials Widget Premium
 Copyright (C) 2015 Axelerant
 
 This program is free software; you can redistribute it and/or modify
@@ -35,52 +35,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! defined( 'TW_AIHR_VERSION' ) ) {
-	define( 'TW_AIHR_VERSION', '1.3.4' );
-}
+define( 'TWP_BASE', plugin_basename( __FILE__ ) );
+define( 'TWP_DIR', plugin_dir_path( __FILE__ ) );
+define( 'TWP_DIR_INC', TWP_DIR . 'includes/' );
+define( 'TWP_DIR_LIB', TWP_DIR_INC . 'libraries/' );
+define( 'TWP_NAME', 'Testimonials Widget Premium' );
+define( 'TWP_PRODUCT_ID', '14714' );
+define( 'TWP_REQ_BASE', 'testimonials-widget/testimonials-widget.php' );
+define( 'TWP_REQ_NAME', 'Testimonials Widget' );
+define( 'TWP_VERSION', '2.5.1' );
 
-if ( ! defined( 'TW_BASE' ) ) {
-	define( 'TW_BASE', plugin_basename( __FILE__ ) );
-}
+require_once TWP_DIR_LIB . TWP_REQ_BASE;
+require_once TWP_DIR_INC . 'requirements.php';
 
-if ( ! defined( 'TW_DIR' ) ) {
-	define( 'TW_DIR', plugin_dir_path( __FILE__ ) );
-}
-
-if ( ! defined( 'TW_DIR_INC' ) ) {
-	define( 'TW_DIR_INC', TW_DIR . 'includes/' );
-}
-
-if ( ! defined( 'TW_DIR_LIB' ) ) {
-	define( 'TW_DIR_LIB', TW_DIR_INC . 'libraries/' );
-}
-
-if ( ! defined( 'TW_NAME' ) ) {
-	define( 'TW_NAME', 'Testimonials Widget' );
-}
-
-if ( ! defined( 'TW_PREMIUM_LINK' ) ) {
-	define( 'TW_PREMIUM_LINK', '<a href="https://store.axelerant.com/downloads/best-wordpress-testimonials-plugin-testimonials-premium/">Buy Premium</a>' );
-}
-
-if ( ! defined( 'TW_VERSION' ) ) {
-	define( 'TW_VERSION', '3.5.1' );
-}
-
-require_once TW_DIR_INC . 'requirements.php';
-
-global $tw_activated;
-
-$tw_activated = true;
-if ( ! tw_requirements_check() ) {
-	$tw_activated = false;
-
+if ( ! twp_requirements_check() ) {
 	return false;
 }
 
-require_once TW_DIR_INC . 'class-testimonials-widget.php';
+require_once TWP_DIR_INC . 'class-testimonials-widget-premium.php';
 
-add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
+
+add_action( 'plugins_loaded', 'testimonialswidgetpremium_init', 20 );
 
 
 /**
@@ -89,135 +64,113 @@ add_action( 'plugins_loaded', 'testimonialswidget_init', 99 );
  * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.UnusedLocalVariable)
  */
-if ( ! function_exists( 'testimonialswidget_init' ) ) {
-	function testimonialswidget_init() {
-		if ( Axl_Testimonials_Widget::version_check() ) {
-			global $Axl_Testimonials_Widget_Settings;
-			if ( is_null( $Axl_Testimonials_Widget_Settings ) ) {
-				$Axl_Testimonials_Widget_Settings = new Axl_Testimonials_Widget_Settings();
-			}
+function testimonialswidgetpremium_init() {
+	global $TW_Premium_Licensing;
+	if ( is_null( $TW_Premium_Licensing ) ) {
+		$TW_Premium_Licensing = new Axl_Testimonials_Widget_Premium_Licensing();
+	}
 
-			global $Axl_Testimonials_Widget;
-			if ( is_null( $Axl_Testimonials_Widget ) ) {
-				$Axl_Testimonials_Widget = new Axl_Testimonials_Widget();
-			}
+	if ( ! class_exists( 'EDD_SL_Plugin_Updater' ) ) {
+		require_once TWP_DIR_LIB . 'EDD_SL_Plugin_Updater.php';
+	}
+
+	$TW_Premium_Updater = new EDD_SL_Plugin_Updater(
+		$TW_Premium_Licensing->store_url,
+		__FILE__,
+		array(
+			'version' => TWP_VERSION,
+			'license' => $TW_Premium_Licensing->get_license(),
+			'item_name' => TWP_NAME,
+			'author' => $TW_Premium_Licensing->author,
+		)
+	);
+
+	if ( Axl_Testimonials_Widget_Premium::version_check() ) {
+		global $TW_Premium;
+		if ( is_null( $TW_Premium ) ) {
+			$TW_Premium = new Axl_Testimonials_Widget_Premium();
 		}
+
+		global $TW_Premium_Cache;
+		if ( is_null( $TW_Premium_Cache ) ) {
+			$TW_Premium_Cache = new Axl_Testimonials_Widget_Premium_Cache();
+		}
+
+		global $TW_Premium_Form;
+		if ( is_null( $TW_Premium_Form ) ) {
+			$TW_Premium_Form = new Axl_Testimonials_Widget_Premium_Form();
+		}
+
+		do_action( 'twp_init' );
 	}
 }
 
 
-register_activation_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'activation' ) );
-register_deactivation_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'deactivation' ) );
-register_uninstall_hook( __FILE__, array( 'Axl_Testimonials_Widget', 'uninstall' ) );
+register_activation_hook( __FILE__, array( 'Axl_Testimonials_Widget_Premium', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Axl_Testimonials_Widget_Premium', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Axl_Testimonials_Widget_Premium', 'uninstall' ) );
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials' ) ) {
-	function testimonials( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
+function testimonials_count( $atts = array() ) {
+	global $TW_Premium;
 
-		return $Axl_Testimonials_Widget->testimonials( $atts );
-	}
+	return $TW_Premium->testimonials_count( $atts );
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_archives' ) ) {
-	function testimonials_archives( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
+function testimonials_links( $atts = array() ) {
+	global $TW_Premium;
 
-		return $Axl_Testimonials_Widget->testimonials_archives( $atts );
-	}
+	return $TW_Premium->testimonials_links( $atts );
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_categories' ) ) {
-	function testimonials_categories( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
+function testimonials_form( $atts = array() ) {
+	global $TW_Premium_Form;
 
-		return $Axl_Testimonials_Widget->testimonials_categories( $atts );
-	}
+	return $TW_Premium_Form->testimonials_form( $atts );
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_recent' ) ) {
-	function testimonials_recent( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
-
-		return $Axl_Testimonials_Widget->testimonials_recent( $atts );
-	}
+function testimonialswidgetpremium_count( $atts = array() ) {
+	return testimonials_count( $atts );
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_slider' ) ) {
-	function testimonials_slider( $atts = array(), $widget_number = null ) {
-		global $Axl_Testimonials_Widget;
+function testimonialswidgetpremium_form( $atts = array() ) {
+	return testimonials_form( $atts );
+}
 
-		return $Axl_Testimonials_Widget->testimonials_slider( $atts, $widget_number );
-	}
+
+function testimonialswidgetpremium_link_list( $atts = array() ) {
+	return testimonials_links( $atts );
 }
 
 
 /**
- * @SuppressWarnings(PHPMD.LongVariable)
+ *
+ *
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
-if ( ! function_exists( 'testimonials_tag_cloud' ) ) {
-	function testimonials_tag_cloud( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
+function twp_ratings( $args = null ) {
+	global $post;
 
-		return $Axl_Testimonials_Widget->testimonials_tag_cloud( $atts );
-	}
+	$id      = 'testimonials-widget-rating';
+	$rating  = get_post_meta( $post->ID, $id, true );
+	$ratings = Axl_Testimonials_Widget_Premium::get_ratings( $rating, $post->ID, $id );
+
+	echo $ratings;
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_examples' ) ) {
-	function testimonials_examples( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
-
-		return $Axl_Testimonials_Widget->testimonials_examples( $atts );
-	}
+function twp_session_get( $key ) {
+	return Axl_Testimonials_Widget_Premium::$session->get( $key );
 }
 
 
-/**
- * @SuppressWarnings(PHPMD.LongVariable)
- */
-if ( ! function_exists( 'testimonials_options' ) ) {
-	function testimonials_options( $atts = array() ) {
-		global $Axl_Testimonials_Widget;
-
-		return $Axl_Testimonials_Widget->testimonials_options( $atts );
-	}
+function twp_session_set( $key, $value ) {
+	Axl_Testimonials_Widget_Premium::$session->set( $key, $value );
 }
 
-
-if ( ! function_exists( 'testimonialswidget_list' ) ) {
-	function testimonialswidget_list( $atts = array() ) {
-		return testimonials( $atts );
-	}
-}
-
-
-if ( ! function_exists( 'testimonialswidget_widget' ) ) {
-	function testimonialswidget_widget( $atts = array() ) {
-		return testimonials_slider( $atts );
-	}
-}
 
 ?>
