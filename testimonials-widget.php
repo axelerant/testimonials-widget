@@ -43,7 +43,7 @@ define( 'TWP_NAME', 'Testimonials Widget Premium' );
 define( 'TWP_PRODUCT_ID', '14714' );
 define( 'TWP_REQ_BASE', 'testimonials-widget/testimonials-widget.php' );
 define( 'TWP_REQ_NAME', 'Testimonials Widget' );
-define( 'TWP_VERSION', '2.5.1' );
+define( 'TWP_VERSION', '4.0.0RC1' );
 
 require_once TWP_DIR_LIB . TWP_REQ_BASE;
 require_once TWP_DIR_INC . 'requirements.php';

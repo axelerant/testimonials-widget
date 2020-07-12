@@ -415,7 +415,7 @@ if ( !class_exists( 'redrokk_metabox_class' ) ):
 			if ( strpos( $property, $this->_id ) === 0 ) continue;
 
 			$old = get_metadata( $type, $post_id, $property, true );
-			update_metadata( $type, $post_id, $property, $new );
+			update_metadata( $type, $post_id, $property, sanitize_text_field($new) );
 
 			//  if ($new && $new != $old) {
 			//   update_metadata($type, $post_id, $property, $new);

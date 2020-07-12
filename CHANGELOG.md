@@ -2,6 +2,10 @@
 
 ## master
 
+## 4.0.0RC1
+* Testimonials Widget Premium plugin is merged with Testimoinals Widget
+* Fix XSS vulnerability issue
+* Confirm WordPress 5.4.2 compatibility
 
 ## 2.5.1
 * Fix Warning (Cannot modify header information) issue on class-wp-session.php file

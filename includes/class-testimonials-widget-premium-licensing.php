@@ -32,7 +32,7 @@ class Axl_Testimonials_Widget_Premium_Licensing extends Aihrus_Licensing {
 	public function __construct() {
 		parent::__construct( Axl_Testimonials_Widget_Premium::SLUG, TWP_NAME );
 
-		add_filter( 'tw_settings', array( __CLASS__, 'settings' ), 5 );
+		//add_filter( 'tw_settings', array( __CLASS__, 'settings' ), 5 );
 	}
 
 
