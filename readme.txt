@@ -5,7 +5,7 @@ Donate link: https://store.axelerant.com/donate/
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
 Tested up to: 5.4.2
-Stable tag: 4.0.0RC1
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

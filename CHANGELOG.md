@@ -2,7 +2,7 @@
 
 ## master
 
-## 4.0.0RC1
+## 4.0.0
 * Testimonials Widget Premium plugin is merged with Testimoinals Widget
 * Fix XSS vulnerability issue
 * Confirm WordPress 5.4.2 compatibility
