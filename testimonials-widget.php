@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: WordPress' most fully featured testimonials plugin demonstrates social proof via forms, lists, ratings,  shortcodes, sliders, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 4.0.0
+ * Version: 4.0.1
  * Author: Axelerant
  * Author URI: https://www.axelerant.com/
  * License: GPLv2 or later
