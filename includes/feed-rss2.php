@@ -14,7 +14,7 @@ echo '<?xml version="1.0" encoding="'.get_option( 'blog_charset' ).'"?'.'>';
 /**
  * Fires between the <xml> and <rss> tags in a feed.
  *
- * @since 4.0.0
+ * @since 4.0.2
  *
  * @param string  $context Type of feed. Possible values include 'rss2', 'rss2-comments',
  *                        'rdf', 'atom', and 'atom-comments'.
