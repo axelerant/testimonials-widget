@@ -762,7 +762,7 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 			wp_enqueue_script( 'jquery.fitvids' );
 		}
 
-		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/dist/jquery.bxslider.min.js', array( 'jquery' ), '4.1.2', true );
+		wp_register_script( 'jquery.bxslider', self::$library_assets . 'bxslider-4/dist/jquery.bxslider.min.js', array( 'jquery' ), '4.1.2', true );		
 		wp_enqueue_script( 'jquery.bxslider' );
 
 		do_action( 'tw_scripts', $atts );
@@ -837,19 +837,50 @@ class Axl_Testimonials_Widget extends Aihrus_Common {
 var {$slider_var} = null;
 
 jQuery(document).ready(function() {
-	{$slider_var} = jQuery('.{$id_base}').bxSlider({
-		adaptiveHeight: {$adaptive_height},
-		auto: {$auto},
-		{$auto_controls}
-		autoHover: {$scroll_on_hover},
-		controls: false,
-		mode: '{$transition_mode}',
-		pager: false,
-		pause: {$pause},
-		{$video},
-		slideMargin: 2,
-		slideWidth: {$slide_width}
+	/*added to check the screensize to enable swipe effect for the bxslider*/
+	jQuery(window).on("resize", function (e) {
+		checkScreenSize();
 	});
+	checkScreenSize()
+	 /*custom function to process swipe effect*/
+	 function checkScreenSize()
+	{
+		var newWindowWidth = jQuery(window).width();
+		if (newWindowWidth >= 767)
+		{
+			{$slider_var} = jQuery('.{$id_base}').bxSlider({
+				adaptiveHeight: {$adaptive_height},
+				auto: {$auto},
+				{$auto_controls}
+				autoHover: {$scroll_on_hover},
+				controls: false,
+				mode: '{$transition_mode}',
+				pager: false,
+				pause: {$pause},
+				{$video},
+				slideMargin: 2,
+				slideWidth: {$slide_width},
+				touchEnabled:false
+			});
+		}
+		else
+		{
+			{$slider_var} = jQuery('.{$id_base}').bxSlider({
+				adaptiveHeight: {$adaptive_height},
+				auto: {$auto},
+				{$auto_controls}
+				autoHover: {$scroll_on_hover},
+				controls: false,
+				mode: '{$transition_mode}',
+				pager: false,
+				pause: {$pause},
+				{$video},
+				slideMargin: 2,
+				slideWidth: {$slide_width}				
+			});
+		}
+	}
+	
 });
 EOF;
 
