@@ -1,6 +1,6 @@
 # Axelerant Framework
 
-Tested up to: 5.3
+Tested up to: 5.8
 Stable tag: 1.3.4
 
 A helper library for WordPress plugins. Maintained by [Axelerant](https://www.axelerant.com).
