@@ -2,7 +2,7 @@
 
 ## master
 
-## 4.0.0
+## 4.0.2
 * Testimonials Widget Premium plugin is merged with Testimoinals Widget
 * Fix XSS vulnerability issue
 * Confirm WordPress 5.4.2 compatibility
@@ -221,7 +221,7 @@
 * README description updates
 * Require Testimonials Widget 2.19.6
 * RESOLVE michael-cannon/testimonials-widget#91 Multisite referral check fails when sending testimonials from a subsite
-* Tested up to: 4.0.0
+* Tested up to: 4.0.2
 * Update TWP URL
 
 ## 1.20.7

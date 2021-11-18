@@ -249,7 +249,7 @@
 
 ## 2.19.5.1
 * Add tutorial videos
-* Tested up to: 4.0.0
+* Tested up to: 4.0.2
 
 ## 2.19.5
 * Remove Testimonials menu for authors removal code
