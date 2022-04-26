@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/testimonials-widget/
  * Description: WordPress' most fully featured testimonials plugin demonstrates social proof via forms, lists, ratings,  shortcodes, sliders, or widgets.
  * lets you socially randomly slide or list selected portfolios, quotes, reviews, or text with images or videos on your WordPress site.
- * Version: 4.0.2
+ * Version: 4.0.3RC1
  * Author: Axelerant
  * Author URI: https://www.axelerant.com/
  * License: GPLv2 or later
@@ -13,7 +13,7 @@
  */
 /**
 Testimonials Widget Premium
-Copyright (C) 2015 Axelerant
+Copyright (C) 2022 Axelerant
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -43,9 +43,9 @@ define( 'TWP_NAME', 'Testimonials Widget Premium' );
 define( 'TWP_PRODUCT_ID', '14714' );
 define( 'TWP_REQ_BASE', 'testimonials-widget/testimonials-widget.php' );
 define( 'TWP_REQ_NAME', 'Testimonials Widget' );
-define( 'TWP_VERSION', '4.0.2' );
+define( 'TWP_VERSION', '4.0.3RC1' );
 if ( ! defined( 'TW_VERSION' ) ) {
-	define( 'TW_VERSION', '4.0.2' );
+	define( 'TW_VERSION', '4.0.3RC1' );
 }
 if ( ! defined( 'TW_AIHR_VERSION' ) ) {
 	define( 'TW_AIHR_VERSION', '1.3.4' );
