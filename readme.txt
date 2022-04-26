@@ -4,7 +4,7 @@ Contributors: comprock,saurabhd,subharanjan,riteshtailor2002
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
 Tested up to: 5.9.3
-Stable tag: 4.0.3RC1
+Stable tag: 4.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
