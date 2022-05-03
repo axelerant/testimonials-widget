@@ -1,14 +1,14 @@
 === Testimonials Widget ===
 
-Contributors: comprock,saurabhd,subharanjan,riteshtailor2002
+Contributors: comprock,saurabhd,subharanjan,riteshtailor,kare903,viralmehta
 Tags: axelerant, client, customer, portfolio, quote, quotes, random, recommendation, reference, review, reviews, slider, testimonial, testimonials, wpml
 Requires at least: 3.9.2
 Tested up to: 5.9.3
-Stable tag: 4.0.3
+Stable tag: 4.0.4RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordPress' most easy fully featured testimonials widget plugin demonstrates social proof via forms, lists, ratings, shortcodes, sliders, widgets, etc.
+WordPress' most easy fully-featured testimonials widget plugin demonstrates social proof via forms, lists, ratings, shortcodes, sliders, widgets, etc.
 
 
 == Description ==
@@ -34,11 +34,7 @@ Additionally, Testimonials Widget Premium offers caching, excerpts, ratings, rea
 * Slide text - useful for rotating testimonials
 * Slide videos - video slideshow
 * User submitted content compatible
-* Widget and shortcode ready 
-
-**Introduction to Testimonials Widget Premium plugin for WordPress**
-
-[youtube https://www.youtube.com/watch?v=bhUhuQ-2m8s]
+* Widget and shortcode ready
 
 **View a [Live Testimonials Demo](https://store.axelerant.com/testimonials-examples/)**
 
@@ -57,7 +53,7 @@ Widgets display content sans `wpautop` formatting. This means there's no forced 
 The single testimonial view supports image, author, title, location, email, company and URL details.
 
 User submitted testimonials are marked as "Pending" in WordPress Admin > Testimonials listing. Testimonials are saved to the `testimonials-widget` custom post type.
-
+Introduction to Testimonials Widget Premium plugin for WordPress
 As per Google's quality guidelines, marking up irrelevant or misleading content, such as fake reviews or content unrelated to the focus of a page may lead to review stars removed.
 
 = Premium Shortcodes =

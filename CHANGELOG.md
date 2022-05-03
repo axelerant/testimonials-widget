@@ -2,6 +2,9 @@
 
 ## master
 
+## 4.0.4RC1
+* Removed Youtube view from readme.txt
+
 ## 4.0.3
 * Confirm WordPress 5.9.3 compatibility
 
