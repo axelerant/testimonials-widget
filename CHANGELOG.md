@@ -973,7 +973,7 @@
 * SCREENSHOT Widget Premium Options
 
 ## 1.1.0
-* Add CSS file
+* [Add CSS file](https://www.scaler.com/topics/html/add-css-to-html/)
 * Add `clearcache` option
 * Add language file
 * Add read more links
